@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-01T06:30:57.929Z</updated>
+  <updated>2018-05-01T08:24:05.813Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,125 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu 安装、卸载wine</title>
+    <link href="http://yoursite.com/2018/05/01/Ubuntu-%E5%AE%89%E8%A3%85%E3%80%81%E5%8D%B8%E8%BD%BDwine/"/>
+    <id>http://yoursite.com/2018/05/01/Ubuntu-安装、卸载wine/</id>
+    <published>2018-05-01T08:17:58.000Z</published>
+    <updated>2018-05-01T08:24:05.813Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>sudo add-apt-repository ppa:wine/wine-builds
+sudo apt-get update
+sudo apt-get install --install-recommends wine-staging
+sudo apt-get install winehq-staging
+</code></pre><p><br></p>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><pre><code>sudo apt purge wine
+rm -r ~/.wine
+sudo apt-get autoremove
+#清理wine模拟运行的windows程序:
+sudo rm -r /home/username/.local/share/applications
+#清理残余的windows程序:sudo rm -r /home/username/.config/menus/applications-merged/wine*
+</code></pre><p>apt-get remove 会删除软件包而保留软件的配置文件<br>apt-get purge 会同时清除软件包和软件的配置文件</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;sudo add-apt-repository ppa:wine/wine-builds
+sudo apt-get upda
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 常用配置目录</title>
+    <link href="http://yoursite.com/2018/05/01/Linux-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95/"/>
+    <id>http://yoursite.com/2018/05/01/Linux-常用配置目录/</id>
+    <published>2018-05-01T08:06:02.000Z</published>
+    <updated>2018-05-01T08:13:19.114Z</updated>
+    
+    <content type="html"><![CDATA[<p>apt 源相关文件、目录</p>
+<pre><code>/var/lib/apt/lists 
+#ubuntu软件更新的源服务器的地址
+/etc/apt/sources.list
+#*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件
+/etc/apt/sources.list.d
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;apt 源相关文件、目录&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/var/lib/apt/lists 
+#ubuntu软件更新的源服务器的地址
+/etc/apt/sources.list
+#*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件
+/etc/apt/sou
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下无法使用add-apt-repository命令</title>
+    <link href="http://yoursite.com/2018/05/01/Linux%E4%B8%8B%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8add-apt-repository%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2018/05/01/Linux下无法使用add-apt-repository命令/</id>
+    <published>2018-05-01T07:59:11.000Z</published>
+    <updated>2018-05-01T08:01:29.459Z</updated>
+    
+    <content type="html"><![CDATA[<p>Linux下无法使用add-apt-repository命令报错：<br><code>add-apt-repository command not found</code></p>
+<pre><code>sudo apt-get install python-software-properties
+sudo apt-get update
+sudo apt install software-properties-common 
+sudo apt-get update
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Linux下无法使用add-apt-repository命令报错：&lt;br&gt;&lt;code&gt;add-apt-repository command not found&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install python-softwar
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 安装JDK的两种方式</title>
+    <link href="http://yoursite.com/2018/05/01/Linux-%E5%AE%89%E8%A3%85JDK%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
+    <id>http://yoursite.com/2018/05/01/Linux-安装JDK的两种方式/</id>
+    <published>2018-05-01T07:13:07.000Z</published>
+    <updated>2018-05-01T07:59:55.765Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="使用PPA源安装"><a href="#使用PPA源安装" class="headerlink" title="使用PPA源安装"></a>使用PPA源安装</h3><pre><code>sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+sudo apt-get install oracle-java8-set-default
+</code></pre><p>oracle-java8-set-default：将jdk8设置为默认的Java运行版本</p>
+<p>默认的安装路径是在<code>/usr/lib/jvm/java-8-oracle</code>中</p>
+<pre><code>echo $JAVA_HOME
+</code></pre><p><br></p>
+<h3 id="使用源码包安装"><a href="#使用源码包安装" class="headerlink" title="使用源码包安装"></a>使用源码包安装</h3><p>在<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a><br>找需要的包下载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">sudo tar zxvf ./jdk-8u171-linux-x64.tar.gz -C /usr/lib/jvm/jdk1.8.0_171</div><div class="line">sudo vim〜/ .bashrc</div><div class="line"></div><div class="line"><span class="meta">#</span>在文件的末尾追加下面行</div><div class="line">export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_171  </div><div class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</div><div class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</div><div class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</div><div class="line"></div><div class="line"><span class="meta">#</span>使环境变量马上生效</div><div class="line">source ~/.bashrc</div><div class="line"></div><div class="line"><span class="meta">#</span>设置系统默认jdk 版本</div><div class="line">sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/ jdk1.8.0_144/bin/java 300</div><div class="line">sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/ jdk1.8.0_144/bin/javac 300</div><div class="line">sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/ jdk1.8.0_144/bin/jar 300</div><div class="line">sudo update-alternatives --install /usr/bin/javah javah /usr/lib/jvm/ jdk1.8.0_144/bin/javah 300</div><div class="line">sudo update-alternatives --install /usr/bin/javap javap /usr/lib/jvm/ jdk1.8.0_144/bin/javap 300</div><div class="line"></div><div class="line">sudo update-alternatives --config java</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;使用PPA源安装&quot;&gt;&lt;a href=&quot;#使用PPA源安装&quot; class=&quot;headerlink&quot; title=&quot;使用PPA源安装&quot;&gt;&lt;/a&gt;使用PPA源安装&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;sudo add-apt-repository ppa:webupd8tea
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -1134,264 +1253,6 @@ div1.innerHTML=str;
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>hexo目录结构以及_config.yml配置文件</title>
-    <link href="http://yoursite.com/2016/10/09/hexo%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E4%BB%A5%E5%8F%8A-config-yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2016/10/09/hexo目录结构以及-config-yml配置文件/</id>
-    <published>2016-10-09T13:34:31.000Z</published>
-    <updated>2017-08-13T09:21:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><pre><code>.
-├── .deploy #需要部署的文件
-├── node_modules #Hexo插件
-├── public #生成的静态网页文件
-├── scaffolds #模板
-├── source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里
-| ├── _drafts #草稿
-| └── _posts #文章
-├── themes #主题
-├── _config.yml #全局配置文件
-└── package.json
-</code></pre><p>假设网站的根目录为D:/Hexo/，也称为站点目录<br><strong>站点配置文件</strong> 是指网站目录下的_config.yml文件，即D:/Hexo/_config.yml</p>
-<p><strong>主题配置文件</strong> 是指网站目录下对应的主题文件夹下的_config.yml文件，即D:/Hexo/themes/next/_config.yml.</p>
-<h3 id="站点配置文件"><a href="#站点配置文件" class="headerlink" title="站点配置文件"></a>站点配置文件</h3><pre><code># Hexo Configuration
-## Docs: http://hexo.io/docs/configuration.html
-## Source: https://github.com/hexojs/hexo/
-# Site #站点信息
-title:  #标题
-subtitle:  #副标题
-description:  #站点描述，给搜索引擎看的
-author:  #作者
-email:  #电子邮箱
-language: zh-CN #语言
-
-# URL #链接格式
-url:  #网址
-root: / #根目录
-permalink: :year/:month/:day/:title/ #文章的链接格式
-tag_dir: tags #标签目录
-archive_dir: archives #存档目录
-category_dir: categories #分类目录
-code_dir: downloads/code
-permalink_defaults:
-
-# Directory #目录
-source_dir: source #源文件目录
-public_dir: public #生成的网页文件目录
-
-# Writing #写作
-new_post_name: :title.md #新文章标题
-default_layout: post #默认的模板，包括 post、page、photo、draft（文章、页面、照片、草稿）
-titlecase: false #标题转换成大写
-external_link: true #在新选项卡中打开连接
-filename_case: 0
-render_drafts: false
-post_asset_folder: false
-relative_link: false
-highlight: #语法高亮
-      enable: true #是否启用
-      line_number: true #显示行号
-      tab_replace:
-
-# Category &amp; Tag #分类和标签
-default_category: uncategorized #默认分类
-category_map:
-tag_map:
-
-# Archives
-2: 开启分页
-1: 禁用分页
-0: 全部禁用
-archive: 2
-category: 2
-tag: 2
-
-# Server #本地服务器
-port: 4000 #端口号
-server_ip: localhost #IP 地址
-logger: false
-logger_format: dev
-
-# Date / Time format #日期时间格式
-date_format: YYYY-MM-DD #参考http://momentjs.com/docs/#/displaying/format/
-time_format: H:mm:ss
-
-# Pagination #分页
-per_page: 10 #每页文章数，设置成 0 禁用分页
-pagination_dir: page
-
-# Disqus #Disqus评论，替换为多说
-disqus_shortname:
-
-# Extensions #拓展插件
-theme: landscape-plus #主题
-exclude_generator:
-plugins: #插件，例如生成 RSS 和站点地图的
-- hexo-generator-feed
-- hexo-generator-sitemap
-- 
-# Deployment #部署，将 lmintlcx 改成用户名
-deploy:
-        type: git
-        repo: github创库地址.git
-        branch: master
-</code></pre><p>配置文件的冒号后面都有一个半角空格</p>
-<h3 id="主题配置文件"><a href="#主题配置文件" class="headerlink" title="主题配置文件"></a>主题配置文件</h3><pre><code>menu: #右上角导航菜单，冒号前面是菜单名，后面是访问路径。
-      Home: /
-      Archives: /archives
-      About: /about
-
-widgets: #站点右边栏，可以调整顺序和增减内容，会自动调用主题layout/_widget目录下的同名文件。
-- search
-- category
-- tagcloud
-
-excerpt_link: Read More #列表页里Read more链接名称，可以替换成’查看更多‘等。
-
-plugins: 
-
-twitter: #右边栏要显示twitter展示的话，需要在此设置
-      username: 
-      show_replies: false
-      tweet_count: 5
-
-addthis: #分享设置
-      enable: true
-      pubid:
-      facebook: true
-      twitter: true
-      google: true
-      pinterest: true
-
-fancybox: true #图片效果，默认
-
-google_analytics: #google_analytics统计ID
-rss:  #生成RSS路径
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;目录结构&quot;&gt;&lt;a href=&quot;#目录结构&quot; class=&quot;headerlink&quot; title=&quot;目录结构&quot;&gt;&lt;/a&gt;目录结构&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;.
-├── .deploy #需要部署的文件
-├── node_modules #Hexo插件
-├── pu
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo中博客使用markdown格式约定</title>
-    <link href="http://yoursite.com/2016/10/09/hexo%E4%B8%AD%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8markdown%E6%A0%BC%E5%BC%8F%E7%BA%A6%E5%AE%9A/"/>
-    <id>http://yoursite.com/2016/10/09/hexo中博客使用markdown格式约定/</id>
-    <published>2016-10-09T12:24:21.000Z</published>
-    <updated>2016-10-09T14:23:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>具体请参考<a href="http://fengrenxiaoli.github.io/2016/10/09/%E4%BD%BF%E7%94%A8hexo-d%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" target="_blank" rel="external">这篇文章</a></p>
-<p>1.tags标签使用[tag1,tag2,…]，注意冒号后需要一个半角空格</p>
-<p>2.文章内标题使用<code>###空格我是标题空格###</code></p>
-<p>3.内嵌代码使用反引号</p>
-<pre><code>`我是代码`
-</code></pre><p>4.其他代码使用tag键</p>
-<p>5.文字加粗使用两个星号</p>
-<pre><code>`**我是文字**`
-</code></pre><p>6.文字斜体使用一个星号</p>
-<pre><code>`*我是文字*`
-</code></pre><p>7.引用使用&gt;</p>
-<pre><code>&gt;我是文字
-</code></pre><p>8.链接使用以下两种方式</p>
-<pre><code>&lt;我是链接&gt;
-[显示文字](我是链接)
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;具体请参考&lt;a href=&quot;http://fengrenxiaoli.github.io/2016/10/09/%E4%BD%BF%E7%94%A8hexo-d%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98%E8
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo新建文章</title>
-    <link href="http://yoursite.com/2016/10/09/hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0/"/>
-    <id>http://yoursite.com/2016/10/09/hexo新建文章/</id>
-    <published>2016-10-09T11:27:30.000Z</published>
-    <updated>2016-10-09T14:22:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>进入博客站点目录</p>
-<pre><code>hexo n &quot;文章题目&quot;
-</code></pre><p>执行完命令会在blog\sourse_posts目录中多出一个md文件，也可以直接在该目录下新建md文件</p>
-<h3 id="编辑文章"><a href="#编辑文章" class="headerlink" title="编辑文章"></a>编辑文章</h3><p>使用markdown工具编辑_posts目录中的md文件，最后记得使用<code>hexo g</code>以及<code>hexo d</code>命令</p>
-<h3 id="删除文章"><a href="#删除文章" class="headerlink" title="删除文章"></a>删除文章</h3><p>直接删除目录下的md文件即可</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;新建文章&quot;&gt;&lt;a href=&quot;#新建文章&quot; class=&quot;headerlink&quot; title=&quot;新建文章&quot;&gt;&lt;/a&gt;新建文章&lt;/h3&gt;&lt;p&gt;进入博客站点目录&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hexo n &amp;quot;文章题目&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo常用命令</title>
-    <link href="http://yoursite.com/2016/10/09/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2016/10/09/hexo常用命令/</id>
-    <published>2016-10-09T11:27:04.000Z</published>
-    <updated>2016-10-09T14:22:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>常用命令：</p>
-<pre><code>hexo help #查看帮助
-hexo init #初始化一个目录
-hexo new &quot;postName&quot; #新建文章
-hexo new page &quot;pageName&quot; #新建页面
-hexo generate #生成网页，可以在 public 目录查看整个网站的文件
-hexo server #本地预览，&apos;Ctrl+C&apos;关闭
-hexo deploy #部署.deploy目录
-hexo clean #清除缓存，强烈建议每次执行命令前先清理缓存，每次部署前先删除 .deploy 文件夹
-</code></pre><p>简写：</p>
-<pre><code>hexo n == hexo new
-hexo g == hexo generate
-hexo s == hexo server
-hexo d == hexo deploy
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;常用命令：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hexo help #查看帮助
-hexo init #初始化一个目录
-hexo new &amp;quot;postName&amp;quot; #新建文章
-hexo new page &amp;quot;pageName&amp;quot; #新建页面
-hexo
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   
