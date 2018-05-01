@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     version: '6.2.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -239,9 +239,6 @@
   
 
   
-    
-
-  
 
   
 </nav>
@@ -261,6 +258,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -367,24 +367,18 @@
       
         
           
-            <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>sudo add-apt-repository ppa:wine/wine-builds
+          安装sudo add-apt-repository ppa:wine/wine-builds
 sudo apt-get update
 sudo apt-get install --install-recommends wine-staging
-sudo apt-get install winehq-staging
-</code></pre><p><br></p>
-<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><pre><code>sudo apt purge wine
-rm -r ~/.wine
-sudo apt-get autoremove
-#清理wine模拟运行的windows程序:
-sudo rm -r /home/username/.local/share/applications
-#清理残余的windows程序:
-sudo rm -r /home/username/.config/menus/applications-merged/wine*
-</code></pre><ul>
-<li>apt-get remove 会删除软件包而保留软件的配置文件</li>
-<li>apt-get purge 会同时清除软件包和软件的配置文件</li>
-</ul>
-
-          
+sudo apt-get install winehq-
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Ubuntu-安装、卸载wine/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -522,14 +516,21 @@ sudo rm -r /home/username/.config/menus/applications-merged/wine*
       
         
           
-            <p>apt 源相关文件、目录</p>
-<pre><code>/var/lib/apt/lists 
+          apt 源相关文件、目录
+/var/lib/apt/lists 
 #ubuntu软件更新的源服务器的地址
 /etc/apt/sources.list
 #*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件
 /etc/apt/sources.list.d
-</code></pre>
+
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Linux-常用配置目录/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -667,14 +668,19 @@ sudo rm -r /home/username/.config/menus/applications-merged/wine*
       
         
           
-            <p>Linux下无法使用add-apt-repository命令报错：<br><code>add-apt-repository command not found</code></p>
-<p>解决办法：</p>
-<pre><code>sudo apt-get install python-software-properties
+          Linux下无法使用add-apt-repository命令报错：add-apt-repository command not found
+解决办法：
+sudo apt-get install python-software-properties
 sudo apt-get update
-sudo apt install software-properties-common 
-sudo apt-get update
-</code></pre>
-          
+sudo a
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Linux下无法使用add-apt-repository命令/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -812,17 +818,18 @@ sudo apt-get update
       
         
           
-            <h3 id="使用PPA源安装"><a href="#使用PPA源安装" class="headerlink" title="使用PPA源安装"></a>使用PPA源安装</h3><pre><code>sudo add-apt-repository ppa:webupd8team/java
+          使用PPA源安装sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java8-installer
-sudo apt-get install oracle-java8-set-default
-</code></pre><p>oracle-java8-set-default：将jdk8设置为默认的Java运行版本</p>
-<p>默认的安装路径是在<code>/usr/lib/jvm/java-8-oracle</code>中</p>
-<pre><code>echo $JAVA_HOME
-</code></pre><p><br></p>
-<h3 id="使用源码包安装"><a href="#使用源码包安装" class="headerlink" title="使用源码包安装"></a>使用源码包安装</h3><p>在<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a><br>找需要的包下载</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">sudo tar zxvf ./jdk-8u171-linux-x64.tar.gz -C /usr/lib/jvm/jdk1.8.0_171</div><div class="line">sudo vim〜/ .bashrc</div><div class="line"></div><div class="line"><span class="meta">#</span>在文件的末尾追加下面行</div><div class="line">export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_171  </div><div class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</div><div class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</div><div class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</div><div class="line"></div><div class="line"><span class="meta">#</span>使环境变量马上生效</div><div class="line">source ~/.bashrc</div><div class="line"></div><div class="line"><span class="meta">#</span>设置系统默认jdk 版本</div><div class="line">sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/ jdk1.8.0_144/bin/java 300</div><div class="line">sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/ jdk1.8.0_144/bin/javac 300</div><div class="line">sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/ jdk1.8.0_144/bin/jar 300</div><div class="line">sudo update-alternatives --install /usr/bin/javah javah /usr/lib/jvm/ jdk1.8.0_144/bin/javah 300</div><div class="line">sudo update-alternatives --install /usr/bin/javap javap /usr/lib/jvm/ jdk1.8.0_144/bin/javap 300</div><div class="line"></div><div class="line">sudo update-alternatives --config java</div></pre></td></tr></table></figure>
-          
+sudo apt-get install oracle-java8
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Linux-安装JDK的两种方式/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -956,17 +963,15 @@ sudo apt-get install oracle-java8-set-default
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/hello-world/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1104,19 +1109,16 @@ sudo apt-get install oracle-java8-set-default
       
         
           
-            <h3 id="脚本安装包：准备工作"><a href="#脚本安装包：准备工作" class="headerlink" title="脚本安装包：准备工作"></a>脚本安装包：准备工作</h3><p>1、本节以安装LNMP（<a href="http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache" target="_blank" rel="external">http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache</a> <code>/usr/local/apache2</code>删除） </p>
-<p>2、保证yum源正常使用：可以使用<code>yum list</code>命令测试。（若是光盘yum源，记得挂载光盘）</p>
-<p>3、关闭SELinux和防火墙：</p>
-<ul>
-<li>永久关闭SELinux的方法：编辑文件<code>/etc/selinux/config</code>，将<code>SELINUX=enforcing</code>改为<code>SELINUX=disabled</code>，然后重启系统即可。</li>
-<li>永久关闭防火墙的方法：<code>chkconfig iptables off</code>，开启为：<code>chkconfig iptables on</code>；临时关闭防火墙的方法：<code>service iptables stop</code>，开启为：<code>service iptables start</code>。</li>
-</ul>
-<p><br></p>
-<h3 id="脚本安装"><a href="#脚本安装" class="headerlink" title="脚本安装"></a>脚本安装</h3><pre><code>wget -c http://soft.vpser.net/lnmp.lnmp1.0-full.tar.gz &amp;&amp; tar zxvf lnmp1.0-full.tar.gz &amp;&amp; cd lnmp1.0-full &amp;&amp; ./centos.sh
-</code></pre><p>脚本安装过程中，会将系统中已有的apache、mysql、php等卸载掉。</p>
-<p>虚拟机中安装lnmp常常会卡在 starting php-fpm,真实环境中很少出现。其实安装已经完成，只需要杀掉php-fpm进程，再重新启动这个进程就好了 pkill -9 php-fpm : -9是强制杀死的意思，然后重新启动该进程【/etc/rc.d/init.d/php-fpm start】即可。</p>
-
-          
+          脚本安装包：准备工作1、本节以安装LNMP（http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache /usr/local/apache2删除） 
+2、保证yum源正常使用：可以使用yum list命令测
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-脚本安装包/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1254,66 +1256,21 @@ sudo apt-get install oracle-java8-set-default
       
         
           
-            <h3 id="源码包和RPM包安装位置的不同："><a href="#源码包和RPM包安装位置的不同：" class="headerlink" title="源码包和RPM包安装位置的不同："></a>源码包和RPM包安装位置的不同：</h3><h4 id="RPM包安装位置"><a href="#RPM包安装位置" class="headerlink" title="RPM包安装位置"></a>RPM包安装位置</h4><p>rpm包有安装的默认位置：</p>
-<ul>
-<li>/etc/ 配置文件安装目录 </li>
-<li>/usr/bin/ 可执行的命令安装目录 </li>
-<li>/usr/lib/ 程序所使用的函数库保存位置</li>
-<li>/usr/share/doc/ 基本的软件使用手册保存位置 </li>
-<li>/usr/share/man/ 帮助文件保存位置</li>
-</ul>
-<p>当然RPM包可以指定安装位置，但是建议不要指定安装位置，就让它安装到默认位置，这样系统可以找到它，利用service XXX start的方式启动它，而且rpm提供-e选项来自动卸载，摆明了就是推荐你让它默认安装</p>
-<pre><code>rpm -ivh --profix=&lt;dir&gt;
-</code></pre><h4 id="源码包安装位置"><a href="#源码包安装位置" class="headerlink" title="源码包安装位置"></a>源码包安装位置</h4><p>安装在指定位置当中，一般是<code>/usr/local/软件名</code>，源码包没有卸载命令</p>
-<h4 id="安装位置不同带来的影响"><a href="#安装位置不同带来的影响" class="headerlink" title="安装位置不同带来的影响"></a>安装位置不同带来的影响</h4><p>rpm包安装的服务可以使用系统服务管理命令（service）来管理，例如： RPM包安装的apache的启动方法是：</p>
-<pre><code>/etc/rc.d/init.d/httpd start 
-service httpd start
-</code></pre><p>源码包安装的服务不能被服务管理命令管理，因为没有安装到默认路径中，所以只能用绝对路径进行服务的管理，不同软件请参考INSTALL或README，如：</p>
-<pre><code>/usr/local/apache2/bin/apachectl start
-</code></pre><p>使用绝对路径启动程序的方法是通用的，通常软件包中会写上启动程序的方法的。</p>
-<p>如果将源码包安装后的启动程序复制到<code>/etc/rc.d/init.d</code>目录中，则也是可以使用<code>service</code>命令执行的</p>
-<p>源码包是不能使用<code>service</code>命令来启动服务，因为源码包的安装位置由用户指定，放在哪并不统一；rpm包安装后，通常都是放在<code>/etc/rc.d/init.d</code>目录中的，而<code>service</code>命令执行时，会自动搜索该目录，所以rpm包安装的服务可以使用<code>service</code>命令</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h4><ul>
-<li>由于源码都是c语言写的，所以要先安装c语言编译器：gcc</li>
-<li>从官方网站下载源码包，若是下载到了windows上面，可以使用ftp传到linux上</li>
-</ul>
-<p>注：若已安装了二进制包，则源码包也是可以继续安装的，因为两者安装目录不一样。但是，并不建议这样做，因为端口会冲突。</p>
-<p>对于要求效率的软件，要安装源码包版本，因为是本机编译，更具有兼容性和效率，而rpm包是软件开发者提供的大众版本，可用于不注重效率的应用。</p>
-<p><code>netstat -tlun</code>查找网络连接信息和系统开启的端口号<br>使用 -t 选项列出 TCP 协议的连接<br>使用 -l 选项列出正在监听的套接字<br>使用 -u 选项列出 UDP 协议的连接<br>使用 -n 选项禁用域名解析功能</p>
-<h4 id="安装注意事项"><a href="#安装注意事项" class="headerlink" title="安装注意事项"></a>安装注意事项</h4><ol>
-<li>源代码一般保存位置：<code>/usr/local/src</code></li>
-<li>软件安装位置：``</li>
-<li>如何确定安装过程报错<ul>
-<li>安装过程停止</li>
-<li>并出现error、warning、no的提示</li>
-</ul>
-</li>
-</ol>
-<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><pre><code>#下载源码包
-wget http://mirrors.tuna.tsinghua.edu.cn/apache//httpd/httpd-2.4.33.tar.gz
-#解压缩
-tar -zxvf httpd-2.4.33.tar.gz
-#进入解压缩目录
-cd httpd-2.4.33
-#软件配置与检查，指定安装位置
-./configure --prefix=/usr/local/apache2
-#编译，根据当前目录下的Makefile内部信息编译
-make
-#编译安装，根据当前目录下的Makefile内部信息安装
-make install
-</code></pre><p>./configure作用</p>
-<ul>
-<li>定义需要的功能选项； </li>
-<li>检测系统环境是否符合安装要求 </li>
-<li>把定义好的功能选项和检测系统环境的信息都写入Makefile文件，用于后续的编辑。 </li>
-<li>其中的<code>apache2</code>目录不需要提前创建，<code>make install</code>命令执行时会自动创建</li>
-</ul>
-<p><br></p>
-<p>解压的文件夹中有一个INSTALL或README文件，vi打开之就可以看到详细的安装说明了。 </p>
-<p>如果<code>make</code>环节出错，只需要<code>make clean</code>即可。如果<code>make install</code>安装环节出错，我们就得删除configure时制定的安装目录，因为其中生成的文件失效了。 </p>
-<h3 id="源码包的卸载"><a href="#源码包的卸载" class="headerlink" title="源码包的卸载"></a>源码包的卸载</h3><p>只需要把安装目录删除即可。因为安装过程中生成的所有文件都是存放在安装目录中的，所以将安装目录删除就不会留下任何垃圾。</p>
+          源码包和RPM包安装位置的不同：RPM包安装位置rpm包有安装的默认位置：
 
-          
+/etc/ 配置文件安装目录 
+/usr/bin/ 可执行的命令安装目录 
+/usr/lib/ 程序所使用的函数库保存位置
+/usr/share/doc/ 基本的软件使用手册保存位置 
+/usr/share/man/ 帮助
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-源码包/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1451,69 +1408,19 @@ make install
       
         
           
-            <h3 id="yum源文件"><a href="#yum源文件" class="headerlink" title="yum源文件"></a>yum源文件</h3><p>将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题。（rpm缺点：安装过程中，rpm包依赖性太强）</p>
-<p>RedHat的yum是收费服务，而CentOS的yum是免费服务。</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG007.png" alt=""></p>
-<ul>
-<li>在<code>/etc/yum.repos.d/</code>目录中，默认有4个yum源文件，其中<code>CentOS-Base.repo</code>是基本yum源文件，如果我们能上网，那它是默认生效的，而其他的都是默认不生效的。</li>
-<li>mirrorlist和baseurl一个是主站点，一个是辅助站点，代表内容一样，只写一个就行，可以修改为国内的源</li>
-<li>gpgcheck：一般都要开启，开启后安装时会验证rpm包是否是官方的，以保证系统安全。</li>
-<li>gpgkey：默认系统安装后，在目录<code>/etc/pki/rpm-gpg</code>下都会存在数字证书。</li>
-</ul>
-<p>注：前面的<code>file://</code>表示文件协议，后面的<code>/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6</code>是数字证书的位置。</p>
-<pre><code>[root@CentOS6 ~]# cd /etc/pki/rpm-gpg
-[root@CentOS6 rpm-gpg]# ll
-总用量 16
--rw-r--r--. 1 root root 1706 11月 27 2013 RPM-GPG-KEY-CentOS-6
--rw-r--r--. 1 root root 1730 11月 27 2013 RPM-GPG-KEY-CentOS-Debug-6
--rw-r--r--. 1 root root 1730 11月 27 2013 RPM-GPG-KEY-CentOS-Security-6
--rw-r--r--. 1 root root 1734 11月 27 2013 RPM-GPG-KEY-CentOS-Testing-6
-</code></pre><p><br></p>
-<h3 id="光盘搭建yum源"><a href="#光盘搭建yum源" class="headerlink" title="光盘搭建yum源"></a>光盘搭建yum源</h3><p>如果没有网络，可以使用光盘</p>
-<ol>
-<li>挂载光盘 <ul>
-<li><code>mkdir /media</code>或<code>mkdir mnt/cdrom</code>：建立挂载点</li>
-<li><code>mount /dev/cdrom /media</code>或<code>mount mnt/cdrom</code>：挂载光盘； </li>
-</ul>
-</li>
-<li>使网络yum源失效 <ul>
-<li><code>cd/etc/yum.repos.d/</code>：进入yum源目录； </li>
-<li><code>mv CentOS-Base.repo CentOS-Base.repo.bak</code>：修改Yum源文件后缀名，使其失效；（判断yum源是根据后缀名repo来实现的，修改后缀名则可以使该yum源失效）</li>
-</ul>
-</li>
-<li>使光盘yum源生效<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG008.png" alt=""></li>
-</ol>
-<p><br></p>
-<h3 id="yum命令"><a href="#yum命令" class="headerlink" title="yum命令"></a>yum命令</h3><h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><pre><code>yum list
-# 查询所有可用软件包列表
-yum search 关键字
-# 搜索服务器上所有和关键字相关的包
-</code></pre><p><br></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><pre><code>yum -y install 包名（只用包名即可）
-# -y 自动回答yes
-</code></pre><p><br></p>
-<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><pre><code>yum -y update 包名
-# -y 自动回答yes
-</code></pre><p><br></p>
-<h4 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h4><pre><code>yum -y remove 包名
-# -y 自动回答yes
-# 服务器使用最小化安装，用什么软件安装什么，尽量不卸载
-</code></pre><p><br></p>
-<h3 id="yum软件组管理命令"><a href="#yum软件组管理命令" class="headerlink" title="yum软件组管理命令"></a>yum软件组管理命令</h3><pre><code>yum grouplist 
-#列出所有可用的软件组列表 
+          yum源文件将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题。（rpm缺点：安装过程中，rpm包依赖性太强）
+RedHat的yum是收费服务，而CentOS的yum是免费服务。
 
-yum groupinstall 软件组名 
-#安装指定软件组，组名可以由grouplist查询出来 
 
-yum groupremove 软件组名 
-#卸载指定软件组 
-
-软件组名必须是英文
-LANG=en_US 临时更改语系为英文 
-LANG=zh_CN.utf8 临时生效 
-/etc/sysconfig/i18n中 修改配置文件永久生效
-</code></pre>
-          
+在/etc/yum.repos.d/目录中，默认有4个yum源文件，其中CentOS-Ba
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-yum在线安装/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1651,113 +1558,24 @@ LANG=zh_CN.utf8 临时生效
       
         
           
-            <h3 id="RPM包的来源"><a href="#RPM包的来源" class="headerlink" title="RPM包的来源"></a>RPM包的来源</h3><p>所有RPM包都来自安装系统光盘的Packages目录中</p>
-<p><br></p>
-<h3 id="RPM包命名规则"><a href="#RPM包命名规则" class="headerlink" title="RPM包命名规则"></a>RPM包命名规则</h3><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG004.png" alt="img"></p>
-<ul>
-<li>包全名：操作的包是没有安装的软件包时，使用包全名，而且要注意路径</li>
-<li>包名：操作已安装的软件包时，使用包名，是搜索<code>/var/lib/rpm/</code>中的数据库</li>
-</ul>
-<p><br></p>
-<h3 id="RPM包依赖性"><a href="#RPM包依赖性" class="headerlink" title="RPM包依赖性"></a>RPM包依赖性</h3><ol>
-<li>树形依赖：a-&gt;b-&gt;c 解决方法：从后往前安装</li>
-<li>环形依赖：a-&gt;b-&gt;c-&gt;a 解决方法：放在一条命令中安装即可</li>
-<li>模块依赖：库文件依赖，库也叫模块，就是linux当中的函数，它有一个典型的特征，就是以<code>.so.数字</code>结尾，它依赖的其实是一个文件，而不是软件包。该文件藏身在某一个软件包当中。我们只要将该文件所在的软件包安装上，该文件也就安装了。解决方法：登录www.rpmfind.net 网站，输入库文件名称查询到对应的rpm包，然后安装即可。</li>
-</ol>
-<p><br></p>
-<h3 id="RPM安装"><a href="#RPM安装" class="headerlink" title="RPM安装"></a>RPM安装</h3><pre><code>rpm -ivh 包全名
-# -i （install）安装
-# -v（verbose）显示详细信息
-# -h（hash）显示进度
-# --nodeps不检测依赖性（一般不用）
-</code></pre><p><br></p>
-<h3 id="RPM-升级"><a href="#RPM-升级" class="headerlink" title="RPM 升级"></a>RPM 升级</h3><pre><code>rpm -Uvh 包全名
-# -U（update）升级
-</code></pre><ul>
-<li>需要包全名，而不是包名。可以如此理解：升级时的新包对于系统是新的，因此要包全名</li>
-<li>如果这个包从来没有安装过，那么效果等同于rpm -ivh 包全名</li>
-</ul>
-<p><br></p>
-<h3 id="RPM卸载"><a href="#RPM卸载" class="headerlink" title="RPM卸载"></a>RPM卸载</h3><pre><code>rpm -e 包名
-# -e（erase）卸载
-#  --nodeps 不检查依赖性
-</code></pre><ul>
-<li>rpm准备了这个卸载命令的原因是，我们安装时根本不知道这个包装了在哪里（要知道linux下的安装的软件的文件散布多个地方的，很难一一找），而rpm知道，所以干脆就为我们准备了这条便利的命令。</li>
-<li>window下卸载软件，往往容易留很多垃圾数据难以除完，例如注册表等等。而linux中不会出现这个问题，只要把软件的安装目录所有都删除掉，就不会有残留。</li>
-</ul>
-<p><br></p>
-<h3 id="RPM包查询"><a href="#RPM包查询" class="headerlink" title="RPM包查询"></a>RPM包查询</h3><pre><code>rpm -q 包名
-# 查询包是否安装
-# -q 查询（query）
+          RPM包的来源所有RPM包都来自安装系统光盘的Packages目录中
 
-rpm -qa 包名
-# 查询所有已经安装的RPM包
-# -a 所有（all）
-# rpm -qa | grep httpd
+RPM包命名规则
 
-rpm -qi 包名
-# 查询软件包详细信息
-# -i (infomation) : 查询软件信息
+包全名：操作的包是没有安装的软件包时，使用包全名，而且要注意路径
+包名：操作已安装的软件包时，使用包名，是搜索/var/lib/rpm/中的数据库
 
-rpm -qip 包全名
-# -p (package) : 查询未安装报信息
-# 有时遇到问题, 可根据未安装包信息中所提供的网站进行查询资料
 
-rpm -ql 包名
-# 查询包中文件安装位置
-# -l (list) : 列表
-# -p (package) : 查询未安装包信息
-# 可查看包作者欲将包安装的位置
-
-rpm -qf 系统文件名
-# -f (file) : 查询系统文件属于哪个软件包
-# 查询系统文件属于哪个 RPM 包
-# 该文件必须是通过 RPM 包安装的
-
-rpm -qR 包名
-# 查询软件包的依赖性
-# -R (requires) : 查询软件包的依赖性 
-# -p (package) : 查询未安装包的信息
-</code></pre><p>RPM包默认安装位置<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG005.png" alt=""></p>
-<p><br></p>
-<h3 id="RPM包校验"><a href="#RPM包校验" class="headerlink" title="RPM包校验"></a>RPM包校验</h3><pre><code>rpm -V 已安装的包名
-# -V (verify) : 校验指定RPM包中的文件
-# 执行后, 无任何提示, 代表该文件没有被做任何修改
-# 判断本地的安装包与官方给出的是否一致, 从而判断是否被人修改
-</code></pre><h4 id="验证内容中的8个信息"><a href="#验证内容中的8个信息" class="headerlink" title="验证内容中的8个信息"></a>验证内容中的8个信息</h4><ul>
-<li>S : 文件大小是否改变</li>
-<li>M : 文件的类型或文件的权限( rwx )是否被改变</li>
-<li>5 : 文件MD5 校验和是否改变( 可以看成文件内容是否改变 )</li>
-<li>D : 设备的主从代码是否改变</li>
-<li>L : 文件路径是否改变</li>
-<li>U : 文件的属主( 所有者 ) 是否改变</li>
-<li>G : 文件的属组是否改变</li>
-<li>T : 文件的修改时间是否改变</li>
-</ul>
-<h4 id="验证内容中的文件类型"><a href="#验证内容中的文件类型" class="headerlink" title="验证内容中的文件类型"></a>验证内容中的文件类型</h4><ul>
-<li>c (config file) : 配置文件</li>
-<li>d (documentation) : 普通文档</li>
-<li>g (ghost file) : “鬼”文件, 很少见, 就是该文件不应该被这个RPM包包含</li>
-<li>L (license file) : 授权文件</li>
-<li>r (read me) : 描述文件</li>
-</ul>
-<h4 id="MD5校验"><a href="#MD5校验" class="headerlink" title="MD5校验"></a>MD5校验</h4><p>用来校验文件的完整性(文件内容是否被改变)</p>
-<p>例如, 在官网下载的游戏, 官方会给出MD5校验码, 将下载的游戏通过专用的MD5校验工具校验后生成一份MD5校验码, 对比两份校验码是否一致, 不一致则说明，下载的文件可能丢包, 可能文件损坏, 可能被其他人动过手脚一直木马等</p>
-<p><br></p>
-<h3 id="RPM包中的文件提取"><a href="#RPM包中的文件提取" class="headerlink" title="RPM包中的文件提取"></a>RPM包中的文件提取</h3><pre><code>rpm2cpio 包全名 | cpio -idv .文件绝对路径 
-</code></pre><ul>
-<li>前面的<code>.</code>代表当前路径，不能省略。</li>
-<li><code>文件绝对路径</code>和包里文件的绝对路径对应，也就是告诉了cpio要去包里提取哪个文件。</li>
-<li>cpio只知道提取文件，并不知道要从什么地方提取文件，因此我们通常要使用<code>|</code>管道符或<code>&lt;</code>输入重定向告诉cpio我们应该从什么设备去取出文件。</li>
-</ul>
-<pre><code>cpio 选项 &lt; [文件|设备]
-# 使用输入重定向的cpio
-# -i：copy-in模式，还原
-# -d：还原时自动新建目录
-# -v：显示还原过程
-</code></pre><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG006.png" alt=""></p>
-
-          
+RPM包依赖性
+树形依赖：a-&gt;b-&gt;c 解
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-RPM包管理/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1895,38 +1713,16 @@ rpm -qR 包名
       
         
           
-            <p>二进制包是经过源码包编译过的安装包，编译就是将源码解释为机器可以认识的二进制语言的过程，安装源码包比二进制包复杂，因为要经过一个编译的过程，这个过程容易出错，一旦出错，就要对源码进行修改。</p>
-<p>在redhat中二进制包后缀是rpm，在debian系列里如ubuntu二进制包的后缀是deb，但是它们都是二进制包。Linux下安装软件只有俩种格式：二进制包和源代码包</p>
-<h3 id="源码包"><a href="#源码包" class="headerlink" title="源码包"></a>源码包</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>开源，如果有足够的能力，可以修改源代码</li>
-<li>可以自由选择所需的功能</li>
-<li>软件是编译安装，所以更加适合自己的系统，更加稳定、效率更高</li>
-<li>卸载方便（直接删除）</li>
-</ul>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>安装过程步骤较多，尤其安装较大的软件集合时（如LAMP环境搭建），容易出现拼写错误</li>
-<li>编译过程时间较长，安装比二进制安装时间长</li>
-<li>因为是编译安装，安装过程中一旦报错新手很难解决</li>
-</ul>
-<p><br></p>
-<h3 id="二进制包（RPM包、Deb包）"><a href="#二进制包（RPM包、Deb包）" class="headerlink" title="二进制包（RPM包、Deb包）"></a>二进制包（RPM包、Deb包）</h3><p>二进制包安装速度快是它的优点，但是二进制包不是系统自己编译的，效率不如源码包。如果是生产环境，就要源码包安装，因为效率高。</p>
-<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>包管理系统简单，只通过几个命令就可以实现包的安装、升级、查询和卸载</li>
-<li>安装速度比源码包安装快的多</li>
-</ul>
-<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>经过编译，不再可以看到源代码</li>
-<li>功能选择不如源码包灵活</li>
-<li>依赖性</li>
-</ul>
-<p><br></p>
-<h3 id="脚本安装包"><a href="#脚本安装包" class="headerlink" title="脚本安装包"></a>脚本安装包</h3><p>把复杂的软件包安装过程写成了程序脚本，初学者可以执行脚本实现一键安装。但实际安装的还是源码包和二进制包,例如LAMP一键安装包</p>
-<ul>
-<li>优点：安装简单、快捷</li>
-<li>缺点：完全丧失了自定义性，不能定义安装软件的版本，不能定义所需要的软件功能，源码包的优势几乎完全丧失</li>
-</ul>
-
-          
+          二进制包是经过源码包编译过的安装包，编译就是将源码解释为机器可以认识的二进制语言的过程，安装源码包比二进制包复杂，因为要经过一个编译的过程，这个过程容易出错，一旦出错，就要对源码进行修改。
+在redhat中二进制包后缀是rpm，在debian系列里如ubuntu二进制包的后缀是deb，但是它们都是二
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-软件包分类/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2100,7 +1896,7 @@ rpm -qR 包名
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.2.0</div>
 
 
 
@@ -2189,6 +1985,13 @@ rpm -qR 包名
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
 
   
 
