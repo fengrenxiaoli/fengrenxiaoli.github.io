@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sunset-32.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sunset-16.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的 该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的 上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务    层级 作用 传输单元     应用层 用户接口 APDU，应用协议数据单元   表示层 数据的表现形式（ASCII、GB2312、jpg）、">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux网络管理 网络基础">
+<meta property="og:url" content="http://yoursite.com/2018/05/01/Linux网络管理-网络基础/index.html">
+<meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的 该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的 上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务    层级 作用 传输单元     应用层 用户接口 APDU，应用协议数据单元   表示层 数据的表现形式（ASCII、GB2312、jpg）、">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/05/01/img/IMG10.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/01/img/IMG11.jpg">
+<meta property="og:image" content="http://yoursite.com/home/lee/Pictures/IMG12.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/01/img/IMG13.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/01/img/IMG14.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/01/img/IMG15.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/01/img/IMG16.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/05/01/img/IMG17.jpg">
+<meta property="og:updated_time" content="2018-05-01T13:17:02.587Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux网络管理 网络基础">
+<meta name="twitter:description" content="OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的 该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的 上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务    层级 作用 传输单元     应用层 用户接口 APDU，应用协议数据单元   表示层 数据的表现形式（ASCII、GB2312、jpg）、">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/01/img/IMG10.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="太阳落下" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/01/Linux网络管理-网络基础/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Linux网络管理 网络基础 | 太阳落下</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">太阳落下</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-首页"></i> <br />Startseite</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-标签"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-归档"></i> <br />Archiv</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/Linux网络管理-网络基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux网络管理 网络基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-05-01 19:06:32 / Updated at: 21:17:02" itemprop="dateCreated datePublished" datetime="2018-05-01T19:06:32+08:00">2018-05-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h3><p>开放系统互联模型，由ISO(国际标准化组织) 组织开发的</p>
+<p>该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的</p>
+<p>上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务</p>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>作用</th>
+<th>传输单元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>应用层</td>
+<td>用户接口</td>
+<td>APDU，应用协议数据单元</td>
+</tr>
+<tr>
+<td>表示层</td>
+<td>数据的表现形式（ASCII、GB2312、jpg）、 特定功能的实现如加密、压缩</td>
+<td>PPDU，表示协议数据单元</td>
+</tr>
+<tr>
+<td>会话层</td>
+<td>对应用会话的管理、同步。 确定网络数据是否要经过远程会话</td>
+<td>SPDU，会话协议数据单元</td>
+</tr>
+<tr>
+<td>传输层</td>
+<td>确定可靠与不可靠的传输（ TCP传输控制协议可靠不会丢、UDP用户数据报协议更快但可能会丢）、传输前的错误检测、 流量控制、 确立端口号, 便于通过IP确定主机后, 通过端口确定交互的服务</td>
+<td>TPDU，传输协议数据单元</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>负责提供逻辑地址(IP地址, 需要写入发件人IP与收件人IP）、 选择通路。 （确定IP地址，原IP、目地IP）</td>
+<td>报文</td>
+</tr>
+<tr>
+<td>数据链路层</td>
+<td>负责组成帧(组入MAC信息)，用MAC地址访问媒介（源地址&amp;目的地址）、错误的检测与修正。物理地址，就是计算机MAC地址，也就是计算机网卡地址。每一台电脑都有一个网卡地址，MAC地址负责局域网通信，IP地址负责外网通信。</td>
+<td>帧</td>
+</tr>
+<tr>
+<td>物理层</td>
+<td>设备之间比特流的传输（ 最基本的数据传递）、物理接口（ 网线口、视频口、音频口）、电气特性（ 网线8根线中的1、3、2、6四根线传输数据）</td>
+<td>比特流</td>
+</tr>
+</tbody>
+</table>
+<p>举例场景 用户A需要给用户B发送一份邮件</p>
+<ol>
+<li>应用层 : 浏览器进入邮箱, 写邮件, 点击发送, 数据将传递至 表示层</li>
+<li>表示层 : 进行的数据的编码, 而后数据传递至会话层</li>
+<li>会话层 : 判断数据的发送类型, 是进行网络传输还是进行本地保存, 若是进行传输 传递至传输层</li>
+<li>传输层 : 确立协议TCP或UDP, 写入邮件的发送及目标端口号, 传递至网络层</li>
+<li>网络层 : 写入自身及目标IP地址, 传递至数据链路层</li>
+<li>数据链路层 : 写入源MAC地址与目标MAC地址, 由于IP地址找到局域网, 再通过MAC地址在局域网中找到目标, 传递至物理层</li>
+<li>物理层 : 数据传输</li>
+</ol>
+<p><br></p>
+<h3 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h3><h4 id="TCP-IP-四层模型与-OSI-七层模型对应关系"><a href="#TCP-IP-四层模型与-OSI-七层模型对应关系" class="headerlink" title="TCP/IP 四层模型与 OSI 七层模型对应关系"></a>TCP/IP 四层模型与 OSI 七层模型对应关系</h4><ul>
+<li>应用层 : 应用层、表示层、会话层<br>为用户提供所需的各种服务, 例如 <strong>FTP</strong>、<strong>Telnet</strong>、<strong>DNS</strong>、<strong>SMTP</strong>等</li>
+</ul>
+<ul>
+<li>传输层 : 传输层<br>负责为应用层实体提供端到端的通信功能, 保证了数据包的顺序传送及数据的完整性, 该层定义了两个主要的协议 : 传输控制协议(<strong>TCP</strong>)可靠的面向连接，不会丢失，类似打电话，网页、邮件 和  用户数据报协议(<strong>UDP</strong>)不可靠的面向无连接,有可能丢失, 类似发短信、QQ</li>
+</ul>
+<ul>
+<li>网际互联层 : 网络层<br>主要解决主机到主机的通信问题, 它所包含的协议涉及数据包在整个网络上的逻辑传输, 该层有三个主要协议 : 网际协议(<strong>IP</strong>), 互联网组管理协议(<strong>IGMP</strong>), 互联网控制报文协议(<strong>ICMP</strong>)</li>
+</ul>
+<ul>
+<li>网络接口层 : 数据链路层、物理层<br>负责监视数据在主机和网络之间的交换, 事实上, TCP/IP本身并未定义该层的协议, 而由参与互连的各网络使用自己的物理层和数据链路层协议, 然后与TCP/IP的网络接入层进行连接. 地址解析协议(<strong>ARP</strong>) 工作在此层, 即OSI参考模型的数据链路层.<br>地址解析协议(ARP) : 将IP地址 翻译成物理地址</li>
+</ul>
+<h4 id="数据封装过程"><a href="#数据封装过程" class="headerlink" title="数据封装过程"></a>数据封装过程</h4><p>发送是由上至下进行打包, 接收是由下至上进行拆包<br><img src="../img/IMG10.jpg" alt=""></p>
+<h4 id="TCP-IP-模型与OSI-模型的比较"><a href="#TCP-IP-模型与OSI-模型的比较" class="headerlink" title="TCP/IP  模型与OSI 模型的比较"></a>TCP/IP  模型与OSI 模型的比较</h4><p>共同点</p>
+<ol>
+<li>OSI 参考模型和 TCP/IP参考模型都采用了层次结构的概念</li>
+<li>都能够提供面向连接和无连接两种通信服务机制</li>
+</ol>
+<p>不同点</p>
+<ol>
+<li>OSI 七层, TCP/IP 四层</li>
+<li>对可靠性要求不同(TCP/IP 更高)</li>
+<li>OSI 模型是在协议开发前设计的, 具有通用性. TCP/IP 是先有协议集, 然后建立模型, 不适用与非TCP/IP网络</li>
+<li>实际市场应用不同( OSI 模型只是理论上的模型, 并没有成熟的产品, 而TCP/IP已经成为”实际上的国际标准”)</li>
+</ol>
+<p><br></p>
+<h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><h4 id="IP包头-如图"><a href="#IP包头-如图" class="headerlink" title="IP包头(如图)"></a>IP包头(如图)</h4><p>横32位, 竖5行, 固定的共160位, 20字节, 另外有其他选项存在, 导致包头不固定, 因此每接收到包头, 需要进行检测包头长度才能够取出包头, 也是为何IPv4没有IPv6快的原因</p>
+<p>包头中包含的IP地址只有32位, 即2的32次幂, 42亿9千万左右的IP</p>
+<p><img src="../img/IMG11.jpg" alt=""></p>
+<h4 id="IP地址分类"><a href="#IP地址分类" class="headerlink" title="IP地址分类"></a>IP地址分类</h4><p>IP分为A、B、C、D、E 五大类, 其中DE不对民用组织开放, 不可使用, 因此有效类只有ABC<br>可根据第一位数值判断类别, 1-126 为A类, 128-172 为B类, 192-223 为C类</p>
+<p>127.0.0.1 为本机</p>
+<p> 第一位表示不同网段, 不同网络, 不同网络之间的通信需要使用路由器，路由器是用来实现跨网络通信的, 同一网络下通信使用交换机即可. 第一位不变情况下, 后三位的变化都代表同一网络下的不同主机</p>
+<ol>
+<li>A 类 : 每个网络中的第一个地址(X.0.0.0)代表网络本身,最后一个地址(X.255.255.255)代表当前网络的广播地址, 不能分配, 最大主机数 : 后三位的次幂, 减 第一和最后一个 , 2^24 -2</li>
+<li>B 类 : 前两位代表网段, 后两位代表网段中的不同主机</li>
+<li>C 类 : 前三位代表网段, 最后一位代表不同主机</li>
+</ol>
+<p>私有IP :  不需要花钱买, 用来做内网IP, 可有效保护公网IP, 不能直接访问公网, 需要与公网之间进行转换才可访问互联网</p>
+<p><img src="/home/lee/Pictures/IMG12.jpg" alt=""></p>
+<p><br></p>
+<h3 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h3><p>ABC类可以用不同的网段个数和主机个数, 是由子网掩码决定<br>子网掩码用连续1的表示，例如255.0.0.0，255.255.0.0，255。255.255.255.0</p>
+<p>子网掩码的作用：用来区分不同网段的IP—-子网掩码与IP相与，得到的结果相同则在同一网段。否则不在，需要经过路由器转发。</p>
+<p>合理的子网掩码 : 所有的1必须连续, A 类地址可匹配B类子网掩码</p>
+<p>IP和子网掩码必须一起配合使用。<br>网络号=IP&amp;&amp;子网掩码</p>
+<p>广播地址：主机号全为1,广播地址是专门用于同时向网络中所有工作站进行发送的一个地址</p>
+<p>合理的子网掩码 : 所有的1必须连续, A 类地址可匹配B类子网掩码</p>
+<p><img src="../img/IMG13.jpg" alt=""></p>
+<p><br></p>
+<h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p><img src="../img/IMG14.jpg" alt=""><br><img src="../img/IMG15.jpg" alt=""></p>
+<pre><code>netstat -an
+#查看本机启用的端口
+#-a:查看所有连接和监听端口
+#-n:显示IP地址和端口号，而不显示域名和服务名
+</code></pre><p>TCP因为3次握手的机制所以需要监听，而UDP不需要监听</p>
+<h4 id="常见端口号"><a href="#常见端口号" class="headerlink" title="常见端口号"></a>常见端口号</h4><ul>
+<li>FTP（文件传输协议）：20、21；</li>
+<li>SSH（安全shell协议）：22；</li>
+<li>telnet（远程登录协议）：23；</li>
+<li>DNS（域名系统）：53；</li>
+<li>http（超文本传输协议）：80；</li>
+<li>SMTP（简单邮件传输协议）：25；</li>
+<li>POP3（邮局协议）：110；</li>
+</ul>
+<p><br></p>
+<h3 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h3><h4 id="hosts和DNS"><a href="#hosts和DNS" class="headerlink" title="hosts和DNS"></a>hosts和DNS</h4><p>hosts文件：做静态IP和域名对应，优先于DNS.<br>位置：<br>C：\Windows\System32\drivers\etc\hosts<br>hosts文件只可做临时解析用，名称解析效能下降，主机维护困难</p>
+<p>DNS全称为——&gt;domain name system——&gt;域名系统</p>
+<ul>
+<li>不配置DNS是不能联网的。</li>
+<li>在互联网中，通过IP地址来进行通信。</li>
+<li>IP地址是用数字来表示的，记忆起来太困难了(如116.213.120.232)</li>
+<li>人对域名更加敏感，:<a href="http://www.imooc.com/" target="_blank" rel="external">http://www.imooc.com/</a></li>
+</ul>
+<p>DNS服务的作用:将域名解析为IP地址<br>过程：客户机向DNS服务器发送查询IP请求<br>DNS服务器查询到web服务器的ip，告知用户<br>用户访问web服务器</p>
+<h4 id="域名空间结构"><a href="#域名空间结构" class="headerlink" title="域名空间结构"></a>域名空间结构</h4><p>根域：.（13台服务器）<br>——&gt;顶级域/一级域：包括组织域和地区域<br>（组织域：gov政府/edu教育部门/com商业部门/org民间团体/net网络服务机构/mil军事部门 地区域：cn 中国 hk 香港 jp 日本 Uk 英国 au 澳大利亚）<br>——&gt;二级域：企业或个人自行购买的（imooc /microsoft/ibm/sina）<br>——&gt;主机名/3级域：申请完二级域后自己定义的（www/news）</p>
+<p>三级域（www）+二级域（baidu）+顶级域（.com）组成完整域名空间</p>
+<p>为什么要进行域名分级划分<br>便于IP地址解析</p>
+<h4 id="DNS查询塎"><a href="#DNS查询塎" class="headerlink" title="DNS查询塎"></a>DNS查询塎</h4><p>DNS客户机——&gt;本地域名服务器——&gt;根DNS服务器——&gt;cn服务器——&gt;com.cn服务器——&gt;imooc.com.cn——&gt;本地域名服务器——&gt;DNS客户机——&gt;web服务器www.imooc.com.cn</p>
+<p><img src="../img/IMG16.PNG" alt=""></p>
+<h4 id="DNS查询类型"><a href="#DNS查询类型" class="headerlink" title="DNS查询类型"></a>DNS查询类型</h4><p>从查询方式上分</p>
+<ul>
+<li>递归查询：客户机将请求发送给DNS服务器，服务器通过缓存或者询问其他服务器最后将一个准确的结果或者失败回复给客户机，客户机只负责问，所有事情都是服务器做。客户机对本地域名服务器查询的机制，必须反馈准确值（要么成功要么失败）</li>
+<li>迭代查询：客户机像DNS服务器发送请求后，服务器向客户机返回另一个服务器的地址，客户机不停地向不同DNS服务器发送请求，所有事情都自己做。本地域名服务器分别对各级域名服务器的查询机制，不一定反馈准确值</li>
+</ul>
+<p>从查询内容上分</p>
+<ul>
+<li>正向：域名到IP ARP </li>
+<li>反向：IP到域名 RARP</li>
+</ul>
+<p><br></p>
+<h3 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h3><ul>
+<li>网关（Gateway）又称网间连接器、协议转换器</li>
+<li>网关在网络层以上实现网络互连，是最复杂的网络互连设备，仅用于两个高层不同的网络互连</li>
+<li>网关既可以用于广域网互连，也可以用于局域网互连</li>
+<li>网关是一种充当转换重任的服务器或路由器</li>
+<li>交换机不能识别ip，只能记录客户机的MAC地址。即只能在局域网中进行通信</li>
+<li>访问不同网段，则需要引入网关。</li>
+<li>网关：一个具有路由功能的设备，一般为路由器。</li>
+</ul>
+<p><img src="../img/IMG17.jpg" alt=""></p>
+<h4 id="网关作用"><a href="#网关作用" class="headerlink" title="网关作用"></a>网关作用</h4><ul>
+<li>网关在所有内网计算机访问的不是本网段的数据包时使用</li>
+<li>把内网Ip转公网Ip，公网Ip转内网Ip</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/01/Linux网络管理-远程登录/" rel="next" title="Linux网络管理 远程登录">
+                <i class="fa fa-chevron-left"></i> Linux网络管理 远程登录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">木鱼</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI模型"><span class="nav-number">1.</span> <span class="nav-text">OSI模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP"><span class="nav-number">2.</span> <span class="nav-text">TCP/IP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-IP-四层模型与-OSI-七层模型对应关系"><span class="nav-number">2.1.</span> <span class="nav-text">TCP/IP 四层模型与 OSI 七层模型对应关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据封装过程"><span class="nav-number">2.2.</span> <span class="nav-text">数据封装过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-IP-模型与OSI-模型的比较"><span class="nav-number">2.3.</span> <span class="nav-text">TCP/IP  模型与OSI 模型的比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址"><span class="nav-number">3.</span> <span class="nav-text">IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IP包头-如图"><span class="nav-number">3.1.</span> <span class="nav-text">IP包头(如图)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP地址分类"><span class="nav-number">3.2.</span> <span class="nav-text">IP地址分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子网掩码"><span class="nav-number">4.</span> <span class="nav-text">子网掩码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口"><span class="nav-number">5.</span> <span class="nav-text">端口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见端口号"><span class="nav-number">5.1.</span> <span class="nav-text">常见端口号</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS"><span class="nav-number">6.</span> <span class="nav-text">DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hosts和DNS"><span class="nav-number">6.1.</span> <span class="nav-text">hosts和DNS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域名空间结构"><span class="nav-number">6.2.</span> <span class="nav-text">域名空间结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS查询塎"><span class="nav-number">6.3.</span> <span class="nav-text">DNS查询塎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS查询类型"><span class="nav-number">6.4.</span> <span class="nav-text">DNS查询类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网关"><span class="nav-number">7.</span> <span class="nav-text">网关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网关作用"><span class="nav-number">7.1.</span> <span class="nav-text">网关作用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">木鱼</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.3.8</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
