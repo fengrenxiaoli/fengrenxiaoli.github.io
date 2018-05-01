@@ -2,8 +2,10 @@
 
 
 
+  
 
-<html class="theme-next mist" lang="zh-Hans">
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -35,36 +37,11 @@
 
 
 
+
   
   
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -73,7 +50,22 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -83,11 +75,6 @@
 
 
   <link rel="alternate" href="/atom.xml" title="太阳落下" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -108,11 +95,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: false,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -155,8 +143,7 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
- ">
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -202,28 +189,8 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -335,15 +302,77 @@
       
         
           
-          作用在Linux中，有一些系统文件，对系统的运行有着至关重要的作用，如/etc/fstab等，一般不允许修改，这个时候，我们可以赋予文件/目录r--------的权限；然而，还有一个更为简单有效的命令
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/27/Linux权限-chattr、lsattr/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在Linux中，有一些系统文件，对系统的运行有着至关重要的作用，如/etc/fstab等，一般不允许修改，这个时候，我们可以赋予文件/目录<code>r--------</code>的权限；然而，还有一个更为简单有效的命令<code>chattr</code>可以实现该功能！</p>
+<p><br>  </p>
+<h3 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h3><ul>
+<li>所支持的文件系统包括：ext2、ext3、ext4和xfs</li>
+<li>一般要求内核版本不低于2.2(查看版本的命令如下：<code>uname -a</code>、<code>lsb_release -a</code></li>
+<li>不能保护 <code>/</code>、<code>/tmp</code> 、<code>/dev</code>、<code>/var</code>目录</li>
+<li><code>chattr</code>只能由root用户使用</li>
+</ul>
+<p><br></p>
+<h3 id="chattr"><a href="#chattr" class="headerlink" title="chattr"></a>chattr</h3><p>类似于<code>chmod</code>, <code>chmod</code>只是改变文件的读写、执行权限，更底层的属性控制是由<code>chattr</code>来改变的.</p>
+<pre><code>chattr [+-=] [选项] 文件或目录名
+</code></pre><ul>
+<li>+：增加权限</li>
+<li>-：减少权限 </li>
+<li>=：等于某权限</li>
+<li>a：即append<ul>
+<li>如果对文件设置a属性，那么只能在文件中增加数据，不能删除也不能修改数据（不能使用vi，因为不能判断是增加还是修改，可以使用echo）</li>
+<li>如果对目录设置a属性，那么只允许在目录中建立和修改文件，但是不允许删除</li>
+</ul>
+</li>
+<li>i：即insert<ul>
+<li>如果对文件设置i属性，那么不允许对文件进行删除、改名、设定链接关系，同时不能写入或新增内容</li>
+<li>如果对目录设置i属性，那么只能修改目录下文件的数据，不允许建立和删除文件</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3 id="lsattr"><a href="#lsattr" class="headerlink" title="lsattr"></a>lsattr</h3><p>查看文件系统属性</p>
+<pre><code>lsattr [选项] [文件名]
+</code></pre><ul>
+<li>-a：列出目录下的所有文件，包括隐藏文件</li>
+<li>-d：查看本目录自身的权限</li>
+</ul>
+<p><br></p>
+<h3 id="例程"><a href="#例程" class="headerlink" title="例程"></a>例程</h3><p>首先，我使用root身份新建一个文件：</p>
+<pre><code>[root@niesh test]# ll
+总用量 0
+-rw-rw-r--. 1 root niesh 0 7月  31 20:27 abc
+</code></pre><p>然后，我给该文件增加 i 权限：</p>
+<pre><code>[root@niesh test]# chattr +i abc
+[root@niesh test]# lsattr abc
+----i----------- abc
+</code></pre><p>然后，我尝试增加内容、删除文件和修改文件名：</p>
+<pre><code>[root@niesh test]# echo 1234 &gt;&gt; abc
+bash: abc: 权限不够
+[root@niesh test]# rm -f abc
+rm: 无法删除&quot;abc&quot;: 不允许的操作
+[root@niesh test]# mv abc bcd
+mv: 无法将&quot;abc&quot; 移动至&quot;bcd&quot;: 不允许的操作
+</code></pre><p>以上均失败，由此验证！</p>
+<p>修改以上文件的权限为 a :</p>
+<pre><code>[root@niesh test]# chattr +a abc
+[root@niesh test]# lsattr abc
+-----a---------- abc
+</code></pre><p>对 abc文件进行操作：</p>
+<pre><code>[root@niesh test]# echo 1111 &gt;&gt; abc
+[root@niesh test]# cat abc
+1111
+[root@niesh test]# rm -f abc
+rm: 无法删除&quot;abc&quot;: 不允许的操作
+[root@niesh test]# mv abc bcd
+mv: 无法将&quot;abc&quot; 移动至&quot;bcd&quot;: 不允许的操作
+</code></pre><p>由以上可以看出，只能增加文件内容，不能进行其他的操作！</p>
+<p><br></p>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.cnblogs.com/Jimmy1988/p/7265816.html" target="_blank" rel="external">http://www.cnblogs.com/Jimmy1988/p/7265816.html</a></li>
+<li><a href="https://www.imooc.com/video/9667" target="_blank" rel="external">https://www.imooc.com/video/9667</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -461,17 +490,173 @@
       
         
           
-          SUID(SetUID)作用使用户临时具有程序所有者（比如root）的权限来执行该程序
-试想一个场景：
-Linux普通用户可以修改自己的密码，这个是一个合情合理的设置；修改密码其实修改的是 /etc/
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/27/Linux权限-SUID、SGID、SBIT/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h3 id="SUID-SetUID"><a href="#SUID-SetUID" class="headerlink" title="SUID(SetUID)"></a>SUID(SetUID)</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>使用户临时具有程序所有者（比如root）的权限来执行该程序</p>
+<p>试想一个场景：</p>
+<p>Linux普通用户可以修改自己的密码，这个是一个合情合理的设置；修改密码其实修改的是 /etc/shadow 这个文件；然而不知道你有没看过这个文件的属性：</p>
+<pre><code>[niesh@niesh ~]$ ll /etc/shadow
+----------. 1 root root 1476 7月  30 16:15 /etc/shadow
+</code></pre><p>我去，bug啊？很明显普通用户对 /etc/shadow 文件没有任何权限啊，那怎么可能修改该文件呢？</p>
+<p>一方面我们需要修改自己的密码（就是修改/etc/shadow)，另一方面这个文件对普通用户没任何权限，自相矛盾啊？这么办呢？<br>其实，这里就牵扯到了 SetUID 权限：修改密码的流程其实就是通过 <code>/usr/bin/passwd</code> 命令对 <code>/etc/passwd</code>进行修改，那么先让我们看一下这个可执行文件的属性：</p>
+<pre><code>[niesh@niesh ~]$ ll /usr/bin/passwd
+-rwsr-xr-x. 1 root root 27832 6月  10 2014 /usr/bin/passwd
+</code></pre><p>发现/usr/bin/passwd的权限为：-rwsr-xr-x. 在此“文件所有者”的第三位是s权限，也就是咱们即将要详细讲解的的setUID权限，也就是它在作怪了！<br>不相信，那行，我现在验证一下（和cat命令对比）：</p>
+<pre><code>[niesh@niesh ~]$ passwd
+更改用户 niesh 的密码 。
+为 niesh 更改 STRESS 密码。
+（当前）UNIX 密码：
+新的 密码：
+
+[niesh@niesh ~]$ ll /usr/bin/cat
+-rwxr-xr-x. 1 root root 54048 11月 20 2015 /usr/bin/cat
+
+[niesh@niesh ~]$ cat /etc/shadow
+cat: /etc/shadow: 权限不够
+</code></pre><p>SetUID(或者 s 权限）：当一个具有执行权限的文件设置SetUID权限后，用户执行这个文件时将以文件所有者的身份执行。passwd命令具有SetUID权限，所有者为root（Linux中的命令默认所有者都是root），也就是说当普通用户使用passwd更改自己密码的时候，那一瞬间突然 “灵魂附体” 了，实际在以passwd命令所有者root的身份在执行，root当然可以将密码写入/etc/shadow文件（root是一个bug的存在，在Linux中就没有它不能干的事），命令执行完成后该身份也随之消失。<br>当然用户的passwd命令不能修改其他用户的密码，只能输入<code>passwd</code>来修改自己的密码</p>
+<h4 id="使用要求"><a href="#使用要求" class="headerlink" title="使用要求"></a>使用要求</h4><ul>
+<li>只有可执行的二进制程序才可以设置SetUID</li>
+<li>命令执行者必须对欲设置SetUID的文件具备可执行(x) 权限，没有x的文件会成为S，S不能正确使用，只有s可以正确使用</li>
+<li>命令执行过程中，其它用户获取所有者的身份（灵魂附体）</li>
+<li>SetUID具有时间限制，即完成该程序执行后就消失</li>
+<li>不能对目录使用</li>
+</ul>
+<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p>4代表SUID，s出现在文件所有者的x权限上<br>设置SetUID</p>
+<pre><code>chmod 4755 文件名
+chmod u+s 文件名（推荐，不影响其他权限）
+</code></pre><p>取消SetUID</p>
+<pre><code>chmod 0755 文件名
+chmod u-s 文件名（推荐，不影响其他权限）
+</code></pre><h4 id="例程"><a href="#例程" class="headerlink" title="例程"></a>例程</h4><p>首先，查看一下touch命令的属性：</p>
+<pre><code>[niesh@niesh tmp]$ ll /usr/bin/touch
+-rwxr-xr-x. 1 root root 62432 11月 20 2015 /usr/bin/touch
+</code></pre><p>然后，用普通用户创建一个文件：</p>
+<pre><code>[niesh@niesh tmp]$ touch test1
+[niesh@niesh tmp]$ ll test1
+-rw-rw-r--. 1 niesh niesh 0 7月  30 17:40 test1
+</code></pre><p>接着，更改touch的属性，增加SetUID属性：</p>
+<pre><code>[niesh@niesh tmp]$ sudo chmod u+s /usr/bin/touch
+[sudo] password for niesh:
+[niesh@niesh tmp]$ ll /usr/bin/touch
+-rwsr-xr-x. 1 root root 62432 11月 20 2015 /usr/bin/touch
+</code></pre><p>而后，用普通用户再新建一个文件：</p>
+<pre><code>[niesh@niesh tmp]$ touch test2
+</code></pre><p>最后，查看两个新建文件的属性：</p>
+<pre><code>[niesh@niesh tmp]$ ll test1 test2
+-rw-rw-r--. 1 niesh niesh 0 7月  30 17:40 test1
+-rw-rw-r--. 1 root  niesh 0 7月  30 17:42 test2
+[niesh@niesh tmp]$
+</code></pre><p>可以看到，在设置了SetUID之后，新建文件的所有者为root了，说明在执行touch的时候，用户自动升级为了所有者，灵魂附体了！</p>
+<h4 id="危险性"><a href="#危险性" class="headerlink" title="危险性"></a>危险性</h4><p>设置SetUID是具备很大危险性的，例如赋予 vim 这个权限：</p>
+<p>首先，查找vim在哪里<br>    [root@niesh ~]# whereis vim<br>    vim: /usr/bin/vim /usr/bin/vim.tiny /usr/local/bin/vim /usr/local/vim /usr/share/vim</p>
+<p>然后，查看vim的属性<br>    [root@niesh ~]# ll /usr/bin/vim<br>    lrwxrwxrwx. 1 root root 18 5月   1 21:02 /usr/bin/vim -&gt; /usr/local/bin/vim</p>
+<p>再次，给vim增加SetUID权限<br>    [root@niesh ~]# chmod u+s /usr/bin/vim<br>    [root@niesh ~]# ll /usr/bin/vim<br>    lrwxrwxrwx. 1 root root 18 5月   1 21:02 /usr/bin/vim -&gt; /usr/local/bin/vim</p>
+<p>最后，使用vim编辑/etc/shadow<br>    [niesh@niesh ~]# vim /etc/shadow</p>
+<p>明显，我可以打开并进行编辑了，那万一，一个不懂的人或者而已破坏的人将自己的权限提升到了root或者干脆删除这里的内容，那后果将是灾难性的！<br>所以，我们需要定时查看系统中有哪些设置了SetUID权限</p>
+<ul>
+<li>关键目录应严格控制写权限。比如 <code>/</code>、<code>/usr</code></li>
+<li>用户的密码设置要严格遵循密码三原则(#复杂性，易记忆性，时效性）</li>
+<li>对系统中默认应该具有SetUID权限的文件做一个列表，然后定期检查有没有这之外的执行程序的命令文件被设置了SetUID</li>
+</ul>
+<p>使用shell定期检查SetUID</p>
+<pre><code>#!/bin/bash
+
+find / -perm -4000 -o -perm -2000 &gt; /tmp/setuid.check
+for i in $(cat /tmp/setuid.check)
+
+do   
+        grep $i /root/suid.log &gt; /dev/null
+              if [ &quot;S?&quot; !=&quot;0&quot;]
+              then
+                  echo &quot;$i isn&apos;t in listfile!&quot; &gt;&gt; /root/suid_log_$(date+%F)
+              fi
+done
+rm -rf /tmp/setuid.check
+</code></pre><p><br></p>
+<h3 id="SGID-SetGID"><a href="#SGID-SetGID" class="headerlink" title="SGID(SetGID)"></a>SGID(SetGID)</h3><p>SetGID基本与SetUID相同，SetUID是设置所有者的权限，GID为设置所属组的权限<br>区别点在于：SetGID也可以设置目录的相关SetGID权限！</p>
+<h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><p>将用户所在组临时升级为某一个组，以执行只有该组才有相应权限进行的操作</p>
+<h4 id="使用要求-1"><a href="#使用要求-1" class="headerlink" title="使用要求"></a>使用要求</h4><ul>
+<li>针对文件：<ul>
+<li>可执行的二进制文件</li>
+<li>命令执行者（即所属组）对该文件具备 x 权限</li>
+<li>命令执行者在执行程序的时候，组身份升级为该程序文件的属组</li>
+<li>权限只在执行过程中有效</li>
+</ul>
+</li>
+<li>针对目录：<ul>
+<li>普通用户对目录具备r和x权限，才可以进入到该目录</li>
+<li>普通用户在此目录中的有效组会变成此目录的所属组</li>
+<li>如普通用户对该目录具备w权限，新建文件的所属组为该目录的所属组</li>
+</ul>
+</li>
+</ul>
+<h4 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h4><p>2代表SGID，s出现在文件所属群组的x权限上<br>设置SetGID</p>
+<pre><code>chmod 2xxx &lt;file/dir-name&gt;
+chmod g+s &lt;file/dir-name&gt; （推荐）
+</code></pre><p>取消SetGID</p>
+<pre><code>chmod xxx &lt;file/dir-name&gt;
+chmod g-s &lt;file/dir-name&gt;
+</code></pre><h4 id="例程-1"><a href="#例程-1" class="headerlink" title="例程"></a>例程</h4><p>我们此处以locate命令进行讨论：<br>locate查询命令，比find要快很多，为什么？因为其实搜索的数据库而非整个硬盘：</p>
+<pre><code>[root@niesh ~]# ll /usr/bin/locate
+-rwx--s--x. 1 root slocate 40496 6月  10 2014 /usr/bin/locate
+
+[root@niesh ~]# ll /var/lib/mlocate/mlocate.db
+-rw-r-----. 1 root slocate 6306909 7月  30 19:15 /var/lib/mlocate/mlocate.db
+</code></pre><p>我用普通用户进行locate查看：</p>
+<pre><code>[niesh@niesh root]$ locate mlocate.db
+/usr/share/man/man5/mlocate.db.5.gz
+</code></pre><p>去掉locate的s权限：<br>    [root@niesh ~]# chmod g-s /usr/bin/locate<br>    [root@niesh ~]# ll /usr/bin/locate<br>    -rwx–x–x. 1 root slocate 40496 6月 10 2014 /usr/bin/locate</p>
+<pre><code>[niesh@niesh root]$ locate mlocate.db
+locate: 无法执行 stat () `/var/lib/mlocate/mlocate.db&apos;: 权限不够
+</code></pre><p>也就是：当执行locate命令时，普通用户niesh自动升级为slocate的组成员。</p>
+<ul>
+<li>/usr/bin/locate是可执行二进制程序，可以赋予SGID</li>
+<li>执行用户niesh对/usr/bin/locate命令拥有执行权限</li>
+<li>执行/usr/bin/locate命令时，组身份会升级为slocate组，而slocate组对/var/lib/mlocate/mlocate.db数据库拥有r权限，所以普通用户可以使用locate命令查询mlocate.db数据库</li>
+<li>命令结束，niesh用户的组身份返回为niesh组</li>
+</ul>
+<p><br></p>
+<h3 id="SBIT-Sticky-BIT"><a href="#SBIT-Sticky-BIT" class="headerlink" title="SBIT(Sticky BIT)"></a>SBIT(Sticky BIT)</h3><p>粘滞位</p>
+<h4 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h4><p>防止其他用户删除自己的文件，使用者在该目录下，仅自己与root才有权力删除新建的目录或文件</p>
+<h4 id="使用要求-2"><a href="#使用要求-2" class="headerlink" title="使用要求"></a>使用要求</h4><p>只对目录有效<br>普通用户对该目录有w和x权限<br>若没有粘滞位，则普通用户可以对目录下的文件/子目录进行删除操作（因为普通用户对目录具有w权限），包括其它用户建立的目录/文件；但若赋了SBIT,则普通用户只能删除自己创建的文件/目录，而不能删除不属于自己的文件/目录！</p>
+<h4 id="命令-2"><a href="#命令-2" class="headerlink" title="命令"></a>命令</h4><p>1代表SBIT，t出现在文件其他用户的x权限上<br>设置SBIT</p>
+<pre><code>chmod 1xxx &lt; dir-name &gt;
+chmod o+t &lt; dir-name &gt;
+</code></pre><p>取消SBIT</p>
+<pre><code>chmod xxx &lt; dir-name &gt;
+chmod o-t &lt; dir-name &gt;
+</code></pre><h4 id="例程-2"><a href="#例程-2" class="headerlink" title="例程"></a>例程</h4><p>以/tmp为例：<br>查看/tmp的权限：<br>    [niesh@niesh tmp]$ ll -d /tmp/<br>    drwxrwxrwt. 8 root root 4096 7月 30 19:40 /tmp/<br>会看到，/tmp目录的权限other部分为rwt,这个t就是我们设置的粘滞位<br>接下来，我们用其它用户创建两个文件：</p>
+<pre><code>[Jimmy@niesh tmp]$ touch test-file
+[Jimmy@niesh tmp]$ mkdir test-dir
+[Jimmy@niesh tmp]$ ll
+总用量 0
+drwxrwxr-x. 2 Jimmy Jimmy 6 7月  30 19:44 test-dir
+-rw-rw-r--. 1 root  Jimmy 0 7月  30 19:44 test-file
+</code></pre><p>切换到另外一个用户niesh:</p>
+<pre><code>[niesh@niesh tmp]$ ll
+总用量 0
+drwxrwxr-x. 2 Jimmy Jimmy 6 7月  30 19:44 test-dir
+-rw-rw-r--. 1 root  Jimmy 0 7月  30 19:44 test-file
+在 niesh用户下，删除/tmp目录下的文件：
+
+[niesh@niesh tmp]$ rm -rf test-dir/ test-file
+rm: 无法删除&quot;test-dir/&quot;: 不允许的操作  
+无法删除！
+</code></pre><p>然后，我们切换到root，去掉/tmp的粘滞位：</p>
+<pre><code>[niesh@niesh tmp]$ su -
+密码：
+上一次登录：日 7月 30 19:43:21 CST 2017pts/0 上
+[root@niesh ~]# chmod o-t /tmp/
+[root@niesh ~]# ll -d /tmp/
+drwxrwxrwx. 9 root root 4096 7月  30 19:48 /tmp/
+</code></pre><p>最后，切换到普通用户niesh，再次删除/tmp下的文件：</p>
+<pre><code>[niesh@niesh root]$ rm -rf /tmp/test-dir/ /tmp/test-file
+[niesh@niesh root]$ ll /tmp/
+总用量 0
+</code></pre><p>参考：</p>
+<ul>
+<li><a href="http://www.cnblogs.com/Jimmy1988/p/7260215.html" target="_blank" rel="external">http://www.cnblogs.com/Jimmy1988/p/7260215.html</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -589,15 +774,42 @@ Linux普通用户可以修改自己的密码，这个是一个合情合理的设
       
         
           
-          清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/11/清华同方x46h开启Intel-VT/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷，结果我刷的代价就是主板被刷坏，花了350把主板修了，总之刷BIOS还是<strong>有风险</strong>的，这里只是提供具体方法</p>
+<h2 id="1、查看是否支持Intel-VT技术以及是否开启"><a href="#1、查看是否支持Intel-VT技术以及是否开启" class="headerlink" title="1、查看是否支持Intel VT技术以及是否开启"></a>1、查看是否支持Intel VT技术以及是否开启</h2><p>下载leomoon-cpu-v（<a href="https://leomoon.com/downloads/desktop-apps/leomoon-cpu-v/），并安装" target="_blank" rel="external">https://leomoon.com/downloads/desktop-apps/leomoon-cpu-v/），并安装</a></p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/2017-09-11_084754.png" alt="leomoon-cpv"></p>
+<p>左边的对勾表示主板支持Intel VT<br>右边的对勾表示主板已经开启Intel VT<br>这张图片是已经开启的状态<br>清华同方x46h的实际状态应该是左边对勾，右边叉</p>
+<h2 id="2、制作纯DOS启动U盘"><a href="#2、制作纯DOS启动U盘" class="headerlink" title="2、制作纯DOS启动U盘"></a>2、制作纯DOS启动U盘</h2><ul>
+<li><p>下载MSDOS7.1<br><a href="http://www.cn-dos.net/newdos/dosart32.htm" target="_blank" rel="external">http://www.cn-dos.net/newdos/dosart32.htm</a><br>解压</p>
+</li>
+<li><p>格式化U盘为FAT32分区格式</p>
+</li>
+<li><p>使用UltraIOS制作U盘启动盘<br>和制作win7的启动U盘一样<br>插入不用的U盘（因为需要格式化）<br>在UltraIOS中文件》打开，选择解压后的MSDOS文件夹中的IOS镜像文件；<br>点击启动》写入硬盘映像<br>选择U盘，写入方式为USB-HDD+，点击写入</p>
+</li>
+</ul>
+<p>可以参考<a href="http://blog.sina.com.cn/s/blog_4ad042e50102eclt.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4ad042e50102eclt.html</a></p>
+<h2 id="3、下载需要刷的BIOS"><a href="#3、下载需要刷的BIOS" class="headerlink" title="3、下载需要刷的BIOS"></a>3、下载需要刷的BIOS</h2><ul>
+<li>在步骤2中制作好的U盘启动盘里新建文件夹，文件夹名叫12</li>
+<li>下载<a href="https://getpocket.com/a/read/1885690768中的X46H_BIOS" target="_blank" rel="external">https://getpocket.com/a/read/1885690768中的X46H_BIOS</a> ，解压，将文件夹中的四个文件复制到12文件夹中</li>
+</ul>
+<h2 id="4、刷BIOS"><a href="#4、刷BIOS" class="headerlink" title="4、刷BIOS"></a>4、刷BIOS</h2><ul>
+<li>重启电脑，按F2打开BIOS</li>
+<li>将U盘设为电脑开启的第一启动项，保存，退出</li>
+<li>插入U盘，重启电脑</li>
+<li>会进入MSDOS界面，会先让你设置MSDOS，选择cancel取消设置</li>
+<li><p>接下来输入以下命令</p>
+<p>命令1： “C:” 回车       —将当前盘符切换到C:<br>命令2： “CD 12” 回车    —将当前操作文件夹切换到C:\12下<br>命令3： “fpt -bios -f GT_122.h09” 回车    —执行刷新命令 图4</p>
+</li>
+</ul>
+<p>刷新成功后<br><img src="http://ow3dy62zt.bkt.clouddn.com/2017-09-11_091756.jpg" alt=""></p>
+<ul>
+<li>按开关机键 关机 ，将电池拔掉 ，电源线 移除 ，1分钟后安装好。</li>
+</ul>
+<h2 id="5、开启Intel-VT"><a href="#5、开启Intel-VT" class="headerlink" title="5、开启Intel VT"></a>5、开启Intel VT</h2><p>开机，按F2进 BIOS  选择高级 Advanced  选项  会出现 虚拟化选项。打开后按F10保存并退出即可。</p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/2017-09-11_091956.jpg" alt=""></p>
+<p>运行leomoon-cpu-v工具可以看到看到Intel VT已经开启</p>
+<p>参考：<a href="http://benyouhui.it168.com/thread-1896445-1-1.html" target="_blank" rel="external">http://benyouhui.it168.com/thread-1896445-1-1.html</a></p>
+
+          
         
       
     </div>
@@ -715,18 +927,54 @@ Linux普通用户可以修改自己的密码，这个是一个合情合理的设
       
         
           
-          每次重装系统后又需要安装各种软件，所以把需要的软件整理一下
-sublime text绿色版，重装系统还可以继续使用需要的基本配置如下
-{
-    &quot;color_scheme&quot;: &
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/06/PC端安装软件汇总/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>每次重装系统后又需要安装各种软件，所以把需要的软件整理一下</p>
+<p>sublime text<br>绿色版，重装系统还可以继续使用<br>需要的基本配置如下</p>
+<pre><code>{
+    &quot;color_scheme&quot;: &quot;Packages/User/SublimeLinter/Monokai (SL).tmTheme&quot;,
+    &quot;font_size&quot;: 14,
+    &quot;ignored_packages&quot;:
+    [
+        &quot;Vintage&quot;
+    ],
+    &quot;update_check&quot;: false
+}
+</code></pre><p>Typora<br>markdown编辑器</p>
+<p>Gidot Typesetter绿色版<br>文本排版软件</p>
+<p>Calibre</p>
+<p>UltraEdit_10.20<br>文本编辑</p>
+<p>cmder绿色版</p>
+<p>ccleaner</p>
+<p>adobe acrobat reader</p>
+<p>Python </p>
+<p>Anaconda3</p>
+<p>Axure<br>Mockplus</p>
+<p>Clover</p>
+<p>AnyConnect</p>
+<p>eclipse绿色版</p>
+<p>Java</p>
+<p>nodejs<br>hexo</p>
+<p>bandizip<br>解压缩软件，不要用绿色版，无法添加右键菜单</p>
+<p>迅雷（网盘）<br>IDM</p>
+<p>xmind<br>思维导图</p>
+<p>Potplayer<br>视频</p>
+<p>Evernote</p>
+<p>Git</p>
+<p>Chrome</p>
+<p>VirtualBox</p>
+<p>Picasa3<br>图片查看软件</p>
+<p>Ruby<br>sass需要使用</p>
+<p>手心输入法</p>
+<p>百度网盘</p>
+<p>网易云音乐</p>
+<p>Listary</p>
+<p>Directx</p>
+<p>FfastStone Capture绿色版<br>picpick绿色版</p>
+<p>MobaXterm绿色版</p>
+<p>UltraISO</p>
+<p>.net 3.5</p>
+<p>游戏需要的Visutal C++</p>
+
+          
         
       
     </div>
@@ -844,18 +1092,16 @@ sublime text绿色版，重装系统还可以继续使用需要的基本配置�
       
         
           
-          每次重装系统都要重新配置jdk每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境
-1、下载jdk2、配置环境变量
-JAVA_HOME    D:\Java\jdk1.6.0_39
-CLA
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/19/JDK配置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>每次重装系统都要重新配置jdk<br>每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境</p>
+<p>1、下载jdk<br>2、配置环境变量</p>
+<pre><code>JAVA_HOME    D:\Java\jdk1.6.0_39
+CLASSPATH    .;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
+Path        %JAVA_HOME%\bin
+            %JAVA_HOME%\jre\bin
+</code></pre><p>注意CLASSPATH之前的点和分号</p>
+<p>3、验证<br>打开cmd，分别输入<code>java -version</code>，<code>javac -version</code>，如果可以看到版本号，说明成功</p>
+
+          
         
       
     </div>
@@ -973,16 +1219,46 @@ CLA
       
         
           
-          重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来
-1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/19/重装系统后hexo配置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来</p>
+<p>1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除</p>
+<p><br><br>2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm </p>
+<pre><code>sudo apt install nodejs npm git
+sudo npm install -g n
+n stable
+sudo npm -g install npm@next
+</code></pre><p><br><br>3、配置SSH key：在Git Bash敲入</p>
+<pre><code>ssh-keygen -t rsa -C “你的邮箱”
+</code></pre><p>  生成的密钥默认保存在C:\Users\XPS.ssh\id_rsa.pub，用笔记本打开该文件，复制里面的内容到Github&gt;Settings&gt;SSH and GPG keys&gt;New SSH key-Key一栏里，title可任意发挥</p>
+<pre><code>ssh -T git@github.com
+</code></pre><p>测试是否成功</p>
+<p><br><br>4、配置Git的个人信息：在Git Bash输入</p>
+<pre><code>git config --global user.name &quot;yourname&quot;
+git config --global user.email &quot;youremail&quot;
+</code></pre><p><br><br>5、在你要放置博客的文件夹打开Git Bash， 安装Hexo框架</p>
+<pre><code>sudo npm install hexo-cli -g
+sudo npm install hexo --save
+</code></pre><p><br><br>6、hexo在指定文件夹中新建所需要的文件</p>
+<pre><code>hexo init &lt;folder&gt;
+cd &lt;folder&gt;
+npm install
+</code></pre><p><br><br>7、Hexo3.0以上版本，需要安装hexo-deployer插件才能部署到Github</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre><p><br><br>8、在初始化完成后，将之前重装系统保存的Hexo文件夹下的这些文件夹拷贝至新的Hexo文件夹(即刚刚初始化完成的)内</p>
+<p> <br><br>9、执行以下命令来部署</p>
+<pre><code>hexo clean
+hexo g
+hexo d
+</code></pre><p>在重装系统完之后恢复Hexo初次部署需要一点时部署中如果弹出弹框，填yes即可。<br>出现</p>
+<pre><code>To github.com:Aldrich-ayu/Aldrich-ayu.github.io.git
+ + cb4cda2...ec926bc HEAD -&gt; master (forced update)
+INFO  Deploy done: git
+</code></pre><p>即表示恢复Hexo并且部署成功！</p>
+<p><br><br>参考：</p>
+<p><a href="http://yanziyu.tech/2017/04/04/reinstall-hexo/" target="_blank" rel="external">http://yanziyu.tech/2017/04/04/reinstall-hexo/</a></p>
+<p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/index.html</a></p>
+<p><a href="https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/" target="_blank" rel="external">https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/</a></p>
+
+          
         
       
     </div>
@@ -1100,17 +1376,86 @@ CLA
       
         
           
-          名称Asynchronous JavaScript and XML异步得JavaScript和XML
-作用在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容
-同步与异步异步传输是面向
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/17/Ajax工作原理/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h3 id="名称"><a href="#名称" class="headerlink" title="名称"></a>名称</h3><p>Asynchronous JavaScript and XML<br>异步得JavaScript和XML</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容</p>
+<h3 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h3><p>异步传输是面向字符的传输，它的单位是字符；异步传输是将比特分成小组来进行传送。一般每个小组是一个8位字符，在每个小组的头部和尾部都有一个开始位和一个停止位，它在传送过程中接收方和发送方的时钟不要求一致</p>
+<p>同步传输是面向比特的传输，它的单位是桢，它传输的时候要求接受方和发送方的时钟是保持一致的。<br>同步传输通常要比异步传输快速得多，同步传输的开销也比较少</p>
+<h3 id="包含的技术"><a href="#包含的技术" class="headerlink" title="包含的技术"></a>包含的技术</h3><ol>
+<li>使用CSS和XHTML来表示</li>
+<li>使用DOM模型来交互和动态显示</li>
+<li>使用XMLHttpRequest来和服务器进行异步通信</li>
+<li>使用javascript来绑定和调用<br>重点是3，理解XMLHttpRequest对象</li>
+</ol>
+<h3 id="XMLHttpRequest属性"><a href="#XMLHttpRequest属性" class="headerlink" title="XMLHttpRequest属性"></a>XMLHttpRequest属性</h3><p>onreadystatechange 每次状态改变所触发事件的事件处理程序。<br>responseText 从服务器进程返回数据的字符串形式。<br>responseXML 从服务器进程返回的DOM兼容的文档数据对象。<br>status 从服务器返回的数字代码，比如常见的404（未找到）和200（已就绪）<br>status Text 伴随状态码的字符串信息</p>
+<p>readyState 对象状态值</p>
+<ul>
+<li>0 (未初始化) 对象已建立，但是尚未初始化（尚未调用open方法）</li>
+<li>1 (初始化) 对象已建立，尚未调用send方法</li>
+<li>2 (发送数据) send方法已调用，但是当前的状态及http头未知</li>
+<li>3 (数据传送中) 已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误</li>
+<li>4 (完成) 数据接收完毕,此时可以通过通过responseXml和responseText获取完整的回应数据</li>
+</ul>
+<h3 id="使用ajax的步骤"><a href="#使用ajax的步骤" class="headerlink" title="使用ajax的步骤"></a>使用ajax的步骤</h3><ol>
+<li><strong>创建xmlhttprequest对象</strong>，由于各浏览器之间存在差异，所以创建一个XMLHttpRequest对象可能需要不同的方法。这个差异主要体现在IE和其它浏览器之间。</li>
+<li>使用xmlhttprequest对象的<strong>open()</strong>和<strong>send()</strong>方法发送资源请求给服务器</li>
+<li><strong>调用onreadystatechange函数</strong>，当发送请求到服务器，我们想要服务器响应执行一些功能就需要使用onreadystatechange函数，每次xmlhttprequest对象的readyState发生改变都会触发onreadystatechange函数</li>
+<li>使用xmlhttprequest对象的<strong>responseText或responseXML属性获得服务器的响应</strong></li>
+</ol>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;p id=&quot;demo&quot;&gt;Let AJAX change this text.&lt;/p&gt;
+&lt;button type=&quot;button&quot; onclick=&quot;loadDoc()&quot;&gt;Change Content&lt;/button&gt;
+&lt;script&gt;
+function loadDoc(){
+// 1、创建xmlhttprequest对象
+var xhttp;
+if (window.XMLHttpRequest)
+{
+    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+    xhttp=new XMLHttpRequest();
+}
+else
+{
+    // IE6, IE5 浏览器执行代码
+    xhttp=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+}
+//var xhttp=new XMLHttpRequest();
+// 2、使用xmlhttprequest对象的open()和send()方法发送资源请求给服务器
+xhttp.open(&quot;POST&quot;,&quot;ajax_info.txt&quot;,true);
+//xhttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+
+// 3、onreadystatechange函数
+xhttp.onreadystatechange = function(){
+    if (xhttp.readyState == 4 &amp;&amp; xhttp.status == 200) {
+        // 4、使用xmlhttprequest对象的responseText或responseXML属性获得服务器的响应
+        document.getElementById(&quot;demo&quot;).innerHTML=xhttp.responseText;
+}
+};
+xhttp.send();
+}
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="处理post表单"><a href="#处理post表单" class="headerlink" title="处理post表单"></a>处理post表单</h3><p>post表单数据需要使用xmlhttprequest对象setRequestHeader方法增加一个HTTP头。<br>post表单例子<br>    xhttp.open(“POST”, “ajax_test.aspx”, true);<br>    xhttp.setRequestHeader(“Content-type”, “application/x-www-form-urlencoded”);<br>    xhttp.send(“fname=Henry&amp;lname=Ford”);</p>
+<h3 id="处理xml"><a href="#处理xml" class="headerlink" title="处理xml"></a>处理xml</h3><p>需要放在if (xhttp.readyState == 4 &amp;&amp; xhttp.status == 200) {}里面<br>    xmlDoc = xhttp.responseXML;<br>    var txt = “”;<br>    x = xmlDoc.getElementsByTagName(“ARTIST”);<br>    for (i = 0; i &lt; x.length; i++) {<br>        txt += x[i].childNodes[0].nodeValue + “<br>“;<br>    }<br>    document.getElementById(“demo”).innerHTML = txt;</p>
+<h3 id="处理json"><a href="#处理json" class="headerlink" title="处理json"></a>处理json</h3><p>使用JSON.parse方法<br>    xmlHttp.open(“POST”,”tigongjson.php”);<br>    //设置我们的请求头信息<br>    xmlHttp.setRequestHeader(“Content-type”,”application/x-www-form-urlencoded”);</p>
+<pre><code>//需要放在if (xhttp.readyState == 4 &amp;&amp; xhttp.status == 200) {}里面
+var data=xmlHttp.responseText;
+//json字符串转换成为json对象
+data=JSON.parse(data);
+var str=&quot;&quot;;
+for(var i=0;i&lt;data.length;i++){
+    str+=&quot;姓名:&quot;+data[i].name+&quot;&lt;br&gt;&quot;;
+    str+=&quot;年龄:&quot;+data[i].age+&quot;&lt;br&gt;&quot;;
+    str+=&quot;性别:&quot;+data[i].sex+&quot;&lt;br&gt;&quot;;
+};
+div1.innerHTML=str;
+</code></pre><p>其他请参考菜鸟教程</p>
+<p>参考：<br><a href="http://www.runoob.com/ajax/ajax-tutorial.html" target="_blank" rel="external">AJAX 教程|菜鸟教程</a><br><a href="http://www.cnblogs.com/ustbwuyi/archive/2007/02/08/645061.html#2215165" target="_blank" rel="external">Ajax的原理和应用(给公司做所的培训)</a><br><a href="http://www.jb51.net/article/88084.htm" target="_blank" rel="external">Ajax的使用四大步骤</a><br><a href="http://www.cnblogs.com/mylove103104/p/4599001.html" target="_blank" rel="external">Ajax中解析Json的两种方法详解</a><br><a href="http://www.cnblogs.com/Gabriel-Wei/p/6002223.html" target="_blank" rel="external">使用原生ajax处理json组成的数组</a></p>
+
+          
         
       
     </div>
@@ -1228,16 +1573,49 @@ CLA
       
         
           
-          概念XML 命名空间提供避免元素命名冲突的方法 。标签可以放入命名空间中，不同的命名空间中的相同名称标签是不同的标签。
-命名冲突在 XML 中，元素名称是由开发者定义的，当两个不同的文档使用相同的元素
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/13/XML命名空间和XML-Schema/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>XML 命名空间提供避免元素命名冲突的方法 。标签可以放入命名空间中，不同的命名空间中的相同名称标签是不同的标签。</p>
+<h3 id="命名冲突"><a href="#命名冲突" class="headerlink" title="命名冲突"></a>命名冲突</h3><p>在 XML 中，元素名称是由开发者定义的，当两个不同的文档使用相同的元素名时，就会发生命名冲突。</p>
+<p>这个 XML 携带 HTML 表格的信息：</p>
+<pre><code>&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;Apples&lt;/td&gt;
+&lt;td&gt;Bananas&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre><p>这个 XML 文档携带有关桌子的信息（一件家具）：</p>
+<pre><code>&lt;table&gt;
+&lt;name&gt;African Coffee Table&lt;/name&gt;
+&lt;width&gt;80&lt;/width&gt;
+&lt;length&gt;120&lt;/length&gt;
+&lt;/table&gt;
+</code></pre><p>假如这两个 XML 文档被一起使用，由于两个文档都包含带有不同内容和定义的 <table> 元素，就会发生命名冲突。<br>XML 解析器无法确定如何处理这类冲突。</table></p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>在xml文件中，命名空间的定义如下：</p>
+<pre><code>&lt;d:student xmlns:d=&quot;http://www.develop.com/student&quot;;
+</code></pre><p>其中student 是命名空间的标签。<a href="http://www.develop.com是命名空间的标识。d是命名空间的前缀。" target="_blank" rel="external">http://www.develop.com是命名空间的标识。d是命名空间的前缀。</a></p>
+<h4 id="命名空间标签"><a href="#命名空间标签" class="headerlink" title="命名空间标签"></a>命名空间标签</h4><p>由于命名空间采取元素属性的定义方式，所以需要一个标签。</p>
+<h4 id="xmlns-属性"><a href="#xmlns-属性" class="headerlink" title="xmlns 属性"></a>xmlns 属性</h4><p>当在 XML 中使用前缀时，一个所谓的用于前缀的命名空间必须被定义。<br>命名空间是在元素的开始标签的 xmlns 属性中定义的。<br>xmlns:前缀=”URI”。<br>当命名空间被定义在元素的开始标签中时，所有带有相同前缀的子元素都会与同一个命名空间相关联。<br>命名空间 URI 不会被解析器用于查找信息。<br>其目的是赋予命名空间一个惟一的名称。不过，很多公司常常会作为指针来使用命名空间指向实际存在的网页，这个网页包含关于命名空间的信息。</p>
+<h4 id="命名空间标识"><a href="#命名空间标识" class="headerlink" title="命名空间标识"></a>命名空间标识</h4><p>命名空间标识是命名空间最重要的属性，重要到当输出一个命名空间时就直接转换为它的标识。标识有个规范的称呼:URI(统一资源定位符)。URI的最大特点是唯一性。如果不唯一就失去了辨识的意义。实际上相同URI不同的命名空间被看成同一个命名空间。</p>
+<p>URI分为两种类型：<br>URL(统一资源定位器):<br>通俗的说URL就是网页地址。因为每个网页在internat上都是唯一的。</p>
+<p>URN（统一资源名称)：<br>可以不使用网页地址而使用唯一名称来定义。如：<br>urn:2007-12-9/workgrop/xin/projiectname<br>或 urn:E7f73B13-05FE-44ec-81CE-F898C4A6CDB4<br>这个编号是在系统中注册的控件编号，因此是唯一的。</p>
+<h4 id="前缀"><a href="#前缀" class="headerlink" title="前缀"></a>前缀</h4><p>前缀用于在XML中作为URI的简化引用。因为URI太长了。如：</p>
+<pre><code>&lt;d:student xmlns:d=&quot;http://www.develop.com/student&quot;&gt;
+&lt;d:id&gt;3235329&lt;/d:id&gt;
+&lt;d:name&gt;Jeff Smith&lt;/d:name&gt;
+&lt;/d:student&gt;
+</code></pre><p>使用前缀把标签放入对应的命名空间中。</p>
+<p>有了命名空间区分后相同标签名可以不会被错误解析。实际上命名空间加上元素名叫做QName。QName有两个属性：uri和localName，分别获取命名空间名和本地名称。这个QName可以使用xml的name()方法得到。如上例子中的xml文件可以使用如下代码访问：</p>
+<pre><code>var ns:Namespace=xml.namespace();var node:XMLList=xml.ns::id;var                             qNameName=node.name();trace(qName.uri);trace(qName.localName);
+</code></pre><p>命名空间不一点要定义在根节点。可以在任何标签中定义，但只有定义了后才能使用。命名空间还可以嵌套或者被重定义。但这样会增加复杂性。一般用的比较少。一个xml文件中可以拥有多个命名空间。使用命名空间前缀可以轻松处理它们。如：</p>
+<pre><code>&lt;x:transform version=”1.0” xmlns:x=http://www.w3.org/1999/XSL/Transformxmlns:d=”urn:dm:student”&gt;
+&lt;x:template match=”student”/&gt;&lt;d:template match=”name”/&gt;&lt;/x:transform&gt;
+</code></pre><h3 id="默认的命名空间"><a href="#默认的命名空间" class="headerlink" title="默认的命名空间"></a>默认的命名空间</h3><p>为元素定义默认的命名空间可以让我们省去在所有的子元素中使用前缀的工作<br>xmlns=”namespaceURI”<br>使用默认命名空间后，如果不加前缀则引用默认命名空间。使用默认命名空间会降低xml结构的清晰度。要慎用。</p>
+<p>参考：</p>
+<ul>
+<li><a href="http://m.blog.csdn.net/w938706428/article/details/41448821" target="_blank" rel="external">http://m.blog.csdn.net/w938706428/article/details/41448821</a></li>
+<li><a href="http://www.runoob.com/xml/xml-namespaces.html" target="_blank" rel="external">http://www.runoob.com/xml/xml-namespaces.html</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -1355,18 +1733,53 @@ CLA
       
         
           
-          突然想写写这个话题，是因为最近上b站，老是看到评论里有一些人为了”腐女”和”伪腐女”而争执。
-维基对于”腐女”的解释是：
+            <p>突然想写写这个话题，是因为最近上b站，老是看到评论里有一些人为了”腐女”和”伪腐女”而争执。</p>
+<p>维基对于”腐女”的解释是：</p>
+<blockquote>
+<p>腐女（日语：腐女子／ふじょし Fujoshi），主要是指喜欢BL，也就是喜欢男男爱情的女性。</p>
+</blockquote>
+<p>百度百科和萌娘百科(ACG向wiki)类似，但是对于”伪腐”的概念有一些不同的地方。</p>
+<p>维基百科中提到了”伪腐”，表示中国(其他国家没有这个概念，或者百科中没有提到)腐圈的一种概念</p>
+<blockquote>
+<p>因为大众有时并不清楚“BL”与现实中的男同性恋的区别，误以为腐女就是“对男同友善的女性”。由此也衍生出“伪腐”一词用以形容“喜欢BL，但对男同性恋不友善”的腐女。</p>
+</blockquote>
+<p>百度百科中有单独的”伪腐女”概念：</p>
+<blockquote>
+<p>腐女群体里面一些不理智、疯狂、NC（脑残）的腐女，所谓的伪其实并非是假，只是其他理智的腐女对于这类腐女看不惯所采取的分类手段，为了不让人降低对腐女的印象，选择以“这些腐女并非是真正的腐女，是伪腐！”的借口来和NC腐女划分界限或推卸责任。</p>
+</blockquote>
+<p>萌娘百科中这样定义：</p>
+<blockquote>
+<p>喜欢BL只是因为二次元中的人物都十分美型，对于现实生活中真正的GAY群不一定持支持态度，甚至厌恶和嘲笑，像这样的“腐女”被称为“伪腐”</p>
+</blockquote>
+<p>其实参考这些之后就可了解：</p>
+<p>腐只能被看作一种爱好，无论你喜欢帅哥还是什么，都可以称作腐女，”伪腐女”并不是代表假的，而是用来形容那些不理智/疯狂/脑残的腐女。</p>
+<p><strong>结论1：腐只是一种个人爱好</strong></p>
+<p><strong>结论2：伪腐女不等于不是腐女</strong></p>
+<p>“伪腐女”这个词的出现一方面不排除个别腐女的优越感，另一方面也说明一些腐女在行为方式上的让人感到反感，自己喜欢什么没人管，但是还请尊重他人(我想不论是不是腐女都应该尊重他人)，正如萌娘百科所说：</p>
+<blockquote>
+<p>腐只是一种爱好，能否做到尊重他人、尊重他人隐私是做人的基本素养问题，与腐或不腐没有联系。</p>
+</blockquote>
+<p>腐圈为了区分这些腐女所以创造了”伪腐女”这个词</p>
+<p>常见的伪腐特征(来自萌娘百科，百度百科词条”伪腐女”有类似内容)：</p>
+<blockquote>
+<p>仅喜欢长相俊秀、外貌美型的男子，对于现实中的GAY嗤之以鼻甚至深感厌恶。典型语句【长这么丑也好意思搞同性恋】。</p>
+<p>喜欢偷窥、干涉现实中的GAY的生活，过度挖掘他人的隐私以满足自己的兴趣。</p>
+<p>热衷于掰弯现实生活中的直男（如身边的男同学等），强迫周围的人搞基，令他人感到困扰，严重影响他人生活。</p>
+<p>对不符合其审美观的男性，以及明确表示厌恶搞基的直男则采取敌视态度，进行贬损和污蔑。</p>
+<p>无法接受LES（女同性恋），看不起她们。</p>
+<p>对于GAY的交心信仅凭所看的耽美漫画、动画、小说等给予荒诞错误的建议，或将信件放在公共平台供大家讨论围观。</p>
+<p>在大庭广众高调谈论腐相关，大有“我就是腐我真了不起”之意，令他人感到厌烦。</p>
+<p>不接受男女之间的爱情故事，认为耽美就是小众就是清新就是高端大气上档次，男女之情都是庸俗三流泛滥成河，由此以为自己是文艺女青年而轻视看描写一般男女故事的人。</p>
+</blockquote>
+<p>阅读更多：腐女（<a href="https://zh.moegirl.org/%E8%85%90%E5%A5%B3）" target="_blank" rel="external">https://zh.moegirl.org/%E8%85%90%E5%A5%B3）</a><br>本文引自萌娘百科（<a href="https://zh.moegirl.org/），文字内容遵守【知识共享" target="_blank" rel="external">https://zh.moegirl.org/），文字内容遵守【知识共享</a> 署名-非商业性使用-相同方式共享 3.0】协议。</p>
+<p><strong>结论3：一些腐女存在不尊重他人的行为，影响到了他人，一些行为真的让人反感，换句话说自己圈地自萌就好，请不要要求别人怎样，也别影响别人</strong></p>
+<p>那么也许会有疑问，是不是腐女都应该支持同性恋?</p>
+<p>我个人觉得并不一定，腐毕竟只是作为一种个人的爱好，只要不影响他人就好，而不一定要把这种爱好强迫变成一种公益行为，一些做支持同性恋的腐女也请不要要求别的腐女一定要支持腐女，这就和你其他公益事业一样，你做公益事业，很不错，但是强迫别人也做就不好了。</p>
+<p><strong>结论4：腐不等于公益行为</strong></p>
+<p><strong>结论5：腐圈和LGBT圈关系不大</strong></p>
+<p>参考资料：<br><a href="http://baike.baidu.com/link?url=35LSeDDZ4DN-428f8vVGBpL95zBC5P8fkGqeWL6-YqxLU6E44czQGCWjHVXMWQy5GRRwEKCHB1CxmUfiXzoP2s4aFeJ9Cpk1V1GF5c88_LK#4" target="_blank" rel="external">腐女-百度百科</a><br><a href="http://baike.baidu.com/view/2603612.htm" target="_blank" rel="external">伪腐女-百度百科</a><br><a href="https://zh.wikipedia.org/wiki/%E8%85%90%E5%A5%B3" target="_blank" rel="external">腐女-维基百科</a><br><a href="https://zh.moegirl.org/zh-hans/%E8%85%90%E5%A5%B3" target="_blank" rel="external">腐女-萌娘百科</a><br><a href="https://www.zhihu.com/question/27984520" target="_blank" rel="external">腐女与伪腐女之间的差别是什么？-知乎</a><br><a href="https://www.zhihu.com/question/20596592" target="_blank" rel="external">什么是腐女？-什么是腐女</a></p>
 
-腐女（日语：腐女子／ふじょし Fujoshi），主要是指喜欢BL，也就是喜欢
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/02/腐女与伪腐女/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -1484,17 +1897,17 @@ CLA
       
         
           
-          2016年，感觉自己什么也没做，本来也不打算写年终博客的。
-晚上和好友聊天，突然心情有点激动就想着，写写吧，写点什么，这大概只是有种想写的冲动吧，写出来的不见得有多好。
-11月份的时候才意识到我放在S
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/03/2016年突然想说的话/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>2016年，感觉自己什么也没做，本来也不打算写年终博客的。</p>
+<p>晚上和好友聊天，突然心情有点激动就想着，写写吧，写点什么，这大概只是有种想写的冲动吧，写出来的不见得有多好。</p>
+<p>11月份的时候才意识到我放在SAE上的博客不在了，只备份了Wordpress的代码，没备份数据库，120篇博客找不回来了，上面写的都是一些问题怎么解决，以及自己在学习中的经验，印象最深的大概是如何在Elementaory OS系统上安装软件，直接把博客上的语句复制到shell里执行就好，最头疼的大概是安装输入法的问题，当时记得查了好多资料，最后每次重装都是因为update时输入法出问题，具体问题记不清楚了，好像是影响软件安装和更新。</p>
+<p>考完研后一直在整理自己的东西，百度云、Onenote、印象笔记还有移动硬盘。</p>
+<p>百度云里有很多资料和书籍，以前也整理过，大概地分离了各种资源，但条理并不是很清晰，索性需要的时候虎直接搜索就好，这次打算把以前备份的手机照片整理一下，顺便把很多很多的电子书整理分类，剔除重复，还有把图片和书籍备份到移动硬盘上，书籍还在下载中，还没有整理，图片已经整理好了，把大学四年的照片、保存的来自各种渠道的图片以及截图都理清了，回顾这些图片，把一些照片发给了相关的人，他们都很吃惊，哈哈。很多截图都是我在微信的聊天记录，我还找到了我和某人认识的大概时间。这些大概都算生活中的一点小乐趣了吧。</p>
+<p>本来想将Onenote作为唯一的做笔记的应用，但是因为同步功能最后选择了印象笔记，充个标准会员，标签模式也不错，特别是用了Bear，可惜没有Mac，顺便一提，Bear真的好漂亮。</p>
+<p>这一年确实过的浑浑噩噩，是我太幼稚，也是我在逃避，我真的没办法接受现实，可是人生不就是一步一步接受的过程吗？</p>
+<p><code>走吧，各人有各人的路要走，我既没法代替你，也没法陪你，甚至无法看着你</code></p>
+<p>写的差不多了，确实只有写作的冲动，而没有写作的才华，哈哈哈。</p>
+
+          
         
       
     </div>
@@ -1563,23 +1976,47 @@ CLA
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="木鱼" />
-          <p class="site-author-name" itemprop="name">木鱼</p>
-           
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">木鱼</p>
               <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">27</span>
-                <span class="site-state-item-name">日志</span>
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
               </a>
             </div>
           
@@ -1587,40 +2024,14 @@ CLA
           
 
           
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
           
 
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
           
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -1637,12 +2048,9 @@ CLA
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">木鱼</span>
 
@@ -1650,18 +2058,17 @@ CLA
 </div>
 
 
-  <div class="powered-by">
-    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-  </div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">
-    主题 &mdash;
-    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-      NexT.Mist
-    </a>
-  </div>
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
 
 
         
@@ -1681,6 +2088,8 @@ CLA
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -1715,46 +2124,54 @@ CLA
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
   
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -1787,6 +2204,10 @@ CLA
 
 
 
+
+
+
+
   
 
 
@@ -1797,6 +2218,9 @@ CLA
 
   
 
+  
+
+  
   
 
   
