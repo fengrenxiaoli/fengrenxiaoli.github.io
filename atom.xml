@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-01T08:24:05.813Z</updated>
+  <updated>2018-05-01T08:39:07.491Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/05/01/Ubuntu-%E5%AE%89%E8%A3%85%E3%80%81%E5%8D%B8%E8%BD%BDwine/"/>
     <id>http://yoursite.com/2018/05/01/Ubuntu-安装、卸载wine/</id>
     <published>2018-05-01T08:17:58.000Z</published>
-    <updated>2018-05-01T08:24:05.813Z</updated>
+    <updated>2018-05-01T08:39:07.491Z</updated>
     
     <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>sudo add-apt-repository ppa:wine/wine-builds
 sudo apt-get update
@@ -32,8 +32,12 @@ rm -r ~/.wine
 sudo apt-get autoremove
 #清理wine模拟运行的windows程序:
 sudo rm -r /home/username/.local/share/applications
-#清理残余的windows程序:sudo rm -r /home/username/.config/menus/applications-merged/wine*
-</code></pre><p>apt-get remove 会删除软件包而保留软件的配置文件<br>apt-get purge 会同时清除软件包和软件的配置文件</p>
+#清理残余的windows程序:
+sudo rm -r /home/username/.config/menus/applications-merged/wine*
+</code></pre><ul>
+<li>apt-get remove 会删除软件包而保留软件的配置文件</li>
+<li>apt-get purge 会同时清除软件包和软件的配置文件</li>
+</ul>
 ]]></content>
     
     <summary type="html">
@@ -84,9 +88,10 @@ sudo apt-get upda
     <link href="http://yoursite.com/2018/05/01/Linux%E4%B8%8B%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8add-apt-repository%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/05/01/Linux下无法使用add-apt-repository命令/</id>
     <published>2018-05-01T07:59:11.000Z</published>
-    <updated>2018-05-01T08:01:29.459Z</updated>
+    <updated>2018-05-01T08:39:43.799Z</updated>
     
     <content type="html"><![CDATA[<p>Linux下无法使用add-apt-repository命令报错：<br><code>add-apt-repository command not found</code></p>
+<p>解决办法：</p>
 <pre><code>sudo apt-get install python-software-properties
 sudo apt-get update
 sudo apt install software-properties-common 
@@ -96,7 +101,8 @@ sudo apt-get update
     <summary type="html">
     
       &lt;p&gt;Linux下无法使用add-apt-repository命令报错：&lt;br&gt;&lt;code&gt;add-apt-repository command not found&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install python-softwar
+&lt;p&gt;解决办法：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install p
     
     </summary>
     

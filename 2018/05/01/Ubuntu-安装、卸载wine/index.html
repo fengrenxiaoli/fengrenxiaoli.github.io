@@ -83,8 +83,6 @@
 
 
 
-  
-
 
   <link rel="alternate" href="/atom.xml" title="太阳落下" type="application/atom+xml" />
 
@@ -106,7 +104,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="安装sudo add-apt-repository ppa:wine/wine-builds sudo apt-get update sudo apt-get install --install-recommends wine-staging sudo apt-get install winehq-staging  卸载sudo apt purge wine rm -r ~/.wine sudo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-01T08:24:05.813Z">
+<meta property="og:updated_time" content="2018-05-01T08:39:07.491Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 安装、卸载wine">
 <meta name="twitter:description" content="安装sudo add-apt-repository ppa:wine/wine-builds sudo apt-get update sudo apt-get install --install-recommends wine-staging sudo apt-get install winehq-staging  卸载sudo apt purge wine rm -r ~/.wine sudo">
@@ -338,8 +336,12 @@ rm -r ~/.wine
 sudo apt-get autoremove
 #清理wine模拟运行的windows程序:
 sudo rm -r /home/username/.local/share/applications
-#清理残余的windows程序:sudo rm -r /home/username/.config/menus/applications-merged/wine*
-</code></pre><p>apt-get remove 会删除软件包而保留软件的配置文件<br>apt-get purge 会同时清除软件包和软件的配置文件</p>
+#清理残余的windows程序:
+sudo rm -r /home/username/.config/menus/applications-merged/wine*
+</code></pre><ul>
+<li>apt-get remove 会删除软件包而保留软件的配置文件</li>
+<li>apt-get purge 会同时清除软件包和软件的配置文件</li>
+</ul>
 
       
     </div>
