@@ -99,7 +99,7 @@ sudo apt install op
     <link href="http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
     <id>http://yoursite.com/2018/05/01/Linux网络管理-网络基础/</id>
     <published>2018-05-01T11:06:32.000Z</published>
-    <updated>2018-05-02T03:33:08.301Z</updated>
+    <updated>2018-05-02T14:08:14.842Z</updated>
     
     <content type="html"><![CDATA[<h3 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h3><p>开放系统互联模型，由ISO(国际标准化组织) 组织开发的</p>
 <p>该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的</p>
@@ -207,7 +207,7 @@ sudo apt install op
 <p>IP和子网掩码必须一起配合使用。<br>网络号=IP&amp;&amp;子网掩码</p>
 <p>广播地址：主机号全为1,广播地址是专门用于同时向网络中所有工作站进行发送的一个地址</p>
 <p>合理的子网掩码 : 所有的1必须连续, A 类地址可匹配B类子网掩码</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG13.jpg" alt=""></p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG13.png" alt=""></p>
 <p><br></p>
 <h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG14.jpg" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG15.jpg" alt=""></p>
 <pre><code>netstat -an
