@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-01T13:26:47.687Z</updated>
+  <updated>2018-05-02T03:33:08.301Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
     <id>http://yoursite.com/2018/05/01/Linux网络管理-网络基础/</id>
     <published>2018-05-01T11:06:32.000Z</published>
-    <updated>2018-05-01T13:26:47.687Z</updated>
+    <updated>2018-05-02T03:33:08.301Z</updated>
     
     <content type="html"><![CDATA[<h3 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h3><p>开放系统互联模型，由ISO(国际标准化组织) 组织开发的</p>
 <p>该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的</p>
@@ -132,7 +132,7 @@
 <p><br></p>
 <h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG14.jpg" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG15.jpg" alt=""></p>
 <pre><code>netstat -an
-#查看本机启用的端口
+# 查看本机启用的端口
 #-a:查看所有连接和监听端口
 #-n:显示IP地址和端口号，而不显示域名和服务名
 </code></pre><p>TCP因为3次握手的机制所以需要监听，而UDP不需要监听</p>
@@ -158,7 +158,7 @@
 <h4 id="域名空间结构"><a href="#域名空间结构" class="headerlink" title="域名空间结构"></a>域名空间结构</h4><p>根域：.（13台服务器）<br>——&gt;顶级域/一级域：包括组织域和地区域<br>（组织域：gov政府/edu教育部门/com商业部门/org民间团体/net网络服务机构/mil军事部门 地区域：cn 中国 hk 香港 jp 日本 Uk 英国 au 澳大利亚）<br>——&gt;二级域：企业或个人自行购买的（imooc /microsoft/ibm/sina）<br>——&gt;主机名/3级域：申请完二级域后自己定义的（www/news）</p>
 <p>三级域（www）+二级域（baidu）+顶级域（.com）组成完整域名空间</p>
 <p>为什么要进行域名分级划分<br>便于IP地址解析</p>
-<h4 id="DNS查询塎"><a href="#DNS查询塎" class="headerlink" title="DNS查询塎"></a>DNS查询塎</h4><p>DNS客户机——&gt;本地域名服务器——&gt;根DNS服务器——&gt;cn服务器——&gt;com.cn服务器——&gt;imooc.com.cn——&gt;本地域名服务器——&gt;DNS客户机——&gt;web服务器www.imooc.com.cn</p>
+<h4 id="DNS查询过程"><a href="#DNS查询过程" class="headerlink" title="DNS查询过程"></a>DNS查询过程</h4><p>DNS客户机——&gt;本地域名服务器——&gt;根DNS服务器——&gt;cn服务器——&gt;com.cn服务器——&gt;imooc.com.cn——&gt;本地域名服务器——&gt;DNS客户机——&gt;web服务器www.imooc.com.cn</p>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG16.PNG" alt=""></p>
 <h4 id="DNS查询类型"><a href="#DNS查询类型" class="headerlink" title="DNS查询类型"></a>DNS查询类型</h4><p>从查询方式上分</p>
 <ul>
