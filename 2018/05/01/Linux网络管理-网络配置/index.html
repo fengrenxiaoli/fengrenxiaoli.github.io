@@ -94,20 +94,20 @@
 
 
 
-<meta name="description" content="IP地址配置DHCP服务器可以自动分配IP 1.ifconfig命令临时配置IP地址 ifconfig 查看当前网络状态 ifconfig eth0 192.168.254.200 netmask 255.255.255.0 临时设置eth0网卡的IP地址与子网掩码 2.setup工具永久配置IP地址  红帽专有图形化工具setup设置IP地址 CentOS系统中默认就没有setup命令，需要安装">
+<meta name="description" content="IP地址配置DHCP服务器可以自动分配IP ifconfig命令临时配置IP地址ifconfig 查看当前网络状态 ifconfig eth0 192.168.254.200 netmask 255.255.255.0 临时设置eth0网卡的IP地址与子网掩码 setup工具永久配置IP地址 红帽专有图形化工具setup设置IP地址 CentOS系统中默认就没有setup命令，需要安装  yum">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux网络管理 网络配置">
 <meta property="og:url" content="http://yoursite.com/2018/05/01/Linux网络管理-网络配置/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="IP地址配置DHCP服务器可以自动分配IP 1.ifconfig命令临时配置IP地址 ifconfig 查看当前网络状态 ifconfig eth0 192.168.254.200 netmask 255.255.255.0 临时设置eth0网卡的IP地址与子网掩码 2.setup工具永久配置IP地址  红帽专有图形化工具setup设置IP地址 CentOS系统中默认就没有setup命令，需要安装">
+<meta property="og:description" content="IP地址配置DHCP服务器可以自动分配IP ifconfig命令临时配置IP地址ifconfig 查看当前网络状态 ifconfig eth0 192.168.254.200 netmask 255.255.255.0 临时设置eth0网卡的IP地址与子网掩码 setup工具永久配置IP地址 红帽专有图形化工具setup设置IP地址 CentOS系统中默认就没有setup命令，需要安装  yum">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/home/lee/Documents/hexo/source/img/IMG18.png">
-<meta property="og:updated_time" content="2018-05-02T06:27:51.511Z">
+<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG18.png">
+<meta property="og:updated_time" content="2018-05-02T06:32:27.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux网络管理 网络配置">
-<meta name="twitter:description" content="IP地址配置DHCP服务器可以自动分配IP 1.ifconfig命令临时配置IP地址 ifconfig 查看当前网络状态 ifconfig eth0 192.168.254.200 netmask 255.255.255.0 临时设置eth0网卡的IP地址与子网掩码 2.setup工具永久配置IP地址  红帽专有图形化工具setup设置IP地址 CentOS系统中默认就没有setup命令，需要安装">
-<meta name="twitter:image" content="http://yoursite.com/home/lee/Documents/hexo/source/img/IMG18.png">
+<meta name="twitter:description" content="IP地址配置DHCP服务器可以自动分配IP ifconfig命令临时配置IP地址ifconfig 查看当前网络状态 ifconfig eth0 192.168.254.200 netmask 255.255.255.0 临时设置eth0网卡的IP地址与子网掩码 setup工具永久配置IP地址 红帽专有图形化工具setup设置IP地址 CentOS系统中默认就没有setup命令，需要安装  yum">
+<meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG18.png">
 
 
 
@@ -337,13 +337,11 @@
 
       
         <h2 id="IP地址配置"><a href="#IP地址配置" class="headerlink" title="IP地址配置"></a>IP地址配置</h2><p>DHCP服务器可以自动分配IP</p>
-<p>1.ifconfig命令临时配置IP地址</p>
-<pre><code>ifconfig
+<h4 id="ifconfig命令临时配置IP地址"><a href="#ifconfig命令临时配置IP地址" class="headerlink" title="ifconfig命令临时配置IP地址"></a>ifconfig命令临时配置IP地址</h4><pre><code>ifconfig
 查看当前网络状态
 ifconfig eth0 192.168.254.200 netmask 255.255.255.0
 临时设置eth0网卡的IP地址与子网掩码
-</code></pre><p>2.setup工具永久配置IP地址</p>
-<ul>
+</code></pre><h4 id="setup工具永久配置IP地址"><a href="#setup工具永久配置IP地址" class="headerlink" title="setup工具永久配置IP地址"></a>setup工具永久配置IP地址</h4><ul>
 <li>红帽专有图形化工具setup设置IP地址</li>
 <li>CentOS系统中默认就没有setup命令，需要安装</li>
 </ul>
@@ -358,10 +356,11 @@ yum -y install system-config-network-tui
 yum -y install authconfig-gtk
 安装setup工具配套的验证配置组件
 </code></pre><p>system-config-network-tui 无法安装，是因为网络设置改到<code>nmtui</code>命令中</p>
-<p>3.修改网络配置文件（因为配置文件不光可以配置IP，所以单独开一节）</p>
-<p>4.图形界面配置IP地址</p>
+<p>####修改网络配置文件</p>
+<p>因为配置文件不光可以配置IP，所以单独开一节</p>
+<p>####图形界面配置IP地址</p>
 <p><br></p>
-<h2 id="修改网络配置文件"><a href="#修改网络配置文件" class="headerlink" title="修改网络配置文件"></a>修改网络配置文件</h2><h4 id="网卡信息文件"><a href="#网卡信息文件" class="headerlink" title="网卡信息文件"></a>网卡信息文件</h4><p><img src="/home/lee/Documents/hexo/source/img/IMG18.png" alt=""></p>
+<h2 id="修改网络配置文件"><a href="#修改网络配置文件" class="headerlink" title="修改网络配置文件"></a>修改网络配置文件</h2><h4 id="网卡信息文件"><a href="#网卡信息文件" class="headerlink" title="网卡信息文件"></a>网卡信息文件</h4><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG18.png" alt=""></p>
 <h4 id="主机名文件"><a href="#主机名文件" class="headerlink" title="主机名文件"></a>主机名文件</h4><pre><code>vi /etc/sysconfig/network
 
 hostname [主机名]
@@ -565,7 +564,7 @@ rm -rf /etc/udev/rules.d/70-persistent-net.rules
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IP地址配置"><span class="nav-number">1.</span> <span class="nav-text">IP地址配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改网络配置文件"><span class="nav-number">2.</span> <span class="nav-text">修改网络配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网卡信息文件"><span class="nav-number">2.0.1.</span> <span class="nav-text">网卡信息文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主机名文件"><span class="nav-number">2.0.2.</span> <span class="nav-text">主机名文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS配置文件"><span class="nav-number">2.0.3.</span> <span class="nav-text">DNS配置文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机网络参数配置"><span class="nav-number">3.</span> <span class="nav-text">虚拟机网络参数配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IP地址配置"><span class="nav-number">1.</span> <span class="nav-text">IP地址配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ifconfig命令临时配置IP地址"><span class="nav-number">1.0.1.</span> <span class="nav-text">ifconfig命令临时配置IP地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setup工具永久配置IP地址"><span class="nav-number">1.0.2.</span> <span class="nav-text">setup工具永久配置IP地址</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改网络配置文件"><span class="nav-number">2.</span> <span class="nav-text">修改网络配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网卡信息文件"><span class="nav-number">2.0.1.</span> <span class="nav-text">网卡信息文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主机名文件"><span class="nav-number">2.0.2.</span> <span class="nav-text">主机名文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS配置文件"><span class="nav-number">2.0.3.</span> <span class="nav-text">DNS配置文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机网络参数配置"><span class="nav-number">3.</span> <span class="nav-text">虚拟机网络参数配置</span></a></li></ol></div>
             
 
           </div>
