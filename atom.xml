@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-02T03:33:08.301Z</updated>
+  <updated>2018-05-02T12:42:08.182Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,85 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 安装ssh</title>
+    <link href="http://yoursite.com/2018/05/02/Linux-%E5%AE%89%E8%A3%85ssh/"/>
+    <id>http://yoursite.com/2018/05/02/Linux-安装ssh/</id>
+    <published>2018-05-02T10:46:32.000Z</published>
+    <updated>2018-05-02T12:42:08.182Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简易版"><a href="#简易版" class="headerlink" title="简易版"></a>简易版</h2><pre><code>#查看ssh服务是否开启
+ps -e |grep ssh
+
+#安装ssh服务
+sudo apt install openssh-server
+
+#配置ssh
+sudo vi /etc/ssh/sshd_config
+#PermitRootLogin，RSAAuthentication，PubkeyAuthentication的设置打开
+
+#开启ssh服务
+sudo systemctl restart sshd.service
+#开机启动SSH服务
+sudo systemctl enable sshd.service
+
+#连接
+ssh -p 22 userName@192.168.1.100
+</code></pre><h2 id="复杂版"><a href="#复杂版" class="headerlink" title="复杂版"></a>复杂版</h2><p>参考<a href="https://wiki.centos.org/HowTos/Network/SecuringSSH" target="_blank" rel="external">https://wiki.centos.org/HowTos/Network/SecuringSSH</a></p>
+<pre><code>sudo firewall-cmd --reload
+#重新载入防火墙设定
+</code></pre><h2 id="设置SSH免密码登录"><a href="#设置SSH免密码登录" class="headerlink" title="设置SSH免密码登录"></a>设置SSH免密码登录</h2><pre><code>ssh-keygen -t rsa
+# ～/.ssh目录中创建两个名为id_rsa和id_rsa.pub的文件，id_rsa是私钥，id_rsa.pub是公钥
+
+#设置权限
+chmod 700〜/ .ssh
+chmod 600〜/ .ssh / id_rsa 
+
+# 复制公钥到服务器然后写入到~/.ssh/authorized_keys 方法一
+# 使用SSH远程登陆到服务器,发现家目录中还没有.ssh目录,使用mkdir创建
+mkdir .ssh
+# 发送公钥
+scp -P 端口号 ./id_rsa.pub alice@192.168.0.10:/home/alice/.ssh
+# 将公钥追加写入~/.ssh/authorized_keys中,若authorized_keys不存在,则会创建并写入
+cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+#修改authorized_keys的权限为600,并删除公钥文件
+rm id_rsa.pub
+
+# 复制公钥到服务器然后写入到~/.ssh/authorized_keys 方法二
+# ssh-copy-id 命令可以把本地主机的公钥复制到远程主机的 authorized_keys 文件上
+ssh-copy-id -i ~/.ssh/id_rsa.pub user@server
+chmod 700 ~/.ssh 
+chmod 600 ~/.ssh/authorized_keys
+</code></pre><h2 id="清除SSH的私钥密码"><a href="#清除SSH的私钥密码" class="headerlink" title="清除SSH的私钥密码"></a>清除SSH的私钥密码</h2><pre><code>ssh-keygen -p
+# 选择需要修改的私钥，默认是/home/username/.ssh/id_rsa。
+# 选好文件后按回车，会提示你输入旧密码。
+#输入好后会提示输入新密码。
+#直接回车，提示确认新密码再直接回车，此时指定的私钥的密码就被清除了
+</code></pre><p>参考：</p>
+<ul>
+<li><a href="https://wiki.centos.org/HowTos/Network/SecuringSSH" target="_blank" rel="external">https://wiki.centos.org/HowTos/Network/SecuringSSH</a></li>
+<li><a href="http://www.iosugar.com/2017/02/14/CentOS-remote-login-SSH-configuration/#SSH%E7%99%BB%E9%99%86" target="_blank" rel="external">http://www.iosugar.com/2017/02/14/CentOS-remote-login-SSH-configuration/#SSH%E7%99%BB%E9%99%86</a></li>
+<li><a href="http://einverne.github.io/post/2016/06/ssh-copy-id.html" target="_blank" rel="external">http://einverne.github.io/post/2016/06/ssh-copy-id.html</a></li>
+<li><a href="https://www.ssh.com/ssh/copy-id" target="_blank" rel="external">https://www.ssh.com/ssh/copy-id</a></li>
+<li><a href="https://linux.cn/article-6901-1.html" target="_blank" rel="external">https://linux.cn/article-6901-1.html</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;简易版&quot;&gt;&lt;a href=&quot;#简易版&quot; class=&quot;headerlink&quot; title=&quot;简易版&quot;&gt;&lt;/a&gt;简易版&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;#查看ssh服务是否开启
+ps -e |grep ssh
+
+#安装ssh服务
+sudo apt install op
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux网络管理 网络基础</title>
@@ -1369,63 +1448,6 @@ Path        %JAVA_HOME%\bin
 &lt;p&gt;1、下载jdk&lt;br&gt;2、配置环境变量&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;JAVA_HOME    D:\Java\jdk1.6.0_39
 CLASSPATH 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>重装系统后hexo配置</title>
-    <link href="http://yoursite.com/2017/08/19/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E5%90%8Ehexo%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2017/08/19/重装系统后hexo配置/</id>
-    <published>2017-08-19T07:51:47.000Z</published>
-    <updated>2018-04-27T01:24:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来</p>
-<p>1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除</p>
-<p><br><br>2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm </p>
-<pre><code>sudo apt install nodejs npm git
-sudo npm install -g n
-n stable
-sudo npm -g install npm@next
-</code></pre><p><br><br>3、配置SSH key：在Git Bash敲入</p>
-<pre><code>ssh-keygen -t rsa -C “你的邮箱”
-</code></pre><p>  生成的密钥默认保存在C:\Users\XPS.ssh\id_rsa.pub，用笔记本打开该文件，复制里面的内容到Github&gt;Settings&gt;SSH and GPG keys&gt;New SSH key-Key一栏里，title可任意发挥</p>
-<pre><code>ssh -T git@github.com
-</code></pre><p>测试是否成功</p>
-<p><br><br>4、配置Git的个人信息：在Git Bash输入</p>
-<pre><code>git config --global user.name &quot;yourname&quot;
-git config --global user.email &quot;youremail&quot;
-</code></pre><p><br><br>5、在你要放置博客的文件夹打开Git Bash， 安装Hexo框架</p>
-<pre><code>sudo npm install hexo-cli -g
-sudo npm install hexo --save
-</code></pre><p><br><br>6、hexo在指定文件夹中新建所需要的文件</p>
-<pre><code>hexo init &lt;folder&gt;
-cd &lt;folder&gt;
-npm install
-</code></pre><p><br><br>7、Hexo3.0以上版本，需要安装hexo-deployer插件才能部署到Github</p>
-<pre><code>npm install hexo-deployer-git --save
-</code></pre><p><br><br>8、在初始化完成后，将之前重装系统保存的Hexo文件夹下的这些文件夹拷贝至新的Hexo文件夹(即刚刚初始化完成的)内</p>
-<p> <br><br>9、执行以下命令来部署</p>
-<pre><code>hexo clean
-hexo g
-hexo d
-</code></pre><p>在重装系统完之后恢复Hexo初次部署需要一点时部署中如果弹出弹框，填yes即可。<br>出现</p>
-<pre><code>To github.com:Aldrich-ayu/Aldrich-ayu.github.io.git
- + cb4cda2...ec926bc HEAD -&gt; master (forced update)
-INFO  Deploy done: git
-</code></pre><p>即表示恢复Hexo并且部署成功！</p>
-<p><br><br>参考：</p>
-<p><a href="http://yanziyu.tech/2017/04/04/reinstall-hexo/" target="_blank" rel="external">http://yanziyu.tech/2017/04/04/reinstall-hexo/</a></p>
-<p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/index.html</a></p>
-<p><a href="https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/" target="_blank" rel="external">https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来&lt;/p&gt;
-&lt;p&gt;1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo
     
     </summary>
     
