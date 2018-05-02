@@ -234,9 +234,77 @@
     <link href="http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2018/05/01/Linux网络管理-网络配置/</id>
     <published>2018-05-01T11:03:33.000Z</published>
-    <updated>2018-05-01T19:15:38.353Z</updated>
+    <updated>2018-05-02T06:24:30.272Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="IP地址配置"><a href="#IP地址配置" class="headerlink" title="IP地址配置"></a>IP地址配置</h2><p>DHCP服务器可以自动分配IP</p>
+<ol>
+<li>ifconfig命令临时配置IP地址</li>
+</ol>
+<pre><code>ifconfig
+查看当前网络状态
+ifconfig eth0 192.168.254.200 netmask 255.255.255.0
+临时设置eth0网卡的IP地址与子网掩码
+</code></pre><ol>
+<li>setup工具永久配置IP地址</li>
+</ol>
+<ul>
+<li>红帽专有图形化工具setup设置IP地址</li>
+<li>CentOS系统中默认就没有setup命令，需要安装</li>
+</ul>
+<pre><code>yum -y install setuptool   
+安装setup命令工具
+yum -y install ntsysv   
+安装setup工具配套的系统服务组件
+yum -y install system-config-securitylevel-tui
+安装setup工具配套的防火墙配置组件
+yum -y install system-config-network-tui 
+安装setup工具配套的网络配置组件
+yum -y install authconfig-gtk
+安装setup工具配套的验证配置组件
+</code></pre><p>system-config-network-tui 无法安装，是因为网络设置改到<code>nmtui</code>命令中</p>
+<ol>
+<li>修改网络配置文件（因为配置文件不光可以配置IP，所以单独开一节）</li>
+<li>图形界面配置IP地址</li>
+</ol>
+<p><br></p>
+<h2 id="修改网络配置文件"><a href="#修改网络配置文件" class="headerlink" title="修改网络配置文件"></a>修改网络配置文件</h2><h4 id="网卡信息文件"><a href="#网卡信息文件" class="headerlink" title="网卡信息文件"></a>网卡信息文件</h4><p><img src="/home/lee/Documents/hexo/source/img/IMG18.png" alt=""></p>
+<h4 id="主机名文件"><a href="#主机名文件" class="headerlink" title="主机名文件"></a>主机名文件</h4><pre><code>vi /etc/sysconfig/network
+
+hostname [主机名]
+# 查看与临时设置主机名命令
+</code></pre><h4 id="DNS配置文件"><a href="#DNS配置文件" class="headerlink" title="DNS配置文件"></a>DNS配置文件</h4><pre><code>vi /etc/resolv.conf
+# nameserver 名称服务器/DNS
+</code></pre><p><br></p>
+<h2 id="虚拟机网络参数配置"><a href="#虚拟机网络参数配置" class="headerlink" title="虚拟机网络参数配置"></a>虚拟机网络参数配置</h2><p>1.配置LinuxIP地址</p>
+<pre><code>setup
+#修改并配置IP地址
+</code></pre><p>2.启动网卡</p>
+<pre><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0
+#把 ONBOOT = no改为 ONBOOT = yes
+service network restart
+#重启网络服务 
+</code></pre><p>3.修改UUID(如果这是一台克隆/复制出来的机子则必须进行这个步骤，否则可以省去)</p>
+<pre><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0
+#删除MAC地址行
+rm -rf /etc/udev/rules.d/70-persistent-net.rules
+#删除网卡和MAC地址绑定文件
+#重启动系统
+</code></pre><p>4.设置虚拟机网络连接方式</p>
+<ul>
+<li><strong>桥接模式</strong>：通过物理机的真实网卡进行通信，若选此项，则虚拟机需要配置与物理机相同的网关，缺点是需要占用真实网段的一个IP地址。这种模式更适用于实验，因为这种模式不仅可以与你的物理机可以通信还可以与同一局域网的其他主机通信，还可以访问公网。</li>
+<li><strong>NAT模式</strong>：在windows中（物理机中）是以VMware8虚拟网卡进行通信。这种模式只能与你自己的主机通信，不能与局域网的其他主机通信，但是可以通过物理的网卡访问公网。</li>
+<li>仅主机模式：在windows中（物理机中）是以VMware1虚拟网卡进行通信。这种模式只能与你自己的主机通信，不能与局域网的其他主机通信，只能与自己的物理机通信，并且不能上公网。</li>
+</ul>
+<p>切记：在选择桥接模式之后，需要选择桥接的网卡（即需要确定虚拟机需要通过哪个真实网卡连接网络），一般的虚拟机都是自动桥接，但是这种方式真的跟不靠谱**，所以你需要自己选择，如果你是通过有线接入网络，则选择有线桥接，若是通过无线接入网络，则通过无线接入。</p>
+<p>5.修改桥接网卡</p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;h2 id=&quot;IP地址配置&quot;&gt;&lt;a href=&quot;#IP地址配置&quot; class=&quot;headerlink&quot; title=&quot;IP地址配置&quot;&gt;&lt;/a&gt;IP地址配置&lt;/h2&gt;&lt;p&gt;DHCP服务器可以自动分配IP&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ifconfig命令临时配置IP地址&lt;/li&gt;
+&lt;
     
     </summary>
     
