@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-02T12:42:08.182Z</updated>
+  <updated>2018-05-03T07:21:35.392Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 挂载命令mount</title>
+    <link href="http://yoursite.com/2018/05/03/Linux-%E6%8C%82%E8%BD%BD%E5%91%BD%E4%BB%A4mount/"/>
+    <id>http://yoursite.com/2018/05/03/Linux-挂载命令mount/</id>
+    <published>2018-05-03T07:13:09.000Z</published>
+    <updated>2018-05-03T07:21:35.392Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>sudo fdisk -l
+#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘
+sudo mkdir -p /media/usb
+#创建挂载点
+sudo mount /dev/sdb /media/usb
+#挂载
+
+sudo umount /dev/sdb
+#退出
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;sudo fdisk -l
+#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘
+sudo mkdir -p /media/usb
+#创建挂载点
+sudo mount /dev/sdb /media/usb
+#挂载
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 安装ssh</title>
@@ -1419,35 +1453,6 @@ drwxrwxrwx. 9 root root 4096 7月  30 19:48 /tmp/
 &lt;p&gt;sublime text&lt;br&gt;绿色版，重装系统还可以继续使用&lt;br&gt;需要的基本配置如下&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;{
     &amp;quot;color_scheme&amp;quot;: &amp;quot;Pa
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JDK配置</title>
-    <link href="http://yoursite.com/2017/08/19/JDK%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2017/08/19/JDK配置/</id>
-    <published>2017-08-19T07:59:29.000Z</published>
-    <updated>2017-08-19T11:01:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>每次重装系统都要重新配置jdk<br>每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境</p>
-<p>1、下载jdk<br>2、配置环境变量</p>
-<pre><code>JAVA_HOME    D:\Java\jdk1.6.0_39
-CLASSPATH    .;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
-Path        %JAVA_HOME%\bin
-            %JAVA_HOME%\jre\bin
-</code></pre><p>注意CLASSPATH之前的点和分号</p>
-<p>3、验证<br>打开cmd，分别输入<code>java -version</code>，<code>javac -version</code>，如果可以看到版本号，说明成功</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;每次重装系统都要重新配置jdk&lt;br&gt;每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境&lt;/p&gt;
-&lt;p&gt;1、下载jdk&lt;br&gt;2、配置环境变量&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;JAVA_HOME    D:\Java\jdk1.6.0_39
-CLASSPATH 
     
     </summary>
     
