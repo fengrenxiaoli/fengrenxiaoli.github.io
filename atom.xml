@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-04T12:24:16.820Z</updated>
+  <updated>2018-05-04T12:47:40.929Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 分区</title>
+    <link href="http://yoursite.com/2018/05/04/Linux-%E5%88%86%E5%8C%BA/"/>
+    <id>http://yoursite.com/2018/05/04/Linux-分区/</id>
+    <published>2018-05-04T12:28:18.000Z</published>
+    <updated>2018-05-04T12:47:40.929Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MBR"><a href="#MBR" class="headerlink" title="MBR"></a>MBR</h2><p>MBR=主引导区记录。硬盘的0磁道的第一个扇区称为MBR，它的大小是512字节，而这个区域可以分为三个部分。第一部分为pre-boot区（预启动区），占446字节；第二部分是Partition table区（分区表），占64个字节，硬盘中分区有多少以及每一分区的大小都记在其中。第三部分是magic number，占2个字节，固定为55AA。</p>
+<p>MBR是针对整个硬盘而言的，而引导扇区是对单个分区而言的。每个分区的第一扇区就是引导扇区：像MBR一样，引导扇区里包含了一些引导操作系统所需要的相关信息。如果引导扇区被破坏了是个非常严重的问题，那就意味着这个分区不能被访问，安装在这个分区上的操作系统也不能被启动。所以说修复引导是使得每一个分区都能被正确识别引导。</p>
+<h2 id="分区的优点"><a href="#分区的优点" class="headerlink" title="分区的优点"></a>分区的优点</h2><p>提高文件的查找和读写效率</p>
+<p>1.磁盘分区：使用分区编辑器（partition editor）在磁盘上划分几个逻辑上的存储空间。磁盘一旦划分成数个分区（Partition），不同类的目录和文件可以存储进不同的分区。<br>2.：。</p>
+<p>##分区类型（所有系统都适用）：</p>
+<h4 id="主分区"><a href="#主分区" class="headerlink" title="主分区"></a>主分区</h4><p>最多只能分4个，由硬盘的结构决定（硬盘分为一个个等大小的扇区，每个扇区512字节，其中446个字节用于记录启动信息， 剩下的64个字节进行分区表示，64个字节中每16个字节表示一个分区，所以最多只能表示4个分区，故而硬盘结构如果不变，主分区最多只能分4个）。每个主分区都有各自独立的引导块，可以用fdisk设定为启动区。</p>
+<p>Windows下A、B作为软分区的盘符，C作为第一个主分区的盘符，所以最多还能分23个子分区。</p>
+<p>####扩展分区</p>
+<p>一块硬盘中扩展分区只能有一个</p>
+<p>可以将一个主分区作为扩展分区，即三个主分区，一个扩展分区，总计4个分区；</p>
+<p>不能写入数据，只能用作包含逻辑分区。</p>
+<p>区分扩展分区和逻辑分区，是突破主分区只能有4个的最主要的方法。</p>
+<h4 id="逻辑分区"><a href="#逻辑分区" class="headerlink" title="逻辑分区"></a>逻辑分区</h4><p>可以有多个，没有独立的引导块，不能用fdisk设定为启动区。</p>
+<h2 id="格式化："><a href="#格式化：" class="headerlink" title="格式化："></a>格式化：</h2><p>又称逻辑格式化，它是指根据用户选定的文件系统（eg：FAT16（最大支持2GB分区），FAT32（单个文件大小不能超过4GB，最大支持16TB分区），NTFS，EXT2，EXT3，EXT4（centos6默认文件系统）等），在磁盘特定区域写入特定数据，在分区中画出一片用于存放文件分配表、目录表等用于文件管理的磁盘空间。</p>
+<p>误区解析：格式化的目的并不是清空数据，其根本目的是为了<strong>写入文件系统，能够更快查找读写数据</strong>，但是在进行格式化的操作时会先清空原有数据。</p>
+<p>格式化具体进行的操作：<br>将整个分区分割成等大小的数据块（Block），每个数据块默认4KB，存储文件的最小，可以手动选择1KB、2KB或4KB。假设存放10KB的文件，会使用3个数据块，三个数据块不一定是连续的，最后的一数据块中即使没有放满，也不能再存放其他文件。<br>在分区列表中建立一个二维表格，记录了文件的id号（即文件放在那些数据库中，叫做iNode）、文件修改时间、文件的访问权限。操作文件时先访问此二维表进行权限匹配。</p>
+<h2 id="Windows与Linux不同的磁盘分区流程"><a href="#Windows与Linux不同的磁盘分区流程" class="headerlink" title="Windows与Linux不同的磁盘分区流程"></a>Windows与Linux不同的磁盘分区流程</h2><p>Windows：分区–&gt;格式化–&gt;分配盘符<br>Linux：分区–&gt;格式化–&gt;给每个分区起“设备文件名”–&gt;分配挂载点</p>
+<h2 id="设备文件名"><a href="#设备文件名" class="headerlink" title="设备文件名"></a>设备文件名</h2><p>Linux中一切皆文件，包括硬件、用户等。硬件的文件名即称作“硬件设备文件名”，硬件设备文件名作为硬件的标准称呼，是由Linux自动检测并分配的。硬件设备文件在目录中处于根目录（“/”代表根目录，最高级目录）下的dev文件夹（专用于放硬件设备文件）下，即“/dev”文件夹下。</p>
+<h4 id="分区的设备文件名分配规则"><a href="#分区的设备文件名分配规则" class="headerlink" title="分区的设备文件名分配规则"></a>分区的设备文件名分配规则</h4><p>hd代表IDE接口，sd代表SCSI接口或SATA接口；<br>a代表第一块硬盘，如有多块硬盘b代表第二块硬盘，c代表第三块硬盘，以此类推；<br>1代表一块硬盘上的第一个分区，2代表此硬盘的第二个分区，3代表此硬盘第三个分区，以此类推，其中1234编号只能代表主分区或扩展分区，逻辑分区的编号从5开始分配，最大分区编号16<br>/dev/sda1 第一块SATA接口硬盘的第一个分区</p>
+<h4 id="挂载点"><a href="#挂载点" class="headerlink" title="挂载点"></a>挂载点</h4><p>。Windows中使用字母标识符来指定在这个分区上的文件和目录，而Linux中使用目录作为挂载点（盘符）<br>绝大多数目录都可以作为挂载点（部分必须和根目录放在同一个分区的目录除外，否则将导致系统不能启动）包括你手工创建的目录。</p>
+<p>##Linux 分区</p>
+<p>####必须分区：</p>
+<p>根分区 /（挂载点根目录，根目录中要保存其他所有数据，根目录如果没有硬盘空间，根下的很多数据将没有地方存放）<br>swap分区（交换分区，可理解为虚拟内存， 当真实内存不足时，可将swap分区中的硬盘空间作为内存使用，如果内存小于等于4GB，推荐swap分配内存的两倍，若内存大于4GB，建议swap空间与内存相等，不需要挂载点）</p>
+<h4 id="推荐分区"><a href="#推荐分区" class="headerlink" title="推荐分区"></a>推荐分区</h4><p>启动分区，推荐200MB （挂载点/boot目录，/boot中存放了用于系统启动的相关数据，如果不单独分区，将会和根分区存放在同一个存储空间中，如果根分区写满将导致系统无法启动）</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;MBR&quot;&gt;&lt;a href=&quot;#MBR&quot; class=&quot;headerlink&quot; title=&quot;MBR&quot;&gt;&lt;/a&gt;MBR&lt;/h2&gt;&lt;p&gt;MBR=主引导区记录。硬盘的0磁道的第一个扇区称为MBR，它的大小是512字节，而这个区域可以分为三个部分。第一部分为pre-boo
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 虚拟机网络配置详解(NAT、桥接、Hostonly)</title>
@@ -1414,58 +1458,6 @@ drwxrwxrwx. 9 root root 4096 7月  30 19:48 /tmp/
     <summary type="html">
     
       &lt;h3 id=&quot;SUID-SetUID&quot;&gt;&lt;a href=&quot;#SUID-SetUID&quot; class=&quot;headerlink&quot; title=&quot;SUID(SetUID)&quot;&gt;&lt;/a&gt;SUID(SetUID)&lt;/h3&gt;&lt;h4 id=&quot;作用&quot;&gt;&lt;a href=&quot;#作用&quot; class=&quot;he
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>清华同方x46h开启Intel VT</title>
-    <link href="http://yoursite.com/2017/09/11/%E6%B8%85%E5%8D%8E%E5%90%8C%E6%96%B9x46h%E5%BC%80%E5%90%AFIntel-VT/"/>
-    <id>http://yoursite.com/2017/09/11/清华同方x46h开启Intel-VT/</id>
-    <published>2017-09-11T00:37:46.000Z</published>
-    <updated>2017-09-11T01:39:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷，结果我刷的代价就是主板被刷坏，花了350把主板修了，总之刷BIOS还是<strong>有风险</strong>的，这里只是提供具体方法</p>
-<h2 id="1、查看是否支持Intel-VT技术以及是否开启"><a href="#1、查看是否支持Intel-VT技术以及是否开启" class="headerlink" title="1、查看是否支持Intel VT技术以及是否开启"></a>1、查看是否支持Intel VT技术以及是否开启</h2><p>下载leomoon-cpu-v（<a href="https://leomoon.com/downloads/desktop-apps/leomoon-cpu-v/），并安装" target="_blank" rel="external">https://leomoon.com/downloads/desktop-apps/leomoon-cpu-v/），并安装</a></p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/2017-09-11_084754.png" alt="leomoon-cpv"></p>
-<p>左边的对勾表示主板支持Intel VT<br>右边的对勾表示主板已经开启Intel VT<br>这张图片是已经开启的状态<br>清华同方x46h的实际状态应该是左边对勾，右边叉</p>
-<h2 id="2、制作纯DOS启动U盘"><a href="#2、制作纯DOS启动U盘" class="headerlink" title="2、制作纯DOS启动U盘"></a>2、制作纯DOS启动U盘</h2><ul>
-<li><p>下载MSDOS7.1<br><a href="http://www.cn-dos.net/newdos/dosart32.htm" target="_blank" rel="external">http://www.cn-dos.net/newdos/dosart32.htm</a><br>解压</p>
-</li>
-<li><p>格式化U盘为FAT32分区格式</p>
-</li>
-<li><p>使用UltraIOS制作U盘启动盘<br>和制作win7的启动U盘一样<br>插入不用的U盘（因为需要格式化）<br>在UltraIOS中文件》打开，选择解压后的MSDOS文件夹中的IOS镜像文件；<br>点击启动》写入硬盘映像<br>选择U盘，写入方式为USB-HDD+，点击写入</p>
-</li>
-</ul>
-<p>可以参考<a href="http://blog.sina.com.cn/s/blog_4ad042e50102eclt.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4ad042e50102eclt.html</a></p>
-<h2 id="3、下载需要刷的BIOS"><a href="#3、下载需要刷的BIOS" class="headerlink" title="3、下载需要刷的BIOS"></a>3、下载需要刷的BIOS</h2><ul>
-<li>在步骤2中制作好的U盘启动盘里新建文件夹，文件夹名叫12</li>
-<li>下载<a href="https://getpocket.com/a/read/1885690768中的X46H_BIOS" target="_blank" rel="external">https://getpocket.com/a/read/1885690768中的X46H_BIOS</a> ，解压，将文件夹中的四个文件复制到12文件夹中</li>
-</ul>
-<h2 id="4、刷BIOS"><a href="#4、刷BIOS" class="headerlink" title="4、刷BIOS"></a>4、刷BIOS</h2><ul>
-<li>重启电脑，按F2打开BIOS</li>
-<li>将U盘设为电脑开启的第一启动项，保存，退出</li>
-<li>插入U盘，重启电脑</li>
-<li>会进入MSDOS界面，会先让你设置MSDOS，选择cancel取消设置</li>
-<li><p>接下来输入以下命令</p>
-<p>命令1： “C:” 回车       —将当前盘符切换到C:<br>命令2： “CD 12” 回车    —将当前操作文件夹切换到C:\12下<br>命令3： “fpt -bios -f GT_122.h09” 回车    —执行刷新命令 图4</p>
-</li>
-</ul>
-<p>刷新成功后<br><img src="http://ow3dy62zt.bkt.clouddn.com/2017-09-11_091756.jpg" alt=""></p>
-<ul>
-<li>按开关机键 关机 ，将电池拔掉 ，电源线 移除 ，1分钟后安装好。</li>
-</ul>
-<h2 id="5、开启Intel-VT"><a href="#5、开启Intel-VT" class="headerlink" title="5、开启Intel VT"></a>5、开启Intel VT</h2><p>开机，按F2进 BIOS  选择高级 Advanced  选项  会出现 虚拟化选项。打开后按F10保存并退出即可。</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/2017-09-11_091956.jpg" alt=""></p>
-<p>运行leomoon-cpu-v工具可以看到看到Intel VT已经开启</p>
-<p>参考：<a href="http://benyouhui.it168.com/thread-1896445-1-1.html" target="_blank" rel="external">http://benyouhui.it168.com/thread-1896445-1-1.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷，结果我刷的代价就是主板被刷坏，花了350把主板修了，总之刷BIOS还是&lt;
     
     </summary>
     
