@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-04T12:47:40.929Z</updated>
+  <updated>2018-05-04T12:51:23.354Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/05/04/Linux-%E5%88%86%E5%8C%BA/"/>
     <id>http://yoursite.com/2018/05/04/Linux-分区/</id>
     <published>2018-05-04T12:28:18.000Z</published>
-    <updated>2018-05-04T12:47:40.929Z</updated>
+    <updated>2018-05-04T12:51:23.354Z</updated>
     
     <content type="html"><![CDATA[<h2 id="MBR"><a href="#MBR" class="headerlink" title="MBR"></a>MBR</h2><p>MBR=主引导区记录。硬盘的0磁道的第一个扇区称为MBR，它的大小是512字节，而这个区域可以分为三个部分。第一部分为pre-boot区（预启动区），占446字节；第二部分是Partition table区（分区表），占64个字节，硬盘中分区有多少以及每一分区的大小都记在其中。第三部分是magic number，占2个字节，固定为55AA。</p>
 <p>MBR是针对整个硬盘而言的，而引导扇区是对单个分区而言的。每个分区的第一扇区就是引导扇区：像MBR一样，引导扇区里包含了一些引导操作系统所需要的相关信息。如果引导扇区被破坏了是个非常严重的问题，那就意味着这个分区不能被访问，安装在这个分区上的操作系统也不能被启动。所以说修复引导是使得每一个分区都能被正确识别引导。</p>
@@ -41,6 +41,7 @@
 <h2 id="Windows与Linux不同的磁盘分区流程"><a href="#Windows与Linux不同的磁盘分区流程" class="headerlink" title="Windows与Linux不同的磁盘分区流程"></a>Windows与Linux不同的磁盘分区流程</h2><p>Windows：分区–&gt;格式化–&gt;分配盘符<br>Linux：分区–&gt;格式化–&gt;给每个分区起“设备文件名”–&gt;分配挂载点</p>
 <h2 id="设备文件名"><a href="#设备文件名" class="headerlink" title="设备文件名"></a>设备文件名</h2><p>Linux中一切皆文件，包括硬件、用户等。硬件的文件名即称作“硬件设备文件名”，硬件设备文件名作为硬件的标准称呼，是由Linux自动检测并分配的。硬件设备文件在目录中处于根目录（“/”代表根目录，最高级目录）下的dev文件夹（专用于放硬件设备文件）下，即“/dev”文件夹下。</p>
 <h4 id="分区的设备文件名分配规则"><a href="#分区的设备文件名分配规则" class="headerlink" title="分区的设备文件名分配规则"></a>分区的设备文件名分配规则</h4><p>hd代表IDE接口，sd代表SCSI接口或SATA接口；<br>a代表第一块硬盘，如有多块硬盘b代表第二块硬盘，c代表第三块硬盘，以此类推；<br>1代表一块硬盘上的第一个分区，2代表此硬盘的第二个分区，3代表此硬盘第三个分区，以此类推，其中1234编号只能代表主分区或扩展分区，逻辑分区的编号从5开始分配，最大分区编号16<br>/dev/sda1 第一块SATA接口硬盘的第一个分区</p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG28.jpg" alt=""></p>
 <h4 id="挂载点"><a href="#挂载点" class="headerlink" title="挂载点"></a>挂载点</h4><p>。Windows中使用字母标识符来指定在这个分区上的文件和目录，而Linux中使用目录作为挂载点（盘符）<br>绝大多数目录都可以作为挂载点（部分必须和根目录放在同一个分区的目录除外，否则将导致系统不能启动）包括你手工创建的目录。</p>
 <p>##Linux 分区</p>
 <p>####必须分区：</p>
