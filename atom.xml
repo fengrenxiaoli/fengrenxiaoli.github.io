@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-03T07:21:35.392Z</updated>
+  <updated>2018-05-04T09:38:55.335Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,88 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 虚拟机网络配置详解(NAT、桥接、Hostonly)</title>
+    <link href="http://yoursite.com/2018/05/04/Linux-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3-NAT%E3%80%81%E6%A1%A5%E6%8E%A5%E3%80%81Hostonly/"/>
+    <id>http://yoursite.com/2018/05/04/Linux-虚拟机网络配置详解-NAT、桥接、Hostonly/</id>
+    <published>2018-05-04T08:56:23.000Z</published>
+    <updated>2018-05-04T09:38:55.335Z</updated>
+    
+    <content type="html"><![CDATA[<p>无论是vmware还是virtual box虚拟机软件，一般来说，虚拟机有三种网络模式:</p>
+<ol>
+<li>Bridged Adapter（桥接）</li>
+<li>NAT</li>
+<li>Host-only Adapter<br>virtual box还有内网模式（Internal）</li>
+</ol>
+<p>虚拟网卡在虚拟机安装好之后，会自动添加两张网卡(VMnet1和VMnet8)，VMnet1用Host-only网络连接，VMnet8用NAT方式的网络连接，原先的VMnet0用桥接网络连接。</p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG23.png" alt=""></p>
+<h2 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h2><p><strong>桥接既可以和局域网通信，也可以和外网通信</strong></p>
+<p>桥接网络是指本地物理网卡和虚拟网卡通过VMnet0虚拟交换机进行桥接，物理网卡和虚拟网卡在拓扑图上处于<strong>同等地位</strong>，那么物理网卡和虚拟网卡就相当于处于同一个网段，虚拟交换机就相当于一台现实网络中的交换机，所以两个网卡的IP地址也要设置为同一网段。会占用内网IP</p>
+<p>vmnet0实际上就是一个虚拟的网桥(2层交换机)，这个网桥有若干个接口，一个端口用于连接你的Host主机，其余端口可以用于连接虚拟机，他们的位置是对等的，谁也不是谁的网关。所以桥接模式下，虚拟机和Host主机是同等地位的主机。<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG24.png" alt=""></p>
+<p>主机A上的两个虚拟机1和虚拟机2，和主机A、B同处于一个网段，能够相互通信<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG25.png" alt=""></p>
+<p>虚拟机网卡配置，虚拟机上网需要IP/子网掩码/DNS/网关</p>
+<pre><code>DEVICE=&quot;eth0&quot;
+BOOTPROTO=“static&quot; #设置静态ip,动态为dhcp
+IPADDR=&quot;192.168.1.3&quot;
+GATEWAY=&quot;192.168.1.1&quot;
+HWADDR=&quot;08:00:27:C7:1B:22&quot;
+DNS1=&quot;8.8.8.8&quot;
+NETMASK=&quot;255.255.255.0&quot;
+ONBOOT=&quot;yes&quot;
+</code></pre><p>CentOS 7中ONBOOT默认为NO，需要打开</p>
+<p><br></p>
+<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><p>NAT模式中，就是让虚拟机借助NAT(网络地址转换)功能，通过宿主机器所在的网络来访问公网。</p>
+<p>NAT模式中，虚拟机的网卡和物理网卡的网络，不在同一个网络，虚拟机的网卡，是在vmware提供的一个虚拟网络。</p>
+<p>局域网其他主机是无法访问虚拟机的<br>同一宿主的虚拟机可以互相访问<br>虚拟机可以访问局域网的所有主机<br>宿主能够联网，虚拟机也能联网(其他主机)。宿主没有联网，虚拟机也不能联网</p>
+<p>主机ping不通虚拟机(包括宿主)<br>同一宿主的虚拟机可以相互ping通</p>
+<p>虚拟机能够ping通主机<br>其他主机不能访问虚拟机</p>
+<p>如果你建一个虚拟机，只是给自己用，不需要给局域网其他人用，那么可以选择NAT，毕竟NAT模式下的虚拟系统的TCP/IP配置信息是由VMnet8(NAT)虚拟网络的DHCP服务器提供的，只要虚拟机的网路配置是DHCP，那么你不需要进行任何其他的配置，只需要宿主机器能访问互联网即可，就可以让虚拟机联网了。</p>
+<p>例如你想建多个虚拟机集群，作为测试使用，而宿主机可能是一个笔记本，ip不固定。这种应用场景，我们需要采用nat模式了，但是我们要考虑一个问题，虚拟机之间是需要互访的，默认采用dhcp，虚拟机的ip每次重启，ip都是不固定的，所以我们需要手工设置虚拟机的ip地址（静态IP）。</p>
+<p>但是我们对虚拟机网卡所在的虚拟网络的信息还一无所知，例如虚拟机网络的路由地址，子网掩码，所以我们需要先查下nat虚拟网络的信息。</p>
+<p>主机A和虚拟机1和2能相互通信，虚拟机1和2能访问主机B和外网，主机B不能访问虚拟机1和2，虚拟机1和2能相互通信<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG27.png" alt=""></p>
+<p>虚拟机的配置:</p>
+<pre><code>DEVICE=&quot;eth0&quot;
+BOOTPROTO=“static&quot; #设置静态ip,动态为dhcp
+IPADDR=&quot;10.0.2.5&quot;
+GATEWAY=&quot;10.0.2.1&quot;
+HWADDR=&quot;08:00:27:C7:1B:22&quot;
+DNS1=&quot;10.0.2.1&quot;
+NETMASK=&quot;255.255.255.0&quot;
+ONBOOT=&quot;yes&quot;
+</code></pre><p><br></p>
+<h2 id="Host-Only"><a href="#Host-Only" class="headerlink" title="Host-Only"></a>Host-Only</h2><p><strong>只能和主机相互通信，不能上网，也不能访问其他主机，用于建立与外部隔离的网络环境</strong></p>
+<p>主机和虚拟机之间的通信是通过 VMnet1虚拟网卡来实现的。虚拟机连接到VMnet1上，系统并不为其提供任何路由服务，因此虚拟机只能和宿主机进行通信，而不能连接到真正的网络上。</p>
+<p>Host-Only的宗旨就是建立一个与外界隔绝的内部网络，来提高内网的安全性。这个功能或许对普通用户来说没有多大意义，但大型服务商会常常利用这个功能。如果你想为VMnet1网段提供路由功能，那就需要使用RRAS，而不能使用XP或2000的ICS，因为ICS会把内网的IP地址改为192.168.0.1，但虚拟机是不会给VMnet1虚拟网卡分配这个地址的，那么主机和虚拟机之间就不能通信了。</p>
+<p>虚拟机1和2之间可以相互通信，主机A能和虚拟机1和2通信，虚拟机1和2不能和主机通信(需要设置)，虚拟机不能和B主机以及外网通信<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG26.png" alt=""></p>
+<p><br></p>
+<h2 id="内部网络"><a href="#内部网络" class="headerlink" title="内部网络"></a>内部网络</h2><p>内部网络类似于桥接网络，虚拟机可以直接与外部通信。但是外部仅限于连接到统一主机上的其他虚拟机。</p>
+<p>即使在技术上，使用内部网络可以完成的一切也可以使用桥接网络，内部网络有安全优势。在桥接网络模式下，所有流量都通过主机系统的物理接口。</p>
+<p>默认不分配IP,需要自己手动设置。</p>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.cnblogs.com/ggjucheng/archive/2012/08/19/2646007.html" target="_blank" rel="external">http://www.cnblogs.com/ggjucheng/archive/2012/08/19/2646007.html</a></li>
+<li><a href="https://www.jianshu.com/p/305f7384cfe9" target="_blank" rel="external">https://www.jianshu.com/p/305f7384cfe9</a></li>
+<li><a href="https://blog.csdn.net/bytxl/article/details/35569217" target="_blank" rel="external">https://blog.csdn.net/bytxl/article/details/35569217</a></li>
+<li><a href="https://blog.csdn.net/clevercode/article/details/45934233" target="_blank" rel="external">https://blog.csdn.net/clevercode/article/details/45934233</a></li>
+<li><a href="http://blog.51cto.com/wangchunhai/381225" target="_blank" rel="external">http://blog.51cto.com/wangchunhai/381225</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;无论是vmware还是virtual box虚拟机软件，一般来说，虚拟机有三种网络模式:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Bridged Adapter（桥接）&lt;/li&gt;
+&lt;li&gt;NAT&lt;/li&gt;
+&lt;li&gt;Host-only Adapter&lt;br&gt;virtual box还有内网模
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 挂载命令mount</title>
@@ -1386,73 +1468,6 @@ drwxrwxrwx. 9 root root 4096 7月  30 19:48 /tmp/
     <summary type="html">
     
       &lt;p&gt;清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷，结果我刷的代价就是主板被刷坏，花了350把主板修了，总之刷BIOS还是&lt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>PC端安装软件汇总</title>
-    <link href="http://yoursite.com/2017/09/06/PC%E7%AB%AF%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%B1%87%E6%80%BB/"/>
-    <id>http://yoursite.com/2017/09/06/PC端安装软件汇总/</id>
-    <published>2017-09-06T01:59:39.000Z</published>
-    <updated>2017-09-06T03:04:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>每次重装系统后又需要安装各种软件，所以把需要的软件整理一下</p>
-<p>sublime text<br>绿色版，重装系统还可以继续使用<br>需要的基本配置如下</p>
-<pre><code>{
-    &quot;color_scheme&quot;: &quot;Packages/User/SublimeLinter/Monokai (SL).tmTheme&quot;,
-    &quot;font_size&quot;: 14,
-    &quot;ignored_packages&quot;:
-    [
-        &quot;Vintage&quot;
-    ],
-    &quot;update_check&quot;: false
-}
-</code></pre><p>Typora<br>markdown编辑器</p>
-<p>Gidot Typesetter绿色版<br>文本排版软件</p>
-<p>Calibre</p>
-<p>UltraEdit_10.20<br>文本编辑</p>
-<p>cmder绿色版</p>
-<p>ccleaner</p>
-<p>adobe acrobat reader</p>
-<p>Python </p>
-<p>Anaconda3</p>
-<p>Axure<br>Mockplus</p>
-<p>Clover</p>
-<p>AnyConnect</p>
-<p>eclipse绿色版</p>
-<p>Java</p>
-<p>nodejs<br>hexo</p>
-<p>bandizip<br>解压缩软件，不要用绿色版，无法添加右键菜单</p>
-<p>迅雷（网盘）<br>IDM</p>
-<p>xmind<br>思维导图</p>
-<p>Potplayer<br>视频</p>
-<p>Evernote</p>
-<p>Git</p>
-<p>Chrome</p>
-<p>VirtualBox</p>
-<p>Picasa3<br>图片查看软件</p>
-<p>Ruby<br>sass需要使用</p>
-<p>手心输入法</p>
-<p>百度网盘</p>
-<p>网易云音乐</p>
-<p>Listary</p>
-<p>Directx</p>
-<p>FfastStone Capture绿色版<br>picpick绿色版</p>
-<p>MobaXterm绿色版</p>
-<p>UltraISO</p>
-<p>.net 3.5</p>
-<p>游戏需要的Visutal C++</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;每次重装系统后又需要安装各种软件，所以把需要的软件整理一下&lt;/p&gt;
-&lt;p&gt;sublime text&lt;br&gt;绿色版，重装系统还可以继续使用&lt;br&gt;需要的基本配置如下&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;{
-    &amp;quot;color_scheme&amp;quot;: &amp;quot;Pa
     
     </summary>
     
