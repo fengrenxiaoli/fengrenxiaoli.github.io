@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -94,14 +94,18 @@
 
 
 
+<meta name="description" content="manman 命令 # 获取指定命令的帮助 # man是manual的缩写 # 最常用的帮助命令 # q退出 # 输入:/-d 搜索&amp;quot;-d&amp;quot;字符串，按n往下搜“-d”,shift+n 往上搜“-d”  man -f 命令 # 查看命令的所有帮助等级 # 相当于 whatis 命令 # 因为whereis命令可以看到命令的帮助文档目录，所以也可以查看目录的等级  man 级别 命">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 搜索命令">
-<meta property="og:url" content="http://yoursite.com/2018/05/05/Linux-搜索命令/index.html">
+<meta property="og:title" content="Linux 帮助命令">
+<meta property="og:url" content="http://yoursite.com/2018/05/05/Linux-帮助命令/index.html">
 <meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="manman 命令 # 获取指定命令的帮助 # man是manual的缩写 # 最常用的帮助命令 # q退出 # 输入:/-d 搜索&amp;quot;-d&amp;quot;字符串，按n往下搜“-d”,shift+n 往上搜“-d”  man -f 命令 # 查看命令的所有帮助等级 # 相当于 whatis 命令 # 因为whereis命令可以看到命令的帮助文档目录，所以也可以查看目录的等级  man 级别 命">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T02:03:05.183Z">
+<meta property="og:updated_time" content="2018-05-05T09:51:17.124Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 搜索命令">
+<meta name="twitter:title" content="Linux 帮助命令">
+<meta name="twitter:description" content="manman 命令 # 获取指定命令的帮助 # man是manual的缩写 # 最常用的帮助命令 # q退出 # 输入:/-d 搜索&amp;quot;-d&amp;quot;字符串，按n往下搜“-d”,shift+n 往上搜“-d”  man -f 命令 # 查看命令的所有帮助等级 # 相当于 whatis 命令 # 因为whereis命令可以看到命令的帮助文档目录，所以也可以查看目录的等级  man 级别 命">
 
 
 
@@ -130,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/05/Linux-搜索命令/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/05/Linux-帮助命令/"/>
 
 
 
 
 
-  <title>Linux 搜索命令 | 太阳落下</title>
+  <title>Linux 帮助命令 | 太阳落下</title>
   
 
 
@@ -263,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/Linux-搜索命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/Linux-帮助命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -280,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux 搜索命令</h1>
+          <h1 class="post-title" itemprop="name headline">Linux 帮助命令</h1>
         
 
         <div class="post-meta">
@@ -292,7 +296,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T10:03:05+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T15:22:49+08:00">
                 2018-05-05
               </time>
             
@@ -330,7 +334,58 @@
       
 
       
-        
+        <h2 id="man"><a href="#man" class="headerlink" title="man"></a>man</h2><pre><code>man 命令
+# 获取指定命令的帮助
+# man是manual的缩写
+# 最常用的帮助命令
+# q退出
+# 输入:/-d 搜索&quot;-d&quot;字符串，按n往下搜“-d”,shift+n 往上搜“-d”
+
+man -f 命令
+# 查看命令的所有帮助等级
+# 相当于 whatis 命令
+# 因为whereis命令可以看到命令的帮助文档目录，所以也可以查看目录的等级
+
+man 级别 命令
+#查看相应等级的命令
+man -5 passwd
+man -4 null
+man -8 ifconfig
+
+man -k 命令 
+# 相当于 apropos 命令
+# 搜索含有关键词“命令”的所有帮助文档
+man -k passwd
+# 搜索含有关键词“passwd”的所有命令的帮助文档
+</code></pre><p>man的级别：</p>
+<ol>
+<li>查看命令的帮助</li>
+<li>查看可被内核调用的函数的帮助</li>
+<li>查看函数和函数库的帮助</li>
+<li>查看特殊文件的帮助（主要是/dev目录下的文件）</li>
+<li>查看配置文件的帮助</li>
+<li>查看游戏的帮助</li>
+<li>查看其它杂项的帮助</li>
+<li>查看系统管理员可用命令的帮助</li>
+<li>查看和内核相关文件的帮助</li>
+</ol>
+<h2 id="–help"><a href="#–help" class="headerlink" title="–help"></a>–help</h2><pre><code>命令 --help 
+#获取命令选项的帮助
+ls --help 
+</code></pre><h2 id="helpshell内部命令帮助"><a href="#helpshell内部命令帮助" class="headerlink" title="helpshell内部命令帮助"></a>helpshell内部命令帮助</h2><pre><code>help shell内部命令
+#whereis可以用来判断一个命令是否是shell内部命令
+#ls在/bin/下面有可执行文件，说明ls命令不是shell内部命令
+#cd命令在/bin/下面没有相应的可执行文件，所以是shell自带的命令
+</code></pre><p>man命令不能只获取shell的内部命令</p>
+<pre><code>#help命令只能获取shell的内部命令
+</code></pre><h2 id="info"><a href="#info" class="headerlink" title="info"></a>info</h2><pre><code>info 命令
+#info里面内容十分繁琐，是关于命令的一个巨大的帮助文档，里面有各个版本对于此命令的说明。
+回车：进入带*号的说明
+-u: 进入上层页面
+-n: 进入下一个帮助小节
+-p: 进入上一个帮助小节
+-q: 退出
+</code></pre>
       
     </div>
     
@@ -345,6 +400,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
 
       
       
@@ -354,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/04/Linux-分区/" rel="next" title="Linux 分区">
-                <i class="fa fa-chevron-left"></i> Linux 分区
+              <a href="/2018/05/05/Linux文件管理-链接命令/" rel="next" title="Linux文件管理 链接命令">
+                <i class="fa fa-chevron-left"></i> Linux文件管理 链接命令
               </a>
             
           </div>
@@ -364,8 +425,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/05/Linux文件管理-常用目录/" rel="prev" title="Linux文件管理 常用目录">
-                Linux文件管理 常用目录 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/05/Linux-关机和重启/" rel="prev" title="Linux 关机和重启">
+                Linux 关机和重启 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -418,8 +479,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -434,7 +504,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -479,6 +549,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#man"><span class="nav-number">1.</span> <span class="nav-text">man</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–help"><span class="nav-number">2.</span> <span class="nav-text">–help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#helpshell内部命令帮助"><span class="nav-number">3.</span> <span class="nav-text">helpshell内部命令帮助</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#info"><span class="nav-number">4.</span> <span class="nav-text">info</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

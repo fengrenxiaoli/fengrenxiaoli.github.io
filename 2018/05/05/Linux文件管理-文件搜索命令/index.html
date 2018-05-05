@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="文件搜索命令 locatelocate 文件名 #在后台数据库中按文件名搜索，搜索速度更快  /var/lib/mlocate (保存的搜索数据库) #locate 命令所搜索的后台数据库 #数据库不是实时的，更新频率大概一天更新一次  updatedb #更新数据库 对于新建的文件，由于数据库没有更新，使用locate不能查到。可以使用 updatedb强制更新数据库后即可查到。可使用 loca">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T05:57:11.532Z">
+<meta property="og:updated_time" content="2018-05-05T11:20:52.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux文件管理 文件搜索命令">
 <meta name="twitter:description" content="文件搜索命令 locatelocate 文件名 #在后台数据库中按文件名搜索，搜索速度更快  /var/lib/mlocate (保存的搜索数据库) #locate 命令所搜索的后台数据库 #数据库不是实时的，更新频率大概一天更新一次  updatedb #更新数据库 对于新建的文件，由于数据库没有更新，使用locate不能查到。可以使用 updatedb强制更新数据库后即可查到。可使用 loca">
@@ -350,7 +350,9 @@ touch /tmp/cangls
 updatedb
 locate cangls
 #显示为 /root/cangls  
-#只有一条，而/tmp下的cangls没有显示出来，原因在于locate搜索遵循配置文件 `/etc/updatedb.conf`, 在PRUNEPATHS 中配置了/tmp/目录不进行搜索。所以没有进行查找。
+#只有一条，而/tmp下的cangls没有显示出来
+#原因在于locate搜索遵循配置文件 `/etc/updatedb.conf`
+#在PRUNEPATHS 中配置了/tmp/目录不进行搜索。所以没有进行查找
 
 /etc/updatedb.conf 配置文件
 PRUNE_BIND_MOUNTS = &quot;yes&quot;
@@ -563,7 +565,7 @@ find . -inum 262422
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

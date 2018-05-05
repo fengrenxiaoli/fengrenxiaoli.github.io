@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="脚本安装包：准备工作1、本节以安装LNMP（http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache /usr/local/apache2删除）  2、保证yum源正常使用：可以使用yum list命令测试。（若是光盘yum源，记得挂载光盘） 3、关闭SELinux和防火墙：  永久关闭SELinux的">
+<meta name="description" content="关机shutdown [选项] 时间 #相比其它命令更安全，在关机和重启时会正确保存正在运行的程序 选项：  -c:取消前一个关机命令  -h:关机（half）  -r:重启  shutdown -r 05:30 shutdown -r 05:30 &amp;amp; (后台运行) shutdown -r now #在服务器上尽量避免远程关机，因为再开机麻烦，所以远程重启就足够了 #服务器由于经常进行高速">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux安装管理 脚本安装包">
-<meta property="og:url" content="http://yoursite.com/2018/04/29/Linux安装管理-脚本安装包/index.html">
+<meta property="og:title" content="Linux 关机和重启">
+<meta property="og:url" content="http://yoursite.com/2018/05/05/Linux-关机和重启/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="脚本安装包：准备工作1、本节以安装LNMP（http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache /usr/local/apache2删除）  2、保证yum源正常使用：可以使用yum list命令测试。（若是光盘yum源，记得挂载光盘） 3、关闭SELinux和防火墙：  永久关闭SELinux的">
+<meta property="og:description" content="关机shutdown [选项] 时间 #相比其它命令更安全，在关机和重启时会正确保存正在运行的程序 选项：  -c:取消前一个关机命令  -h:关机（half）  -r:重启  shutdown -r 05:30 shutdown -r 05:30 &amp;amp; (后台运行) shutdown -r now #在服务器上尽量避免远程关机，因为再开机麻烦，所以远程重启就足够了 #服务器由于经常进行高速">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-29T11:06:13.000Z">
+<meta property="og:updated_time" content="2018-05-05T10:15:05.588Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux安装管理 脚本安装包">
-<meta name="twitter:description" content="脚本安装包：准备工作1、本节以安装LNMP（http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache /usr/local/apache2删除）  2、保证yum源正常使用：可以使用yum list命令测试。（若是光盘yum源，记得挂载光盘） 3、关闭SELinux和防火墙：  永久关闭SELinux的">
+<meta name="twitter:title" content="Linux 关机和重启">
+<meta name="twitter:description" content="关机shutdown [选项] 时间 #相比其它命令更安全，在关机和重启时会正确保存正在运行的程序 选项：  -c:取消前一个关机命令  -h:关机（half）  -r:重启  shutdown -r 05:30 shutdown -r 05:30 &amp;amp; (后台运行) shutdown -r now #在服务器上尽量避免远程关机，因为再开机麻烦，所以远程重启就足够了 #服务器由于经常进行高速">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/29/Linux安装管理-脚本安装包/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/05/Linux-关机和重启/"/>
 
 
 
 
 
-  <title>Linux安装管理 脚本安装包 | 太阳落下</title>
+  <title>Linux 关机和重启 | 太阳落下</title>
   
 
 
@@ -267,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/29/Linux安装管理-脚本安装包/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/Linux-关机和重启/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux安装管理 脚本安装包</h1>
+          <h1 class="post-title" itemprop="name headline">Linux 关机和重启</h1>
         
 
         <div class="post-meta">
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-29T18:40:21+08:00">
-                2018-04-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T15:24:14+08:00">
+                2018-05-05
               </time>
             
 
@@ -334,17 +334,41 @@
       
 
       
-        <h3 id="脚本安装包：准备工作"><a href="#脚本安装包：准备工作" class="headerlink" title="脚本安装包：准备工作"></a>脚本安装包：准备工作</h3><p>1、本节以安装LNMP（<a href="http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache" target="_blank" rel="external">http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache</a> <code>/usr/local/apache2</code>删除） </p>
-<p>2、保证yum源正常使用：可以使用<code>yum list</code>命令测试。（若是光盘yum源，记得挂载光盘）</p>
-<p>3、关闭SELinux和防火墙：</p>
-<ul>
-<li>永久关闭SELinux的方法：编辑文件<code>/etc/selinux/config</code>，将<code>SELINUX=enforcing</code>改为<code>SELINUX=disabled</code>，然后重启系统即可。</li>
-<li>永久关闭防火墙的方法：<code>chkconfig iptables off</code>，开启为：<code>chkconfig iptables on</code>；临时关闭防火墙的方法：<code>service iptables stop</code>，开启为：<code>service iptables start</code>。</li>
-</ul>
-<p><br></p>
-<h3 id="脚本安装"><a href="#脚本安装" class="headerlink" title="脚本安装"></a>脚本安装</h3><pre><code>wget -c http://soft.vpser.net/lnmp.lnmp1.0-full.tar.gz &amp;&amp; tar zxvf lnmp1.0-full.tar.gz &amp;&amp; cd lnmp1.0-full &amp;&amp; ./centos.sh
-</code></pre><p>脚本安装过程中，会将系统中已有的apache、mysql、php等卸载掉。</p>
-<p>虚拟机中安装lnmp常常会卡在 starting php-fpm,真实环境中很少出现。其实安装已经完成，只需要杀掉php-fpm进程，再重新启动这个进程就好了 pkill -9 php-fpm : -9是强制杀死的意思，然后重新启动该进程【/etc/rc.d/init.d/php-fpm start】即可。</p>
+        <h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><pre><code>shutdown [选项] 时间
+#相比其它命令更安全，在关机和重启时会正确保存正在运行的程序
+选项：
+ -c:取消前一个关机命令
+ -h:关机（half）
+ -r:重启
+
+shutdown -r 05:30
+shutdown -r 05:30 &amp; (后台运行)
+shutdown -r now
+#在服务器上尽量避免远程关机，因为再开机麻烦，所以远程重启就足够了
+#服务器由于经常进行高速运算强制重启非常容易损坏硬件，也容易造成数据丢失，所以一定要小心
+
+#其他关机命令(不安全，慎用)
+half
+poweroff
+init 0
+</code></pre><p><br>  </p>
+<h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><pre><code>reboot (相对安全)
+init 6 (尽量不要用)
+</code></pre><p><br>  </p>
+<h2 id="系统运行级别"><a href="#系统运行级别" class="headerlink" title="系统运行级别"></a>系统运行级别</h2><p>0 关机<br>1 单用户 （与windows安全模式相似）<br>2 不完全多用户，不含NFS服务（NFS：文件共享服务）<br>3 完全多用户（字符界面）<br>4 未分配<br>5 图形界面（如果装了图形界面，init 5 进入图形界面）<br>6 重启</p>
+<pre><code>runlevel
+# 查询系统运行级别
+# 结果：N 3 (当前是3 N是上一次登陆级别)
+
+cat /etc/inittab 
+# 查看/etc/inittab的内容
+id:3:initdefault: 
+# 修改系统默认运行级别，这里默认是3
+</code></pre><p><br>  </p>
+<h2 id="退出登录命令"><a href="#退出登录命令" class="headerlink" title="退出登录命令"></a>退出登录命令</h2><pre><code>logout 
+# LINUX默认同时256个登录，最大支持6万多
+# 每次使用后，建议退出当前用户，避免他人因账户占用无法使用！与windows中的注销相似！
+</code></pre><p>注意：<br>如果关闭远程登录xshell时直接点X，该用户就卡在计算机里，因为没有正确退出，所以一定养成正确退出登录的习惯</p>
 
       
     </div>
@@ -375,8 +399,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/29/Linux安装管理-源码包/" rel="next" title="Linux安装管理 源码包">
-                <i class="fa fa-chevron-left"></i> Linux安装管理 源码包
+              <a href="/2018/05/05/Linux-帮助命令/" rel="next" title="Linux 帮助命令">
+                <i class="fa fa-chevron-left"></i> Linux 帮助命令
               </a>
             
           </div>
@@ -385,8 +409,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/01/Linux-安装JDK的两种方式/" rel="prev" title="Linux 安装JDK的两种方式">
-                Linux 安装JDK的两种方式 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/05/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -519,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本安装包：准备工作"><span class="nav-number">1.</span> <span class="nav-text">脚本安装包：准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本安装"><span class="nav-number">2.</span> <span class="nav-text">脚本安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关机"><span class="nav-number">1.</span> <span class="nav-text">关机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启"><span class="nav-number">2.</span> <span class="nav-text">重启</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统运行级别"><span class="nav-number">3.</span> <span class="nav-text">系统运行级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#退出登录命令"><span class="nav-number">4.</span> <span class="nav-text">退出登录命令</span></a></li></ol></div>
             
 
           </div>
