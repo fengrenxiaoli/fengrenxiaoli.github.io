@@ -103,7 +103,7 @@
 <meta property="og:description" content="MBRMBR=主引导区记录。硬盘的0磁道的第一个扇区称为MBR，它的大小是512字节，而这个区域可以分为三个部分。第一部分为pre-boot区（预启动区），占446字节；第二部分是Partition table区（分区表），占64个字节，硬盘中分区有多少以及每一分区的大小都记在其中。第三部分是magic number，占2个字节，固定为55AA。 MBR是针对整个硬盘而言的，而引导扇区是对单个分区">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG28.jpg">
-<meta property="og:updated_time" content="2018-05-04T12:51:23.354Z">
+<meta property="og:updated_time" content="2018-05-04T13:35:55.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 分区">
 <meta name="twitter:description" content="MBRMBR=主引导区记录。硬盘的0磁道的第一个扇区称为MBR，它的大小是512字节，而这个区域可以分为三个部分。第一部分为pre-boot区（预启动区），占446字节；第二部分是Partition table区（分区表），占64个字节，硬盘中分区有多少以及每一分区的大小都记在其中。第三部分是magic number，占2个字节，固定为55AA。 MBR是针对整个硬盘而言的，而引导扇区是对单个分区">
@@ -360,7 +360,14 @@
 <p>##Linux 分区</p>
 <p>####必须分区：</p>
 <p>根分区 /（挂载点根目录，根目录中要保存其他所有数据，根目录如果没有硬盘空间，根下的很多数据将没有地方存放）<br>swap分区（交换分区，可理解为虚拟内存， 当真实内存不足时，可将swap分区中的硬盘空间作为内存使用，如果内存小于等于4GB，推荐swap分配内存的两倍，若内存大于4GB，建议swap空间与内存相等，不需要挂载点）</p>
-<h4 id="推荐分区"><a href="#推荐分区" class="headerlink" title="推荐分区"></a>推荐分区</h4><p>启动分区，推荐200MB （挂载点/boot目录，/boot中存放了用于系统启动的相关数据，如果不单独分区，将会和根分区存放在同一个存储空间中，如果根分区写满将导致系统无法启动）</p>
+<p>注：启动分区/boot需不需要创建要看实际情况，<br>需要使用LVM时，由于/boot分区不支持lvmfs，所以要单独创建，这个目录是系统文件，一般不会动，但不要太小，如果升级内核可能就满了。<br>个人使用没有必要</p>
+<p>swap分区不是给用户看的，是系统直接调用的所以无挂载点(盘符类似)；</p>
+<p><br></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://shengbao.org/691.html" target="_blank" rel="external">https://shengbao.org/691.html</a></li>
+<li><a href="http://blog.51cto.com/13323775/2053921" target="_blank" rel="external">http://blog.51cto.com/13323775/2053921</a></li>
+</ul>
 
       
     </div>
@@ -400,6 +407,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/05/Linux-搜索命令/" rel="prev" title="Linux 搜索命令">
+                Linux 搜索命令 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -476,7 +487,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -531,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MBR"><span class="nav-number">1.</span> <span class="nav-text">MBR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分区的优点"><span class="nav-number">2.</span> <span class="nav-text">分区的优点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主分区"><span class="nav-number">2.0.1.</span> <span class="nav-text">主分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑分区"><span class="nav-number">2.0.2.</span> <span class="nav-text">逻辑分区</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化："><span class="nav-number">3.</span> <span class="nav-text">格式化：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows与Linux不同的磁盘分区流程"><span class="nav-number">4.</span> <span class="nav-text">Windows与Linux不同的磁盘分区流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设备文件名"><span class="nav-number">5.</span> <span class="nav-text">设备文件名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分区的设备文件名分配规则"><span class="nav-number">5.0.1.</span> <span class="nav-text">分区的设备文件名分配规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#挂载点"><span class="nav-number">5.0.2.</span> <span class="nav-text">挂载点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推荐分区"><span class="nav-number">5.0.3.</span> <span class="nav-text">推荐分区</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MBR"><span class="nav-number">1.</span> <span class="nav-text">MBR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分区的优点"><span class="nav-number">2.</span> <span class="nav-text">分区的优点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主分区"><span class="nav-number">2.0.1.</span> <span class="nav-text">主分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑分区"><span class="nav-number">2.0.2.</span> <span class="nav-text">逻辑分区</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化："><span class="nav-number">3.</span> <span class="nav-text">格式化：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows与Linux不同的磁盘分区流程"><span class="nav-number">4.</span> <span class="nav-text">Windows与Linux不同的磁盘分区流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设备文件名"><span class="nav-number">5.</span> <span class="nav-text">设备文件名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分区的设备文件名分配规则"><span class="nav-number">5.0.1.</span> <span class="nav-text">分区的设备文件名分配规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#挂载点"><span class="nav-number">5.0.2.</span> <span class="nav-text">挂载点</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
