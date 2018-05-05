@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="文件搜索命令 locatelocate 文件名 #在后台数据库中按文件名搜索，搜索速度更快  /var/lib/mlocate (保存的搜索数据库) #locate 命令所搜索的后台数据库 #数据库不是实时的，更新频率大概一天更新一次  updatedb #更新数据库 对于新建的文件，由于数据库没有更新，使用locate不能查到。可以使用 updatedb强制更新数据库后即可查到。可使用 loca">
+<meta name="description" content="文件搜索命令 locate123456789locate 文件名#在后台数据库中按文件名搜索，搜索速度更快/var/lib/mlocate (保存的搜索数据库)#locate 命令所搜索的后台数据库#数据库不是实时的，更新频率大概一天更新一次updatedb#更新数据库 对于新建的文件，由于数据库没有更新，使用locate不能查到。可以使用 updatedb强制更新数据库后即可查到。可使用 loc">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux文件管理 文件搜索命令">
 <meta property="og:url" content="http://yoursite.com/2018/05/05/Linux文件管理-文件搜索命令/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="文件搜索命令 locatelocate 文件名 #在后台数据库中按文件名搜索，搜索速度更快  /var/lib/mlocate (保存的搜索数据库) #locate 命令所搜索的后台数据库 #数据库不是实时的，更新频率大概一天更新一次  updatedb #更新数据库 对于新建的文件，由于数据库没有更新，使用locate不能查到。可以使用 updatedb强制更新数据库后即可查到。可使用 loca">
+<meta property="og:description" content="文件搜索命令 locate123456789locate 文件名#在后台数据库中按文件名搜索，搜索速度更快/var/lib/mlocate (保存的搜索数据库)#locate 命令所搜索的后台数据库#数据库不是实时的，更新频率大概一天更新一次updatedb#更新数据库 对于新建的文件，由于数据库没有更新，使用locate不能查到。可以使用 updatedb强制更新数据库后即可查到。可使用 loc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T11:20:52.501Z">
+<meta property="og:updated_time" content="2018-05-05T12:58:32.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux文件管理 文件搜索命令">
-<meta name="twitter:description" content="文件搜索命令 locatelocate 文件名 #在后台数据库中按文件名搜索，搜索速度更快  /var/lib/mlocate (保存的搜索数据库) #locate 命令所搜索的后台数据库 #数据库不是实时的，更新频率大概一天更新一次  updatedb #更新数据库 对于新建的文件，由于数据库没有更新，使用locate不能查到。可以使用 updatedb强制更新数据库后即可查到。可使用 loca">
+<meta name="twitter:description" content="文件搜索命令 locate123456789locate 文件名#在后台数据库中按文件名搜索，搜索速度更快/var/lib/mlocate (保存的搜索数据库)#locate 命令所搜索的后台数据库#数据库不是实时的，更新频率大概一天更新一次updatedb#更新数据库 对于新建的文件，由于数据库没有更新，使用locate不能查到。可以使用 updatedb强制更新数据库后即可查到。可使用 loc">
 
 
 
@@ -334,116 +334,17 @@
       
 
       
-        <h2 id="文件搜索命令-locate"><a href="#文件搜索命令-locate" class="headerlink" title="文件搜索命令 locate"></a>文件搜索命令 locate</h2><pre><code>locate 文件名
-#在后台数据库中按文件名搜索，搜索速度更快
-
-/var/lib/mlocate (保存的搜索数据库)
-#locate 命令所搜索的后台数据库
-#数据库不是实时的，更新频率大概一天更新一次
-
-updatedb
-#更新数据库
-</code></pre><p>对于新建的文件，由于数据库没有更新，使用<code>locate</code>不能查到。可以使用 updatedb强制更新数据库后即可查到。<br>可使用 <code>locate locate</code>搜索locate相关文件，可看到locate数据库。<br>在不同linux中，该数据库名字稍微不同，例如，locatedb、slocate、mlocate。</p>
+        <h2 id="文件搜索命令-locate"><a href="#文件搜索命令-locate" class="headerlink" title="文件搜索命令 locate"></a>文件搜索命令 locate</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">locate 文件名</div><div class="line">#在后台数据库中按文件名搜索，搜索速度更快</div><div class="line"></div><div class="line">/var/lib/mlocate (保存的搜索数据库)</div><div class="line">#locate 命令所搜索的后台数据库</div><div class="line">#数据库不是实时的，更新频率大概一天更新一次</div><div class="line"></div><div class="line">updatedb</div><div class="line">#更新数据库</div></pre></td></tr></table></figure>
+<p>对于新建的文件，由于数据库没有更新，使用<code>locate</code>不能查到。可以使用 updatedb强制更新数据库后即可查到。<br>可使用 <code>locate locate</code>搜索locate相关文件，可看到locate数据库。<br>在不同linux中，该数据库名字稍微不同，例如，locatedb、slocate、mlocate。</p>
 <p>缺点：只能按照文件名进行搜索，但常用。</p>
-<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><pre><code>touch /root/cangls
-touch /tmp/cangls
-updatedb
-locate cangls
-#显示为 /root/cangls  
-#只有一条，而/tmp下的cangls没有显示出来
-#原因在于locate搜索遵循配置文件 `/etc/updatedb.conf`
-#在PRUNEPATHS 中配置了/tmp/目录不进行搜索。所以没有进行查找
-
-/etc/updatedb.conf 配置文件
-PRUNE_BIND_MOUNTS = &quot;yes&quot;
-#开启搜索限制，yes为后面三项都生效。no为 后面三项都不生效
-PRUNEFS = 
-#搜索时，不搜索的文件系统
-PRUNENAMES =
-#搜索时，不搜索的文件类型
-PRUNEPATHS =
-#搜索时，不搜索的路径
-</code></pre><p><br></p>
-<h2 id="命令搜索命令-whereis和wchich"><a href="#命令搜索命令-whereis和wchich" class="headerlink" title="命令搜索命令 whereis和wchich"></a>命令搜索命令 whereis和wchich</h2><pre><code>whereis 命令名
-#搜索命令所在路径及帮助文档所在位置
-#只能搜索系统命令，不能搜索自己凭空创建的普通文件
-选项：
--b:只查找可执行文件
--m:只查找帮助文件
-#whoami     显示当前操作用户
-#who am i    显示登录用户
-#whatis ls    显示ls的作用
-
-which 命令名
-#搜索命令所在路径及别名
-#如果有别名，还能看到别名
-
-# whereis和which不能看到shell的默认命令（如：cd），只能看到外部安装的命令。
-
-PATH环境变量
-定义系统搜索命令的路径
-echo $PATH
-执行命令的时候都要在path定义的目录中去寻找
-</code></pre><p><br></p>
-<h2 id="文件搜索命令-find"><a href="#文件搜索命令-find" class="headerlink" title="文件搜索命令 find"></a>文件搜索命令 find</h2><pre><code>find [搜索范围][搜索条件]
-#搜索文件
-
-find /home -name 文件名
-# find搜索默认是完全匹配
-# 避免大范围的搜索，会非常浪费系统资源
-# find是在系统当中搜索符合条件的文件名，如果需要匹配，使用通配符匹配，通配符是完全匹配
-find /home -name &quot;[12]*&quot;
-find /home -name &quot;test[12]&quot;
-#要加引号
-*匹配任意内容
-?匹配任意一个字符
-[]匹配任意一个中括号内的字符
-
-find /home -mtime +10 在home目录下，查找10天前修改的文件
-find /home -mtime 10 在home目录下，查找10天前当天修改的文件
-find /home -mtime -10 在home目录下，查找10天内修改的文件
-# atime 文件访问时间
-# ctime 改变文件属性
-# mtime 修改文件内容
-
-find /root -iname test 
-# 不区分要搜索的test大小写格式
-find /root -user root 
-# -user 按文件所有者搜索
-# 搜索root目录下的所有属于root用户的文件
-find /root -nouser 
-#没有所属者的文件，liunx中，每个文件都有所属者，如果没有，那么一般都是垃圾文件，但还是有特例的，比如内核产生的文件，就没有所属者，一般在proc和sys目录下；还有外来文件，也就是U盘拷入的文件也会忽略所有者。
-
-find 目录 -size 25k
-# 查找文件大小是25KB的文件
-# 注意：文件大小用小写k和大写M
-# -25k    小于25k
-# 25k     等于25k
-# +25k    大于25k
-
-find . -size 25M 
-# 查询当前目录文件大小是25M的文件
-
-find /etc -size +20k -a -size -50k 
-# 查找/etc下大于20k并且小于50k的文件
-# -a and,逻辑与，两个条件都满足
-# -o or,逻辑或，两个条件满足一个即可
-
-find /etc -size +20k -a -size -50k -exec ls -lh {} \;
--exec {} \; 
-# 固定格式，表示直接对前面的搜索结果进行后面的命令处理
-# 注意，{}和\之间有空格，结尾有分号
-
-find . -inum 262422 
-# 查找inode是262422的文件
-# -inum 查询指定i节点的文件
-</code></pre><p><br></p>
-<h2 id="字符串搜索命令-grep"><a href="#字符串搜索命令-grep" class="headerlink" title="字符串搜索命令 grep"></a>字符串搜索命令 grep</h2><pre><code>grep [选项] 字符串 文件名
-# 在文件中匹配符合条件的字条串
-# 字符串使用 &quot;&quot; 包围，结果为行记录
--i 忽略大小写
--v 排除指定字符串
-</code></pre><p><br></p>
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">touch /root/cangls</div><div class="line">touch /tmp/cangls</div><div class="line">updatedb</div><div class="line">locate cangls</div><div class="line">#显示为 /root/cangls  </div><div class="line">#只有一条，而/tmp下的cangls没有显示出来</div><div class="line">#原因在于locate搜索遵循配置文件 `/etc/updatedb.conf`</div><div class="line">#在PRUNEPATHS 中配置了/tmp/目录不进行搜索。所以没有进行查找</div><div class="line"></div><div class="line">/etc/updatedb.conf 配置文件</div><div class="line">PRUNE_BIND_MOUNTS = &quot;yes&quot;</div><div class="line">#开启搜索限制，yes为后面三项都生效。no为 后面三项都不生效</div><div class="line">PRUNEFS = </div><div class="line">#搜索时，不搜索的文件系统</div><div class="line">PRUNENAMES =</div><div class="line">#搜索时，不搜索的文件类型</div><div class="line">PRUNEPATHS =</div><div class="line">#搜索时，不搜索的路径</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="命令搜索命令-whereis和wchich"><a href="#命令搜索命令-whereis和wchich" class="headerlink" title="命令搜索命令 whereis和wchich"></a>命令搜索命令 whereis和wchich</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">whereis 命令名</div><div class="line">#搜索命令所在路径及帮助文档所在位置</div><div class="line">#只能搜索系统命令，不能搜索自己凭空创建的普通文件</div><div class="line">选项：</div><div class="line">-b:只查找可执行文件</div><div class="line">-m:只查找帮助文件</div><div class="line">#whoami 	显示当前操作用户</div><div class="line">#who am i	显示登录用户</div><div class="line">#whatis ls	显示ls的作用</div><div class="line"></div><div class="line">which 命令名</div><div class="line">#搜索命令所在路径及别名</div><div class="line">#如果有别名，还能看到别名</div><div class="line"></div><div class="line"># whereis和which不能看到shell的默认命令（如：cd），只能看到外部安装的命令。</div><div class="line"></div><div class="line">PATH环境变量</div><div class="line">定义系统搜索命令的路径</div><div class="line">echo $PATH</div><div class="line">执行命令的时候都要在path定义的目录中去寻找</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="文件搜索命令-find"><a href="#文件搜索命令-find" class="headerlink" title="文件搜索命令 find"></a>文件搜索命令 find</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">find [搜索范围][搜索条件]</div><div class="line">#搜索文件</div><div class="line"></div><div class="line">find /home -name 文件名</div><div class="line"># find搜索默认是完全匹配</div><div class="line"># 避免大范围的搜索，会非常浪费系统资源</div><div class="line"># find是在系统当中搜索符合条件的文件名，如果需要匹配，使用通配符匹配，通配符是完全匹配</div><div class="line">find /home -name &quot;[12]*&quot;</div><div class="line">find /home -name &quot;test[12]&quot;</div><div class="line">#要加引号</div><div class="line">*匹配任意内容</div><div class="line">?匹配任意一个字符</div><div class="line">[]匹配任意一个中括号内的字符</div><div class="line"></div><div class="line">find /home -mtime +10 在home目录下，查找10天前修改的文件</div><div class="line">find /home -mtime 10 在home目录下，查找10天前当天修改的文件</div><div class="line">find /home -mtime -10 在home目录下，查找10天内修改的文件</div><div class="line"># atime 文件访问时间</div><div class="line"># ctime 改变文件属性</div><div class="line"># mtime 修改文件内容</div><div class="line"></div><div class="line">find /root -iname test </div><div class="line"># 不区分要搜索的test大小写格式</div><div class="line">find /root -user root </div><div class="line"># -user 按文件所有者搜索</div><div class="line"># 搜索root目录下的所有属于root用户的文件</div><div class="line">find /root -nouser </div><div class="line">#没有所属者的文件，liunx中，每个文件都有所属者，如果没有，那么一般都是垃圾文件，但还是有特例的，比如内核产生的文件，就没有所属者，一般在proc和sys目录下；还有外来文件，也就是U盘拷入的文件也会忽略所有者。</div><div class="line"></div><div class="line">find 目录 -size 25k</div><div class="line"># 查找文件大小是25KB的文件</div><div class="line"># 注意：文件大小用小写k和大写M</div><div class="line"># -25k    小于25k</div><div class="line"># 25k     等于25k</div><div class="line"># +25k    大于25k</div><div class="line"></div><div class="line">find . -size 25M </div><div class="line"># 查询当前目录文件大小是25M的文件</div><div class="line"></div><div class="line">find /etc -size +20k -a -size -50k </div><div class="line"># 查找/etc下大于20k并且小于50k的文件</div><div class="line"># -a and,逻辑与，两个条件都满足</div><div class="line"># -o or,逻辑或，两个条件满足一个即可</div><div class="line"></div><div class="line">find /etc -size +20k -a -size -50k -exec ls -lh &#123;&#125; \;</div><div class="line">-exec &#123;&#125; \; </div><div class="line"># 固定格式，表示直接对前面的搜索结果进行后面的命令处理</div><div class="line"># 注意，&#123;&#125;和\之间有空格，结尾有分号</div><div class="line"></div><div class="line">find . -inum 262422 </div><div class="line"># 查找inode是262422的文件</div><div class="line"># -inum 查询指定i节点的文件</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="字符串搜索命令-grep"><a href="#字符串搜索命令-grep" class="headerlink" title="字符串搜索命令 grep"></a>字符串搜索命令 grep</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">grep [选项] 字符串 文件名</div><div class="line"># 在文件中匹配符合条件的字条串</div><div class="line"># 字符串使用 &quot;&quot; 包围，结果为行记录</div><div class="line">-i 忽略大小写</div><div class="line">-v 排除指定字符串</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="find命令和grep命令的区别"><a href="#find命令和grep命令的区别" class="headerlink" title="find命令和grep命令的区别"></a>find命令和grep命令的区别</h2><p>find：在 系统 中搜索符合条件的 文件名，使用 通配符（完全）匹配<br>grep：在 文件 当中搜索符合条件的 字符串，使用 正则表达式 （包含）匹配</p>
 <p>通配符（完全）匹配：搜索文件名<br>正则表达式 （包含）匹配：搜索文件中的数据</p>
 
