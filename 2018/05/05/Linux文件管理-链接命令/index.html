@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -94,17 +94,18 @@
 
 
 
-<meta name="description" content="每次重装系统都要重新配置jdk每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境 1、下载jdk2、配置环境变量 JAVA_HOME    D:\Java\jdk1.6.0_39 CLASSPATH    .;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar Path        %JAVA_HOME%\bin             %JAVA_">
+<meta name="description" content="命令ln -s [原文件][目标文件] （link） #生成链接文件 -s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JDK配置">
-<meta property="og:url" content="http://yoursite.com/2017/08/19/JDK配置/index.html">
+<meta property="og:title" content="Linux文件管理 链接命令">
+<meta property="og:url" content="http://yoursite.com/2018/05/05/Linux文件管理-链接命令/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="每次重装系统都要重新配置jdk每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境 1、下载jdk2、配置环境变量 JAVA_HOME    D:\Java\jdk1.6.0_39 CLASSPATH    .;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar Path        %JAVA_HOME%\bin             %JAVA_">
+<meta property="og:description" content="命令ln -s [原文件][目标文件] （link） #生成链接文件 -s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-19T11:01:08.000Z">
+<meta property="og:updated_time" content="2018-05-05T04:41:58.871Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JDK配置">
-<meta name="twitter:description" content="每次重装系统都要重新配置jdk每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境 1、下载jdk2、配置环境变量 JAVA_HOME    D:\Java\jdk1.6.0_39 CLASSPATH    .;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar Path        %JAVA_HOME%\bin             %JAVA_">
+<meta name="twitter:title" content="Linux文件管理 链接命令">
+<meta name="twitter:description" content="命令ln -s [原文件][目标文件] （link） #生成链接文件 -s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文">
 
 
 
@@ -133,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/19/JDK配置/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/05/Linux文件管理-链接命令/"/>
 
 
 
 
 
-  <title>JDK配置 | 太阳落下</title>
+  <title>Linux文件管理 链接命令 | 太阳落下</title>
   
 
 
@@ -266,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/19/JDK配置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/Linux文件管理-链接命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -283,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JDK配置</h1>
+          <h1 class="post-title" itemprop="name headline">Linux文件管理 链接命令</h1>
         
 
         <div class="post-meta">
@@ -295,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-19T15:59:29+08:00">
-                2017-08-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T12:32:53+08:00">
+                2018-05-05
               </time>
             
 
@@ -333,14 +334,31 @@
       
 
       
-        <p>每次重装系统都要重新配置jdk<br>每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境</p>
-<p>1、下载jdk<br>2、配置环境变量</p>
-<pre><code>JAVA_HOME    D:\Java\jdk1.6.0_39
-CLASSPATH    .;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
-Path        %JAVA_HOME%\bin
-            %JAVA_HOME%\jre\bin
-</code></pre><p>注意CLASSPATH之前的点和分号</p>
-<p>3、验证<br>打开cmd，分别输入<code>java -version</code>，<code>javac -version</code>，如果可以看到版本号，说明成功</p>
+        <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre><code>ln -s [原文件][目标文件] （link）
+#生成链接文件
+-s 创建软链接
+</code></pre><p><br></p>
+<h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><ul>
+<li>拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文件拥有相同的i节点。因此，与原文件非常相似。当删除原文件或硬链接文件的任何一文件，不影响文件索引操作。可看做，同一个文件的不通进入点。它是同样的存储空间。</li>
+<li>可通过i节点识别</li>
+<li>不能跨分区建立</li>
+<li>不能针对目录使用，只有文件才可以创建</li>
+</ul>
+<pre><code>ln ./source/abc ./target/bcd.hard
+# 创建后，引用计数+1
+ls -i ./source/abc ./target/bcd.hard
+# 可使用ls -i 来查看文件i节点号
+</code></pre><p>不建议创建硬链接文件<br>文件太过隐蔽，除了有i节点这样一个标识之外，很难区分它是不是硬链接<br>硬链接限制较多，不能跨分区，不能针对目录，使用当中容易出现错误使用方法</p>
+<p><br></p>
+<p>##软链接</p>
+<ul>
+<li>类似于Windows快捷方式</li>
+<li>软链接拥有自己的i节点和block块，但是数据块中只保存原文件的文件名和i节点号，并没有实际的文件数据。（拥有自己的分区表中索引数据,通过索引找到分区表中文件的目标索引数据，再通过目标索引数据，查找数据）</li>
+<li>lrwxrwxrwx  l软链接， 软链接文件权限都为rwxrwxrwx, 虽然权限显示为777，但实际权限需要看原文件权限。</li>
+<li>修改任意文件，另一个都改变</li>
+<li>删除原文件，软链接不能使用</li>
+<li>创建软链接，原文件<strong>一定要写绝对路径</strong>。否则，软链接会到它所在的同一目录去找原文件。</li>
+</ul>
 
       
     </div>
@@ -356,6 +374,12 @@ Path        %JAVA_HOME%\bin
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
 
       
       
@@ -365,8 +389,8 @@ Path        %JAVA_HOME%\bin
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/19/【Hexo】重装系统后hexo配置/" rel="next" title="【Hexo】重装系统后hexo配置">
-                <i class="fa fa-chevron-left"></i> 【Hexo】重装系统后hexo配置
+              <a href="/2018/05/05/Linux文件管理-挂载命令/" rel="next" title="Linux文件管理 挂载命令">
+                <i class="fa fa-chevron-left"></i> Linux文件管理 挂载命令
               </a>
             
           </div>
@@ -375,8 +399,8 @@ Path        %JAVA_HOME%\bin
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/06/PC端安装软件汇总/" rel="prev" title="PC端安装软件汇总">
-                PC端安装软件汇总 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/05/Linux-专题导航/" rel="prev" title="Linux 专题导航">
+                Linux 专题导航 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -429,8 +453,17 @@ Path        %JAVA_HOME%\bin
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -490,6 +523,22 @@ Path        %JAVA_HOME%\bin
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令"><span class="nav-number">1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬链接"><span class="nav-number">2.</span> <span class="nav-text">硬链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

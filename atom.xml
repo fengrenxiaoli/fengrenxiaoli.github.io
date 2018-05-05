@@ -36,6 +36,54 @@
   </entry>
   
   <entry>
+    <title>Linux文件管理 链接命令</title>
+    <link href="http://yoursite.com/2018/05/05/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E9%93%BE%E6%8E%A5%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2018/05/05/Linux文件管理-链接命令/</id>
+    <published>2018-05-05T04:32:53.000Z</published>
+    <updated>2018-05-05T04:41:58.871Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre><code>ln -s [原文件][目标文件] （link）
+#生成链接文件
+-s 创建软链接
+</code></pre><p><br></p>
+<h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><ul>
+<li>拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文件拥有相同的i节点。因此，与原文件非常相似。当删除原文件或硬链接文件的任何一文件，不影响文件索引操作。可看做，同一个文件的不通进入点。它是同样的存储空间。</li>
+<li>可通过i节点识别</li>
+<li>不能跨分区建立</li>
+<li>不能针对目录使用，只有文件才可以创建</li>
+</ul>
+<pre><code>ln ./source/abc ./target/bcd.hard
+# 创建后，引用计数+1
+ls -i ./source/abc ./target/bcd.hard
+# 可使用ls -i 来查看文件i节点号
+</code></pre><p>不建议创建硬链接文件<br>文件太过隐蔽，除了有i节点这样一个标识之外，很难区分它是不是硬链接<br>硬链接限制较多，不能跨分区，不能针对目录，使用当中容易出现错误使用方法</p>
+<p><br></p>
+<p>##软链接</p>
+<ul>
+<li>类似于Windows快捷方式</li>
+<li>软链接拥有自己的i节点和block块，但是数据块中只保存原文件的文件名和i节点号，并没有实际的文件数据。（拥有自己的分区表中索引数据,通过索引找到分区表中文件的目标索引数据，再通过目标索引数据，查找数据）</li>
+<li>lrwxrwxrwx  l软链接， 软链接文件权限都为rwxrwxrwx, 虽然权限显示为777，但实际权限需要看原文件权限。</li>
+<li>修改任意文件，另一个都改变</li>
+<li>删除原文件，软链接不能使用</li>
+<li>创建软链接，原文件<strong>一定要写绝对路径</strong>。否则，软链接会到它所在的同一目录去找原文件。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;命令&quot;&gt;&lt;a href=&quot;#命令&quot; class=&quot;headerlink&quot; title=&quot;命令&quot;&gt;&lt;/a&gt;命令&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;ln -s [原文件][目标文件] （link）
+#生成链接文件
+-s 创建软链接
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux文件管理 挂载命令</title>
     <link href="http://yoursite.com/2018/05/05/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E6%8C%82%E8%BD%BD%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/05/05/Linux文件管理-挂载命令/</id>
@@ -74,12 +122,14 @@ sudo mount /dev/sdb /media/usb
     <link href="http://yoursite.com/2018/05/05/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/05/05/Linux文件管理-文件解压缩命令/</id>
     <published>2018-05-05T03:39:33.000Z</published>
-    <updated>2018-05-05T03:39:33.825Z</updated>
+    <updated>2018-05-05T04:33:53.848Z</updated>
     
     <summary type="html">
     
     </summary>
     
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -88,9 +138,124 @@ sudo mount /dev/sdb /media/usb
     <link href="http://yoursite.com/2018/05/05/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/05/05/Linux文件管理-文件搜索命令/</id>
     <published>2018-05-05T03:38:51.000Z</published>
-    <updated>2018-05-05T03:42:08.334Z</updated>
+    <updated>2018-05-05T05:57:11.532Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="文件搜索命令-locate"><a href="#文件搜索命令-locate" class="headerlink" title="文件搜索命令 locate"></a>文件搜索命令 locate</h2><pre><code>locate 文件名
+#在后台数据库中按文件名搜索，搜索速度更快
+
+/var/lib/mlocate (保存的搜索数据库)
+#locate 命令所搜索的后台数据库
+#数据库不是实时的，更新频率大概一天更新一次
+
+updatedb
+#更新数据库
+</code></pre><p>对于新建的文件，由于数据库没有更新，使用<code>locate</code>不能查到。可以使用 updatedb强制更新数据库后即可查到。<br>可使用 <code>locate locate</code>搜索locate相关文件，可看到locate数据库。<br>在不同linux中，该数据库名字稍微不同，例如，locatedb、slocate、mlocate。</p>
+<p>缺点：只能按照文件名进行搜索，但常用。</p>
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><pre><code>touch /root/cangls
+touch /tmp/cangls
+updatedb
+locate cangls
+#显示为 /root/cangls  
+#只有一条，而/tmp下的cangls没有显示出来，原因在于locate搜索遵循配置文件 `/etc/updatedb.conf`, 在PRUNEPATHS 中配置了/tmp/目录不进行搜索。所以没有进行查找。
+
+/etc/updatedb.conf 配置文件
+PRUNE_BIND_MOUNTS = &quot;yes&quot;
+#开启搜索限制，yes为后面三项都生效。no为 后面三项都不生效
+PRUNEFS = 
+#搜索时，不搜索的文件系统
+PRUNENAMES =
+#搜索时，不搜索的文件类型
+PRUNEPATHS =
+#搜索时，不搜索的路径
+</code></pre><p><br></p>
+<h2 id="命令搜索命令-whereis和wchich"><a href="#命令搜索命令-whereis和wchich" class="headerlink" title="命令搜索命令 whereis和wchich"></a>命令搜索命令 whereis和wchich</h2><pre><code>whereis 命令名
+#搜索命令所在路径及帮助文档所在位置
+#只能搜索系统命令，不能搜索自己凭空创建的普通文件
+选项：
+-b:只查找可执行文件
+-m:只查找帮助文件
+#whoami     显示当前操作用户
+#who am i    显示登录用户
+#whatis ls    显示ls的作用
+
+which 命令名
+#搜索命令所在路径及别名
+#如果有别名，还能看到别名
+
+# whereis和which不能看到shell的默认命令（如：cd），只能看到外部安装的命令。
+
+PATH环境变量
+定义系统搜索命令的路径
+echo $PATH
+执行命令的时候都要在path定义的目录中去寻找
+</code></pre><p><br></p>
+<h2 id="文件搜索命令-find"><a href="#文件搜索命令-find" class="headerlink" title="文件搜索命令 find"></a>文件搜索命令 find</h2><pre><code>find [搜索范围][搜索条件]
+#搜索文件
+
+find /home -name 文件名
+# find搜索默认是完全匹配
+# 避免大范围的搜索，会非常浪费系统资源
+# find是在系统当中搜索符合条件的文件名，如果需要匹配，使用通配符匹配，通配符是完全匹配
+find /home -name &quot;[12]*&quot;
+find /home -name &quot;test[12]&quot;
+#要加引号
+*匹配任意内容
+?匹配任意一个字符
+[]匹配任意一个中括号内的字符
+
+find /home -mtime +10 在home目录下，查找10天前修改的文件
+find /home -mtime 10 在home目录下，查找10天前当天修改的文件
+find /home -mtime -10 在home目录下，查找10天内修改的文件
+# atime 文件访问时间
+# ctime 改变文件属性
+# mtime 修改文件内容
+
+find /root -iname test 
+# 不区分要搜索的test大小写格式
+find /root -user root 
+# -user 按文件所有者搜索
+# 搜索root目录下的所有属于root用户的文件
+find /root -nouser 
+#没有所属者的文件，liunx中，每个文件都有所属者，如果没有，那么一般都是垃圾文件，但还是有特例的，比如内核产生的文件，就没有所属者，一般在proc和sys目录下；还有外来文件，也就是U盘拷入的文件也会忽略所有者。
+
+find 目录 -size 25k
+# 查找文件大小是25KB的文件
+# 注意：文件大小用小写k和大写M
+# -25k    小于25k
+# 25k     等于25k
+# +25k    大于25k
+
+find . -size 25M 
+# 查询当前目录文件大小是25M的文件
+
+find /etc -size +20k -a -size -50k 
+# 查找/etc下大于20k并且小于50k的文件
+# -a and,逻辑与，两个条件都满足
+# -o or,逻辑或，两个条件满足一个即可
+
+find /etc -size +20k -a -size -50k -exec ls -lh {} \;
+-exec {} \; 
+# 固定格式，表示直接对前面的搜索结果进行后面的命令处理
+# 注意，{}和\之间有空格，结尾有分号
+
+find . -inum 262422 
+# 查找inode是262422的文件
+# -inum 查询指定i节点的文件
+</code></pre><p><br></p>
+<h2 id="字符串搜索命令-grep"><a href="#字符串搜索命令-grep" class="headerlink" title="字符串搜索命令 grep"></a>字符串搜索命令 grep</h2><pre><code>grep [选项] 字符串 文件名
+# 在文件中匹配符合条件的字条串
+# 字符串使用 &quot;&quot; 包围，结果为行记录
+-i 忽略大小写
+-v 排除指定字符串
+</code></pre><p><br></p>
+<h2 id="find命令和grep命令的区别"><a href="#find命令和grep命令的区别" class="headerlink" title="find命令和grep命令的区别"></a>find命令和grep命令的区别</h2><p>find：在 系统 中搜索符合条件的 文件名，使用 通配符（完全）匹配<br>grep：在 文件 当中搜索符合条件的 字符串，使用 正则表达式 （包含）匹配</p>
+<p>通配符（完全）匹配：搜索文件名<br>正则表达式 （包含）匹配：搜索文件中的数据</p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;h2 id=&quot;文件搜索命令-locate&quot;&gt;&lt;a href=&quot;#文件搜索命令-locate&quot; class=&quot;headerlink&quot; title=&quot;文件搜索命令 locate&quot;&gt;&lt;/a&gt;文件搜索命令 locate&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;locate 文件名
+#在后台数据库
     
     </summary>
     
@@ -228,99 +393,25 @@ mv abc longls 当原文件与目标目录，在同一目录下，则为改名命
     <link href="http://yoursite.com/2018/05/05/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E5%B8%B8%E7%94%A8%E7%9B%AE%E5%BD%95/"/>
     <id>http://yoursite.com/2018/05/05/Linux文件管理-常用目录/</id>
     <published>2018-05-05T02:13:04.000Z</published>
-    <updated>2018-05-05T03:35:58.427Z</updated>
+    <updated>2018-05-05T04:31:46.635Z</updated>
     
-    <content type="html"><![CDATA[<p>##常用目录<br>linux 是个严谨的操作系统，一级目录都严格规定</p>
-<p>做练习推荐在家目录中（root或home），以及tmp。</p>
-<p>1、/ 根目录</p>
-<p>2、/bin 命令保存目录（普通用户就可以读取的命令）<br>  2-1）根目录下的bin和sbin，usr目录下的bin和sbin，这四个目录都是用来保存系统命令。其中，bin目录</p>
-<p>下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式来区分用户权限。</p>
-<p>3、/boot 启动目录，启动相关文件</p>
-<p>4、/dev 设备文件保存目录</p>
-<p>5、/etc 配置文件保存目录</p>
-<p>6、/home 普通用户的家目录</p>
-<p>7、/lib 系统库保存目录<br>  7-1）操作系统中并没有把所有功能都写入linux中，而将常用的功能写成一个个程序库，此些库保存在lib</p>
-<p>中，当需要时调用即可。避免全部写入linux中，使其无比庞大且运行缓慢。</p>
-<p>8、/mnt 系统挂载U盘、移动硬盘目录<br>  8-1）老师习惯于在mnt下创建CD-ROM来挂载光盘，在mnt下创建USB来挂载U盘。原因在于老师的linux中不存</p>
-<p>在media、misc目录。</p>
-<p>9、/media 挂载光盘目录</p>
-<p>10、/misc 外接磁带机挂载目录</p>
-<p>11、/root 超级用户的家目录</p>
-<p>12、/tmp 临时目录<br>  12-1）可存放临时数据</p>
-<p>13、/sbin 命令保存目录（超级用户才能使用的目录）</p>
-<p>14、/proc 直接写入内存的<br>  14-1）该目录同sys目录不能直接操作，这两个目录保存的是内存的挂载点。其中的数据直接写在内存中。避免数据丢失或由于内存溢出导致系统崩溃。</p>
-<p>15、/sys </p>
-<p>16、/usr 系统软件资源目录<br>  16-1）/usr/bin/ 系统命令（普通用户）<br>  16-2）/usr/sbin/ 系统命令（超级用户）</p>
-<p>17、/var 系统相关文档内容</p>
-<p>##文件处理命令</p>
-<p>linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件</p>
-<h4 id="命令提示符"><a href="#命令提示符" class="headerlink" title="命令提示符"></a>命令提示符</h4><pre><code>[root@localhost ~]#
-root 当前登录用户
-localhost 主机名
-~ 当前所在目录（家目录）
-# 超级用户的提示符
-$ 普通用户的提示符
-</code></pre><h4 id="命令的格式"><a href="#命令的格式" class="headerlink" title="命令的格式"></a>命令的格式</h4><pre><code>命令 [选项][参数]
-个别命令使用不遵循此格式
-当有多个选项时，可以写在一起
-简化选项与完整选项：-a == --all
-</code></pre><h4 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h4><ul>
-<li>相对路径：参照当前所在目录，进行查找</li>
-<li>绝对路径：从根目录开始制定，一级一级递归，进行查找</li>
-</ul>
-<h4 id="ls-查询目录中的内容"><a href="#ls-查询目录中的内容" class="headerlink" title="ls 查询目录中的内容"></a>ls 查询目录中的内容</h4><pre><code>ls [选项] [文件或目录]
-    -a 显示所有文件,包括隐藏文件
-    -l 显示详细信息
-    -d 查看目录属性
-    -h 人性化显示文件大小
-    -i 显示inode
-ll命令表示ls -l
-</code></pre><h4 id="mkdir-建立目录（make-directories）"><a href="#mkdir-建立目录（make-directories）" class="headerlink" title="mkdir  建立目录（make directories）"></a>mkdir  建立目录（make directories）</h4><pre><code>mkdir -p [目录名]
-    -p ：递归创建，当创建多级目录时需加
-mkdir light
-mkdir -p imooc/linux/light
-</code></pre><h4 id="cd-切换目录（change-directory）"><a href="#cd-切换目录（change-directory）" class="headerlink" title="cd 切换目录（change directory）"></a>cd 切换目录（change directory）</h4><pre><code>cd [目录]
-简化操作
-cd：进入当前用户的家目录
-cd ~ ：进入当前用户的家目录
-cd - ：进入上次目录
-cd .. ：进入上一级目录
-cd . ：进入当前目录
-</code></pre><h4 id="pwd-查询所在目录位置（print-working-directory）"><a href="#pwd-查询所在目录位置（print-working-directory）" class="headerlink" title="pwd 查询所在目录位置（print working directory）"></a>pwd 查询所在目录位置（print working directory）</h4><h4 id="rmdir-删除空目录（remove-empty-directories）"><a href="#rmdir-删除空目录（remove-empty-directories）" class="headerlink" title="rmdir 删除空目录（remove empty directories）"></a>rmdir 删除空目录（remove empty directories）</h4><pre><code>rmdir [目录名] 
-#只能删除空目录
-</code></pre><h4 id="rm-删除文件或目录（remove）"><a href="#rm-删除文件或目录（remove）" class="headerlink" title="rm 删除文件或目录（remove）"></a>rm 删除文件或目录（remove）</h4><pre><code>rm -rf [文件或目录] 
-    -r ：删除目录
-    -f ：强制
-rm [文件名] ：提示是否删除
-rm -r [目录] ：删除目录需加 -r ，目录中含有子文件，将持续询问是否删除
-rm -rf [目录] ：删除目录， 不会询问是否删除而直接进行
-# 纯字符界面没有回收站。注意自杀指令：rm -rf /
-rm -rf /tmp/* ：删除tmp目录下的内容
-rm -rf /tmp/  ：删除tmp目录
-# 建议：删除文件或目录习惯使用命令 rm -rf [文件或目录]
-</code></pre><h4 id="cp-复制命令（copy）"><a href="#cp-复制命令（copy）" class="headerlink" title="cp 复制命令（copy）"></a>cp 复制命令（copy）</h4><pre><code>cp [选项] [原文件或目录] [目标目录] 
-    -r ：复制目录
-    -p ：连带文件属性复制
-    -d ：若原文件是链接文件，则复制链接属性
-    -a ：相当于 -pdr 全选
-cp abc /tmp/ 若目标目录不加文件名，则为原名复制
-cp abc /tmp/ana 若目标目录后加入文件名，则为改名复制
-cp -r japan/ /tmp/ 复制目录
-cp -a japan/ /tmp/ 完全复制，包括所有属性
-#被复制文件的时间为执行复制命令的时间，若要使被复制的文件与原文件属性完全一致，需加 -a
-</code></pre><h4 id="mv-剪切或改名命令（move）"><a href="#mv-剪切或改名命令（move）" class="headerlink" title="mv 剪切或改名命令（move）"></a>mv 剪切或改名命令（move）</h4><pre><code>mv [原文件或目录] [目标目录] 
-mv japan/ /tmp/ 剪切目录时不需加 -r
-mv abc longls 当原文件与目标目录，在同一目录下，则为改名命令
-</code></pre><p><br></p>
-<p>##文件搜索命令</p>
+    <content type="html"><![CDATA[<p>linux 是个严谨的操作系统，一级目录都严格规定</p>
+<p>/ 根目录</p>
+<p>/home 普通用户的家目录<br>/root 超级用户的家目录<br>/tmp 临时目录，可存放临时数据</p>
+<p>/lib 系统库保存目录<br>操作系统中并没有把所有功能都写入linux中，而将常用的功能写成一个个程序库，这些库保存在lib中，当需要时调用即可。避免全部写入linux中，使其无比庞大且运行缓慢。</p>
+<p>/mnt<br>/media<br>/misc<br>三个都可以用来挂载</p>
+<p>/proc 直接写入内存的<br>/sys 直接写入内存的<br>这两个目录保存的是内存的挂载点，不能直接操作。其中的数据直接写在内存中。避免数据丢失或由于内存溢出导致系统崩溃。</p>
+<p>/boot 启动目录，启动相关文件<br>/dev 设备文件保存目录<br>/etc 配置文件保存目录<br>/var 系统相关文档内容</p>
+<p>/usr 系统软件资源目录<br>/usr/bin/ 系统命令（普通用户）<br>/usr/sbin/ 系统命令（超级用户）</p>
+<p>/bin 命令保存目录（普通用户就可以读取的命令）<br>/sbin 命令保存目录（超级用户才能使用的目录）<br>根目录下的bin和sbin，usr目录下的bin和sbin，这四个目录都是用来保存系统命令。其中，bin目录<br>下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式来区分用户权限。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;##常用目录&lt;br&gt;linux 是个严谨的操作系统，一级目录都严格规定&lt;/p&gt;
-&lt;p&gt;做练习推荐在家目录中（root或home），以及tmp。&lt;/p&gt;
-&lt;p&gt;1、/ 根目录&lt;/p&gt;
-&lt;p&gt;2、/bin 命令保存目录（普通用户就可以读取的命令）&lt;br&gt;  2-1）根目录下的b
+      &lt;p&gt;linux 是个严谨的操作系统，一级目录都严格规定&lt;/p&gt;
+&lt;p&gt;/ 根目录&lt;/p&gt;
+&lt;p&gt;/home 普通用户的家目录&lt;br&gt;/root 超级用户的家目录&lt;br&gt;/tmp 临时目录，可存放临时数据&lt;/p&gt;
+&lt;p&gt;/lib 系统库保存目录&lt;br&gt;操作系统中并没有把所有功能都
     
     </summary>
     
@@ -1107,37 +1198,6 @@ sudo apt-get install oracle-java8-set-default
     <summary type="html">
     
       &lt;h3 id=&quot;使用PPA源安装&quot;&gt;&lt;a href=&quot;#使用PPA源安装&quot; class=&quot;headerlink&quot; title=&quot;使用PPA源安装&quot;&gt;&lt;/a&gt;使用PPA源安装&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;sudo add-apt-repository ppa:webupd8tea
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux安装管理 脚本安装包</title>
-    <link href="http://yoursite.com/2018/04/29/Linux%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86-%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85%E5%8C%85/"/>
-    <id>http://yoursite.com/2018/04/29/Linux安装管理-脚本安装包/</id>
-    <published>2018-04-29T10:40:21.000Z</published>
-    <updated>2018-04-29T11:06:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="脚本安装包：准备工作"><a href="#脚本安装包：准备工作" class="headerlink" title="脚本安装包：准备工作"></a>脚本安装包：准备工作</h3><p>1、本节以安装LNMP（<a href="http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache" target="_blank" rel="external">http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache</a> <code>/usr/local/apache2</code>删除） </p>
-<p>2、保证yum源正常使用：可以使用<code>yum list</code>命令测试。（若是光盘yum源，记得挂载光盘）</p>
-<p>3、关闭SELinux和防火墙：</p>
-<ul>
-<li>永久关闭SELinux的方法：编辑文件<code>/etc/selinux/config</code>，将<code>SELINUX=enforcing</code>改为<code>SELINUX=disabled</code>，然后重启系统即可。</li>
-<li>永久关闭防火墙的方法：<code>chkconfig iptables off</code>，开启为：<code>chkconfig iptables on</code>；临时关闭防火墙的方法：<code>service iptables stop</code>，开启为：<code>service iptables start</code>。</li>
-</ul>
-<p><br></p>
-<h3 id="脚本安装"><a href="#脚本安装" class="headerlink" title="脚本安装"></a>脚本安装</h3><pre><code>wget -c http://soft.vpser.net/lnmp.lnmp1.0-full.tar.gz &amp;&amp; tar zxvf lnmp1.0-full.tar.gz &amp;&amp; cd lnmp1.0-full &amp;&amp; ./centos.sh
-</code></pre><p>脚本安装过程中，会将系统中已有的apache、mysql、php等卸载掉。</p>
-<p>虚拟机中安装lnmp常常会卡在 starting php-fpm,真实环境中很少出现。其实安装已经完成，只需要杀掉php-fpm进程，再重新启动这个进程就好了 pkill -9 php-fpm : -9是强制杀死的意思，然后重新启动该进程【/etc/rc.d/init.d/php-fpm start】即可。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;脚本安装包：准备工作&quot;&gt;&lt;a href=&quot;#脚本安装包：准备工作&quot; class=&quot;headerlink&quot; title=&quot;脚本安装包：准备工作&quot;&gt;&lt;/a&gt;脚本安装包：准备工作&lt;/h3&gt;&lt;p&gt;1、本节以安装LNMP（&lt;a href=&quot;http://lnmp.org/d
     
     </summary>
     

@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="1.创建github帐号，新建一个以用户名.github.io命名的仓库 2.安装git，创建ssh ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot;（用于创建ssh，会有公钥和私钥，将公钥拷贝到github帐号设置&amp;gt;ssh and gpg keys中）  ssh -T git@github.com（用于测试是否成功） 输入yes">
+<meta name="description" content="1.创建github帐号，新建一个以用户名.github.io命名的仓库 2.安装git，创建ssh ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot; #用于创建ssh，会有公钥和私钥，将公钥拷贝到github帐号设置&amp;gt;ssh and gpg keys中  ssh -T git@github.com #用于测试是否成功 输入yes">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Hexo】使用Hexo搭建github博客">
 <meta property="og:url" content="http://yoursite.com/2016/10/09/【Hexo】使用Hexo搭建github博客/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="1.创建github帐号，新建一个以用户名.github.io命名的仓库 2.安装git，创建ssh ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot;（用于创建ssh，会有公钥和私钥，将公钥拷贝到github帐号设置&amp;gt;ssh and gpg keys中）  ssh -T git@github.com（用于测试是否成功） 输入yes">
+<meta property="og:description" content="1.创建github帐号，新建一个以用户名.github.io命名的仓库 2.安装git，创建ssh ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot; #用于创建ssh，会有公钥和私钥，将公钥拷贝到github帐号设置&amp;gt;ssh and gpg keys中  ssh -T git@github.com #用于测试是否成功 输入yes">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T03:50:20.157Z">
+<meta property="og:updated_time" content="2018-05-05T04:23:08.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Hexo】使用Hexo搭建github博客">
-<meta name="twitter:description" content="1.创建github帐号，新建一个以用户名.github.io命名的仓库 2.安装git，创建ssh ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot;（用于创建ssh，会有公钥和私钥，将公钥拷贝到github帐号设置&amp;gt;ssh and gpg keys中）  ssh -T git@github.com（用于测试是否成功） 输入yes">
+<meta name="twitter:description" content="1.创建github帐号，新建一个以用户名.github.io命名的仓库 2.安装git，创建ssh ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot; #用于创建ssh，会有公钥和私钥，将公钥拷贝到github帐号设置&amp;gt;ssh and gpg keys中  ssh -T git@github.com #用于测试是否成功 输入yes">
 
 
 
@@ -336,9 +336,11 @@
       
         <p>1.创建github帐号，新建一个以<code>用户名.github.io</code>命名的仓库</p>
 <p>2.安装git，创建ssh</p>
-<pre><code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;（用于创建ssh，会有公钥和私钥，将公钥拷贝到github帐号设置&gt;ssh and gpg keys中）
+<pre><code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;
+#用于创建ssh，会有公钥和私钥，将公钥拷贝到github帐号设置&gt;ssh and gpg keys中
 
-ssh -T git@github.com（用于测试是否成功）
+ssh -T git@github.com
+#用于测试是否成功
 </code></pre><p>输入yes，其他使用默认即可，配置git</p>
 <pre><code>git config --global user.name &quot;cnfeat&quot;//用户名
 git config --global user.email  &quot;cnfeat@gmail.com&quot;//邮箱
@@ -351,7 +353,7 @@ hexo init blog
 cd blog
 npm install
 hexo g
-hexo s   //可以在本地http://localhost:4000/查看
+hexo s   #可以在本地http://localhost:4000/查看
 </code></pre><p>5.修改blog目录下的_config.yml文件中的deploy：</p>
 <pre><code>deploy:
   type: git
@@ -366,11 +368,11 @@ hexo d
 </code></pre><p>如果出现问题请参考<a href="http://fengrenxiaoli.github.io/2016/10/09/%E4%BD%BF%E7%94%A8hexo-d%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" target="_blank" rel="external">使用hexo d无法上传问题解决办法</a>然后再使用以上代码</p>
 <p>参考：</p>
 <ul>
-<li><a href="http://kiya.space/2015/11/10/use-Github-Pages-Hexo-duoshuo-to-set-up-a-blog-basic-steps/" target="_blank" rel="external">网页1</a></li>
-<li><a href="http://sunwhut.com/2015/10/30/buildBlog/" target="_blank" rel="external">网页2</a></li>
-<li><a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="external">网页3</a></li>
-<li><a href="http://www.jianshu.com/p/ab21abc31153" target="_blank" rel="external">网页4</a></li>
-<li><a href="https://www.haomwei.com/technology/maupassant-hexo.html" target="_blank" rel="external">网页5</a></li>
+<li><a href="http://kiya.space/2015/11/10/use-Github-Pages-Hexo-duoshuo-to-set-up-a-blog-basic-steps/" target="_blank" rel="external">http://kiya.space/2015/11/10/use-Github-Pages-Hexo-duoshuo-to-set-up-a-blog-basic-steps/</a></li>
+<li><a href="http://sunwhut.com/2015/10/30/buildBlog/" target="_blank" rel="external">http://sunwhut.com/2015/10/30/buildBlog/</a></li>
+<li><a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="external">https://my.oschina.net/ryaneLee/blog/638440</a></li>
+<li><a href="http://www.jianshu.com/p/ab21abc31153" target="_blank" rel="external">http://www.jianshu.com/p/ab21abc31153</a></li>
+<li><a href="https://www.haomwei.com/technology/maupassant-hexo.html" target="_blank" rel="external">https://www.haomwei.com/technology/maupassant-hexo.html</a></li>
 </ul>
 
       
@@ -478,7 +480,7 @@ hexo d
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
