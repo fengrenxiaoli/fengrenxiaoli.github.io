@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -94,14 +94,18 @@
 
 
 
+<meta name="description" content="##常用目录linux 是个严谨的操作系统，一级目录都严格规定 做练习推荐在家目录中（root或home），以及tmp。 1、/ 根目录 2、/bin 命令保存目录（普通用户就可以读取的命令）  2-1）根目录下的bin和sbin，usr目录下的bin和sbin，这四个目录都是用来保存系统命令。其中，bin目录 下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux文件管理">
+<meta property="og:title" content="Linux文件管理 常用目录">
 <meta property="og:url" content="http://yoursite.com/2018/05/05/Linux文件管理/index.html">
 <meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="##常用目录linux 是个严谨的操作系统，一级目录都严格规定 做练习推荐在家目录中（root或home），以及tmp。 1、/ 根目录 2、/bin 命令保存目录（普通用户就可以读取的命令）  2-1）根目录下的bin和sbin，usr目录下的bin和sbin，这四个目录都是用来保存系统命令。其中，bin目录 下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T02:13:04.779Z">
+<meta property="og:updated_time" content="2018-05-05T03:42:01.326Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux文件管理">
+<meta name="twitter:title" content="Linux文件管理 常用目录">
+<meta name="twitter:description" content="##常用目录linux 是个严谨的操作系统，一级目录都严格规定 做练习推荐在家目录中（root或home），以及tmp。 1、/ 根目录 2、/bin 命令保存目录（普通用户就可以读取的命令）  2-1）根目录下的bin和sbin，usr目录下的bin和sbin，这四个目录都是用来保存系统命令。其中，bin目录 下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式">
 
 
 
@@ -136,7 +140,7 @@
 
 
 
-  <title>Linux文件管理 | 太阳落下</title>
+  <title>Linux文件管理 常用目录 | 太阳落下</title>
   
 
 
@@ -280,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux文件管理</h1>
+          <h1 class="post-title" itemprop="name headline">Linux文件管理 常用目录</h1>
         
 
         <div class="post-meta">
@@ -330,7 +334,29 @@
       
 
       
-        
+        <p>##常用目录<br>linux 是个严谨的操作系统，一级目录都严格规定</p>
+<p>做练习推荐在家目录中（root或home），以及tmp。</p>
+<p>1、/ 根目录</p>
+<p>2、/bin 命令保存目录（普通用户就可以读取的命令）<br>  2-1）根目录下的bin和sbin，usr目录下的bin和sbin，这四个目录都是用来保存系统命令。其中，bin目录</p>
+<p>下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式来区分用户权限。</p>
+<p>3、/boot 启动目录，启动相关文件</p>
+<p>4、/dev 设备文件保存目录</p>
+<p>5、/etc 配置文件保存目录</p>
+<p>6、/home 普通用户的家目录</p>
+<p>7、/lib 系统库保存目录<br>  7-1）操作系统中并没有把所有功能都写入linux中，而将常用的功能写成一个个程序库，此些库保存在lib</p>
+<p>中，当需要时调用即可。避免全部写入linux中，使其无比庞大且运行缓慢。</p>
+<p>8、/mnt 系统挂载U盘、移动硬盘目录<br>  8-1）老师习惯于在mnt下创建CD-ROM来挂载光盘，在mnt下创建USB来挂载U盘。原因在于老师的linux中不存</p>
+<p>在media、misc目录。</p>
+<p>9、/media 挂载光盘目录</p>
+<p>10、/misc 外接磁带机挂载目录</p>
+<p>11、/root 超级用户的家目录</p>
+<p>12、/tmp 临时目录<br>  12-1）可存放临时数据</p>
+<p>13、/sbin 命令保存目录（超级用户才能使用的目录）</p>
+<p>14、/proc 直接写入内存的<br>  14-1）该目录同sys目录不能直接操作，这两个目录保存的是内存的挂载点。其中的数据直接写在内存中。避免数据丢失或由于内存溢出导致系统崩溃。</p>
+<p>15、/sys </p>
+<p>16、/usr 系统软件资源目录<br>  16-1）/usr/bin/ 系统命令（普通用户）<br>  16-2）/usr/sbin/ 系统命令（超级用户）</p>
+<p>17、/var 系统相关文档内容</p>
+
       
     </div>
     
@@ -345,6 +371,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
 
       
       
@@ -354,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/05/Linux-搜索命令/" rel="next" title="Linux 搜索命令">
-                <i class="fa fa-chevron-left"></i> Linux 搜索命令
+              <a href="/2018/05/05/Linux文件管理-常用目录/" rel="next" title="Linux文件管理 常用目录">
+                <i class="fa fa-chevron-left"></i> Linux文件管理 常用目录
               </a>
             
           </div>
@@ -363,6 +395,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/05/Linux文件管理-文件处理命令/" rel="prev" title="Linux文件管理 文件处理命令">
+                Linux文件管理 文件处理命令 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -430,7 +466,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -443,7 +479,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
