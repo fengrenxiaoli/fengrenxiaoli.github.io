@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="手动挂载分区手动挂载的分区，不具有永久性，系统重启后，挂载就会失效12345678910# 没有挂载无法使用，分区默认的挂载目录是/mnt目录sudo fdisk -l#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘sudo mkdir -p /media/usb#创建挂载目录sudo mount /dev/sdb /media/usb#挂载sudo">
+<meta name="description" content="mount 命令123456789101112mount #查看系统中已挂载的设备mount -a #依据配置文件/etc/fstab内容，自动挂载    #光盘、U盘的数据不建议写入自动挂载中，否则开机时没有光盘和U盘的话，系统崩溃mount [-t 文件系统] [-o 特殊选项] [设备文件名] [挂载点]-t：加入文件系统类型来指定挂载的类型，ext3,ext4,iso9660等文件系统-o">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux磁盘管理 挂载命令">
 <meta property="og:url" content="http://yoursite.com/2018/05/05/Linux磁盘管理-挂载命令/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="手动挂载分区手动挂载的分区，不具有永久性，系统重启后，挂载就会失效12345678910# 没有挂载无法使用，分区默认的挂载目录是/mnt目录sudo fdisk -l#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘sudo mkdir -p /media/usb#创建挂载目录sudo mount /dev/sdb /media/usb#挂载sudo">
+<meta property="og:description" content="mount 命令123456789101112mount #查看系统中已挂载的设备mount -a #依据配置文件/etc/fstab内容，自动挂载    #光盘、U盘的数据不建议写入自动挂载中，否则开机时没有光盘和U盘的话，系统崩溃mount [-t 文件系统] [-o 特殊选项] [设备文件名] [挂载点]-t：加入文件系统类型来指定挂载的类型，ext3,ext4,iso9660等文件系统-o">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG29.png">
-<meta property="og:updated_time" content="2018-05-06T07:58:30.195Z">
+<meta property="og:updated_time" content="2018-05-06T11:51:12.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux磁盘管理 挂载命令">
-<meta name="twitter:description" content="手动挂载分区手动挂载的分区，不具有永久性，系统重启后，挂载就会失效12345678910# 没有挂载无法使用，分区默认的挂载目录是/mnt目录sudo fdisk -l#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘sudo mkdir -p /media/usb#创建挂载目录sudo mount /dev/sdb /media/usb#挂载sudo">
+<meta name="twitter:description" content="mount 命令123456789101112mount #查看系统中已挂载的设备mount -a #依据配置文件/etc/fstab内容，自动挂载    #光盘、U盘的数据不建议写入自动挂载中，否则开机时没有光盘和U盘的话，系统崩溃mount [-t 文件系统] [-o 特殊选项] [设备文件名] [挂载点]-t：加入文件系统类型来指定挂载的类型，ext3,ext4,iso9660等文件系统-o">
 <meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG29.png">
 
 
@@ -336,7 +336,11 @@
       
 
       
-        <h2 id="手动挂载分区"><a href="#手动挂载分区" class="headerlink" title="手动挂载分区"></a>手动挂载分区</h2><p>手动挂载的分区，不具有永久性，系统重启后，挂载就会失效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 没有挂载无法使用，分区默认的挂载目录是/mnt目录</div><div class="line">sudo fdisk -l</div><div class="line">#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘</div><div class="line">sudo mkdir -p /media/usb</div><div class="line">#创建挂载目录</div><div class="line">sudo mount /dev/sdb /media/usb</div><div class="line">#挂载</div><div class="line"></div><div class="line">sudo umount /dev/sdb</div><div class="line">#卸载</div></pre></td></tr></table></figure></p>
+        <h2 id="mount-命令"><a href="#mount-命令" class="headerlink" title="mount 命令"></a>mount 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">mount </div><div class="line">#查看系统中已挂载的设备</div><div class="line">mount -a </div><div class="line">#依据配置文件/etc/fstab内容，自动挂载    </div><div class="line">#光盘、U盘的数据不建议写入自动挂载中，否则开机时没有光盘和U盘的话，系统崩溃</div><div class="line"></div><div class="line">mount [-t 文件系统] [-o 特殊选项] [设备文件名] [挂载点]</div><div class="line">-t：加入文件系统类型来指定挂载的类型，ext3,ext4,iso9660等文件系统</div><div class="line">-o：可以指定挂载的额外选项</div><div class="line">mount -o remount，noexec /home</div><div class="line">#/home内的执行文件无法执行</div><div class="line">mount -o remount，exec /home</div></pre></td></tr></table></figure>
+<p>###挂载光盘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir /mnt/cdrom/   </div><div class="line">#建立挂载点</div><div class="line">mount -t iso9660 /dev/sr0  /mnt/cdrom          </div><div class="line">#/dev/sr0是光盘设备名，也可以用/dev/cdrom（sr0的软连接，但需要系统完全启动才能用）   -t iso9660 可以省略  因为系统知道sr0是iso9660</div></pre></td></tr></table></figure></p>
+<p>###卸载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">umount [设备文件名或挂载点]   </div><div class="line">umount /mnt/cdrom    </div><div class="line">umount /dev/sr0  </div><div class="line">#都可以   卸载时位置不能在光盘目录下</div></pre></td></tr></table></figure></p>
+<p>###挂载U盘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">fdisk -l   </div><div class="line">#查看U盘设备文件名    </div><div class="line">#U盘可以看成系统的第二块硬盘</div><div class="line">mount -t vfat /dev/sdb1 /mnt/usb/           </div><div class="line">#-t vfat     windows的fat32文件系统</div><div class="line">注：linux默认不支持ntfs文件系统，所以移动硬盘正常没法挂载，能挂载后也只能读，不能写，所以用windows数据一般用网络传播</div><div class="line">#解决办法</div><div class="line">1. 编译内核   让linux 支持NTFS文件系统   </div><div class="line">2. 安装ntfs-3g</div></pre></td></tr></table></figure></p>
+<h2 id="手动挂载分区"><a href="#手动挂载分区" class="headerlink" title="手动挂载分区"></a>手动挂载分区</h2><p>手动挂载的分区，不具有永久性，系统重启后，挂载就会失效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 没有挂载无法使用，分区默认的挂载目录是/mnt目录</div><div class="line">sudo fdisk -l</div><div class="line">#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘</div><div class="line">sudo mkdir -p /media/usb</div><div class="line">#创建挂载目录</div><div class="line">sudo mount /dev/sdb /media/usb</div><div class="line">#挂载</div><div class="line"></div><div class="line">sudo umount /dev/sdb</div><div class="line">#卸载</div></pre></td></tr></table></figure></p>
 <h2 id="永久挂载"><a href="#永久挂载" class="headerlink" title="永久挂载"></a>永久挂载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/fstab</div></pre></td></tr></table></figure>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG29.png" alt=""></p>
 
@@ -458,7 +462,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -513,7 +517,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#手动挂载分区"><span class="nav-number">1.</span> <span class="nav-text">手动挂载分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#永久挂载"><span class="nav-number">2.</span> <span class="nav-text">永久挂载</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mount-命令"><span class="nav-number">1.</span> <span class="nav-text">mount 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动挂载分区"><span class="nav-number">2.</span> <span class="nav-text">手动挂载分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#永久挂载"><span class="nav-number">3.</span> <span class="nav-text">永久挂载</span></a></li></ol></div>
             
 
           </div>
