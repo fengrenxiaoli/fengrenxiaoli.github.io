@@ -94,18 +94,20 @@
 
 
 
-<meta name="description" content="123456789sudo fdisk -l#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘sudo mkdir -p /media/usb#创建挂载点sudo mount /dev/sdb /media/usb#挂载sudo umount /dev/sdb#退出">
+<meta name="description" content="手动挂载分区手动挂载的分区，不具有永久性，系统重启后，挂载就会失效12345678910# 没有挂载无法使用，分区默认的挂载目录是/mnt目录sudo fdisk -l#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘sudo mkdir -p /media/usb#创建挂载目录sudo mount /dev/sdb /media/usb#挂载sudo">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux磁盘管理 挂载命令">
 <meta property="og:url" content="http://yoursite.com/2018/05/05/Linux磁盘管理-挂载命令/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="123456789sudo fdisk -l#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘sudo mkdir -p /media/usb#创建挂载点sudo mount /dev/sdb /media/usb#挂载sudo umount /dev/sdb#退出">
+<meta property="og:description" content="手动挂载分区手动挂载的分区，不具有永久性，系统重启后，挂载就会失效12345678910# 没有挂载无法使用，分区默认的挂载目录是/mnt目录sudo fdisk -l#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘sudo mkdir -p /media/usb#创建挂载目录sudo mount /dev/sdb /media/usb#挂载sudo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T11:20:01.509Z">
+<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG29.png">
+<meta property="og:updated_time" content="2018-05-06T07:58:30.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux磁盘管理 挂载命令">
-<meta name="twitter:description" content="123456789sudo fdisk -l#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘sudo mkdir -p /media/usb#创建挂载点sudo mount /dev/sdb /media/usb#挂载sudo umount /dev/sdb#退出">
+<meta name="twitter:description" content="手动挂载分区手动挂载的分区，不具有永久性，系统重启后，挂载就会失效12345678910# 没有挂载无法使用，分区默认的挂载目录是/mnt目录sudo fdisk -l#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘sudo mkdir -p /media/usb#创建挂载目录sudo mount /dev/sdb /media/usb#挂载sudo">
+<meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG29.png">
 
 
 
@@ -334,7 +336,10 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sudo fdisk -l</div><div class="line">#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘</div><div class="line">sudo mkdir -p /media/usb</div><div class="line">#创建挂载点</div><div class="line">sudo mount /dev/sdb /media/usb</div><div class="line">#挂载</div><div class="line"></div><div class="line">sudo umount /dev/sdb</div><div class="line">#退出</div></pre></td></tr></table></figure>
+        <h2 id="手动挂载分区"><a href="#手动挂载分区" class="headerlink" title="手动挂载分区"></a>手动挂载分区</h2><p>手动挂载的分区，不具有永久性，系统重启后，挂载就会失效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 没有挂载无法使用，分区默认的挂载目录是/mnt目录</div><div class="line">sudo fdisk -l</div><div class="line">#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘</div><div class="line">sudo mkdir -p /media/usb</div><div class="line">#创建挂载目录</div><div class="line">sudo mount /dev/sdb /media/usb</div><div class="line">#挂载</div><div class="line"></div><div class="line">sudo umount /dev/sdb</div><div class="line">#卸载</div></pre></td></tr></table></figure></p>
+<h2 id="永久挂载"><a href="#永久挂载" class="headerlink" title="永久挂载"></a>永久挂载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/fstab</div></pre></td></tr></table></figure>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG29.png" alt=""></p>
+
       
     </div>
     
@@ -428,8 +433,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -444,7 +458,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -489,6 +503,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#手动挂载分区"><span class="nav-number">1.</span> <span class="nav-text">手动挂载分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#永久挂载"><span class="nav-number">2.</span> <span class="nav-text">永久挂载</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

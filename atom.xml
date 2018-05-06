@@ -36,6 +36,123 @@
   </entry>
   
   <entry>
+    <title>Linux磁盘管理 swap分区</title>
+    <link href="http://yoursite.com/2018/05/06/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-swap%E5%88%86%E5%8C%BA/"/>
+    <id>http://yoursite.com/2018/05/06/Linux磁盘管理-swap分区/</id>
+    <published>2018-05-06T07:59:06.000Z</published>
+    <updated>2018-05-06T08:18:27.167Z</updated>
+    
+    <content type="html"><![CDATA[<p>为磁盘添加SWAP交换分区</p>
+<p>1.首先建立一个普通的Linux分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fdisk /dev/sdb</div><div class="line">#参考MBR分区</div><div class="line">#输入p查看sdb的分区</div></pre></td></tr></table></figure></p>
+<p>2.修改分区类型的16进制编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">输入t，输入要修改的磁盘编号 这里是 6（sdb6的6）；</div><div class="line">输入 L 来查看可以修改成的类型</div><div class="line">再输入82（Linux swap）,保存成功</div><div class="line">输入p来查看已经保存的情况</div><div class="line">输入w保存分区</div></pre></td></tr></table></figure></p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG30.jpg" alt=""></p>
+<p>3.格式化交换分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkswap（后面跟随设备名称） /dev/sdb6 完成格式化</div></pre></td></tr></table></figure></p>
+<p>4.启动交换分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">swapon /dev/sdb6 	#启动交换分区</div><div class="line">free 				#查看加载状况</div><div class="line">swapoff /dev/sdb6 	#关闭交换分区</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为磁盘添加SWAP交换分区&lt;/p&gt;
+&lt;p&gt;1.首先建立一个普通的Linux分区&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;d
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux磁盘管理 格式化</title>
+    <link href="http://yoursite.com/2018/05/06/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-%E6%A0%BC%E5%BC%8F%E5%8C%96/"/>
+    <id>http://yoursite.com/2018/05/06/Linux磁盘管理-格式化/</id>
+    <published>2018-05-06T06:23:56.000Z</published>
+    <updated>2018-05-06T08:38:54.588Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="格式化："><a href="#格式化：" class="headerlink" title="格式化："></a>格式化：</h2><p>又称逻辑格式化，它是指根据用户选定的文件系统（eg：FAT16（最大支持2GB分区），FAT32（单个文件大小不能超过4GB，最大支持16TB分区），NTFS，EXT2，EXT3，EXT4（centos6默认文件系统）等），在磁盘特定区域写入特定数据，在分区中划出一片用于存放文件分配表、目录表等用于文件管理的磁盘空间。</p>
+<p>格式化的目的并不是清空数据，其根本目的是为了<strong>写入文件系统，能够更快查找读写数据</strong>，但是在进行格式化的操作时会先清空原有数据。</p>
+<p>格式化具体进行的操作：<br>将整个分区分割成等大小的数据块（Block），每个数据块默认4KB，存储文件的最小，可以手动选择1KB、2KB或4KB。假设存放10KB的文件，会使用3个数据块，三个数据块不一定是连续的，最后的一数据块中即使没有放满，也不能再存放其他文件。<br>在分区列表中建立一个二维表格，记录了文件的id号（即文件放在那些数据库中，叫做iNode）、文件修改时间、文件的访问权限。操作文件时先访问此二维表进行权限匹配。</p>
+<p>parted工具可以格式化，但是parted支持的文件系统有限<br>无论使用MBR，还是GPT进行的分区，都可以使用”mkfs”进行分区格式化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkfs (-make for system)</div><div class="line">mkfs -t ext3 /dev/sda6     #将sda6分区格式化为ext3格式</div><div class="line">mkfs -t ext2 /dev/sda7     #将sda7分区格式化为ext2格式</div></pre></td></tr></table></figure>
+<p>MBR只有主分区和逻辑分区可以格式化， 扩展分区不可以格式化<br>GPT类型格式化后，使用fdisk看不到各个分区的系统文件格式， 必须启动parted工具的print指令来查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -l /dev/sdb 		#查看sdb磁盘上的设备情况</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;格式化：&quot;&gt;&lt;a href=&quot;#格式化：&quot; class=&quot;headerlink&quot; title=&quot;格式化：&quot;&gt;&lt;/a&gt;格式化：&lt;/h2&gt;&lt;p&gt;又称逻辑格式化，它是指根据用户选定的文件系统（eg：FAT16（最大支持2GB分区），FAT32（单个文件大小不能超过4GB
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux磁盘管理 GPT分区</title>
+    <link href="http://yoursite.com/2018/05/06/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-GPT%E5%88%86%E5%8C%BA/"/>
+    <id>http://yoursite.com/2018/05/06/Linux磁盘管理-GPT分区/</id>
+    <published>2018-05-06T06:21:07.000Z</published>
+    <updated>2018-05-06T07:36:44.706Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MBR分区模式和GPT分区模式比较"><a href="#MBR分区模式和GPT分区模式比较" class="headerlink" title="MBR分区模式和GPT分区模式比较"></a>MBR分区模式和GPT分区模式比较</h2><p>MBR</p>
+<ul>
+<li>区容量最大2TB</li>
+<li>分区命令fdisk /dev/sdxx  </li>
+<li>分区完毕，执行-w 写入分区表才能生效</li>
+<li>分区表类型是：msdos</li>
+<li>缺点：限制多，跟不上发展</li>
+</ul>
+<p>GPT</p>
+<ul>
+<li>主分区个数”几乎”没有限制（最多128个）</li>
+<li>单个分区容量”几乎”没有限制(最大18EB)</li>
+<li>使用parted命令工具（同时支持MBR,GPT分区）</li>
+<li>分区表类型是：gpt</li>
+<li>1EB=1024PB,1PB=1024TB,1TB=1024GB</li>
+<li>缺点：GPT主分区中不适合安装x86的系统架构</li>
+</ul>
+<h2 id="使用parted进行分区"><a href="#使用parted进行分区" class="headerlink" title="使用parted进行分区"></a>使用parted进行分区</h2><p>fdisk只能给硬盘做MBR分区<br>parted既能给硬盘做MBR分区，又能做GPT分区</p>
+<p>####<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">输入parted命令，启动parted分区工具，默认分区目标是系统的第一块硬盘</div><div class="line">输入help，查看帮助信息</div><div class="line">输入select /dev/sdc，切换分区目标磁盘</div><div class="line">输入mklable命令，给目标硬盘指定分区表的类型，然后才能给硬盘添加分区，如果使用MBR分区，输入mklabel msdos;使用GPT分区，输入mklabel gpt</div><div class="line">输入print 查看当前分区详情；输入print all命令，查看所有分区详情</div><div class="line"></div><div class="line">parted分区操作模式：①交互模式（使用提问模式选择） ②命令模式</div><div class="line"></div><div class="line">**交互模式**</div><div class="line">输入mkpart  #添加分区</div><div class="line">输入分区名称</div><div class="line">选择分区系统类型</div><div class="line">分区从第几MB开始，4K对齐对硬盘分区很重要，为了达到最佳性能，分出1MB空间，让数据块对齐</div><div class="line">结束位置</div><div class="line"></div><div class="line">**命令模式**</div><div class="line">命令模式下，分区名称不能省略</div><div class="line">mkpart test(分区名称) 2000(开始位置2000MB) 3000(结束位置MB)</div><div class="line"></div><div class="line"></div><div class="line">rm [分区编号] #删除分区</div><div class="line">unit GB		#使用GB给分区指定开始和结束位置</div><div class="line">quit		#退出分区工具</div></pre></td></tr></table></figure></p>
+<p>fdisk分区设计完成后 最后要通过w来写入硬盘,parted不需使用w保存</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;MBR分区模式和GPT分区模式比较&quot;&gt;&lt;a href=&quot;#MBR分区模式和GPT分区模式比较&quot; class=&quot;headerlink&quot; title=&quot;MBR分区模式和GPT分区模式比较&quot;&gt;&lt;/a&gt;MBR分区模式和GPT分区模式比较&lt;/h2&gt;&lt;p&gt;MBR&lt;/p&gt;
+&lt;u
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux磁盘管理 基本命令</title>
+    <link href="http://yoursite.com/2018/05/06/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2018/05/06/Linux磁盘管理-基本命令/</id>
+    <published>2018-05-06T06:04:50.000Z</published>
+    <updated>2018-05-06T06:08:00.089Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="df"><a href="#df" class="headerlink" title="df"></a>df</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">df：查看磁盘分区使用状况</div><div class="line">-l：仅显示本地默认磁盘（默认）</div><div class="line">-a：显示所有文件系统的磁盘使用情况</div><div class="line">-h：以1024进制计算最合适的单位显示磁盘容量（默认KB显示）</div><div class="line">-H：显示以1000进制计算最合适的单位显示磁盘容量</div><div class="line">-T：显示磁盘分区类型</div><div class="line">-t：显示指定类型文件系统的磁盘分区  //如：df -t ext4</div><div class="line">-x：不显示指定类型文件系统的磁盘分区</div></pre></td></tr></table></figure>
+<h2 id="du"><a href="#du" class="headerlink" title="du"></a>du</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">du 统计磁盘上的文件大小</div><div class="line">-b 以byte为单位统计文件  //统计出来的都是四舍五入的大小</div><div class="line">-k 以KB为单位统计文件    //统计出来的都是四舍五入的大小</div><div class="line">-m 以MB为单位统计文件    //统计出来的都是四舍五入的大小</div><div class="line">-h 按照1024进制以最适合的单位统计文件</div><div class="line">-H 按照1000进制以最适合的单位统计文件</div><div class="line">-s 指定统计目标  </div><div class="line">du -s tmp</div><div class="line">du -sb *.zip</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;df&quot;&gt;&lt;a href=&quot;#df&quot; class=&quot;headerlink&quot; title=&quot;df&quot;&gt;&lt;/a&gt;df&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div c
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux su root和sudo su</title>
     <link href="http://yoursite.com/2018/05/05/Linux-su-root%E5%92%8Csudo-su/"/>
     <id>http://yoursite.com/2018/05/05/Linux-su-root和sudo-su/</id>
@@ -279,13 +396,16 @@ ls -i ./source/abc ./target/bcd.hard
     <link href="http://yoursite.com/2018/05/05/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-%E6%8C%82%E8%BD%BD%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/05/05/Linux磁盘管理-挂载命令/</id>
     <published>2018-05-05T03:40:03.000Z</published>
-    <updated>2018-05-05T11:20:01.509Z</updated>
+    <updated>2018-05-06T07:58:30.195Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sudo fdisk -l</div><div class="line">#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘</div><div class="line">sudo mkdir -p /media/usb</div><div class="line">#创建挂载点</div><div class="line">sudo mount /dev/sdb /media/usb</div><div class="line">#挂载</div><div class="line"></div><div class="line">sudo umount /dev/sdb</div><div class="line">#退出</div></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="手动挂载分区"><a href="#手动挂载分区" class="headerlink" title="手动挂载分区"></a>手动挂载分区</h2><p>手动挂载的分区，不具有永久性，系统重启后，挂载就会失效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 没有挂载无法使用，分区默认的挂载目录是/mnt目录</div><div class="line">sudo fdisk -l</div><div class="line">#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘</div><div class="line">sudo mkdir -p /media/usb</div><div class="line">#创建挂载目录</div><div class="line">sudo mount /dev/sdb /media/usb</div><div class="line">#挂载</div><div class="line"></div><div class="line">sudo umount /dev/sdb</div><div class="line">#卸载</div></pre></td></tr></table></figure></p>
+<h2 id="永久挂载"><a href="#永久挂载" class="headerlink" title="永久挂载"></a>永久挂载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/fstab</div></pre></td></tr></table></figure>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG29.png" alt=""></p>
+]]></content>
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
+      &lt;h2 id=&quot;手动挂载分区&quot;&gt;&lt;a href=&quot;#手动挂载分区&quot; class=&quot;headerlink&quot; title=&quot;手动挂载分区&quot;&gt;&lt;/a&gt;手动挂载分区&lt;/h2&gt;&lt;p&gt;手动挂载的分区，不具有永久性，系统重启后，挂载就会失效&lt;br&gt;&lt;figure class=&quot;highligh
     
     </summary>
     
@@ -513,38 +633,40 @@ mv abc longls 当原文件与目标目录，在同一目录下，则为改名命
   </entry>
   
   <entry>
-    <title>Linux磁盘管理 分区</title>
-    <link href="http://yoursite.com/2018/05/04/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-%E5%88%86%E5%8C%BA/"/>
-    <id>http://yoursite.com/2018/05/04/Linux磁盘管理-分区/</id>
+    <title>Linux磁盘管理 MBR分区</title>
+    <link href="http://yoursite.com/2018/05/04/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-MBR%E5%88%86%E5%8C%BA/"/>
+    <id>http://yoursite.com/2018/05/04/Linux磁盘管理-MBR分区/</id>
     <published>2018-05-04T12:28:18.000Z</published>
-    <updated>2018-05-05T11:05:40.296Z</updated>
+    <updated>2018-05-06T07:09:26.793Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="MBR"><a href="#MBR" class="headerlink" title="MBR"></a>MBR</h2><p>MBR=主引导区记录。硬盘的0磁道的第一个扇区称为MBR，它的大小是512字节，而这个区域可以分为三个部分。第一部分为pre-boot区（预启动区），占446字节；第二部分是Partition table区（分区表），占64个字节，硬盘中分区有多少以及每一分区的大小都记在其中。第三部分是magic number，占2个字节，固定为55AA。</p>
+    <content type="html"><![CDATA[<p>硬件设备都是由Linux系统自动识别的，必须对硬盘进行分区、格式化、挂载后才能使用</p>
+<p>分区的意义：<a href="http://www.cnblogs.com/personnel/p/4584926.html" target="_blank" rel="external">http://www.cnblogs.com/personnel/p/4584926.html</a></p>
+<p>Windows与Linux的磁盘使用流程</p>
+<ul>
+<li>Windows：分区–&gt;格式化–&gt;分配盘符</li>
+<li>Linux：分区–&gt;格式化–&gt;给每个分区起“设备文件名”–&gt;分配挂载点</li>
+</ul>
+<h2 id="MBR"><a href="#MBR" class="headerlink" title="MBR"></a>MBR</h2><p>MBR=主引导区记录。硬盘的0磁道的第一个扇区称为MBR，它的大小是512字节，而这个区域可以分为三个部分。第一部分为pre-boot区（预启动区），占446字节；第二部分是Partition table区（分区表），占64个字节，硬盘中分区有多少以及每一分区的大小都记在其中。第三部分是magic number，占2个字节，固定为55AA。</p>
 <p>MBR是针对整个硬盘而言的，而引导扇区是对单个分区而言的。每个分区的第一扇区就是引导扇区：像MBR一样，引导扇区里包含了一些引导操作系统所需要的相关信息。如果引导扇区被破坏了是个非常严重的问题，那就意味着这个分区不能被访问，安装在这个分区上的操作系统也不能被启动。所以说修复引导是使得每一个分区都能被正确识别引导。</p>
-<h2 id="分区的优点"><a href="#分区的优点" class="headerlink" title="分区的优点"></a>分区的优点</h2><p>提高文件的查找和读写效率</p>
-<p>1.磁盘分区：使用分区编辑器（partition editor）在磁盘上划分几个逻辑上的存储空间。磁盘一旦划分成数个分区（Partition），不同类的目录和文件可以存储进不同的分区。<br>2.：。</p>
-<p>##分区类型（所有系统都适用）：</p>
+<p>##MBR分区类型（所有系统都适用）：</p>
 <h4 id="主分区"><a href="#主分区" class="headerlink" title="主分区"></a>主分区</h4><p>最多只能分4个，由硬盘的结构决定（硬盘分为一个个等大小的扇区，每个扇区512字节，其中446个字节用于记录启动信息， 剩下的64个字节进行分区表示，64个字节中每16个字节表示一个分区，所以最多只能表示4个分区，故而硬盘结构如果不变，主分区最多只能分4个）。每个主分区都有各自独立的引导块，可以用fdisk设定为启动区。</p>
 <p>Windows下A、B作为软分区的盘符，C作为第一个主分区的盘符，所以最多还能分23个子分区。</p>
 <p>####扩展分区</p>
-<p>一块硬盘中扩展分区只能有一个</p>
+<p><strong>一块硬盘中扩展分区只能有一个</strong></p>
+<p><strong>主分区和扩展分区总数不能超过4个</strong></p>
 <p>可以将一个主分区作为扩展分区，即三个主分区，一个扩展分区，总计4个分区；</p>
-<p>不能写入数据，只能用作包含逻辑分区。</p>
+<p><strong>不能直接写入数据</strong>，只能用作包含逻辑分区。</p>
 <p>区分扩展分区和逻辑分区，是突破主分区只能有4个的最主要的方法。</p>
 <h4 id="逻辑分区"><a href="#逻辑分区" class="headerlink" title="逻辑分区"></a>逻辑分区</h4><p>可以有多个，没有独立的引导块，不能用fdisk设定为启动区。</p>
-<h2 id="格式化："><a href="#格式化：" class="headerlink" title="格式化："></a>格式化：</h2><p>又称逻辑格式化，它是指根据用户选定的文件系统（eg：FAT16（最大支持2GB分区），FAT32（单个文件大小不能超过4GB，最大支持16TB分区），NTFS，EXT2，EXT3，EXT4（centos6默认文件系统）等），在磁盘特定区域写入特定数据，在分区中画出一片用于存放文件分配表、目录表等用于文件管理的磁盘空间。</p>
-<p>误区解析：格式化的目的并不是清空数据，其根本目的是为了<strong>写入文件系统，能够更快查找读写数据</strong>，但是在进行格式化的操作时会先清空原有数据。</p>
-<p>格式化具体进行的操作：<br>将整个分区分割成等大小的数据块（Block），每个数据块默认4KB，存储文件的最小，可以手动选择1KB、2KB或4KB。假设存放10KB的文件，会使用3个数据块，三个数据块不一定是连续的，最后的一数据块中即使没有放满，也不能再存放其他文件。<br>在分区列表中建立一个二维表格，记录了文件的id号（即文件放在那些数据库中，叫做iNode）、文件修改时间、文件的访问权限。操作文件时先访问此二维表进行权限匹配。</p>
-<h2 id="Windows与Linux不同的磁盘分区流程"><a href="#Windows与Linux不同的磁盘分区流程" class="headerlink" title="Windows与Linux不同的磁盘分区流程"></a>Windows与Linux不同的磁盘分区流程</h2><p>Windows：分区–&gt;格式化–&gt;分配盘符<br>Linux：分区–&gt;格式化–&gt;给每个分区起“设备文件名”–&gt;分配挂载点</p>
 <h2 id="设备文件名"><a href="#设备文件名" class="headerlink" title="设备文件名"></a>设备文件名</h2><p>Linux中一切皆文件，包括硬件、用户等。硬件的文件名即称作“硬件设备文件名”，硬件设备文件名作为硬件的标准称呼，是由Linux自动检测并分配的。硬件设备文件在目录中处于根目录（“/”代表根目录，最高级目录）下的dev文件夹（专用于放硬件设备文件）下，即“/dev”文件夹下。</p>
 <h4 id="分区的设备文件名分配规则"><a href="#分区的设备文件名分配规则" class="headerlink" title="分区的设备文件名分配规则"></a>分区的设备文件名分配规则</h4><p>hd代表IDE接口，sd代表SCSI接口或SATA接口；<br>a代表第一块硬盘，如有多块硬盘b代表第二块硬盘，c代表第三块硬盘，以此类推；<br>1代表一块硬盘上的第一个分区，2代表此硬盘的第二个分区，3代表此硬盘第三个分区，以此类推，其中1234编号只能代表主分区或扩展分区，逻辑分区的编号从5开始分配，最大分区编号16<br>/dev/sda1 第一块SATA接口硬盘的第一个分区</p>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG28.jpg" alt=""></p>
-<h4 id="挂载点"><a href="#挂载点" class="headerlink" title="挂载点"></a>挂载点</h4><p>。Windows中使用字母标识符来指定在这个分区上的文件和目录，而Linux中使用目录作为挂载点（盘符）<br>绝大多数目录都可以作为挂载点（部分必须和根目录放在同一个分区的目录除外，否则将导致系统不能启动）包括你手工创建的目录。</p>
+<h4 id="挂载点"><a href="#挂载点" class="headerlink" title="挂载点"></a>挂载点</h4><p>Windows中使用字母标识符来指定在这个分区上的文件和目录，而Linux中使用目录作为挂载点（盘符）<br>绝大多数目录都可以作为挂载点（部分必须和根目录放在同一个分区的目录除外，否则将导致系统不能启动）包括你手工创建的目录。</p>
 <p>##Linux 分区</p>
 <p>####必须分区：</p>
-<p>根分区 /（挂载点根目录，根目录中要保存其他所有数据，根目录如果没有硬盘空间，根下的很多数据将没有地方存放）<br>swap分区（交换分区，可理解为虚拟内存， 当真实内存不足时，可将swap分区中的硬盘空间作为内存使用，如果内存小于等于4GB，推荐swap分配内存的两倍，若内存大于4GB，建议swap空间与内存相等，不需要挂载点）</p>
+<p>根分区 /（挂载点根目录，根目录中要保存其他所有数据，根目录如果没有硬盘空间，根下的很多数据将没有地方存放）<br>swap分区（交换分区，可理解为虚拟内存， 当真实内存不足时，可将swap分区中的硬盘空间作为内存使用，如果内存小于等于4GB，推荐swap分配内存的两倍，若内存大于4GB，建议swap空间与内存相等，不需要挂载点，swap分区不是给用户看的，是系统直接调用的所以无挂载点）</p>
 <p>注：启动分区/boot需不需要创建要看实际情况，<br>需要使用LVM时，由于/boot分区不支持lvmfs，所以要单独创建，这个目录是系统文件，一般不会动，但不要太小，如果升级内核可能就满了。<br>个人使用没有必要</p>
-<p>swap分区不是给用户看的，是系统直接调用的所以无挂载点(盘符类似)；</p>
+<h4 id="使用-“fdisk”命令进行硬盘分区"><a href="#使用-“fdisk”命令进行硬盘分区" class="headerlink" title="使用 “fdisk”命令进行硬盘分区"></a>使用 “fdisk”命令进行硬盘分区</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">fdisk /dev/sdb </div><div class="line">进入sdb硬盘分区模式</div><div class="line">输入m，查看命令帮助信息</div><div class="line"></div><div class="line">新建分区</div><div class="line">输入n，给硬盘添加一个新的分区</div><div class="line">输入p，主分区</div><div class="line">输入e，扩展分区，扩展分区不能直接使用，需要添加逻辑分区</div><div class="line">输入l，扩展分区只能有一个，不能再分扩展分区了，所以显示的是逻辑分区，5代表分区的编号从5开始</div><div class="line">给分区指定编号，1-4是预留给主分区或者扩展分区的</div><div class="line">Partition number( 1-4,defautl 1):</div><div class="line">给这个分区指定扇区发起始和终止位置</div><div class="line">扇区的起始位置： First sector (2048 - 16777215，default 2048):不输入默认2048</div><div class="line">扇区的终止位置：Last sector,+sectors or +size&#123;K,M,G&#125;&#123;2048-16777215,default 16777215&#125;:3000M</div><div class="line">Command(m for help):输入p查看已经分好的区</div><div class="line">Command(m for help):输入n 继续添加分区</div><div class="line"></div><div class="line">删除分区： 输入d，随后输入删除的分区号</div><div class="line">逻辑分区是在拓展分区之内的，如果删除的拓展分区，随之而然的逻辑分区也被删除</div><div class="line"></div><div class="line">写入分区：输入w，直接就是保存并生效了；</div></pre></td></tr></table></figure>
 <p><br></p>
 <p>参考：</p>
 <ul>
@@ -555,7 +677,8 @@ mv abc longls 当原文件与目标目录，在同一目录下，则为改名命
     
     <summary type="html">
     
-      &lt;h2 id=&quot;MBR&quot;&gt;&lt;a href=&quot;#MBR&quot; class=&quot;headerlink&quot; title=&quot;MBR&quot;&gt;&lt;/a&gt;MBR&lt;/h2&gt;&lt;p&gt;MBR=主引导区记录。硬盘的0磁道的第一个扇区称为MBR，它的大小是512字节，而这个区域可以分为三个部分。第一部分为pre-boo
+      &lt;p&gt;硬件设备都是由Linux系统自动识别的，必须对硬盘进行分区、格式化、挂载后才能使用&lt;/p&gt;
+&lt;p&gt;分区的意义：&lt;a href=&quot;http://www.cnblogs.com/personnel/p/4584926.html&quot; target=&quot;_blank&quot; rel=&quot;ext
     
     </summary>
     
@@ -911,246 +1034,6 @@ scp [-r] 本地文件 用户名@ip:上传路径
     
       &lt;p&gt;参考  &lt;a href=&quot;http://fengrenxiaoli.github.io/2018/05/02/Linux-%E5%AE%89%E8%A3%85ssh/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Linux 安装ssh&lt;/a&gt;&lt;/p&gt;
 &lt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux网络管理 网络命令</title>
-    <link href="http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/01/Linux网络管理-网络命令/</id>
-    <published>2018-05-01T11:03:44.000Z</published>
-    <updated>2018-05-02T06:50:00.154Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="网络环境查看命令"><a href="#网络环境查看命令" class="headerlink" title="网络环境查看命令"></a>网络环境查看命令</h2><pre><code>ifconfig
-# 查看与临时配置网络状态，但无法查看网关和DNS
-
-
-#关闭与启动网卡
-ifdown 网卡设备名 
-#禁用该网卡设备
-ifup 网卡设备名 
-#启用该网卡设备
-
-
-#查询网络状态
-netstat 选项
-选项：一般为tuln或an
--t：列出TCP协议端口
--u：列出UDP协议端口
--n：不使用域名与服务名，而使用IP地址和端口号
--l：仅列出在监听状态的网络服务
--a：列出所有的网络连接
-
-#统计计算机建立的远程连接数
-netstat -an | grep ESTABLISHED | wc -l
-
-#查看网关
-netstat -rn 
-选项：
--r：列出路由表，功能和route命令一致。
-
-
-route -n 
-#查看路由列表(可以看到网关)
-route add default gw 192.168.1.1
-#临时测定网关
-
-
-#域名解析命令
-nslookup [主机名或IP] 
-#进行域名与IP地址解析，域名对应哪个IP
-
-nslookup
-&gt;server #本地设定的DNS的地址
-&gt;exit #退出
-</code></pre><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG19.png" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG20.png" alt=""></p>
-<p>在一台服务器里，连接内网的网卡是不能设置网关的，只有连接外网的网卡才能设置，而且这个网关是由运营商设置好 它告诉我们的下一级网络地址。</p>
-<p>随便设置一个网关是不行的，因为与外网通信时，要把消息转发到网关，网关负责把内网IP转换成功公网IP，随便设置则将找不到这个网关，导致呈现网络连接失败状态。</p>
-<h2 id="网络测试命令"><a href="#网络测试命令" class="headerlink" title="网络测试命令"></a>网络测试命令</h2><pre><code>ping [选项] ip或域名 
-#探测指定IP或域名的网络状况
-选项：
--c 次数：指定ping包的次数
-
-
-telnet [域名或IP] [端口] 
-#远程管理与端口探测命令，明文传递
-telnet 192.168.0.252 80
-#如果连接成功，将会进入连接状态，按ctrl+]退出到telnet，再键入quit返回命令行状态
-
-
-traceroute [选项] IP或域名 
-#路由跟踪命令，查看中间所经过的节点，故障定位。
-选项：
--n 使用IP，不使用域名，速度更快
-#和ping一样都是利用的ICMP协议（Internet Control Message Protocol）Internet控制报文协议
-#家用网络大多数结点都禁止ping，就是*，可以根据路由来分析哪些结点出现了问题
-
-
-wget http://soft.vpser.net/lnmp/lnmp1.1-full.tar.gz     #下载命令
-
-
-tcpdump -i eth0 -nnX port 21
-抓取eth0网卡上的数据包，以16进制拆分数据包(用port 21可以只拆分21端口)
-选项：
--i：指定网卡接口
--nn：将数据包中的域名与服务转为IP和端口
--X：以十六进制和ASCII码显示数据包内容
-port：指定监听的端口
-</code></pre><ul>
-<li>ftp也是明文：用来上传下载文件，默认是不允许用户登陆的</li>
-<li>http都是明文，一旦截获了数据包，就能直接获取里面的数据</li>
-<li>https才是加密的</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;网络环境查看命令&quot;&gt;&lt;a href=&quot;#网络环境查看命令&quot; class=&quot;headerlink&quot; title=&quot;网络环境查看命令&quot;&gt;&lt;/a&gt;网络环境查看命令&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;ifconfig
-# 查看与临时配置网络状态，但无法查看网关和DNS
-
-
-#
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux网络管理 网络配置</title>
-    <link href="http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2018/05/01/Linux网络管理-网络配置/</id>
-    <published>2018-05-01T11:03:33.000Z</published>
-    <updated>2018-05-02T06:32:27.346Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="IP地址配置"><a href="#IP地址配置" class="headerlink" title="IP地址配置"></a>IP地址配置</h2><p>DHCP服务器可以自动分配IP</p>
-<h4 id="ifconfig命令临时配置IP地址"><a href="#ifconfig命令临时配置IP地址" class="headerlink" title="ifconfig命令临时配置IP地址"></a>ifconfig命令临时配置IP地址</h4><pre><code>ifconfig
-查看当前网络状态
-ifconfig eth0 192.168.254.200 netmask 255.255.255.0
-临时设置eth0网卡的IP地址与子网掩码
-</code></pre><h4 id="setup工具永久配置IP地址"><a href="#setup工具永久配置IP地址" class="headerlink" title="setup工具永久配置IP地址"></a>setup工具永久配置IP地址</h4><ul>
-<li>红帽专有图形化工具setup设置IP地址</li>
-<li>CentOS系统中默认就没有setup命令，需要安装</li>
-</ul>
-<pre><code>yum -y install setuptool   
-安装setup命令工具
-yum -y install ntsysv   
-安装setup工具配套的系统服务组件
-yum -y install system-config-securitylevel-tui
-安装setup工具配套的防火墙配置组件
-yum -y install system-config-network-tui 
-安装setup工具配套的网络配置组件
-yum -y install authconfig-gtk
-安装setup工具配套的验证配置组件
-</code></pre><p>system-config-network-tui 无法安装，是因为网络设置改到<code>nmtui</code>命令中</p>
-<p>####修改网络配置文件</p>
-<p>因为配置文件不光可以配置IP，所以单独开一节</p>
-<p>####图形界面配置IP地址</p>
-<p><br></p>
-<h2 id="修改网络配置文件"><a href="#修改网络配置文件" class="headerlink" title="修改网络配置文件"></a>修改网络配置文件</h2><h4 id="网卡信息文件"><a href="#网卡信息文件" class="headerlink" title="网卡信息文件"></a>网卡信息文件</h4><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG18.png" alt=""></p>
-<h4 id="主机名文件"><a href="#主机名文件" class="headerlink" title="主机名文件"></a>主机名文件</h4><pre><code>vi /etc/sysconfig/network
-
-hostname [主机名]
-# 查看与临时设置主机名命令
-</code></pre><h4 id="DNS配置文件"><a href="#DNS配置文件" class="headerlink" title="DNS配置文件"></a>DNS配置文件</h4><pre><code>vi /etc/resolv.conf
-# nameserver 名称服务器/DNS
-</code></pre><p><br></p>
-<h2 id="虚拟机网络参数配置"><a href="#虚拟机网络参数配置" class="headerlink" title="虚拟机网络参数配置"></a>虚拟机网络参数配置</h2><p>1.配置LinuxIP地址</p>
-<pre><code>setup
-#修改并配置IP地址
-</code></pre><p>2.启动网卡</p>
-<pre><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0
-#把 ONBOOT = no改为 ONBOOT = yes
-service network restart
-#重启网络服务 
-</code></pre><p>3.修改UUID(如果这是一台克隆/复制出来的机子则必须进行这个步骤，否则可以省去)</p>
-<pre><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0
-#删除MAC地址行
-rm -rf /etc/udev/rules.d/70-persistent-net.rules
-#删除网卡和MAC地址绑定文件
-#重启动系统
-</code></pre><p>4.设置虚拟机网络连接方式</p>
-<ul>
-<li><strong>桥接模式</strong>：通过物理机的真实网卡进行通信，若选此项，则虚拟机需要配置与物理机相同的网关，缺点是需要占用真实网段的一个IP地址。这种模式更适用于实验，因为这种模式不仅可以与你的物理机可以通信还可以与同一局域网的其他主机通信，还可以访问公网。</li>
-<li><strong>NAT模式</strong>：在windows中（物理机中）是以VMware8虚拟网卡进行通信。这种模式只能与你自己的主机通信，不能与局域网的其他主机通信，但是可以通过物理的网卡访问公网。</li>
-<li>仅主机模式：在windows中（物理机中）是以VMware1虚拟网卡进行通信。这种模式只能与你自己的主机通信，不能与局域网的其他主机通信，只能与自己的物理机通信，并且不能上公网。</li>
-</ul>
-<p>切记：在选择桥接模式之后，需要选择桥接的网卡（即需要确定虚拟机需要通过哪个真实网卡连接网络），一般的虚拟机都是自动桥接，但是这种方式真的跟不靠谱**，所以你需要自己选择，如果你是通过有线接入网络，则选择有线桥接，若是通过无线接入网络，则通过无线接入。</p>
-<p>5.修改桥接网卡</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;IP地址配置&quot;&gt;&lt;a href=&quot;#IP地址配置&quot; class=&quot;headerlink&quot; title=&quot;IP地址配置&quot;&gt;&lt;/a&gt;IP地址配置&lt;/h2&gt;&lt;p&gt;DHCP服务器可以自动分配IP&lt;/p&gt;
-&lt;h4 id=&quot;ifconfig命令临时配置IP地址&quot;&gt;&lt;a hre
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu 安装、卸载wine</title>
-    <link href="http://yoursite.com/2018/05/01/Ubuntu-%E5%AE%89%E8%A3%85%E3%80%81%E5%8D%B8%E8%BD%BDwine/"/>
-    <id>http://yoursite.com/2018/05/01/Ubuntu-安装、卸载wine/</id>
-    <published>2018-05-01T08:17:58.000Z</published>
-    <updated>2018-05-01T08:39:07.491Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>sudo add-apt-repository ppa:wine/wine-builds
-sudo apt-get update
-sudo apt-get install --install-recommends wine-staging
-sudo apt-get install winehq-staging
-</code></pre><p><br></p>
-<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><pre><code>sudo apt purge wine
-rm -r ~/.wine
-sudo apt-get autoremove
-#清理wine模拟运行的windows程序:
-sudo rm -r /home/username/.local/share/applications
-#清理残余的windows程序:
-sudo rm -r /home/username/.config/menus/applications-merged/wine*
-</code></pre><ul>
-<li>apt-get remove 会删除软件包而保留软件的配置文件</li>
-<li>apt-get purge 会同时清除软件包和软件的配置文件</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;sudo add-apt-repository ppa:wine/wine-builds
-sudo apt-get upda
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 常用配置文件</title>
-    <link href="http://yoursite.com/2018/05/01/Linux-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2018/05/01/Linux-常用配置文件/</id>
-    <published>2018-05-01T08:06:02.000Z</published>
-    <updated>2018-05-05T16:17:49.781Z</updated>
-    
-    <content type="html"><![CDATA[<p>apt 源相关文件、目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/var/lib/apt/lists </div><div class="line">#ubuntu软件更新的源服务器的地址</div><div class="line">/etc/apt/sources.list</div><div class="line">#*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件</div><div class="line">/etc/apt/sources.list.d</div></pre></td></tr></table></figure></p>
-<p>安装日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/root/install.log </div><div class="line">#记录安装系统软件包以及其文件信息</div><div class="line">/root/install.log.syslog </div><div class="line">#记录安装过程留下来的事件记录</div><div class="line">/root/anacona-ks.cfg </div><div class="line">#以kickstart配置文件的格式记录安装过程中设置的选项信息（当要安装多台服务器时，可以先装一台，然后利用/root/anaconda-ks.cfg可以进行批量安装）；</div></pre></td></tr></table></figure></p>
-<p>网络配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/etc/sysconfig/network-scripts/ifcfg-eth0</div><div class="line">#网卡配置文件，IP/子网掩码/网关/DNS/ONBOOT</div><div class="line">/etc/sysconfig/network</div><div class="line">#设置主机名</div><div class="line">/etc/resolv.conf</div><div class="line">#DNS配置文件</div></pre></td></tr></table></figure></p>
-<p>用户管理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/etc/group	</div><div class="line">#存储当前系统中所有用户组的信息</div><div class="line">/etc/gshadow	</div><div class="line">#存储当前系统中用户组的密码信息</div><div class="line">/etc/passwd	</div><div class="line">#存储当前系统中所有用户的信息</div><div class="line">/etc/shadow    </div><div class="line">#存储当前系统中所有用户的密码信息</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;apt 源相关文件、目录&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div
     
     </summary>
     
