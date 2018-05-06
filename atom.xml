@@ -36,29 +36,59 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2018/05/05/hello-world/"/>
-    <id>http://yoursite.com/2018/05/05/hello-world/</id>
-    <published>2018-05-05T11:19:07.473Z</published>
-    <updated>2018-05-01T06:30:57.929Z</updated>
+    <title>Linux su root和sudo su</title>
+    <link href="http://yoursite.com/2018/05/05/Linux-su-root%E5%92%8Csudo-su/"/>
+    <id>http://yoursite.com/2018/05/05/Linux-su-root和sudo-su/</id>
+    <published>2018-05-05T15:43:02.000Z</published>
+    <updated>2018-05-06T05:51:36.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <content type="html"><![CDATA[<p>来自<a href="https://askubuntu.com/questions/86095/does-executing-sudo-su-and-su-root-do-the-same-thing?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa" target="_blank" rel="external">https://askubuntu.com/questions/86095/does-executing-sudo-su-and-su-root-do-the-same-thing?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa</a></p>
+<p>Does executing sudo su and su root do the same thing?What are the technical differences between the two? The only thing I noticed is that</p>
+<p><code>sudo su</code><br>requires you to enter your own password (assuming you’re not root)</p>
+<p><code>su root</code><br>requires you to enter root’s password. However both seem to log you into the root user account.</p>
+<p>The second command cannot be executed in a default Ubuntu installation, where the root account is not enabled.</p>
+<p>But supposing you have unlocked the root account giving him a password, the two commands could only differ in the environment and shell variable set, I think. Compare the output of env in the two situations, and maybe also the output of set to see the differences.</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;来自&lt;a href=&quot;https://askubuntu.com/questions/86095/does-executing-sudo-su-and-su-root-do-the-same-thing?utm_medium=organic&amp;amp;utm_source=g
     
     </summary>
     
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux用户管理</title>
+    <link href="http://yoursite.com/2018/05/05/Linux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/"/>
+    <id>http://yoursite.com/2018/05/05/Linux用户管理/</id>
+    <published>2018-05-05T14:41:15.000Z</published>
+    <updated>2018-05-06T01:10:57.440Z</updated>
+    
+    <content type="html"><![CDATA[<p>用户：使用操作系统的人<br>用户组：具有相同系统权限的一组用户</p>
+<h2 id="用户和用户组配置文件"><a href="#用户和用户组配置文件" class="headerlink" title="用户和用户组配置文件"></a>用户和用户组配置文件</h2><p>/etc/group    存储当前系统中所有用户组的信息<br>-Group：        x        ：  501   ：abc,def,xyz<br>-组名称：组密码占位符    ： 组编号：组中用户名列表</p>
+<p>组编号1-499是系统预留给软件的<br>手动创建的用户从500开始</p>
+<p>/etc/gshadow    存储当前系统中用户组的密码信息<br>-Group：        *        ：      ：abc,def,xyz<br>-组名称：  组密码    ：组管理者：组中用户名列表</p>
+<p>/etc/passwd    存储当前系统中所有用户的信息<br>-user：    x    ：   123   ：   456    ：   xxxxxxxx  ：/home/user  ： /bin/bash<br>-用户名：密码占位符：用户编号： 用户组编号：  用户注释信息：用户主目录 ：shell类型</p>
+<p>/etc/shadow    存储当前系统中所有用户的密码信息<br>-user    ：   vf;/Zu8sdf… ：：：：：<br>-用户名 ：    密码         ：：：：：</p>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">####用户基本命令</div><div class="line">useradd 用户名					#添加用户，所在用户组与用户名同名</div><div class="line">useradd -g 组名 用户名			#添加用户，指定其所在的组</div><div class="line">useradd -d 目录 用户名 			#添加用户，制定其用户的家目录，没有指定所在组时，默认用户名就为用户组名</div><div class="line">#passwd 用户名					#新建的用户需要设置密码，设置用户目录</div><div class="line"></div><div class="line">usermod -c 注释信息 用户名 	  #为指定用户名添加注释</div><div class="line">usermod -l 新用户名 旧用户名 		#更改用户名</div><div class="line">usermod -d 目录 用户名 			#更改用户个人文件夹的路径</div><div class="line">usermod -g 新用户组 用户名 	#更改指定用户的所属组</div><div class="line">userdel 用户名 				#删除用户，但是不删除用户个人文件夹里的文件</div><div class="line">userdel -r 用户名 				#删除用户并且删除用户个人文件夹里的文件</div></pre></td></tr></table></figure>
+<p>####用户组基本命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">groupadd 组名 				#创建用户组</div><div class="line">groupadd -g 组编号 组名 			#创建用户组并指定组编号</div><div class="line">groupmod -n 新组名 原组名 		#更改用户组名称</div><div class="line">groupmod -g 组编号 组名 			#设置用户组编号</div><div class="line">groupdel 组名 					#删除用户组，前提是用户组内没有用户</div></pre></td></tr></table></figure></p>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">touch /etc/nologin					#在etc目录下创建一个nologin文件(文件内容无关紧要)，暂时禁止除管理员外的用户登录</div><div class="line">passwd -l user1						#锁定账户</div><div class="line">passwd -u user1						#解锁账户</div><div class="line">passwd -d user1						#清除用户密码，无密码登录</div></pre></td></tr></table></figure>
+<p>主要组和附属组：<br>用户可以同时属于多个组，一个是主要组，其他的为附属组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">gpasswd -a 用户名 附属组 			#给用户添加附属组</div><div class="line">gpasswd -d 用户名 附属组 			#把用户从附属组中删除</div><div class="line"></div><div class="line">newgrp 组名</div><div class="line">#用户创建的文件默认为主要组；需要以附属组创建文件的，需将身份切换到附属组</div><div class="line">#把用户的组切换到附属组，需要用户登录后，自己执行，切换</div><div class="line">#组密码是在组切换时用的，如果有会要求输入组密码</div><div class="line"></div><div class="line">useradd -g group1 -G group2,group3... 用户名  </div><div class="line">#同时指定主用户组和附属用户组</div><div class="line">gpasswd 用户名 </div><div class="line">#更改组密码,回车会有相应的提示操作</div><div class="line">gpasswd -a 用户名 附属组，附属组，.....</div><div class="line">#添加附属组</div><div class="line">usermod -g</div><div class="line">#修改主要组</div><div class="line"></div><div class="line">su 用户名 				#切换到其他用户下</div><div class="line">su 					</div><div class="line">#后面什么也不接表示切换到root用户下</div><div class="line">#普通用户进其他用户需要密码，root用户进普通用户不需要密码</div><div class="line"></div><div class="line">whoami				#显示当前登录用户名</div><div class="line">id 用户名</div><div class="line">#显示指定用户信息，包括用户编号、用户编号、主要组编号及名称、附属组列表</div><div class="line">groups 用户名 		#显示用户所在的所有组，包括主要组和附属组</div><div class="line">chfn 用户名 		#设置用户资料，依次输入用户资料</div><div class="line">finger 用户名 		#显示用户详细资料</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;用户：使用操作系统的人&lt;br&gt;用户组：具有相同系统权限的一组用户&lt;/p&gt;
+&lt;h2 id=&quot;用户和用户组配置文件&quot;&gt;&lt;a href=&quot;#用户和用户组配置文件&quot; class=&quot;headerlink&quot; title=&quot;用户和用户组配置文件&quot;&gt;&lt;/a&gt;用户和用户组配置文件&lt;/h2&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -619,56 +649,14 @@ ONBOOT=&quot;yes&quot;
     <link href="http://yoursite.com/2018/05/02/Linux-%E5%AE%89%E8%A3%85ssh/"/>
     <id>http://yoursite.com/2018/05/02/Linux-安装ssh/</id>
     <published>2018-05-02T10:46:32.000Z</published>
-    <updated>2018-05-02T12:42:08.182Z</updated>
+    <updated>2018-05-06T06:02:41.235Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="简易版"><a href="#简易版" class="headerlink" title="简易版"></a>简易版</h2><pre><code>#查看ssh服务是否开启
-ps -e |grep ssh
-
-#安装ssh服务
-sudo apt install openssh-server
-
-#配置ssh
-sudo vi /etc/ssh/sshd_config
-#PermitRootLogin，RSAAuthentication，PubkeyAuthentication的设置打开
-
-#开启ssh服务
-sudo systemctl restart sshd.service
-#开机启动SSH服务
-sudo systemctl enable sshd.service
-
-#连接
-ssh -p 22 userName@192.168.1.100
-</code></pre><h2 id="复杂版"><a href="#复杂版" class="headerlink" title="复杂版"></a>复杂版</h2><p>参考<a href="https://wiki.centos.org/HowTos/Network/SecuringSSH" target="_blank" rel="external">https://wiki.centos.org/HowTos/Network/SecuringSSH</a></p>
-<pre><code>sudo firewall-cmd --reload
-#重新载入防火墙设定
-</code></pre><h2 id="设置SSH免密码登录"><a href="#设置SSH免密码登录" class="headerlink" title="设置SSH免密码登录"></a>设置SSH免密码登录</h2><pre><code>ssh-keygen -t rsa
-# ～/.ssh目录中创建两个名为id_rsa和id_rsa.pub的文件，id_rsa是私钥，id_rsa.pub是公钥
-
-#设置权限
-chmod 700〜/ .ssh
-chmod 600〜/ .ssh / id_rsa 
-
-# 复制公钥到服务器然后写入到~/.ssh/authorized_keys 方法一
-# 使用SSH远程登陆到服务器,发现家目录中还没有.ssh目录,使用mkdir创建
-mkdir .ssh
-# 发送公钥
-scp -P 端口号 ./id_rsa.pub alice@192.168.0.10:/home/alice/.ssh
-# 将公钥追加写入~/.ssh/authorized_keys中,若authorized_keys不存在,则会创建并写入
-cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
-#修改authorized_keys的权限为600,并删除公钥文件
-rm id_rsa.pub
-
-# 复制公钥到服务器然后写入到~/.ssh/authorized_keys 方法二
-# ssh-copy-id 命令可以把本地主机的公钥复制到远程主机的 authorized_keys 文件上
-ssh-copy-id -i ~/.ssh/id_rsa.pub user@server
-chmod 700 ~/.ssh 
-chmod 600 ~/.ssh/authorized_keys
-</code></pre><h2 id="清除SSH的私钥密码"><a href="#清除SSH的私钥密码" class="headerlink" title="清除SSH的私钥密码"></a>清除SSH的私钥密码</h2><pre><code>ssh-keygen -p
-# 选择需要修改的私钥，默认是/home/username/.ssh/id_rsa。
-# 选好文件后按回车，会提示你输入旧密码。
-#输入好后会提示输入新密码。
-#直接回车，提示确认新密码再直接回车，此时指定的私钥的密码就被清除了
-</code></pre><p>参考：</p>
+    <content type="html"><![CDATA[<h2 id="简易版"><a href="#简易版" class="headerlink" title="简易版"></a>简易版</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#查看ssh服务是否开启</div><div class="line">ps -e |grep ssh</div><div class="line"></div><div class="line">#安装ssh服务</div><div class="line">sudo apt install openssh-server</div><div class="line"></div><div class="line">#配置ssh</div><div class="line">sudo vi /etc/ssh/sshd_config</div><div class="line">#PermitRootLogin，RSAAuthentication，PubkeyAuthentication的设置打开</div><div class="line"></div><div class="line">#开启ssh服务</div><div class="line">sudo systemctl restart sshd.service</div><div class="line">#开机启动SSH服务</div><div class="line">sudo systemctl enable sshd.service</div><div class="line"></div><div class="line">#连接</div><div class="line">ssh -p 22 userName@192.168.1.100</div></pre></td></tr></table></figure>
+<h2 id="复杂版"><a href="#复杂版" class="headerlink" title="复杂版"></a>复杂版</h2><p>参考<a href="https://wiki.centos.org/HowTos/Network/SecuringSSH" target="_blank" rel="external">https://wiki.centos.org/HowTos/Network/SecuringSSH</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo firewall-cmd --reload</div><div class="line">#重新载入防火墙设定</div></pre></td></tr></table></figure></p>
+<h2 id="设置SSH免密码登录"><a href="#设置SSH免密码登录" class="headerlink" title="设置SSH免密码登录"></a>设置SSH免密码登录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div><div class="line"># ～/.ssh目录中创建两个名为id_rsa和id_rsa.pub的文件，id_rsa是私钥，id_rsa.pub是公钥</div><div class="line"></div><div class="line">#设置权限</div><div class="line">chmod 700〜/ .ssh</div><div class="line">chmod 600〜/ .ssh / id_rsa </div><div class="line"></div><div class="line"># 复制公钥到服务器然后写入到~/.ssh/authorized_keys 方法一</div><div class="line"># 使用SSH远程登陆到服务器,发现家目录中还没有.ssh目录,使用mkdir创建</div><div class="line">mkdir .ssh</div><div class="line"># 发送公钥</div><div class="line">scp -P 端口号 ./id_rsa.pub alice@192.168.0.10:/home/alice/.ssh</div><div class="line"># 将公钥追加写入~/.ssh/authorized_keys中,若authorized_keys不存在,则会创建并写入</div><div class="line">cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</div><div class="line">#修改authorized_keys的权限为600,并删除公钥文件</div><div class="line">rm id_rsa.pub</div><div class="line"></div><div class="line"># 复制公钥到服务器然后写入到~/.ssh/authorized_keys 方法二</div><div class="line"># ssh-copy-id 命令可以把本地主机的公钥复制到远程主机的 authorized_keys 文件上</div><div class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub user@server</div><div class="line">chmod 700 ~/.ssh </div><div class="line">chmod 600 ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+<h2 id="清除SSH的私钥密码"><a href="#清除SSH的私钥密码" class="headerlink" title="清除SSH的私钥密码"></a>清除SSH的私钥密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -p</div><div class="line"># 选择需要修改的私钥，默认是/home/username/.ssh/id_rsa。</div><div class="line"># 选好文件后按回车，会提示你输入旧密码。</div><div class="line">#输入好后会提示输入新密码。</div><div class="line">#直接回车，提示确认新密码再直接回车，此时指定的私钥的密码就被清除了</div></pre></td></tr></table></figure>
+<p>SSH相关命令参考 <a href="http://fengrenxiaoli.github.io/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/" target="_blank" rel="external">Linux网络管理 远程登录</a></p>
+<p>参考：</p>
 <ul>
 <li><a href="https://wiki.centos.org/HowTos/Network/SecuringSSH" target="_blank" rel="external">https://wiki.centos.org/HowTos/Network/SecuringSSH</a></li>
 <li><a href="http://www.iosugar.com/2017/02/14/CentOS-remote-login-SSH-configuration/#SSH%E7%99%BB%E9%99%86" target="_blank" rel="external">http://www.iosugar.com/2017/02/14/CentOS-remote-login-SSH-configuration/#SSH%E7%99%BB%E9%99%86</a></li>
@@ -680,11 +668,7 @@ chmod 600 ~/.ssh/authorized_keys
     
     <summary type="html">
     
-      &lt;h2 id=&quot;简易版&quot;&gt;&lt;a href=&quot;#简易版&quot; class=&quot;headerlink&quot; title=&quot;简易版&quot;&gt;&lt;/a&gt;简易版&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;#查看ssh服务是否开启
-ps -e |grep ssh
-
-#安装ssh服务
-sudo apt install op
+      &lt;h2 id=&quot;简易版&quot;&gt;&lt;a href=&quot;#简易版&quot; class=&quot;headerlink&quot; title=&quot;简易版&quot;&gt;&lt;/a&gt;简易版&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;d
     
     </summary>
     
@@ -698,7 +682,7 @@ sudo apt install op
     <link href="http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
     <id>http://yoursite.com/2018/05/01/Linux网络管理-网络基础/</id>
     <published>2018-05-01T11:06:32.000Z</published>
-    <updated>2018-05-02T14:11:57.029Z</updated>
+    <updated>2018-05-05T17:47:03.564Z</updated>
     
     <content type="html"><![CDATA[<h3 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h3><p>开放系统互联模型，由ISO(国际标准化组织) 组织开发的</p>
 <p>该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的</p>
@@ -809,11 +793,8 @@ sudo apt install op
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG13.jpg" alt=""></p>
 <p><br></p>
 <h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG14.jpg" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG15.jpg" alt=""></p>
-<pre><code>netstat -an
-# 查看本机启用的端口
-#-a:查看所有连接和监听端口
-#-n:显示IP地址和端口号，而不显示域名和服务名
-</code></pre><p>TCP因为3次握手的机制所以需要监听，而UDP不需要监听</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">netstat -an</div><div class="line"># 查看本机启用的端口</div><div class="line">#-a:查看所有连接和监听端口</div><div class="line">#-n:显示IP地址和端口号，而不显示域名和服务名</div></pre></td></tr></table></figure>
+<p>TCP因为3次握手的机制所以需要监听，而UDP不需要监听</p>
 <h4 id="常见端口号"><a href="#常见端口号" class="headerlink" title="常见端口号"></a>常见端口号</h4><ul>
 <li>FTP（文件传输协议）：20、21；</li>
 <li>SSH（安全shell协议）：22；</li>
@@ -882,9 +863,10 @@ sudo apt install op
     <link href="http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/"/>
     <id>http://yoursite.com/2018/05/01/Linux网络管理-远程登录/</id>
     <published>2018-05-01T11:03:54.000Z</published>
-    <updated>2018-05-02T07:34:20.474Z</updated>
+    <updated>2018-05-06T06:01:42.950Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="SSH协议原理"><a href="#SSH协议原理" class="headerlink" title="SSH协议原理"></a>SSH协议原理</h2><h4 id="对称加密算法"><a href="#对称加密算法" class="headerlink" title="对称加密算法"></a>对称加密算法</h4><p>采用单钥密码系统的加密方法, 同一个秘钥可以同时用作信息的加密和解密, 这种加密方法称为对称加密, 也称为单秘钥加密.</p>
+    <content type="html"><![CDATA[<p>参考  <a href="http://fengrenxiaoli.github.io/2018/05/02/Linux-%E5%AE%89%E8%A3%85ssh/" target="_blank" rel="external">Linux 安装ssh</a></p>
+<h2 id="SSH协议原理"><a href="#SSH协议原理" class="headerlink" title="SSH协议原理"></a>SSH协议原理</h2><h4 id="对称加密算法"><a href="#对称加密算法" class="headerlink" title="对称加密算法"></a>对称加密算法</h4><p>采用单钥密码系统的加密方法, 同一个秘钥可以同时用作信息的加密和解密, 这种加密方法称为对称加密, 也称为单秘钥加密.</p>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG22.png" alt=""></p>
 <p>缺点 : 加密解密使用相同密码, 需要告知对方密码, 等同于将自身多方习惯密码告知对方. 例如邮箱等密码, 造成威胁</p>
 <h4 id="非对称加密算法"><a href="#非对称加密算法" class="headerlink" title="非对称加密算法"></a>非对称加密算法</h4><p>asymmetric cryptographic algorithm，又名 “公开秘钥加密算法” ,  需要公开秘钥(publickey) 和私有秘钥(privatekey)<br>linux 中为 gpg工具, windows 中为 pgp工具</p>
@@ -927,7 +909,8 @@ scp [-r] 本地文件 用户名@ip:上传路径
     
     <summary type="html">
     
-      &lt;h2 id=&quot;SSH协议原理&quot;&gt;&lt;a href=&quot;#SSH协议原理&quot; class=&quot;headerlink&quot; title=&quot;SSH协议原理&quot;&gt;&lt;/a&gt;SSH协议原理&lt;/h2&gt;&lt;h4 id=&quot;对称加密算法&quot;&gt;&lt;a href=&quot;#对称加密算法&quot; class=&quot;headerlink&quot; 
+      &lt;p&gt;参考  &lt;a href=&quot;http://fengrenxiaoli.github.io/2018/05/02/Linux-%E5%AE%89%E8%A3%85ssh/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Linux 安装ssh&lt;/a&gt;&lt;/p&gt;
+&lt;
     
     </summary>
     
@@ -1157,66 +1140,17 @@ sudo apt-get upda
     <link href="http://yoursite.com/2018/05/01/Linux-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
     <id>http://yoursite.com/2018/05/01/Linux-常用配置文件/</id>
     <published>2018-05-01T08:06:02.000Z</published>
-    <updated>2018-05-04T13:47:27.699Z</updated>
+    <updated>2018-05-05T16:17:49.781Z</updated>
     
-    <content type="html"><![CDATA[<p>apt 源相关文件、目录</p>
-<pre><code>/var/lib/apt/lists 
-#ubuntu软件更新的源服务器的地址
-/etc/apt/sources.list
-#*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件
-/etc/apt/sources.list.d
-</code></pre><p>安装日志</p>
-<pre><code>/root/install.log 
-#记录安装系统软件包以及其文件信息
-/root/install.log.syslog 
-#记录安装过程留下来的事件记录
-/root/anacona-ks.cfg 
-#以kickstart配置文件的格式记录安装过程中设置的选项信息（当要安装多台服务器时，可以先装一台，然后利用/root/anaconda-ks.cfg可以进行批量安装）；
-</code></pre><p>网络配置</p>
-<pre><code>/etc/sysconfig/network-scripts/ifcfg-eth0
-#网卡配置文件，IP/子网掩码/网关/DNS/ONBOOT
-/etc/sysconfig/network
-#设置主机名
-/etc/resolv.conf
-#DNS配置文件
-</code></pre>]]></content>
+    <content type="html"><![CDATA[<p>apt 源相关文件、目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/var/lib/apt/lists </div><div class="line">#ubuntu软件更新的源服务器的地址</div><div class="line">/etc/apt/sources.list</div><div class="line">#*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件</div><div class="line">/etc/apt/sources.list.d</div></pre></td></tr></table></figure></p>
+<p>安装日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/root/install.log </div><div class="line">#记录安装系统软件包以及其文件信息</div><div class="line">/root/install.log.syslog </div><div class="line">#记录安装过程留下来的事件记录</div><div class="line">/root/anacona-ks.cfg </div><div class="line">#以kickstart配置文件的格式记录安装过程中设置的选项信息（当要安装多台服务器时，可以先装一台，然后利用/root/anaconda-ks.cfg可以进行批量安装）；</div></pre></td></tr></table></figure></p>
+<p>网络配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/etc/sysconfig/network-scripts/ifcfg-eth0</div><div class="line">#网卡配置文件，IP/子网掩码/网关/DNS/ONBOOT</div><div class="line">/etc/sysconfig/network</div><div class="line">#设置主机名</div><div class="line">/etc/resolv.conf</div><div class="line">#DNS配置文件</div></pre></td></tr></table></figure></p>
+<p>用户管理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/etc/group	</div><div class="line">#存储当前系统中所有用户组的信息</div><div class="line">/etc/gshadow	</div><div class="line">#存储当前系统中用户组的密码信息</div><div class="line">/etc/passwd	</div><div class="line">#存储当前系统中所有用户的信息</div><div class="line">/etc/shadow    </div><div class="line">#存储当前系统中所有用户的密码信息</div></pre></td></tr></table></figure></p>
+]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;apt 源相关文件、目录&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;/var/lib/apt/lists 
-#ubuntu软件更新的源服务器的地址
-/etc/apt/sources.list
-#*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件
-/etc/apt/sou
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux下无法使用add-apt-repository命令</title>
-    <link href="http://yoursite.com/2018/05/01/Linux%E4%B8%8B%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8add-apt-repository%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/01/Linux下无法使用add-apt-repository命令/</id>
-    <published>2018-05-01T07:59:11.000Z</published>
-    <updated>2018-05-01T08:39:43.799Z</updated>
-    
-    <content type="html"><![CDATA[<p>Linux下无法使用add-apt-repository命令报错：<br><code>add-apt-repository command not found</code></p>
-<p>解决办法：</p>
-<pre><code>sudo apt-get install python-software-properties
-sudo apt-get update
-sudo apt install software-properties-common 
-sudo apt-get update
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Linux下无法使用add-apt-repository命令报错：&lt;br&gt;&lt;code&gt;add-apt-repository command not found&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;解决办法：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install p
+      &lt;p&gt;apt 源相关文件、目录&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div
     
     </summary>
     
