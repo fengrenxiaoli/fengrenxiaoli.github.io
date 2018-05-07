@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/05/07/Linux-desktop-entries/</loc>
+    <loc>http://yoursite.com/2018/05/07/Linux-ftp%E5%91%BD%E4%BB%A4/</loc>
     
-    <lastmod>2018-05-07T03:27:47.482Z</lastmod>
+    <lastmod>2018-05-07T12:03:35.139Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/07/Linux-%E5%AE%89%E8%A3%85vsftpd/</loc>
+    
+    <lastmod>2018-05-07T11:12:43.409Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/07/Linux-%E5%AE%89%E8%A3%85Apache/</loc>
+    
+    <lastmod>2018-05-07T07:10:44.118Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/07/Linux-desktop-entry/</loc>
+    
+    <lastmod>2018-05-07T03:28:54.314Z</lastmod>
     
   </url>
   

@@ -36,11 +36,137 @@
   </entry>
   
   <entry>
-    <title>Linux desktop entries</title>
-    <link href="http://yoursite.com/2018/05/07/Linux-desktop-entries/"/>
-    <id>http://yoursite.com/2018/05/07/Linux-desktop-entries/</id>
+    <title>Linux ftp命令</title>
+    <link href="http://yoursite.com/2018/05/07/Linux-ftp%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2018/05/07/Linux-ftp命令/</id>
+    <published>2018-05-07T09:52:45.000Z</published>
+    <updated>2018-05-07T12:03:35.139Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="连接ftp服务器"><a href="#连接ftp服务器" class="headerlink" title="连接ftp服务器"></a>连接ftp服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp [hostname| ip-address]</div></pre></td></tr></table></figure>
+<h2 id="列出文件列表以及切换目录"><a href="#列出文件列表以及切换目录" class="headerlink" title="列出文件列表以及切换目录"></a>列出文件列表以及切换目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ls</div><div class="line">cd</div></pre></td></tr></table></figure>
+<h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><p>下载文件通常用get和mget这两条命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#get [remote-file] [local-file]</div><div class="line">#获取远程服务器上/usr/your/1.htm</div><div class="line">ftp&gt; get /usr/your/1.htm 1.htm</div><div class="line"></div><div class="line">mget [remote-files]</div><div class="line">#从远端主机接收一批文件至本地主机</div><div class="line">#获取服务器上/usr/your/下的所有文件</div><div class="line">cd /usr/your/</div><div class="line">mget *.*</div><div class="line"></div><div class="line">#显示下载进度</div><div class="line">ftp&gt; hash</div></pre></td></tr></table></figure>
+<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p>注意上传命令需要指定目标文件名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">put local-file [remote-file]</div><div class="line">#将本地一个文件传送至远端主机中。</div><div class="line">#把本地的1.htm传送到远端主机/usr/your,并改名为2.htm</div><div class="line">ftp&gt; put 1.htm /usr/your/2.htm</div><div class="line"></div><div class="line">mput local-files</div><div class="line">#将本地主机中一批文件传送至远端主机。</div><div class="line">#把本地当前目录下所有html文件上传到服务器/usr/your/ 下</div><div class="line">ftp&gt; cd /usr/your</div><div class="line">ftp&gt; mput *.htm</div></pre></td></tr></table></figure></p>
+<h2 id="断开连接"><a href="#断开连接" class="headerlink" title="断开连接"></a>断开连接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bye：中断与服务器的连接</div><div class="line">ftp&gt; bye</div></pre></td></tr></table></figure>
+<h2 id="改变传输模式"><a href="#改变传输模式" class="headerlink" title="改变传输模式"></a>改变传输模式</h2><p>ftp的传输模式有ascii模式和二进制模式<br>直接输入ascii则设置传输模式为ascii模式<br>直接输入binary则设置传输模式为binary模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ftp&gt; ascii</div><div class="line">ftp&gt; binary</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;连接ftp服务器&quot;&gt;&lt;a href=&quot;#连接ftp服务器&quot; class=&quot;headerlink&quot; title=&quot;连接ftp服务器&quot;&gt;&lt;/a&gt;连接ftp服务器&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 安装vsftpd</title>
+    <link href="http://yoursite.com/2018/05/07/Linux-%E5%AE%89%E8%A3%85vsftpd/"/>
+    <id>http://yoursite.com/2018/05/07/Linux-安装vsftpd/</id>
+    <published>2018-05-07T07:15:39.000Z</published>
+    <updated>2018-05-07T11:12:43.409Z</updated>
+    
+    <content type="html"><![CDATA[<p>vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。</p>
+<p>总结起来只有几步</p>
+<ul>
+<li>安装</li>
+<li>配置文件</li>
+<li>防火墙</li>
+<li>设置ftp用户</li>
+</ul>
+<p>一、安装FTP服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#查看是否已经安装vsftpd</div><div class="line">rpm -qa | grep vsftpd</div><div class="line"></div><div class="line">yum -y install vsftpd</div></pre></td></tr></table></figure></p>
+<p>二、手动启动，并使其能够从下次系统启动时自动启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl start vsftpd</div><div class="line">systemctl enable vsftpd</div><div class="line">#chkconfig vsftpd on</div></pre></td></tr></table></figure></p>
+<p>三、允许从外部系统访问FTP服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --permanent --zone=public  --add-port=21/tcp</div><div class="line">firewall-cmd --permanent --zone=public  --add-service=ftp</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure></p>
+<p>四、备份配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.bak</div><div class="line">cp /etc/vsftpd.userlist /etc/vsftpd.userlist.bak</div></pre></td></tr></table></figure></p>
+<p>五、配置<code>/etc/vsftpd/vsftpd.conf</code><br>没有的请自行添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">anonymous_enable = NO＃禁用匿名登录</div><div class="line">local_enable = YES＃允许本地登录</div><div class="line">write_enable = YES＃启用更改文件系统的FTP命令</div><div class="line">local_umask = 022＃用于本地用户创建文件的umask值</div><div class="line">dirmessage_enable = YES＃用户首次进入新目录时启用显示消息</div><div class="line">xferlog_enable = YES＃会保存一个日志文件，详细说明上传和下载</div><div class="line">connect_from_port_20 = YES＃使用服务器机器上的端口20（ftp-data）进行端口连接</div><div class="line">xferlog_std_format = YES＃保持标准的日志文件格式</div><div class="line">listen = NO＃阻止vsftpd在独立模式下运行</div><div class="line">listen_ipv6 = YES＃vsftpd将监听IPv6套接字而不是IPv4套接字</div><div class="line">pam_service_name = vsftpd＃vsftpd将使用的PAM服务的名称</div><div class="line">userlist_enable = YES＃启用vsftpd加载用户名列表</div><div class="line">tcp_wrappers = YES＃打开tcp</div></pre></td></tr></table></figure></p>
+<p>FTP基于用户列表文件允许/拒绝对用户的FTP访问<br>默认情况下，如果userlist_enable = YES  并且userlist_deny = YES，在<code>userlist_file=/etc/vsftpd/user_list</code>列出的用户都无法登录访问FTP。</p>
+<p>如果userlist_deny = NO，这意味着只有<code>userlist_file = /etc/vsftpd/user_list</code>中明确列出的用户才能登录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">userlist_enable = YES ＃vsftpd将加载从userlist_file给出的用户名列表</div><div class="line">userlist_file = /etc/vsftpd/user_list＃存储用户名</div><div class="line">userlist_deny = NO</div></pre></td></tr></table></figure>
+<p>when users login to the FTP server, they are placed in a chroot’ed jail, this is the local root directory which will act as their home directory for the FTP session only.<br>当用户登录到FTP服务器时，他们被放置在chroot jail里，chroot jail是本地根目录，会作为FTP会话的主目录</p>
+<p>限制FTP用户到他们的主目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chroot_local_user = YES </div><div class="line">allow_writeable_chroot = YES</div></pre></td></tr></table></figure></p>
+<p><code>chroot_local_user = YES</code>意味着本地用户通过默认设置登录后，他们的主目录将被放置在chroot jail中</p>
+<p>并且默认情况下，vsftpd不允许chroot jail目录因安全原因而可写，但是，我们可以使用选项<code>allow_writeable_chroot = YES</code>来覆盖此设置。</p>
+<p>保存该文件并关闭它</p>
+<p>六、配置SELinux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setsebool -P ftp_home_dir on</div><div class="line">#会报错</div></pre></td></tr></table></figure></p>
+<p>set SELinux rule to allow FTP to read/write user’s home directory<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">semanage boolean -m ftpd_full_access --on</div><div class="line">-bash: semanage: command not found</div><div class="line">yum provides semanage</div><div class="line">yum install policycoreutils-python</div><div class="line">systemctl restart vsftpd</div></pre></td></tr></table></figure></p>
+<p>七、测试FTP服务器<br>创建一个FTP用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">useradd -d /home/ftptest -g ftp -s /sbin/nologin ftptest</div><div class="line">passwd ftpuser</div></pre></td></tr></table></figure></p>
+<p>将用户添加到文件/etc/vsftpd/user_list中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo ftptest &gt;&gt; /etc/vsftpd.userlist</div><div class="line">cat /etc/vsftpd.userlist</div></pre></td></tr></table></figure></p>
+<p>分别测试匿名用户anonymous、root、ftptest</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ftp 192.168.0.203</div><div class="line">anonymous	530</div><div class="line">root		530</div><div class="line">ftptest		230</div><div class="line"></div><div class="line">#root因为在/etc/ftpusers目录里所以无法登录，该目录为禁止登录的用户</div><div class="line">#ftptest进入后，执行ls，可以测试是否为ftptest用户自己的主目录</div></pre></td></tr></table></figure>
+<p>八、配置不同的FTP用户主目录</p>
+<p>使用<code>allow_writeable_chroot=YES</code>具有某些安全隐患，特别是在用户具有上载权限或shell访问权限的情况下。<br>只有当你确切地知道你在做什么时才激活这个选项。需要注意的是，这些安全性影响并不是vsftpd特有的，它们适用于所有提供将本地用户放入chroot jail的FTP守护进程。</p>
+<p>注释掉之前的语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">＃allow_writeable_chroot = YES</div></pre></td></tr></table></figure></p>
+<p>为用户创建替代本地根目录的目录（ravi您的可能不同），并将所有用户的写入权限移除到此目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir /home/ftptest/ftp</div><div class="line">chown nobody：nobody /home/ftptest/ftp</div><div class="line">chmod a+w /home/ftptest/ftp</div></pre></td></tr></table></figure></p>
+<p>修改vsftpd配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">user_sub_token = $USER＃将用户名插入本地根目录</div><div class="line">local_root = /home/$USER/ftp＃定义任何用户本地根目录</div></pre></td></tr></table></figure></p>
+<p>重启vsftpd</p>
+<p>注意上传命令需要指定目标文件名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp put /path/to/local_file remote_file_name</div></pre></td></tr></table></figure></p>
+<p>参考：</p>
+<ul>
+<li>重点<a href="https://www.kancloud.cn/chandler/bc-linux/52710" target="_blank" rel="external">https://www.kancloud.cn/chandler/bc-linux/52710</a></li>
+<li><a href="https://www.tecmint.com/install-ftp-server-in-centos-7/" target="_blank" rel="external">https://www.tecmint.com/install-ftp-server-in-centos-7/</a></li>
+<li><a href="https://wsgzao.github.io/post/vsftpd/" target="_blank" rel="external">https://wsgzao.github.io/post/vsftpd/</a></li>
+<li><a href="https://blog.csdn.net/aiynmimi/article/details/77012507" target="_blank" rel="external">https://blog.csdn.net/aiynmimi/article/details/77012507</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。&lt;/p&gt;
+&lt;p&gt;总结起来只有几步&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装&lt;/li&gt;
+&lt;li&gt;配置文件&lt;/li&gt;
+&lt;li&gt;防火墙&lt;/
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 安装Apache</title>
+    <link href="http://yoursite.com/2018/05/07/Linux-%E5%AE%89%E8%A3%85Apache/"/>
+    <id>http://yoursite.com/2018/05/07/Linux-安装Apache/</id>
+    <published>2018-05-07T06:15:33.000Z</published>
+    <updated>2018-05-07T07:10:44.118Z</updated>
+    
+    <content type="html"><![CDATA[<p>安裝Apache<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install httpd</div></pre></td></tr></table></figure></p>
+<p>启动Apache，并且设定为开机自动启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo systemctl start httpd</div><div class="line">sudo systemctl enable httpd</div></pre></td></tr></table></figure></p>
+<p>允许http服务通过防火墙<br>CentOS 7的内置防火墙默认设置为阻止网络流量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo firewall-cmd --add-service=http --permanent</div><div class="line">sudo firewall-cmd --add-service=https --permanent</div><div class="line">#sudo firewall-cmd --permanent --add-port=80/tcp</div><div class="line">#sudo firewall-cmd --permanent --add-port=443/tcp</div><div class="line">sudo systemctl restart firewalld</div></pre></td></tr></table></figure></p>
+<p>重启Apache<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo systemctl restart httpd.service</div></pre></td></tr></table></figure></p>
+<p>配置文件</p>
+<p><code>/etc/httpd/conf/httpd.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">DocumentRoot &quot;/var/www/html/example.com/public_html&quot;</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">&lt;IfModule prefork.c&gt;</div><div class="line">    StartServers        5</div><div class="line">    MinSpareServers     20</div><div class="line">    MaxSpareServers     40</div><div class="line">    MaxRequestWorkers   256</div><div class="line">    MaxConnectionsPerChild 5500</div><div class="line">&lt;/IfModule&gt;</div></pre></td></tr></table></figure></p>
+<p><code>/etc/httpd/conf.d/vhost.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">NameVirtualHost *:80</div><div class="line"></div><div class="line">&lt;VirtualHost *:80&gt;</div><div class="line">    ServerAdmin webmaster@example.com</div><div class="line">    ServerName example.com</div><div class="line">    ServerAlias www.example.com</div><div class="line">    DocumentRoot /var/www/html/example.com/public_html/</div><div class="line">    ErrorLog /var/www/html/example.com/logs/error.log</div><div class="line">    CustomLog /var/www/html/example.com/logs/access.log combined</div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure></p>
+<p>创建上面引用的目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo mkdir -p /var/www/html/example.com/&#123;public_html,logs&#125;</div></pre></td></tr></table></figure></p>
+<p>检查Apache的状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo systemctl status httpd</div></pre></td></tr></table></figure></p>
+<p>停止Apache<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo systemctl stop httpd</div></pre></td></tr></table></figure></p>
+<p>参考：</p>
+<p><a href="https://www.linode.com/docs/web-servers/apache/install-and-configure-apache-on-centos-7/" target="_blank" rel="external">https://www.linode.com/docs/web-servers/apache/install-and-configure-apache-on-centos-7/</a><br><a href="https://www.liquidweb.com/kb/how-to-install-apache-on-centos-7/" target="_blank" rel="external">https://www.liquidweb.com/kb/how-to-install-apache-on-centos-7/</a><br>SELinux：<a href="https://www.brilliantcode.net/170/centos-7-install-apache-httpd/" target="_blank" rel="external">https://www.brilliantcode.net/170/centos-7-install-apache-httpd/</a><br>SELinux：<a href="https://www.brilliantcode.net/145/centos-7-check-selinux-status-enabled-or-not/" target="_blank" rel="external">https://www.brilliantcode.net/145/centos-7-check-selinux-status-enabled-or-not/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;安裝Apache&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux desktop entriy</title>
+    <link href="http://yoursite.com/2018/05/07/Linux-desktop-entry/"/>
+    <id>http://yoursite.com/2018/05/07/Linux-desktop-entry/</id>
     <published>2018-05-07T03:17:37.000Z</published>
-    <updated>2018-05-07T03:27:47.482Z</updated>
+    <updated>2018-05-07T03:28:54.314Z</updated>
     
     <content type="html"><![CDATA[<p>在 Windows 平台上，用户可以通过点击位于桌面或菜单上的快捷方式轻松打开目标应用程序。现代 Linux 桌面系统的应用程序是通过<code>*.desktop</code>文件管理的。</p>
 <p>一个应用程序对应一个<code>.desktop</code>文件，根据是用户自己可见还是所有用户可见的不同而放在 <code>~/.local/share/applications</code>或者 <code>/usr/share/applications/</code> 目录中。</p>
@@ -685,173 +811,6 @@ mv abc longls 当原文件与目标目录，在同一目录下，则为改名命
     
       &lt;p&gt;linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件&lt;/p&gt;
 &lt;h4 id=&quot;命令提示符&quot;&gt;&lt;a href=&quot;#命令提示符&quot; class=&quot;headerlink&quot; title=&quot;命令提示符&quot;&gt;&lt;/a&gt;命令提示符&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;[
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux文件管理 常用目录</title>
-    <link href="http://yoursite.com/2018/05/05/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E5%B8%B8%E7%94%A8%E7%9B%AE%E5%BD%95/"/>
-    <id>http://yoursite.com/2018/05/05/Linux文件管理-常用目录/</id>
-    <published>2018-05-05T02:13:04.000Z</published>
-    <updated>2018-05-05T04:31:46.635Z</updated>
-    
-    <content type="html"><![CDATA[<p>linux 是个严谨的操作系统，一级目录都严格规定</p>
-<p>/ 根目录</p>
-<p>/home 普通用户的家目录<br>/root 超级用户的家目录<br>/tmp 临时目录，可存放临时数据</p>
-<p>/lib 系统库保存目录<br>操作系统中并没有把所有功能都写入linux中，而将常用的功能写成一个个程序库，这些库保存在lib中，当需要时调用即可。避免全部写入linux中，使其无比庞大且运行缓慢。</p>
-<p>/mnt<br>/media<br>/misc<br>三个都可以用来挂载</p>
-<p>/proc 直接写入内存的<br>/sys 直接写入内存的<br>这两个目录保存的是内存的挂载点，不能直接操作。其中的数据直接写在内存中。避免数据丢失或由于内存溢出导致系统崩溃。</p>
-<p>/boot 启动目录，启动相关文件<br>/dev 设备文件保存目录<br>/etc 配置文件保存目录<br>/var 系统相关文档内容</p>
-<p>/usr 系统软件资源目录<br>/usr/bin/ 系统命令（普通用户）<br>/usr/sbin/ 系统命令（超级用户）</p>
-<p>/bin 命令保存目录（普通用户就可以读取的命令）<br>/sbin 命令保存目录（超级用户才能使用的目录）<br>根目录下的bin和sbin，usr目录下的bin和sbin，这四个目录都是用来保存系统命令。其中，bin目录<br>下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式来区分用户权限。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;linux 是个严谨的操作系统，一级目录都严格规定&lt;/p&gt;
-&lt;p&gt;/ 根目录&lt;/p&gt;
-&lt;p&gt;/home 普通用户的家目录&lt;br&gt;/root 超级用户的家目录&lt;br&gt;/tmp 临时目录，可存放临时数据&lt;/p&gt;
-&lt;p&gt;/lib 系统库保存目录&lt;br&gt;操作系统中并没有把所有功能都
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux磁盘管理 MBR分区</title>
-    <link href="http://yoursite.com/2018/05/04/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-MBR%E5%88%86%E5%8C%BA/"/>
-    <id>http://yoursite.com/2018/05/04/Linux磁盘管理-MBR分区/</id>
-    <published>2018-05-04T12:28:18.000Z</published>
-    <updated>2018-05-06T07:09:26.793Z</updated>
-    
-    <content type="html"><![CDATA[<p>硬件设备都是由Linux系统自动识别的，必须对硬盘进行分区、格式化、挂载后才能使用</p>
-<p>分区的意义：<a href="http://www.cnblogs.com/personnel/p/4584926.html" target="_blank" rel="external">http://www.cnblogs.com/personnel/p/4584926.html</a></p>
-<p>Windows与Linux的磁盘使用流程</p>
-<ul>
-<li>Windows：分区–&gt;格式化–&gt;分配盘符</li>
-<li>Linux：分区–&gt;格式化–&gt;给每个分区起“设备文件名”–&gt;分配挂载点</li>
-</ul>
-<h2 id="MBR"><a href="#MBR" class="headerlink" title="MBR"></a>MBR</h2><p>MBR=主引导区记录。硬盘的0磁道的第一个扇区称为MBR，它的大小是512字节，而这个区域可以分为三个部分。第一部分为pre-boot区（预启动区），占446字节；第二部分是Partition table区（分区表），占64个字节，硬盘中分区有多少以及每一分区的大小都记在其中。第三部分是magic number，占2个字节，固定为55AA。</p>
-<p>MBR是针对整个硬盘而言的，而引导扇区是对单个分区而言的。每个分区的第一扇区就是引导扇区：像MBR一样，引导扇区里包含了一些引导操作系统所需要的相关信息。如果引导扇区被破坏了是个非常严重的问题，那就意味着这个分区不能被访问，安装在这个分区上的操作系统也不能被启动。所以说修复引导是使得每一个分区都能被正确识别引导。</p>
-<p>##MBR分区类型（所有系统都适用）：</p>
-<h4 id="主分区"><a href="#主分区" class="headerlink" title="主分区"></a>主分区</h4><p>最多只能分4个，由硬盘的结构决定（硬盘分为一个个等大小的扇区，每个扇区512字节，其中446个字节用于记录启动信息， 剩下的64个字节进行分区表示，64个字节中每16个字节表示一个分区，所以最多只能表示4个分区，故而硬盘结构如果不变，主分区最多只能分4个）。每个主分区都有各自独立的引导块，可以用fdisk设定为启动区。</p>
-<p>Windows下A、B作为软分区的盘符，C作为第一个主分区的盘符，所以最多还能分23个子分区。</p>
-<p>####扩展分区</p>
-<p><strong>一块硬盘中扩展分区只能有一个</strong></p>
-<p><strong>主分区和扩展分区总数不能超过4个</strong></p>
-<p>可以将一个主分区作为扩展分区，即三个主分区，一个扩展分区，总计4个分区；</p>
-<p><strong>不能直接写入数据</strong>，只能用作包含逻辑分区。</p>
-<p>区分扩展分区和逻辑分区，是突破主分区只能有4个的最主要的方法。</p>
-<h4 id="逻辑分区"><a href="#逻辑分区" class="headerlink" title="逻辑分区"></a>逻辑分区</h4><p>可以有多个，没有独立的引导块，不能用fdisk设定为启动区。</p>
-<h2 id="设备文件名"><a href="#设备文件名" class="headerlink" title="设备文件名"></a>设备文件名</h2><p>Linux中一切皆文件，包括硬件、用户等。硬件的文件名即称作“硬件设备文件名”，硬件设备文件名作为硬件的标准称呼，是由Linux自动检测并分配的。硬件设备文件在目录中处于根目录（“/”代表根目录，最高级目录）下的dev文件夹（专用于放硬件设备文件）下，即“/dev”文件夹下。</p>
-<h4 id="分区的设备文件名分配规则"><a href="#分区的设备文件名分配规则" class="headerlink" title="分区的设备文件名分配规则"></a>分区的设备文件名分配规则</h4><p>hd代表IDE接口，sd代表SCSI接口或SATA接口；<br>a代表第一块硬盘，如有多块硬盘b代表第二块硬盘，c代表第三块硬盘，以此类推；<br>1代表一块硬盘上的第一个分区，2代表此硬盘的第二个分区，3代表此硬盘第三个分区，以此类推，其中1234编号只能代表主分区或扩展分区，逻辑分区的编号从5开始分配，最大分区编号16<br>/dev/sda1 第一块SATA接口硬盘的第一个分区</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG28.jpg" alt=""></p>
-<h4 id="挂载点"><a href="#挂载点" class="headerlink" title="挂载点"></a>挂载点</h4><p>Windows中使用字母标识符来指定在这个分区上的文件和目录，而Linux中使用目录作为挂载点（盘符）<br>绝大多数目录都可以作为挂载点（部分必须和根目录放在同一个分区的目录除外，否则将导致系统不能启动）包括你手工创建的目录。</p>
-<p>##Linux 分区</p>
-<p>####必须分区：</p>
-<p>根分区 /（挂载点根目录，根目录中要保存其他所有数据，根目录如果没有硬盘空间，根下的很多数据将没有地方存放）<br>swap分区（交换分区，可理解为虚拟内存， 当真实内存不足时，可将swap分区中的硬盘空间作为内存使用，如果内存小于等于4GB，推荐swap分配内存的两倍，若内存大于4GB，建议swap空间与内存相等，不需要挂载点，swap分区不是给用户看的，是系统直接调用的所以无挂载点）</p>
-<p>注：启动分区/boot需不需要创建要看实际情况，<br>需要使用LVM时，由于/boot分区不支持lvmfs，所以要单独创建，这个目录是系统文件，一般不会动，但不要太小，如果升级内核可能就满了。<br>个人使用没有必要</p>
-<h4 id="使用-“fdisk”命令进行硬盘分区"><a href="#使用-“fdisk”命令进行硬盘分区" class="headerlink" title="使用 “fdisk”命令进行硬盘分区"></a>使用 “fdisk”命令进行硬盘分区</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">fdisk /dev/sdb </div><div class="line">进入sdb硬盘分区模式</div><div class="line">输入m，查看命令帮助信息</div><div class="line"></div><div class="line">新建分区</div><div class="line">输入n，给硬盘添加一个新的分区</div><div class="line">输入p，主分区</div><div class="line">输入e，扩展分区，扩展分区不能直接使用，需要添加逻辑分区</div><div class="line">输入l，扩展分区只能有一个，不能再分扩展分区了，所以显示的是逻辑分区，5代表分区的编号从5开始</div><div class="line">给分区指定编号，1-4是预留给主分区或者扩展分区的</div><div class="line">Partition number( 1-4,defautl 1):</div><div class="line">给这个分区指定扇区发起始和终止位置</div><div class="line">扇区的起始位置： First sector (2048 - 16777215，default 2048):不输入默认2048</div><div class="line">扇区的终止位置：Last sector,+sectors or +size&#123;K,M,G&#125;&#123;2048-16777215,default 16777215&#125;:3000M</div><div class="line">Command(m for help):输入p查看已经分好的区</div><div class="line">Command(m for help):输入n 继续添加分区</div><div class="line"></div><div class="line">删除分区： 输入d，随后输入删除的分区号</div><div class="line">逻辑分区是在拓展分区之内的，如果删除的拓展分区，随之而然的逻辑分区也被删除</div><div class="line"></div><div class="line">写入分区：输入w，直接就是保存并生效了；</div></pre></td></tr></table></figure>
-<p><br></p>
-<p>参考：</p>
-<ul>
-<li><a href="https://shengbao.org/691.html" target="_blank" rel="external">https://shengbao.org/691.html</a></li>
-<li><a href="http://blog.51cto.com/13323775/2053921" target="_blank" rel="external">http://blog.51cto.com/13323775/2053921</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;硬件设备都是由Linux系统自动识别的，必须对硬盘进行分区、格式化、挂载后才能使用&lt;/p&gt;
-&lt;p&gt;分区的意义：&lt;a href=&quot;http://www.cnblogs.com/personnel/p/4584926.html&quot; target=&quot;_blank&quot; rel=&quot;ext
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 虚拟机网络配置详解(NAT、桥接、Hostonly)</title>
-    <link href="http://yoursite.com/2018/05/04/Linux-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3-NAT%E3%80%81%E6%A1%A5%E6%8E%A5%E3%80%81Hostonly/"/>
-    <id>http://yoursite.com/2018/05/04/Linux-虚拟机网络配置详解-NAT、桥接、Hostonly/</id>
-    <published>2018-05-04T08:56:23.000Z</published>
-    <updated>2018-05-04T12:24:16.820Z</updated>
-    
-    <content type="html"><![CDATA[<p>无论是vmware还是virtual box虚拟机软件，一般来说，虚拟机有三种网络模式:</p>
-<ol>
-<li>Bridged Adapter（桥接模式）</li>
-<li>NAT（网络地址转换模式）</li>
-<li>Host-only Adapter（主机模式）</li>
-</ol>
-<p>virtual box中还有lInternal</p>
-<p>虚拟网卡在虚拟机安装好之后，会自动添加两张网卡(VMnet1和VMnet8)，VMnet1用Host-only网络连接，VMnet8用NAT方式的网络连接，原先的VMnet0用桥接网络连接。</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG23.png" alt=""></p>
-<h2 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h2><p>桥接网络是指宿主物理网卡和虚拟网卡通过VMnet0虚拟交换机进行桥接，物理网卡和虚拟网卡在拓扑图上处于<strong>同等地位</strong>，那么物理网卡和虚拟网卡就相当于处于同一个网段，虚拟交换机就相当于一台现实网络中的交换机，所以两个网卡的IP地址也要设置为同一网段。会占用内网IP</p>
-<p>vmnet0实际上就是一个虚拟的网桥(2层交换机)，这个网桥有若干个接口，一个端口用于连接你的Host主机，其余端口可以用于连接虚拟机，他们的位置是对等的，谁也不是谁的网关。<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG24.png" alt=""></p>
-<p>主机A上的两个虚拟机1和虚拟机2，和主机A、B同处于一个网段，能够相互通信<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG25.png" alt=""></p>
-<p>虚拟机网卡配置，虚拟机上网需要IP/子网掩码/DNS/网关</p>
-<pre><code>DEVICE=&quot;eth0&quot;
-BOOTPROTO=“static&quot; #设置静态ip,动态为dhcp
-IPADDR=&quot;192.168.1.3&quot;
-GATEWAY=&quot;192.168.1.1&quot;
-HWADDR=&quot;08:00:27:C7:1B:22&quot;
-DNS1=&quot;8.8.8.8&quot;
-NETMASK=&quot;255.255.255.0&quot;
-ONBOOT=&quot;yes&quot;
-</code></pre><p>CentOS 7中ONBOOT默认为NO，需要打开</p>
-<h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><p>虚拟机要求可以上网，且虚拟机完全模拟一台实体机</p>
-<p><br></p>
-<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><p>NAT模式中，就是让虚拟机借助NAT(网络地址转换)功能，通过宿主机器所在的网络来访问公网。宿主能够联网，虚拟机也能联网(其他主机)。宿主没有联网，虚拟机也不能联网</p>
-<p>vmnet1也是一个虚拟的交换机，交换机的一个 端口连接到你的Host上，另外一个端口连接到虚拟的DHCP服务器上（实际上是vmware的一个组件），另外剩下的端口就是连虚拟机了，主机A和虚拟机1和2能相互通信，虚拟机1和2能访问主机B和外网，主机B不能访问虚拟机1和2，虚拟机1和2能相互通信<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG27.png" alt=""></p>
-<p>虚拟机的配置:</p>
-<pre><code>DEVICE=&quot;eth0&quot;
-BOOTPROTO=“static&quot; #设置静态ip,动态为dhcp
-IPADDR=&quot;10.0.2.5&quot;
-GATEWAY=&quot;10.0.2.1&quot;
-HWADDR=&quot;08:00:27:C7:1B:22&quot;
-DNS1=&quot;10.0.2.1&quot;
-NETMASK=&quot;255.255.255.0&quot;
-ONBOOT=&quot;yes&quot;
-</code></pre><h4 id="应用场景：-1"><a href="#应用场景：-1" class="headerlink" title="应用场景："></a>应用场景：</h4><p>虚拟机只要求可以上网，无其它特殊要求，满足最一般需求</p>
-<p><br></p>
-<h2 id="Host-Only"><a href="#Host-Only" class="headerlink" title="Host-Only"></a>Host-Only</h2><p><strong>所有的虚拟系统是可以相互通信的，但虚拟系统和真实的网络是被隔离开的</strong></p>
-<p>虚拟系统和宿主机器系统是可以相互通信的。<br>虚拟系统的TCP/IP配置信息(如IP地址、网关地址、DNS服务器等)，都是由VMnet1(host-only)虚拟网络的DHCP服务器来动态分配的。</p>
-<p>主机和虚拟机之间的通信是通过 VMnet1虚拟网卡来实现的。虚拟机连接到VMnet1上，系统并不为其提供任何路由服务，因此虚拟机只能和宿主机进行通信，而不能连接到真正的网络上。</p>
-<p>Host-Only的宗旨就是建立一个与外界隔绝的内部网络，来提高内网的安全性。这个功能或许对普通用户来说没有多大意义，但大型服务商会常常利用这个功能。如果你想为VMnet1网段提供路由功能，那就需要使用RRAS，而不能使用XP或2000的ICS，因为ICS会把内网的IP地址改为192.168.0.1，但虚拟机是不会给VMnet1虚拟网卡分配这个地址的，那么主机和虚拟机之间就不能通信了。</p>
-<p>虚拟机1和2之间可以相互通信，主机A能和虚拟机1和2通信，虚拟机1和2不能和主机通信(需要设置)，虚拟机不能和B主机以及外网通信<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG26.png" alt=""></p>
-<h4 id="使用范围"><a href="#使用范围" class="headerlink" title="使用范围"></a>使用范围</h4><p>如果你想利用VMWare创建一个与网内其他机器相隔离的虚拟系统，进行某些特殊的网络调试工作，可以选择host-only模式。</p>
-<p><br></p>
-<h2 id="内网模式"><a href="#内网模式" class="headerlink" title="内网模式"></a>内网模式</h2><p>内网模式，顾名思义就是内部网络模式：虚拟机与外网完全断开，只实现虚拟机于虚拟机之间的内部网络模式。</p>
-<p>虚拟机与主机的关系：不能相互访问，彼此不属于同一个网络，无法相互访问。<br>虚拟机与网络中其他主机的关系：不能相互访问，理由同上。<br>虚拟机与虚拟机的关系：可以相互访问，前提是在设置网络时，两台虚拟机设置同一网络名称。如上配置图中，名称为intnet。</p>
-<p>参考：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/ggjucheng/archive/2012/08/19/2646007.html" target="_blank" rel="external">http://www.cnblogs.com/ggjucheng/archive/2012/08/19/2646007.html</a></li>
-<li><a href="https://www.jianshu.com/p/305f7384cfe9" target="_blank" rel="external">https://www.jianshu.com/p/305f7384cfe9</a></li>
-<li><a href="https://blog.csdn.net/bytxl/article/details/35569217" target="_blank" rel="external">https://blog.csdn.net/bytxl/article/details/35569217</a></li>
-<li><a href="https://blog.csdn.net/clevercode/article/details/45934233" target="_blank" rel="external">https://blog.csdn.net/clevercode/article/details/45934233</a></li>
-<li><a href="http://blog.51cto.com/wangchunhai/381225" target="_blank" rel="external">http://blog.51cto.com/wangchunhai/381225</a></li>
-<li><a href="https://github.com/waltcow/blog/issues/21" target="_blank" rel="external">https://github.com/waltcow/blog/issues/21</a></li>
-<li><a href="https://blog.csdn.net/guizaijianchic/article/details/72190394" target="_blank" rel="external">https://blog.csdn.net/guizaijianchic/article/details/72190394</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;无论是vmware还是virtual box虚拟机软件，一般来说，虚拟机有三种网络模式:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Bridged Adapter（桥接模式）&lt;/li&gt;
-&lt;li&gt;NAT（网络地址转换模式）&lt;/li&gt;
-&lt;li&gt;Host-only Adapter（主机模式）&lt;/
     
     </summary>
     
