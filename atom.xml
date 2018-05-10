@@ -36,6 +36,46 @@
   </entry>
   
   <entry>
+    <title>Linux 安装Tomcat并部署Java web项目</title>
+    <link href="http://yoursite.com/2018/05/07/Linux-%E5%AE%89%E8%A3%85Tomcat%E5%B9%B6%E9%83%A8%E7%BD%B2Java-web%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://yoursite.com/2018/05/07/Linux-安装Tomcat并部署Java-web项目/</id>
+    <published>2018-05-07T14:10:33.000Z</published>
+    <updated>2018-05-07T14:49:33.155Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="在Linux上安装JDK"><a href="#在Linux上安装JDK" class="headerlink" title="在Linux上安装JDK"></a>在Linux上安装JDK</h2><p>略</p>
+<h2 id="在Linux上安装FTP"><a href="#在Linux上安装FTP" class="headerlink" title="在Linux上安装FTP"></a>在Linux上安装FTP</h2><p>略</p>
+<h2 id="在Linux上安装Tomcat"><a href="#在Linux上安装Tomcat" class="headerlink" title="在Linux上安装Tomcat"></a>在Linux上安装Tomcat</h2><p>下载Tomcat，利用FTP上传到服务器上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#解压，位置随意</div><div class="line">tar -zxvf apache-tomcat-8.0.29.tar.gz</div><div class="line"></div><div class="line">#防火墙里面开放8080端口</div><div class="line">vim /etc/sysconfig/iptables</div><div class="line">#重启防火墙</div><div class="line">service iptables restart</div><div class="line"></div><div class="line">#启动Tomcat</div><div class="line">/usr/local/tomcat/bin/startup.sh</div><div class="line"></div><div class="line">#tomcat自启动 </div><div class="line">vim /etc/rc.d/rc.local</div><div class="line">/usr/local/tomcat/bin/startup.sh</div></pre></td></tr></table></figure></p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG31.png" alt=""></p>
+<h2 id="Idea打包Java-web项目"><a href="#Idea打包Java-web项目" class="headerlink" title="Idea打包Java web项目"></a>Idea打包Java web项目</h2><p>点击Idea左下角，在右侧出现maven project选项，单击maven project选项，出现菜单，选择其中的Lifecycle菜单项，展开，执行里面的package命令即可。<br>在项目文件夹/target/下可以找到 *.war 文件。</p>
+<h2 id="将war文件部署到tomcat上"><a href="#将war文件部署到tomcat上" class="headerlink" title="将war文件部署到tomcat上"></a>将war文件部署到tomcat上</h2><ol>
+<li>将war文件拷贝到tomcat安装目录的<code>$TOMCAT_HOME/webapps</code>文件夹下。</li>
+<li>修改<code>$TOMCAT_HOME/conf/server.xml</code>，在Host配置段中添加类似于如下内容：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Context path=&quot;/&quot; docBase=&quot;appname.war&quot; debug=&quot;0&quot; privileged=&quot;true&quot; reloadable=&quot;true&quot;/&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>docBase=”appname.war”中的appname.war 替换成自己的war的名字。</p>
+<ol>
+<li>重启tomcat，然后访问<a href="http://localhost:8080/appname" target="_blank" rel="external">http://localhost:8080/appname</a> 即可。</li>
+</ol>
+<p>参考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/to_baidu/article/details/52823402" target="_blank" rel="external">https://blog.csdn.net/to_baidu/article/details/52823402</a></li>
+<li><a href="https://blog.csdn.net/yums467/article/details/51660683" target="_blank" rel="external">https://blog.csdn.net/yums467/article/details/51660683</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;在Linux上安装JDK&quot;&gt;&lt;a href=&quot;#在Linux上安装JDK&quot; class=&quot;headerlink&quot; title=&quot;在Linux上安装JDK&quot;&gt;&lt;/a&gt;在Linux上安装JDK&lt;/h2&gt;&lt;p&gt;略&lt;/p&gt;
+&lt;h2 id=&quot;在Linux上安装FTP&quot;&gt;&lt;a
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux ftp命令</title>
     <link href="http://yoursite.com/2018/05/07/Linux-ftp%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/05/07/Linux-ftp命令/</id>
@@ -732,85 +772,6 @@ tar -ztvf 压缩包文件名
     <summary type="html">
     
       &lt;h2 id=&quot;文件搜索命令-locate&quot;&gt;&lt;a href=&quot;#文件搜索命令-locate&quot; class=&quot;headerlink&quot; title=&quot;文件搜索命令 locate&quot;&gt;&lt;/a&gt;文件搜索命令 locate&lt;/h2&gt;&lt;figure class=&quot;highlight plai
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux文件管理 文件处理命令</title>
-    <link href="http://yoursite.com/2018/05/05/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/05/Linux文件管理-文件处理命令/</id>
-    <published>2018-05-05T03:38:20.000Z</published>
-    <updated>2018-05-05T03:41:18.513Z</updated>
-    
-    <content type="html"><![CDATA[<p>linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件</p>
-<h4 id="命令提示符"><a href="#命令提示符" class="headerlink" title="命令提示符"></a>命令提示符</h4><pre><code>[root@localhost ~]#
-root 当前登录用户
-localhost 主机名
-~ 当前所在目录（家目录）
-# 超级用户的提示符
-$ 普通用户的提示符
-</code></pre><h4 id="命令的格式"><a href="#命令的格式" class="headerlink" title="命令的格式"></a>命令的格式</h4><pre><code>命令 [选项][参数]
-个别命令使用不遵循此格式
-当有多个选项时，可以写在一起
-简化选项与完整选项：-a == --all
-</code></pre><h4 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h4><ul>
-<li>相对路径：参照当前所在目录，进行查找</li>
-<li>绝对路径：从根目录开始制定，一级一级递归，进行查找</li>
-</ul>
-<h4 id="ls-查询目录中的内容"><a href="#ls-查询目录中的内容" class="headerlink" title="ls 查询目录中的内容"></a>ls 查询目录中的内容</h4><pre><code>ls [选项] [文件或目录]
-    -a 显示所有文件,包括隐藏文件
-    -l 显示详细信息
-    -d 查看目录属性
-    -h 人性化显示文件大小
-    -i 显示inode
-ll命令表示ls -l
-</code></pre><h4 id="mkdir-建立目录（make-directories）"><a href="#mkdir-建立目录（make-directories）" class="headerlink" title="mkdir  建立目录（make directories）"></a>mkdir  建立目录（make directories）</h4><pre><code>mkdir -p [目录名]
-    -p ：递归创建，当创建多级目录时需加
-mkdir light
-mkdir -p imooc/linux/light
-</code></pre><h4 id="cd-切换目录（change-directory）"><a href="#cd-切换目录（change-directory）" class="headerlink" title="cd 切换目录（change directory）"></a>cd 切换目录（change directory）</h4><pre><code>cd [目录]
-简化操作
-cd：进入当前用户的家目录
-cd ~ ：进入当前用户的家目录
-cd - ：进入上次目录
-cd .. ：进入上一级目录
-cd . ：进入当前目录
-</code></pre><h4 id="pwd-查询所在目录位置（print-working-directory）"><a href="#pwd-查询所在目录位置（print-working-directory）" class="headerlink" title="pwd 查询所在目录位置（print working directory）"></a>pwd 查询所在目录位置（print working directory）</h4><h4 id="rmdir-删除空目录（remove-empty-directories）"><a href="#rmdir-删除空目录（remove-empty-directories）" class="headerlink" title="rmdir 删除空目录（remove empty directories）"></a>rmdir 删除空目录（remove empty directories）</h4><pre><code>rmdir [目录名] 
-#只能删除空目录
-</code></pre><h4 id="rm-删除文件或目录（remove）"><a href="#rm-删除文件或目录（remove）" class="headerlink" title="rm 删除文件或目录（remove）"></a>rm 删除文件或目录（remove）</h4><pre><code>rm -rf [文件或目录] 
-    -r ：删除目录
-    -f ：强制
-rm [文件名] ：提示是否删除
-rm -r [目录] ：删除目录需加 -r ，目录中含有子文件，将持续询问是否删除
-rm -rf [目录] ：删除目录， 不会询问是否删除而直接进行
-# 纯字符界面没有回收站。注意自杀指令：rm -rf /
-rm -rf /tmp/* ：删除tmp目录下的内容
-rm -rf /tmp/  ：删除tmp目录
-# 建议：删除文件或目录习惯使用命令 rm -rf [文件或目录]
-</code></pre><h4 id="cp-复制命令（copy）"><a href="#cp-复制命令（copy）" class="headerlink" title="cp 复制命令（copy）"></a>cp 复制命令（copy）</h4><pre><code>cp [选项] [原文件或目录] [目标目录] 
-    -r ：复制目录
-    -p ：连带文件属性复制
-    -d ：若原文件是链接文件，则复制链接属性
-    -a ：相当于 -pdr 全选
-cp abc /tmp/ 若目标目录不加文件名，则为原名复制
-cp abc /tmp/ana 若目标目录后加入文件名，则为改名复制
-cp -r japan/ /tmp/ 复制目录
-cp -a japan/ /tmp/ 完全复制，包括所有属性
-#被复制文件的时间为执行复制命令的时间，若要使被复制的文件与原文件属性完全一致，需加 -a
-</code></pre><h4 id="mv-剪切或改名命令（move）"><a href="#mv-剪切或改名命令（move）" class="headerlink" title="mv 剪切或改名命令（move）"></a>mv 剪切或改名命令（move）</h4><pre><code>mv [原文件或目录] [目标目录] 
-mv japan/ /tmp/ 剪切目录时不需加 -r
-mv abc longls 当原文件与目标目录，在同一目录下，则为改名命令
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件&lt;/p&gt;
-&lt;h4 id=&quot;命令提示符&quot;&gt;&lt;a href=&quot;#命令提示符&quot; class=&quot;headerlink&quot; title=&quot;命令提示符&quot;&gt;&lt;/a&gt;命令提示符&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;[
     
     </summary>
     
