@@ -36,11 +36,35 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>未完成 Linux下批量重命名</title>
+    <link href="http://yoursite.com/2018/05/12/%E6%9C%AA%E5%AE%8C%E6%88%90-Linux%E4%B8%8B%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/"/>
+    <id>http://yoursite.com/2018/05/12/未完成-Linux下批量重命名/</id>
+    <published>2018-05-11T16:27:01.000Z</published>
+    <updated>2018-05-11T16:37:50.382Z</updated>
+    
+    <content type="html"><![CDATA[<p>从网上下载了一些视频，但是名字没有按规律不方便查看，所以找了一些资料，结果还是没完成，直接在windows下完成的，主要是正则学得不好，sed和awk也没有用过，把思路和过程记录一下</p>
+<p>我要完成的是批量重命名文件夹下的文件，给所有文件添加前缀序列号，不足用0补，原文件名里有中文和空格</p>
+<p>linux下重命名有两个常见的：mv和rename<br>找了rename的资料，但是没有添加前缀的，所以就使用mv命令</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从网上下载了一些视频，但是名字没有按规律不方便查看，所以找了一些资料，结果还是没完成，直接在windows下完成的，主要是正则学得不好，sed和awk也没有用过，把思路和过程记录一下&lt;/p&gt;
+&lt;p&gt;我要完成的是批量重命名文件夹下的文件，给所有文件添加前缀序列号，不足用0补，
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux服务管理</title>
     <link href="http://yoursite.com/2018/05/11/Linux%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/"/>
     <id>http://yoursite.com/2018/05/11/Linux服务管理/</id>
     <published>2018-05-11T08:11:49.000Z</published>
-    <updated>2018-05-11T09:42:10.413Z</updated>
+    <updated>2018-05-12T00:51:50.615Z</updated>
     
     <content type="html"><![CDATA[<h2 id="系统的运行级别"><a href="#系统的运行级别" class="headerlink" title="系统的运行级别"></a>系统的运行级别</h2><table>
 <thead>
@@ -89,7 +113,44 @@
 <li>源码包安装在知道位置，一般是<code>/usr/local</code></li>
 <li>RPM包安装在默认位置中</li>
 </ul>
-<p>| /etc/            |      配置文件位置|<br>|/etc/init.d/      |  启动脚本位置|<br>|/etc/sysconfig/ |     初始化环境配置文件位置|<br>| /etc/xinetd.conf  |   xinetd配置文件|<br>| /etc/xinetd/     |    基于xinetd服务的启动脚本|<br>| /var/lib/       |     服务产生的数据目录|<br>| /var/log/       |     日志|</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/etc/</td>
+<td>配置文件位置</td>
+</tr>
+<tr>
+<td>/etc/init.d/</td>
+<td>启动脚本位置</td>
+</tr>
+<tr>
+<td>/etc/sysconfig/</td>
+<td>初始化环境配置文件位置</td>
+</tr>
+<tr>
+<td>/etc/xinetd.conf</td>
+<td>xinetd配置文件</td>
+</tr>
+<tr>
+<td>/etc/xinetd/</td>
+<td>基于xinetd服务的启动脚本</td>
+</tr>
+<tr>
+<td>/var/lib/</td>
+<td>服务产生的数据目录</td>
+</tr>
+<tr>
+<td>/var/log/</td>
+<td>日志</td>
+</tr>
+</tbody>
+</table>
 <h2 id="查询已经安装的服务"><a href="#查询已经安装的服务" class="headerlink" title="查询已经安装的服务"></a>查询已经安装的服务</h2><ol>
 <li><p>RPM包安装的服务：<code>chkconfig --list</code><br>查看服务自启动状态，可以看到所有RPM包安装的服务</p>
 </li>
@@ -114,6 +175,47 @@
 <li>/etc/rc3.d/下面的文件是运行级别3时，系统开启与关闭分别要执行的服务文件，启动顺序与关闭顺序不能和现有的冲突</li>
 </ul>
 <p>Linux服务列表，服务的可能/自启动<br>链接: <a href="https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q" target="_blank" rel="external">https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q</a> 密码: 4qg6</p>
+<table>
+<thead>
+<tr>
+<th>服务名称</th>
+<th>功能简介</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>acpid</td>
+<td>电源管理接口。如果是笔记本用户建议开启,可以监听内核层的相关电源事件。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>anacron</td>
+<td>系统的定时任务程序。cron 的一个子系统,如果定时任务错过了执行时间,可以通过 anacron 继续唤醒执行。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>alsasound</td>
+<td>Alsa 声卡驱动。如果使用 alsa 声卡,开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>apmd</td>
+<td>电源管理模块。如果支持 acpid,就不需要 apmd,可以关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>atd</td>
+<td>指定系统在特定时间执行某个任务,只能执行一次。如果需要则开启,但我们一般使用 crond 来进行循环定时任务。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>auditd</td>
+<td>审核子系统。如果开启了此服务,SELinux 的审核信息会写入/var/log/audit/audit.log 文件,如果不开启,审核信息会</td>
+</tr>
+</tbody>
+</table>
+<p>记录在 syslog 中 |开启<br>autofs 让服务器可以自动挂载网络中的其他服务器的共享数据,一般用来自动挂载 NFS 服务。如果没有 NFS 服务建议关闭 |关闭<br>avahi-daemon Avahi 是 zeroconf 协 议 的 实 现 。 它可以在没关闭有 DNS 服务的局域网里发现基于 zeroconf 协议的设备和服务。除非有兼容设备或使用 zeroconf 协议,否则关闭。<br>bluetooth 蓝牙设备支持。一般不会在服务器上启用蓝牙设备,关闭它 关闭<br>capi 仅对使用 ISND 设备的用户有用。 关闭<br>chargen-dgram 使用 UDP 协议的 chargen server。主要功能是提供类似远程<br>打字的功能。 关闭<br>chargen-stream 同上。 关闭<br>cpuspeed 可以用来调整 CPU 的频率。当闲置时可以自动降低 CPU 频率<br>来节省电量。 开启<br>crond 系统的定时任务,一般的 Linux 服务器都需要定时任务帮助<br>系统维护。建议开启 开启<br>cvs 一个版本控制系统 关闭<br>daytime-dgram daytime 使用 TCP 协议的 Daytime 守护进程,该协议为客户<br>机实现从远程服务器获取日期 和时间的功能。 关闭<br>daytime-stream 同上。 关闭<br>dovecot 邮件服务中 POP3/IMAP 服务的守护进程。主要用来接收信件, 关闭<br>如果启动了邮件服务则开启,否则关闭<br>echo-dgram 服务器回显客户服务的进程。 关闭<br>echo-stream 同上。 关闭<br>firstboot 系统安装完成之后,有个欢迎界面,需要对系统进程初始设<br>定。就是这个进程的作用。既然不是第一次启动了,关闭吧 关闭<br>gpm 在字符终端(tty1-tty6)中可以使用鼠标复制和粘贴。就是<br>这个服务的功能。 开启<br>haldaemon 检测盒支持 USB 设备。如果是服务器可以关闭,个人机建议<br>开启。 关闭<br>hidd 蓝牙鼠标、键盘等蓝牙设备检测。必须启动 bluetooth 服务。 关闭<br>hplip HP 打印机支持,如果没有 HP 打印机关闭吧<br>关闭</p>
 ]]></content>
     
     <summary type="html">
@@ -769,33 +871,6 @@ ls -i ./source/abc ./target/bcd.hard
 #生成链接文件
 -s 创建软链接
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux磁盘管理 挂载命令</title>
-    <link href="http://yoursite.com/2018/05/05/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-%E6%8C%82%E8%BD%BD%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/05/Linux磁盘管理-挂载命令/</id>
-    <published>2018-05-05T03:40:03.000Z</published>
-    <updated>2018-05-06T11:51:12.798Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="mount-命令"><a href="#mount-命令" class="headerlink" title="mount 命令"></a>mount 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">mount </div><div class="line">#查看系统中已挂载的设备</div><div class="line">mount -a </div><div class="line">#依据配置文件/etc/fstab内容，自动挂载    </div><div class="line">#光盘、U盘的数据不建议写入自动挂载中，否则开机时没有光盘和U盘的话，系统崩溃</div><div class="line"></div><div class="line">mount [-t 文件系统] [-o 特殊选项] [设备文件名] [挂载点]</div><div class="line">-t：加入文件系统类型来指定挂载的类型，ext3,ext4,iso9660等文件系统</div><div class="line">-o：可以指定挂载的额外选项</div><div class="line">mount -o remount，noexec /home</div><div class="line">#/home内的执行文件无法执行</div><div class="line">mount -o remount，exec /home</div></pre></td></tr></table></figure>
-<p>###挂载光盘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir /mnt/cdrom/   </div><div class="line">#建立挂载点</div><div class="line">mount -t iso9660 /dev/sr0  /mnt/cdrom          </div><div class="line">#/dev/sr0是光盘设备名，也可以用/dev/cdrom（sr0的软连接，但需要系统完全启动才能用）   -t iso9660 可以省略  因为系统知道sr0是iso9660</div></pre></td></tr></table></figure></p>
-<p>###卸载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">umount [设备文件名或挂载点]   </div><div class="line">umount /mnt/cdrom    </div><div class="line">umount /dev/sr0  </div><div class="line">#都可以   卸载时位置不能在光盘目录下</div></pre></td></tr></table></figure></p>
-<p>###挂载U盘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">fdisk -l   </div><div class="line">#查看U盘设备文件名    </div><div class="line">#U盘可以看成系统的第二块硬盘</div><div class="line">mount -t vfat /dev/sdb1 /mnt/usb/           </div><div class="line">#-t vfat     windows的fat32文件系统</div><div class="line">注：linux默认不支持ntfs文件系统，所以移动硬盘正常没法挂载，能挂载后也只能读，不能写，所以用windows数据一般用网络传播</div><div class="line">#解决办法</div><div class="line">1. 编译内核   让linux 支持NTFS文件系统   </div><div class="line">2. 安装ntfs-3g</div></pre></td></tr></table></figure></p>
-<h2 id="手动挂载分区"><a href="#手动挂载分区" class="headerlink" title="手动挂载分区"></a>手动挂载分区</h2><p>手动挂载的分区，不具有永久性，系统重启后，挂载就会失效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 没有挂载无法使用，分区默认的挂载目录是/mnt目录</div><div class="line">sudo fdisk -l</div><div class="line">#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘</div><div class="line">sudo mkdir -p /media/usb</div><div class="line">#创建挂载目录</div><div class="line">sudo mount /dev/sdb /media/usb</div><div class="line">#挂载</div><div class="line"></div><div class="line">sudo umount /dev/sdb</div><div class="line">#卸载</div></pre></td></tr></table></figure></p>
-<h2 id="永久挂载"><a href="#永久挂载" class="headerlink" title="永久挂载"></a>永久挂载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/fstab</div></pre></td></tr></table></figure>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG29.png" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;mount-命令&quot;&gt;&lt;a href=&quot;#mount-命令&quot; class=&quot;headerlink&quot; title=&quot;mount 命令&quot;&gt;&lt;/a&gt;mount 命令&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
     
     </summary>
     
