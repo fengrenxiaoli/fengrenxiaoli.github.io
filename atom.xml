@@ -36,6 +36,400 @@
   </entry>
   
   <entry>
+    <title>Linux常见服务列表</title>
+    <link href="http://yoursite.com/2018/05/12/Linux%E5%B8%B8%E8%A7%81%E6%9C%8D%E5%8A%A1%E5%88%97%E8%A1%A8/"/>
+    <id>http://yoursite.com/2018/05/12/Linux常见服务列表/</id>
+    <published>2018-05-12T01:22:43.000Z</published>
+    <updated>2018-05-12T01:38:22.710Z</updated>
+    
+    <content type="html"><![CDATA[<style>
+table th:nth-of-type(1){
+width: 20%;
+}
+table th:nth-of-type(2){
+width: 60%
+;
+}
+table th:nth-of-type(3){
+width: 20%;
+}
+
+</style>
+
+<table>
+<thead>
+<tr>
+<th>服务名称</th>
+<th>功能简介</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>acpid</td>
+<td>电源管理接口。如果是笔记本用户建议开启，可以监听内核层的相关电源事件。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>anacron</td>
+<td>系统的定时任务程序。cron 的一个子系统，如果定时任务错过了执行时间，可以通过 anacron 继续唤醒执行。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>alsasound</td>
+<td>Alsa 声卡驱动。如果使用 alsa 声卡，开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>apmd</td>
+<td>电源管理模块。如果支持 acpid，就不需要 apmd，可以关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>atd</td>
+<td>指定系统在特定时间执行某个任务，只能执行一次。如果需要则开启，但我们一般使用 crond 来进行循环定时任务。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>auditd</td>
+<td>审核子系统。如果开启了此服务，SELinux 的审核信息会写入/var/log/audit/audit.log 文件，如果不开启，审核信息会记录在 syslog 中</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>autofs</td>
+<td>让服务器可以自动挂载网络中的其他服务器的共享数据，一般用来自动挂载 NFS 服务。如果没有 NFS 服务建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>avahi-daemon</td>
+<td>Avahi  是 zeroconf 协 议 的 实 现 。 它可以在没有 DNS 服务的局域网里发现基于 zeroconf 协议的设备和服务。除非有兼容设备或使用zeroconf 协议，否则关闭。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>bluetooth</td>
+<td>蓝牙设备支持。一般不会在服务器上启用蓝牙设备，关闭它</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>capi</td>
+<td>仅对使用 ISND 设备的用户有用。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>chargen-dgram</td>
+<td>使用 UDP 协议的 chargen server。主要功能是提供类似远程打字的功能。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>chargen-stream</td>
+<td>同上。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>cpuspeed</td>
+<td>可以用来调整 CPU 的频率。当闲置时可以自动降低 CPU 频率来节省电量。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>crond</td>
+<td>系统的定时任务，一般的 Linux 服务器都需要定时任务帮助系统维护。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>cvs</td>
+<td>一个版本控制系统</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>daytime-dgram</td>
+<td>daytime 使用 TCP 协议的 Daytime 守护进程，该协议为客户机实现从远程服务器获取日期 和时间的功能。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>daytime-stream</td>
+<td>同上。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>dovecot</td>
+<td>邮件服务中 POP3/IMAP 服务的守护进程。主要用来接收信件， 如果启动了邮件服务则开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>echo-dgram</td>
+<td>服务器回显客户服务的进程。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>echo-stream</td>
+<td>同上。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>firstboot</td>
+<td>系统安装完成之后，有个欢迎界面，需要对系统进程初始设定。就是这个进程的作用。既然不是第一次启动了，关闭吧</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>gpm</td>
+<td>在字符终端(tty1-tty6)中可以使用鼠标复制和粘贴。就是这个服务的功能。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>haldaemon</td>
+<td>检测盒支持 USB 设备。如果是服务器可以关闭，个人机建议开启。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>hidd</td>
+<td>蓝牙鼠标、键盘等蓝牙设备检测。必须启动 bluetooth 服务。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>hplip HP</td>
+<td>打印机支持，如果没有 HP 打印机关闭吧</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>httpd</td>
+<td>apache 服务的守护进程。如果需要启动 apache，就开启。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>ip6tables</td>
+<td>IPv6 的防火墙，目前 IPv6 协议并没有使用，可以关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>iptables</td>
+<td>防火墙功能，Linux 中防火墙是内核支持功能。这是服务器的主要防护手段，必须开启。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>irda</td>
+<td>IrDA 提供红外线设备(笔记本，PDA’s，手机，计算器等等) 关闭间的通讯支持。关闭吧</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>irqbalance</td>
+<td>支持多核处理器，让 CPU 可以自动分配系统中断(IRQ)，提高系统性能。目前服务器多是多核 CPU，请开启。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>isdn</td>
+<td>使用 ISDN 设备连接网络。目前主流的联网方式是光纤接入和ADSL，ISDN 已经非常少见，请关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>kudzu</td>
+<td>该服务可以在开机时进行硬件检测，并会调用相关的设置软件。建议关闭，仅在需要时开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>lvm2-monitor</td>
+<td>该服务可以让系统支持 LVM 逻辑卷组，如果分区采用的是 LVM方式，那么应该开启。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>mcstrans</td>
+<td>SELinux 的支持服务。建议启动</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>mdmonitor</td>
+<td>该服务用来监测 Software RAID 或 LVM 的信息。不是必须服务，建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>mdmpd</td>
+<td>该服务用来监测 Multi-Path 设备。不是必须服务</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>messagebus</td>
+<td>这是 Linux 的 IPC(Interprocess Communication，进程间通讯)服务，用来在各个软件中交换信息。个人建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>microcode_ctl</td>
+<td>Intel 系列的 CPU 可以通过这个服务支持额外的微指令集。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>mysqld</td>
+<td>mysql 数据库服务器。如果需要就开启，否则关闭</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>named</td>
+<td>DNS 服务的守护进程，用来进行域名解析。如果是 DNS 服务器则开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>netfs</td>
+<td>该服务用于在系统启动时自动挂载网络中的共享文件空间，比如:NFS，Samba 等等。需要就开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>network</td>
+<td>提供网络设置功能。通过这个服务来管理网络，所以开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>nfs</td>
+<td>NFS(Network File System)服务，Linux 与 Linux 之间的文件共享服务。需要就开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>nfslock</td>
+<td>在 Linux 中如果使用了 NFS 服务，为了避免同一个文件被不同的用户同时编辑，所有有这个锁服务。有 NFS 是开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>ntpd</td>
+<td>该服务可以通过互联网自动更新系统时间，使系统时间永远都准确。需要则开启，但不是必须服务</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>pcscd</td>
+<td>智能卡检测服务，可以关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>portmap</td>
+<td>用在远程过程调用(RPC)的服务，如果没有任何 RPC 服务时， 可以关闭。主要是 NFS 和 NIS 服务需要。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>psacct</td>
+<td>该守护进程支持几个监控进程活动的工具。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>rdisc</td>
+<td>客户端 ICMP 路由协议</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>readahead_early</td>
+<td>在系统开机的时候，先将某些进程加载如内存整理，可以加快一点启动速度。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>readahead_later</td>
+<td>同上</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>restorecond</td>
+<td>用于给 SELinux 监测和重新加载正确的文件上下文。如果开启 SELinux 则需要开启。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>rpcgssd</td>
+<td>与 NFS 有关的客户端功能。如果没有 NFS 就关闭吧。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>rpcidmapd</td>
+<td>同上</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>rsync</td>
+<td>远程数据备份守护进程。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>sendmail</td>
+<td>sendmail 邮件服务的守护进程。如果有邮件服务就开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>setroubleshoot</td>
+<td>该 服 务 用 于 将 SELinux 相 关 信 息 记 录 在 日 志/var/log/messages 中。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>smartd</td>
+<td>该服务用于自动检测硬盘状态。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>smb</td>
+<td>网络服务 samba 的守护进程。可以让 Linux 和 Windows 之间共享数据。如果需要则开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>squid</td>
+<td>代理服务的守护进程。如果需要则开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>sshd</td>
+<td>ssh 加密远程登陆管理的服务。服务器的远程管理必须使用此服务，不要关闭</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>syslog</td>
+<td>日志的守护进程。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>vsftpd</td>
+<td>vsftp 服务的守护进程。如果需要 FTP 服务则开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>xfs</td>
+<td>这个是 X Window 的字体守护进程。为图形界面提供字体服务，如果不启动图形界面，就不用开启。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>xinetd</td>
+<td>超级守护进程。如果有依赖 xinetd 的服务就必须开启。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>ypbind</td>
+<td>为 NIS(网络信息系统)客户机激活 ypbind 服务进程。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>yum-updatesd</td>
+<td>yum 的在线升级服务。</td>
+<td>关闭</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;style&gt;
+table th:nth-of-type(1){
+width: 20%;
+}
+table th:nth-of-type(2){
+width: 60%
+;
+}
+table th:nth-of-type(3){
+width: 20%;
+}
+
+&lt;/style&gt;
+
+&lt;ta
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>未完成 Linux下批量重命名</title>
     <link href="http://yoursite.com/2018/05/12/%E6%9C%AA%E5%AE%8C%E6%88%90-Linux%E4%B8%8B%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/"/>
     <id>http://yoursite.com/2018/05/12/未完成-Linux下批量重命名/</id>
@@ -64,9 +458,25 @@
     <link href="http://yoursite.com/2018/05/11/Linux%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/"/>
     <id>http://yoursite.com/2018/05/11/Linux服务管理/</id>
     <published>2018-05-11T08:11:49.000Z</published>
-    <updated>2018-05-12T00:51:50.615Z</updated>
+    <updated>2018-05-12T01:34:04.632Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="系统的运行级别"><a href="#系统的运行级别" class="headerlink" title="系统的运行级别"></a>系统的运行级别</h2><table>
+    <content type="html"><![CDATA[<style>
+table th:nth-of-type(1){
+width: 20%;
+}
+table th:nth-of-type(2){
+width: 60%
+;
+}
+table th:nth-of-type(3){
+width: 20%;
+}
+
+</style>
+
+
+
+<h2 id="系统的运行级别"><a href="#系统的运行级别" class="headerlink" title="系统的运行级别"></a>系统的运行级别</h2><table>
 <thead>
 <tr>
 <th>运行级别</th>
@@ -175,58 +585,27 @@
 <li>/etc/rc3.d/下面的文件是运行级别3时，系统开启与关闭分别要执行的服务文件，启动顺序与关闭顺序不能和现有的冲突</li>
 </ul>
 <p>Linux服务列表，服务的可能/自启动<br>链接: <a href="https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q" target="_blank" rel="external">https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q</a> 密码: 4qg6</p>
-<table>
-<thead>
-<tr>
-<th>服务名称</th>
-<th>功能简介</th>
-<th>建议</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>acpid</td>
-<td>电源管理接口。如果是笔记本用户建议开启,可以监听内核层的相关电源事件。</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>anacron</td>
-<td>系统的定时任务程序。cron 的一个子系统,如果定时任务错过了执行时间,可以通过 anacron 继续唤醒执行。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>alsasound</td>
-<td>Alsa 声卡驱动。如果使用 alsa 声卡,开启</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>apmd</td>
-<td>电源管理模块。如果支持 acpid,就不需要 apmd,可以关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>atd</td>
-<td>指定系统在特定时间执行某个任务,只能执行一次。如果需要则开启,但我们一般使用 crond 来进行循环定时任务。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>auditd</td>
-<td>审核子系统。如果开启了此服务,SELinux 的审核信息会写入/var/log/audit/audit.log 文件,如果不开启,审核信息会</td>
-</tr>
-</tbody>
-</table>
-<p>记录在 syslog 中 |开启<br>autofs 让服务器可以自动挂载网络中的其他服务器的共享数据,一般用来自动挂载 NFS 服务。如果没有 NFS 服务建议关闭 |关闭<br>avahi-daemon Avahi 是 zeroconf 协 议 的 实 现 。 它可以在没关闭有 DNS 服务的局域网里发现基于 zeroconf 协议的设备和服务。除非有兼容设备或使用 zeroconf 协议,否则关闭。<br>bluetooth 蓝牙设备支持。一般不会在服务器上启用蓝牙设备,关闭它 关闭<br>capi 仅对使用 ISND 设备的用户有用。 关闭<br>chargen-dgram 使用 UDP 协议的 chargen server。主要功能是提供类似远程<br>打字的功能。 关闭<br>chargen-stream 同上。 关闭<br>cpuspeed 可以用来调整 CPU 的频率。当闲置时可以自动降低 CPU 频率<br>来节省电量。 开启<br>crond 系统的定时任务,一般的 Linux 服务器都需要定时任务帮助<br>系统维护。建议开启 开启<br>cvs 一个版本控制系统 关闭<br>daytime-dgram daytime 使用 TCP 协议的 Daytime 守护进程,该协议为客户<br>机实现从远程服务器获取日期 和时间的功能。 关闭<br>daytime-stream 同上。 关闭<br>dovecot 邮件服务中 POP3/IMAP 服务的守护进程。主要用来接收信件, 关闭<br>如果启动了邮件服务则开启,否则关闭<br>echo-dgram 服务器回显客户服务的进程。 关闭<br>echo-stream 同上。 关闭<br>firstboot 系统安装完成之后,有个欢迎界面,需要对系统进程初始设<br>定。就是这个进程的作用。既然不是第一次启动了,关闭吧 关闭<br>gpm 在字符终端(tty1-tty6)中可以使用鼠标复制和粘贴。就是<br>这个服务的功能。 开启<br>haldaemon 检测盒支持 USB 设备。如果是服务器可以关闭,个人机建议<br>开启。 关闭<br>hidd 蓝牙鼠标、键盘等蓝牙设备检测。必须启动 bluetooth 服务。 关闭<br>hplip HP 打印机支持,如果没有 HP 打印机关闭吧<br>关闭</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;系统的运行级别&quot;&gt;&lt;a href=&quot;#系统的运行级别&quot; class=&quot;headerlink&quot; title=&quot;系统的运行级别&quot;&gt;&lt;/a&gt;系统的运行级别&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;运行级别&lt;/th&gt;
-&lt;th&gt;含义&lt;/th&gt;
-&lt;/tr&gt;
+      &lt;style&gt;
+table th:nth-of-type(1){
+width: 20%;
+}
+table th:nth-of-type(2){
+width: 60%
+;
+}
+table th:nth-of-type(3){
+width: 20%;
+}
 
+&lt;/style&gt;
+
+
+
+&lt;
     
     </summary>
     
@@ -823,54 +1202,6 @@ ls --help
 # 最常用的帮助命令
 # q退出
 # 输入:/
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux文件管理 链接命令</title>
-    <link href="http://yoursite.com/2018/05/05/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E9%93%BE%E6%8E%A5%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/05/Linux文件管理-链接命令/</id>
-    <published>2018-05-05T04:32:53.000Z</published>
-    <updated>2018-05-05T04:41:58.871Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre><code>ln -s [原文件][目标文件] （link）
-#生成链接文件
--s 创建软链接
-</code></pre><p><br></p>
-<h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><ul>
-<li>拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文件拥有相同的i节点。因此，与原文件非常相似。当删除原文件或硬链接文件的任何一文件，不影响文件索引操作。可看做，同一个文件的不通进入点。它是同样的存储空间。</li>
-<li>可通过i节点识别</li>
-<li>不能跨分区建立</li>
-<li>不能针对目录使用，只有文件才可以创建</li>
-</ul>
-<pre><code>ln ./source/abc ./target/bcd.hard
-# 创建后，引用计数+1
-ls -i ./source/abc ./target/bcd.hard
-# 可使用ls -i 来查看文件i节点号
-</code></pre><p>不建议创建硬链接文件<br>文件太过隐蔽，除了有i节点这样一个标识之外，很难区分它是不是硬链接<br>硬链接限制较多，不能跨分区，不能针对目录，使用当中容易出现错误使用方法</p>
-<p><br></p>
-<p>##软链接</p>
-<ul>
-<li>类似于Windows快捷方式</li>
-<li>软链接拥有自己的i节点和block块，但是数据块中只保存原文件的文件名和i节点号，并没有实际的文件数据。（拥有自己的分区表中索引数据,通过索引找到分区表中文件的目标索引数据，再通过目标索引数据，查找数据）</li>
-<li>lrwxrwxrwx  l软链接， 软链接文件权限都为rwxrwxrwx, 虽然权限显示为777，但实际权限需要看原文件权限。</li>
-<li>修改任意文件，另一个都改变</li>
-<li>删除原文件，软链接不能使用</li>
-<li>创建软链接，原文件<strong>一定要写绝对路径</strong>。否则，软链接会到它所在的同一目录去找原文件。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;命令&quot;&gt;&lt;a href=&quot;#命令&quot; class=&quot;headerlink&quot; title=&quot;命令&quot;&gt;&lt;/a&gt;命令&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;ln -s [原文件][目标文件] （link）
-#生成链接文件
--s 创建软链接
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;br&gt;
     
     </summary>
     

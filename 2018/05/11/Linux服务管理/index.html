@@ -94,20 +94,20 @@
 
 
 
-<meta name="description" content="系统的运行级别   运行级别 含义     0 关机   1 单用户模式，主要用于系统修复   2 不完全的命令行,不含NFS服务   3 完全的命令行   4 系统暴露   5 图形模式   6 重启    123456runlevel			#查看运行级别init 5				#修改运行级别vi /etc/inittab		#修改系统默认运行级别id:3:initdefault:#系统开机后直接进">
+<meta name="description" content="table th:nth-of-type(1){ width: 20%; } table th:nth-of-type(2){ width: 60% ; } table th:nth-of-type(3){ width: 20%; }      系统的运行级别   运行级别 含义     0 关机   1 单用户模式，主要用于系统修复   2 不完全的命令行,不含NFS服务   3 完全的命令行">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux服务管理">
 <meta property="og:url" content="http://yoursite.com/2018/05/11/Linux服务管理/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="系统的运行级别   运行级别 含义     0 关机   1 单用户模式，主要用于系统修复   2 不完全的命令行,不含NFS服务   3 完全的命令行   4 系统暴露   5 图形模式   6 重启    123456runlevel			#查看运行级别init 5				#修改运行级别vi /etc/inittab		#修改系统默认运行级别id:3:initdefault:#系统开机后直接进">
+<meta property="og:description" content="table th:nth-of-type(1){ width: 20%; } table th:nth-of-type(2){ width: 60% ; } table th:nth-of-type(3){ width: 20%; }      系统的运行级别   运行级别 含义     0 关机   1 单用户模式，主要用于系统修复   2 不完全的命令行,不含NFS服务   3 完全的命令行">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG33.png">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG32.jpg">
-<meta property="og:updated_time" content="2018-05-12T00:51:50.615Z">
+<meta property="og:updated_time" content="2018-05-12T01:34:04.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux服务管理">
-<meta name="twitter:description" content="系统的运行级别   运行级别 含义     0 关机   1 单用户模式，主要用于系统修复   2 不完全的命令行,不含NFS服务   3 完全的命令行   4 系统暴露   5 图形模式   6 重启    123456runlevel			#查看运行级别init 5				#修改运行级别vi /etc/inittab		#修改系统默认运行级别id:3:initdefault:#系统开机后直接进">
+<meta name="twitter:description" content="table th:nth-of-type(1){ width: 20%; } table th:nth-of-type(2){ width: 60% ; } table th:nth-of-type(3){ width: 20%; }      系统的运行级别   运行级别 含义     0 关机   1 单用户模式，主要用于系统修复   2 不完全的命令行,不含NFS服务   3 完全的命令行">
 <meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG33.png">
 
 
@@ -337,7 +337,23 @@
       
 
       
-        <h2 id="系统的运行级别"><a href="#系统的运行级别" class="headerlink" title="系统的运行级别"></a>系统的运行级别</h2><table>
+        <style>
+table th:nth-of-type(1){
+width: 20%;
+}
+table th:nth-of-type(2){
+width: 60%
+;
+}
+table th:nth-of-type(3){
+width: 20%;
+}
+
+</style>
+
+
+
+<h2 id="系统的运行级别"><a href="#系统的运行级别" class="headerlink" title="系统的运行级别"></a>系统的运行级别</h2><table>
 <thead>
 <tr>
 <th>运行级别</th>
@@ -446,47 +462,6 @@
 <li>/etc/rc3.d/下面的文件是运行级别3时，系统开启与关闭分别要执行的服务文件，启动顺序与关闭顺序不能和现有的冲突</li>
 </ul>
 <p>Linux服务列表，服务的可能/自启动<br>链接: <a href="https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q" target="_blank" rel="external">https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q</a> 密码: 4qg6</p>
-<table>
-<thead>
-<tr>
-<th>服务名称</th>
-<th>功能简介</th>
-<th>建议</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>acpid</td>
-<td>电源管理接口。如果是笔记本用户建议开启,可以监听内核层的相关电源事件。</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>anacron</td>
-<td>系统的定时任务程序。cron 的一个子系统,如果定时任务错过了执行时间,可以通过 anacron 继续唤醒执行。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>alsasound</td>
-<td>Alsa 声卡驱动。如果使用 alsa 声卡,开启</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>apmd</td>
-<td>电源管理模块。如果支持 acpid,就不需要 apmd,可以关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>atd</td>
-<td>指定系统在特定时间执行某个任务,只能执行一次。如果需要则开启,但我们一般使用 crond 来进行循环定时任务。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>auditd</td>
-<td>审核子系统。如果开启了此服务,SELinux 的审核信息会写入/var/log/audit/audit.log 文件,如果不开启,审核信息会</td>
-</tr>
-</tbody>
-</table>
-<p>记录在 syslog 中 |开启<br>autofs 让服务器可以自动挂载网络中的其他服务器的共享数据,一般用来自动挂载 NFS 服务。如果没有 NFS 服务建议关闭 |关闭<br>avahi-daemon Avahi 是 zeroconf 协 议 的 实 现 。 它可以在没关闭有 DNS 服务的局域网里发现基于 zeroconf 协议的设备和服务。除非有兼容设备或使用 zeroconf 协议,否则关闭。<br>bluetooth 蓝牙设备支持。一般不会在服务器上启用蓝牙设备,关闭它 关闭<br>capi 仅对使用 ISND 设备的用户有用。 关闭<br>chargen-dgram 使用 UDP 协议的 chargen server。主要功能是提供类似远程<br>打字的功能。 关闭<br>chargen-stream 同上。 关闭<br>cpuspeed 可以用来调整 CPU 的频率。当闲置时可以自动降低 CPU 频率<br>来节省电量。 开启<br>crond 系统的定时任务,一般的 Linux 服务器都需要定时任务帮助<br>系统维护。建议开启 开启<br>cvs 一个版本控制系统 关闭<br>daytime-dgram daytime 使用 TCP 协议的 Daytime 守护进程,该协议为客户<br>机实现从远程服务器获取日期 和时间的功能。 关闭<br>daytime-stream 同上。 关闭<br>dovecot 邮件服务中 POP3/IMAP 服务的守护进程。主要用来接收信件, 关闭<br>如果启动了邮件服务则开启,否则关闭<br>echo-dgram 服务器回显客户服务的进程。 关闭<br>echo-stream 同上。 关闭<br>firstboot 系统安装完成之后,有个欢迎界面,需要对系统进程初始设<br>定。就是这个进程的作用。既然不是第一次启动了,关闭吧 关闭<br>gpm 在字符终端(tty1-tty6)中可以使用鼠标复制和粘贴。就是<br>这个服务的功能。 开启<br>haldaemon 检测盒支持 USB 设备。如果是服务器可以关闭,个人机建议<br>开启。 关闭<br>hidd 蓝牙鼠标、键盘等蓝牙设备检测。必须启动 bluetooth 服务。 关闭<br>hplip HP 打印机支持,如果没有 HP 打印机关闭吧<br>关闭</p>
 
       
     </div>
@@ -606,7 +581,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
