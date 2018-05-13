@@ -36,11 +36,168 @@
   </entry>
   
   <entry>
+    <title>Linux配置WordPress</title>
+    <link href="http://yoursite.com/2018/05/13/Linux%E9%85%8D%E7%BD%AEWordPress/"/>
+    <id>http://yoursite.com/2018/05/13/Linux配置WordPress/</id>
+    <published>2018-05-13T15:30:59.000Z</published>
+    <updated>2018-05-13T15:30:59.775Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PR剪辑视频基础操作</title>
+    <link href="http://yoursite.com/2018/05/13/PR%E5%89%AA%E8%BE%91%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/"/>
+    <id>http://yoursite.com/2018/05/13/PR剪辑视频基础操作/</id>
+    <published>2018-05-13T09:28:54.000Z</published>
+    <updated>2018-05-13T09:51:52.367Z</updated>
+    
+    <content type="html"><![CDATA[<p>尝试用PR剪了一个抖音合辑，基本上是不同视频片段的拼接</p>
+<p>##新建<br>选择自定义宽和高，29，往往由素材的大小决定</p>
+<p>##剪辑<br>空白处右键，波纹删除<br>切片工具</p>
+<p>##字幕<br>菜单栏，Title &gt; 静态字幕<br>ctrl+c ctrl+v复制字幕<br>alt替换字幕</p>
+<p>ctrl+~(波浪号) 全屏预览</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;尝试用PR剪了一个抖音合辑，基本上是不同视频片段的拼接&lt;/p&gt;
+&lt;p&gt;##新建&lt;br&gt;选择自定义宽和高，29，往往由素材的大小决定&lt;/p&gt;
+&lt;p&gt;##剪辑&lt;br&gt;空白处右键，波纹删除&lt;br&gt;切片工具&lt;/p&gt;
+&lt;p&gt;##字幕&lt;br&gt;菜单栏，Title &amp;gt; 静态字幕&lt;br
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux安装Mysql</title>
+    <link href="http://yoursite.com/2018/05/13/Linux%E5%AE%89%E8%A3%85Mysql/"/>
+    <id>http://yoursite.com/2018/05/13/Linux安装Mysql/</id>
+    <published>2018-05-13T09:27:59.000Z</published>
+    <updated>2018-05-13T15:17:40.705Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="二进制包安装"><a href="#二进制包安装" class="headerlink" title="二进制包安装"></a>二进制包安装</h2><p>以下命令全在root下完成，所以没有加sudo</p>
+<p>查看要下载的版本，<a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="external">https://dev.mysql.com/downloads/repo/yum/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</div><div class="line">rpm -ivh mysql57-community-release-el7-9.noarch.rpm</div><div class="line">yum install mysql-server</div><div class="line"></div><div class="line">systemctl start mysqld</div><div class="line">systemctl status mysqld</div><div class="line"></div><div class="line">#初次安装mysql，root账户没有密码</div><div class="line">mysql -u root -p</div><div class="line">#很多文章都说是在这里找临时密码，我找了半天没有找到</div><div class="line">#grep &apos;temporary password&apos; /var/log/mysqld.log</div><div class="line"></div><div class="line">#使用此命令运行安全脚本,用于更改远程root登录和示例用户等安全性较低的默认选项</div><div class="line">mysql_secure_installation</div><div class="line">#设置root密码，删除匿名用户，禁止远程root用户登录，删除测试数据库并对其进行访问，并重新加载权限表</div></pre></td></tr></table></figure></p>
+<p>##配置mysql</p>
+<p>编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#mysql配置文件为/etc/my.cnf</div><div class="line"></div><div class="line">最后加上编码配置</div><div class="line">default-character-set =utf8</div></pre></td></tr></table></figure></p>
+<p>设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;SET PASSWORD FOR &apos;jeffrey&apos;@&apos;localhost&apos; = &apos;auth_string&apos;;</div><div class="line">#为当前用户设置密码</div><div class="line">&gt;SET PASSWORD = &apos;auth_string&apos;;</div></pre></td></tr></table></figure></p>
+<p>新增用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;create database testdb;</div><div class="line">&gt;create  user  &apos;testuser&apos; @ &apos;localhost&apos;  identified  by  &apos;password&apos; ;</div><div class="line">&gt;grant  all  on testdb.* to  &apos;testuser&apos; @ &apos;localhost&apos; ;</div></pre></td></tr></table></figure></p>
+<p>远程连接设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#把在所有数据库的所有表的所有权限赋值给位于所有IP地址的root用户</div><div class="line">&gt; grant all privileges on *.* to root@&apos;%&apos;identified by &apos;password&apos;;</div></pre></td></tr></table></figure></p>
+<p>##源码包安装<br>内存小的不要用这种方法了，make卡在了48%哈哈。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#安装依赖，依赖包并不是一定提前知道的，是根据安装的报错信息逐渐添加的，看官方文档的当我没说。。</div><div class="line">#反正全安好就行，m4和perl应该是安装bison的时候被安装了</div><div class="line">yum install cmake ncurses-devel gcc gcc-c++ bison bison-devel</div><div class="line">#下载安装boost c++库，https://sourceforge.net/projects/boost/files/boost/1.59.0/</div><div class="line">tar -zxvf boost_1_59_0.tar.gz</div><div class="line">cp -r boost_1_59_0/ /usr/local/</div><div class="line"></div><div class="line">#获取源码，http://dev.mysql.com/downloads/mysql/，这里选择MySQL-5.7.22.tar.gz</div><div class="line">wget https://dev.mysql.com/get/MySQL-5.7.22.tar.gz</div><div class="line">tar -zxvf MySQL-5.7.22.tar.gz</div><div class="line">cd MySQL-5.7.22</div><div class="line">#cmake出错重新cmake之前需要删除CMakeCache.txt文件</div><div class="line">rm -rf CMakeCache.txt</div><div class="line">cmake . -DWITH_BOOST=/usr/local/boost_1_59_0</div><div class="line"></div><div class="line">make</div><div class="line">#内存不足，设置交换内存或者增加虚拟机内存</div><div class="line"></div><div class="line">#MySQL的默认安装目录为/usr/local/mysql，DESTDIR参数指定安装目录</div><div class="line">make install DESTDIR=&quot;/opt/mysql&quot;</div><div class="line"></div><div class="line">其他配置参考https://itbilu.com/database/mysql/VJVOut01M.html</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-centos-7" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-centos-7</a></li>
+<li>安装mariadb：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-centos-7" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-centos-7</a></li>
+<li><a href="https://blog.gtwang.org/linux/centos-7-install-mariadb-mysql-server-tutorial/" target="_blank" rel="external">https://blog.gtwang.org/linux/centos-7-install-mariadb-mysql-server-tutorial/</a></li>
+<li><a href="http://www.cnblogs.com/starof/p/4680083.html" target="_blank" rel="external">http://www.cnblogs.com/starof/p/4680083.html</a></li>
+<li><a href="https://itbilu.com/database/mysql/VJVOut01M.html" target="_blank" rel="external">https://itbilu.com/database/mysql/VJVOut01M.html</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;二进制包安装&quot;&gt;&lt;a href=&quot;#二进制包安装&quot; class=&quot;headerlink&quot; title=&quot;二进制包安装&quot;&gt;&lt;/a&gt;二进制包安装&lt;/h2&gt;&lt;p&gt;以下命令全在root下完成，所以没有加sudo&lt;/p&gt;
+&lt;p&gt;查看要下载的版本，&lt;a href=&quot;https
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux安装PHP</title>
+    <link href="http://yoursite.com/2018/05/13/Linux%E5%AE%89%E8%A3%85PHP/"/>
+    <id>http://yoursite.com/2018/05/13/Linux安装PHP/</id>
+    <published>2018-05-13T08:44:17.000Z</published>
+    <updated>2018-05-13T09:26:03.130Z</updated>
+    
+    <content type="html"><![CDATA[<p>无脑输命令， CentOS 7.2 PHP5.6</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">yum -y install wget</div><div class="line"></div><div class="line">wget http://hk1.php.net/get/php-5.6.36.tar.bz2/from/this/mirror</div><div class="line">tar -jxvf php-5.6.36.tar.bz2</div><div class="line"></div><div class="line">cd php-5.6.36</div><div class="line">sudo yum -y install autoconf automake libtool re2c flex bison libxml2 libxml2-devel</div><div class="line">./configure --profix=/usr/local/php56</div><div class="line">make</div><div class="line">make test</div><div class="line">#Bug #69958</div><div class="line">#Bug #70172</div><div class="line">make install</div></pre></td></tr></table></figure>
+<p>环境变量 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#只对当前登录用户生效</div><div class="line">vi ~/.bashrc</div><div class="line">export PATH=/usr/local/php56/bin:$PATH</div><div class="line">source ~/.bashrc</div><div class="line"></div><div class="line">#所有系统用户生效</div><div class="line">vi /etc/profile</div><div class="line">PATH=$PATH:/usr/local/php56/bin</div><div class="line">export PATH</div><div class="line">source /etc/profile</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;无脑输命令， CentOS 7.2 PHP5.6&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【转】Hexo中用CSS控制Markdown各列表格宽度</title>
+    <link href="http://yoursite.com/2018/05/12/%E3%80%90%E8%BD%AC%E3%80%91Hexo%E4%B8%AD%E7%94%A8CSS%E6%8E%A7%E5%88%B6Markdown%E5%90%84%E5%88%97%E8%A1%A8%E6%A0%BC%E5%AE%BD%E5%BA%A6/"/>
+    <id>http://yoursite.com/2018/05/12/【转】Hexo中用CSS控制Markdown各列表格宽度/</id>
+    <published>2018-05-12T01:45:32.000Z</published>
+    <updated>2018-05-12T01:46:55.678Z</updated>
+    
+    <content type="html"><![CDATA[<p>转自<a href="https://www.jixian.io/2017/10/11/Hexo%E4%B8%AD%E7%94%A8CSS%E6%8E%A7%E5%88%B6Markdown%E5%90%84%E5%88%97%E8%A1%A8%E6%A0%BC%E5%AE%BD%E5%BA%A6/" target="_blank" rel="external">https://www.jixian.io/2017/10/11/Hexo%E4%B8%AD%E7%94%A8CSS%E6%8E%A7%E5%88%B6Markdown%E5%90%84%E5%88%97%E8%A1%A8%E6%A0%BC%E5%AE%BD%E5%BA%A6/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">table th:nth-of-type(1)&#123;</div><div class="line">width: 10%;</div><div class="line">&#125;</div><div class="line">table th:nth-of-type(2)&#123;</div><div class="line">width: 20%</div><div class="line">;</div><div class="line">&#125;</div><div class="line">table th:nth-of-type(3)&#123;</div><div class="line">width: 30%;</div><div class="line">&#125;</div><div class="line">table th:nth-of-type(4)&#123;</div><div class="line">width: 40%;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">| 一 | 二 | 三 | 四 |</div><div class="line">| :-: | :-: | :-: | :-: |</div><div class="line">| 1 | 2 | 3 | 4 |</div></pre></td></tr></table></figure>
+<style>
+table th:nth-of-type(1){
+width: 10%;
+}
+table th:nth-of-type(2){
+width: 20%
+;
+}
+table th:nth-of-type(3){
+width: 30%;
+}
+table th:nth-of-type(4){
+width: 40%;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">一</th>
+<th style="text-align:center">二</th>
+<th style="text-align:center">三</th>
+<th style="text-align:center">四</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;转自&lt;a href=&quot;https://www.jixian.io/2017/10/11/Hexo%E4%B8%AD%E7%94%A8CSS%E6%8E%A7%E5%88%B6Markdown%E5%90%84%E5%88%97%E8%A1%A8%E6%A0%BC%E5%AE
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux常见服务列表</title>
     <link href="http://yoursite.com/2018/05/12/Linux%E5%B8%B8%E8%A7%81%E6%9C%8D%E5%8A%A1%E5%88%97%E8%A1%A8/"/>
     <id>http://yoursite.com/2018/05/12/Linux常见服务列表/</id>
     <published>2018-05-12T01:22:43.000Z</published>
-    <updated>2018-05-12T01:38:22.710Z</updated>
+    <updated>2018-05-12T01:48:37.831Z</updated>
     
     <content type="html"><![CDATA[<style>
 table th:nth-of-type(1){
@@ -402,6 +559,7 @@ width: 20%;
 </tr>
 </tbody>
 </table>
+<p>链接: <a href="https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q" target="_blank" rel="external">https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q</a> 密码: 4qg6</p>
 ]]></content>
     
     <summary type="html">
@@ -430,21 +588,20 @@ width: 20%;
   </entry>
   
   <entry>
-    <title>未完成 Linux下批量重命名</title>
-    <link href="http://yoursite.com/2018/05/12/%E6%9C%AA%E5%AE%8C%E6%88%90-Linux%E4%B8%8B%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/"/>
-    <id>http://yoursite.com/2018/05/12/未完成-Linux下批量重命名/</id>
+    <title>Linux下批量重命名</title>
+    <link href="http://yoursite.com/2018/05/12/Linux%E4%B8%8B%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/"/>
+    <id>http://yoursite.com/2018/05/12/Linux下批量重命名/</id>
     <published>2018-05-11T16:27:01.000Z</published>
-    <updated>2018-05-11T16:37:50.382Z</updated>
+    <updated>2018-05-12T07:25:01.686Z</updated>
     
-    <content type="html"><![CDATA[<p>从网上下载了一些视频，但是名字没有按规律不方便查看，所以找了一些资料，结果还是没完成，直接在windows下完成的，主要是正则学得不好，sed和awk也没有用过，把思路和过程记录一下</p>
-<p>我要完成的是批量重命名文件夹下的文件，给所有文件添加前缀序列号，不足用0补，原文件名里有中文和空格</p>
-<p>linux下重命名有两个常见的：mv和rename<br>找了rename的资料，但是没有添加前缀的，所以就使用mv命令</p>
+    <content type="html"><![CDATA[<p>需要命名一些文件，在文件名的前缀加上序列，这些文件的文件包空格、中文<br>思路如下：<br>重命名使用mv命令（不讨论其它重命名命令），需要提供文件名，通过ls命令可以获得文件名，将ls命令得到的文件名分割为数组，在遍历中进行重命名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env bash</div><div class="line"></div><div class="line">#这样只有一条path</div><div class="line">p=&apos;/home/lee/Templates/&apos;</div><div class="line">path=$(ls -Art $p)</div><div class="line"># echo $path</div><div class="line">IFS=$&apos;\n&apos;</div><div class="line">#只有加单引号且使用$才是换行符</div><div class="line"># https://blog.csdn.net/apache0554/article/details/47006609</div><div class="line">array=($path)</div><div class="line"></div><div class="line">i=0</div><div class="line">while [ $i -lt $&#123;#array[@]&#125; ]</div><div class="line">do</div><div class="line">  echo $&#123;array[$i]&#125;</div><div class="line">  echo &apos;s&apos;</div><div class="line">  var=$(printf &quot;%03d&quot; $i)</div><div class="line">  # echo $var</div><div class="line">  mv &quot;$&#123;p&#125;$&#123;array[$i]&#125;&quot; &quot;$&#123;p&#125;$&#123;var&#125;$&#123;array[$i]&#125;&quot;</div><div class="line">  let i++</div><div class="line">done</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;从网上下载了一些视频，但是名字没有按规律不方便查看，所以找了一些资料，结果还是没完成，直接在windows下完成的，主要是正则学得不好，sed和awk也没有用过，把思路和过程记录一下&lt;/p&gt;
-&lt;p&gt;我要完成的是批量重命名文件夹下的文件，给所有文件添加前缀序列号，不足用0补，
+      &lt;p&gt;需要命名一些文件，在文件名的前缀加上序列，这些文件的文件包空格、中文&lt;br&gt;思路如下：&lt;br&gt;重命名使用mv命令（不讨论其它重命名命令），需要提供文件名，通过ls命令可以获得文件名，将ls命令得到的文件名分割为数组，在遍历中进行重命名&lt;/p&gt;
+&lt;figure class=&quot;
     
     </summary>
     
@@ -458,7 +615,7 @@ width: 20%;
     <link href="http://yoursite.com/2018/05/11/Linux%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/"/>
     <id>http://yoursite.com/2018/05/11/Linux服务管理/</id>
     <published>2018-05-11T08:11:49.000Z</published>
-    <updated>2018-05-12T01:34:04.632Z</updated>
+    <updated>2018-05-12T01:48:08.223Z</updated>
     
     <content type="html"><![CDATA[<style>
 table th:nth-of-type(1){
@@ -584,7 +741,6 @@ width: 20%;
 </li>
 <li>/etc/rc3.d/下面的文件是运行级别3时，系统开启与关闭分别要执行的服务文件，启动顺序与关闭顺序不能和现有的冲突</li>
 </ul>
-<p>Linux服务列表，服务的可能/自启动<br>链接: <a href="https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q" target="_blank" rel="external">https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q</a> 密码: 4qg6</p>
 ]]></content>
     
     <summary type="html">
@@ -991,217 +1147,6 @@ width: 20%;
     
       &lt;h2 id=&quot;MBR分区模式和GPT分区模式比较&quot;&gt;&lt;a href=&quot;#MBR分区模式和GPT分区模式比较&quot; class=&quot;headerlink&quot; title=&quot;MBR分区模式和GPT分区模式比较&quot;&gt;&lt;/a&gt;MBR分区模式和GPT分区模式比较&lt;/h2&gt;&lt;p&gt;MBR&lt;/p&gt;
 &lt;u
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux磁盘管理 基本命令</title>
-    <link href="http://yoursite.com/2018/05/06/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/06/Linux磁盘管理-基本命令/</id>
-    <published>2018-05-06T06:04:50.000Z</published>
-    <updated>2018-05-06T06:08:00.089Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="df"><a href="#df" class="headerlink" title="df"></a>df</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">df：查看磁盘分区使用状况</div><div class="line">-l：仅显示本地默认磁盘（默认）</div><div class="line">-a：显示所有文件系统的磁盘使用情况</div><div class="line">-h：以1024进制计算最合适的单位显示磁盘容量（默认KB显示）</div><div class="line">-H：显示以1000进制计算最合适的单位显示磁盘容量</div><div class="line">-T：显示磁盘分区类型</div><div class="line">-t：显示指定类型文件系统的磁盘分区  //如：df -t ext4</div><div class="line">-x：不显示指定类型文件系统的磁盘分区</div></pre></td></tr></table></figure>
-<h2 id="du"><a href="#du" class="headerlink" title="du"></a>du</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">du 统计磁盘上的文件大小</div><div class="line">-b 以byte为单位统计文件  //统计出来的都是四舍五入的大小</div><div class="line">-k 以KB为单位统计文件    //统计出来的都是四舍五入的大小</div><div class="line">-m 以MB为单位统计文件    //统计出来的都是四舍五入的大小</div><div class="line">-h 按照1024进制以最适合的单位统计文件</div><div class="line">-H 按照1000进制以最适合的单位统计文件</div><div class="line">-s 指定统计目标  </div><div class="line">du -s tmp</div><div class="line">du -sb *.zip</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;df&quot;&gt;&lt;a href=&quot;#df&quot; class=&quot;headerlink&quot; title=&quot;df&quot;&gt;&lt;/a&gt;df&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div c
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux su root和sudo su</title>
-    <link href="http://yoursite.com/2018/05/05/Linux-su-root%E5%92%8Csudo-su/"/>
-    <id>http://yoursite.com/2018/05/05/Linux-su-root和sudo-su/</id>
-    <published>2018-05-05T15:43:02.000Z</published>
-    <updated>2018-05-06T05:51:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>来自<a href="https://askubuntu.com/questions/86095/does-executing-sudo-su-and-su-root-do-the-same-thing?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa" target="_blank" rel="external">https://askubuntu.com/questions/86095/does-executing-sudo-su-and-su-root-do-the-same-thing?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa</a></p>
-<p>Does executing sudo su and su root do the same thing?What are the technical differences between the two? The only thing I noticed is that</p>
-<p><code>sudo su</code><br>requires you to enter your own password (assuming you’re not root)</p>
-<p><code>su root</code><br>requires you to enter root’s password. However both seem to log you into the root user account.</p>
-<p>The second command cannot be executed in a default Ubuntu installation, where the root account is not enabled.</p>
-<p>But supposing you have unlocked the root account giving him a password, the two commands could only differ in the environment and shell variable set, I think. Compare the output of env in the two situations, and maybe also the output of set to see the differences.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;来自&lt;a href=&quot;https://askubuntu.com/questions/86095/does-executing-sudo-su-and-su-root-do-the-same-thing?utm_medium=organic&amp;amp;utm_source=g
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux用户管理 配置文件</title>
-    <link href="http://yoursite.com/2018/05/05/Linux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2018/05/05/Linux用户管理-配置文件/</id>
-    <published>2018-05-05T14:41:15.000Z</published>
-    <updated>2018-05-06T12:16:55.546Z</updated>
-    
-    <content type="html"><![CDATA[<p>用户：使用操作系统的人<br>用户组：具有相同系统权限的一组用户</p>
-<p>用户和用户组配置文件</p>
-<p>/etc/group    存储当前系统中所有用户组的信息<br>-Group：        x        ：  501   ：abc,def,xyz<br>-组名称：组密码占位符    ： 组编号：组中用户名列表</p>
-<p>组编号1-499是系统预留给软件的<br>手动创建的用户从500开始</p>
-<p>/etc/gshadow    存储当前系统中用户组的密码信息<br>-Group：        *        ：      ：abc,def,xyz<br>-组名称：  组密码    ：组管理者：组中用户名列表</p>
-<p>/etc/passwd    存储当前系统中所有用户的信息<br>-user：    x    ：   123   ：   456    ：   xxxxxxxx  ：/home/user  ： /bin/bash<br>-用户名：密码占位符：用户编号： 用户组编号：  用户注释信息：用户主目录 ：shell类型</p>
-<p>/etc/shadow    存储当前系统中所有用户的密码信息<br>-user    ：   vf;/Zu8sdf… ：：：：：<br>-用户名 ：    密码         ：：：：：</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;用户：使用操作系统的人&lt;br&gt;用户组：具有相同系统权限的一组用户&lt;/p&gt;
-&lt;p&gt;用户和用户组配置文件&lt;/p&gt;
-&lt;p&gt;/etc/group    存储当前系统中所有用户组的信息&lt;br&gt;-Group：        x        ：  501   ：abc,def,xyz&lt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 关机和重启</title>
-    <link href="http://yoursite.com/2018/05/05/Linux-%E5%85%B3%E6%9C%BA%E5%92%8C%E9%87%8D%E5%90%AF/"/>
-    <id>http://yoursite.com/2018/05/05/Linux-关机和重启/</id>
-    <published>2018-05-05T07:24:14.000Z</published>
-    <updated>2018-05-05T10:15:05.588Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><pre><code>shutdown [选项] 时间
-#相比其它命令更安全，在关机和重启时会正确保存正在运行的程序
-选项：
- -c:取消前一个关机命令
- -h:关机（half）
- -r:重启
-
-shutdown -r 05:30
-shutdown -r 05:30 &amp; (后台运行)
-shutdown -r now
-#在服务器上尽量避免远程关机，因为再开机麻烦，所以远程重启就足够了
-#服务器由于经常进行高速运算强制重启非常容易损坏硬件，也容易造成数据丢失，所以一定要小心
-
-#其他关机命令(不安全，慎用)
-half
-poweroff
-init 0
-</code></pre><p><br>  </p>
-<h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><pre><code>reboot (相对安全)
-init 6 (尽量不要用)
-</code></pre><p><br>  </p>
-<h2 id="系统运行级别"><a href="#系统运行级别" class="headerlink" title="系统运行级别"></a>系统运行级别</h2><p>0 关机<br>1 单用户 （与windows安全模式相似）<br>2 不完全多用户，不含NFS服务（NFS：文件共享服务）<br>3 完全多用户（字符界面）<br>4 未分配<br>5 图形界面（如果装了图形界面，init 5 进入图形界面）<br>6 重启</p>
-<pre><code>runlevel
-# 查询系统运行级别
-# 结果：N 3 (当前是3 N是上一次登陆级别)
-
-cat /etc/inittab 
-# 查看/etc/inittab的内容
-id:3:initdefault: 
-# 修改系统默认运行级别，这里默认是3
-</code></pre><p><br>  </p>
-<h2 id="退出登录命令"><a href="#退出登录命令" class="headerlink" title="退出登录命令"></a>退出登录命令</h2><pre><code>logout 
-# LINUX默认同时256个登录，最大支持6万多
-# 每次使用后，建议退出当前用户，避免他人因账户占用无法使用！与windows中的注销相似！
-</code></pre><p>注意：<br>如果关闭远程登录xshell时直接点X，该用户就卡在计算机里，因为没有正确退出，所以一定养成正确退出登录的习惯</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;关机&quot;&gt;&lt;a href=&quot;#关机&quot; class=&quot;headerlink&quot; title=&quot;关机&quot;&gt;&lt;/a&gt;关机&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;shutdown [选项] 时间
-#相比其它命令更安全，在关机和重启时会正确保存正在运行的程序
-选项：
- -c:取消前一个关
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 帮助命令</title>
-    <link href="http://yoursite.com/2018/05/05/Linux-%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/05/Linux-帮助命令/</id>
-    <published>2018-05-05T07:22:49.000Z</published>
-    <updated>2018-05-05T09:51:17.124Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="man"><a href="#man" class="headerlink" title="man"></a>man</h2><pre><code>man 命令
-# 获取指定命令的帮助
-# man是manual的缩写
-# 最常用的帮助命令
-# q退出
-# 输入:/-d 搜索&quot;-d&quot;字符串，按n往下搜“-d”,shift+n 往上搜“-d”
-
-man -f 命令
-# 查看命令的所有帮助等级
-# 相当于 whatis 命令
-# 因为whereis命令可以看到命令的帮助文档目录，所以也可以查看目录的等级
-
-man 级别 命令
-#查看相应等级的命令
-man -5 passwd
-man -4 null
-man -8 ifconfig
-
-man -k 命令 
-# 相当于 apropos 命令
-# 搜索含有关键词“命令”的所有帮助文档
-man -k passwd
-# 搜索含有关键词“passwd”的所有命令的帮助文档
-</code></pre><p>man的级别：</p>
-<ol>
-<li>查看命令的帮助</li>
-<li>查看可被内核调用的函数的帮助</li>
-<li>查看函数和函数库的帮助</li>
-<li>查看特殊文件的帮助（主要是/dev目录下的文件）</li>
-<li>查看配置文件的帮助</li>
-<li>查看游戏的帮助</li>
-<li>查看其它杂项的帮助</li>
-<li>查看系统管理员可用命令的帮助</li>
-<li>查看和内核相关文件的帮助</li>
-</ol>
-<h2 id="–help"><a href="#–help" class="headerlink" title="–help"></a>–help</h2><pre><code>命令 --help 
-#获取命令选项的帮助
-ls --help 
-</code></pre><h2 id="helpshell内部命令帮助"><a href="#helpshell内部命令帮助" class="headerlink" title="helpshell内部命令帮助"></a>helpshell内部命令帮助</h2><pre><code>help shell内部命令
-#whereis可以用来判断一个命令是否是shell内部命令
-#ls在/bin/下面有可执行文件，说明ls命令不是shell内部命令
-#cd命令在/bin/下面没有相应的可执行文件，所以是shell自带的命令
-</code></pre><p>man命令不能只获取shell的内部命令</p>
-<pre><code>#help命令只能获取shell的内部命令
-</code></pre><h2 id="info"><a href="#info" class="headerlink" title="info"></a>info</h2><pre><code>info 命令
-#info里面内容十分繁琐，是关于命令的一个巨大的帮助文档，里面有各个版本对于此命令的说明。
-回车：进入带*号的说明
--u: 进入上层页面
--n: 进入下一个帮助小节
--p: 进入上一个帮助小节
--q: 退出
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;man&quot;&gt;&lt;a href=&quot;#man&quot; class=&quot;headerlink&quot; title=&quot;man&quot;&gt;&lt;/a&gt;man&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;man 命令
-# 获取指定命令的帮助
-# man是manual的缩写
-# 最常用的帮助命令
-# q退出
-# 输入:/
     
     </summary>
     
