@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="二进制包安装以下命令全在root下完成，所以没有加sudo 查看要下载的版本，https://dev.mysql.com/downloads/repo/yum/123456789101112131415wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpmrpm -ivh mysql57-community">
+<meta name="description" content="二进制包安装1234567891011121314151617#以下命令全在root下完成，所以没有加sudo#查看要下载的版本，https://dev.mysql.com/downloads/repo/yum/wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpmrpm -ivh mysql57-comm">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux安装Mysql">
 <meta property="og:url" content="http://yoursite.com/2018/05/13/Linux安装Mysql/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="二进制包安装以下命令全在root下完成，所以没有加sudo 查看要下载的版本，https://dev.mysql.com/downloads/repo/yum/123456789101112131415wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpmrpm -ivh mysql57-community">
+<meta property="og:description" content="二进制包安装1234567891011121314151617#以下命令全在root下完成，所以没有加sudo#查看要下载的版本，https://dev.mysql.com/downloads/repo/yum/wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpmrpm -ivh mysql57-comm">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-13T15:17:40.705Z">
+<meta property="og:updated_time" content="2018-05-13T15:59:40.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux安装Mysql">
-<meta name="twitter:description" content="二进制包安装以下命令全在root下完成，所以没有加sudo 查看要下载的版本，https://dev.mysql.com/downloads/repo/yum/123456789101112131415wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpmrpm -ivh mysql57-community">
+<meta name="twitter:description" content="二进制包安装1234567891011121314151617#以下命令全在root下完成，所以没有加sudo#查看要下载的版本，https://dev.mysql.com/downloads/repo/yum/wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpmrpm -ivh mysql57-comm">
 
 
 
@@ -334,15 +334,14 @@
       
 
       
-        <h2 id="二进制包安装"><a href="#二进制包安装" class="headerlink" title="二进制包安装"></a>二进制包安装</h2><p>以下命令全在root下完成，所以没有加sudo</p>
-<p>查看要下载的版本，<a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="external">https://dev.mysql.com/downloads/repo/yum/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</div><div class="line">rpm -ivh mysql57-community-release-el7-9.noarch.rpm</div><div class="line">yum install mysql-server</div><div class="line"></div><div class="line">systemctl start mysqld</div><div class="line">systemctl status mysqld</div><div class="line"></div><div class="line">#初次安装mysql，root账户没有密码</div><div class="line">mysql -u root -p</div><div class="line">#很多文章都说是在这里找临时密码，我找了半天没有找到</div><div class="line">#grep &apos;temporary password&apos; /var/log/mysqld.log</div><div class="line"></div><div class="line">#使用此命令运行安全脚本,用于更改远程root登录和示例用户等安全性较低的默认选项</div><div class="line">mysql_secure_installation</div><div class="line">#设置root密码，删除匿名用户，禁止远程root用户登录，删除测试数据库并对其进行访问，并重新加载权限表</div></pre></td></tr></table></figure></p>
-<p>##配置mysql</p>
-<p>编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#mysql配置文件为/etc/my.cnf</div><div class="line"></div><div class="line">最后加上编码配置</div><div class="line">default-character-set =utf8</div></pre></td></tr></table></figure></p>
-<p>设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;SET PASSWORD FOR &apos;jeffrey&apos;@&apos;localhost&apos; = &apos;auth_string&apos;;</div><div class="line">#为当前用户设置密码</div><div class="line">&gt;SET PASSWORD = &apos;auth_string&apos;;</div></pre></td></tr></table></figure></p>
-<p>新增用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;create database testdb;</div><div class="line">&gt;create  user  &apos;testuser&apos; @ &apos;localhost&apos;  identified  by  &apos;password&apos; ;</div><div class="line">&gt;grant  all  on testdb.* to  &apos;testuser&apos; @ &apos;localhost&apos; ;</div></pre></td></tr></table></figure></p>
-<p>远程连接设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#把在所有数据库的所有表的所有权限赋值给位于所有IP地址的root用户</div><div class="line">&gt; grant all privileges on *.* to root@&apos;%&apos;identified by &apos;password&apos;;</div></pre></td></tr></table></figure></p>
-<p>##源码包安装<br>内存小的不要用这种方法了，make卡在了48%哈哈。。</p>
+        <h2 id="二进制包安装"><a href="#二进制包安装" class="headerlink" title="二进制包安装"></a>二进制包安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#以下命令全在root下完成，所以没有加sudo</div><div class="line">#查看要下载的版本，https://dev.mysql.com/downloads/repo/yum/</div><div class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</div><div class="line">rpm -ivh mysql57-community-release-el7-9.noarch.rpm</div><div class="line">yum install mysql-server</div><div class="line"></div><div class="line">systemctl start mysqld</div><div class="line">systemctl status mysqld</div><div class="line"></div><div class="line">#初次安装mysql，root账户没有密码</div><div class="line">mysql -u root -p</div><div class="line">#很多文章都说是在这里找临时密码，我找了半天没有找到</div><div class="line">#grep &apos;temporary password&apos; /var/log/mysqld.log</div><div class="line"></div><div class="line">#使用此命令运行安全脚本,用于更改远程root登录和示例用户等安全性较低的默认选项</div><div class="line">mysql_secure_installation</div><div class="line">#设置root密码，删除匿名用户，禁止远程root用户登录，删除测试数据库并对其进行访问，并重新加载权限表</div></pre></td></tr></table></figure>
+<h2 id="配置mysql"><a href="#配置mysql" class="headerlink" title="配置mysql"></a>配置mysql</h2><p>####编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#mysql配置文件为/etc/my.cnf</div><div class="line"></div><div class="line">最后加上编码配置</div><div class="line">default-character-set =utf8</div></pre></td></tr></table></figure></p>
+<p>####设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;SET PASSWORD FOR &apos;jeffrey&apos;@&apos;localhost&apos; = &apos;auth_string&apos;;</div><div class="line">#为当前用户设置密码</div><div class="line">&gt;SET PASSWORD = &apos;auth_string&apos;;</div></pre></td></tr></table></figure></p>
+<p>####新增用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;create database testdb;</div><div class="line">&gt;create  user  &apos;testuser&apos;@&apos;localhost&apos;  identified  by  &apos;password&apos; ;</div><div class="line">&gt;grant  all  on testdb.* to &apos;testuser&apos;@&apos;localhost&apos;;</div></pre></td></tr></table></figure></p>
+<p>####远程连接设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#把在所有数据库的所有表的所有权限赋值给位于所有IP地址的root用户</div><div class="line">&gt; grant all privileges on *.* to root@&apos;%&apos;identified by &apos;password&apos;;</div></pre></td></tr></table></figure></p>
+<h2 id="源码包安装"><a href="#源码包安装" class="headerlink" title="源码包安装"></a>源码包安装</h2><p>内存小的不要用这种方法了，make卡在了48%哈哈。。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#安装依赖，依赖包并不是一定提前知道的，是根据安装的报错信息逐渐添加的，看官方文档的当我没说。。</div><div class="line">#反正全安好就行，m4和perl应该是安装bison的时候被安装了</div><div class="line">yum install cmake ncurses-devel gcc gcc-c++ bison bison-devel</div><div class="line">#下载安装boost c++库，https://sourceforge.net/projects/boost/files/boost/1.59.0/</div><div class="line">tar -zxvf boost_1_59_0.tar.gz</div><div class="line">cp -r boost_1_59_0/ /usr/local/</div><div class="line"></div><div class="line">#获取源码，http://dev.mysql.com/downloads/mysql/，这里选择MySQL-5.7.22.tar.gz</div><div class="line">wget https://dev.mysql.com/get/MySQL-5.7.22.tar.gz</div><div class="line">tar -zxvf MySQL-5.7.22.tar.gz</div><div class="line">cd MySQL-5.7.22</div><div class="line">#cmake出错重新cmake之前需要删除CMakeCache.txt文件</div><div class="line">rm -rf CMakeCache.txt</div><div class="line">cmake . -DWITH_BOOST=/usr/local/boost_1_59_0</div><div class="line"></div><div class="line">make</div><div class="line">#内存不足，设置交换内存或者增加虚拟机内存</div><div class="line"></div><div class="line">#MySQL的默认安装目录为/usr/local/mysql，DESTDIR参数指定安装目录</div><div class="line">make install DESTDIR=&quot;/opt/mysql&quot;</div><div class="line"></div><div class="line">其他配置参考https://itbilu.com/database/mysql/VJVOut01M.html</div></pre></td></tr></table></figure>
+<p>参考：</p>
 <ul>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-centos-7" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-centos-7</a></li>
 <li>安装mariadb：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-centos-7" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-centos-7</a></li>
@@ -469,7 +468,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">65</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -524,7 +523,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制包安装"><span class="nav-number">1.</span> <span class="nav-text">二进制包安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制包安装"><span class="nav-number">1.</span> <span class="nav-text">二进制包安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置mysql"><span class="nav-number">2.</span> <span class="nav-text">配置mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码包安装"><span class="nav-number">3.</span> <span class="nav-text">源码包安装</span></a></li></ol></div>
             
 
           </div>
