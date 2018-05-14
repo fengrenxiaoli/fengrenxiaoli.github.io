@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="##安装LAMPhttps://lamp.sh/install.html ##下载WordPress安装包并解压12wget http://wordpress.org/latest.tar.gztar -xzvf latest.tar.gz ##创建WordPress数据库和一个用户123mysql&amp;gt;create database wordpress;mysql&amp;gt;create user">
+<meta name="description" content="##安装LAMPhttps://lamp.sh/install.html ##创建WordPress数据库和一个用户 123456mysql&amp;gt;create database wordpress;//wordpress是数据库名mysql&amp;gt;create user &amp;apos;wordpress&amp;apos;@&amp;apos;localhost&amp;apos; identified by &amp;apos">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux配置WordPress">
 <meta property="og:url" content="http://yoursite.com/2018/05/13/Linux配置WordPress/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="##安装LAMPhttps://lamp.sh/install.html ##下载WordPress安装包并解压12wget http://wordpress.org/latest.tar.gztar -xzvf latest.tar.gz ##创建WordPress数据库和一个用户123mysql&amp;gt;create database wordpress;mysql&amp;gt;create user">
+<meta property="og:description" content="##安装LAMPhttps://lamp.sh/install.html ##创建WordPress数据库和一个用户 123456mysql&amp;gt;create database wordpress;//wordpress是数据库名mysql&amp;gt;create user &amp;apos;wordpress&amp;apos;@&amp;apos;localhost&amp;apos; identified by &amp;apos">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-13T16:18:34.898Z">
+<meta property="og:updated_time" content="2018-05-14T12:33:09.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux配置WordPress">
-<meta name="twitter:description" content="##安装LAMPhttps://lamp.sh/install.html ##下载WordPress安装包并解压12wget http://wordpress.org/latest.tar.gztar -xzvf latest.tar.gz ##创建WordPress数据库和一个用户123mysql&amp;gt;create database wordpress;mysql&amp;gt;create user">
+<meta name="twitter:description" content="##安装LAMPhttps://lamp.sh/install.html ##创建WordPress数据库和一个用户 123456mysql&amp;gt;create database wordpress;//wordpress是数据库名mysql&amp;gt;create user &amp;apos;wordpress&amp;apos;@&amp;apos;localhost&amp;apos; identified by &amp;apos">
 
 
 
@@ -335,12 +335,13 @@
 
       
         <p>##安装LAMP<br><a href="https://lamp.sh/install.html" target="_blank" rel="external">https://lamp.sh/install.html</a></p>
+<p>##创建WordPress数据库和一个用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mysql&gt;create database wordpress;</div><div class="line">//wordpress是数据库名</div><div class="line">mysql&gt;create user &apos;wordpress&apos;@&apos;localhost&apos; identified by &apos;password&apos;;</div><div class="line">//wordpress是数据库名，一般使用localhost，password为密码</div><div class="line">mysql&gt;grant all privileges on wordpress.* to &apos;wordpress&apos;@&apos;localhost&apos;;</div><div class="line">mysql&gt;FLUSH PRIVILEGES;</div></pre></td></tr></table></figure>
 <p>##下载WordPress安装包并解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://wordpress.org/latest.tar.gz</div><div class="line">tar -xzvf latest.tar.gz</div></pre></td></tr></table></figure></p>
-<p>##创建WordPress数据库和一个用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mysql&gt;create database wordpress;</div><div class="line">mysql&gt;create user &apos;wordpress&apos;@&apos;localhost&apos; identified by &apos;password&apos;;</div><div class="line">mysql&gt;grant all privileges on wordpress.* to &apos;wordpress&apos;@&apos;localhost&apos;;</div></pre></td></tr></table></figure></p>
-<h2 id="设置wp-config-php文件"><a href="#设置wp-config-php文件" class="headerlink" title="设置wp-config.php文件"></a>设置wp-config.php文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<p>上传文件</p>
-<pre><code>
-</code></pre><p><a href="https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress" target="_blank" rel="external">https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress</a></p>
+<p>##上传文件<br>默认的网站根目录： /data/www/default<br>将解压好的wordpress文件复制到该目录下</p>
+<h2 id="设置wp-config-php文件"><a href="#设置wp-config-php文件" class="headerlink" title="设置wp-config.php文件"></a>设置wp-config.php文件</h2><p>（这一步可以略过，通过下一步的网页设置）<br>将wordpress目录下的wp-config-sample.php重命名为wp-config.php，并修改以下选项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/** The name of the database for WordPress */</div><div class="line">define(&apos;DB_NAME&apos;, &apos;wordpress&apos;);</div><div class="line"></div><div class="line">/** MySQL database username */</div><div class="line">define(&apos;DB_USER&apos;, &apos;wordpress&apos;);</div><div class="line"></div><div class="line">/** MySQL database password */</div><div class="line">define(&apos;DB_PASSWORD&apos;, &apos;password&apos;);</div><div class="line"></div><div class="line">/** MySQL hostname */</div><div class="line">define(&apos;DB_HOST&apos;, &apos;localhost&apos;);</div><div class="line"></div><div class="line">/** Database Charset to use in creating database tables. */</div><div class="line">define(&apos;DB_CHARSET&apos;, &apos;utf8&apos;);</div></pre></td></tr></table></figure></p>
+<p>##<br>在浏览器访问：<a href="http://ip/wordpress，填写好信息一键安装，安装好后就可以是使用了" target="_blank" rel="external">http://ip/wordpress，填写好信息一键安装，安装好后就可以是使用了</a></p>
+<p>参考：<br><a href="https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress" target="_blank" rel="external">https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress</a></p>
 
       
     </div>
