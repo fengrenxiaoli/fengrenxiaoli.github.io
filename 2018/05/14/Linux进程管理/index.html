@@ -94,18 +94,15 @@
 
 
 
-<meta name="description" content="简易版1234567891011121314151617#查看ssh服务是否开启ps -e |grep ssh#安装ssh服务sudo apt install openssh-server#配置sshsudo vi /etc/ssh/sshd_config#PermitRootLogin，RSAAuthentication，PubkeyAuthentication的设置打开#开启ssh服务sudo">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 安装ssh">
-<meta property="og:url" content="http://yoursite.com/2018/05/02/Linux-安装ssh/index.html">
+<meta property="og:title" content="Linux进程管理">
+<meta property="og:url" content="http://yoursite.com/2018/05/14/Linux进程管理/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="简易版1234567891011121314151617#查看ssh服务是否开启ps -e |grep ssh#安装ssh服务sudo apt install openssh-server#配置sshsudo vi /etc/ssh/sshd_config#PermitRootLogin，RSAAuthentication，PubkeyAuthentication的设置打开#开启ssh服务sudo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-06T06:02:41.235Z">
+<meta property="og:updated_time" content="2018-05-14T08:57:29.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 安装ssh">
-<meta name="twitter:description" content="简易版1234567891011121314151617#查看ssh服务是否开启ps -e |grep ssh#安装ssh服务sudo apt install openssh-server#配置sshsudo vi /etc/ssh/sshd_config#PermitRootLogin，RSAAuthentication，PubkeyAuthentication的设置打开#开启ssh服务sudo">
+<meta name="twitter:title" content="Linux进程管理">
 
 
 
@@ -134,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/02/Linux-安装ssh/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/14/Linux进程管理/"/>
 
 
 
 
 
-  <title>Linux 安装ssh | 太阳落下</title>
+  <title>Linux进程管理 | 太阳落下</title>
   
 
 
@@ -267,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/02/Linux-安装ssh/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/14/Linux进程管理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -284,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux 安装ssh</h1>
+          <h1 class="post-title" itemprop="name headline">Linux进程管理</h1>
         
 
         <div class="post-meta">
@@ -296,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-02T18:46:32+08:00">
-                2018-05-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T16:56:47+08:00">
+                2018-05-14
               </time>
             
 
@@ -334,20 +331,7 @@
       
 
       
-        <h2 id="简易版"><a href="#简易版" class="headerlink" title="简易版"></a>简易版</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#查看ssh服务是否开启</div><div class="line">ps -e |grep ssh</div><div class="line"></div><div class="line">#安装ssh服务</div><div class="line">sudo apt install openssh-server</div><div class="line"></div><div class="line">#配置ssh</div><div class="line">sudo vi /etc/ssh/sshd_config</div><div class="line">#PermitRootLogin，RSAAuthentication，PubkeyAuthentication的设置打开</div><div class="line"></div><div class="line">#开启ssh服务</div><div class="line">sudo systemctl restart sshd.service</div><div class="line">#开机启动SSH服务</div><div class="line">sudo systemctl enable sshd.service</div><div class="line"></div><div class="line">#连接</div><div class="line">ssh -p 22 userName@192.168.1.100</div></pre></td></tr></table></figure>
-<h2 id="复杂版"><a href="#复杂版" class="headerlink" title="复杂版"></a>复杂版</h2><p>参考<a href="https://wiki.centos.org/HowTos/Network/SecuringSSH" target="_blank" rel="external">https://wiki.centos.org/HowTos/Network/SecuringSSH</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo firewall-cmd --reload</div><div class="line">#重新载入防火墙设定</div></pre></td></tr></table></figure></p>
-<h2 id="设置SSH免密码登录"><a href="#设置SSH免密码登录" class="headerlink" title="设置SSH免密码登录"></a>设置SSH免密码登录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div><div class="line"># ～/.ssh目录中创建两个名为id_rsa和id_rsa.pub的文件，id_rsa是私钥，id_rsa.pub是公钥</div><div class="line"></div><div class="line">#设置权限</div><div class="line">chmod 700〜/ .ssh</div><div class="line">chmod 600〜/ .ssh / id_rsa </div><div class="line"></div><div class="line"># 复制公钥到服务器然后写入到~/.ssh/authorized_keys 方法一</div><div class="line"># 使用SSH远程登陆到服务器,发现家目录中还没有.ssh目录,使用mkdir创建</div><div class="line">mkdir .ssh</div><div class="line"># 发送公钥</div><div class="line">scp -P 端口号 ./id_rsa.pub alice@192.168.0.10:/home/alice/.ssh</div><div class="line"># 将公钥追加写入~/.ssh/authorized_keys中,若authorized_keys不存在,则会创建并写入</div><div class="line">cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</div><div class="line">#修改authorized_keys的权限为600,并删除公钥文件</div><div class="line">rm id_rsa.pub</div><div class="line"></div><div class="line"># 复制公钥到服务器然后写入到~/.ssh/authorized_keys 方法二</div><div class="line"># ssh-copy-id 命令可以把本地主机的公钥复制到远程主机的 authorized_keys 文件上</div><div class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub user@server</div><div class="line">chmod 700 ~/.ssh </div><div class="line">chmod 600 ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
-<h2 id="清除SSH的私钥密码"><a href="#清除SSH的私钥密码" class="headerlink" title="清除SSH的私钥密码"></a>清除SSH的私钥密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -p</div><div class="line"># 选择需要修改的私钥，默认是/home/username/.ssh/id_rsa。</div><div class="line"># 选好文件后按回车，会提示你输入旧密码。</div><div class="line">#输入好后会提示输入新密码。</div><div class="line">#直接回车，提示确认新密码再直接回车，此时指定的私钥的密码就被清除了</div></pre></td></tr></table></figure>
-<p>SSH相关命令参考 <a href="http://fengrenxiaoli.github.io/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/" target="_blank" rel="external">Linux网络管理 远程登录</a></p>
-<p>参考：</p>
-<ul>
-<li><a href="https://wiki.centos.org/HowTos/Network/SecuringSSH" target="_blank" rel="external">https://wiki.centos.org/HowTos/Network/SecuringSSH</a></li>
-<li><a href="http://www.iosugar.com/2017/02/14/CentOS-remote-login-SSH-configuration/#SSH%E7%99%BB%E9%99%86" target="_blank" rel="external">http://www.iosugar.com/2017/02/14/CentOS-remote-login-SSH-configuration/#SSH%E7%99%BB%E9%99%86</a></li>
-<li><a href="http://einverne.github.io/post/2016/06/ssh-copy-id.html" target="_blank" rel="external">http://einverne.github.io/post/2016/06/ssh-copy-id.html</a></li>
-<li><a href="https://www.ssh.com/ssh/copy-id" target="_blank" rel="external">https://www.ssh.com/ssh/copy-id</a></li>
-<li><a href="https://linux.cn/article-6901-1.html" target="_blank" rel="external">https://linux.cn/article-6901-1.html</a></li>
-</ul>
-
+        
       
     </div>
     
@@ -377,8 +361,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/01/Linux网络管理-网络基础/" rel="next" title="Linux网络管理 网络基础">
-                <i class="fa fa-chevron-left"></i> Linux网络管理 网络基础
+              <a href="/2018/05/14/VirtualBox扩容/" rel="next" title="VirtualBox扩容">
+                <i class="fa fa-chevron-left"></i> VirtualBox扩容
               </a>
             
           </div>
@@ -387,8 +371,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/04/Linux-虚拟机网络配置详解-NAT、桥接、Hostonly/" rel="prev" title="Linux 虚拟机网络配置详解(NAT、桥接、Hostonly)">
-                Linux 虚拟机网络配置详解(NAT、桥接、Hostonly) <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/14/Linux后台管理/" rel="prev" title="Linux后台管理">
+                Linux后台管理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -441,17 +425,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -511,22 +486,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简易版"><span class="nav-number">1.</span> <span class="nav-text">简易版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂版"><span class="nav-number">2.</span> <span class="nav-text">复杂版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置SSH免密码登录"><span class="nav-number">3.</span> <span class="nav-text">设置SSH免密码登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除SSH的私钥密码"><span class="nav-number">4.</span> <span class="nav-text">清除SSH的私钥密码</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

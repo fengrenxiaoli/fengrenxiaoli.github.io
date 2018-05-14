@@ -101,14 +101,14 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="这篇文章用于在VirtualBox虚拟机上的CentOS扩充根目录空间，区别于新增硬盘以及添加新的挂载点 主机环境为Ubuntu 17.04VirtualBox 5.2虚拟机为CentOS 7 VirtualBox 中虚拟硬盘有几种形式，VMDK、VDI、VHD、HDD等。  VMDK：是VMware开发并使用的，同时也被SUN的xVM、QEMU、SUSE Studio、.NET DiscUtil">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG33.png">
+<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG34.png">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG35.png">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG36.png">
-<meta property="og:updated_time" content="2018-05-14T03:42:30.817Z">
+<meta property="og:updated_time" content="2018-05-14T05:11:28.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VirtualBox扩容">
 <meta name="twitter:description" content="这篇文章用于在VirtualBox虚拟机上的CentOS扩充根目录空间，区别于新增硬盘以及添加新的挂载点 主机环境为Ubuntu 17.04VirtualBox 5.2虚拟机为CentOS 7 VirtualBox 中虚拟硬盘有几种形式，VMDK、VDI、VHD、HDD等。  VMDK：是VMware开发并使用的，同时也被SUN的xVM、QEMU、SUSE Studio、.NET DiscUtil">
-<meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG33.png">
+<meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG34.png">
 
 
 
@@ -345,9 +345,9 @@
 <li>VDI：是Virtual Box 自己的处理格式，而且Virtual Box支持Windows和Linux，所以对于使用VirtualBox的用户比较好。</li>
 <li>VHD：是Windows专有的处理格式，HDD是Apple专有的处理格式，所以不会支持跨平台，一般不会考虑。</li>
 </ul>
-<p>##扩容磁盘文件<br>在主机上操作<br>VBoxManage命令是安装VirtualBox时安装的，如果无法使用该命令，请指定完整路径，寻找VirtualBox的安装目录，我的在<code>/usr/bin</code>下<br>centos.vdi和centos.vmdk是VirtualBox创建的系统磁盘文件，一般位于用户的<code>VirtualBox VMs</code>文件夹下</p>
+<h2 id="扩容磁盘文件"><a href="#扩容磁盘文件" class="headerlink" title="扩容磁盘文件"></a>扩容磁盘文件</h2><p>在主机上操作<br>VBoxManage命令是安装VirtualBox时安装的，如果无法使用该命令，请指定完整路径，寻找VirtualBox的安装目录，我的在<code>/usr/bin</code>下<br>centos.vdi和centos.vmdk是VirtualBox创建的系统磁盘文件，一般位于用户的<code>VirtualBox VMs</code>文件夹下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#VDI</div><div class="line">#单位为M</div><div class="line">VBoxManage modifyhd centos.vdi --resize 16000</div><div class="line"></div><div class="line">#VMDK</div><div class="line">#单位为M</div><div class="line">#如果是VMDK就要先转换成VDI，然后再扩容</div><div class="line">#vmdk是转换前的文件，vdi是转换之后的文件</div><div class="line">VBoxManage clonehd &quot;centos.vmdk&quot; &quot;centos.vdi&quot; --format vdi</div><div class="line">VBoxManage modifyhd &quot;centos.vdi&quot; --resize 16000</div><div class="line">#如果想再转回为VMDK，用这个命令就可以了，直接使用vdi格式也可以</div><div class="line">VBoxManage clonehd &quot;centos.vdi&quot; &quot;resized.vmdk&quot; --format vmdk</div></pre></td></tr></table></figure>
-<h2 id="指定新磁盘文件"><a href="#指定新磁盘文件" class="headerlink" title="指定新磁盘文件"></a>指定新磁盘文件</h2><p>打开虚拟机，选择系统 &gt; 右击 &gt; 设置 &gt; 存储 &gt; 控制器SATA &gt; 右边的添加虚拟硬盘 &gt; 选择转换后的文件<br>在虚拟机打开系统，通过df -h查看发现，根目录还是原样<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG33.png" alt=""></p>
+<h2 id="指定新磁盘文件"><a href="#指定新磁盘文件" class="headerlink" title="指定新磁盘文件"></a>指定新磁盘文件</h2><p>打开虚拟机，选择系统 &gt; 右击 &gt; 设置 &gt; 存储 &gt; 控制器SATA &gt; 右边的添加虚拟硬盘 &gt; 选择转换后的文件<br>在虚拟机打开系统，通过df -h查看发现，根目录还是原样<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG34.png" alt=""></p>
 <h2 id="使用LVM扩展空间"><a href="#使用LVM扩展空间" class="headerlink" title="使用LVM扩展空间"></a>使用LVM扩展空间</h2><p>在虚拟机上操作<br>因为要修改现有分区，所以要用LVM<br>LVM（Logic Volume Manager）逻辑卷管理，像RedHat系的默认分区管理方式，是建立在硬盘分区之上，文件系统之下的逻辑层，用来解决在最初分区时未正确的评估和和分配分区容量，而造成系统分区不够用。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#查看当前系统分区情况</div><div class="line">fdisk -l</div><div class="line"></div><div class="line">#进行分区</div><div class="line">fdisk /dev/sda</div><div class="line"></div><div class="line">#重读分区表</div><div class="line">partprobe</div><div class="line"></div><div class="line">#将分区格式化为ext4格式</div><div class="line">mkfs.ext4 /dev/sda3</div><div class="line"></div><div class="line">#开始LVM操作,查看卷组名，即VG Name，我这里是centos</div><div class="line">vgdisplay</div><div class="line"></div><div class="line">#创建新物理卷，sda3是之前分区分配的</div><div class="line">pvcreate /dev/sda3</div><div class="line">#扩展到卷组</div><div class="line">vgextend centos /dev/sda3</div><div class="line"></div><div class="line">#查看根分区</div><div class="line">lvdisplay</div></pre></td></tr></table></figure>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG35.png" alt=""></p>
@@ -394,8 +394,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/05/Linux-专题导航/" rel="prev" title="Linux 专题导航">
-                Linux 专题导航 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/14/Linux进程管理/" rel="prev" title="Linux进程管理">
+                Linux进程管理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -473,7 +473,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">65</span>
+                <span class="site-state-item-count">67</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -528,7 +528,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#指定新磁盘文件"><span class="nav-number">1.</span> <span class="nav-text">指定新磁盘文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用LVM扩展空间"><span class="nav-number">2.</span> <span class="nav-text">使用LVM扩展空间</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#扩容磁盘文件"><span class="nav-number">1.</span> <span class="nav-text">扩容磁盘文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定新磁盘文件"><span class="nav-number">2.</span> <span class="nav-text">指定新磁盘文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用LVM扩展空间"><span class="nav-number">3.</span> <span class="nav-text">使用LVM扩展空间</span></a></li></ol></div>
             
 
           </div>

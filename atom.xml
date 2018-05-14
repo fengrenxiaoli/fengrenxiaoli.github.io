@@ -36,11 +36,43 @@
   </entry>
   
   <entry>
+    <title>Linux后台管理</title>
+    <link href="http://yoursite.com/2018/05/14/Linux%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/"/>
+    <id>http://yoursite.com/2018/05/14/Linux后台管理/</id>
+    <published>2018-05-14T08:57:05.000Z</published>
+    <updated>2018-05-14T08:57:21.785Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux进程管理</title>
+    <link href="http://yoursite.com/2018/05/14/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/"/>
+    <id>http://yoursite.com/2018/05/14/Linux进程管理/</id>
+    <published>2018-05-14T08:56:47.000Z</published>
+    <updated>2018-05-14T08:57:29.321Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>VirtualBox扩容</title>
     <link href="http://yoursite.com/2018/05/14/VirtualBox%E6%89%A9%E5%AE%B9/"/>
     <id>http://yoursite.com/2018/05/14/VirtualBox扩容/</id>
     <published>2018-05-14T02:22:32.000Z</published>
-    <updated>2018-05-14T03:42:30.817Z</updated>
+    <updated>2018-05-14T05:11:28.287Z</updated>
     
     <content type="html"><![CDATA[<p>这篇文章用于在VirtualBox虚拟机上的CentOS扩充根目录空间，区别于新增硬盘以及添加新的挂载点</p>
 <p>主机环境为Ubuntu 17.04<br>VirtualBox 5.2<br>虚拟机为CentOS 7</p>
@@ -50,9 +82,9 @@
 <li>VDI：是Virtual Box 自己的处理格式，而且Virtual Box支持Windows和Linux，所以对于使用VirtualBox的用户比较好。</li>
 <li>VHD：是Windows专有的处理格式，HDD是Apple专有的处理格式，所以不会支持跨平台，一般不会考虑。</li>
 </ul>
-<p>##扩容磁盘文件<br>在主机上操作<br>VBoxManage命令是安装VirtualBox时安装的，如果无法使用该命令，请指定完整路径，寻找VirtualBox的安装目录，我的在<code>/usr/bin</code>下<br>centos.vdi和centos.vmdk是VirtualBox创建的系统磁盘文件，一般位于用户的<code>VirtualBox VMs</code>文件夹下</p>
+<h2 id="扩容磁盘文件"><a href="#扩容磁盘文件" class="headerlink" title="扩容磁盘文件"></a>扩容磁盘文件</h2><p>在主机上操作<br>VBoxManage命令是安装VirtualBox时安装的，如果无法使用该命令，请指定完整路径，寻找VirtualBox的安装目录，我的在<code>/usr/bin</code>下<br>centos.vdi和centos.vmdk是VirtualBox创建的系统磁盘文件，一般位于用户的<code>VirtualBox VMs</code>文件夹下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#VDI</div><div class="line">#单位为M</div><div class="line">VBoxManage modifyhd centos.vdi --resize 16000</div><div class="line"></div><div class="line">#VMDK</div><div class="line">#单位为M</div><div class="line">#如果是VMDK就要先转换成VDI，然后再扩容</div><div class="line">#vmdk是转换前的文件，vdi是转换之后的文件</div><div class="line">VBoxManage clonehd &quot;centos.vmdk&quot; &quot;centos.vdi&quot; --format vdi</div><div class="line">VBoxManage modifyhd &quot;centos.vdi&quot; --resize 16000</div><div class="line">#如果想再转回为VMDK，用这个命令就可以了，直接使用vdi格式也可以</div><div class="line">VBoxManage clonehd &quot;centos.vdi&quot; &quot;resized.vmdk&quot; --format vmdk</div></pre></td></tr></table></figure>
-<h2 id="指定新磁盘文件"><a href="#指定新磁盘文件" class="headerlink" title="指定新磁盘文件"></a>指定新磁盘文件</h2><p>打开虚拟机，选择系统 &gt; 右击 &gt; 设置 &gt; 存储 &gt; 控制器SATA &gt; 右边的添加虚拟硬盘 &gt; 选择转换后的文件<br>在虚拟机打开系统，通过df -h查看发现，根目录还是原样<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG33.png" alt=""></p>
+<h2 id="指定新磁盘文件"><a href="#指定新磁盘文件" class="headerlink" title="指定新磁盘文件"></a>指定新磁盘文件</h2><p>打开虚拟机，选择系统 &gt; 右击 &gt; 设置 &gt; 存储 &gt; 控制器SATA &gt; 右边的添加虚拟硬盘 &gt; 选择转换后的文件<br>在虚拟机打开系统，通过df -h查看发现，根目录还是原样<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG34.png" alt=""></p>
 <h2 id="使用LVM扩展空间"><a href="#使用LVM扩展空间" class="headerlink" title="使用LVM扩展空间"></a>使用LVM扩展空间</h2><p>在虚拟机上操作<br>因为要修改现有分区，所以要用LVM<br>LVM（Logic Volume Manager）逻辑卷管理，像RedHat系的默认分区管理方式，是建立在硬盘分区之上，文件系统之下的逻辑层，用来解决在最初分区时未正确的评估和和分配分区容量，而造成系统分区不够用。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#查看当前系统分区情况</div><div class="line">fdisk -l</div><div class="line"></div><div class="line">#进行分区</div><div class="line">fdisk /dev/sda</div><div class="line"></div><div class="line">#重读分区表</div><div class="line">partprobe</div><div class="line"></div><div class="line">#将分区格式化为ext4格式</div><div class="line">mkfs.ext4 /dev/sda3</div><div class="line"></div><div class="line">#开始LVM操作,查看卷组名，即VG Name，我这里是centos</div><div class="line">vgdisplay</div><div class="line"></div><div class="line">#创建新物理卷，sda3是之前分区分配的</div><div class="line">pvcreate /dev/sda3</div><div class="line">#扩展到卷组</div><div class="line">vgextend centos /dev/sda3</div><div class="line"></div><div class="line">#查看根分区</div><div class="line">lvdisplay</div></pre></td></tr></table></figure>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG35.png" alt=""></p>
@@ -1107,60 +1139,6 @@ width: 20%;
     <summary type="html">
     
       &lt;h2 id=&quot;用户基本命令&quot;&gt;&lt;a href=&quot;#用户基本命令&quot; class=&quot;headerlink&quot; title=&quot;用户基本命令&quot;&gt;&lt;/a&gt;用户基本命令&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux磁盘管理 swap分区</title>
-    <link href="http://yoursite.com/2018/05/06/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-swap%E5%88%86%E5%8C%BA/"/>
-    <id>http://yoursite.com/2018/05/06/Linux磁盘管理-swap分区/</id>
-    <published>2018-05-06T07:59:06.000Z</published>
-    <updated>2018-05-06T08:18:27.167Z</updated>
-    
-    <content type="html"><![CDATA[<p>为磁盘添加SWAP交换分区</p>
-<p>1.首先建立一个普通的Linux分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fdisk /dev/sdb</div><div class="line">#参考MBR分区</div><div class="line">#输入p查看sdb的分区</div></pre></td></tr></table></figure></p>
-<p>2.修改分区类型的16进制编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">输入t，输入要修改的磁盘编号 这里是 6（sdb6的6）；</div><div class="line">输入 L 来查看可以修改成的类型</div><div class="line">再输入82（Linux swap）,保存成功</div><div class="line">输入p来查看已经保存的情况</div><div class="line">输入w保存分区</div></pre></td></tr></table></figure></p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG30.jpg" alt=""></p>
-<p>3.格式化交换分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkswap（后面跟随设备名称） /dev/sdb6 完成格式化</div></pre></td></tr></table></figure></p>
-<p>4.启动交换分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">swapon /dev/sdb6 	#启动交换分区</div><div class="line">free 				#查看加载状况</div><div class="line">swapoff /dev/sdb6 	#关闭交换分区</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;为磁盘添加SWAP交换分区&lt;/p&gt;
-&lt;p&gt;1.首先建立一个普通的Linux分区&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;d
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux磁盘管理 格式化</title>
-    <link href="http://yoursite.com/2018/05/06/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-%E6%A0%BC%E5%BC%8F%E5%8C%96/"/>
-    <id>http://yoursite.com/2018/05/06/Linux磁盘管理-格式化/</id>
-    <published>2018-05-06T06:23:56.000Z</published>
-    <updated>2018-05-06T08:38:54.588Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="格式化："><a href="#格式化：" class="headerlink" title="格式化："></a>格式化：</h2><p>又称逻辑格式化，它是指根据用户选定的文件系统（eg：FAT16（最大支持2GB分区），FAT32（单个文件大小不能超过4GB，最大支持16TB分区），NTFS，EXT2，EXT3，EXT4（centos6默认文件系统）等），在磁盘特定区域写入特定数据，在分区中划出一片用于存放文件分配表、目录表等用于文件管理的磁盘空间。</p>
-<p>格式化的目的并不是清空数据，其根本目的是为了<strong>写入文件系统，能够更快查找读写数据</strong>，但是在进行格式化的操作时会先清空原有数据。</p>
-<p>格式化具体进行的操作：<br>将整个分区分割成等大小的数据块（Block），每个数据块默认4KB，存储文件的最小，可以手动选择1KB、2KB或4KB。假设存放10KB的文件，会使用3个数据块，三个数据块不一定是连续的，最后的一数据块中即使没有放满，也不能再存放其他文件。<br>在分区列表中建立一个二维表格，记录了文件的id号（即文件放在那些数据库中，叫做iNode）、文件修改时间、文件的访问权限。操作文件时先访问此二维表进行权限匹配。</p>
-<p>parted工具可以格式化，但是parted支持的文件系统有限<br>无论使用MBR，还是GPT进行的分区，都可以使用”mkfs”进行分区格式化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkfs (-make for system)</div><div class="line">mkfs -t ext3 /dev/sda6     #将sda6分区格式化为ext3格式</div><div class="line">mkfs -t ext2 /dev/sda7     #将sda7分区格式化为ext2格式</div></pre></td></tr></table></figure>
-<p>MBR只有主分区和逻辑分区可以格式化， 扩展分区不可以格式化<br>GPT类型格式化后，使用fdisk看不到各个分区的系统文件格式， 必须启动parted工具的print指令来查看</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -l /dev/sdb 		#查看sdb磁盘上的设备情况</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;格式化：&quot;&gt;&lt;a href=&quot;#格式化：&quot; class=&quot;headerlink&quot; title=&quot;格式化：&quot;&gt;&lt;/a&gt;格式化：&lt;/h2&gt;&lt;p&gt;又称逻辑格式化，它是指根据用户选定的文件系统（eg：FAT16（最大支持2GB分区），FAT32（单个文件大小不能超过4GB
     
     </summary>
     
