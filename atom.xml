@@ -36,11 +36,11 @@
   </entry>
   
   <entry>
-    <title>Linux 系统资源查看</title>
+    <title>【Linux】Linux 系统资源查看</title>
     <link href="http://yoursite.com/2018/05/15/Linux-%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E6%9F%A5%E7%9C%8B/"/>
     <id>http://yoursite.com/2018/05/15/Linux-系统资源查看/</id>
     <published>2018-05-15T04:48:04.000Z</published>
-    <updated>2018-05-15T06:17:26.479Z</updated>
+    <updated>2018-05-15T18:06:15.439Z</updated>
     
     <content type="html"><![CDATA[<h2 id="监控系统资源（memory-swap-system-io-cpu等）"><a href="#监控系统资源（memory-swap-system-io-cpu等）" class="headerlink" title="监控系统资源（memory swap system io cpu等）"></a>监控系统资源（memory swap system io cpu等）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">vmstat [刷新延时 刷新次数]</div><div class="line">例：vmstat 1 3</div><div class="line"></div><div class="line">procs：进程信息字段</div><div class="line">-r：等待运行的进程数，数量越大，系统越繁忙</div><div class="line">-b：不可被唤醒和进程数量，数量越大，系统越繁忙</div><div class="line"></div><div class="line">memory：内存信息字段</div><div class="line">-swpd：虚拟内存的使用情况，单位KB</div><div class="line">-free：空闲的内存容量，单位KB</div><div class="line">-buff：缓冲的内存容量，单位KB</div><div class="line">-cache：缓存的内存容量，单位KB</div><div class="line"></div><div class="line">swap：交换分区的信息字段</div><div class="line">-si：从磁盘中交换到内存中数据的数量，单位KB</div><div class="line">-so：从内存中交换到磁盘中数据的数量，单位KB</div><div class="line">这两个数越大，证明需要经常在磁盘和内存之间交换，系统性能越差</div><div class="line"></div><div class="line">io：磁盘读写信息字段</div><div class="line">-bi：从块设备读入数据的总量，单位是块</div><div class="line">-bo：写到块设备的数据和总量，单位是块。</div><div class="line">这两个数越大，代表系统的I/O越繁忙 </div><div class="line"></div><div class="line">system：系统信息字段</div><div class="line">-in：每秒被中断的进程次数</div><div class="line">-cs：每秒钟进行的事件切换次数。此两个数越大，代表系统与接口设备的通信非常繁忙 </div><div class="line"></div><div class="line">CPU：CPU信息字段</div><div class="line">-us：非内核进程消耗CPU运算时间的百分比</div><div class="line">-sy：内核进程消耗CPU运算时间的百分比</div><div class="line">-id：空闲CPU的百分比</div><div class="line">-wa：等待I/O所消耗的CPU百分比</div><div class="line">-st：被虚拟机所盗用的CPU百分比</div></pre></td></tr></table></figure>
 <h2 id="开机时内核检测信息"><a href="#开机时内核检测信息" class="headerlink" title="开机时内核检测信息"></a>开机时内核检测信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dmesg</div><div class="line">dmesg | grep cpu</div></pre></td></tr></table></figure>
@@ -70,11 +70,11 @@
   </entry>
   
   <entry>
-    <title>Linux进程管理 修改进程优先级</title>
+    <title>【Linux】Linux进程管理03 修改进程优先级</title>
     <link href="http://yoursite.com/2018/05/15/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86-%E4%BF%AE%E6%94%B9%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7/"/>
     <id>http://yoursite.com/2018/05/15/Linux进程管理-修改进程优先级/</id>
     <published>2018-05-15T03:10:37.000Z</published>
-    <updated>2018-05-15T04:50:49.798Z</updated>
+    <updated>2018-05-15T18:06:07.531Z</updated>
     
     <content type="html"><![CDATA[<p>Linux操作系统是一个多用户、多任务的操作系统，Linux系统中运行着非常多的进程，但是CPU在同一时钟周期内只能运算一个指令。进程优先级决定了每个进程处理的先后顺序 </p>
 <h2 id="查看优先级"><a href="#查看优先级" class="headerlink" title="查看优先级"></a>查看优先级</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ps -el </div><div class="line">#PRI(priority): 是系统的优先级</div><div class="line">#NI (nice)： 用户可以自定义的优先级</div><div class="line">#实际执行的优先级是PRI+NI，数字越小该进程优先级越高</div></pre></td></tr></table></figure>
@@ -105,11 +105,11 @@
   </entry>
   
   <entry>
-    <title>Linux进程管理 杀死进程</title>
+    <title>【Linux】Linux进程管理02 杀死进程</title>
     <link href="http://yoursite.com/2018/05/15/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86-%E6%9D%80%E6%AD%BB%E8%BF%9B%E7%A8%8B/"/>
     <id>http://yoursite.com/2018/05/15/Linux进程管理-杀死进程/</id>
     <published>2018-05-15T03:10:00.000Z</published>
-    <updated>2018-05-15T04:58:50.490Z</updated>
+    <updated>2018-05-15T18:06:17.127Z</updated>
     
     <content type="html"><![CDATA[<h2 id="kill命令-杀死一个进程"><a href="#kill命令-杀死一个进程" class="headerlink" title="kill命令 杀死一个进程"></a>kill命令 杀死一个进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kill -l</div><div class="line">#查看可用的进程信号</div><div class="line"></div><div class="line">kill [信号] PID</div></pre></td></tr></table></figure>
 <style>
@@ -167,11 +167,11 @@ width: 60%;
   </entry>
   
   <entry>
-    <title>Linux定时任务</title>
+    <title>【Linux】Linux定时任务</title>
     <link href="http://yoursite.com/2018/05/15/Linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
     <id>http://yoursite.com/2018/05/15/Linux定时任务/</id>
     <published>2018-05-15T01:23:57.000Z</published>
-    <updated>2018-05-15T14:11:15.091Z</updated>
+    <updated>2018-05-15T18:11:36.322Z</updated>
     
     <content type="html"><![CDATA[<style>
 table th:nth-of-type(1){
@@ -344,11 +344,11 @@ width: 70%
   </entry>
   
   <entry>
-    <title>Linux进程管理 查看进程</title>
+    <title>【Linux】Linux进程管理01 查看进程</title>
     <link href="http://yoursite.com/2018/05/14/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B/"/>
     <id>http://yoursite.com/2018/05/14/Linux进程管理-查看进程/</id>
     <published>2018-05-14T08:58:47.000Z</published>
-    <updated>2018-05-15T10:36:00.807Z</updated>
+    <updated>2018-05-15T18:05:41.227Z</updated>
     
     <content type="html"><![CDATA[<style>
 table th:nth-of-type(1){
@@ -614,11 +614,11 @@ width: 70%;
   </entry>
   
   <entry>
-    <title>Linux后台管理</title>
+    <title>【Linux】Linux后台管理</title>
     <link href="http://yoursite.com/2018/05/14/Linux%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/"/>
     <id>http://yoursite.com/2018/05/14/Linux后台管理/</id>
     <published>2018-05-14T08:57:05.000Z</published>
-    <updated>2018-05-14T09:17:05.904Z</updated>
+    <updated>2018-05-15T18:07:06.679Z</updated>
     
     <content type="html"><![CDATA[<p>工作（后台）管理指的是在单个登录终端中（shell界面）同时管理多个工作行为</p>
 <p>注意事项</p>
