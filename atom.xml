@@ -40,9 +40,27 @@
     <link href="http://yoursite.com/2018/05/15/Linux-%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E6%9F%A5%E7%9C%8B/"/>
     <id>http://yoursite.com/2018/05/15/Linux-系统资源查看/</id>
     <published>2018-05-15T04:48:04.000Z</published>
-    <updated>2018-05-15T04:54:20.515Z</updated>
+    <updated>2018-05-15T06:17:26.479Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="监控系统资源（memory-swap-system-io-cpu等）"><a href="#监控系统资源（memory-swap-system-io-cpu等）" class="headerlink" title="监控系统资源（memory swap system io cpu等）"></a>监控系统资源（memory swap system io cpu等）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">vmstat [刷新延时 刷新次数]</div><div class="line">例：vmstat 1 3</div><div class="line"></div><div class="line">procs：进程信息字段</div><div class="line">-r：等待运行的进程数，数量越大，系统越繁忙</div><div class="line">-b：不可被唤醒和进程数量，数量越大，系统越繁忙</div><div class="line"></div><div class="line">memory：内存信息字段</div><div class="line">-swpd：虚拟内存的使用情况，单位KB</div><div class="line">-free：空闲的内存容量，单位KB</div><div class="line">-buff：缓冲的内存容量，单位KB</div><div class="line">-cache：缓存的内存容量，单位KB</div><div class="line"></div><div class="line">swap：交换分区的信息字段</div><div class="line">-si：从磁盘中交换到内存中数据的数量，单位KB</div><div class="line">-so：从内存中交换到磁盘中数据的数量，单位KB</div><div class="line">这两个数越大，证明需要经常在磁盘和内存之间交换，系统性能越差</div><div class="line"></div><div class="line">io：磁盘读写信息字段</div><div class="line">-bi：从块设备读入数据的总量，单位是块</div><div class="line">-bo：写到块设备的数据和总量，单位是块。</div><div class="line">这两个数越大，代表系统的I/O越繁忙 </div><div class="line"></div><div class="line">system：系统信息字段</div><div class="line">-in：每秒被中断的进程次数</div><div class="line">-cs：每秒钟进行的事件切换次数。此两个数越大，代表系统与接口设备的通信非常繁忙 </div><div class="line"></div><div class="line">CPU：CPU信息字段</div><div class="line">-us：非内核进程消耗CPU运算时间的百分比</div><div class="line">-sy：内核进程消耗CPU运算时间的百分比</div><div class="line">-id：空闲CPU的百分比</div><div class="line">-wa：等待I/O所消耗的CPU百分比</div><div class="line">-st：被虚拟机所盗用的CPU百分比</div></pre></td></tr></table></figure>
+<h2 id="开机时内核检测信息"><a href="#开机时内核检测信息" class="headerlink" title="开机时内核检测信息"></a>开机时内核检测信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dmesg</div><div class="line">dmesg | grep cpu</div></pre></td></tr></table></figure>
+<h2 id="查看内存使用状态"><a href="#查看内存使用状态" class="headerlink" title="查看内存使用状态"></a>查看内存使用状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">free [-b-k-m-g]</div><div class="line">-b：以字节为单位显示</div><div class="line">-k：以KBl为单位显示，默认就是以KB为单位显示</div><div class="line">-m：以MB为单位显示</div><div class="line">-g：以GB为单位显示（不满1g时显示精度丢失）</div></pre></td></tr></table></figure>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG38.png" alt=""></p>
+<p>第一行：total是总内存数，used是已经使用的内存数，free是空闲的内存数，shared是多个进程共享的内存总数，buff是缓冲内存数，cache是缓存内存数。默认单位是KB</p>
+<p><del>第二行：-/buffers/cache的内存数，相当于第一行的used-buffers-cached。+/buffers/cache的内存数，相当于第一行的free+buffers+cached</del></p>
+<p>第<del>二</del>三行：total是swap的总数；used是已经使用的swap总数，free是空闲的swap数。默认单位是KB</p>
+<h2 id="查看cpu信息"><a href="#查看cpu信息" class="headerlink" title="查看cpu信息"></a>查看cpu信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat/proc/cpuinfo</div></pre></td></tr></table></figure>
+<h2 id="显示系统的系统时间，平均负载，当前登录用户数"><a href="#显示系统的系统时间，平均负载，当前登录用户数" class="headerlink" title="显示系统的系统时间，平均负载，当前登录用户数"></a>显示系统的系统时间，平均负载，当前登录用户数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uptime</div></pre></td></tr></table></figure>
+<p>显示系统的系统时间，平均负载，当前登录用户数，即top命令的第一行（top命令耗费资源）</p>
+<p>w命令也可以看到这个数据，w命令侧重用户信息的显示，显示了终端号ip，平均负载等</p>
+<h2 id="查看系统与内核相关信息"><a href="#查看系统与内核相关信息" class="headerlink" title="查看系统与内核相关信息"></a>查看系统与内核相关信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">uname [选项]</div><div class="line"></div><div class="line">选项：</div><div class="line">-a :查看系统所有相关信息</div><div class="line">-r :查看内核版本</div><div class="line">-s :查看内核名称</div></pre></td></tr></table></figure>
+<h2 id="判断当前系统的位数"><a href="#判断当前系统的位数" class="headerlink" title="判断当前系统的位数"></a>判断当前系统的位数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">file /bin/ls</div><div class="line">#通过查看命令的位数</div><div class="line">#64位cpu仍可以安装32位系统，不能通过cpu位数来判断</div></pre></td></tr></table></figure>
+<h2 id="查看发行版信息"><a href="#查看发行版信息" class="headerlink" title="查看发行版信息"></a>查看发行版信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -q centos-release</div><div class="line">lsb_release -a</div></pre></td></tr></table></figure>
+<h2 id="列出进程打开或使用的文件信息"><a href="#列出进程打开或使用的文件信息" class="headerlink" title="列出进程打开或使用的文件信息"></a>列出进程打开或使用的文件信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">lsof [选项]</div><div class="line"></div><div class="line">选项：</div><div class="line">-c 字符串 ：只列出以字符串开头的进程打开文件</div><div class="line">-u 用户名 ：只列出某个用户的进程打开的文件</div><div class="line">-p pid    : 列出某个pid进程打开的文件</div><div class="line"></div><div class="line"></div><div class="line">示例：</div><div class="line">lsof | more</div><div class="line">#查询所有进程-分屏显示</div><div class="line"></div><div class="line">lsof /sbin/init</div><div class="line">#查询/sbin/init文件被哪个文件调用（只能查系统文件，其他自己建立的文件查没有意义）</div><div class="line"></div><div class="line">lsof -c httpd </div><div class="line">#查看httpd进程调用了哪个文件</div><div class="line"></div><div class="line">lsof -u root</div><div class="line">#按照用户名，查询某用户的进程所调用的文件名（数量可能很多）</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
+    
+      &lt;h2 id=&quot;监控系统资源（memory-swap-system-io-cpu等）&quot;&gt;&lt;a href=&quot;#监控系统资源（memory-swap-system-io-cpu等）&quot; class=&quot;headerlink&quot; title=&quot;监控系统资源（memory swap syste
     
     </summary>
     
@@ -153,54 +171,109 @@ width: 60%;
     <link href="http://yoursite.com/2018/05/15/Linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
     <id>http://yoursite.com/2018/05/15/Linux定时任务/</id>
     <published>2018-05-15T01:23:57.000Z</published>
-    <updated>2018-05-15T04:52:19.714Z</updated>
+    <updated>2018-05-15T10:27:31.673Z</updated>
     
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux后台管理</title>
-    <link href="http://yoursite.com/2018/05/14/Linux%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/"/>
-    <id>http://yoursite.com/2018/05/14/Linux后台管理/</id>
-    <published>2018-05-14T08:57:05.000Z</published>
-    <updated>2018-05-14T09:17:05.904Z</updated>
-    
-    <content type="html"><![CDATA[<p>工作（后台）管理指的是在单个登录终端中（shell界面）同时管理多个工作行为</p>
-<p>注意事项</p>
-<ol>
-<li>当前的登录终端，只能管理当前终端的工作，而不能管理其他登录终端的工作</li>
-<li>放入后台的命令必须可以持续运行一段时间，这样我们才能捕捉和操作这个工作</li>
-<li>放入后台执行的命令不能和前台用户有交互或需要前台输入，否则放入后台只能暂停，而不能执行</li>
-</ol>
-<p>top、vi之类放在后台也是暂停的，因为一个需要用户来查看进程健康状态，一个需要用户写入</p>
-<p>压缩、解压缩、cp、mv、find之类可以放在后台<br>所以，想要让这个命令在后台运行，首先，<strong>不能与用户有交互</strong>。其次，它要<strong>运行一段时间</strong></p>
-<h2 id="把进程放入后台"><a href="#把进程放入后台" class="headerlink" title="把进程放入后台"></a>把进程放入后台</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar -zcf etc.tar.gz /etc &amp;    </div><div class="line">#在命令后加个&amp;，把命令放在后台执行</div><div class="line"></div><div class="line">top</div><div class="line">#ctrl+z放在后台暂停</div></pre></td></tr></table></figure>
-<h2 id="查看后台的工作"><a href="#查看后台的工作" class="headerlink" title="查看后台的工作"></a>查看后台的工作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">jobs [-l]</div><div class="line">-l:显示工作的PID</div><div class="line">jobs默认是绑定终端的</div><div class="line"></div><div class="line">+代表最后一个放入的进程，也是工作恢复时，默认恢复的工作</div><div class="line">-代表倒二个放入的进程</div></pre></td></tr></table></figure>
-<h2 id="把后台暂停的工作回复到前台执行"><a href="#把后台暂停的工作回复到前台执行" class="headerlink" title="把后台暂停的工作回复到前台执行"></a>把后台暂停的工作回复到前台执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fg %工作号</div><div class="line"># %可以省略，但要注意工作号和PID的区别</div></pre></td></tr></table></figure>
-<h2 id="把后台暂停的工作回复到后台执行"><a href="#把后台暂停的工作回复到后台执行" class="headerlink" title="把后台暂停的工作回复到后台执行"></a>把后台暂停的工作回复到后台执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bg %工作号</div><div class="line"># 后台恢复执行的命令，是不能和前台有交互的，否则不能恢复到后台执行</div></pre></td></tr></table></figure>
-<h2 id="后台命令脱离终端执行"><a href="#后台命令脱离终端执行" class="headerlink" title="后台命令脱离终端执行"></a>后台命令脱离终端执行</h2><p>把命令放入后台，只能在当前登录终端执行。当用户logout时或关闭终端，会向该用户终端下所有，进程发送SIGHUP信号，后台程序就会停止</p>
-<p>mysqld不会跟随关闭，d表示守护进程damon，守护进程damon进程开机运行，某一个用户退出终端不影响该程序的运行，但把所有需要脱离终端执行的命令都放到守护进程里不切实际</p>
-<ol>
-<li>把需要后台执行的命令加入<code>/etc/rc.local</code>文件，自启动文件</li>
-<li>使用系统定时任务，让系统在指定的时间执行某个后台命令</li>
-<li>使用 nohup命令（常用）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">nohup 命令 &amp;</div><div class="line">nohup /root/for.sh &amp;</div><div class="line">#可以是脚本</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<style>
+table th:nth-of-type(1){
+width: 30%;
+}
+table th:nth-of-type(2){
+width: 70%
+;
+}
+</style>
+
+<h2 id="at-一次性定时任务"><a href="#at-一次性定时任务" class="headerlink" title="at 一次性定时任务"></a>at 一次性定时任务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">chkconfig --list |grep atd</div><div class="line">#确定at安装</div><div class="line"></div><div class="line">service atd restart</div><div class="line">#启动at服务</div></pre></td></tr></table></figure>
+<p>atf访问控制</p>
+<ul>
+<li>如果系统中有<code>/etc/at.allow</code>文件(白名单)，那么只有在此文件的用户可以使用at命令（/etc/at.deny文件会被忽略）；</li>
+<li>如果系统中没有<code>/etc/at.allow</code>文件，只有<code>/etc/at.deny</code>文件(黑名单)，那么在此名单下的用户不能使用at命令【对root不起作用】</li>
+<li>如果系统这两个文件都不存在，那么只有root用户可以使用at命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">at [选项] 时间</div><div class="line">选项：</div><div class="line">-m :执行工作后通知执行at命令的用户</div><div class="line">-c :显示该at工作的实际内容</div><div class="line">时间：</div><div class="line">HH:MM</div><div class="line">HH:MM YYYY-MM-DD</div><div class="line">HH:MM[am|pm] [month][date]</div><div class="line">HH:MM +[minutes|hours|days|weeks]</div><div class="line"></div><div class="line">at now + 5 minutes</div><div class="line">&gt;&gt;at /root/test.sh</div><div class="line">五分钟后执行/root/test.sh脚本，必须写绝对路径</div><div class="line">用ctrl+删除键删除，按ctrl + d 保存退出at</div><div class="line"></div><div class="line">atq           </div><div class="line">#查询当前服务器上的at工作</div><div class="line"></div><div class="line">atrm [工作号]  </div><div class="line">#删除指定的at任务</div></pre></td></tr></table></figure>
+<p><br> </p>
+<h2 id="用户-crontab-循环定时任务"><a href="#用户-crontab-循环定时任务" class="headerlink" title="用户 crontab 循环定时任务"></a>用户 crontab 循环定时任务</h2><p>访问控制</p>
+<ul>
+<li>当系统中有<code>/etc/cron.allow</code>文件(白名单)，只有写入此文件的用户可以使用crontab命令，没有写入的用户不能使用crontab命令。同样如果有此文件，<code>/etc/cron.deny</code>文件会被忽略，<code>/etc/cron.allow</code>文件的优先级更高；</li>
+<li>如果系统中没有<code>/etc/cron.allow</code>文件，只有<code>/etc/cron.deny</code>文件(黑名单)，那么在此名单下的用户不能使用cron命令【对root不起作用】</li>
+<li>如果系统这两个文件都不存在，那么只有root用户可以使用cron命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">systemctl status crond</div><div class="line">#查询是否安装</div><div class="line"></div><div class="line">systemctl start crond</div><div class="line">#启动</div><div class="line"></div><div class="line">systemctl enable crond</div><div class="line">#开机自启</div><div class="line"></div><div class="line">crontab [选项]</div><div class="line">选项：</div><div class="line">-e     #进入crontab编辑界面，当前用户vim方式编辑</div><div class="line">-l     #查看当前用户的crontab任务</div><div class="line">-r     #删除当前用户所有的定时的任务</div><div class="line"></div><div class="line"></div><div class="line">*  *  *  *  *  执行的任务</div><div class="line">#crontab -e 输入格式</div><div class="line">#第一个 * 一小时的第几分钟  0-59</div><div class="line">#第二个 * 一天当中的第几小时    0-23</div><div class="line">#第三个 * 一月当中第几天    1-31</div><div class="line">#第四个 * 一年当中第几个月  1-12</div><div class="line">#第五个 * 一周中的第几天    0-7(0和7都代表星期日)</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>特殊符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>代表任何时间,如第一个* 代表每分钟执行一次</td>
+</tr>
+<tr>
+<td>，</td>
+<td>代表不连续的时间,如:0 8,12,16 <em> </em> *代表每天的8点0分/12点0分/16点0分执行</td>
+</tr>
+<tr>
+<td>-</td>
+<td>代表连续时间, “0 5 <em> </em> * 1-6”代表每周一到周六5点执行</td>
+</tr>
+<tr>
+<td>*/n</td>
+<td>代表每个多久执行一次,”<em>/10 </em> <em> </em> *”表示每10钟执行一次</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<ul>
+<li>星期几与几号最好不要连用，因为都以天作为单位，容易让管理员混乱</li>
+<li>六个选项都不能为空,必须填写。如果不确定使用<code>*</code>代表任意时间</li>
+<li>最小有效时间为分钟,最大有效时间为月，像2018年某时执行，3点30分30秒这样的时间都不能使用</li>
+<li>定时任务中的命令最好使用绝对路径，定时任务有自己的PATH路径（/etc/crontab）</li>
+</ul>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG39.PNG" alt=""></p>
+<p>* 5 <em> </em> 1 /root/hello.sh<br>每周一的5点的每分钟执行一次</p>
+<p><br></p>
+<h2 id="系统-crontab-循环定时任务"><a href="#系统-crontab-循环定时任务" class="headerlink" title="系统 crontab 循环定时任务"></a>系统 crontab 循环定时任务</h2><p><code>contab -e</code>是每个用户执行的命令，也就是说不同的用户身份可以执行自己的定时任务，可是有些定时任务需要系统执行，这里我们就需要编辑<code>/etc/crontab</code>这个配置文件了</p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG40.PNG" alt=""><br><code>/etc/crontab</code>的功能逐渐被anacron取代<br><code>/etc/cron.{hourly,daily,weekly,monthly}</code>不再依赖<code>/etc/crontab</code>而是anacron<br>主要说明CentOS</p>
+<p>执行系统任务的方法</p>
+<ul>
+<li>手工执行定时任务：crontab -e</li>
+<li>系统定时任务<ul>
+<li>将定时任务脚本复制到/etc/cron.{hourly,daily,weekly,monthly}目录中，就能自动定时执行（推荐）</li>
+<li>修改crontab配置文件</li>
+</ul>
 </li>
-</ol>
+</ul>
+<p><br></p>
+<h2 id="anacron配置"><a href="#anacron配置" class="headerlink" title="anacron配置"></a>anacron配置</h2><p>anacron 是用来保证在系统关机的时候错过的定时任务，可以在系统开机之后再执行</p>
+<h3 id="检测周期"><a href="#检测周期" class="headerlink" title="检测周期"></a>检测周期</h3><ul>
+<li>anacron会使用一天、七天、一个月作为检测周期</li>
+<li>在系统的<code>/var/spool/anacron</code>目录中存在<code>cron.{daily.weekly,monthly}</code>文件，用于记录上次执行cron的时间</li>
+<li>和当前时间做比较，如果两个时间的差值超过了anacron的指定时间差，证明有cron任务被漏执行</li>
+</ul>
+<p>在老的CentOS版本中，<code>/etc/cron.{daily.weekly,monthly}</code>这些目录即会被cron调用，也会被anacron调用，容易重复执行<br>在CentOS 6.x中则只会被anacron调用，避免了重复执行<br>在CentOS 6.x中，anacron不再是服务，而是系统命令</p>
+<p>###配置文件目<br>/etc/anacrontab<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG41.png" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG42.png" alt=""></p>
+<p>###方法<br>只需要将需要定时执行的任务脚本放到 /etc/cron.(daily,weekly,monthly) 目录下，就能自动定时执行</p>
+<p>###特点<br>方便，易管理，一定程度上防止意外情况，执行时间不确定</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;工作（后台）管理指的是在单个登录终端中（shell界面）同时管理多个工作行为&lt;/p&gt;
-&lt;p&gt;注意事项&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;当前的登录终端，只能管理当前终端的工作，而不能管理其他登录终端的工作&lt;/li&gt;
-&lt;li&gt;放入后台的命令必须可以持续运行一段时间，这样我们才能捕捉和
+      &lt;style&gt;
+table th:nth-of-type(1){
+width: 30%;
+}
+table th:nth-of-type(2){
+width: 70%
+;
+}
+&lt;/style&gt;
+
+&lt;h2 id=&quot;at-一次性定时任务&quot;&gt;&lt;a href=&quot;#at-一次性定时任务&quot; c
     
     </summary>
     
@@ -213,8 +286,8 @@ width: 60%;
     <title>Linux进程管理 查看进程</title>
     <link href="http://yoursite.com/2018/05/14/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B/"/>
     <id>http://yoursite.com/2018/05/14/Linux进程管理-查看进程/</id>
-    <published>2018-05-14T08:56:47.000Z</published>
-    <updated>2018-05-15T04:59:17.479Z</updated>
+    <published>2018-05-14T08:58:47.000Z</published>
+    <updated>2018-05-15T05:17:57.015Z</updated>
     
     <content type="html"><![CDATA[<style>
 table th:nth-of-type(1){
@@ -448,7 +521,7 @@ width: 70%
 </tr>
 </tbody>
 </table>
-<p>cpu读写速度&gt;内存&gt;硬盘<br>缓存cache是加速读取 减少了对硬盘的读取<br>缓冲buff是加速写入 减少了对硬盘的写入</p>
+<p>cpu读写速度&gt;内存&gt;硬盘<br>缓存cache是加速读取 减少对硬盘的读取<br>缓冲buff是加速写入 减少对硬盘的写入</p>
 <p>判断系统健康状况主要查看的参数：</p>
 <ol>
 <li>load average: 0.00, 0.00, 0.00  #表示系统在之前1分钟，5分钟，15分钟的平均负载。.</li>
@@ -475,6 +548,51 @@ width: 70%
 
 
 &lt;p&gt;进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux后台管理</title>
+    <link href="http://yoursite.com/2018/05/14/Linux%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/"/>
+    <id>http://yoursite.com/2018/05/14/Linux后台管理/</id>
+    <published>2018-05-14T08:57:05.000Z</published>
+    <updated>2018-05-14T09:17:05.904Z</updated>
+    
+    <content type="html"><![CDATA[<p>工作（后台）管理指的是在单个登录终端中（shell界面）同时管理多个工作行为</p>
+<p>注意事项</p>
+<ol>
+<li>当前的登录终端，只能管理当前终端的工作，而不能管理其他登录终端的工作</li>
+<li>放入后台的命令必须可以持续运行一段时间，这样我们才能捕捉和操作这个工作</li>
+<li>放入后台执行的命令不能和前台用户有交互或需要前台输入，否则放入后台只能暂停，而不能执行</li>
+</ol>
+<p>top、vi之类放在后台也是暂停的，因为一个需要用户来查看进程健康状态，一个需要用户写入</p>
+<p>压缩、解压缩、cp、mv、find之类可以放在后台<br>所以，想要让这个命令在后台运行，首先，<strong>不能与用户有交互</strong>。其次，它要<strong>运行一段时间</strong></p>
+<h2 id="把进程放入后台"><a href="#把进程放入后台" class="headerlink" title="把进程放入后台"></a>把进程放入后台</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar -zcf etc.tar.gz /etc &amp;    </div><div class="line">#在命令后加个&amp;，把命令放在后台执行</div><div class="line"></div><div class="line">top</div><div class="line">#ctrl+z放在后台暂停</div></pre></td></tr></table></figure>
+<h2 id="查看后台的工作"><a href="#查看后台的工作" class="headerlink" title="查看后台的工作"></a>查看后台的工作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">jobs [-l]</div><div class="line">-l:显示工作的PID</div><div class="line">jobs默认是绑定终端的</div><div class="line"></div><div class="line">+代表最后一个放入的进程，也是工作恢复时，默认恢复的工作</div><div class="line">-代表倒二个放入的进程</div></pre></td></tr></table></figure>
+<h2 id="把后台暂停的工作回复到前台执行"><a href="#把后台暂停的工作回复到前台执行" class="headerlink" title="把后台暂停的工作回复到前台执行"></a>把后台暂停的工作回复到前台执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fg %工作号</div><div class="line"># %可以省略，但要注意工作号和PID的区别</div></pre></td></tr></table></figure>
+<h2 id="把后台暂停的工作回复到后台执行"><a href="#把后台暂停的工作回复到后台执行" class="headerlink" title="把后台暂停的工作回复到后台执行"></a>把后台暂停的工作回复到后台执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bg %工作号</div><div class="line"># 后台恢复执行的命令，是不能和前台有交互的，否则不能恢复到后台执行</div></pre></td></tr></table></figure>
+<h2 id="后台命令脱离终端执行"><a href="#后台命令脱离终端执行" class="headerlink" title="后台命令脱离终端执行"></a>后台命令脱离终端执行</h2><p>把命令放入后台，只能在当前登录终端执行。当用户logout时或关闭终端，会向该用户终端下所有，进程发送SIGHUP信号，后台程序就会停止</p>
+<p>mysqld不会跟随关闭，d表示守护进程damon，守护进程damon进程开机运行，某一个用户退出终端不影响该程序的运行，但把所有需要脱离终端执行的命令都放到守护进程里不切实际</p>
+<ol>
+<li>把需要后台执行的命令加入<code>/etc/rc.local</code>文件，自启动文件</li>
+<li>使用系统定时任务，让系统在指定的时间执行某个后台命令</li>
+<li>使用 nohup命令（常用）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">nohup 命令 &amp;</div><div class="line">nohup /root/for.sh &amp;</div><div class="line">#可以是脚本</div></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;工作（后台）管理指的是在单个登录终端中（shell界面）同时管理多个工作行为&lt;/p&gt;
+&lt;p&gt;注意事项&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;当前的登录终端，只能管理当前终端的工作，而不能管理其他登录终端的工作&lt;/li&gt;
+&lt;li&gt;放入后台的命令必须可以持续运行一段时间，这样我们才能捕捉和
     
     </summary>
     

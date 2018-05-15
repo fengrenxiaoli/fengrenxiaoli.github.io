@@ -94,15 +94,20 @@
 
 
 
+<meta name="description" content="监控系统资源（memory swap system io cpu等）123456789101112131415161718192021222324252627282930313233vmstat [刷新延时 刷新次数]例：vmstat 1 3procs：进程信息字段-r：等待运行的进程数，数量越大，系统越繁忙-b：不可被唤醒和进程数量，数量越大，系统越繁忙memory：内存信息字段-swpd：虚拟">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 系统资源查看">
 <meta property="og:url" content="http://yoursite.com/2018/05/15/Linux-系统资源查看/index.html">
 <meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="监控系统资源（memory swap system io cpu等）123456789101112131415161718192021222324252627282930313233vmstat [刷新延时 刷新次数]例：vmstat 1 3procs：进程信息字段-r：等待运行的进程数，数量越大，系统越繁忙-b：不可被唤醒和进程数量，数量越大，系统越繁忙memory：内存信息字段-swpd：虚拟">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-15T04:54:20.515Z">
+<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG38.png">
+<meta property="og:updated_time" content="2018-05-15T06:17:26.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 系统资源查看">
+<meta name="twitter:description" content="监控系统资源（memory swap system io cpu等）123456789101112131415161718192021222324252627282930313233vmstat [刷新延时 刷新次数]例：vmstat 1 3procs：进程信息字段-r：等待运行的进程数，数量越大，系统越繁忙-b：不可被唤醒和进程数量，数量越大，系统越繁忙memory：内存信息字段-swpd：虚拟">
+<meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG38.png">
 
 
 
@@ -331,7 +336,21 @@
       
 
       
-        
+        <h2 id="监控系统资源（memory-swap-system-io-cpu等）"><a href="#监控系统资源（memory-swap-system-io-cpu等）" class="headerlink" title="监控系统资源（memory swap system io cpu等）"></a>监控系统资源（memory swap system io cpu等）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">vmstat [刷新延时 刷新次数]</div><div class="line">例：vmstat 1 3</div><div class="line"></div><div class="line">procs：进程信息字段</div><div class="line">-r：等待运行的进程数，数量越大，系统越繁忙</div><div class="line">-b：不可被唤醒和进程数量，数量越大，系统越繁忙</div><div class="line"></div><div class="line">memory：内存信息字段</div><div class="line">-swpd：虚拟内存的使用情况，单位KB</div><div class="line">-free：空闲的内存容量，单位KB</div><div class="line">-buff：缓冲的内存容量，单位KB</div><div class="line">-cache：缓存的内存容量，单位KB</div><div class="line"></div><div class="line">swap：交换分区的信息字段</div><div class="line">-si：从磁盘中交换到内存中数据的数量，单位KB</div><div class="line">-so：从内存中交换到磁盘中数据的数量，单位KB</div><div class="line">这两个数越大，证明需要经常在磁盘和内存之间交换，系统性能越差</div><div class="line"></div><div class="line">io：磁盘读写信息字段</div><div class="line">-bi：从块设备读入数据的总量，单位是块</div><div class="line">-bo：写到块设备的数据和总量，单位是块。</div><div class="line">这两个数越大，代表系统的I/O越繁忙 </div><div class="line"></div><div class="line">system：系统信息字段</div><div class="line">-in：每秒被中断的进程次数</div><div class="line">-cs：每秒钟进行的事件切换次数。此两个数越大，代表系统与接口设备的通信非常繁忙 </div><div class="line"></div><div class="line">CPU：CPU信息字段</div><div class="line">-us：非内核进程消耗CPU运算时间的百分比</div><div class="line">-sy：内核进程消耗CPU运算时间的百分比</div><div class="line">-id：空闲CPU的百分比</div><div class="line">-wa：等待I/O所消耗的CPU百分比</div><div class="line">-st：被虚拟机所盗用的CPU百分比</div></pre></td></tr></table></figure>
+<h2 id="开机时内核检测信息"><a href="#开机时内核检测信息" class="headerlink" title="开机时内核检测信息"></a>开机时内核检测信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dmesg</div><div class="line">dmesg | grep cpu</div></pre></td></tr></table></figure>
+<h2 id="查看内存使用状态"><a href="#查看内存使用状态" class="headerlink" title="查看内存使用状态"></a>查看内存使用状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">free [-b-k-m-g]</div><div class="line">-b：以字节为单位显示</div><div class="line">-k：以KBl为单位显示，默认就是以KB为单位显示</div><div class="line">-m：以MB为单位显示</div><div class="line">-g：以GB为单位显示（不满1g时显示精度丢失）</div></pre></td></tr></table></figure>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG38.png" alt=""></p>
+<p>第一行：total是总内存数，used是已经使用的内存数，free是空闲的内存数，shared是多个进程共享的内存总数，buff是缓冲内存数，cache是缓存内存数。默认单位是KB</p>
+<p><del>第二行：-/buffers/cache的内存数，相当于第一行的used-buffers-cached。+/buffers/cache的内存数，相当于第一行的free+buffers+cached</del></p>
+<p>第<del>二</del>三行：total是swap的总数；used是已经使用的swap总数，free是空闲的swap数。默认单位是KB</p>
+<h2 id="查看cpu信息"><a href="#查看cpu信息" class="headerlink" title="查看cpu信息"></a>查看cpu信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat/proc/cpuinfo</div></pre></td></tr></table></figure>
+<h2 id="显示系统的系统时间，平均负载，当前登录用户数"><a href="#显示系统的系统时间，平均负载，当前登录用户数" class="headerlink" title="显示系统的系统时间，平均负载，当前登录用户数"></a>显示系统的系统时间，平均负载，当前登录用户数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uptime</div></pre></td></tr></table></figure>
+<p>显示系统的系统时间，平均负载，当前登录用户数，即top命令的第一行（top命令耗费资源）</p>
+<p>w命令也可以看到这个数据，w命令侧重用户信息的显示，显示了终端号ip，平均负载等</p>
+<h2 id="查看系统与内核相关信息"><a href="#查看系统与内核相关信息" class="headerlink" title="查看系统与内核相关信息"></a>查看系统与内核相关信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">uname [选项]</div><div class="line"></div><div class="line">选项：</div><div class="line">-a :查看系统所有相关信息</div><div class="line">-r :查看内核版本</div><div class="line">-s :查看内核名称</div></pre></td></tr></table></figure>
+<h2 id="判断当前系统的位数"><a href="#判断当前系统的位数" class="headerlink" title="判断当前系统的位数"></a>判断当前系统的位数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">file /bin/ls</div><div class="line">#通过查看命令的位数</div><div class="line">#64位cpu仍可以安装32位系统，不能通过cpu位数来判断</div></pre></td></tr></table></figure>
+<h2 id="查看发行版信息"><a href="#查看发行版信息" class="headerlink" title="查看发行版信息"></a>查看发行版信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -q centos-release</div><div class="line">lsb_release -a</div></pre></td></tr></table></figure>
+<h2 id="列出进程打开或使用的文件信息"><a href="#列出进程打开或使用的文件信息" class="headerlink" title="列出进程打开或使用的文件信息"></a>列出进程打开或使用的文件信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">lsof [选项]</div><div class="line"></div><div class="line">选项：</div><div class="line">-c 字符串 ：只列出以字符串开头的进程打开文件</div><div class="line">-u 用户名 ：只列出某个用户的进程打开的文件</div><div class="line">-p pid    : 列出某个pid进程打开的文件</div><div class="line"></div><div class="line"></div><div class="line">示例：</div><div class="line">lsof | more</div><div class="line">#查询所有进程-分屏显示</div><div class="line"></div><div class="line">lsof /sbin/init</div><div class="line">#查询/sbin/init文件被哪个文件调用（只能查系统文件，其他自己建立的文件查没有意义）</div><div class="line"></div><div class="line">lsof -c httpd </div><div class="line">#查看httpd进程调用了哪个文件</div><div class="line"></div><div class="line">lsof -u root</div><div class="line">#按照用户名，查询某用户的进程所调用的文件名（数量可能很多）</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -425,8 +444,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -486,6 +514,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#监控系统资源（memory-swap-system-io-cpu等）"><span class="nav-number">1.</span> <span class="nav-text">监控系统资源（memory swap system io cpu等）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开机时内核检测信息"><span class="nav-number">2.</span> <span class="nav-text">开机时内核检测信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看内存使用状态"><span class="nav-number">3.</span> <span class="nav-text">查看内存使用状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看cpu信息"><span class="nav-number">4.</span> <span class="nav-text">查看cpu信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示系统的系统时间，平均负载，当前登录用户数"><span class="nav-number">5.</span> <span class="nav-text">显示系统的系统时间，平均负载，当前登录用户数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看系统与内核相关信息"><span class="nav-number">6.</span> <span class="nav-text">查看系统与内核相关信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断当前系统的位数"><span class="nav-number">7.</span> <span class="nav-text">判断当前系统的位数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看发行版信息"><span class="nav-number">8.</span> <span class="nav-text">查看发行版信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出进程打开或使用的文件信息"><span class="nav-number">9.</span> <span class="nav-text">列出进程打开或使用的文件信息</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
