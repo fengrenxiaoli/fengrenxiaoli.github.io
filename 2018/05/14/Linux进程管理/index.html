@@ -94,15 +94,18 @@
 
 
 
+<meta name="description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70% ; }    进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源 进程管理的作用  判断服务器健康状态 查看系统中所有的进程 杀死进程     ps命令 查看所有进程1234567891011ps">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux进程管理">
 <meta property="og:url" content="http://yoursite.com/2018/05/14/Linux进程管理/index.html">
 <meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70% ; }    进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源 进程管理的作用  判断服务器健康状态 查看系统中所有的进程 杀死进程     ps命令 查看所有进程1234567891011ps">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-14T08:57:29.321Z">
+<meta property="og:updated_time" content="2018-05-15T03:20:01.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux进程管理">
+<meta name="twitter:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70% ; }    进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源 进程管理的作用  判断服务器健康状态 查看系统中所有的进程 杀死进程     ps命令 查看所有进程1234567891011ps">
 
 
 
@@ -331,7 +334,46 @@
       
 
       
-        
+        <style>
+table th:nth-of-type(1){
+width: 30%;
+}
+table th:nth-of-type(2){
+width: 70%
+;
+}
+</style>
+
+
+<p>进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源</p>
+<p>进程管理的作用</p>
+<ol>
+<li>判断服务器健康状态</li>
+<li>查看系统中所有的进程</li>
+<li>杀死进程</li>
+</ol>
+<p><br>  </p>
+<h2 id="ps命令-查看所有进程"><a href="#ps命令-查看所有进程" class="headerlink" title="ps命令 查看所有进程"></a>ps命令 查看所有进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">ps aux </div><div class="line">#查看系统中所有进程 ，使用BSD操作系统格式（没有-）</div><div class="line">ps -le</div><div class="line">#查看系统中所有进程 ，使用Linux标准命令格式</div><div class="line"></div><div class="line">选项</div><div class="line">-a :显示一个终端的所有进程</div><div class="line">-u :显示进程的归属用户及内存的使用情况</div><div class="line">-x :显示没有控制终端的进程</div><div class="line">-l :长格式显示，显示更加详细的信息</div><div class="line">-e :显示所有进程，和-A作用一致</div></pre></td></tr></table></figure>
+<p>输出详解<br>| 显示 | 含义 |<br>|—|—|<br>| USER  |  该进程是由哪个用户产生的 |<br>| %CPU |  该进程占用CPU资源的百分比，占用越高，进程越耗费资源 |<br>| %MEM | 该进程占用物理内存的百分比，占用越高，进程越耗费资源  |<br>| VSZ |  该进程占用虚拟内存的大小 ，单位KB |<br>| RSS |  该进程占用实际物理内存的大小，单位KB |<br>| TTY |  表示该进程是在哪个终端运行的<br>tty1-tty6是本地字符界面终端，tty7是本地图形终端<br> pts/0-255代表虚拟终端|<br>| STAT | 进程的状态  <br>R :运行 <br> S :睡眠 <br>T :停止<br>s :包含子进程 <br>   + :位于后台  |<br>| START | 该进程的启动时间   |<br>| TIME |  该进程占用CPU的运算时间，注意不是系统时间 |<br>| COMMAND | 产生些进程的命令名  |</p>
+<p><code>/sbin/init</code>的pid永远是1，它是系统下所有进程的父进程，所有的进程都依赖于它</p>
+<p>TTY是<code>？</code>，代表该进程是由系统内核启动的，一般认为是系统进程</p>
+<p><br>  </p>
+<h2 id="pstree命令-查看进程树"><a href="#pstree命令-查看进程树" class="headerlink" title="pstree命令 查看进程树"></a>pstree命令 查看进程树</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pstree [选项]</div><div class="line">-p :显示进程的PID</div><div class="line">-u :显示进程的所属用户</div></pre></td></tr></table></figure>
+<p><br>  </p>
+<h2 id="top命令-查看系统健康状态"><a href="#top命令-查看系统健康状态" class="headerlink" title="top命令 查看系统健康状态"></a>top命令 查看系统健康状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">top [选项]</div><div class="line">选项：</div><div class="line">-d秒数：指定top命令每隔几秒更新。默认是3秒</div><div class="line">-b：使用批处理模式输出。 一般和 ”-n&quot;选项合用</div><div class="line">-n 次数：指定top 命令执行的次数。 一般和 “-b”选项合用</div><div class="line"></div><div class="line">在 top 命令的交互模式当中可以执行的命令：</div><div class="line">h：显示交互模式的帮助</div><div class="line">P：以CPU使用率排序，默认就是此项</div><div class="line">M：以内存的使用率排序</div><div class="line">N：以PID排序</div><div class="line">q：退出 top</div><div class="line"></div><div class="line">top -b -n 1 &gt; /root/top.log </div><div class="line">#查看所有进程，因为直接使用top屏幕有限无法全部展示，所以放到文件中</div><div class="line">#将执行的top命令结果输出到log日志文件中</div><div class="line">#top命令耗费资源比较大，应及时关闭</div></pre></td></tr></table></figure>
+<p>输出详解<br>|<strong>第一行为任务队列信息</strong>||<br>|—-|—–|<br>|  12:26:46  |   系统当前时间   |<br>|  up 1 day,13:32  |   系统已运行的时长   |<br>|  2 users  |   当前登录的用户数量   |<br>|  load average  |   系统在之前1分钟，5分钟，15分钟的平均负载（与CPU核数相关，一般认为单核小于1时，负载较小，如果大于1,系统已经超出负荷，那么双核不超2，4核不超4）   |<br>| <strong>第二行为进程信息</strong>   |      |<br>|  tasks:95 total  |   系统中的进程总数   |<br>|  1 running |    正在运行的进程数  |<br>|  94 sleeping  |   睡眠的进程数   |<br>|  0,stopped  |    停止的进程数  |<br>|  1 zombie  |  僵尸进程（应该停止却没有停止的进程），如果不是0,需要手工检查僵尸进程    |<br>| <strong>第三行为CPU信息</strong>   |      |<br>|  Cpu(s):0.1%us  |    用户模式占用的CPU百分比  |<br>|  0.1%sy  |    系统模式占用的CPU百分比    |<br>|  0.0%ni  |  改变过优先级的用户进程占用的CPU百分比  |<br>| 99.7%id   |   空闲CPU的CPU百分比   |<br>|  0.1%wa  |  等待输入/输出的进程的占用CPU百分比     |<br>|  0.0%hi  |   硬中断请求服务占用的CPU百分比   |<br>|  0.1%si  |   软中断请求服务占用的CPU百分比   |<br>| 0.0%st   |  st(Steal time)虚拟时间百分比，就是当有虚拟CPU时，虚拟CPU占实际CPU的时间百分比     |<br>|  <strong>第四行为物理内存信息</strong>  |      |<br>|  Mem： 623434k total  |   物理内存的总量，单位kb   |<br>|   521313k free |   空闲的物理内存   |<br>|  578322k used  |    已经使用的物理内存  |<br>|   623231 buff/cache |   作为缓冲/缓存的内存数量   |<br>|   <strong>第五行是交换分区的信息</strong> |      |<br>|  Swap: 8298492 total |  交换分区的总量，单位kb    |<br>|  8292336 free  |  空闲的交换分区   |<br>|   6156 used |  已经使用的交换分区   |<br>|  3129824 avail Mem   |  可用的交换分区   |<br>|<strong>第六行类似ps</strong>||<br>|PR|优先级|<br>|NI|任务nice值|<br>|VIRT|进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES|<br>|RES|物理内存用量|<br>|SHR|共享内存用量|<br>|TIME+|累计cpu占用时间|</p>
+<p>cpu读写速度&gt;内存&gt;硬盘<br>缓存cache是加速读取 减少了对硬盘的读取<br>缓冲buff是加速写入 减少了对硬盘的写入</p>
+<p>判断系统健康状况主要查看的参数：</p>
+<ol>
+<li>load average: 0.00, 0.00, 0.00  #表示系统在之前1分钟，5分钟，15分钟的平均负载。.</li>
+<li>Cpu（s）:…99.8%id  #CPU空闲百分比</li>
+<li>Mem：…6780k free  #内存空闲率</li>
+<li>Swap：…536723k free  #swap空闲率</li>
+</ol>
+<p><br></p>
+<p>参考：</p>
+<p><a href="https://blog.csdn.net/qq_31666147/article/details/51557300" target="_blank" rel="external">https://blog.csdn.net/qq_31666147/article/details/51557300</a></p>
+
       
     </div>
     
@@ -425,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -441,7 +492,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -486,6 +537,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ps命令-查看所有进程"><span class="nav-number">1.</span> <span class="nav-text">ps命令 查看所有进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pstree命令-查看进程树"><span class="nav-number">2.</span> <span class="nav-text">pstree命令 查看进程树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top命令-查看系统健康状态"><span class="nav-number">3.</span> <span class="nav-text">top命令 查看系统健康状态</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

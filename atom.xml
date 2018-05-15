@@ -36,6 +36,84 @@
   </entry>
   
   <entry>
+    <title>Linux进程管理 修改进程优先级</title>
+    <link href="http://yoursite.com/2018/05/15/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86-%E4%BF%AE%E6%94%B9%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7/"/>
+    <id>http://yoursite.com/2018/05/15/Linux进程管理-修改进程优先级/</id>
+    <published>2018-05-15T03:10:37.000Z</published>
+    <updated>2018-05-15T04:34:47.521Z</updated>
+    
+    <content type="html"><![CDATA[<p>Linux操作系统是一个多用户、多任务的操作系统，Linux系统中运行着非常多的进程，但是CPU在同一时钟周期内只能运算一个指令。进程优先级决定了每个进程处理的先后顺序 </p>
+<h2 id="查看优先级"><a href="#查看优先级" class="headerlink" title="查看优先级"></a>查看优先级</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ps -el </div><div class="line">#可以看优先级</div><div class="line">#PRI(priority): 是系统的优先级</div><div class="line">#NI (nice)： 可以用户自定义的优先级</div><div class="line">#实际执行的优先级是PRI+NI，数字越小该进程优先级越高</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="给新执行的命令赋予NI值"><a href="#给新执行的命令赋予NI值" class="headerlink" title="给新执行的命令赋予NI值"></a>给新执行的命令赋予NI值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">nice [选项] 命令</div><div class="line">#nice命令可以给新执行的命令直接赋予NI值，但是不能修改已经存在进程的NI值</div><div class="line">选项：</div><div class="line">-n NI值：给命令赋予NI值。</div><div class="line">例如：nice -n -5 service httpd start</div></pre></td></tr></table></figure>
+<p>修改NI值时有几个注意事项</p>
+<ul>
+<li>NI值的范围是-20到19</li>
+<li>普通用户调整NI值的范围是0到19,而且只能调整自己的进程</li>
+<li>普通用户只能调高NI值，而不能降低，如原本NI值为0,则只能调整为大于0</li>
+<li>root用户才能设定进程NI值为负值，而且可以调任何用户的进程</li>
+<li>PRI（最终值）=PRI（原始值）+NI</li>
+<li>用户只能修改NI的值，不能直接修改PRI</li>
+</ul>
+<p><br></p>
+<h2 id="修改已经存在进程的NI值"><a href="#修改已经存在进程的NI值" class="headerlink" title="修改已经存在进程的NI值"></a>修改已经存在进程的NI值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">renice [优先级] PID</div><div class="line">#renice命令是修改已经存在进程的NI值的命令</div><div class="line"></div><div class="line">renice -10 2125</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Linux操作系统是一个多用户、多任务的操作系统，Linux系统中运行着非常多的进程，但是CPU在同一时钟周期内只能运算一个指令。进程优先级决定了每个进程处理的先后顺序 &lt;/p&gt;
+&lt;h2 id=&quot;查看优先级&quot;&gt;&lt;a href=&quot;#查看优先级&quot; class=&quot;headerli
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux进程管理 杀死进程</title>
+    <link href="http://yoursite.com/2018/05/15/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86-%E6%9D%80%E6%AD%BB%E8%BF%9B%E7%A8%8B/"/>
+    <id>http://yoursite.com/2018/05/15/Linux进程管理-杀死进程/</id>
+    <published>2018-05-15T03:10:00.000Z</published>
+    <updated>2018-05-15T04:46:24.033Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="kill命令-杀死一个进程"><a href="#kill命令-杀死一个进程" class="headerlink" title="kill命令 杀死一个进程"></a>kill命令 杀死一个进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kill -l</div><div class="line">#查看可用的进程信号</div><div class="line"></div><div class="line">kill [信号] PID</div></pre></td></tr></table></figure>
+<p><style><br>table th:nth-of-type(1){<br>width: 20%;<br>}<br>table th:nth-of-type(2){<br>width: 20%;<br>}<br>table th:nth-of-type(3){<br>width: 60%;<br>}<br></style><br>其中有两个常用信号<br>|信号代号     |   信号名称     |   说明|<br>|–|–|–|<br>|1           |    SIGHUP   |    关闭读取配置文件后重启|<br>|9     |          SIGKILL  |    强制停止|</p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG037.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">kill -HUP(或-1) 进程号</div><div class="line">#平滑重启服务</div><div class="line">#正常修改完配置文件后，需要重启服务</div><div class="line">#用普通的restart来重启会提出正在使用的用户，造成不好的用户体验。</div><div class="line">#平滑重启是重启服务配置，保留正在使用的用户。 </div><div class="line"></div><div class="line">kill -9 2236</div><div class="line">#强制杀死进程</div></pre></td></tr></table></figure>
+<p><br>  </p>
+<h2 id="killall命令-批量杀死同一类型的进程"><a href="#killall命令-批量杀死同一类型的进程" class="headerlink" title="killall命令 批量杀死同一类型的进程"></a>killall命令 批量杀死同一类型的进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">killall  [选项]  [信号]  进程名 </div><div class="line">#按照进程名杀死进程，可以批量杀死同一类型的进程</div><div class="line"></div><div class="line">选项：</div><div class="line">-i：交互式，询问是否要杀死某个进程</div><div class="line">-I：忽略进程名的大小写</div></pre></td></tr></table></figure>
+<p><br>  </p>
+<h2 id="pkill命令-批量杀死同一类型的进程"><a href="#pkill命令-批量杀死同一类型的进程" class="headerlink" title="pkill命令 批量杀死同一类型的进程"></a>pkill命令 批量杀死同一类型的进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">pkill [选项] [信号] 进程名 </div><div class="line">#按照进程名终止进程，可以批量杀死同一类型的进程</div><div class="line"></div><div class="line">选项：</div><div class="line">-t 终端号：按照终端号踢出用户</div></pre></td></tr></table></figure>
+<p>案例：踢出登录用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">w </div><div class="line">#查看当前登陆用户的用户 TTY列为终端号</div><div class="line">按照终端号杀死进程</div><div class="line">pkill -9 -t tty1</div><div class="line"></div><div class="line">#只有超级用户才能踢除用户</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;kill命令-杀死一个进程&quot;&gt;&lt;a href=&quot;#kill命令-杀死一个进程&quot; class=&quot;headerlink&quot; title=&quot;kill命令 杀死一个进程&quot;&gt;&lt;/a&gt;kill命令 杀死一个进程&lt;/h2&gt;&lt;figure class=&quot;highlight plai
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux定时任务</title>
+    <link href="http://yoursite.com/2018/05/15/Linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+    <id>http://yoursite.com/2018/05/15/Linux定时任务/</id>
+    <published>2018-05-15T01:23:57.000Z</published>
+    <updated>2018-05-15T01:23:57.952Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Linux后台管理</title>
     <link href="http://yoursite.com/2018/05/14/Linux%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/"/>
     <id>http://yoursite.com/2018/05/14/Linux后台管理/</id>
@@ -85,9 +163,63 @@
     <link href="http://yoursite.com/2018/05/14/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/"/>
     <id>http://yoursite.com/2018/05/14/Linux进程管理/</id>
     <published>2018-05-14T08:56:47.000Z</published>
-    <updated>2018-05-14T08:57:29.321Z</updated>
+    <updated>2018-05-15T03:20:01.045Z</updated>
+    
+    <content type="html"><![CDATA[<style>
+table th:nth-of-type(1){
+width: 30%;
+}
+table th:nth-of-type(2){
+width: 70%
+;
+}
+</style>
+
+
+<p>进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源</p>
+<p>进程管理的作用</p>
+<ol>
+<li>判断服务器健康状态</li>
+<li>查看系统中所有的进程</li>
+<li>杀死进程</li>
+</ol>
+<p><br>  </p>
+<h2 id="ps命令-查看所有进程"><a href="#ps命令-查看所有进程" class="headerlink" title="ps命令 查看所有进程"></a>ps命令 查看所有进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">ps aux </div><div class="line">#查看系统中所有进程 ，使用BSD操作系统格式（没有-）</div><div class="line">ps -le</div><div class="line">#查看系统中所有进程 ，使用Linux标准命令格式</div><div class="line"></div><div class="line">选项</div><div class="line">-a :显示一个终端的所有进程</div><div class="line">-u :显示进程的归属用户及内存的使用情况</div><div class="line">-x :显示没有控制终端的进程</div><div class="line">-l :长格式显示，显示更加详细的信息</div><div class="line">-e :显示所有进程，和-A作用一致</div></pre></td></tr></table></figure>
+<p>输出详解<br>| 显示 | 含义 |<br>|—|—|<br>| USER  |  该进程是由哪个用户产生的 |<br>| %CPU |  该进程占用CPU资源的百分比，占用越高，进程越耗费资源 |<br>| %MEM | 该进程占用物理内存的百分比，占用越高，进程越耗费资源  |<br>| VSZ |  该进程占用虚拟内存的大小 ，单位KB |<br>| RSS |  该进程占用实际物理内存的大小，单位KB |<br>| TTY |  表示该进程是在哪个终端运行的<br>tty1-tty6是本地字符界面终端，tty7是本地图形终端<br> pts/0-255代表虚拟终端|<br>| STAT | 进程的状态  <br>R :运行 <br> S :睡眠 <br>T :停止<br>s :包含子进程 <br>   + :位于后台  |<br>| START | 该进程的启动时间   |<br>| TIME |  该进程占用CPU的运算时间，注意不是系统时间 |<br>| COMMAND | 产生些进程的命令名  |</p>
+<p><code>/sbin/init</code>的pid永远是1，它是系统下所有进程的父进程，所有的进程都依赖于它</p>
+<p>TTY是<code>？</code>，代表该进程是由系统内核启动的，一般认为是系统进程</p>
+<p><br>  </p>
+<h2 id="pstree命令-查看进程树"><a href="#pstree命令-查看进程树" class="headerlink" title="pstree命令 查看进程树"></a>pstree命令 查看进程树</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pstree [选项]</div><div class="line">-p :显示进程的PID</div><div class="line">-u :显示进程的所属用户</div></pre></td></tr></table></figure>
+<p><br>  </p>
+<h2 id="top命令-查看系统健康状态"><a href="#top命令-查看系统健康状态" class="headerlink" title="top命令 查看系统健康状态"></a>top命令 查看系统健康状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">top [选项]</div><div class="line">选项：</div><div class="line">-d秒数：指定top命令每隔几秒更新。默认是3秒</div><div class="line">-b：使用批处理模式输出。 一般和 ”-n&quot;选项合用</div><div class="line">-n 次数：指定top 命令执行的次数。 一般和 “-b”选项合用</div><div class="line"></div><div class="line">在 top 命令的交互模式当中可以执行的命令：</div><div class="line">h：显示交互模式的帮助</div><div class="line">P：以CPU使用率排序，默认就是此项</div><div class="line">M：以内存的使用率排序</div><div class="line">N：以PID排序</div><div class="line">q：退出 top</div><div class="line"></div><div class="line">top -b -n 1 &gt; /root/top.log </div><div class="line">#查看所有进程，因为直接使用top屏幕有限无法全部展示，所以放到文件中</div><div class="line">#将执行的top命令结果输出到log日志文件中</div><div class="line">#top命令耗费资源比较大，应及时关闭</div></pre></td></tr></table></figure>
+<p>输出详解<br>|<strong>第一行为任务队列信息</strong>||<br>|—-|—–|<br>|  12:26:46  |   系统当前时间   |<br>|  up 1 day,13:32  |   系统已运行的时长   |<br>|  2 users  |   当前登录的用户数量   |<br>|  load average  |   系统在之前1分钟，5分钟，15分钟的平均负载（与CPU核数相关，一般认为单核小于1时，负载较小，如果大于1,系统已经超出负荷，那么双核不超2，4核不超4）   |<br>| <strong>第二行为进程信息</strong>   |      |<br>|  tasks:95 total  |   系统中的进程总数   |<br>|  1 running |    正在运行的进程数  |<br>|  94 sleeping  |   睡眠的进程数   |<br>|  0,stopped  |    停止的进程数  |<br>|  1 zombie  |  僵尸进程（应该停止却没有停止的进程），如果不是0,需要手工检查僵尸进程    |<br>| <strong>第三行为CPU信息</strong>   |      |<br>|  Cpu(s):0.1%us  |    用户模式占用的CPU百分比  |<br>|  0.1%sy  |    系统模式占用的CPU百分比    |<br>|  0.0%ni  |  改变过优先级的用户进程占用的CPU百分比  |<br>| 99.7%id   |   空闲CPU的CPU百分比   |<br>|  0.1%wa  |  等待输入/输出的进程的占用CPU百分比     |<br>|  0.0%hi  |   硬中断请求服务占用的CPU百分比   |<br>|  0.1%si  |   软中断请求服务占用的CPU百分比   |<br>| 0.0%st   |  st(Steal time)虚拟时间百分比，就是当有虚拟CPU时，虚拟CPU占实际CPU的时间百分比     |<br>|  <strong>第四行为物理内存信息</strong>  |      |<br>|  Mem： 623434k total  |   物理内存的总量，单位kb   |<br>|   521313k free |   空闲的物理内存   |<br>|  578322k used  |    已经使用的物理内存  |<br>|   623231 buff/cache |   作为缓冲/缓存的内存数量   |<br>|   <strong>第五行是交换分区的信息</strong> |      |<br>|  Swap: 8298492 total |  交换分区的总量，单位kb    |<br>|  8292336 free  |  空闲的交换分区   |<br>|   6156 used |  已经使用的交换分区   |<br>|  3129824 avail Mem   |  可用的交换分区   |<br>|<strong>第六行类似ps</strong>||<br>|PR|优先级|<br>|NI|任务nice值|<br>|VIRT|进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES|<br>|RES|物理内存用量|<br>|SHR|共享内存用量|<br>|TIME+|累计cpu占用时间|</p>
+<p>cpu读写速度&gt;内存&gt;硬盘<br>缓存cache是加速读取 减少了对硬盘的读取<br>缓冲buff是加速写入 减少了对硬盘的写入</p>
+<p>判断系统健康状况主要查看的参数：</p>
+<ol>
+<li>load average: 0.00, 0.00, 0.00  #表示系统在之前1分钟，5分钟，15分钟的平均负载。.</li>
+<li>Cpu（s）:…99.8%id  #CPU空闲百分比</li>
+<li>Mem：…6780k free  #内存空闲率</li>
+<li>Swap：…536723k free  #swap空闲率</li>
+</ol>
+<p><br></p>
+<p>参考：</p>
+<p><a href="https://blog.csdn.net/qq_31666147/article/details/51557300" target="_blank" rel="external">https://blog.csdn.net/qq_31666147/article/details/51557300</a></p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;style&gt;
+table th:nth-of-type(1){
+width: 30%;
+}
+table th:nth-of-type(2){
+width: 70%
+;
+}
+&lt;/style&gt;
+
+
+&lt;p&gt;进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空
     
     </summary>
     
@@ -1078,97 +1210,6 @@ width: 20%;
     <summary type="html">
     
       &lt;p&gt;安裝Apache&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux desktop entriy</title>
-    <link href="http://yoursite.com/2018/05/07/Linux-desktop-entry/"/>
-    <id>http://yoursite.com/2018/05/07/Linux-desktop-entry/</id>
-    <published>2018-05-07T03:17:37.000Z</published>
-    <updated>2018-05-07T03:28:54.314Z</updated>
-    
-    <content type="html"><![CDATA[<p>在 Windows 平台上，用户可以通过点击位于桌面或菜单上的快捷方式轻松打开目标应用程序。现代 Linux 桌面系统的应用程序是通过<code>*.desktop</code>文件管理的。</p>
-<p>一个应用程序对应一个<code>.desktop</code>文件，根据是用户自己可见还是所有用户可见的不同而放在 <code>~/.local/share/applications</code>或者 <code>/usr/share/applications/</code> 目录中。</p>
-<p>可以自己添加.desktop文件来增加应用程序到launcher里，<code>*.desktop</code>文件格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[Desktop Entry]</div><div class="line">Encoding=UTF-8</div><div class="line">Name=火狐浏览器</div><div class="line">Name[en]=Firefox</div><div class="line">Name[en_US]=Firefox</div><div class="line">Comment=Firefox for jason</div><div class="line">Exec=/opt/firefox/firefox</div><div class="line">Icon=/opt/firefox/browser/icons/mozicon128.png</div><div class="line">Terminal=false</div><div class="line">Type=Application</div><div class="line">Categories=Application;Network;</div></pre></td></tr></table></figure>
-<p>使用流程：</p>
-<ol>
-<li>创建文件，以.desktop为后缀。</li>
-<li>编写内容，修改权限</li>
-<li>测试是否能双击启动程序</li>
-<li>移动到/usr/share/applications/目录下</li>
-</ol>
-<p>文件中不能有多余的全角或半角空格，否则会出错</p>
-<p>参考：</p>
-<ul>
-<li><a href="https://linux.cn/article-9199-1.html" target="_blank" rel="external">https://linux.cn/article-9199-1.html</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/Desktop_entries_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Desktop_entries_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87</a>)</li>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-dtef/index.html" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-dtef/index.html</a></li>
-<li><a href="https://blog.csdn.net/lwjdgl/article/details/49204659" target="_blank" rel="external">https://blog.csdn.net/lwjdgl/article/details/49204659</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在 Windows 平台上，用户可以通过点击位于桌面或菜单上的快捷方式轻松打开目标应用程序。现代 Linux 桌面系统的应用程序是通过&lt;code&gt;*.desktop&lt;/code&gt;文件管理的。&lt;/p&gt;
-&lt;p&gt;一个应用程序对应一个&lt;code&gt;.desktop&lt;/code&gt;文件，
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux用户管理 查看用户</title>
-    <link href="http://yoursite.com/2018/05/06/Linux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-%E6%9F%A5%E7%9C%8B%E7%94%A8%E6%88%B7/"/>
-    <id>http://yoursite.com/2018/05/06/Linux用户管理-查看用户/</id>
-    <published>2018-05-06T11:56:06.000Z</published>
-    <updated>2018-05-06T12:21:32.128Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">w：查看登录用户信息</div><div class="line">w 用户名</div><div class="line">user:登陆的用户名</div><div class="line">tty:登陆终端</div><div class="line">from:从哪个IP地址登陆</div><div class="line">login@:登陆时间</div><div class="line">idle:用户闲置时间</div><div class="line">jcpu:和终端连接所有进程占用的时间</div><div class="line">pcpu:当前进程所占用的时间</div><div class="line">what:正在运行的命令</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">who：查看登录用户信息</div><div class="line">who 用户名</div><div class="line">登录名</div><div class="line">登陆终端</div><div class="line">登录时间（登陆来源IP地址）</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">last：查询当前和过去登录的用户信息</div><div class="line">last  默认读取var/log/wtmp</div><div class="line">用户名</div><div class="line">登录终端</div><div class="line">登陆IP</div><div class="line">登录时间</div><div class="line">退出时间（在线时间）</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">lastlog：查看所有用户最后一次登录信息</div><div class="line">lastlog </div><div class="line">lastlog命令默认是读取/var/log/lastlog文件内容</div><div class="line">用户名</div><div class="line">登录终端</div><div class="line">登陆ip</div><div class="line">最后一次登陆时间</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">whoami				#显示当前登录用户名</div><div class="line">id 用户名			#显示指定用户信息，包括用户编号、用户编号、主要组编号及名称、附属组列表</div><div class="line">groups 用户名 		#显示用户所在的所有组，包括主要组和附属组</div><div class="line">chfn 用户名 		#设置用户资料，依次输入用户资料</div><div class="line">finger 用户名 		#显示用户详细资料，与chfn对应</div></pre></td></tr></table></figure>
-<p>###切换用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">su 用户名 				#切换到其他用户下</div><div class="line">su 					</div><div class="line">#后面什么也不接表示切换到root用户下</div><div class="line">#普通用户进其他用户需要密码，root用户进普通用户不需要密码</div></pre></td></tr></table></figure></p>
-<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">touch /etc/nologin					#在etc目录下创建一个nologin文件(文件内容无关紧要)，暂时禁止除管理员外的用户登录</div><div class="line">passwd -l user1						#锁定账户</div><div class="line">passwd -u user1						#解锁账户</div><div class="line">passwd -d user1						#清除用户密码，无密码登录</div><div class="line"></div><div class="line">wall [想说的话] 相当于喇叭广播的功能</div><div class="line">talk [用户名] 聊天框里聊天</div><div class="line">write [用户名] 相当于密聊</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;查看用户&quot;&gt;&lt;a href=&quot;#查看用户&quot; class=&quot;headerlink&quot; title=&quot;查看用户&quot;&gt;&lt;/a&gt;查看用户&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux用户管理 新增/修改/删除用户</title>
-    <link href="http://yoursite.com/2018/05/06/Linux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-%E6%96%B0%E5%A2%9E-%E4%BF%AE%E6%94%B9-%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7/"/>
-    <id>http://yoursite.com/2018/05/06/Linux用户管理-新增-修改-删除用户/</id>
-    <published>2018-05-06T11:55:37.000Z</published>
-    <updated>2018-05-06T12:00:27.594Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="用户基本命令"><a href="#用户基本命令" class="headerlink" title="用户基本命令"></a>用户基本命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">useradd 用户名					#添加用户，所在用户组与用户名同名</div><div class="line">useradd -g 组名 用户名			#添加用户，指定其所在的组</div><div class="line">useradd -d 目录 用户名 			#添加用户，制定其用户的家目录，没有指定所在组时，默认用户名就为用户组名</div><div class="line">#passwd 用户名					#新建的用户需要设置密码，设置用户目录</div><div class="line"></div><div class="line">usermod -c 注释信息 用户名 	  #为指定用户名添加注释</div><div class="line">usermod -l 新用户名 旧用户名 		#更改用户名</div><div class="line">usermod -d 目录 用户名 			#更改用户个人文件夹的路径</div><div class="line">usermod -g 新用户组 用户名 	#更改指定用户的所属组</div><div class="line">userdel 用户名 				#删除用户，但是不删除用户个人文件夹里的文件</div><div class="line">userdel -r 用户名 				#删除用户并且删除用户个人文件夹里的文件</div></pre></td></tr></table></figure>
-<h2 id="用户组基本命令"><a href="#用户组基本命令" class="headerlink" title="用户组基本命令"></a>用户组基本命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">groupadd 组名 				#创建用户组</div><div class="line">groupadd -g 组编号 组名 			#创建用户组并指定组编号</div><div class="line">groupmod -n 新组名 原组名 		#更改用户组名称</div><div class="line">groupmod -g 组编号 组名 			#设置用户组编号</div><div class="line">groupdel 组名 					#删除用户组，前提是用户组内没有用户</div></pre></td></tr></table></figure>
-<h2 id="附属组"><a href="#附属组" class="headerlink" title="附属组"></a>附属组</h2><p>用户可以同时属于多个组，一个是主要组，其他的为附属组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">gpasswd -a 用户名 附属组 			#给用户添加附属组</div><div class="line">gpasswd -d 用户名 附属组 			#把用户从附属组中删除</div><div class="line"></div><div class="line">newgrp 组名</div><div class="line">#用户创建的文件默认为主要组；需要以附属组创建文件的，需将身份切换到附属组</div><div class="line">#把用户的组切换到附属组，需要用户登录后，自己执行，切换</div><div class="line">#组密码是在组切换时用的，如果有会要求输入组密码</div><div class="line"></div><div class="line">useradd -g group1 -G group2,group3... 用户名  </div><div class="line">#同时指定主用户组和附属用户组</div><div class="line">gpasswd 用户名 </div><div class="line">#更改组密码,回车会有相应的提示操作</div><div class="line">gpasswd -a 用户名 附属组，附属组，.....</div><div class="line">#添加附属组</div><div class="line">usermod -g</div><div class="line">#修改主要组</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;用户基本命令&quot;&gt;&lt;a href=&quot;#用户基本命令&quot; class=&quot;headerlink&quot; title=&quot;用户基本命令&quot;&gt;&lt;/a&gt;用户基本命令&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
     
     </summary>
     

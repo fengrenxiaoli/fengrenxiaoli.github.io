@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="目录结构. ├── .deploy #需要部署的文件 ├── node_modules #Hexo插件 ├── public #生成的静态网页文件 ├── scaffolds #模板 ├── source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里 | ├── _drafts #草稿 | └── _posts #文章 ├── themes #主题 ├── _conf">
-<meta name="keywords" content="hexo">
+<meta name="description" content="Linux操作系统是一个多用户、多任务的操作系统，Linux系统中运行着非常多的进程，但是CPU在同一时钟周期内只能运算一个指令。进程优先级决定了每个进程处理的先后顺序  查看优先级12345ps -el #可以看优先级#PRI(priority): 是系统的优先级#NI (nice)： 可以用户自定义的优先级#实际执行的优先级是PRI+NI，数字越小该进程优先级越高  给新执行的命令赋予NI值1">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Hexo】hexo目录结构以及_config.yml配置文件">
-<meta property="og:url" content="http://yoursite.com/2016/10/09/【Hexo】hexo目录结构以及-config-yml配置文件/index.html">
+<meta property="og:title" content="Linux进程管理 修改进程优先级">
+<meta property="og:url" content="http://yoursite.com/2018/05/15/Linux进程管理-修改进程优先级/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="目录结构. ├── .deploy #需要部署的文件 ├── node_modules #Hexo插件 ├── public #生成的静态网页文件 ├── scaffolds #模板 ├── source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里 | ├── _drafts #草稿 | └── _posts #文章 ├── themes #主题 ├── _conf">
+<meta property="og:description" content="Linux操作系统是一个多用户、多任务的操作系统，Linux系统中运行着非常多的进程，但是CPU在同一时钟周期内只能运算一个指令。进程优先级决定了每个进程处理的先后顺序  查看优先级12345ps -el #可以看优先级#PRI(priority): 是系统的优先级#NI (nice)： 可以用户自定义的优先级#实际执行的优先级是PRI+NI，数字越小该进程优先级越高  给新执行的命令赋予NI值1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T03:50:42.721Z">
+<meta property="og:updated_time" content="2018-05-15T04:34:47.521Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【Hexo】hexo目录结构以及_config.yml配置文件">
-<meta name="twitter:description" content="目录结构. ├── .deploy #需要部署的文件 ├── node_modules #Hexo插件 ├── public #生成的静态网页文件 ├── scaffolds #模板 ├── source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里 | ├── _drafts #草稿 | └── _posts #文章 ├── themes #主题 ├── _conf">
+<meta name="twitter:title" content="Linux进程管理 修改进程优先级">
+<meta name="twitter:description" content="Linux操作系统是一个多用户、多任务的操作系统，Linux系统中运行着非常多的进程，但是CPU在同一时钟周期内只能运算一个指令。进程优先级决定了每个进程处理的先后顺序  查看优先级12345ps -el #可以看优先级#PRI(priority): 是系统的优先级#NI (nice)： 可以用户自定义的优先级#实际执行的优先级是PRI+NI，数字越小该进程优先级越高  给新执行的命令赋予NI值1">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/09/【Hexo】hexo目录结构以及-config-yml配置文件/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/15/Linux进程管理-修改进程优先级/"/>
 
 
 
 
 
-  <title>【Hexo】hexo目录结构以及_config.yml配置文件 | 太阳落下</title>
+  <title>Linux进程管理 修改进程优先级 | 太阳落下</title>
   
 
 
@@ -267,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/09/【Hexo】hexo目录结构以及-config-yml配置文件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/15/Linux进程管理-修改进程优先级/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">【Hexo】hexo目录结构以及_config.yml配置文件</h1>
+          <h1 class="post-title" itemprop="name headline">Linux进程管理 修改进程优先级</h1>
         
 
         <div class="post-meta">
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-09T21:34:31+08:00">
-                2016-10-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T11:10:37+08:00">
+                2018-05-15
               </time>
             
 
@@ -334,133 +334,21 @@
       
 
       
-        <h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><pre><code>.
-├── .deploy #需要部署的文件
-├── node_modules #Hexo插件
-├── public #生成的静态网页文件
-├── scaffolds #模板
-├── source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里
-| ├── _drafts #草稿
-| └── _posts #文章
-├── themes #主题
-├── _config.yml #全局配置文件
-└── package.json
-</code></pre><p>假设网站的根目录为D:/Hexo/，也称为站点目录<br><strong>站点配置文件</strong> 是指网站目录下的_config.yml文件，即D:/Hexo/_config.yml</p>
-<p><strong>主题配置文件</strong> 是指网站目录下对应的主题文件夹下的_config.yml文件，即D:/Hexo/themes/next/_config.yml.</p>
-<h3 id="站点配置文件"><a href="#站点配置文件" class="headerlink" title="站点配置文件"></a>站点配置文件</h3><pre><code># Hexo Configuration
-## Docs: http://hexo.io/docs/configuration.html
-## Source: https://github.com/hexojs/hexo/
-# Site #站点信息
-title:  #标题
-subtitle:  #副标题
-description:  #站点描述，给搜索引擎看的
-author:  #作者
-email:  #电子邮箱
-language: zh-CN #语言
-
-# URL #链接格式
-url:  #网址
-root: / #根目录
-permalink: :year/:month/:day/:title/ #文章的链接格式
-tag_dir: tags #标签目录
-archive_dir: archives #存档目录
-category_dir: categories #分类目录
-code_dir: downloads/code
-permalink_defaults:
-
-# Directory #目录
-source_dir: source #源文件目录
-public_dir: public #生成的网页文件目录
-
-# Writing #写作
-new_post_name: :title.md #新文章标题
-default_layout: post #默认的模板，包括 post、page、photo、draft（文章、页面、照片、草稿）
-titlecase: false #标题转换成大写
-external_link: true #在新选项卡中打开连接
-filename_case: 0
-render_drafts: false
-post_asset_folder: false
-relative_link: false
-highlight: #语法高亮
-      enable: true #是否启用
-      line_number: true #显示行号
-      tab_replace:
-
-# Category &amp; Tag #分类和标签
-default_category: uncategorized #默认分类
-category_map:
-tag_map:
-
-# Archives
-2: 开启分页
-1: 禁用分页
-0: 全部禁用
-archive: 2
-category: 2
-tag: 2
-
-# Server #本地服务器
-port: 4000 #端口号
-server_ip: localhost #IP 地址
-logger: false
-logger_format: dev
-
-# Date / Time format #日期时间格式
-date_format: YYYY-MM-DD #参考http://momentjs.com/docs/#/displaying/format/
-time_format: H:mm:ss
-
-# Pagination #分页
-per_page: 10 #每页文章数，设置成 0 禁用分页
-pagination_dir: page
-
-# Disqus #Disqus评论，替换为多说
-disqus_shortname:
-
-# Extensions #拓展插件
-theme: landscape-plus #主题
-exclude_generator:
-plugins: #插件，例如生成 RSS 和站点地图的
-- hexo-generator-feed
-- hexo-generator-sitemap
-- 
-# Deployment #部署，将 lmintlcx 改成用户名
-deploy:
-        type: git
-        repo: github创库地址.git
-        branch: master
-</code></pre><p>配置文件的冒号后面都有一个半角空格</p>
-<h3 id="主题配置文件"><a href="#主题配置文件" class="headerlink" title="主题配置文件"></a>主题配置文件</h3><pre><code>menu: #右上角导航菜单，冒号前面是菜单名，后面是访问路径。
-      Home: /
-      Archives: /archives
-      About: /about
-
-widgets: #站点右边栏，可以调整顺序和增减内容，会自动调用主题layout/_widget目录下的同名文件。
-- search
-- category
-- tagcloud
-
-excerpt_link: Read More #列表页里Read more链接名称，可以替换成’查看更多‘等。
-
-plugins: 
-
-twitter: #右边栏要显示twitter展示的话，需要在此设置
-      username: 
-      show_replies: false
-      tweet_count: 5
-
-addthis: #分享设置
-      enable: true
-      pubid:
-      facebook: true
-      twitter: true
-      google: true
-      pinterest: true
-
-fancybox: true #图片效果，默认
-
-google_analytics: #google_analytics统计ID
-rss:  #生成RSS路径
-</code></pre>
+        <p>Linux操作系统是一个多用户、多任务的操作系统，Linux系统中运行着非常多的进程，但是CPU在同一时钟周期内只能运算一个指令。进程优先级决定了每个进程处理的先后顺序 </p>
+<h2 id="查看优先级"><a href="#查看优先级" class="headerlink" title="查看优先级"></a>查看优先级</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ps -el </div><div class="line">#可以看优先级</div><div class="line">#PRI(priority): 是系统的优先级</div><div class="line">#NI (nice)： 可以用户自定义的优先级</div><div class="line">#实际执行的优先级是PRI+NI，数字越小该进程优先级越高</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="给新执行的命令赋予NI值"><a href="#给新执行的命令赋予NI值" class="headerlink" title="给新执行的命令赋予NI值"></a>给新执行的命令赋予NI值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">nice [选项] 命令</div><div class="line">#nice命令可以给新执行的命令直接赋予NI值，但是不能修改已经存在进程的NI值</div><div class="line">选项：</div><div class="line">-n NI值：给命令赋予NI值。</div><div class="line">例如：nice -n -5 service httpd start</div></pre></td></tr></table></figure>
+<p>修改NI值时有几个注意事项</p>
+<ul>
+<li>NI值的范围是-20到19</li>
+<li>普通用户调整NI值的范围是0到19,而且只能调整自己的进程</li>
+<li>普通用户只能调高NI值，而不能降低，如原本NI值为0,则只能调整为大于0</li>
+<li>root用户才能设定进程NI值为负值，而且可以调任何用户的进程</li>
+<li>PRI（最终值）=PRI（原始值）+NI</li>
+<li>用户只能修改NI的值，不能直接修改PRI</li>
+</ul>
+<p><br></p>
+<h2 id="修改已经存在进程的NI值"><a href="#修改已经存在进程的NI值" class="headerlink" title="修改已经存在进程的NI值"></a>修改已经存在进程的NI值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">renice [优先级] PID</div><div class="line">#renice命令是修改已经存在进程的NI值的命令</div><div class="line"></div><div class="line">renice -10 2125</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -477,7 +365,7 @@ rss:  #生成RSS路径
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
         </div>
       
@@ -490,8 +378,8 @@ rss:  #生成RSS路径
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/09/【Hexo】hexo中博客使用markdown格式约定/" rel="next" title="【Hexo】hexo中博客使用markdown格式约定">
-                <i class="fa fa-chevron-left"></i> 【Hexo】hexo中博客使用markdown格式约定
+              <a href="/2018/05/15/Linux进程管理-杀死进程/" rel="next" title="Linux进程管理 杀死进程">
+                <i class="fa fa-chevron-left"></i> Linux进程管理 杀死进程
               </a>
             
           </div>
@@ -500,8 +388,8 @@ rss:  #生成RSS路径
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/03/2016年突然想说的话/" rel="prev" title="2016年突然想说的话">
-                2016年突然想说的话 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/05/Linux-专题导航/" rel="prev" title="Linux 专题导航">
+                Linux 专题导航 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -634,7 +522,7 @@ rss:  #生成RSS路径
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录结构"><span class="nav-number">1.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#站点配置文件"><span class="nav-number">2.</span> <span class="nav-text">站点配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题配置文件"><span class="nav-number">3.</span> <span class="nav-text">主题配置文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看优先级"><span class="nav-number">1.</span> <span class="nav-text">查看优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给新执行的命令赋予NI值"><span class="nav-number">2.</span> <span class="nav-text">给新执行的命令赋予NI值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改已经存在进程的NI值"><span class="nav-number">3.</span> <span class="nav-text">修改已经存在进程的NI值</span></a></li></ol></div>
             
 
           </div>
