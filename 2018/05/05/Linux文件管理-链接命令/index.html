@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="命令ln -s [原文件][目标文件] （link） #生成链接文件 -s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文">
+<meta name="description" content="命令123ln -s [原文件][目标文件] （link）#生成链接文件-s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux文件管理 链接命令">
+<meta property="og:title" content="【Linux】Linux文件管理04 链接命令">
 <meta property="og:url" content="http://yoursite.com/2018/05/05/Linux文件管理-链接命令/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="命令ln -s [原文件][目标文件] （link） #生成链接文件 -s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文">
+<meta property="og:description" content="命令123ln -s [原文件][目标文件] （link）#生成链接文件-s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T04:41:58.871Z">
+<meta property="og:updated_time" content="2018-05-15T17:52:58.976Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux文件管理 链接命令">
-<meta name="twitter:description" content="命令ln -s [原文件][目标文件] （link） #生成链接文件 -s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文">
+<meta name="twitter:title" content="【Linux】Linux文件管理04 链接命令">
+<meta name="twitter:description" content="命令123ln -s [原文件][目标文件] （link）#生成链接文件-s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原">
 
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <title>Linux文件管理 链接命令 | 太阳落下</title>
+  <title>【Linux】Linux文件管理04 链接命令 | 太阳落下</title>
   
 
 
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux文件管理 链接命令</h1>
+          <h1 class="post-title" itemprop="name headline">【Linux】Linux文件管理04 链接命令</h1>
         
 
         <div class="post-meta">
@@ -334,21 +334,16 @@
       
 
       
-        <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre><code>ln -s [原文件][目标文件] （link）
-#生成链接文件
--s 创建软链接
-</code></pre><p><br></p>
+        <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ln -s [原文件][目标文件] （link）</div><div class="line">#生成链接文件</div><div class="line">-s 创建软链接</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><ul>
 <li>拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文件拥有相同的i节点。因此，与原文件非常相似。当删除原文件或硬链接文件的任何一文件，不影响文件索引操作。可看做，同一个文件的不通进入点。它是同样的存储空间。</li>
 <li>可通过i节点识别</li>
 <li>不能跨分区建立</li>
 <li>不能针对目录使用，只有文件才可以创建</li>
 </ul>
-<pre><code>ln ./source/abc ./target/bcd.hard
-# 创建后，引用计数+1
-ls -i ./source/abc ./target/bcd.hard
-# 可使用ls -i 来查看文件i节点号
-</code></pre><p>不建议创建硬链接文件<br>文件太过隐蔽，除了有i节点这样一个标识之外，很难区分它是不是硬链接<br>硬链接限制较多，不能跨分区，不能针对目录，使用当中容易出现错误使用方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ln ./source/abc ./target/bcd.hard</div><div class="line"># 创建后，引用计数+1</div><div class="line">ls -i ./source/abc ./target/bcd.hard</div><div class="line"># 可使用ls -i 来查看文件i节点号</div></pre></td></tr></table></figure>
+<p>不建议创建硬链接文件<br>文件太过隐蔽，除了有i节点这样一个标识之外，很难区分它是不是硬链接<br>硬链接限制较多，不能跨分区，不能针对目录，使用当中容易出现错误使用方法</p>
 <p><br></p>
 <p>##软链接</p>
 <ul>
@@ -399,8 +394,8 @@ ls -i ./source/abc ./target/bcd.hard
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/05/Linux-帮助命令/" rel="prev" title="Linux 帮助命令">
-                Linux 帮助命令 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/05/Linux文件管理-常用目录/" rel="prev" title="【Linux】Linux文件管理05 常用目录">
+                【Linux】Linux文件管理05 常用目录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
