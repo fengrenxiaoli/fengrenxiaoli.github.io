@@ -663,7 +663,7 @@ width: 70%
     <link href="http://yoursite.com/2018/05/14/VirtualBox%E6%89%A9%E5%AE%B9/"/>
     <id>http://yoursite.com/2018/05/14/VirtualBox扩容/</id>
     <published>2018-05-14T02:22:32.000Z</published>
-    <updated>2018-05-14T09:02:59.023Z</updated>
+    <updated>2018-05-15T18:25:44.113Z</updated>
     
     <content type="html"><![CDATA[<p>这篇文章用于在VirtualBox虚拟机上的CentOS扩充根目录空间，区别于新增硬盘以及添加新的挂载点</p>
 <p>主机环境为Ubuntu 17.04<br>VirtualBox 5.2<br>虚拟机为CentOS 7</p>
@@ -698,6 +698,8 @@ width: 70%
     
     </summary>
     
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -1490,7 +1492,7 @@ width: 20%;
     <link href="http://yoursite.com/2018/05/07/Linux-%E5%AE%89%E8%A3%85Tomcat%E5%B9%B6%E9%83%A8%E7%BD%B2Java-web%E9%A1%B9%E7%9B%AE/"/>
     <id>http://yoursite.com/2018/05/07/Linux-安装Tomcat并部署Java-web项目/</id>
     <published>2018-05-07T14:10:33.000Z</published>
-    <updated>2018-05-07T14:49:33.155Z</updated>
+    <updated>2018-05-15T18:25:12.193Z</updated>
     
     <content type="html"><![CDATA[<h2 id="在Linux上安装JDK"><a href="#在Linux上安装JDK" class="headerlink" title="在Linux上安装JDK"></a>在Linux上安装JDK</h2><p>略</p>
 <h2 id="在Linux上安装FTP"><a href="#在Linux上安装FTP" class="headerlink" title="在Linux上安装FTP"></a>在Linux上安装FTP</h2><p>略</p>
@@ -1530,7 +1532,7 @@ width: 20%;
     <link href="http://yoursite.com/2018/05/07/Linux-ftp%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/05/07/Linux-ftp命令/</id>
     <published>2018-05-07T09:52:45.000Z</published>
-    <updated>2018-05-07T12:03:35.139Z</updated>
+    <updated>2018-05-15T18:24:56.669Z</updated>
     
     <content type="html"><![CDATA[<h2 id="连接ftp服务器"><a href="#连接ftp服务器" class="headerlink" title="连接ftp服务器"></a>连接ftp服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp [hostname| ip-address]</div></pre></td></tr></table></figure>
 <h2 id="列出文件列表以及切换目录"><a href="#列出文件列表以及切换目录" class="headerlink" title="列出文件列表以及切换目录"></a>列出文件列表以及切换目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ls</div><div class="line">cd</div></pre></td></tr></table></figure>
@@ -1558,7 +1560,7 @@ width: 20%;
     <link href="http://yoursite.com/2018/05/07/Linux-%E5%AE%89%E8%A3%85vsftpd/"/>
     <id>http://yoursite.com/2018/05/07/Linux-安装vsftpd/</id>
     <published>2018-05-07T07:15:39.000Z</published>
-    <updated>2018-05-07T11:12:43.409Z</updated>
+    <updated>2018-05-15T18:24:48.965Z</updated>
     
     <content type="html"><![CDATA[<p>vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。</p>
 <p>总结起来只有几步</p>
