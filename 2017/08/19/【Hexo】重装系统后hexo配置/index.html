@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来 1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除 2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm  sudo ap">
+<meta name="description" content="重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来 1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除 2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm1234sudo">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Hexo】重装系统后hexo配置">
 <meta property="og:url" content="http://yoursite.com/2017/08/19/【Hexo】重装系统后hexo配置/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来 1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除 2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm  sudo ap">
+<meta property="og:description" content="重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来 1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除 2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm1234sudo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T03:52:01.678Z">
+<meta property="og:updated_time" content="2018-05-15T14:22:46.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Hexo】重装系统后hexo配置">
-<meta name="twitter:description" content="重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来 1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除 2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm  sudo ap">
+<meta name="twitter:description" content="重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来 1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除 2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm1234sudo">
 
 
 
@@ -336,42 +336,25 @@
       
         <p>重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来</p>
 <p>1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除</p>
-<p><br><br>2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm </p>
-<pre><code>sudo apt install nodejs npm git
-sudo npm install -g n
-n stable
-sudo npm -g install npm@next
-</code></pre><p><br><br>3、配置SSH key：在Git Bash敲入</p>
-<pre><code>ssh-keygen -t rsa -C “你的邮箱”
-</code></pre><p>  生成的密钥默认保存在C:\Users\XPS.ssh\id_rsa.pub，用笔记本打开该文件，复制里面的内容到Github&gt;Settings&gt;SSH and GPG keys&gt;New SSH key-Key一栏里，title可任意发挥</p>
-<pre><code>ssh -T git@github.com
-</code></pre><p>测试是否成功</p>
-<p><br><br>4、配置Git的个人信息：在Git Bash输入</p>
-<pre><code>git config --global user.name &quot;yourname&quot;
-git config --global user.email &quot;youremail&quot;
-</code></pre><p><br><br>5、在你要放置博客的文件夹打开Git Bash， 安装Hexo框架</p>
-<pre><code>sudo npm install hexo-cli -g
-sudo npm install hexo --save
-</code></pre><p><br><br>6、hexo在指定文件夹中新建所需要的文件</p>
-<pre><code>hexo init &lt;folder&gt;
-cd &lt;folder&gt;
-npm install
-</code></pre><p><br><br>7、Hexo3.0以上版本，需要安装hexo-deployer插件才能部署到Github</p>
-<pre><code>npm install hexo-deployer-git --save
-</code></pre><p><br><br>8、在初始化完成后，将之前重装系统保存的Hexo文件夹下的这些文件夹拷贝至新的Hexo文件夹(即刚刚初始化完成的)内</p>
-<p> <br><br>9、执行以下命令来部署</p>
-<pre><code>hexo clean
-hexo g
-hexo d
-</code></pre><p>在重装系统完之后恢复Hexo初次部署需要一点时部署中如果弹出弹框，填yes即可。<br>出现</p>
-<pre><code>To github.com:Aldrich-ayu/Aldrich-ayu.github.io.git
- + cb4cda2...ec926bc HEAD -&gt; master (forced update)
-INFO  Deploy done: git
-</code></pre><p>即表示恢复Hexo并且部署成功！</p>
-<p><br><br>参考：</p>
-<p><a href="http://yanziyu.tech/2017/04/04/reinstall-hexo/" target="_blank" rel="external">http://yanziyu.tech/2017/04/04/reinstall-hexo/</a></p>
-<p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/index.html</a></p>
-<p><a href="https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/" target="_blank" rel="external">https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/</a></p>
+<p>2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt install nodejs npm git</div><div class="line">sudo npm install -g n</div><div class="line">n stable</div><div class="line">sudo npm -g install npm@next</div></pre></td></tr></table></figure></p>
+<p>3、配置SSH key：在Git Bash敲入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C “你的邮箱”</div></pre></td></tr></table></figure></p>
+<p>生成的密钥默认保存在<code>C:\Users\XPS.ssh\id_rsa.pub</code>，用笔记本打开该文件，复制里面的内容到Github&gt;Settings&gt;SSH and GPG keys&gt;New SSH key-Key一栏里，title可任意发挥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure></p>
+<p>测试是否成功</p>
+<p>4、配置Git的个人信息：在Git Bash输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;yourname&quot;</div><div class="line">git config --global user.email &quot;youremail&quot;</div></pre></td></tr></table></figure></p>
+<p>5、在你要放置博客的文件夹打开Git Bash， 安装Hexo框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo npm install hexo-cli -g</div><div class="line">sudo npm install hexo --save</div></pre></td></tr></table></figure></p>
+<p>6、hexo在指定文件夹中新建所需要的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init &lt;folder&gt;</div><div class="line">cd &lt;folder&gt;</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<p>7、Hexo3.0以上版本，需要安装hexo-deployer插件才能部署到Github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
+<p>8、在初始化完成后，将之前重装系统保存的Hexo文件夹下的这些文件夹拷贝至新的Hexo文件夹(即刚刚初始化完成的)内</p>
+<p>9、执行以下命令来部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure></p>
+<p>在重装系统完之后恢复Hexo初次部署需要一点时部署中如果弹出弹框，填yes即可。<br>出现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">To github.com:Aldrich-ayu/Aldrich-ayu.github.io.git</div><div class="line">+ cb4cda2...ec926bc HEAD -&gt; master (forced update)</div><div class="line">INFO  Deploy done: git</div></pre></td></tr></table></figure></p>
+<p>即表示恢复Hexo并且部署成功！</p>
+<p><br>  </p>
+<p>参考：</p>
+<ul>
+<li><a href="http://yanziyu.tech/2017/04/04/reinstall-hexo/" target="_blank" rel="external">http://yanziyu.tech/2017/04/04/reinstall-hexo/</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/index.html</a></li>
+<li><a href="https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/" target="_blank" rel="external">https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/</a></li>
+</ul>
 
       
     </div>
@@ -495,7 +478,7 @@ INFO  Deploy done: git
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
