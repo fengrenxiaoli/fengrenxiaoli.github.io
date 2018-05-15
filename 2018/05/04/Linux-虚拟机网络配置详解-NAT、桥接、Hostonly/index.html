@@ -97,7 +97,7 @@
 <meta name="description" content="无论是vmware还是virtual box虚拟机软件，一般来说，虚拟机有三种网络模式:  Bridged Adapter（桥接模式） NAT（网络地址转换模式） Host-only Adapter（主机模式）  virtual box中还有lInternal 虚拟网卡在虚拟机安装好之后，会自动添加两张网卡(VMnet1和VMnet8)，VMnet1用Host-only网络连接，VMnet8用NA">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 虚拟机网络配置详解(NAT、桥接、Hostonly)">
+<meta property="og:title" content="【Linux】Linux网络管理05 虚拟机网络配置详解(NAT、桥接、Hostonly)">
 <meta property="og:url" content="http://yoursite.com/2018/05/04/Linux-虚拟机网络配置详解-NAT、桥接、Hostonly/index.html">
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="无论是vmware还是virtual box虚拟机软件，一般来说，虚拟机有三种网络模式:  Bridged Adapter（桥接模式） NAT（网络地址转换模式） Host-only Adapter（主机模式）  virtual box中还有lInternal 虚拟网卡在虚拟机安装好之后，会自动添加两张网卡(VMnet1和VMnet8)，VMnet1用Host-only网络连接，VMnet8用NA">
@@ -107,9 +107,9 @@
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG25.png">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG27.png">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG26.png">
-<meta property="og:updated_time" content="2018-05-04T12:24:16.820Z">
+<meta property="og:updated_time" content="2018-05-15T17:38:24.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 虚拟机网络配置详解(NAT、桥接、Hostonly)">
+<meta name="twitter:title" content="【Linux】Linux网络管理05 虚拟机网络配置详解(NAT、桥接、Hostonly)">
 <meta name="twitter:description" content="无论是vmware还是virtual box虚拟机软件，一般来说，虚拟机有三种网络模式:  Bridged Adapter（桥接模式） NAT（网络地址转换模式） Host-only Adapter（主机模式）  virtual box中还有lInternal 虚拟网卡在虚拟机安装好之后，会自动添加两张网卡(VMnet1和VMnet8)，VMnet1用Host-only网络连接，VMnet8用NA">
 <meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG23.png">
 
@@ -146,7 +146,7 @@
 
 
 
-  <title>Linux 虚拟机网络配置详解(NAT、桥接、Hostonly) | 太阳落下</title>
+  <title>【Linux】Linux网络管理05 虚拟机网络配置详解(NAT、桥接、Hostonly) | 太阳落下</title>
   
 
 
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux 虚拟机网络配置详解(NAT、桥接、Hostonly)</h1>
+          <h1 class="post-title" itemprop="name headline">【Linux】Linux网络管理05 虚拟机网络配置详解(NAT、桥接、Hostonly)</h1>
         
 
         <div class="post-meta">
@@ -352,30 +352,14 @@
 <h2 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h2><p>桥接网络是指宿主物理网卡和虚拟网卡通过VMnet0虚拟交换机进行桥接，物理网卡和虚拟网卡在拓扑图上处于<strong>同等地位</strong>，那么物理网卡和虚拟网卡就相当于处于同一个网段，虚拟交换机就相当于一台现实网络中的交换机，所以两个网卡的IP地址也要设置为同一网段。会占用内网IP</p>
 <p>vmnet0实际上就是一个虚拟的网桥(2层交换机)，这个网桥有若干个接口，一个端口用于连接你的Host主机，其余端口可以用于连接虚拟机，他们的位置是对等的，谁也不是谁的网关。<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG24.png" alt=""></p>
 <p>主机A上的两个虚拟机1和虚拟机2，和主机A、B同处于一个网段，能够相互通信<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG25.png" alt=""></p>
-<p>虚拟机网卡配置，虚拟机上网需要IP/子网掩码/DNS/网关</p>
-<pre><code>DEVICE=&quot;eth0&quot;
-BOOTPROTO=“static&quot; #设置静态ip,动态为dhcp
-IPADDR=&quot;192.168.1.3&quot;
-GATEWAY=&quot;192.168.1.1&quot;
-HWADDR=&quot;08:00:27:C7:1B:22&quot;
-DNS1=&quot;8.8.8.8&quot;
-NETMASK=&quot;255.255.255.0&quot;
-ONBOOT=&quot;yes&quot;
-</code></pre><p>CentOS 7中ONBOOT默认为NO，需要打开</p>
+<p>虚拟机网卡配置，虚拟机上网需要IP/子网掩码/DNS/网关<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">DEVICE=&quot;eth0&quot;</div><div class="line">BOOTPROTO=“static&quot; #设置静态ip,动态为dhcp</div><div class="line">IPADDR=&quot;192.168.1.3&quot;</div><div class="line">GATEWAY=&quot;192.168.1.1&quot;</div><div class="line">HWADDR=&quot;08:00:27:C7:1B:22&quot;</div><div class="line">DNS1=&quot;8.8.8.8&quot;</div><div class="line">NETMASK=&quot;255.255.255.0&quot;</div><div class="line">ONBOOT=&quot;yes&quot;</div></pre></td></tr></table></figure></p>
+<p>CentOS 7中ONBOOT默认为NO，需要打开</p>
 <h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><p>虚拟机要求可以上网，且虚拟机完全模拟一台实体机</p>
 <p><br></p>
 <h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><p>NAT模式中，就是让虚拟机借助NAT(网络地址转换)功能，通过宿主机器所在的网络来访问公网。宿主能够联网，虚拟机也能联网(其他主机)。宿主没有联网，虚拟机也不能联网</p>
 <p>vmnet1也是一个虚拟的交换机，交换机的一个 端口连接到你的Host上，另外一个端口连接到虚拟的DHCP服务器上（实际上是vmware的一个组件），另外剩下的端口就是连虚拟机了，主机A和虚拟机1和2能相互通信，虚拟机1和2能访问主机B和外网，主机B不能访问虚拟机1和2，虚拟机1和2能相互通信<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG27.png" alt=""></p>
-<p>虚拟机的配置:</p>
-<pre><code>DEVICE=&quot;eth0&quot;
-BOOTPROTO=“static&quot; #设置静态ip,动态为dhcp
-IPADDR=&quot;10.0.2.5&quot;
-GATEWAY=&quot;10.0.2.1&quot;
-HWADDR=&quot;08:00:27:C7:1B:22&quot;
-DNS1=&quot;10.0.2.1&quot;
-NETMASK=&quot;255.255.255.0&quot;
-ONBOOT=&quot;yes&quot;
-</code></pre><h4 id="应用场景：-1"><a href="#应用场景：-1" class="headerlink" title="应用场景："></a>应用场景：</h4><p>虚拟机只要求可以上网，无其它特殊要求，满足最一般需求</p>
+<p>虚拟机的配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">DEVICE=&quot;eth0&quot;</div><div class="line">BOOTPROTO=“static&quot; #设置静态ip,动态为dhcp</div><div class="line">IPADDR=&quot;10.0.2.5&quot;</div><div class="line">GATEWAY=&quot;10.0.2.1&quot;</div><div class="line">HWADDR=&quot;08:00:27:C7:1B:22&quot;</div><div class="line">DNS1=&quot;10.0.2.1&quot;</div><div class="line">NETMASK=&quot;255.255.255.0&quot;</div><div class="line">ONBOOT=&quot;yes&quot;</div></pre></td></tr></table></figure></p>
+<h4 id="应用场景：-1"><a href="#应用场景：-1" class="headerlink" title="应用场景："></a>应用场景：</h4><p>虚拟机只要求可以上网，无其它特殊要求，满足最一般需求</p>
 <p><br></p>
 <h2 id="Host-Only"><a href="#Host-Only" class="headerlink" title="Host-Only"></a>Host-Only</h2><p><strong>所有的虚拟系统是可以相互通信的，但虚拟系统和真实的网络是被隔离开的</strong></p>
 <p>虚拟系统和宿主机器系统是可以相互通信的。<br>虚拟系统的TCP/IP配置信息(如IP地址、网关地址、DNS服务器等)，都是由VMnet1(host-only)虚拟网络的DHCP服务器来动态分配的。</p>

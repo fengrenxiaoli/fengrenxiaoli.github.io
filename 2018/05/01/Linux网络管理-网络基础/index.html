@@ -94,13 +94,13 @@
 
 
 
-<meta name="description" content="OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的 该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的 上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务    层级 作用 传输单元     应用层 用户接口 APDU，应用协议数据单元   表示层 数据的表现形式（ASCII、GB2312、jpg）、">
+<meta name="description" content="OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的 该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的 上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务  table th:nth-of-type(1){ width: 10%; } table th:nth-of-type(2){ width: 7">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux网络管理 网络基础">
+<meta property="og:title" content="【Linux】Linux网络管理01 网络基础">
 <meta property="og:url" content="http://yoursite.com/2018/05/01/Linux网络管理-网络基础/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的 该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的 上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务    层级 作用 传输单元     应用层 用户接口 APDU，应用协议数据单元   表示层 数据的表现形式（ASCII、GB2312、jpg）、">
+<meta property="og:description" content="OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的 该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的 上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务  table th:nth-of-type(1){ width: 10%; } table th:nth-of-type(2){ width: 7">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG10.jpg">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG11.jpg">
@@ -110,10 +110,10 @@
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG15.jpg">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG16.PNG">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG17.jpg">
-<meta property="og:updated_time" content="2018-05-05T17:47:03.564Z">
+<meta property="og:updated_time" content="2018-05-15T17:39:02.661Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux网络管理 网络基础">
-<meta name="twitter:description" content="OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的 该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的 上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务    层级 作用 传输单元     应用层 用户接口 APDU，应用协议数据单元   表示层 数据的表现形式（ASCII、GB2312、jpg）、">
+<meta name="twitter:title" content="【Linux】Linux网络管理01 网络基础">
+<meta name="twitter:description" content="OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的 该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的 上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务  table th:nth-of-type(1){ width: 10%; } table th:nth-of-type(2){ width: 7">
 <meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG10.jpg">
 
 
@@ -149,7 +149,7 @@
 
 
 
-  <title>Linux网络管理 网络基础 | 太阳落下</title>
+  <title>【Linux】Linux网络管理01 网络基础 | 太阳落下</title>
   
 
 
@@ -293,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux网络管理 网络基础</h1>
+          <h1 class="post-title" itemprop="name headline">【Linux】Linux网络管理01 网络基础</h1>
         
 
         <div class="post-meta">
@@ -343,9 +343,24 @@
       
 
       
-        <h3 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h3><p>开放系统互联模型，由ISO(国际标准化组织) 组织开发的</p>
+        <h2 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h2><p>开放系统互联模型，由ISO(国际标准化组织) 组织开发的</p>
 <p>该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的</p>
 <p>上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务</p>
+<style>
+table th:nth-of-type(1){
+width: 10%;
+}
+table th:nth-of-type(2){
+width: 70%
+;
+}
+table th:nth-of-type(3){
+width: 20%;
+}
+
+</style>
+
+
 <table>
 <thead>
 <tr>
@@ -403,7 +418,7 @@
 <li>物理层 : 数据传输</li>
 </ol>
 <p><br></p>
-<h3 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h3><h4 id="TCP-IP-四层模型与-OSI-七层模型对应关系"><a href="#TCP-IP-四层模型与-OSI-七层模型对应关系" class="headerlink" title="TCP/IP 四层模型与 OSI 七层模型对应关系"></a>TCP/IP 四层模型与 OSI 七层模型对应关系</h4><ul>
+<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><h4 id="TCP-IP-四层模型与-OSI-七层模型对应关系"><a href="#TCP-IP-四层模型与-OSI-七层模型对应关系" class="headerlink" title="TCP/IP 四层模型与 OSI 七层模型对应关系"></a>TCP/IP 四层模型与 OSI 七层模型对应关系</h4><ul>
 <li>应用层 : 应用层、表示层、会话层<br>为用户提供所需的各种服务, 例如 <strong>FTP</strong>、<strong>Telnet</strong>、<strong>DNS</strong>、<strong>SMTP</strong>等</li>
 </ul>
 <ul>
@@ -429,7 +444,7 @@
 <li>实际市场应用不同( OSI 模型只是理论上的模型, 并没有成熟的产品, 而TCP/IP已经成为”实际上的国际标准”)</li>
 </ol>
 <p><br></p>
-<h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><h4 id="IP包头-如图"><a href="#IP包头-如图" class="headerlink" title="IP包头(如图)"></a>IP包头(如图)</h4><p>横32位, 竖5行, 固定的共160位, 20字节, 另外有其他选项存在, 导致包头不固定, 因此每接收到包头, 需要进行检测包头长度才能够取出包头, 也是为何IPv4没有IPv6快的原因</p>
+<h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><h4 id="IP包头-如图"><a href="#IP包头-如图" class="headerlink" title="IP包头(如图)"></a>IP包头(如图)</h4><p>横32位, 竖5行, 固定的共160位, 20字节, 另外有其他选项存在, 导致包头不固定, 因此每接收到包头, 需要进行检测包头长度才能够取出包头, 也是为何IPv4没有IPv6快的原因</p>
 <p>包头中包含的IP地址只有32位, 即2的32次幂, 42亿9千万左右的IP</p>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG11.jpg" alt=""></p>
 <h4 id="IP地址分类"><a href="#IP地址分类" class="headerlink" title="IP地址分类"></a>IP地址分类</h4><p>IP分为A、B、C、D、E 五大类, 其中DE不对民用组织开放, 不可使用, 因此有效类只有ABC<br>可根据第一位数值判断类别, 1-126 为A类, 128-172 为B类, 192-223 为C类</p>
@@ -443,7 +458,7 @@
 <p>私有IP :  不需要花钱买, 用来做内网IP, 可有效保护公网IP, 不能直接访问公网, 需要与公网之间进行转换才可访问互联网</p>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG12.jpg" alt=""></p>
 <p><br></p>
-<h3 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h3><p>ABC类可以用不同的网段个数和主机个数, 是由子网掩码决定<br>子网掩码用连续1的表示，例如255.0.0.0，255.255.0.0，255。255.255.255.0</p>
+<h2 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h2><p>ABC类可以用不同的网段个数和主机个数, 是由子网掩码决定<br>子网掩码用连续1的表示，例如255.0.0.0，255.255.0.0，255。255.255.255.0</p>
 <p>子网掩码的作用：用来区分不同网段的IP—-子网掩码与IP相与，得到的结果相同则在同一网段。否则不在，需要经过路由器转发。</p>
 <p>合理的子网掩码 : 所有的1必须连续, A 类地址可匹配B类子网掩码</p>
 <p>IP和子网掩码必须一起配合使用。<br>网络号=IP&amp;&amp;子网掩码</p>
@@ -451,7 +466,7 @@
 <p>合理的子网掩码 : 所有的1必须连续, A 类地址可匹配B类子网掩码</p>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG13.jpg" alt=""></p>
 <p><br></p>
-<h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG14.jpg" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG15.jpg" alt=""></p>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG14.jpg" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG15.jpg" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">netstat -an</div><div class="line"># 查看本机启用的端口</div><div class="line">#-a:查看所有连接和监听端口</div><div class="line">#-n:显示IP地址和端口号，而不显示域名和服务名</div></pre></td></tr></table></figure>
 <p>TCP因为3次握手的机制所以需要监听，而UDP不需要监听</p>
 <h4 id="常见端口号"><a href="#常见端口号" class="headerlink" title="常见端口号"></a>常见端口号</h4><ul>
@@ -464,7 +479,7 @@
 <li>POP3（邮局协议）：110；</li>
 </ul>
 <p><br></p>
-<h3 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h3><h4 id="hosts和DNS"><a href="#hosts和DNS" class="headerlink" title="hosts和DNS"></a>hosts和DNS</h4><p>hosts文件：做静态IP和域名对应，优先于DNS.<br>位置：<br>C：\Windows\System32\drivers\etc\hosts<br>hosts文件只可做临时解析用，名称解析效能下降，主机维护困难</p>
+<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><h4 id="hosts和DNS"><a href="#hosts和DNS" class="headerlink" title="hosts和DNS"></a>hosts和DNS</h4><p>hosts文件：做静态IP和域名对应，优先于DNS.<br>位置：<br>C：\Windows\System32\drivers\etc\hosts<br>hosts文件只可做临时解析用，名称解析效能下降，主机维护困难</p>
 <p>DNS全称为——&gt;domain name system——&gt;域名系统</p>
 <ul>
 <li>不配置DNS是不能联网的。</li>
@@ -489,7 +504,7 @@
 <li>反向：IP到域名 RARP</li>
 </ul>
 <p><br></p>
-<h3 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h3><ul>
+<h2 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h2><ul>
 <li>网关（Gateway）又称网间连接器、协议转换器</li>
 <li>网关在网络层以上实现网络互连，是最复杂的网络互连设备，仅用于两个高层不同的网络互连</li>
 <li>网关既可以用于广域网互连，也可以用于局域网互连</li>
@@ -533,8 +548,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/01/Linux网络管理-远程登录/" rel="next" title="Linux网络管理 远程登录">
-                <i class="fa fa-chevron-left"></i> Linux网络管理 远程登录
+              <a href="/2018/05/01/Linux网络管理-远程登录/" rel="next" title="【Linux】Linux网络管理04 远程登录">
+                <i class="fa fa-chevron-left"></i> 【Linux】Linux网络管理04 远程登录
               </a>
             
           </div>
@@ -677,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI模型"><span class="nav-number">1.</span> <span class="nav-text">OSI模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP"><span class="nav-number">2.</span> <span class="nav-text">TCP/IP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-IP-四层模型与-OSI-七层模型对应关系"><span class="nav-number">2.1.</span> <span class="nav-text">TCP/IP 四层模型与 OSI 七层模型对应关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据封装过程"><span class="nav-number">2.2.</span> <span class="nav-text">数据封装过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-IP-模型与OSI-模型的比较"><span class="nav-number">2.3.</span> <span class="nav-text">TCP/IP  模型与OSI 模型的比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址"><span class="nav-number">3.</span> <span class="nav-text">IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IP包头-如图"><span class="nav-number">3.1.</span> <span class="nav-text">IP包头(如图)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP地址分类"><span class="nav-number">3.2.</span> <span class="nav-text">IP地址分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子网掩码"><span class="nav-number">4.</span> <span class="nav-text">子网掩码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口"><span class="nav-number">5.</span> <span class="nav-text">端口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见端口号"><span class="nav-number">5.1.</span> <span class="nav-text">常见端口号</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS"><span class="nav-number">6.</span> <span class="nav-text">DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hosts和DNS"><span class="nav-number">6.1.</span> <span class="nav-text">hosts和DNS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域名空间结构"><span class="nav-number">6.2.</span> <span class="nav-text">域名空间结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS查询过程"><span class="nav-number">6.3.</span> <span class="nav-text">DNS查询过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS查询类型"><span class="nav-number">6.4.</span> <span class="nav-text">DNS查询类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网关"><span class="nav-number">7.</span> <span class="nav-text">网关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网关作用"><span class="nav-number">7.1.</span> <span class="nav-text">网关作用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI模型"><span class="nav-number">1.</span> <span class="nav-text">OSI模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP"><span class="nav-number">2.</span> <span class="nav-text">TCP/IP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-IP-四层模型与-OSI-七层模型对应关系"><span class="nav-number">2.0.1.</span> <span class="nav-text">TCP/IP 四层模型与 OSI 七层模型对应关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据封装过程"><span class="nav-number">2.0.2.</span> <span class="nav-text">数据封装过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-IP-模型与OSI-模型的比较"><span class="nav-number">2.0.3.</span> <span class="nav-text">TCP/IP  模型与OSI 模型的比较</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP地址"><span class="nav-number">3.</span> <span class="nav-text">IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IP包头-如图"><span class="nav-number">3.0.1.</span> <span class="nav-text">IP包头(如图)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP地址分类"><span class="nav-number">3.0.2.</span> <span class="nav-text">IP地址分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子网掩码"><span class="nav-number">4.</span> <span class="nav-text">子网掩码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口"><span class="nav-number">5.</span> <span class="nav-text">端口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见端口号"><span class="nav-number">5.0.1.</span> <span class="nav-text">常见端口号</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS"><span class="nav-number">6.</span> <span class="nav-text">DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hosts和DNS"><span class="nav-number">6.0.1.</span> <span class="nav-text">hosts和DNS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域名空间结构"><span class="nav-number">6.0.2.</span> <span class="nav-text">域名空间结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS查询过程"><span class="nav-number">6.0.3.</span> <span class="nav-text">DNS查询过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS查询类型"><span class="nav-number">6.0.4.</span> <span class="nav-text">DNS查询类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网关"><span class="nav-number">7.</span> <span class="nav-text">网关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网关作用"><span class="nav-number">7.0.1.</span> <span class="nav-text">网关作用</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

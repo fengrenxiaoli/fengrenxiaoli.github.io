@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/</loc>
+    
+    <lastmod>2018-05-15T17:39:02.661Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/04/Linux-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3-NAT%E3%80%81%E6%A1%A5%E6%8E%A5%E3%80%81Hostonly/</loc>
+    
+    <lastmod>2018-05-15T17:38:24.841Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/</loc>
+    
+    <lastmod>2018-05-15T17:38:00.796Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</loc>
+    
+    <lastmod>2018-05-15T17:37:23.768Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2018-05-15T17:36:01.844Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/01/Linux%E4%B8%8B%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8add-apt-repository%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2018-05-15T17:29:35.225Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/01/Ubuntu-%E5%AE%89%E8%A3%85%E3%80%81%E5%8D%B8%E8%BD%BDwine/</loc>
+    
+    <lastmod>2018-05-15T17:24:29.853Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/19/%E3%80%90Hexo%E3%80%91%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E5%90%8Ehexo%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2018-05-15T17:22:25.833Z</lastmod>
@@ -366,23 +415,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/</loc>
-    
-    <lastmod>2018-05-06T06:01:42.950Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/05/05/Linux-su-root%E5%92%8Csudo-su/</loc>
     
     <lastmod>2018-05-06T05:51:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/</loc>
-    
-    <lastmod>2018-05-05T17:47:03.564Z</lastmod>
     
   </url>
   
@@ -443,27 +478,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/05/04/Linux-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3-NAT%E3%80%81%E6%A1%A5%E6%8E%A5%E3%80%81Hostonly/</loc>
-    
-    <lastmod>2018-05-04T12:24:16.820Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2018-05-02T06:50:00.154Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</loc>
-    
-    <lastmod>2018-05-02T06:32:27.346Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2018-05-02T03:57:44.015Z</lastmod>
@@ -474,20 +488,6 @@
     <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2018-05-02T03:56:33.942Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/01/Linux%E4%B8%8B%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8add-apt-repository%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2018-05-01T08:39:43.799Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/01/Ubuntu-%E5%AE%89%E8%A3%85%E3%80%81%E5%8D%B8%E8%BD%BDwine/</loc>
-    
-    <lastmod>2018-05-01T08:39:07.491Z</lastmod>
     
   </url>
   
