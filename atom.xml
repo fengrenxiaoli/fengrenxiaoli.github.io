@@ -171,7 +171,7 @@ width: 60%;
     <link href="http://yoursite.com/2018/05/15/Linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
     <id>http://yoursite.com/2018/05/15/Linux定时任务/</id>
     <published>2018-05-15T01:23:57.000Z</published>
-    <updated>2018-05-15T10:27:31.673Z</updated>
+    <updated>2018-05-15T10:40:46.481Z</updated>
     
     <content type="html"><![CDATA[<style>
 table th:nth-of-type(1){
@@ -184,7 +184,7 @@ width: 70%
 </style>
 
 <h2 id="at-一次性定时任务"><a href="#at-一次性定时任务" class="headerlink" title="at 一次性定时任务"></a>at 一次性定时任务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">chkconfig --list |grep atd</div><div class="line">#确定at安装</div><div class="line"></div><div class="line">service atd restart</div><div class="line">#启动at服务</div></pre></td></tr></table></figure>
-<p>atf访问控制</p>
+<p>访问控制</p>
 <ul>
 <li>如果系统中有<code>/etc/at.allow</code>文件(白名单)，那么只有在此文件的用户可以使用at命令（/etc/at.deny文件会被忽略）；</li>
 <li>如果系统中没有<code>/etc/at.allow</code>文件，只有<code>/etc/at.deny</code>文件(黑名单)，那么在此名单下的用户不能使用at命令【对root不起作用】</li>
@@ -234,11 +234,11 @@ width: 70%
 <li>最小有效时间为分钟,最大有效时间为月，像2018年某时执行，3点30分30秒这样的时间都不能使用</li>
 <li>定时任务中的命令最好使用绝对路径，定时任务有自己的PATH路径（/etc/crontab）</li>
 </ul>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG39.PNG" alt=""></p>
-<p>* 5 <em> </em> 1 /root/hello.sh<br>每周一的5点的每分钟执行一次</p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG39.png" alt=""></p>
+<p>* 5 * * 1 /root/hello.sh<br>每周一的5点的每分钟执行一次</p>
 <p><br></p>
 <h2 id="系统-crontab-循环定时任务"><a href="#系统-crontab-循环定时任务" class="headerlink" title="系统 crontab 循环定时任务"></a>系统 crontab 循环定时任务</h2><p><code>contab -e</code>是每个用户执行的命令，也就是说不同的用户身份可以执行自己的定时任务，可是有些定时任务需要系统执行，这里我们就需要编辑<code>/etc/crontab</code>这个配置文件了</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG40.PNG" alt=""><br><code>/etc/crontab</code>的功能逐渐被anacron取代<br><code>/etc/cron.{hourly,daily,weekly,monthly}</code>不再依赖<code>/etc/crontab</code>而是anacron<br>主要说明CentOS</p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG40.png" alt=""><br><code>/etc/crontab</code>的功能逐渐被anacron取代<br><code>/etc/cron.{hourly,daily,weekly,monthly}</code>不再依赖<code>/etc/crontab</code>而是anacron<br>主要说明CentOS</p>
 <p>执行系统任务的方法</p>
 <ul>
 <li>手工执行定时任务：crontab -e</li>
@@ -250,15 +250,15 @@ width: 70%
 </ul>
 <p><br></p>
 <h2 id="anacron配置"><a href="#anacron配置" class="headerlink" title="anacron配置"></a>anacron配置</h2><p>anacron 是用来保证在系统关机的时候错过的定时任务，可以在系统开机之后再执行</p>
-<h3 id="检测周期"><a href="#检测周期" class="headerlink" title="检测周期"></a>检测周期</h3><ul>
+<h4 id="检测周期"><a href="#检测周期" class="headerlink" title="检测周期"></a>检测周期</h4><ul>
 <li>anacron会使用一天、七天、一个月作为检测周期</li>
 <li>在系统的<code>/var/spool/anacron</code>目录中存在<code>cron.{daily.weekly,monthly}</code>文件，用于记录上次执行cron的时间</li>
 <li>和当前时间做比较，如果两个时间的差值超过了anacron的指定时间差，证明有cron任务被漏执行</li>
 </ul>
 <p>在老的CentOS版本中，<code>/etc/cron.{daily.weekly,monthly}</code>这些目录即会被cron调用，也会被anacron调用，容易重复执行<br>在CentOS 6.x中则只会被anacron调用，避免了重复执行<br>在CentOS 6.x中，anacron不再是服务，而是系统命令</p>
-<p>###配置文件目<br>/etc/anacrontab<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG41.png" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG42.png" alt=""></p>
-<p>###方法<br>只需要将需要定时执行的任务脚本放到 /etc/cron.(daily,weekly,monthly) 目录下，就能自动定时执行</p>
-<p>###特点<br>方便，易管理，一定程度上防止意外情况，执行时间不确定</p>
+<h4 id="配置文件目"><a href="#配置文件目" class="headerlink" title="配置文件目"></a>配置文件目</h4><p>/etc/anacrontab<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG41.png" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG42.png" alt=""></p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>只需要将需要定时执行的任务脚本放到 /etc/cron.(daily,weekly,monthly) 目录下，就能自动定时执行</p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p>方便，易管理，一定程度上防止意外情况，执行时间不确定</p>
 ]]></content>
     
     <summary type="html">
@@ -287,15 +287,14 @@ width: 70%
     <link href="http://yoursite.com/2018/05/14/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B/"/>
     <id>http://yoursite.com/2018/05/14/Linux进程管理-查看进程/</id>
     <published>2018-05-14T08:58:47.000Z</published>
-    <updated>2018-05-15T05:17:57.015Z</updated>
+    <updated>2018-05-15T10:36:00.807Z</updated>
     
     <content type="html"><![CDATA[<style>
 table th:nth-of-type(1){
 width: 30%;
 }
 table th:nth-of-type(2){
-width: 70%
-;
+width: 70%;
 }
 </style>
 
@@ -371,7 +370,6 @@ width: 70%
 <thead>
 <tr>
 <th><strong>第一行为任务队列信息</strong></th>
-<th></th>
 </tr>
 </thead>
 <tbody>
@@ -493,7 +491,6 @@ width: 70%
 </tr>
 <tr>
 <td><strong>第六行类似ps</strong></td>
-<td></td>
 </tr>
 <tr>
 <td>PR</td>
@@ -541,13 +538,12 @@ table th:nth-of-type(1){
 width: 30%;
 }
 table th:nth-of-type(2){
-width: 70%
-;
+width: 70%;
 }
 &lt;/style&gt;
 
 
-&lt;p&gt;进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空
+&lt;p&gt;进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间
     
     </summary>
     
