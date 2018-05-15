@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/06/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-%E6%8C%82%E8%BD%BD%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2018-05-15T18:59:41.534Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/06/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-swap%E5%88%86%E5%8C%BA/</loc>
+    
+    <lastmod>2018-05-15T18:59:39.910Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/14/VirtualBox%E6%89%A9%E5%AE%B9/</loc>
     
     <lastmod>2018-05-15T18:25:44.113Z</lastmod>
@@ -103,20 +117,6 @@
     <loc>http://yoursite.com/2018/05/15/Linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</loc>
     
     <lastmod>2018-05-15T18:11:36.322Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/06/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-swap%E5%88%86%E5%8C%BA/</loc>
-    
-    <lastmod>2018-05-15T18:10:59.638Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/06/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-%E6%8C%82%E8%BD%BD%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2018-05-15T18:10:51.094Z</lastmod>
     
   </url>
   
