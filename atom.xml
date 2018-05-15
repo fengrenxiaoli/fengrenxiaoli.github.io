@@ -1453,11 +1453,11 @@ width: 20%;
   </entry>
   
   <entry>
-    <title>Linux 安装Fiddler</title>
-    <link href="http://yoursite.com/2018/05/11/Fiddler-for-Linux-%E5%AE%89%E8%A3%85/"/>
-    <id>http://yoursite.com/2018/05/11/Fiddler-for-Linux-安装/</id>
+    <title>Linux安装Fiddler</title>
+    <link href="http://yoursite.com/2018/05/11/Linux%E5%AE%89%E8%A3%85Fiddler/"/>
+    <id>http://yoursite.com/2018/05/11/Linux安装Fiddler/</id>
     <published>2018-05-11T02:01:44.000Z</published>
-    <updated>2018-05-15T14:18:15.354Z</updated>
+    <updated>2018-05-15T14:24:38.181Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li><p>安装mono：</p>

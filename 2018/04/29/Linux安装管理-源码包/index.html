@@ -97,14 +97,14 @@
 <meta name="description" content="源码包和RPM包安装位置的不同：RPM包安装位置rpm包有安装的默认位置：  /etc/ 配置文件安装目录  /usr/bin/ 可执行的命令安装目录  /usr/lib/ 程序所使用的函数库保存位置 /usr/share/doc/ 基本的软件使用手册保存位置  /usr/share/man/ 帮助文件保存位置  当然RPM包可以指定安装位置，但是建议不要指定安装位置，就让它安装到默认位置，这样系">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux安装管理 源码包">
+<meta property="og:title" content="【Linux】Linux安装管理04 源码包">
 <meta property="og:url" content="http://yoursite.com/2018/04/29/Linux安装管理-源码包/index.html">
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="源码包和RPM包安装位置的不同：RPM包安装位置rpm包有安装的默认位置：  /etc/ 配置文件安装目录  /usr/bin/ 可执行的命令安装目录  /usr/lib/ 程序所使用的函数库保存位置 /usr/share/doc/ 基本的软件使用手册保存位置  /usr/share/man/ 帮助文件保存位置  当然RPM包可以指定安装位置，但是建议不要指定安装位置，就让它安装到默认位置，这样系">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-29T13:48:21.000Z">
+<meta property="og:updated_time" content="2018-05-15T16:43:22.591Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux安装管理 源码包">
+<meta name="twitter:title" content="【Linux】Linux安装管理04 源码包">
 <meta name="twitter:description" content="源码包和RPM包安装位置的不同：RPM包安装位置rpm包有安装的默认位置：  /etc/ 配置文件安装目录  /usr/bin/ 可执行的命令安装目录  /usr/lib/ 程序所使用的函数库保存位置 /usr/share/doc/ 基本的软件使用手册保存位置  /usr/share/man/ 帮助文件保存位置  当然RPM包可以指定安装位置，但是建议不要指定安装位置，就让它安装到默认位置，这样系">
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <title>Linux安装管理 源码包 | 太阳落下</title>
+  <title>【Linux】Linux安装管理04 源码包 | 太阳落下</title>
   
 
 
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux安装管理 源码包</h1>
+          <h1 class="post-title" itemprop="name headline">【Linux】Linux安装管理04 源码包</h1>
         
 
         <div class="post-meta">
@@ -342,15 +342,11 @@
 <li>/usr/share/doc/ 基本的软件使用手册保存位置 </li>
 <li>/usr/share/man/ 帮助文件保存位置</li>
 </ul>
-<p>当然RPM包可以指定安装位置，但是建议不要指定安装位置，就让它安装到默认位置，这样系统可以找到它，利用service XXX start的方式启动它，而且rpm提供-e选项来自动卸载，摆明了就是推荐你让它默认安装</p>
-<pre><code>rpm -ivh --profix=&lt;dir&gt;
-</code></pre><h4 id="源码包安装位置"><a href="#源码包安装位置" class="headerlink" title="源码包安装位置"></a>源码包安装位置</h4><p>安装在指定位置当中，一般是<code>/usr/local/软件名</code>，源码包没有卸载命令</p>
-<h4 id="安装位置不同带来的影响"><a href="#安装位置不同带来的影响" class="headerlink" title="安装位置不同带来的影响"></a>安装位置不同带来的影响</h4><p>rpm包安装的服务可以使用系统服务管理命令（service）来管理，例如： RPM包安装的apache的启动方法是：</p>
-<pre><code>/etc/rc.d/init.d/httpd start 
-service httpd start
-</code></pre><p>源码包安装的服务不能被服务管理命令管理，因为没有安装到默认路径中，所以只能用绝对路径进行服务的管理，不同软件请参考INSTALL或README，如：</p>
-<pre><code>/usr/local/apache2/bin/apachectl start
-</code></pre><p>使用绝对路径启动程序的方法是通用的，通常软件包中会写上启动程序的方法的。</p>
+<p>当然RPM包可以指定安装位置，但是建议不要指定安装位置，就让它安装到默认位置，这样系统可以找到它，利用service XXX start的方式启动它，而且rpm提供-e选项来自动卸载，摆明了就是推荐你让它默认安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh --profix=&lt;dir&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="源码包安装位置"><a href="#源码包安装位置" class="headerlink" title="源码包安装位置"></a>源码包安装位置</h4><p>安装在指定位置当中，一般是<code>/usr/local/软件名</code>，源码包没有卸载命令</p>
+<h4 id="安装位置不同带来的影响"><a href="#安装位置不同带来的影响" class="headerlink" title="安装位置不同带来的影响"></a>安装位置不同带来的影响</h4><p>rpm包安装的服务可以使用系统服务管理命令（service）来管理，例如： RPM包安装的apache的启动方法是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/etc/rc.d/init.d/httpd start </div><div class="line">service httpd start</div></pre></td></tr></table></figure></p>
+<p>源码包安装的服务不能被服务管理命令管理，因为没有安装到默认路径中，所以只能用绝对路径进行服务的管理，不同软件请参考INSTALL或README，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/apache2/bin/apachectl start</div></pre></td></tr></table></figure></p>
+<p>使用绝对路径启动程序的方法是通用的，通常软件包中会写上启动程序的方法的。</p>
 <p>如果将源码包安装后的启动程序复制到<code>/etc/rc.d/init.d</code>目录中，则也是可以使用<code>service</code>命令执行的</p>
 <p>源码包是不能使用<code>service</code>命令来启动服务，因为源码包的安装位置由用户指定，放在哪并不统一；rpm包安装后，通常都是放在<code>/etc/rc.d/init.d</code>目录中的，而<code>service</code>命令执行时，会自动搜索该目录，所以rpm包安装的服务可以使用<code>service</code>命令</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h4><ul>
@@ -369,19 +365,8 @@ service httpd start
 </ul>
 </li>
 </ol>
-<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><pre><code>#下载源码包
-wget http://mirrors.tuna.tsinghua.edu.cn/apache//httpd/httpd-2.4.33.tar.gz
-#解压缩
-tar -zxvf httpd-2.4.33.tar.gz
-#进入解压缩目录
-cd httpd-2.4.33
-#软件配置与检查，指定安装位置
-./configure --prefix=/usr/local/apache2
-#编译，根据当前目录下的Makefile内部信息编译
-make
-#编译安装，根据当前目录下的Makefile内部信息安装
-make install
-</code></pre><p>./configure作用</p>
+<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#下载源码包</div><div class="line">wget http://mirrors.tuna.tsinghua.edu.cn/apache//httpd/httpd-2.4.33.tar.gz</div><div class="line">#解压缩</div><div class="line">tar -zxvf httpd-2.4.33.tar.gz</div><div class="line">#进入解压缩目录</div><div class="line">cd httpd-2.4.33</div><div class="line">#软件配置与检查，指定安装位置</div><div class="line">./configure --prefix=/usr/local/apache2</div><div class="line">#编译，根据当前目录下的Makefile内部信息编译</div><div class="line">make</div><div class="line">#编译安装，根据当前目录下的Makefile内部信息安装</div><div class="line">make install</div></pre></td></tr></table></figure>
+<p>./configure作用</p>
 <ul>
 <li>定义需要的功能选项； </li>
 <li>检测系统环境是否符合安装要求 </li>
@@ -422,8 +407,8 @@ make install
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/29/Linux安装管理-yum在线安装/" rel="next" title="Linux安装管理 yum在线安装">
-                <i class="fa fa-chevron-left"></i> Linux安装管理 yum在线安装
+              <a href="/2018/04/29/Linux安装管理-yum在线安装/" rel="next" title="【Linux】Linux安装管理03 yum在线安装">
+                <i class="fa fa-chevron-left"></i> 【Linux】Linux安装管理03 yum在线安装
               </a>
             
           </div>
@@ -432,8 +417,8 @@ make install
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/29/Linux安装管理-脚本安装包/" rel="prev" title="Linux安装管理 脚本安装包">
-                Linux安装管理 脚本安装包 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/29/Linux安装管理-脚本安装包/" rel="prev" title="【Linux】Linux安装管理05 脚本安装包">
+                【Linux】Linux安装管理05 脚本安装包 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -511,7 +496,7 @@ make install
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

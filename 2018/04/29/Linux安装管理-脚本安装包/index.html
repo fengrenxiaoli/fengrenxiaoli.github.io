@@ -97,14 +97,14 @@
 <meta name="description" content="脚本安装包：准备工作1、本节以安装LNMP（http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache /usr/local/apache2删除）  2、保证yum源正常使用：可以使用yum list命令测试。（若是光盘yum源，记得挂载光盘） 3、关闭SELinux和防火墙：  永久关闭SELinux的">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux安装管理 脚本安装包">
+<meta property="og:title" content="【Linux】Linux安装管理05 脚本安装包">
 <meta property="og:url" content="http://yoursite.com/2018/04/29/Linux安装管理-脚本安装包/index.html">
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="脚本安装包：准备工作1、本节以安装LNMP（http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache /usr/local/apache2删除）  2、保证yum源正常使用：可以使用yum list命令测试。（若是光盘yum源，记得挂载光盘） 3、关闭SELinux和防火墙：  永久关闭SELinux的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-29T11:06:13.000Z">
+<meta property="og:updated_time" content="2018-05-15T16:43:29.839Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux安装管理 脚本安装包">
+<meta name="twitter:title" content="【Linux】Linux安装管理05 脚本安装包">
 <meta name="twitter:description" content="脚本安装包：准备工作1、本节以安装LNMP（http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache /usr/local/apache2删除）  2、保证yum源正常使用：可以使用yum list命令测试。（若是光盘yum源，记得挂载光盘） 3、关闭SELinux和防火墙：  永久关闭SELinux的">
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <title>Linux安装管理 脚本安装包 | 太阳落下</title>
+  <title>【Linux】Linux安装管理05 脚本安装包 | 太阳落下</title>
   
 
 
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux安装管理 脚本安装包</h1>
+          <h1 class="post-title" itemprop="name headline">【Linux】Linux安装管理05 脚本安装包</h1>
         
 
         <div class="post-meta">
@@ -334,7 +334,7 @@
       
 
       
-        <h3 id="脚本安装包：准备工作"><a href="#脚本安装包：准备工作" class="headerlink" title="脚本安装包：准备工作"></a>脚本安装包：准备工作</h3><p>1、本节以安装LNMP（<a href="http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache" target="_blank" rel="external">http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache</a> <code>/usr/local/apache2</code>删除） </p>
+        <h2 id="脚本安装包：准备工作"><a href="#脚本安装包：准备工作" class="headerlink" title="脚本安装包：准备工作"></a>脚本安装包：准备工作</h2><p>1、本节以安装LNMP（<a href="http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache" target="_blank" rel="external">http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache</a> <code>/usr/local/apache2</code>删除） </p>
 <p>2、保证yum源正常使用：可以使用<code>yum list</code>命令测试。（若是光盘yum源，记得挂载光盘）</p>
 <p>3、关闭SELinux和防火墙：</p>
 <ul>
@@ -342,8 +342,8 @@
 <li>永久关闭防火墙的方法：<code>chkconfig iptables off</code>，开启为：<code>chkconfig iptables on</code>；临时关闭防火墙的方法：<code>service iptables stop</code>，开启为：<code>service iptables start</code>。</li>
 </ul>
 <p><br></p>
-<h3 id="脚本安装"><a href="#脚本安装" class="headerlink" title="脚本安装"></a>脚本安装</h3><pre><code>wget -c http://soft.vpser.net/lnmp.lnmp1.0-full.tar.gz &amp;&amp; tar zxvf lnmp1.0-full.tar.gz &amp;&amp; cd lnmp1.0-full &amp;&amp; ./centos.sh
-</code></pre><p>脚本安装过程中，会将系统中已有的apache、mysql、php等卸载掉。</p>
+<h2 id="脚本安装"><a href="#脚本安装" class="headerlink" title="脚本安装"></a>脚本安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -c http://soft.vpser.net/lnmp.lnmp1.0-full.tar.gz &amp;&amp; tar zxvf lnmp1.0-full.tar.gz &amp;&amp; cd lnmp1.0-full &amp;&amp; ./centos.sh</div></pre></td></tr></table></figure>
+<p>脚本安装过程中，会将系统中已有的apache、mysql、php等卸载掉。</p>
 <p>虚拟机中安装lnmp常常会卡在 starting php-fpm,真实环境中很少出现。其实安装已经完成，只需要杀掉php-fpm进程，再重新启动这个进程就好了 pkill -9 php-fpm : -9是强制杀死的意思，然后重新启动该进程【/etc/rc.d/init.d/php-fpm start】即可。</p>
 
       
@@ -375,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/29/Linux安装管理-源码包/" rel="next" title="Linux安装管理 源码包">
-                <i class="fa fa-chevron-left"></i> Linux安装管理 源码包
+              <a href="/2018/04/29/Linux安装管理-源码包/" rel="next" title="【Linux】Linux安装管理04 源码包">
+                <i class="fa fa-chevron-left"></i> 【Linux】Linux安装管理04 源码包
               </a>
             
           </div>
@@ -464,7 +464,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -519,7 +519,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本安装包：准备工作"><span class="nav-number">1.</span> <span class="nav-text">脚本安装包：准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本安装"><span class="nav-number">2.</span> <span class="nav-text">脚本安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本安装包：准备工作"><span class="nav-number">1.</span> <span class="nav-text">脚本安装包：准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本安装"><span class="nav-number">2.</span> <span class="nav-text">脚本安装</span></a></li></ol></div>
             
 
           </div>
