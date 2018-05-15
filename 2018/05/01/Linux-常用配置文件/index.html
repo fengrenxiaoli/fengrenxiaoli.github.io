@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="apt 源相关文件、目录12345/var/lib/apt/lists #ubuntu软件更新的源服务器的地址/etc/apt/sources.list#*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件/etc/apt/sources.list.d 安装日志123456/root/install.log #记录安装系统软件包以及其文件信息/root/install.log.sys">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T16:17:49.781Z">
+<meta property="og:updated_time" content="2018-05-15T18:21:20.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 常用配置文件">
 <meta name="twitter:description" content="apt 源相关文件、目录12345/var/lib/apt/lists #ubuntu软件更新的源服务器的地址/etc/apt/sources.list#*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件/etc/apt/sources.list.d 安装日志123456/root/install.log #记录安装系统软件包以及其文件信息/root/install.log.sys">
@@ -338,6 +338,7 @@
 <p>安装日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/root/install.log </div><div class="line">#记录安装系统软件包以及其文件信息</div><div class="line">/root/install.log.syslog </div><div class="line">#记录安装过程留下来的事件记录</div><div class="line">/root/anacona-ks.cfg </div><div class="line">#以kickstart配置文件的格式记录安装过程中设置的选项信息（当要安装多台服务器时，可以先装一台，然后利用/root/anaconda-ks.cfg可以进行批量安装）；</div></pre></td></tr></table></figure></p>
 <p>网络配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/etc/sysconfig/network-scripts/ifcfg-eth0</div><div class="line">#网卡配置文件，IP/子网掩码/网关/DNS/ONBOOT</div><div class="line">/etc/sysconfig/network</div><div class="line">#设置主机名</div><div class="line">/etc/resolv.conf</div><div class="line">#DNS配置文件</div></pre></td></tr></table></figure></p>
 <p>用户管理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/etc/group	</div><div class="line">#存储当前系统中所有用户组的信息</div><div class="line">/etc/gshadow	</div><div class="line">#存储当前系统中用户组的密码信息</div><div class="line">/etc/passwd	</div><div class="line">#存储当前系统中所有用户的信息</div><div class="line">/etc/shadow    </div><div class="line">#存储当前系统中所有用户的密码信息</div></pre></td></tr></table></figure></p>
+<p>计划任务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/etc/crontab            #系统配置文件，只有root用户才会把这些内容载入到计任务表中</div><div class="line">/var/spool/cron         #最终生成的计划任务文件</div><div class="line">/var/spool/cron/root    #root用户的定时任务</div><div class="line">/var/spool/cron/user1   #user1用户的定时任务</div><div class="line">/var/log/cron           #crontab日志，保存cron的任务执行记录，echo会打印到这里 </div><div class="line">/var/log/cron-日期</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -378,8 +379,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/01/Ubuntu-安装、卸载wine/" rel="prev" title="【Linux】Ubuntu 安装、卸载wine">
-                【Linux】Ubuntu 安装、卸载wine <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/01/Ubuntu-安装、卸载wine/" rel="prev" title="Ubuntu 安装、卸载wine">
+                Ubuntu 安装、卸载wine <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
