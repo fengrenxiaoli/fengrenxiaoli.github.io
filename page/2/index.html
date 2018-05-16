@@ -264,6 +264,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/06/Linux磁盘管理-swap分区/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/06/Linux磁盘管理-swap分区/" itemprop="url">【Linux】Linux磁盘管理06 swap分区</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-06T15:59:06+08:00">
+                2018-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          为磁盘添加SWAP交换分区
+1.首先建立一个普通的Linux分区123fdisk /dev/sdb#参考MBR分区#输入p查看sdb的分区
+2.修改分区类型的16进制编码12345输入t，输入要修改的
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/06/Linux磁盘管理-swap分区/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/06/Linux磁盘管理-挂载命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -335,15 +463,15 @@
       
         
           
-            <h2 id="mount-命令"><a href="#mount-命令" class="headerlink" title="mount 命令"></a>mount 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">mount </div><div class="line">#查看系统中已挂载的设备</div><div class="line">mount -a </div><div class="line">#依据配置文件/etc/fstab内容，自动挂载    </div><div class="line">#光盘、U盘的数据不建议写入自动挂载中，否则开机时没有光盘和U盘的话，系统崩溃</div><div class="line"></div><div class="line">mount [-t 文件系统] [-o 特殊选项] [设备文件名] [挂载点]</div><div class="line">-t：加入文件系统类型来指定挂载的类型，ext3,ext4,iso9660等文件系统</div><div class="line">-o：可以指定挂载的额外选项</div><div class="line">mount -o remount，noexec /home</div><div class="line">#/home内的执行文件无法执行</div><div class="line">mount -o remount，exec /home</div></pre></td></tr></table></figure>
-<p>###挂载光盘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir /mnt/cdrom/   </div><div class="line">#建立挂载点</div><div class="line">mount -t iso9660 /dev/sr0  /mnt/cdrom          </div><div class="line">#/dev/sr0是光盘设备名，也可以用/dev/cdrom（sr0的软连接，但需要系统完全启动才能用）   -t iso9660 可以省略  因为系统知道sr0是iso9660</div></pre></td></tr></table></figure></p>
-<p>###卸载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">umount [设备文件名或挂载点]   </div><div class="line">umount /mnt/cdrom    </div><div class="line">umount /dev/sr0  </div><div class="line">#都可以   卸载时位置不能在光盘目录下</div></pre></td></tr></table></figure></p>
-<p>###挂载U盘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">fdisk -l   </div><div class="line">#查看U盘设备文件名    </div><div class="line">#U盘可以看成系统的第二块硬盘</div><div class="line">mount -t vfat /dev/sdb1 /mnt/usb/           </div><div class="line">#-t vfat     windows的fat32文件系统</div><div class="line">注：linux默认不支持ntfs文件系统，所以移动硬盘正常没法挂载，能挂载后也只能读，不能写，所以用windows数据一般用网络传播</div><div class="line">#解决办法</div><div class="line">1. 编译内核   让linux 支持NTFS文件系统   </div><div class="line">2. 安装ntfs-3g</div></pre></td></tr></table></figure></p>
-<h2 id="手动挂载分区"><a href="#手动挂载分区" class="headerlink" title="手动挂载分区"></a>手动挂载分区</h2><p>手动挂载的分区，不具有永久性，系统重启后，挂载就会失效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 没有挂载无法使用，分区默认的挂载目录是/mnt目录</div><div class="line">sudo fdisk -l</div><div class="line">#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘</div><div class="line">sudo mkdir -p /media/usb</div><div class="line">#创建挂载目录</div><div class="line">sudo mount /dev/sdb /media/usb</div><div class="line">#挂载</div><div class="line"></div><div class="line">sudo umount /dev/sdb</div><div class="line">#卸载</div></pre></td></tr></table></figure></p>
-<h2 id="永久挂载"><a href="#永久挂载" class="headerlink" title="永久挂载"></a>永久挂载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/fstab</div></pre></td></tr></table></figure>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG29.png" alt=""></p>
-
-          
+          mount 命令123456789101112mount #查看系统中已挂载的设备mount -a #依据配置文件/etc/fstab内容，自动挂载    #光盘、U盘的数据不建议写入自动挂载中，否则
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/06/Linux磁盘管理-挂载命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -461,15 +589,15 @@
       
         
           
-            <h2 id="格式化："><a href="#格式化：" class="headerlink" title="格式化："></a>格式化：</h2><p>又称逻辑格式化，它是指根据用户选定的文件系统（eg：FAT16（最大支持2GB分区），FAT32（单个文件大小不能超过4GB，最大支持16TB分区），NTFS，EXT2，EXT3，EXT4（centos6默认文件系统）等），在磁盘特定区域写入特定数据，在分区中划出一片用于存放文件分配表、目录表等用于文件管理的磁盘空间。</p>
-<p>格式化的目的并不是清空数据，其根本目的是为了<strong>写入文件系统，能够更快查找读写数据</strong>，但是在进行格式化的操作时会先清空原有数据。</p>
-<p>格式化具体进行的操作：<br>将整个分区分割成等大小的数据块（Block），每个数据块默认4KB，存储文件的最小，可以手动选择1KB、2KB或4KB。假设存放10KB的文件，会使用3个数据块，三个数据块不一定是连续的，最后的一数据块中即使没有放满，也不能再存放其他文件。<br>在分区列表中建立一个二维表格，记录了文件的id号（即文件放在那些数据库中，叫做iNode）、文件修改时间、文件的访问权限。操作文件时先访问此二维表进行权限匹配。</p>
-<p>parted工具可以格式化，但是parted支持的文件系统有限<br>无论使用MBR，还是GPT进行的分区，都可以使用”mkfs”进行分区格式化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkfs (-make for system)</div><div class="line">mkfs -t ext3 /dev/sda6     #将sda6分区格式化为ext3格式</div><div class="line">mkfs -t ext2 /dev/sda7     #将sda7分区格式化为ext2格式</div></pre></td></tr></table></figure>
-<p>MBR只有主分区和逻辑分区可以格式化， 扩展分区不可以格式化<br>GPT类型格式化后，使用fdisk看不到各个分区的系统文件格式， 必须启动parted工具的print指令来查看</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -l /dev/sdb 		#查看sdb磁盘上的设备情况</div></pre></td></tr></table></figure>
-
-          
+          格式化：又称逻辑格式化，它是指根据用户选定的文件系统（eg：FAT16（最大支持2GB分区），FAT32（单个文件大小不能超过4GB，最大支持16TB分区），NTFS，EXT2，EXT3，EXT4（c
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/06/Linux磁盘管理-格式化/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -587,28 +715,23 @@
       
         
           
-            <h2 id="MBR分区模式和GPT分区模式比较"><a href="#MBR分区模式和GPT分区模式比较" class="headerlink" title="MBR分区模式和GPT分区模式比较"></a>MBR分区模式和GPT分区模式比较</h2><p>MBR</p>
-<ul>
-<li>区容量最大2TB</li>
-<li>分区命令fdisk /dev/sdxx  </li>
-<li>分区完毕，执行-w 写入分区表才能生效</li>
-<li>分区表类型是：msdos</li>
-<li>缺点：限制多，跟不上发展</li>
-</ul>
-<p>GPT</p>
-<ul>
-<li>主分区个数”几乎”没有限制（最多128个）</li>
-<li>单个分区容量”几乎”没有限制(最大18EB)</li>
-<li>使用parted命令工具（同时支持MBR,GPT分区）</li>
-<li>分区表类型是：gpt</li>
-<li>1EB=1024PB,1PB=1024TB,1TB=1024GB</li>
-<li>缺点：GPT主分区中不适合安装x86的系统架构</li>
-</ul>
-<h2 id="使用parted进行分区"><a href="#使用parted进行分区" class="headerlink" title="使用parted进行分区"></a>使用parted进行分区</h2><p>fdisk只能给硬盘做MBR分区<br>parted既能给硬盘做MBR分区，又能做GPT分区</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">输入parted命令，启动parted分区工具，默认分区目标是系统的第一块硬盘</div><div class="line">输入help，查看帮助信息</div><div class="line">输入select /dev/sdc，切换分区目标磁盘</div><div class="line">输入mklable命令，给目标硬盘指定分区表的类型，然后才能给硬盘添加分区</div><div class="line">如果使用MBR分区，输入mklabel msdos；使用GPT分区，输入mklabel gpt</div><div class="line">输入print 查看当前分区详情；输入print all命令，查看所有分区详情</div><div class="line"></div><div class="line">parted分区操作模式：①交互模式（使用提问模式选择） ②命令模式</div><div class="line"></div><div class="line">**交互模式**</div><div class="line">输入mkpart  #添加分区</div><div class="line">输入分区名称</div><div class="line">选择分区系统类型</div><div class="line">分区从第几MB开始，4K对齐对硬盘分区很重要，为了达到最佳性能，分出1MB空间，让数据块对齐</div><div class="line">结束位置</div><div class="line"></div><div class="line">**命令模式**</div><div class="line">命令模式下，分区名称不能省略</div><div class="line">mkpart test(分区名称) 2000(开始位置2000MB) 3000(结束位置MB)</div><div class="line"></div><div class="line"></div><div class="line">rm [分区编号] #删除分区</div><div class="line">unit GB		#使用GB给分区指定开始和结束位置</div><div class="line">quit		#退出分区工具</div></pre></td></tr></table></figure>
-<p>fdisk分区设计完成后 最后要通过w来写入硬盘,parted不需使用w保存</p>
+          MBR分区模式和GPT分区模式比较MBR
 
-          
+区容量最大2TB
+分区命令fdisk /dev/sdxx  
+分区完毕，执行-w 写入分区表才能生效
+分区表类型是：msdos
+缺点：限制多，跟不上发展
+
+
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/06/Linux磁盘管理-GPT分区/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -726,42 +849,17 @@
       
         
           
-            <p>硬件设备都是由Linux系统自动识别的，必须对硬盘进行分区、格式化、挂载后才能使用</p>
-<p>分区的意义：<a href="http://www.cnblogs.com/personnel/p/4584926.html" target="_blank" rel="external">http://www.cnblogs.com/personnel/p/4584926.html</a></p>
-<p>Windows与Linux的磁盘使用流程</p>
-<ul>
-<li>Windows：分区–&gt;格式化–&gt;分配盘符</li>
-<li>Linux：分区–&gt;格式化–&gt;给每个分区起“设备文件名”–&gt;分配挂载点</li>
-</ul>
-<h2 id="MBR"><a href="#MBR" class="headerlink" title="MBR"></a>MBR</h2><p>MBR=主引导区记录。硬盘的0磁道的第一个扇区称为MBR，它的大小是512字节，而这个区域可以分为三个部分。第一部分为pre-boot区（预启动区），占446字节；第二部分是Partition table区（分区表），占64个字节，硬盘中分区有多少以及每一分区的大小都记在其中。第三部分是magic number，占2个字节，固定为55AA。</p>
-<p>MBR是针对整个硬盘而言的，而引导扇区是对单个分区而言的。每个分区的第一扇区就是引导扇区：像MBR一样，引导扇区里包含了一些引导操作系统所需要的相关信息。如果引导扇区被破坏了是个非常严重的问题，那就意味着这个分区不能被访问，安装在这个分区上的操作系统也不能被启动。所以说修复引导是使得每一个分区都能被正确识别引导。</p>
-<p>##MBR分区类型（所有系统都适用）：</p>
-<h4 id="主分区"><a href="#主分区" class="headerlink" title="主分区"></a>主分区</h4><p>最多只能分4个，由硬盘的结构决定（硬盘分为一个个等大小的扇区，每个扇区512字节，其中446个字节用于记录启动信息， 剩下的64个字节进行分区表示，64个字节中每16个字节表示一个分区，所以最多只能表示4个分区，故而硬盘结构如果不变，主分区最多只能分4个）。每个主分区都有各自独立的引导块，可以用fdisk设定为启动区。</p>
-<p>Windows下A、B作为软分区的盘符，C作为第一个主分区的盘符，所以最多还能分23个子分区。</p>
-<p>####扩展分区</p>
-<p><strong>一块硬盘中扩展分区只能有一个</strong></p>
-<p><strong>主分区和扩展分区总数不能超过4个</strong></p>
-<p>可以将一个主分区作为扩展分区，即三个主分区，一个扩展分区，总计4个分区；</p>
-<p><strong>不能直接写入数据</strong>，只能用作包含逻辑分区。</p>
-<p>区分扩展分区和逻辑分区，是突破主分区只能有4个的最主要的方法。</p>
-<h4 id="逻辑分区"><a href="#逻辑分区" class="headerlink" title="逻辑分区"></a>逻辑分区</h4><p>可以有多个，没有独立的引导块，不能用fdisk设定为启动区。</p>
-<h2 id="设备文件名"><a href="#设备文件名" class="headerlink" title="设备文件名"></a>设备文件名</h2><p>Linux中一切皆文件，包括硬件、用户等。硬件的文件名即称作“硬件设备文件名”，硬件设备文件名作为硬件的标准称呼，是由Linux自动检测并分配的。硬件设备文件在目录中处于根目录（“/”代表根目录，最高级目录）下的dev文件夹（专用于放硬件设备文件）下，即“/dev”文件夹下。</p>
-<h4 id="分区的设备文件名分配规则"><a href="#分区的设备文件名分配规则" class="headerlink" title="分区的设备文件名分配规则"></a>分区的设备文件名分配规则</h4><p>hd代表IDE接口，sd代表SCSI接口或SATA接口；<br>a代表第一块硬盘，如有多块硬盘b代表第二块硬盘，c代表第三块硬盘，以此类推；<br>1代表一块硬盘上的第一个分区，2代表此硬盘的第二个分区，3代表此硬盘第三个分区，以此类推，其中1234编号只能代表主分区或扩展分区，逻辑分区的编号从5开始分配，最大分区编号16<br>/dev/sda1 第一块SATA接口硬盘的第一个分区</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG28.jpg" alt=""></p>
-<h4 id="挂载点"><a href="#挂载点" class="headerlink" title="挂载点"></a>挂载点</h4><p>Windows中使用字母标识符来指定在这个分区上的文件和目录，而Linux中使用目录作为挂载点（盘符）<br>绝大多数目录都可以作为挂载点（部分必须和根目录放在同一个分区的目录除外，否则将导致系统不能启动）包括你手工创建的目录。</p>
-<p>##Linux 分区</p>
-<p>####必须分区：</p>
-<p>根分区 /（挂载点根目录，根目录中要保存其他所有数据，根目录如果没有硬盘空间，根下的很多数据将没有地方存放）<br>swap分区（交换分区，可理解为虚拟内存， 当真实内存不足时，可将swap分区中的硬盘空间作为内存使用，如果内存小于等于4GB，推荐swap分配内存的两倍，若内存大于4GB，建议swap空间与内存相等，不需要挂载点，swap分区不是给用户看的，是系统直接调用的所以无挂载点）</p>
-<p>注：启动分区/boot需不需要创建要看实际情况，<br>需要使用LVM时，由于/boot分区不支持lvmfs，所以要单独创建，这个目录是系统文件，一般不会动，但不要太小，如果升级内核可能就满了。<br>个人使用没有必要</p>
-<h4 id="使用-“fdisk”命令进行硬盘分区"><a href="#使用-“fdisk”命令进行硬盘分区" class="headerlink" title="使用 “fdisk”命令进行硬盘分区"></a>使用 “fdisk”命令进行硬盘分区</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">fdisk /dev/sdb </div><div class="line">进入sdb硬盘分区模式</div><div class="line">输入m，查看命令帮助信息</div><div class="line"></div><div class="line">新建分区</div><div class="line">输入n，给硬盘添加一个新的分区</div><div class="line">输入p，主分区</div><div class="line">输入e，扩展分区，扩展分区不能直接使用，需要添加逻辑分区</div><div class="line">输入l，扩展分区只能有一个，不能再分扩展分区了，所以显示的是逻辑分区，5代表分区的编号从5开始</div><div class="line">给分区指定编号，1-4是预留给主分区或者扩展分区的</div><div class="line">Partition number( 1-4,defautl 1):</div><div class="line">给这个分区指定扇区发起始和终止位置</div><div class="line">扇区的起始位置： First sector (2048 - 16777215，default 2048):不输入默认2048</div><div class="line">扇区的终止位置：Last sector,+sectors or +size&#123;K,M,G&#125;&#123;2048-16777215,default 16777215&#125;:3000M</div><div class="line">Command(m for help):输入p查看已经分好的区</div><div class="line">Command(m for help):输入n 继续添加分区</div><div class="line"></div><div class="line">删除分区： 输入d，随后输入删除的分区号</div><div class="line">逻辑分区是在拓展分区之内的，如果删除的拓展分区，随之而然的逻辑分区也被删除</div><div class="line"></div><div class="line">写入分区：输入w，直接就是保存并生效了；</div></pre></td></tr></table></figure>
-<p><br></p>
-<p>参考：</p>
-<ul>
-<li><a href="https://shengbao.org/691.html" target="_blank" rel="external">https://shengbao.org/691.html</a></li>
-<li><a href="http://blog.51cto.com/13323775/2053921" target="_blank" rel="external">http://blog.51cto.com/13323775/2053921</a></li>
-</ul>
-
-          
+          硬件设备都是由Linux系统自动识别的，必须对硬盘进行分区、格式化、挂载后才能使用
+分区的意义：http://www.cnblogs.com/personnel/p/4584926.html
+Wind
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/06/Linux磁盘管理-MBR分区/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -879,10 +977,15 @@
       
         
           
-            <h2 id="df"><a href="#df" class="headerlink" title="df"></a>df</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">df：查看磁盘分区使用状况</div><div class="line">-l：仅显示本地默认磁盘（默认）</div><div class="line">-a：显示所有文件系统的磁盘使用情况</div><div class="line">-h：以1024进制计算最合适的单位显示磁盘容量（默认KB显示）</div><div class="line">-H：显示以1000进制计算最合适的单位显示磁盘容量</div><div class="line">-T：显示磁盘分区类型</div><div class="line">-t：显示指定类型文件系统的磁盘分区  //如：df -t ext4</div><div class="line">-x：不显示指定类型文件系统的磁盘分区</div></pre></td></tr></table></figure>
-<h2 id="du"><a href="#du" class="headerlink" title="du"></a>du</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">du 统计磁盘上的文件大小</div><div class="line">-b 以byte为单位统计文件  //统计出来的都是四舍五入的大小</div><div class="line">-k 以KB为单位统计文件    //统计出来的都是四舍五入的大小</div><div class="line">-m 以MB为单位统计文件    //统计出来的都是四舍五入的大小</div><div class="line">-h 按照1024进制以最适合的单位统计文件</div><div class="line">-H 按照1000进制以最适合的单位统计文件</div><div class="line">-s 指定统计目标  </div><div class="line">du -s tmp</div><div class="line">du -sb *.zip</div></pre></td></tr></table></figure>
-
-          
+          df12345678df：查看磁盘分区使用状况-l：仅显示本地默认磁盘（默认）-a：显示所有文件系统的磁盘使用情况-h：以1024进制计算最合适的单位显示磁盘容量（默认KB显示）-H：显示以1000进
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/06/Linux磁盘管理-基本命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1000,14 +1103,15 @@
       
         
           
-            <p>来自<a href="https://askubuntu.com/questions/86095/does-executing-sudo-su-and-su-root-do-the-same-thing?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa" target="_blank" rel="external">https://askubuntu.com/questions/86095/does-executing-sudo-su-and-su-root-do-the-same-thing?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa</a></p>
-<p>Does executing sudo su and su root do the same thing?What are the technical differences between the two? The only thing I noticed is that</p>
-<p><code>sudo su</code><br>requires you to enter your own password (assuming you’re not root)</p>
-<p><code>su root</code><br>requires you to enter root’s password. However both seem to log you into the root user account.</p>
-<p>The second command cannot be executed in a default Ubuntu installation, where the root account is not enabled.</p>
-<p>But supposing you have unlocked the root account giving him a password, the two commands could only differ in the environment and shell variable set, I think. Compare the output of env in the two situations, and maybe also the output of set to see the differences.</p>
-
-          
+          来自https://askubuntu.com/questions/86095/does-executing-sudo-su-and-su-root-do-the-same-thing?utm_med
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/05/Linux-su-root和sudo-su/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1125,16 +1229,15 @@
       
         
           
-            <h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">shutdown [选项] 时间</div><div class="line">#相比其它命令更安全，在关机和重启时会正确保存正在运行的程序</div><div class="line">选项：</div><div class="line">	-c:取消前一个关机命令</div><div class="line">	-h:关机（half）</div><div class="line">	-r:重启</div><div class="line"></div><div class="line">shutdown -r 05:30</div><div class="line">shutdown -r 05:30 &amp; (后台运行)</div><div class="line">shutdown -r now</div><div class="line">#在服务器上尽量避免远程关机，因为再开机麻烦，所以远程重启就足够了</div><div class="line">#服务器由于经常进行高速运算强制重启非常容易损坏硬件，也容易造成数据丢失，所以一定要小心</div><div class="line"></div><div class="line">#其他关机命令(不安全，慎用)</div><div class="line">half</div><div class="line">poweroff</div><div class="line">init 0</div></pre></td></tr></table></figure>
-<p><br>  </p>
-<h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">reboot (相对安全)</div><div class="line">init 6 (尽量不要用)</div></pre></td></tr></table></figure>
-<p><br>  </p>
-<h2 id="系统运行级别"><a href="#系统运行级别" class="headerlink" title="系统运行级别"></a>系统运行级别</h2><p>0 关机<br>1 单用户 （与windows安全模式相似）<br>2 不完全多用户，不含NFS服务（NFS：文件共享服务）<br>3 完全多用户（字符界面）<br>4 未分配<br>5 图形界面（如果装了图形界面，init 5 进入图形界面）<br>6 重启<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">runlevel</div><div class="line"># 查询系统运行级别</div><div class="line"># 结果：N 3 (当前是3 N是上一次登陆级别)</div><div class="line"></div><div class="line">cat /etc/inittab </div><div class="line"># 查看/etc/inittab的内容</div><div class="line">id:3:initdefault: </div><div class="line"># 修改系统默认运行级别，这里默认是3</div></pre></td></tr></table></figure></p>
-<p><br>  </p>
-<h2 id="退出登录命令"><a href="#退出登录命令" class="headerlink" title="退出登录命令"></a>退出登录命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">logout </div><div class="line"># LINUX默认同时256个登录，最大支持6万多</div><div class="line"># 每次使用后，建议退出当前用户，避免他人因账户占用无法使用！与windows中的注销相似！</div></pre></td></tr></table></figure>
-<p>注意：<br>如果关闭远程登录xshell时直接点X，该用户就卡在计算机里，因为没有正确退出，所以一定养成正确退出登录的习惯</p>
-
-          
+          关机1234567891011121314151617shutdown [选项] 时间#相比其它命令更安全，在关机和重启时会正确保存正在运行的程序选项：	-c:取消前一个关机命令	-h:关机（half
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/05/Linux-关机和重启/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1252,24 +1355,15 @@
       
         
           
-            <h2 id="man"><a href="#man" class="headerlink" title="man"></a>man</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">man 命令</div><div class="line"># 获取指定命令的帮助</div><div class="line"># man是manual的缩写</div><div class="line"># 最常用的帮助命令</div><div class="line"># q退出</div><div class="line"># 输入:/-d 搜索&quot;-d&quot;字符串，按n往下搜“-d”,shift+n 往上搜“-d”</div><div class="line"></div><div class="line">man -f 命令</div><div class="line"># 查看命令的所有帮助等级</div><div class="line"># 相当于 whatis 命令</div><div class="line"># 因为whereis命令可以看到命令的帮助文档目录，所以也可以查看目录的等级</div><div class="line"></div><div class="line">man 级别 命令</div><div class="line">#查看相应等级的命令</div><div class="line">man -5 passwd</div><div class="line">man -4 null</div><div class="line">man -8 ifconfig</div><div class="line"></div><div class="line">man -k 命令 </div><div class="line"># 相当于 apropos 命令</div><div class="line"># 搜索含有关键词“命令”的所有帮助文档</div><div class="line">man -k passwd</div><div class="line"># 搜索含有关键词“passwd”的所有命令的帮助文档</div></pre></td></tr></table></figure>
-<p>man的级别：</p>
-<ol>
-<li>查看命令的帮助</li>
-<li>查看可被内核调用的函数的帮助</li>
-<li>查看函数和函数库的帮助</li>
-<li>查看特殊文件的帮助（主要是/dev目录下的文件）</li>
-<li>查看配置文件的帮助</li>
-<li>查看游戏的帮助</li>
-<li>查看其它杂项的帮助</li>
-<li>查看系统管理员可用命令的帮助</li>
-<li>查看和内核相关文件的帮助</li>
-</ol>
-<h2 id="–help"><a href="#–help" class="headerlink" title="–help"></a>–help</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">命令 --help </div><div class="line">#获取命令选项的帮助</div><div class="line">ls --help</div></pre></td></tr></table></figure>
-<h2 id="helpshell内部命令帮助"><a href="#helpshell内部命令帮助" class="headerlink" title="helpshell内部命令帮助"></a>helpshell内部命令帮助</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">help shell内部命令</div><div class="line">#whereis可以用来判断一个命令是否是shell内部命令</div><div class="line">#ls在/bin/下面有可执行文件，说明ls命令不是shell内部命令</div><div class="line">#cd命令在/bin/下面没有相应的可执行文件，所以是shell自带的命令</div><div class="line">man命令不能只获取shell的内部命令</div><div class="line">#help命令只能获取shell的内部命令</div></pre></td></tr></table></figure>
-<h2 id="info"><a href="#info" class="headerlink" title="info"></a>info</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">info 命令</div><div class="line">#info里面内容十分繁琐，是关于命令的一个巨大的帮助文档，里面有各个版本对于此命令的说明。</div><div class="line">回车：进入带*号的说明</div><div class="line">-u: 进入上层页面</div><div class="line">-n: 进入下一个帮助小节</div><div class="line">-p: 进入上一个帮助小节</div><div class="line">-q: 退出</div></pre></td></tr></table></figure>
-
-          
+          man1234567891011121314151617181920212223man 命令# 获取指定命令的帮助# man是manual的缩写# 最常用的帮助命令# q退出# 输入:/-d 搜索&q
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/05/Linux-帮助命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1387,17 +1481,18 @@
       
         
           
-            <p>linux 是个严谨的操作系统，一级目录都严格规定</p>
-<p>/ 根目录</p>
-<p>/home 普通用户的家目录<br>/root 超级用户的家目录<br>/tmp 临时目录，可存放临时数据</p>
-<p>/lib 系统库保存目录<br>操作系统中并没有把所有功能都写入linux中，而将常用的功能写成一个个程序库，这些库保存在lib中，当需要时调用即可。避免全部写入linux中，使其无比庞大且运行缓慢。</p>
-<p>/mnt<br>/media<br>/misc<br>三个都可以用来挂载</p>
-<p>/proc 直接写入内存的<br>/sys 直接写入内存的<br>这两个目录保存的是内存的挂载点，不能直接操作。其中的数据直接写在内存中。避免数据丢失或由于内存溢出导致系统崩溃。</p>
-<p>/boot 启动目录，启动相关文件<br>/dev 设备文件保存目录<br>/etc 配置文件保存目录<br>/var 系统相关文档内容</p>
-<p>/usr 系统软件资源目录<br>/usr/bin/ 系统命令（普通用户）<br>/usr/sbin/ 系统命令（超级用户）</p>
-<p>/bin 命令保存目录（普通用户就可以读取的命令）<br>/sbin 命令保存目录（超级用户才能使用的目录）<br>根目录下的bin和sbin，usr目录下的bin和sbin，这四个目录都是用来保存系统命令。其中，bin目录<br>下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式来区分用户权限。</p>
-
-          
+          linux 是个严谨的操作系统，一级目录都严格规定
+/ 根目录
+/home 普通用户的家目录/root 超级用户的家目录/tmp 临时目录，可存放临时数据
+/lib 系统库保存目录操作系统中并没有把所
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/05/Linux文件管理-常用目录/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1515,29 +1610,18 @@
       
         
           
-            <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ln -s [原文件][目标文件] （link）</div><div class="line">#生成链接文件</div><div class="line">-s 创建软链接</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><ul>
-<li>拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，1.将分区划分为等大小的block数据块，该数据块通常为4KB。2.建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文件拥有相同的i节点。因此，与原文件非常相似。当删除原文件或硬链接文件的任何一文件，不影响文件索引操作。可看做，同一个文件的不通进入点。它是同样的存储空间。</li>
-<li>可通过i节点识别（相同的i）</li>
-<li>不能跨分区建立</li>
-<li>不能针对目录使用，只有文件才可以创建</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ln ./source/abc ./target/bcd.hard</div><div class="line"># 创建后，引用计数+1</div><div class="line">ls -i ./source/abc ./target/bcd.hard</div><div class="line"># 可使用ls -i 来查看文件i节点号</div></pre></td></tr></table></figure>
-<p>不建议创建硬链接文件<br>文件太过隐蔽，除了有i节点这样一个标识之外，很难区分它是不是硬链接<br>硬链接限制较多，不能跨分区，不能针对目录，使用当中容易出现错误使用方法</p>
-<p><br></p>
-<p>##软链接</p>
-<ul>
-<li>类似于Windows快捷方式</li>
-<li>软链接拥有自己的i节点和block块，但是数据块中只保存原文件的文件名和i节点号，并没有实际的文件数据。（拥有自己的分区表中索引数据,通过索引找到分区表中文件的目标索引数据，再通过目标索引数据，查找数据）</li>
-<li>lrwxrwxrwx  l软链接， 软链接文件权限都为rwxrwxrwx, 虽然权限显示为777，但实际权限需要看原文件权限。</li>
-<li>修改任意文件，另一个都改变</li>
-<li>删除原文件，软链接不能使用</li>
-<li>创建软链接，原文件<strong>一定要写绝对路径</strong>。否则，软链接会到它所在的同一目录去找原文件。</li>
-<li>软链接的目的是：在不改变原目录/文件的前提下，起一个方便的别名。</li>
-</ul>
+          命令123ln -s [原文件][目标文件] （link）#生成链接文件-s 创建软链接
 
-          
+硬链接
+拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，1.将分区划分为等大小的bl
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/05/Linux文件管理-链接命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1655,28 +1739,17 @@
       
         
           
-            <p>常用压缩格式： .zip        .gz        .bz2</p>
-<p>常用解压缩格式： .tar.gz        .tar.bz2    </p>
-<h2 id="rar格式"><a href="#rar格式" class="headerlink" title=".rar格式"></a>.rar格式</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#yum无法安装</div><div class="line">#查看需要下载的版本，https://www.rarlab.com/download.htm</div><div class="line">wget https://www.rarlab.com/rar/rarlinux-x64-5.6.b4.tar.gz</div><div class="line">tar -zxvf rarlinux-x64-5.6.b4.tar.gz</div><div class="line">cd rar</div><div class="line">make</div></pre></td></tr></table></figure>
-<h3 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#将/etc 目录压缩为etc.rar </div><div class="line">rar a etc.rar /etc</div></pre></td></tr></table></figure>
-<h3 id="解压缩"><a href="#解压缩" class="headerlink" title="解压缩"></a>解压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rar x etc.rar </div><div class="line">unrar -e etc.tar</div></pre></td></tr></table></figure>
-<h2 id="zip格式"><a href="#zip格式" class="headerlink" title=".zip格式"></a>.zip格式</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install zip unzip</div></pre></td></tr></table></figure>
-<h3 id="压缩-1"><a href="#压缩-1" class="headerlink" title="压缩"></a>压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">zip 压缩文件名 源文件   </div><div class="line">#压缩文件</div><div class="line">zip -r 压缩文件名 源目录  </div><div class="line">#压缩目录</div></pre></td></tr></table></figure>
-<h3 id="解压缩-1"><a href="#解压缩-1" class="headerlink" title="解压缩"></a>解压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unzip 压缩文件</div></pre></td></tr></table></figure>
-<h2 id="gz格式"><a href="#gz格式" class="headerlink" title=".gz格式"></a>.gz格式</h2><h3 id="压缩-2"><a href="#压缩-2" class="headerlink" title="压缩"></a>压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">gzip 源文件</div><div class="line">#压缩为.gz格式的压缩文件，源文件消失</div><div class="line"></div><div class="line">gzip -c 源文件 &gt; 压缩文件</div><div class="line">#压缩为.gz格式，源文件保留</div><div class="line">gzip -c cangls &gt; cangls.gz</div><div class="line"></div><div class="line">gzip -r 目录</div><div class="line">#压缩目录下所有的子文件，但是不能压缩目录</div></pre></td></tr></table></figure>
-<h3 id="解压缩-2"><a href="#解压缩-2" class="headerlink" title="解压缩"></a>解压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gzip -d 压缩文件 </div><div class="line">gunzip 压缩文件</div></pre></td></tr></table></figure>
-<h2 id="bz2格式"><a href="#bz2格式" class="headerlink" title=".bz2格式"></a>.bz2格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum -y install bzip2</div><div class="line">#使用之前需要安装</div></pre></td></tr></table></figure>
-<p>没有安装会出现以下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tar (child): lbzip2: Cannot exec: No such file or directory </div><div class="line">tar (child): Error is not recoverable: exiting now </div><div class="line">tar: Child returned status 2 </div><div class="line">tar: Error is not recoverable: exiting now</div></pre></td></tr></table></figure></p>
-<h3 id="压缩-3"><a href="#压缩-3" class="headerlink" title="压缩"></a>压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">bzip2 源文件 </div><div class="line">#压缩文件，源文件消失</div><div class="line">bzip2 -k 源文件 </div><div class="line">#压缩之后保留源文件 </div><div class="line">#注意：bzip2命令不能压缩目录</div></pre></td></tr></table></figure>
-<h3 id="解压缩-3"><a href="#解压缩-3" class="headerlink" title="解压缩"></a>解压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bzip2 -d 压缩文件  #解压缩，-k保留压缩文件</div><div class="line">bunzip2 压缩文件  #解压缩，-k保留压缩文件</div></pre></td></tr></table></figure>
-<h2 id="打包命令tar"><a href="#打包命令tar" class="headerlink" title="打包命令tar"></a>打包命令tar</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">tar -cvf 打包文件名 源文件 </div><div class="line"># 压缩为tar格式</div><div class="line">tar -zcvf 压缩包名.tar.gz 源文件 </div><div class="line"># 压缩为.tar.gz格式</div><div class="line">tar -jcvf 压缩包名.tar.bz2 源文件 </div><div class="line"># 压缩为.tar.bz2格式</div><div class="line"></div><div class="line">**参数j、z要放在前边**</div><div class="line">#解压tar</div><div class="line">tar -xvf 打包文件名 </div><div class="line">#解压tar格式文件</div><div class="line">tar -zxvf 压缩包名.tar.gz </div><div class="line">#解压.tar.gz格式文件</div><div class="line">tar -jxvf 压缩包名.tar.bz2 </div><div class="line">#解压.tar.bz2格式文件</div><div class="line"></div><div class="line">-c：打包</div><div class="line">-v：显示过程</div><div class="line">-f：指定打包后的文件名</div><div class="line">-x：解打包</div><div class="line">-z：压缩为.tar.gz格式</div><div class="line">-j：压缩为.tar.bz2格式</div><div class="line"></div><div class="line">其他用法</div><div class="line">tar -jxvf 打包文件名 -C 绝对路径 </div><div class="line">#指定解压缩位置</div><div class="line">tar -zcvf 绝对路径（/tmp/）+打包文件名 源文件 源文件 </div><div class="line">#将多个文件解压到指定路径</div><div class="line">tar -ztvf 压缩包文件名 </div><div class="line">#查看压缩包内文件</div></pre></td></tr></table></figure>
-<p><br></p>
-<p>参考：</p>
-<ul>
-<li><a href="https://blog.csdn.net/yonggeit/article/details/72190246" target="_blank" rel="external">https://blog.csdn.net/yonggeit/article/details/72190246</a></li>
-</ul>
-
-          
+          常用压缩格式： .zip        .gz        .bz2
+常用解压缩格式： .tar.gz        .tar.bz2    
+.rar格式安装123456#yum无法安装#查看需要
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/05/Linux文件管理-文件解压缩命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1794,21 +1867,15 @@
       
         
           
-            <h2 id="文件搜索命令-locate"><a href="#文件搜索命令-locate" class="headerlink" title="文件搜索命令 locate"></a>文件搜索命令 locate</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">locate 文件名</div><div class="line">#在后台数据库中按文件名搜索，搜索速度更快</div><div class="line"></div><div class="line">/var/lib/mlocate (保存的搜索数据库)</div><div class="line">#locate 命令所搜索的后台数据库</div><div class="line">#数据库不是实时的，更新频率大概一天更新一次</div><div class="line"></div><div class="line">updatedb</div><div class="line">#更新数据库</div></pre></td></tr></table></figure>
-<p>对于新建的文件，由于数据库没有更新，使用<code>locate</code>不能查到。可以使用 updatedb强制更新数据库后即可查到。<br>可使用 <code>locate locate</code>搜索locate相关文件，可看到locate数据库。<br>在不同linux中，该数据库名字稍微不同，例如，locatedb、slocate、mlocate。</p>
-<p>缺点：只能按照文件名进行搜索，但常用。</p>
-<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">touch /root/cangls</div><div class="line">touch /tmp/cangls</div><div class="line">updatedb</div><div class="line">locate cangls</div><div class="line">#显示为 /root/cangls  </div><div class="line">#只有一条，而/tmp下的cangls没有显示出来</div><div class="line">#原因在于locate搜索遵循配置文件 `/etc/updatedb.conf`</div><div class="line">#在PRUNEPATHS 中配置了/tmp/目录不进行搜索。所以没有进行查找</div><div class="line"></div><div class="line">/etc/updatedb.conf 配置文件</div><div class="line">PRUNE_BIND_MOUNTS = &quot;yes&quot;</div><div class="line">#开启搜索限制，yes为后面三项都生效。no为 后面三项都不生效</div><div class="line">PRUNEFS = </div><div class="line">#搜索时，不搜索的文件系统</div><div class="line">PRUNENAMES =</div><div class="line">#搜索时，不搜索的文件类型</div><div class="line">PRUNEPATHS =</div><div class="line">#搜索时，不搜索的路径</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="命令搜索命令-whereis和wchich"><a href="#命令搜索命令-whereis和wchich" class="headerlink" title="命令搜索命令 whereis和wchich"></a>命令搜索命令 whereis和wchich</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">whereis 命令名</div><div class="line">#搜索命令所在路径及帮助文档所在位置</div><div class="line">#只能搜索系统命令，不能搜索自己凭空创建的普通文件</div><div class="line">选项：</div><div class="line">-b:只查找可执行文件</div><div class="line">-m:只查找帮助文件</div><div class="line">#whoami 	显示当前操作用户</div><div class="line">#who am i	显示登录用户</div><div class="line">#whatis ls	显示ls的作用</div><div class="line"></div><div class="line">which 命令名</div><div class="line">#搜索命令所在路径及别名</div><div class="line">#如果有别名，还能看到别名</div><div class="line"></div><div class="line"># whereis和which不能看到shell的默认命令（如：cd），只能看到外部安装的命令。</div><div class="line"></div><div class="line">PATH环境变量</div><div class="line">定义系统搜索命令的路径</div><div class="line">echo $PATH</div><div class="line">执行命令的时候都要在path定义的目录中去寻找</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="文件搜索命令-find"><a href="#文件搜索命令-find" class="headerlink" title="文件搜索命令 find"></a>文件搜索命令 find</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">find [搜索范围][搜索条件]</div><div class="line">#搜索文件</div><div class="line"></div><div class="line">find /home -name 文件名</div><div class="line"># find搜索默认是完全匹配</div><div class="line"># 避免大范围的搜索，会非常浪费系统资源</div><div class="line"># find是在系统当中搜索符合条件的文件名，如果需要匹配，使用通配符匹配，通配符是完全匹配</div><div class="line">find /home -name &quot;[12]*&quot;</div><div class="line">find /home -name &quot;test[12]&quot;</div><div class="line">#要加引号</div><div class="line">*匹配任意内容</div><div class="line">?匹配任意一个字符</div><div class="line">[]匹配任意一个中括号内的字符</div><div class="line"></div><div class="line">find /home -mtime +10 在home目录下，查找10天前修改的文件</div><div class="line">find /home -mtime 10 在home目录下，查找10天前当天修改的文件</div><div class="line">find /home -mtime -10 在home目录下，查找10天内修改的文件</div><div class="line"># atime 文件访问时间</div><div class="line"># ctime 改变文件属性</div><div class="line"># mtime 修改文件内容</div><div class="line"></div><div class="line">find /root -iname test </div><div class="line"># 不区分要搜索的test大小写格式</div><div class="line">find /root -user root </div><div class="line"># -user 按文件所有者搜索</div><div class="line"># 搜索root目录下的所有属于root用户的文件</div><div class="line">find /root -nouser </div><div class="line">#没有所属者的文件，liunx中，每个文件都有所属者，如果没有，那么一般都是垃圾文件，但还是有特例的，比如内核产生的文件，就没有所属者，一般在proc和sys目录下；还有外来文件，也就是U盘拷入的文件也会忽略所有者。</div><div class="line"></div><div class="line">find 目录 -size 25k</div><div class="line"># 查找文件大小是25KB的文件</div><div class="line"># 注意：文件大小用小写k和大写M</div><div class="line"># -25k    小于25k</div><div class="line"># 25k     等于25k</div><div class="line"># +25k    大于25k</div><div class="line"></div><div class="line">find . -size 25M </div><div class="line"># 查询当前目录文件大小是25M的文件</div><div class="line"></div><div class="line">find /etc -size +20k -a -size -50k </div><div class="line"># 查找/etc下大于20k并且小于50k的文件</div><div class="line"># -a and,逻辑与，两个条件都满足</div><div class="line"># -o or,逻辑或，两个条件满足一个即可</div><div class="line"></div><div class="line">find /etc -size +20k -a -size -50k -exec ls -lh &#123;&#125; \;</div><div class="line">-exec &#123;&#125; \; </div><div class="line"># 固定格式，表示直接对前面的搜索结果进行后面的命令处理</div><div class="line"># 注意，&#123;&#125;和\之间有空格，结尾有分号</div><div class="line"></div><div class="line">find . -inum 262422 </div><div class="line"># 查找inode是262422的文件</div><div class="line"># -inum 查询指定i节点的文件</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="字符串搜索命令-grep"><a href="#字符串搜索命令-grep" class="headerlink" title="字符串搜索命令 grep"></a>字符串搜索命令 grep</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">grep [选项] 字符串 文件名</div><div class="line"># 在文件中匹配符合条件的字条串</div><div class="line"># 字符串使用 &quot;&quot; 包围，结果为行记录</div><div class="line">-i 忽略大小写</div><div class="line">-v 排除指定字符串</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="find命令和grep命令的区别"><a href="#find命令和grep命令的区别" class="headerlink" title="find命令和grep命令的区别"></a>find命令和grep命令的区别</h2><p>find：在 系统 中搜索符合条件的 文件名，使用 通配符（完全）匹配<br>grep：在 文件 当中搜索符合条件的 字符串，使用 正则表达式 （包含）匹配</p>
-<p>通配符（完全）匹配：搜索文件名<br>正则表达式 （包含）匹配：搜索文件中的数据</p>
-
-          
+          文件搜索命令 locate123456789locate 文件名#在后台数据库中按文件名搜索，搜索速度更快/var/lib/mlocate (保存的搜索数据库)#locate 命令所搜索的后台数据库#
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/05/Linux文件管理-文件搜索命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1926,21 +1993,16 @@
       
         
           
-            <p>linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件</p>
-<h4 id="命令提示符"><a href="#命令提示符" class="headerlink" title="命令提示符"></a>命令提示符</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]#</div><div class="line">root 当前登录用户</div><div class="line">localhost 主机名</div><div class="line">~ 当前所在目录（家目录）</div><div class="line"># 超级用户的提示符</div><div class="line">$ 普通用户的提示符</div></pre></td></tr></table></figure>
-<h4 id="命令的格式"><a href="#命令的格式" class="headerlink" title="命令的格式"></a>命令的格式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">命令 [选项][参数]</div><div class="line">个别命令使用不遵循此格式</div><div class="line">当有多个选项时，可以写在一起</div><div class="line">简化选项与完整选项：-a == --all</div></pre></td></tr></table></figure>
-<h4 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h4><ul>
-<li>相对路径：参照当前所在目录，进行查找</li>
-<li>绝对路径：从根目录开始制定，一级一级递归，进行查找</li>
-</ul>
-<h4 id="ls-查询目录中的内容"><a href="#ls-查询目录中的内容" class="headerlink" title="ls 查询目录中的内容"></a>ls 查询目录中的内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ls [选项] [文件或目录]</div><div class="line">    -a 显示所有文件,包括隐藏文件</div><div class="line">    -l 显示详细信息</div><div class="line">    -d 查看目录属性</div><div class="line">    -h 人性化显示文件大小</div><div class="line">    -i 显示inode</div><div class="line">ll命令表示ls -l</div></pre></td></tr></table></figure>
-<h4 id="mkdir-建立目录（make-directories）"><a href="#mkdir-建立目录（make-directories）" class="headerlink" title="mkdir  建立目录（make directories）"></a>mkdir  建立目录（make directories）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir -p [目录名]</div><div class="line">    -p ：递归创建，当创建多级目录时需加</div><div class="line">mkdir light</div><div class="line">mkdir -p imooc/linux/light</div></pre></td></tr></table></figure>
-<h4 id="cd-切换目录（change-directory）"><a href="#cd-切换目录（change-directory）" class="headerlink" title="cd 切换目录（change directory）"></a>cd 切换目录（change directory）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cd [目录]</div><div class="line">简化操作</div><div class="line">cd：进入当前用户的家目录</div><div class="line">cd ~ ：进入当前用户的家目录</div><div class="line">cd - ：进入上次目录</div><div class="line">cd .. ：进入上一级目录</div><div class="line">cd . ：进入当前目录</div></pre></td></tr></table></figure>
-<h4 id="pwd-查询所在目录位置（print-working-directory）"><a href="#pwd-查询所在目录位置（print-working-directory）" class="headerlink" title="pwd 查询所在目录位置（print working directory）"></a>pwd 查询所在目录位置（print working directory）</h4><h4 id="rmdir-删除空目录（remove-empty-directories）"><a href="#rmdir-删除空目录（remove-empty-directories）" class="headerlink" title="rmdir 删除空目录（remove empty directories）"></a>rmdir 删除空目录（remove empty directories）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rmdir [目录名] </div><div class="line">#只能删除空目录</div></pre></td></tr></table></figure>
-<h4 id="rm-删除文件或目录（remove）"><a href="#rm-删除文件或目录（remove）" class="headerlink" title="rm 删除文件或目录（remove）"></a>rm 删除文件或目录（remove）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">rm -rf [文件或目录] </div><div class="line">    -r ：删除目录</div><div class="line">    -f ：强制</div><div class="line">rm [文件名] ：提示是否删除</div><div class="line">rm -r [目录] ：删除目录需加 -r ，目录中含有子文件，将持续询问是否删除</div><div class="line">rm -rf [目录] ：删除目录， 不会询问是否删除而直接进行</div><div class="line"># 纯字符界面没有回收站。注意自杀指令：rm -rf /</div><div class="line">rm -rf /tmp/* ：删除tmp目录下的内容</div><div class="line">rm -rf /tmp/  ：删除tmp目录</div><div class="line"># 建议：删除文件或目录习惯使用命令 rm -rf [文件或目录]</div></pre></td></tr></table></figure>
-<h4 id="cp-复制命令（copy）"><a href="#cp-复制命令（copy）" class="headerlink" title="cp 复制命令（copy）"></a>cp 复制命令（copy）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">cp [选项] [原文件或目录] [目标目录] </div><div class="line">    -r ：复制目录</div><div class="line">    -p ：连带文件属性复制</div><div class="line">    -d ：若原文件是链接文件，则复制链接属性</div><div class="line">    -a ：相当于 -pdr 全选</div><div class="line">cp abc /tmp/ 若目标目录不加文件名，则为原名复制</div><div class="line">cp abc /tmp/ana 若目标目录后加入文件名，则为改名复制</div><div class="line">cp -r japan/ /tmp/ 复制目录</div><div class="line">cp -a japan/ /tmp/ 完全复制，包括所有属性</div><div class="line">#被复制文件的时间为执行复制命令的时间，若要使被复制的文件与原文件属性完全一致，需加 -a</div></pre></td></tr></table></figure>
-<h4 id="mv-剪切或改名命令（move）"><a href="#mv-剪切或改名命令（move）" class="headerlink" title="mv 剪切或改名命令（move）"></a>mv 剪切或改名命令（move）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mv [原文件或目录] [目标目录] </div><div class="line">mv japan/ /tmp/ 剪切目录时不需加 -r</div><div class="line">mv abc longls 当原文件与目标目录，在同一目录下，则为改名命令</div></pre></td></tr></table></figure>
-          
+          linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件
+命令提示符123456[root@localhost ~]#root 当前登录用户localhost 主机名~ 当前
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/05/Linux文件管理-文件处理命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2058,26 +2120,15 @@
       
         
           
-            <h2 id="简易版"><a href="#简易版" class="headerlink" title="简易版"></a>简易版</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#查看ssh服务是否开启</div><div class="line">ps -e |grep ssh</div><div class="line"></div><div class="line">#安装ssh服务，openssh是ssh的开源实现方式，系统已经默认有openssh-client</div><div class="line">#只要安装了ssh服务，本地linux可以当做服务器</div><div class="line">sudo apt install openssh-server</div><div class="line"></div><div class="line">#配置ssh</div><div class="line">sudo vi /etc/ssh/sshd_config</div><div class="line">PermitRootLogin yes 把注释去掉</div><div class="line"></div><div class="line">#开启ssh服务</div><div class="line">sudo systemctl restart sshd.service</div><div class="line">#开机启动SSH服务</div><div class="line">sudo systemctl enable sshd.service</div><div class="line"></div><div class="line">#连接，端口默认为22，可以不写</div><div class="line">ssh -p 22 userName@192.168.1.100</div></pre></td></tr></table></figure>
-<h2 id="复杂版"><a href="#复杂版" class="headerlink" title="复杂版"></a>复杂版</h2><p>参考<a href="https://wiki.centos.org/HowTos/Network/SecuringSSH" target="_blank" rel="external">https://wiki.centos.org/HowTos/Network/SecuringSSH</a></p>
-<h2 id="设置SSH免密码登录"><a href="#设置SSH免密码登录" class="headerlink" title="设置SSH免密码登录"></a>设置SSH免密码登录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">#1.客户端本地生成公钥和私钥，rsa是加密方式</div><div class="line">ssh-keygen -t rsa</div><div class="line"># ~/.ssh目录中创建两个名为id_rsa和id_rsa.pub的文件，id_rsa是私钥，id_rsa.pub是公钥</div><div class="line"></div><div class="line">#2.设置权限</div><div class="line">chmod -R 700 ~/.ssh</div><div class="line">chmod 600 ~/.ssh/id_rsa    #默认就是600</div><div class="line"></div><div class="line">#3. 复制公钥到服务器然后写入到~/.ssh/authorized_keys 方法一</div><div class="line"># 使用SSH远程登陆到服务器,发现家目录中还没有.ssh目录,使用mkdir创建</div><div class="line">mkdir .ssh</div><div class="line"># 发送公钥</div><div class="line">scp ./id_rsa.pub alice@192.168.0.10:/home/alice/.ssh</div><div class="line"># 将公钥追加写入~/.ssh/authorized_keys中，若authorized_keys不存在，则会创建并写入</div><div class="line">cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</div><div class="line">#修改authorized_keys的权限为600,并删除公钥文件</div><div class="line">rm id_rsa.pub</div><div class="line"></div><div class="line"># 复制公钥到服务器然后写入到~/.ssh/authorized_keys 方法二</div><div class="line"># ssh-copy-id 命令可以把本地主机的公钥复制到远程主机的 authorized_keys 文件上</div><div class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub user@server</div><div class="line">chmod 700 ~/.ssh</div><div class="line">chmod 600 ~/.ssh/authorized_keys</div><div class="line"></div><div class="line">#4.配置ssh，如果发现依旧无法连接，考虑是否打开配置</div><div class="line">sudo vi /etc/ssh/sshd_config</div><div class="line">RSAAuthentication yes</div><div class="line">PubkeyAuthentication yes</div><div class="line">AuthorizedKeysFile .ssh/authorized_keys</div></pre></td></tr></table></figure>
-<h2 id="使用别名登录ip"><a href="#使用别名登录ip" class="headerlink" title="使用别名登录ip"></a>使用别名登录ip</h2><p>打开<code>~/.ssh/config</code>，不存在就自己创建一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Host AAAAA #AAAAA为服务器主机名</div><div class="line">HostName 192.168.0.222 #写服务器ip地址</div><div class="line">User work #work为登陆用户名,不是自己电脑的名字</div><div class="line">Port 22 #主机端口，默认是22</div><div class="line">IdentityFile /home/me/.ssh/id_rsa.pub #自己生成的公钥的文件路径</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#使用别名登录</div><div class="line">ssh AAAAA</div></pre></td></tr></table></figure>
-<h2 id="多对ssh管理"><a href="#多对ssh管理" class="headerlink" title="多对ssh管理"></a>多对ssh管理</h2><p>指定不一样的私钥名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa.second</div></pre></td></tr></table></figure></p>
-<p>配置<code>~/.ssh/config</code>，在原有的基础上增加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Default github user(first@mail.com)  默认配置，一般可以省略</div><div class="line">Host github</div><div class="line">Hostname github.com</div><div class="line">User git</div><div class="line">Identityfile ~/.ssh/github</div><div class="line"></div><div class="line"># second user(second@mail.com)  给一个新的Host称呼</div><div class="line">Host secondgithub  // 主机名字，不能重名</div><div class="line">HostName github.com   // 主机所在域名或IP</div><div class="line">User git  // 用户名称</div><div class="line">IdentityFile C:/Users/username/.ssh/id_rsa.second  // 私钥路径</div></pre></td></tr></table></figure></p>
-<p>其他步骤不变</p>
-<h2 id="清除SSH的私钥密码"><a href="#清除SSH的私钥密码" class="headerlink" title="清除SSH的私钥密码"></a>清除SSH的私钥密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -p</div><div class="line"># 选择需要修改的私钥，默认是/home/username/.ssh/id_rsa</div><div class="line"># 选好文件后按回车，会提示你输入旧密码。</div><div class="line">#输入好后会提示输入新密码。</div><div class="line">#直接回车，提示确认新密码再直接回车，此时指定的私钥的密码就被清除了</div></pre></td></tr></table></figure>
-<p>SSH相关命令参考 <a href="http://fengrenxiaoli.github.io/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/" target="_blank" rel="external">Linux网络管理 远程登录</a></p>
-<p>参考：</p>
-<ul>
-<li><a href="https://wiki.centos.org/HowTos/Network/SecuringSSH" target="_blank" rel="external">https://wiki.centos.org/HowTos/Network/SecuringSSH</a></li>
-<li><a href="http://www.iosugar.com/2017/02/14/CentOS-remote-login-SSH-configuration/#SSH%E7%99%BB%E9%99%86" target="_blank" rel="external">http://www.iosugar.com/2017/02/14/CentOS-remote-login-SSH-configuration/#SSH%E7%99%BB%E9%99%86</a></li>
-<li><a href="http://einverne.github.io/post/2016/06/ssh-copy-id.html" target="_blank" rel="external">http://einverne.github.io/post/2016/06/ssh-copy-id.html</a></li>
-<li><a href="https://www.ssh.com/ssh/copy-id" target="_blank" rel="external">https://www.ssh.com/ssh/copy-id</a></li>
-<li><a href="https://linux.cn/article-6901-1.html" target="_blank" rel="external">https://linux.cn/article-6901-1.html</a></li>
-</ul>
-
-          
+          简易版123456789101112131415161718#查看ssh服务是否开启ps -e |grep ssh#安装ssh服务，openssh是ssh的开源实现方式，系统已经默认有openssh-
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/02/Linux-安装ssh/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2195,48 +2246,19 @@
       
         
           
-            <p>无论是vmware还是virtual box虚拟机软件，一般来说，虚拟机有三种网络模式:</p>
-<ol>
-<li>Bridged Adapter（桥接模式）</li>
-<li>NAT（网络地址转换模式）</li>
-<li>Host-only Adapter（主机模式）</li>
-</ol>
-<p>virtual box中还有lInternal</p>
-<p>虚拟网卡在虚拟机安装好之后，会自动添加两张网卡(VMnet1和VMnet8)，VMnet1用Host-only网络连接，VMnet8用NAT方式的网络连接，原先的VMnet0用桥接网络连接。</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG23.png" alt=""></p>
-<h2 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h2><p>桥接网络是指宿主物理网卡和虚拟网卡通过VMnet0虚拟交换机进行桥接，物理网卡和虚拟网卡在拓扑图上处于<strong>同等地位</strong>，那么物理网卡和虚拟网卡就相当于处于同一个网段，虚拟交换机就相当于一台现实网络中的交换机，所以两个网卡的IP地址也要设置为同一网段。会占用内网IP</p>
-<p>vmnet0实际上就是一个虚拟的网桥(2层交换机)，这个网桥有若干个接口，一个端口用于连接你的Host主机，其余端口可以用于连接虚拟机，他们的位置是对等的，谁也不是谁的网关。<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG24.png" alt=""></p>
-<p>主机A上的两个虚拟机1和虚拟机2，和主机A、B同处于一个网段，能够相互通信<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG25.png" alt=""></p>
-<p>虚拟机网卡配置，虚拟机上网需要IP/子网掩码/DNS/网关<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">DEVICE=&quot;eth0&quot;</div><div class="line">BOOTPROTO=“static&quot; #设置静态ip,动态为dhcp</div><div class="line">IPADDR=&quot;192.168.1.3&quot;</div><div class="line">GATEWAY=&quot;192.168.1.1&quot;</div><div class="line">HWADDR=&quot;08:00:27:C7:1B:22&quot;</div><div class="line">DNS1=&quot;8.8.8.8&quot;</div><div class="line">NETMASK=&quot;255.255.255.0&quot;</div><div class="line">ONBOOT=&quot;yes&quot;</div></pre></td></tr></table></figure></p>
-<p>CentOS 7中ONBOOT默认为NO，需要打开</p>
-<h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><p>虚拟机要求可以上网，且虚拟机完全模拟一台实体机</p>
-<p><br></p>
-<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><p>NAT模式中，就是让虚拟机借助NAT(网络地址转换)功能，通过宿主机器所在的网络来访问公网。宿主能够联网，虚拟机也能联网(其他主机)。宿主没有联网，虚拟机也不能联网</p>
-<p>vmnet1也是一个虚拟的交换机，交换机的一个 端口连接到你的Host上，另外一个端口连接到虚拟的DHCP服务器上（实际上是vmware的一个组件），另外剩下的端口就是连虚拟机了，主机A和虚拟机1和2能相互通信，虚拟机1和2能访问主机B和外网，主机B不能访问虚拟机1和2，虚拟机1和2能相互通信<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG27.png" alt=""></p>
-<p>虚拟机的配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">DEVICE=&quot;eth0&quot;</div><div class="line">BOOTPROTO=“static&quot; #设置静态ip,动态为dhcp</div><div class="line">IPADDR=&quot;10.0.2.5&quot;</div><div class="line">GATEWAY=&quot;10.0.2.1&quot;</div><div class="line">HWADDR=&quot;08:00:27:C7:1B:22&quot;</div><div class="line">DNS1=&quot;10.0.2.1&quot;</div><div class="line">NETMASK=&quot;255.255.255.0&quot;</div><div class="line">ONBOOT=&quot;yes&quot;</div></pre></td></tr></table></figure></p>
-<h4 id="应用场景：-1"><a href="#应用场景：-1" class="headerlink" title="应用场景："></a>应用场景：</h4><p>虚拟机只要求可以上网，无其它特殊要求，满足最一般需求</p>
-<p><br></p>
-<h2 id="Host-Only"><a href="#Host-Only" class="headerlink" title="Host-Only"></a>Host-Only</h2><p><strong>所有的虚拟系统是可以相互通信的，但虚拟系统和真实的网络是被隔离开的</strong></p>
-<p>虚拟系统和宿主机器系统是可以相互通信的。<br>虚拟系统的TCP/IP配置信息(如IP地址、网关地址、DNS服务器等)，都是由VMnet1(host-only)虚拟网络的DHCP服务器来动态分配的。</p>
-<p>主机和虚拟机之间的通信是通过 VMnet1虚拟网卡来实现的。虚拟机连接到VMnet1上，系统并不为其提供任何路由服务，因此虚拟机只能和宿主机进行通信，而不能连接到真正的网络上。</p>
-<p>Host-Only的宗旨就是建立一个与外界隔绝的内部网络，来提高内网的安全性。这个功能或许对普通用户来说没有多大意义，但大型服务商会常常利用这个功能。如果你想为VMnet1网段提供路由功能，那就需要使用RRAS，而不能使用XP或2000的ICS，因为ICS会把内网的IP地址改为192.168.0.1，但虚拟机是不会给VMnet1虚拟网卡分配这个地址的，那么主机和虚拟机之间就不能通信了。</p>
-<p>虚拟机1和2之间可以相互通信，主机A能和虚拟机1和2通信，虚拟机1和2不能和主机通信(需要设置)，虚拟机不能和B主机以及外网通信<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG26.png" alt=""></p>
-<h4 id="使用范围"><a href="#使用范围" class="headerlink" title="使用范围"></a>使用范围</h4><p>如果你想利用VMWare创建一个与网内其他机器相隔离的虚拟系统，进行某些特殊的网络调试工作，可以选择host-only模式。</p>
-<p><br></p>
-<h2 id="内网模式"><a href="#内网模式" class="headerlink" title="内网模式"></a>内网模式</h2><p>内网模式，顾名思义就是内部网络模式：虚拟机与外网完全断开，只实现虚拟机于虚拟机之间的内部网络模式。</p>
-<p>虚拟机与主机的关系：不能相互访问，彼此不属于同一个网络，无法相互访问。<br>虚拟机与网络中其他主机的关系：不能相互访问，理由同上。<br>虚拟机与虚拟机的关系：可以相互访问，前提是在设置网络时，两台虚拟机设置同一网络名称。如上配置图中，名称为intnet。</p>
-<p>参考：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/ggjucheng/archive/2012/08/19/2646007.html" target="_blank" rel="external">http://www.cnblogs.com/ggjucheng/archive/2012/08/19/2646007.html</a></li>
-<li><a href="https://www.jianshu.com/p/305f7384cfe9" target="_blank" rel="external">https://www.jianshu.com/p/305f7384cfe9</a></li>
-<li><a href="https://blog.csdn.net/bytxl/article/details/35569217" target="_blank" rel="external">https://blog.csdn.net/bytxl/article/details/35569217</a></li>
-<li><a href="https://blog.csdn.net/clevercode/article/details/45934233" target="_blank" rel="external">https://blog.csdn.net/clevercode/article/details/45934233</a></li>
-<li><a href="http://blog.51cto.com/wangchunhai/381225" target="_blank" rel="external">http://blog.51cto.com/wangchunhai/381225</a></li>
-<li><a href="https://github.com/waltcow/blog/issues/21" target="_blank" rel="external">https://github.com/waltcow/blog/issues/21</a></li>
-<li><a href="https://blog.csdn.net/guizaijianchic/article/details/72190394" target="_blank" rel="external">https://blog.csdn.net/guizaijianchic/article/details/72190394</a></li>
-</ul>
+          无论是vmware还是virtual box虚拟机软件，一般来说，虚拟机有三种网络模式:
 
-          
+Bridged Adapter（桥接模式）
+NAT（网络地址转换模式）
+Host-only Adapter（
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/02/Linux-虚拟机网络配置详解-NAT、桥接、Hostonly/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2354,36 +2376,18 @@
       
         
           
-            <p>参考  <a href="http://fengrenxiaoli.github.io/2018/05/02/Linux-%E5%AE%89%E8%A3%85ssh/" target="_blank" rel="external">Linux 安装ssh</a></p>
-<h2 id="SSH协议原理"><a href="#SSH协议原理" class="headerlink" title="SSH协议原理"></a>SSH协议原理</h2><h4 id="对称加密算法"><a href="#对称加密算法" class="headerlink" title="对称加密算法"></a>对称加密算法</h4><p>采用单钥密码系统的加密方法, 同一个秘钥可以同时用作信息的加密和解密, 这种加密方法称为对称加密, 也称为单秘钥加密.</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG22.png" alt=""></p>
-<p>缺点 : 加密解密使用相同密码, 需要告知对方密码, 等同于将自身多方习惯密码告知对方. 例如邮箱等密码, 造成威胁</p>
-<h4 id="非对称加密算法"><a href="#非对称加密算法" class="headerlink" title="非对称加密算法"></a>非对称加密算法</h4><p>asymmetric cryptographic algorithm，又名 “公开秘钥加密算法” ,  需要公开秘钥(publickey) 和私有秘钥(privatekey)<br>linux 中为 gpg工具, windows 中为 pgp工具</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG21.jpg" alt=""></p>
-<p>过程原理, A 需要发送数据包给 B</p>
-<ol>
-<li>A 根据自己密码A 生成 公钥A 和私钥A</li>
-<li>B 根据自己密码B 生成 公钥B 和私钥B</li>
-<li>A 向 B 寻要 公钥B, 再结合自身的公钥A 对数据包进行加密, 并发送给B</li>
-<li>B 收到数据包之后, 可根据自身密码B 和 私钥B 对数据包进行解密且成功</li>
-<li>此时, A 也可以根据自身密码A 结合 私钥A 对已加密的数据包进行解密</li>
-<li>至此, 避免了泄露 A 自身的密码</li>
-</ol>
-<h4 id="SSH安全外壳协议"><a href="#SSH安全外壳协议" class="headerlink" title="SSH安全外壳协议"></a>SSH安全外壳协议</h4><p>在非对称加密算法之上演变而来<br>密码足够复杂强壮可降低暴力破解的成功性<br>SSH 保护数据传递过程中的安全, 但若在传递之前中病毒则不可避免<br>通用的远程管理协议</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG23.jpg" alt=""></p>
-<p>过程原理, A 需要发送数据包给 B</p>
-<ol>
-<li>A 持有 公钥A 和 私钥A</li>
-<li>B 持有 公钥B 和 私钥B</li>
-<li>A 向 B 寻要 公钥B, 再结合自身的 公钥A 对数据包进行加密, 并发送给B</li>
-<li>B 收到数据包之后, 可根据自身 私钥B 对数据包进行解密</li>
-</ol>
-<h4 id="SSH-命令"><a href="#SSH-命令" class="headerlink" title="SSH 命令"></a>SSH 命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ssh 用户名@ip</div><div class="line"># 远程管理制定Linux服务器</div><div class="line"># 经过远程之后, 在家目录中的 .ssh 文件夹 know_hosts文件中保存着 连接成功的目标信息</div><div class="line"># 地址 加密算法 公钥</div><div class="line">#若目计算机进行了重装系统, 或地址被另一台机器占用, 此时 已下载的公钥无法使用, 使用vi 对改行进行删除, 当再次连接时, 会再次提示是否进行下载公钥</div><div class="line"></div><div class="line"></div><div class="line">scp [-r] 用户名@ip:文件路径 本地路径</div><div class="line"># 网络复制命令, 下载文件 或加-r 下载文件夹</div><div class="line"></div><div class="line">scp [-r] 本地文件 用户名@ip:上传路径</div><div class="line"># 网络复制命令, 上传文件 或加-r 上传文件夹</div><div class="line"># 此为linux 与 linux之间进行文件传输的最简单方式</div></pre></td></tr></table></figure>
-<h2 id="远程管理工具"><a href="#远程管理工具" class="headerlink" title="远程管理工具"></a>远程管理工具</h2><p>SecureCRT、Xshell</p>
-<p>WinSCP文件传输工具</p>
-<p>FileZilla</p>
+          参考  Linux 安装ssh
+SSH协议原理对称加密算法采用单钥密码系统的加密方法, 同一个秘钥可以同时用作信息的加密和解密, 这种加密方法称为对称加密, 也称为单秘钥加密.
 
-          
+缺点 : 加密解密使
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Linux网络管理-远程登录/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2501,35 +2505,16 @@
       
         
           
-            <h2 id="IP地址配置"><a href="#IP地址配置" class="headerlink" title="IP地址配置"></a>IP地址配置</h2><p>DHCP服务器可以自动分配IP</p>
-<h4 id="ifconfig命令临时配置IP地址"><a href="#ifconfig命令临时配置IP地址" class="headerlink" title="ifconfig命令临时配置IP地址"></a>ifconfig命令临时配置IP地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ifconfig</div><div class="line">查看当前网络状态</div><div class="line">ifconfig eth0 192.168.254.200 netmask 255.255.255.0</div><div class="line">临时设置eth0网卡的IP地址与子网掩码</div></pre></td></tr></table></figure>
-<h4 id="setup工具永久配置IP地址"><a href="#setup工具永久配置IP地址" class="headerlink" title="setup工具永久配置IP地址"></a>setup工具永久配置IP地址</h4><ul>
-<li>红帽专有图形化工具setup设置IP地址</li>
-<li>CentOS系统中默认就没有setup命令，需要安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">yum -y install setuptool   </div><div class="line">安装setup命令工具</div><div class="line">yum -y install ntsysv   </div><div class="line">安装setup工具配套的系统服务组件</div><div class="line">yum -y install system-config-securitylevel-tui</div><div class="line">安装setup工具配套的防火墙配置组件</div><div class="line">yum -y install system-config-network-tui </div><div class="line">安装setup工具配套的网络配置组件</div><div class="line">yum -y install authconfig-gtk</div><div class="line">安装setup工具配套的验证配置组件</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>system-config-network-tui 无法安装，是因为网络设置改到<code>nmtui</code>命令中</p>
-<p>####修改网络配置文件</p>
-<p>因为配置文件不光可以配置IP，所以单独开一节</p>
-<p>####图形界面配置IP地址</p>
-<p><br></p>
-<h2 id="修改网络配置文件"><a href="#修改网络配置文件" class="headerlink" title="修改网络配置文件"></a>修改网络配置文件</h2><h4 id="网卡信息文件"><a href="#网卡信息文件" class="headerlink" title="网卡信息文件"></a>网卡信息文件</h4><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG18.png" alt=""></p>
-<h4 id="主机名文件"><a href="#主机名文件" class="headerlink" title="主机名文件"></a>主机名文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vi /etc/sysconfig/network</div><div class="line"></div><div class="line">hostname [主机名]</div><div class="line"># 查看与临时设置主机名命令</div></pre></td></tr></table></figure>
-<h4 id="DNS配置文件"><a href="#DNS配置文件" class="headerlink" title="DNS配置文件"></a>DNS配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /etc/resolv.conf</div><div class="line"># nameserver 名称服务器/DNS</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="虚拟机网络参数配置"><a href="#虚拟机网络参数配置" class="headerlink" title="虚拟机网络参数配置"></a>虚拟机网络参数配置</h2><p>1.配置LinuxIP地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setup</div><div class="line">#修改并配置IP地址</div></pre></td></tr></table></figure></p>
-<p>2.启动网卡<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth0</div><div class="line">#把 ONBOOT = no改为 ONBOOT = yes</div><div class="line">service network restart</div><div class="line">#重启网络服务</div></pre></td></tr></table></figure></p>
-<p>3.修改UUID(如果这是一台克隆/复制出来的机子则必须进行这个步骤，否则可以省去)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth0</div><div class="line">#删除MAC地址行</div><div class="line">rm -rf /etc/udev/rules.d/70-persistent-net.rules</div><div class="line">#删除网卡和MAC地址绑定文件</div><div class="line">#重启动系统</div></pre></td></tr></table></figure></p>
-<p>4.设置虚拟机网络连接方式</p>
-<ul>
-<li><strong>桥接模式</strong>：通过物理机的真实网卡进行通信，若选此项，则虚拟机需要配置与物理机相同的网关，缺点是需要占用真实网段的一个IP地址。这种模式更适用于实验，因为这种模式不仅可以与你的物理机可以通信还可以与同一局域网的其他主机通信，还可以访问公网。</li>
-<li><strong>NAT模式</strong>：在windows中（物理机中）是以VMware8虚拟网卡进行通信。这种模式只能与你自己的主机通信，不能与局域网的其他主机通信，但是可以通过物理的网卡访问公网。</li>
-<li>仅主机模式：在windows中（物理机中）是以VMware1虚拟网卡进行通信。这种模式只能与你自己的主机通信，不能与局域网的其他主机通信，只能与自己的物理机通信，并且不能上公网。</li>
-</ul>
-<p>切记：在选择桥接模式之后，需要选择桥接的网卡（即需要确定虚拟机需要通过哪个真实网卡连接网络），一般的虚拟机都是自动桥接，但是这种方式真的跟不靠谱**，所以你需要自己选择，如果你是通过有线接入网络，则选择有线桥接，若是通过无线接入网络，则通过无线接入。</p>
-<p>5.修改桥接网卡</p>
-
-          
+          IP地址配置DHCP服务器可以自动分配IP
+ifconfig命令临时配置IP地址1234ifconfig查看当前网络状态ifconfig eth0 192.168.254.200 netmask 25
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Linux网络管理-网络配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2647,18 +2632,15 @@
       
         
           
-            <h2 id="网络环境查看命令"><a href="#网络环境查看命令" class="headerlink" title="网络环境查看命令"></a>网络环境查看命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">ifconfig</div><div class="line"># 查看与临时配置网络状态，但无法查看网关和DNS</div><div class="line"></div><div class="line"></div><div class="line">#关闭与启动网卡</div><div class="line">ifdown 网卡设备名 </div><div class="line">#禁用该网卡设备</div><div class="line">ifup 网卡设备名 </div><div class="line">#启用该网卡设备</div><div class="line"></div><div class="line"></div><div class="line">#查询网络状态</div><div class="line">netstat 选项</div><div class="line">选项：一般为tuln或an</div><div class="line">-t：列出TCP协议端口</div><div class="line">-u：列出UDP协议端口</div><div class="line">-n：不使用域名与服务名，而使用IP地址和端口号</div><div class="line">-l：仅列出在监听状态的网络服务</div><div class="line">-a：列出所有的网络连接</div><div class="line"></div><div class="line">#统计计算机建立的远程连接数</div><div class="line">netstat -an | grep ESTABLISHED | wc -l</div><div class="line"></div><div class="line">#查看网关</div><div class="line">netstat -rn </div><div class="line">选项：</div><div class="line">-r：列出路由表，功能和route命令一致。</div><div class="line"></div><div class="line"></div><div class="line">route -n </div><div class="line">#查看路由列表(可以看到网关)</div><div class="line">route add default gw 192.168.1.1</div><div class="line">#临时测定网关</div><div class="line"></div><div class="line"></div><div class="line">#域名解析命令</div><div class="line">nslookup [主机名或IP] </div><div class="line">#进行域名与IP地址解析，域名对应哪个IP</div><div class="line"></div><div class="line">nslookup</div><div class="line">&gt;server #本地设定的DNS的地址</div><div class="line">&gt;exit #退出</div></pre></td></tr></table></figure>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG19.png" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG20.png" alt=""></p>
-<p>在一台服务器里，连接内网的网卡是不能设置网关的，只有连接外网的网卡才能设置，而且这个网关是由运营商设置好 它告诉我们的下一级网络地址。</p>
-<p>随便设置一个网关是不行的，因为与外网通信时，要把消息转发到网关，网关负责把内网IP转换成功公网IP，随便设置则将找不到这个网关，导致呈现网络连接失败状态。</p>
-<h2 id="网络测试命令"><a href="#网络测试命令" class="headerlink" title="网络测试命令"></a>网络测试命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">ping [选项] ip或域名 </div><div class="line">#探测指定IP或域名的网络状况</div><div class="line">选项：</div><div class="line">-c 次数：指定ping包的次数</div><div class="line"></div><div class="line"></div><div class="line">telnet [域名或IP] [端口] </div><div class="line">#远程管理与端口探测命令，明文传递</div><div class="line">telnet 192.168.0.252 80</div><div class="line">#如果连接成功，将会进入连接状态，按ctrl+]退出到telnet，再键入quit返回命令行状态</div><div class="line"></div><div class="line"></div><div class="line">traceroute [选项] IP或域名 </div><div class="line">#路由跟踪命令，查看中间所经过的节点，故障定位。</div><div class="line">选项：</div><div class="line">-n 使用IP，不使用域名，速度更快</div><div class="line">#和ping一样都是利用的ICMP协议（Internet Control Message Protocol）Internet控制报文协议</div><div class="line">#家用网络大多数结点都禁止ping，就是*，可以根据路由来分析哪些结点出现了问题</div><div class="line"></div><div class="line"></div><div class="line">wget http://soft.vpser.net/lnmp/lnmp1.1-full.tar.gz 	#下载命令</div><div class="line"></div><div class="line"></div><div class="line">tcpdump -i eth0 -nnX port 21</div><div class="line">抓取eth0网卡上的数据包，以16进制拆分数据包(用port 21可以只拆分21端口)</div><div class="line">选项：</div><div class="line">-i：指定网卡接口</div><div class="line">-nn：将数据包中的域名与服务转为IP和端口</div><div class="line">-X：以十六进制和ASCII码显示数据包内容</div><div class="line">port：指定监听的端口</div></pre></td></tr></table></figure>
-<ul>
-<li>ftp也是明文：用来上传下载文件，默认是不允许用户登陆的</li>
-<li>http都是明文，一旦截获了数据包，就能直接获取里面的数据</li>
-<li>https才是加密的</li>
-</ul>
-
-          
+          网络环境查看命令123456789101112131415161718192021222324252627282930313233343536373839404142ifconfig# 查看与临时配置
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Linux网络管理-网络命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2776,183 +2758,17 @@
       
         
           
-            <h2 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h2><p>开放系统互联模型，由ISO(国际标准化组织) 组织开发的</p>
-<p>该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的</p>
-<p>上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务</p>
-<style>
-table th:nth-of-type(1){
-width: 10%;
-}
-table th:nth-of-type(2){
-width: 70%
-;
-}
-table th:nth-of-type(3){
-width: 20%;
-}
-
-</style>
-
-
-<table>
-<thead>
-<tr>
-<th>层级</th>
-<th>作用</th>
-<th>传输单元</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>应用层</td>
-<td>用户接口</td>
-<td>APDU，应用协议数据单元</td>
-</tr>
-<tr>
-<td>表示层</td>
-<td>数据的表现形式（ASCII、GB2312、jpg）、 特定功能的实现如加密、压缩</td>
-<td>PPDU，表示协议数据单元</td>
-</tr>
-<tr>
-<td>会话层</td>
-<td>对应用会话的管理、同步。 确定网络数据是否要经过远程会话</td>
-<td>SPDU，会话协议数据单元</td>
-</tr>
-<tr>
-<td>传输层</td>
-<td>确定可靠与不可靠的传输（ TCP传输控制协议可靠不会丢、UDP用户数据报协议更快但可能会丢）、传输前的错误检测、 流量控制、 确立端口号, 便于通过IP确定主机后, 通过端口确定交互的服务</td>
-<td>TPDU，传输协议数据单元</td>
-</tr>
-<tr>
-<td>网络层</td>
-<td>负责提供逻辑地址(IP地址, 需要写入发件人IP与收件人IP）、 选择通路。 （确定IP地址，原IP、目地IP）</td>
-<td>报文</td>
-</tr>
-<tr>
-<td>数据链路层</td>
-<td>负责组成帧(组入MAC信息)，用MAC地址访问媒介（源地址&amp;目的地址）、错误的检测与修正。物理地址，就是计算机MAC地址，也就是计算机网卡地址。每一台电脑都有一个网卡地址，MAC地址负责局域网通信，IP地址负责外网通信。</td>
-<td>帧</td>
-</tr>
-<tr>
-<td>物理层</td>
-<td>设备之间比特流的传输（ 最基本的数据传递）、物理接口（ 网线口、视频口、音频口）、电气特性（ 网线8根线中的1、3、2、6四根线传输数据）</td>
-<td>比特流</td>
-</tr>
-</tbody>
-</table>
-<p>举例场景 用户A需要给用户B发送一份邮件</p>
-<ol>
-<li>应用层 : 浏览器进入邮箱, 写邮件, 点击发送, 数据将传递至 表示层</li>
-<li>表示层 : 进行的数据的编码, 而后数据传递至会话层</li>
-<li>会话层 : 判断数据的发送类型, 是进行网络传输还是进行本地保存, 若是进行传输 传递至传输层</li>
-<li>传输层 : 确立协议TCP或UDP, 写入邮件的发送及目标端口号, 传递至网络层</li>
-<li>网络层 : 写入自身及目标IP地址, 传递至数据链路层</li>
-<li>数据链路层 : 写入源MAC地址与目标MAC地址, 由于IP地址找到局域网, 再通过MAC地址在局域网中找到目标, 传递至物理层</li>
-<li>物理层 : 数据传输</li>
-</ol>
-<p><br></p>
-<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><h4 id="TCP-IP-四层模型与-OSI-七层模型对应关系"><a href="#TCP-IP-四层模型与-OSI-七层模型对应关系" class="headerlink" title="TCP/IP 四层模型与 OSI 七层模型对应关系"></a>TCP/IP 四层模型与 OSI 七层模型对应关系</h4><ul>
-<li>应用层 : 应用层、表示层、会话层<br>为用户提供所需的各种服务, 例如 <strong>FTP</strong>、<strong>Telnet</strong>、<strong>DNS</strong>、<strong>SMTP</strong>等</li>
-</ul>
-<ul>
-<li>传输层 : 传输层<br>负责为应用层实体提供端到端的通信功能, 保证了数据包的顺序传送及数据的完整性, 该层定义了两个主要的协议 : 传输控制协议(<strong>TCP</strong>)可靠的面向连接，不会丢失，类似打电话，网页、邮件 和  用户数据报协议(<strong>UDP</strong>)不可靠的面向无连接,有可能丢失, 类似发短信、QQ</li>
-</ul>
-<ul>
-<li>网际互联层 : 网络层<br>主要解决主机到主机的通信问题, 它所包含的协议涉及数据包在整个网络上的逻辑传输, 该层有三个主要协议 : 网际协议(<strong>IP</strong>), 互联网组管理协议(<strong>IGMP</strong>), 互联网控制报文协议(<strong>ICMP</strong>)</li>
-</ul>
-<ul>
-<li>网络接口层 : 数据链路层、物理层<br>负责监视数据在主机和网络之间的交换, 事实上, TCP/IP本身并未定义该层的协议, 而由参与互连的各网络使用自己的物理层和数据链路层协议, 然后与TCP/IP的网络接入层进行连接. 地址解析协议(<strong>ARP</strong>) 工作在此层, 即OSI参考模型的数据链路层.<br>地址解析协议(ARP) : 将IP地址 翻译成物理地址</li>
-</ul>
-<h4 id="数据封装过程"><a href="#数据封装过程" class="headerlink" title="数据封装过程"></a>数据封装过程</h4><p>发送是由上至下进行打包, 接收是由下至上进行拆包<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG10.jpg" alt=""></p>
-<h4 id="TCP-IP-模型与OSI-模型的比较"><a href="#TCP-IP-模型与OSI-模型的比较" class="headerlink" title="TCP/IP  模型与OSI 模型的比较"></a>TCP/IP  模型与OSI 模型的比较</h4><p>共同点</p>
-<ol>
-<li>OSI 参考模型和 TCP/IP参考模型都采用了层次结构的概念</li>
-<li>都能够提供面向连接和无连接两种通信服务机制</li>
-</ol>
-<p>不同点</p>
-<ol>
-<li>OSI 七层, TCP/IP 四层</li>
-<li>对可靠性要求不同(TCP/IP 更高)</li>
-<li>OSI 模型是在协议开发前设计的, 具有通用性. TCP/IP 是先有协议集, 然后建立模型, 不适用与非TCP/IP网络</li>
-<li>实际市场应用不同( OSI 模型只是理论上的模型, 并没有成熟的产品, 而TCP/IP已经成为”实际上的国际标准”)</li>
-</ol>
-<p><br></p>
-<h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><h4 id="IP包头-如图"><a href="#IP包头-如图" class="headerlink" title="IP包头(如图)"></a>IP包头(如图)</h4><p>横32位, 竖5行, 固定的共160位, 20字节, 另外有其他选项存在, 导致包头不固定, 因此每接收到包头, 需要进行检测包头长度才能够取出包头, 也是为何IPv4没有IPv6快的原因</p>
-<p>包头中包含的IP地址只有32位, 即2的32次幂, 42亿9千万左右的IP</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG11.jpg" alt=""></p>
-<h4 id="IP地址分类"><a href="#IP地址分类" class="headerlink" title="IP地址分类"></a>IP地址分类</h4><p>IP分为A、B、C、D、E 五大类, 其中DE不对民用组织开放, 不可使用, 因此有效类只有ABC<br>可根据第一位数值判断类别, 1-126 为A类, 128-172 为B类, 192-223 为C类</p>
-<p>127.0.0.1 为本机</p>
-<p> 第一位表示不同网段, 不同网络, 不同网络之间的通信需要使用路由器，路由器是用来实现跨网络通信的, 同一网络下通信使用交换机即可. 第一位不变情况下, 后三位的变化都代表同一网络下的不同主机</p>
-<ol>
-<li>A 类 : 每个网络中的第一个地址(X.0.0.0)代表网络本身,最后一个地址(X.255.255.255)代表当前网络的广播地址, 不能分配, 最大主机数 : 后三位的次幂, 减 第一和最后一个 , 2^24 -2</li>
-<li>B 类 : 前两位代表网段, 后两位代表网段中的不同主机</li>
-<li>C 类 : 前三位代表网段, 最后一位代表不同主机</li>
-</ol>
-<p>私有IP :  不需要花钱买, 用来做内网IP, 可有效保护公网IP, 不能直接访问公网, 需要与公网之间进行转换才可访问互联网</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG12.jpg" alt=""></p>
-<p><br></p>
-<h2 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h2><p>ABC类可以用不同的网段个数和主机个数, 是由子网掩码决定<br>子网掩码用连续1的表示，例如255.0.0.0，255.255.0.0，255。255.255.255.0</p>
-<p>子网掩码的作用：用来区分不同网段的IP—-子网掩码与IP相与，得到的结果相同则在同一网段。否则不在，需要经过路由器转发。</p>
-<p>合理的子网掩码 : 所有的1必须连续, A 类地址可匹配B类子网掩码</p>
-<p>IP和子网掩码必须一起配合使用。<br>网络号=IP&amp;&amp;子网掩码</p>
-<p>广播地址：主机号全为1,广播地址是专门用于同时向网络中所有工作站进行发送的一个地址</p>
-<p>合理的子网掩码 : 所有的1必须连续, A 类地址可匹配B类子网掩码</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG13.jpg" alt=""></p>
-<p><br></p>
-<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG14.jpg" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG15.jpg" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">netstat -an</div><div class="line"># 查看本机启用的端口</div><div class="line">#-a:查看所有连接和监听端口</div><div class="line">#-n:显示IP地址和端口号，而不显示域名和服务名</div></pre></td></tr></table></figure>
-<p>TCP因为3次握手的机制所以需要监听，而UDP不需要监听</p>
-<h4 id="常见端口号"><a href="#常见端口号" class="headerlink" title="常见端口号"></a>常见端口号</h4><ul>
-<li>FTP（文件传输协议）：20、21；</li>
-<li>SSH（安全shell协议）：22；</li>
-<li>telnet（远程登录协议）：23；</li>
-<li>DNS（域名系统）：53；</li>
-<li>http（超文本传输协议）：80；</li>
-<li>SMTP（简单邮件传输协议）：25；</li>
-<li>POP3（邮局协议）：110；</li>
-</ul>
-<p><br></p>
-<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><h4 id="hosts和DNS"><a href="#hosts和DNS" class="headerlink" title="hosts和DNS"></a>hosts和DNS</h4><p>hosts文件：做静态IP和域名对应，优先于DNS.<br>位置：<br>C：\Windows\System32\drivers\etc\hosts<br>hosts文件只可做临时解析用，名称解析效能下降，主机维护困难</p>
-<p>DNS全称为——&gt;domain name system——&gt;域名系统</p>
-<ul>
-<li>不配置DNS是不能联网的。</li>
-<li>在互联网中，通过IP地址来进行通信。</li>
-<li>IP地址是用数字来表示的，记忆起来太困难了(如116.213.120.232)</li>
-<li>人对域名更加敏感，:<a href="http://www.imooc.com/" target="_blank" rel="external">http://www.imooc.com/</a></li>
-</ul>
-<p>DNS服务的作用:将域名解析为IP地址<br>过程：客户机向DNS服务器发送查询IP请求<br>DNS服务器查询到web服务器的ip，告知用户<br>用户访问web服务器</p>
-<h4 id="域名空间结构"><a href="#域名空间结构" class="headerlink" title="域名空间结构"></a>域名空间结构</h4><p>根域：.（13台服务器）<br>——&gt;顶级域/一级域：包括组织域和地区域<br>（组织域：gov政府/edu教育部门/com商业部门/org民间团体/net网络服务机构/mil军事部门 地区域：cn 中国 hk 香港 jp 日本 Uk 英国 au 澳大利亚）<br>——&gt;二级域：企业或个人自行购买的（imooc /microsoft/ibm/sina）<br>——&gt;主机名/3级域：申请完二级域后自己定义的（www/news）</p>
-<p>三级域（www）+二级域（baidu）+顶级域（.com）组成完整域名空间</p>
-<p>为什么要进行域名分级划分<br>便于IP地址解析</p>
-<h4 id="DNS查询过程"><a href="#DNS查询过程" class="headerlink" title="DNS查询过程"></a>DNS查询过程</h4><p>DNS客户机——&gt;本地域名服务器——&gt;根DNS服务器——&gt;cn服务器——&gt;com.cn服务器——&gt;imooc.com.cn——&gt;本地域名服务器——&gt;DNS客户机——&gt;web服务器www.imooc.com.cn</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG16.PNG" alt=""></p>
-<h4 id="DNS查询类型"><a href="#DNS查询类型" class="headerlink" title="DNS查询类型"></a>DNS查询类型</h4><p>从查询方式上分</p>
-<ul>
-<li>递归查询：客户机将请求发送给DNS服务器，服务器通过缓存或者询问其他服务器最后将一个准确的结果或者失败回复给客户机，客户机只负责问，所有事情都是服务器做。客户机对本地域名服务器查询的机制，必须反馈准确值（要么成功要么失败）</li>
-<li>迭代查询：客户机像DNS服务器发送请求后，服务器向客户机返回另一个服务器的地址，客户机不停地向不同DNS服务器发送请求，所有事情都自己做。本地域名服务器分别对各级域名服务器的查询机制，不一定反馈准确值</li>
-</ul>
-<p>从查询内容上分</p>
-<ul>
-<li>正向：域名到IP ARP </li>
-<li>反向：IP到域名 RARP</li>
-</ul>
-<p><br></p>
-<h2 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h2><ul>
-<li>网关（Gateway）又称网间连接器、协议转换器</li>
-<li>网关在网络层以上实现网络互连，是最复杂的网络互连设备，仅用于两个高层不同的网络互连</li>
-<li>网关既可以用于广域网互连，也可以用于局域网互连</li>
-<li>网关是一种充当转换重任的服务器或路由器</li>
-<li>交换机不能识别ip，只能记录客户机的MAC地址。即只能在局域网中进行通信</li>
-<li>访问不同网段，则需要引入网关。</li>
-<li>网关：一个具有路由功能的设备，一般为路由器。</li>
-</ul>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG17.jpg" alt=""></p>
-<h4 id="网关作用"><a href="#网关作用" class="headerlink" title="网关作用"></a>网关作用</h4><ul>
-<li>网关在所有内网计算机访问的不是本网段的数据包时使用</li>
-<li>把内网Ip转公网Ip，公网Ip转内网Ip</li>
-</ul>
-
-          
+          OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的
+该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的
+上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Linux网络管理-网络基础/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3070,15 +2886,15 @@ width: 20%;
       
         
           
-            <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:wine/wine-builds</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install --install-recommends wine-staging</div><div class="line">sudo apt-get install winehq-staging</div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sudo apt purge wine</div><div class="line">rm -r ~/.wine</div><div class="line">sudo apt-get autoremove</div><div class="line">#清理wine模拟运行的windows程序:</div><div class="line">sudo rm -r /home/username/.local/share/applications</div><div class="line">#清理残余的windows程序:</div><div class="line">sudo rm -r /home/username/.config/menus/applications-merged/wine*</div></pre></td></tr></table></figure>
-<ul>
-<li>apt-get remove 会删除软件包而保留软件的配置文件</li>
-<li>apt-get purge 会同时清除软件包和软件的配置文件</li>
-</ul>
-
-          
+          安装1234sudo add-apt-repository ppa:wine/wine-buildssudo apt-get updatesudo apt-get install --install-
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Ubuntu-安装、卸载wine/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3196,13 +3012,15 @@ width: 20%;
       
         
           
-            <p>apt 源相关文件、目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/var/lib/apt/lists </div><div class="line">#ubuntu软件更新的源服务器的地址</div><div class="line">/etc/apt/sources.list</div><div class="line">#*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件</div><div class="line">/etc/apt/sources.list.d</div></pre></td></tr></table></figure></p>
-<p>安装日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/root/install.log </div><div class="line">#记录安装系统软件包以及其文件信息</div><div class="line">/root/install.log.syslog </div><div class="line">#记录安装过程留下来的事件记录</div><div class="line">/root/anacona-ks.cfg </div><div class="line">#以kickstart配置文件的格式记录安装过程中设置的选项信息（当要安装多台服务器时，可以先装一台，然后利用/root/anaconda-ks.cfg可以进行批量安装）；</div></pre></td></tr></table></figure></p>
-<p>网络配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/etc/sysconfig/network-scripts/ifcfg-eth0</div><div class="line">#网卡配置文件，IP/子网掩码/网关/DNS/ONBOOT</div><div class="line">/etc/sysconfig/network</div><div class="line">#设置主机名</div><div class="line">/etc/resolv.conf</div><div class="line">#DNS配置文件</div></pre></td></tr></table></figure></p>
-<p>用户管理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/etc/group	</div><div class="line">#存储当前系统中所有用户组的信息</div><div class="line">/etc/gshadow	</div><div class="line">#存储当前系统中用户组的密码信息</div><div class="line">/etc/passwd	</div><div class="line">#存储当前系统中所有用户的信息</div><div class="line">/etc/shadow    </div><div class="line">#存储当前系统中所有用户的密码信息</div></pre></td></tr></table></figure></p>
-<p>计划任务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/etc/crontab            #系统配置文件，只有root用户才会把这些内容载入到计任务表中</div><div class="line">/var/spool/cron         #最终生成的计划任务文件</div><div class="line">/var/spool/cron/root    #root用户的定时任务</div><div class="line">/var/spool/cron/user1   #user1用户的定时任务</div><div class="line">/var/log/cron           #crontab日志，保存cron的任务执行记录，echo会打印到这里 </div><div class="line">/var/log/cron-日期</div></pre></td></tr></table></figure></p>
-
-          
+          apt 源相关文件、目录12345/var/lib/apt/lists #ubuntu软件更新的源服务器的地址/etc/apt/sources.list#*.list文件在单独文件中写入源的地址，通常
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Linux-常用配置文件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3320,10 +3138,16 @@ width: 20%;
       
         
           
-            <p>Linux下无法使用add-apt-repository命令报错：<br><code>add-apt-repository command not found</code></p>
-<p>解决办法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install python-software-properties software-properties-common </div><div class="line">sudo apt update</div></pre></td></tr></table></figure></p>
-
-          
+          Linux下无法使用add-apt-repository命令报错：add-apt-repository command not found
+解决办法：12sudo apt install python
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Linux下无法使用add-apt-repository命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3441,20 +3265,15 @@ width: 20%;
       
         
           
-            <h3 id="使用PPA源安装"><a href="#使用PPA源安装" class="headerlink" title="使用PPA源安装"></a>使用PPA源安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:webupd8team/java</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install oracle-java8-installer</div><div class="line">sudo apt-get install oracle-java8-set-default</div></pre></td></tr></table></figure>
-<p>oracle-java8-set-default：将jdk8设置为默认的Java运行版本</p>
-<p>默认的安装路径是在<code>/usr/lib/jvm/java-8-oracle</code>中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo $JAVA_HOME</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h3 id="使用源码包安装"><a href="#使用源码包安装" class="headerlink" title="使用源码包安装"></a>使用源码包安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uname -a    #查询系统是32位还是64位</div></pre></td></tr></table></figure>
-<p>在<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a><br>找需要的包下载</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">sudo tar zxvf ./jdk-8u171-linux-x64.tar.gz -C /usr/local/jdk1.8.0_171</div><div class="line">sudo vim /etc/profile</div><div class="line"></div><div class="line"><span class="meta">#</span>在文件的末尾追加下面行</div><div class="line">JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">PATH=$JAVA_HOME/bin:$PATH  </div><div class="line">CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar  </div><div class="line">export PATH JAVA_HOME CLASSPATH  </div><div class="line"></div><div class="line"><span class="meta">#</span>使环境变量马上生效</div><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
-<p>#设置系统默认jdk 版本</p>
-<p><del>sudo update-alternatives –install /usr/bin/java java /usr/lib/jvm/ jdk1.8.0_144/bin/java 300</del><br><del>sudo update-alternatives –install /usr/bin/javac javac /usr/lib/jvm/ jdk1.8.0_144/bin/javac 300</del><br><del>sudo update-alternatives –install /usr/bin/jar jar /usr/lib/jvm/ jdk1.8.0_144/bin/jar 300</del><br><del>sudo update-alternatives –install /usr/bin/javah javah /usr/lib/jvm/ jdk1.8.0_144/bin/javah 300</del><br><del>sudo update-alternatives –install /usr/bin/javap javap /usr/lib/jvm/ jdk1.8.0_144/bin/javap 300</del></p>
-<p><del>sudo update-alternatives –config java</del></p>
-<h3 id="卸载Java-JDK"><a href="#卸载Java-JDK" class="headerlink" title="卸载Java JDK"></a>卸载Java JDK</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -qa |grep jdk</div><div class="line">yum -y remove java java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64</div></pre></td></tr></table></figure>
-<p> 将上面查询出来的每个版本依次删掉即可。</p>
-
-          
+          使用PPA源安装1234sudo add-apt-repository ppa:webupd8team/javasudo apt-get updatesudo apt-get install orac
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/01/Linux-安装JDK的两种方式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3572,19 +3391,15 @@ width: 20%;
       
         
           
-            <h2 id="脚本安装包：准备工作"><a href="#脚本安装包：准备工作" class="headerlink" title="脚本安装包：准备工作"></a>脚本安装包：准备工作</h2><p>1、本节以安装LNMP（<a href="http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache" target="_blank" rel="external">http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache</a> <code>/usr/local/apache2</code>删除） </p>
-<p>2、保证yum源正常使用：可以使用<code>yum list</code>命令测试。（若是光盘yum源，记得挂载光盘）</p>
-<p>3、关闭SELinux和防火墙：</p>
-<ul>
-<li>永久关闭SELinux的方法：编辑文件<code>/etc/selinux/config</code>，将<code>SELINUX=enforcing</code>改为<code>SELINUX=disabled</code>，然后重启系统即可。</li>
-<li>永久关闭防火墙的方法：<code>chkconfig iptables off</code>，开启为：<code>chkconfig iptables on</code>；临时关闭防火墙的方法：<code>service iptables stop</code>，开启为：<code>service iptables start</code>。</li>
-</ul>
-<p><br></p>
-<h2 id="脚本安装"><a href="#脚本安装" class="headerlink" title="脚本安装"></a>脚本安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -c http://soft.vpser.net/lnmp.lnmp1.0-full.tar.gz &amp;&amp; tar zxvf lnmp1.0-full.tar.gz &amp;&amp; cd lnmp1.0-full &amp;&amp; ./centos.sh</div></pre></td></tr></table></figure>
-<p>脚本安装过程中，会将系统中已有的apache、mysql、php等卸载掉。</p>
-<p>虚拟机中安装lnmp常常会卡在 starting php-fpm,真实环境中很少出现。其实安装已经完成，只需要杀掉php-fpm进程，再重新启动这个进程就好了 pkill -9 php-fpm : -9是强制杀死的意思，然后重新启动该进程【/etc/rc.d/init.d/php-fpm start】即可。</p>
-
-          
+          脚本安装包：准备工作1、本节以安装LNMP（http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache /
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-脚本安装包/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3702,51 +3517,19 @@ width: 20%;
       
         
           
-            <h3 id="源码包和RPM包安装位置的不同："><a href="#源码包和RPM包安装位置的不同：" class="headerlink" title="源码包和RPM包安装位置的不同："></a>源码包和RPM包安装位置的不同：</h3><h4 id="RPM包安装位置"><a href="#RPM包安装位置" class="headerlink" title="RPM包安装位置"></a>RPM包安装位置</h4><p>rpm包有安装的默认位置：</p>
-<ul>
-<li>/etc/ 配置文件安装目录 </li>
-<li>/usr/bin/ 可执行的命令安装目录 </li>
-<li>/usr/lib/ 程序所使用的函数库保存位置</li>
-<li>/usr/share/doc/ 基本的软件使用手册保存位置 </li>
-<li>/usr/share/man/ 帮助文件保存位置</li>
-</ul>
-<p>当然RPM包可以指定安装位置，但是建议不要指定安装位置，就让它安装到默认位置，这样系统可以找到它，利用service XXX start的方式启动它，而且rpm提供-e选项来自动卸载，摆明了就是推荐你让它默认安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh --profix=&lt;dir&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="源码包安装位置"><a href="#源码包安装位置" class="headerlink" title="源码包安装位置"></a>源码包安装位置</h4><p>安装在指定位置当中，一般是<code>/usr/local/软件名</code>，源码包没有卸载命令</p>
-<h4 id="安装位置不同带来的影响"><a href="#安装位置不同带来的影响" class="headerlink" title="安装位置不同带来的影响"></a>安装位置不同带来的影响</h4><p>rpm包安装的服务可以使用系统服务管理命令（service）来管理，例如： RPM包安装的apache的启动方法是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/etc/rc.d/init.d/httpd start </div><div class="line">service httpd start</div></pre></td></tr></table></figure></p>
-<p>源码包安装的服务不能被服务管理命令管理，因为没有安装到默认路径中，所以只能用绝对路径进行服务的管理，不同软件请参考INSTALL或README，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/apache2/bin/apachectl start</div></pre></td></tr></table></figure></p>
-<p>使用绝对路径启动程序的方法是通用的，通常软件包中会写上启动程序的方法的。</p>
-<p>如果将源码包安装后的启动程序复制到<code>/etc/rc.d/init.d</code>目录中，则也是可以使用<code>service</code>命令执行的</p>
-<p>源码包是不能使用<code>service</code>命令来启动服务，因为源码包的安装位置由用户指定，放在哪并不统一；rpm包安装后，通常都是放在<code>/etc/rc.d/init.d</code>目录中的，而<code>service</code>命令执行时，会自动搜索该目录，所以rpm包安装的服务可以使用<code>service</code>命令</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h4><ul>
-<li>由于源码都是c语言写的，所以要先安装c语言编译器：gcc</li>
-<li>从官方网站下载源码包，若是下载到了windows上面，可以使用ftp传到linux上</li>
-</ul>
-<p>注：若已安装了二进制包，则源码包也是可以继续安装的，因为两者安装目录不一样。但是，并不建议这样做，因为端口会冲突。</p>
-<p>对于要求效率的软件，要安装源码包版本，因为是本机编译，更具有兼容性和效率，而rpm包是软件开发者提供的大众版本，可用于不注重效率的应用。</p>
-<p><code>netstat -tlun</code>查找网络连接信息和系统开启的端口号<br>使用 -t 选项列出 TCP 协议的连接<br>使用 -l 选项列出正在监听的套接字<br>使用 -u 选项列出 UDP 协议的连接<br>使用 -n 选项禁用域名解析功能</p>
-<h4 id="安装注意事项"><a href="#安装注意事项" class="headerlink" title="安装注意事项"></a>安装注意事项</h4><ol>
-<li>源代码一般保存位置：<code>/usr/local/src</code></li>
-<li>软件安装位置：``</li>
-<li>如何确定安装过程报错<ul>
-<li>安装过程停止</li>
-<li>并出现error、warning、no的提示</li>
-</ul>
-</li>
-</ol>
-<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#下载源码包</div><div class="line">wget http://mirrors.tuna.tsinghua.edu.cn/apache//httpd/httpd-2.4.33.tar.gz</div><div class="line">#解压缩</div><div class="line">tar -zxvf httpd-2.4.33.tar.gz</div><div class="line">#进入解压缩目录</div><div class="line">cd httpd-2.4.33</div><div class="line">#软件配置与检查，指定安装位置</div><div class="line">./configure --prefix=/usr/local/apache2</div><div class="line">#编译，根据当前目录下的Makefile内部信息编译</div><div class="line">make</div><div class="line">#编译安装，根据当前目录下的Makefile内部信息安装</div><div class="line">make install</div></pre></td></tr></table></figure>
-<p>./configure作用</p>
-<ul>
-<li>定义需要的功能选项； </li>
-<li>检测系统环境是否符合安装要求 </li>
-<li>把定义好的功能选项和检测系统环境的信息都写入Makefile文件，用于后续的编辑。 </li>
-<li>其中的<code>apache2</code>目录不需要提前创建，<code>make install</code>命令执行时会自动创建</li>
-</ul>
-<p><br></p>
-<p>解压的文件夹中有一个INSTALL或README文件，vi打开之就可以看到详细的安装说明了。 </p>
-<p>如果<code>make</code>环节出错，只需要<code>make clean</code>即可。如果<code>make install</code>安装环节出错，我们就得删除configure时制定的安装目录，因为其中生成的文件失效了。 </p>
-<h3 id="源码包的卸载"><a href="#源码包的卸载" class="headerlink" title="源码包的卸载"></a>源码包的卸载</h3><p>只需要把安装目录删除即可。因为安装过程中生成的所有文件都是存放在安装目录中的，所以将安装目录删除就不会留下任何垃圾。</p>
+          源码包和RPM包安装位置的不同：RPM包安装位置rpm包有安装的默认位置：
 
-          
+/etc/ 配置文件安装目录 
+/usr/bin/ 可执行的命令安装目录 
+/usr/lib/ 程序所使用的函数库保存位置
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-源码包/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3864,43 +3647,16 @@ width: 20%;
       
         
           
-            <h2 id="yum源文件"><a href="#yum源文件" class="headerlink" title="yum源文件"></a>yum源文件</h2><p>将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题。（rpm缺点：安装过程中，rpm包依赖性太强）</p>
-<p>RedHat的yum是收费服务，而CentOS的yum是免费服务。</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG007.png" alt=""></p>
-<ul>
-<li>在<code>/etc/yum.repos.d/</code>目录中，默认有4个yum源文件，其中<code>CentOS-Base.repo</code>是基本yum源文件，如果我们能上网，那它是默认生效的，而其他的都是默认不生效的。</li>
-<li>mirrorlist和baseurl一个是主站点，一个是辅助站点，代表内容一样，只写一个就行，可以修改为国内的源</li>
-<li>gpgcheck：一般都要开启，开启后安装时会验证rpm包是否是官方的，以保证系统安全。</li>
-<li>gpgkey：默认系统安装后，在目录<code>/etc/pki/rpm-gpg</code>下都会存在数字证书。</li>
-</ul>
-<p>注：前面的<code>file://</code>表示文件协议，后面的<code>/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6</code>是数字证书的位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@CentOS6 ~]# cd /etc/pki/rpm-gpg</div><div class="line">[root@CentOS6 rpm-gpg]# ll</div><div class="line">总用量 16</div><div class="line">-rw-r--r--. 1 root root 1706 11月 27 2013 RPM-GPG-KEY-CentOS-6</div><div class="line">-rw-r--r--. 1 root root 1730 11月 27 2013 RPM-GPG-KEY-CentOS-Debug-6</div><div class="line">-rw-r--r--. 1 root root 1730 11月 27 2013 RPM-GPG-KEY-CentOS-Security-6</div><div class="line">-rw-r--r--. 1 root root 1734 11月 27 2013 RPM-GPG-KEY-CentOS-Testing-6</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="光盘搭建yum源"><a href="#光盘搭建yum源" class="headerlink" title="光盘搭建yum源"></a>光盘搭建yum源</h2><p>如果没有网络，可以使用光盘</p>
-<ol>
-<li>挂载光盘 <ul>
-<li><code>mkdir /media</code>或<code>mkdir mnt/cdrom</code>：建立挂载点</li>
-<li><code>mount /dev/cdrom /media</code>或<code>mount mnt/cdrom</code>：挂载光盘； </li>
-</ul>
-</li>
-<li>使网络yum源失效 <ul>
-<li><code>cd/etc/yum.repos.d/</code>：进入yum源目录； </li>
-<li><code>mv CentOS-Base.repo CentOS-Base.repo.bak</code>：修改Yum源文件后缀名，使其失效；（判断yum源是根据后缀名repo来实现的，修改后缀名则可以使该yum源失效）</li>
-</ul>
-</li>
-<li>使光盘yum源生效<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG008.png" alt=""></li>
-</ol>
-<p><br></p>
-<h2 id="yum命令"><a href="#yum命令" class="headerlink" title="yum命令"></a>yum命令</h2><h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yum list</div><div class="line"># 查询所有可用软件包列表</div><div class="line">yum search 关键字</div><div class="line"># 搜索服务器上所有和关键字相关的包</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum -y install 包名（只用包名即可）</div><div class="line"># -y 自动回答yes</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum -y update 包名</div><div class="line"># -y 自动回答yes</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum -y remove 包名</div><div class="line"># -y 自动回答yes</div><div class="line"># 服务器使用最小化安装，用什么软件安装什么，尽量不卸载</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="yum软件组管理命令"><a href="#yum软件组管理命令" class="headerlink" title="yum软件组管理命令"></a>yum软件组管理命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">yum grouplist </div><div class="line">#列出所有可用的软件组列表 </div><div class="line"></div><div class="line">yum groupinstall 软件组名 </div><div class="line">#安装指定软件组，组名可以由grouplist查询出来 </div><div class="line"></div><div class="line">yum groupremove 软件组名 </div><div class="line">#卸载指定软件组 </div><div class="line"></div><div class="line">软件组名必须是英文</div><div class="line">LANG=en_US 临时更改语系为英文 </div><div class="line">LANG=zh_CN.utf8 临时生效 </div><div class="line">/etc/sysconfig/i18n中 修改配置文件永久生效</div></pre></td></tr></table></figure>
-
-          
+          yum源文件将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题。（rpm缺点：安装过程中，rpm包依赖性太强）
+RedHat的yum是收费服务，而CentOS的yum是免费服
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-yum在线安装/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -4018,68 +3774,20 @@ width: 20%;
       
         
           
-            <h2 id="RPM包的来源"><a href="#RPM包的来源" class="headerlink" title="RPM包的来源"></a>RPM包的来源</h2><p>所有RPM包都来自安装系统光盘的Packages目录中</p>
-<p><br></p>
-<h2 id="RPM包命名规则"><a href="#RPM包命名规则" class="headerlink" title="RPM包命名规则"></a>RPM包命名规则</h2><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG004.png" alt="img"></p>
-<ul>
-<li>包全名：操作的包是没有安装的软件包时，使用包全名，而且要注意路径</li>
-<li>包名：操作已安装的软件包时，使用包名，是搜索<code>/var/lib/rpm/</code>中的数据库</li>
-</ul>
-<p><br></p>
-<h2 id="RPM包依赖性"><a href="#RPM包依赖性" class="headerlink" title="RPM包依赖性"></a>RPM包依赖性</h2><ol>
-<li>树形依赖：a-&gt;b-&gt;c 解决方法：从后往前安装</li>
-<li>环形依赖：a-&gt;b-&gt;c-&gt;a 解决方法：放在一条命令中安装即可</li>
-<li>模块依赖：库文件依赖，库也叫模块，就是linux当中的函数，它有一个典型的特征，就是以<code>.so.数字</code>结尾，它依赖的其实是一个文件，而不是软件包。该文件藏身在某一个软件包当中。我们只要将该文件所在的软件包安装上，该文件也就安装了。解决方法：登录www.rpmfind.net 网站，输入库文件名称查询到对应的rpm包，然后安装即可。</li>
-</ol>
-<p><br></p>
-<h2 id="RPM安装"><a href="#RPM安装" class="headerlink" title="RPM安装"></a>RPM安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">rpm -ivh 包全名</div><div class="line"># -i （install）安装</div><div class="line"># -v（verbose）显示详细信息</div><div class="line"># -h（hash）显示进度</div><div class="line"># --nodeps不检测依赖性（一般不用）</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="RPM-升级"><a href="#RPM-升级" class="headerlink" title="RPM 升级"></a>RPM 升级</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -Uvh 包全名</div><div class="line"># -U（update）升级</div></pre></td></tr></table></figure>
-<ul>
-<li>需要包全名，而不是包名。可以如此理解：升级时的新包对于系统是新的，因此要包全名</li>
-<li>如果这个包从来没有安装过，那么效果等同于rpm -ivh 包全名</li>
-</ul>
-<p><br></p>
-<h2 id="RPM卸载"><a href="#RPM卸载" class="headerlink" title="RPM卸载"></a>RPM卸载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rpm -e 包名</div><div class="line"># -e（erase）卸载</div><div class="line">#  --nodeps 不检查依赖性</div></pre></td></tr></table></figure>
-<ul>
-<li>rpm准备了这个卸载命令的原因是，我们安装时根本不知道这个包装了在哪里（要知道linux下的安装的软件的文件散布多个地方的，很难一一找），而rpm知道，所以干脆就为我们准备了这条便利的命令。</li>
-<li>window下卸载软件，往往容易留很多垃圾数据难以除完，例如注册表等等。而linux中不会出现这个问题，只要把软件的安装目录所有都删除掉，就不会有残留。</li>
-</ul>
-<p><br></p>
-<h2 id="RPM包查询"><a href="#RPM包查询" class="headerlink" title="RPM包查询"></a>RPM包查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">rpm -q 包名</div><div class="line"># 查询包是否安装</div><div class="line"># -q 查询（query）</div><div class="line"></div><div class="line">rpm -qa 包名</div><div class="line"># 查询所有已经安装的RPM包</div><div class="line"># -a 所有（all）</div><div class="line"># rpm -qa | grep httpd</div><div class="line"></div><div class="line">rpm -qi 包名</div><div class="line"># 查询软件包详细信息</div><div class="line"># -i (infomation) : 查询软件信息</div><div class="line"></div><div class="line">rpm -qip 包全名</div><div class="line"># -p (package) : 查询未安装报信息</div><div class="line"># 有时遇到问题, 可根据未安装包信息中所提供的网站进行查询资料</div><div class="line"></div><div class="line">rpm -ql 包名</div><div class="line"># 查询包中文件安装位置</div><div class="line"># -l (list) : 列表</div><div class="line"># -p (package) : 查询未安装包信息</div><div class="line"># 可查看包作者欲将包安装的位置</div><div class="line"></div><div class="line">rpm -qf 系统文件名</div><div class="line"># -f (file) : 查询系统文件属于哪个软件包</div><div class="line"># 查询系统文件属于哪个 RPM 包</div><div class="line"># 该文件必须是通过 RPM 包安装的</div><div class="line"></div><div class="line">rpm -qR 包名</div><div class="line"># 查询软件包的依赖性</div><div class="line"># -R (requires) : 查询软件包的依赖性 </div><div class="line"># -p (package) : 查询未安装包的信息</div></pre></td></tr></table></figure>
-<p>RPM包默认安装位置<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG005.png" alt=""></p>
-<p><br></p>
-<h2 id="RPM包校验"><a href="#RPM包校验" class="headerlink" title="RPM包校验"></a>RPM包校验</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">rpm -V 已安装的包名</div><div class="line"># -V (verify) : 校验指定RPM包中的文件</div><div class="line"># 执行后, 无任何提示, 代表该文件没有被做任何修改</div><div class="line"># 判断本地的安装包与官方给出的是否一致, 从而判断是否被人修改</div></pre></td></tr></table></figure>
-<h3 id="验证内容中的8个信息"><a href="#验证内容中的8个信息" class="headerlink" title="验证内容中的8个信息"></a>验证内容中的8个信息</h3><ul>
-<li>S : 文件大小是否改变</li>
-<li>M : 文件的类型或文件的权限( rwx )是否被改变</li>
-<li>5 : 文件MD5 校验和是否改变( 可以看成文件内容是否改变 )</li>
-<li>D : 设备的主从代码是否改变</li>
-<li>L : 文件路径是否改变</li>
-<li>U : 文件的属主( 所有者 ) 是否改变</li>
-<li>G : 文件的属组是否改变</li>
-<li>T : 文件的修改时间是否改变</li>
-</ul>
-<h3 id="验证内容中的文件类型"><a href="#验证内容中的文件类型" class="headerlink" title="验证内容中的文件类型"></a>验证内容中的文件类型</h3><ul>
-<li>c (config file) : 配置文件</li>
-<li>d (documentation) : 普通文档</li>
-<li>g (ghost file) : “鬼”文件, 很少见, 就是该文件不应该被这个RPM包包含</li>
-<li>L (license file) : 授权文件</li>
-<li>r (read me) : 描述文件</li>
-</ul>
-<h3 id="MD5校验"><a href="#MD5校验" class="headerlink" title="MD5校验"></a>MD5校验</h3><p>用来校验文件的完整性(文件内容是否被改变)</p>
-<p>例如, 在官网下载的游戏, 官方会给出MD5校验码, 将下载的游戏通过专用的MD5校验工具校验后生成一份MD5校验码, 对比两份校验码是否一致, 不一致则说明，下载的文件可能丢包, 可能文件损坏, 可能被其他人动过手脚一直木马等</p>
-<p><br></p>
-<h2 id="RPM包中的文件提取"><a href="#RPM包中的文件提取" class="headerlink" title="RPM包中的文件提取"></a>RPM包中的文件提取</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm2cpio 包全名 | cpio -idv .文件绝对路径</div></pre></td></tr></table></figure>
-<ul>
-<li>前面的<code>.</code>代表当前路径，不能省略。</li>
-<li><code>文件绝对路径</code>和包里文件的绝对路径对应，也就是告诉了cpio要去包里提取哪个文件。</li>
-<li>cpio只知道提取文件，并不知道要从什么地方提取文件，因此我们通常要使用<code>|</code>管道符或<code>&lt;</code>输入重定向告诉cpio我们应该从什么设备去取出文件。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cpio 选项 &lt; [文件|设备]</div><div class="line"># 使用输入重定向的cpio</div><div class="line"># -i：copy-in模式，还原</div><div class="line"># -d：还原时自动新建目录</div><div class="line"># -v：显示还原过程</div></pre></td></tr></table></figure>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG006.png" alt=""></p>
+          RPM包的来源所有RPM包都来自安装系统光盘的Packages目录中
 
-          
+RPM包命名规则
+
+包全名：操作的包是没有安装的软件包时，使用包全名，而且要注意路径
+包名：操作已安装的软件包时，使用包名，是搜
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-RPM包管理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -4197,38 +3905,16 @@ width: 20%;
       
         
           
-            <p>二进制包是经过源码包编译过的安装包，编译就是将源码解释为机器可以认识的二进制语言的过程，安装源码包比二进制包复杂，因为要经过一个编译的过程，这个过程容易出错，一旦出错，就要对源码进行修改。</p>
-<p>在redhat中二进制包后缀是rpm，在debian系列里如ubuntu二进制包的后缀是deb，但是它们都是二进制包。Linux下安装软件只有俩种格式：二进制包和源代码包</p>
-<h3 id="源码包"><a href="#源码包" class="headerlink" title="源码包"></a>源码包</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>开源，如果有足够的能力，可以修改源代码</li>
-<li>可以自由选择所需的功能</li>
-<li>软件是编译安装，所以更加适合自己的系统，更加稳定、效率更高</li>
-<li>卸载方便（直接删除）</li>
-</ul>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>安装过程步骤较多，尤其安装较大的软件集合时（如LAMP环境搭建），容易出现拼写错误</li>
-<li>编译过程时间较长，安装比二进制安装时间长</li>
-<li>因为是编译安装，安装过程中一旦报错新手很难解决</li>
-</ul>
-<p><br></p>
-<h3 id="二进制包（RPM包、Deb包）"><a href="#二进制包（RPM包、Deb包）" class="headerlink" title="二进制包（RPM包、Deb包）"></a>二进制包（RPM包、Deb包）</h3><p>二进制包安装速度快是它的优点，但是二进制包不是系统自己编译的，效率不如源码包。如果是生产环境，就要源码包安装，因为效率高。</p>
-<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>包管理系统简单，只通过几个命令就可以实现包的安装、升级、查询和卸载</li>
-<li>安装速度比源码包安装快的多</li>
-</ul>
-<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>经过编译，不再可以看到源代码</li>
-<li>功能选择不如源码包灵活</li>
-<li>依赖性</li>
-</ul>
-<p><br></p>
-<h3 id="脚本安装包"><a href="#脚本安装包" class="headerlink" title="脚本安装包"></a>脚本安装包</h3><p>把复杂的软件包安装过程写成了程序脚本，初学者可以执行脚本实现一键安装。但实际安装的还是源码包和二进制包,例如LAMP一键安装包</p>
-<ul>
-<li>优点：安装简单、快捷</li>
-<li>缺点：完全丧失了自定义性，不能定义安装软件的版本，不能定义所需要的软件功能，源码包的优势几乎完全丧失</li>
-</ul>
-
-          
+          二进制包是经过源码包编译过的安装包，编译就是将源码解释为机器可以认识的二进制语言的过程，安装源码包比二进制包复杂，因为要经过一个编译的过程，这个过程容易出错，一旦出错，就要对源码进行修改。
+在redh
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-软件包分类/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -4346,361 +4032,15 @@ width: 20%;
       
         
           
-            <h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在Linux中，有一些系统文件，对系统的运行有着至关重要的作用，如/etc/fstab等，一般不允许修改，这个时候，我们可以赋予文件/目录<code>r--------</code>的权限；然而，还有一个更为简单有效的命令<code>chattr</code>可以实现该功能！</p>
-<p><br>  </p>
-<h3 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h3><ul>
-<li>所支持的文件系统包括：ext2、ext3、ext4和xfs</li>
-<li>一般要求内核版本不低于2.2(查看版本的命令如下：<code>uname -a</code>、<code>lsb_release -a</code></li>
-<li>不能保护 <code>/</code>、<code>/tmp</code> 、<code>/dev</code>、<code>/var</code>目录</li>
-<li><code>chattr</code>只能由root用户使用</li>
-</ul>
-<p><br></p>
-<h3 id="chattr"><a href="#chattr" class="headerlink" title="chattr"></a>chattr</h3><p>类似于<code>chmod</code>, <code>chmod</code>只是改变文件的读写、执行权限，更底层的属性控制是由<code>chattr</code>来改变的.</p>
-<pre><code>chattr [+-=] [选项] 文件或目录名
-</code></pre><ul>
-<li>+：增加权限</li>
-<li>-：减少权限 </li>
-<li>=：等于某权限</li>
-<li>a：即append<ul>
-<li>如果对文件设置a属性，那么只能在文件中增加数据，不能删除也不能修改数据（不能使用vi，因为不能判断是增加还是修改，可以使用echo）</li>
-<li>如果对目录设置a属性，那么只允许在目录中建立和修改文件，但是不允许删除</li>
-</ul>
-</li>
-<li>i：即insert<ul>
-<li>如果对文件设置i属性，那么不允许对文件进行删除、改名、设定链接关系，同时不能写入或新增内容</li>
-<li>如果对目录设置i属性，那么只能修改目录下文件的数据，不允许建立和删除文件</li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<h3 id="lsattr"><a href="#lsattr" class="headerlink" title="lsattr"></a>lsattr</h3><p>查看文件系统属性</p>
-<pre><code>lsattr [选项] [文件名]
-</code></pre><ul>
-<li>-a：列出目录下的所有文件，包括隐藏文件</li>
-<li>-d：查看本目录自身的权限</li>
-</ul>
-<p><br></p>
-<h3 id="例程"><a href="#例程" class="headerlink" title="例程"></a>例程</h3><p>首先，我使用root身份新建一个文件：</p>
-<pre><code>[root@niesh test]# ll
-总用量 0
--rw-rw-r--. 1 root niesh 0 7月  31 20:27 abc
-</code></pre><p>然后，我给该文件增加 i 权限：</p>
-<pre><code>[root@niesh test]# chattr +i abc
-[root@niesh test]# lsattr abc
-----i----------- abc
-</code></pre><p>然后，我尝试增加内容、删除文件和修改文件名：</p>
-<pre><code>[root@niesh test]# echo 1234 &gt;&gt; abc
-bash: abc: 权限不够
-[root@niesh test]# rm -f abc
-rm: 无法删除&quot;abc&quot;: 不允许的操作
-[root@niesh test]# mv abc bcd
-mv: 无法将&quot;abc&quot; 移动至&quot;bcd&quot;: 不允许的操作
-</code></pre><p>以上均失败，由此验证！</p>
-<p>修改以上文件的权限为 a :</p>
-<pre><code>[root@niesh test]# chattr +a abc
-[root@niesh test]# lsattr abc
------a---------- abc
-</code></pre><p>对 abc文件进行操作：</p>
-<pre><code>[root@niesh test]# echo 1111 &gt;&gt; abc
-[root@niesh test]# cat abc
-1111
-[root@niesh test]# rm -f abc
-rm: 无法删除&quot;abc&quot;: 不允许的操作
-[root@niesh test]# mv abc bcd
-mv: 无法将&quot;abc&quot; 移动至&quot;bcd&quot;: 不允许的操作
-</code></pre><p>由以上可以看出，只能增加文件内容，不能进行其他的操作！</p>
-<p><br></p>
-<p>参考：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/Jimmy1988/p/7265816.html" target="_blank" rel="external">http://www.cnblogs.com/Jimmy1988/p/7265816.html</a></li>
-<li><a href="https://www.imooc.com/video/9667" target="_blank" rel="external">https://www.imooc.com/video/9667</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/27/Linux权限管理-SUID、SGID、SBIT/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/27/Linux权限管理-SUID、SGID、SBIT/" itemprop="url">Linux权限 SUID、SGID、SBIT</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T15:54:05+08:00">
-                2018-04-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="SUID-SetUID"><a href="#SUID-SetUID" class="headerlink" title="SUID(SetUID)"></a>SUID(SetUID)</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>使用户临时具有程序所有者（比如root）的权限来执行该程序</p>
-<p>试想一个场景：</p>
-<p>Linux普通用户可以修改自己的密码，这个是一个合情合理的设置；修改密码其实修改的是 /etc/shadow 这个文件；然而不知道你有没看过这个文件的属性：</p>
-<pre><code>[niesh@niesh ~]$ ll /etc/shadow
-----------. 1 root root 1476 7月  30 16:15 /etc/shadow
-</code></pre><p>我去，bug啊？很明显普通用户对 /etc/shadow 文件没有任何权限啊，那怎么可能修改该文件呢？</p>
-<p>一方面我们需要修改自己的密码（就是修改/etc/shadow)，另一方面这个文件对普通用户没任何权限，自相矛盾啊？这么办呢？<br>其实，这里就牵扯到了 SetUID 权限：修改密码的流程其实就是通过 <code>/usr/bin/passwd</code> 命令对 <code>/etc/passwd</code>进行修改，那么先让我们看一下这个可执行文件的属性：</p>
-<pre><code>[niesh@niesh ~]$ ll /usr/bin/passwd
--rwsr-xr-x. 1 root root 27832 6月  10 2014 /usr/bin/passwd
-</code></pre><p>发现/usr/bin/passwd的权限为：-rwsr-xr-x. 在此“文件所有者”的第三位是s权限，也就是咱们即将要详细讲解的的setUID权限，也就是它在作怪了！<br>不相信，那行，我现在验证一下（和cat命令对比）：</p>
-<pre><code>[niesh@niesh ~]$ passwd
-更改用户 niesh 的密码 。
-为 niesh 更改 STRESS 密码。
-（当前）UNIX 密码：
-新的 密码：
-
-[niesh@niesh ~]$ ll /usr/bin/cat
--rwxr-xr-x. 1 root root 54048 11月 20 2015 /usr/bin/cat
-
-[niesh@niesh ~]$ cat /etc/shadow
-cat: /etc/shadow: 权限不够
-</code></pre><p>SetUID(或者 s 权限）：当一个具有执行权限的文件设置SetUID权限后，用户执行这个文件时将以文件所有者的身份执行。passwd命令具有SetUID权限，所有者为root（Linux中的命令默认所有者都是root），也就是说当普通用户使用passwd更改自己密码的时候，那一瞬间突然 “灵魂附体” 了，实际在以passwd命令所有者root的身份在执行，root当然可以将密码写入/etc/shadow文件（root是一个bug的存在，在Linux中就没有它不能干的事），命令执行完成后该身份也随之消失。<br>当然用户的passwd命令不能修改其他用户的密码，只能输入<code>passwd</code>来修改自己的密码</p>
-<h4 id="使用要求"><a href="#使用要求" class="headerlink" title="使用要求"></a>使用要求</h4><ul>
-<li>只有可执行的二进制程序才可以设置SetUID</li>
-<li>命令执行者必须对欲设置SetUID的文件具备可执行(x) 权限，没有x的文件会成为S，S不能正确使用，只有s可以正确使用</li>
-<li>命令执行过程中，其它用户获取所有者的身份（灵魂附体）</li>
-<li>SetUID具有时间限制，即完成该程序执行后就消失</li>
-<li>不能对目录使用</li>
-</ul>
-<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p>4代表SUID，s出现在文件所有者的x权限上<br>设置SetUID</p>
-<pre><code>chmod 4755 文件名
-chmod u+s 文件名（推荐，不影响其他权限）
-</code></pre><p>取消SetUID</p>
-<pre><code>chmod 0755 文件名
-chmod u-s 文件名（推荐，不影响其他权限）
-</code></pre><h4 id="例程"><a href="#例程" class="headerlink" title="例程"></a>例程</h4><p>首先，查看一下touch命令的属性：</p>
-<pre><code>[niesh@niesh tmp]$ ll /usr/bin/touch
--rwxr-xr-x. 1 root root 62432 11月 20 2015 /usr/bin/touch
-</code></pre><p>然后，用普通用户创建一个文件：</p>
-<pre><code>[niesh@niesh tmp]$ touch test1
-[niesh@niesh tmp]$ ll test1
--rw-rw-r--. 1 niesh niesh 0 7月  30 17:40 test1
-</code></pre><p>接着，更改touch的属性，增加SetUID属性：</p>
-<pre><code>[niesh@niesh tmp]$ sudo chmod u+s /usr/bin/touch
-[sudo] password for niesh:
-[niesh@niesh tmp]$ ll /usr/bin/touch
--rwsr-xr-x. 1 root root 62432 11月 20 2015 /usr/bin/touch
-</code></pre><p>而后，用普通用户再新建一个文件：</p>
-<pre><code>[niesh@niesh tmp]$ touch test2
-</code></pre><p>最后，查看两个新建文件的属性：</p>
-<pre><code>[niesh@niesh tmp]$ ll test1 test2
--rw-rw-r--. 1 niesh niesh 0 7月  30 17:40 test1
--rw-rw-r--. 1 root  niesh 0 7月  30 17:42 test2
-[niesh@niesh tmp]$
-</code></pre><p>可以看到，在设置了SetUID之后，新建文件的所有者为root了，说明在执行touch的时候，用户自动升级为了所有者，灵魂附体了！</p>
-<h4 id="危险性"><a href="#危险性" class="headerlink" title="危险性"></a>危险性</h4><p>设置SetUID是具备很大危险性的，例如赋予 vim 这个权限：</p>
-<p>首先，查找vim在哪里<br>    [root@niesh ~]# whereis vim<br>    vim: /usr/bin/vim /usr/bin/vim.tiny /usr/local/bin/vim /usr/local/vim /usr/share/vim</p>
-<p>然后，查看vim的属性<br>    [root@niesh ~]# ll /usr/bin/vim<br>    lrwxrwxrwx. 1 root root 18 5月   1 21:02 /usr/bin/vim -&gt; /usr/local/bin/vim</p>
-<p>再次，给vim增加SetUID权限<br>    [root@niesh ~]# chmod u+s /usr/bin/vim<br>    [root@niesh ~]# ll /usr/bin/vim<br>    lrwxrwxrwx. 1 root root 18 5月   1 21:02 /usr/bin/vim -&gt; /usr/local/bin/vim</p>
-<p>最后，使用vim编辑/etc/shadow<br>    [niesh@niesh ~]# vim /etc/shadow</p>
-<p>明显，我可以打开并进行编辑了，那万一，一个不懂的人或者而已破坏的人将自己的权限提升到了root或者干脆删除这里的内容，那后果将是灾难性的！<br>所以，我们需要定时查看系统中有哪些设置了SetUID权限</p>
-<ul>
-<li>关键目录应严格控制写权限。比如 <code>/</code>、<code>/usr</code></li>
-<li>用户的密码设置要严格遵循密码三原则(#复杂性，易记忆性，时效性）</li>
-<li>对系统中默认应该具有SetUID权限的文件做一个列表，然后定期检查有没有这之外的执行程序的命令文件被设置了SetUID</li>
-</ul>
-<p>使用shell定期检查SetUID</p>
-<pre><code>#!/bin/bash
-
-find / -perm -4000 -o -perm -2000 &gt; /tmp/setuid.check
-for i in $(cat /tmp/setuid.check)
-
-do   
-        grep $i /root/suid.log &gt; /dev/null
-              if [ &quot;S?&quot; !=&quot;0&quot;]
-              then
-                  echo &quot;$i isn&apos;t in listfile!&quot; &gt;&gt; /root/suid_log_$(date+%F)
-              fi
-done
-rm -rf /tmp/setuid.check
-</code></pre><p><br></p>
-<h3 id="SGID-SetGID"><a href="#SGID-SetGID" class="headerlink" title="SGID(SetGID)"></a>SGID(SetGID)</h3><p>SetGID基本与SetUID相同，SetUID是设置所有者的权限，GID为设置所属组的权限<br>区别点在于：SetGID也可以设置目录的相关SetGID权限！</p>
-<h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><p>将用户所在组临时升级为某一个组，以执行只有该组才有相应权限进行的操作</p>
-<h4 id="使用要求-1"><a href="#使用要求-1" class="headerlink" title="使用要求"></a>使用要求</h4><ul>
-<li>针对文件：<ul>
-<li>可执行的二进制文件</li>
-<li>命令执行者（即所属组）对该文件具备 x 权限</li>
-<li>命令执行者在执行程序的时候，组身份升级为该程序文件的属组</li>
-<li>权限只在执行过程中有效</li>
-</ul>
-</li>
-<li>针对目录：<ul>
-<li>普通用户对目录具备r和x权限，才可以进入到该目录</li>
-<li>普通用户在此目录中的有效组会变成此目录的所属组</li>
-<li>如普通用户对该目录具备w权限，新建文件的所属组为该目录的所属组</li>
-</ul>
-</li>
-</ul>
-<h4 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h4><p>2代表SGID，s出现在文件所属群组的x权限上<br>设置SetGID</p>
-<pre><code>chmod 2xxx &lt;file/dir-name&gt;
-chmod g+s &lt;file/dir-name&gt; （推荐）
-</code></pre><p>取消SetGID</p>
-<pre><code>chmod xxx &lt;file/dir-name&gt;
-chmod g-s &lt;file/dir-name&gt;
-</code></pre><h4 id="例程-1"><a href="#例程-1" class="headerlink" title="例程"></a>例程</h4><p>我们此处以locate命令进行讨论：<br>locate查询命令，比find要快很多，为什么？因为其实搜索的数据库而非整个硬盘：</p>
-<pre><code>[root@niesh ~]# ll /usr/bin/locate
--rwx--s--x. 1 root slocate 40496 6月  10 2014 /usr/bin/locate
-
-[root@niesh ~]# ll /var/lib/mlocate/mlocate.db
--rw-r-----. 1 root slocate 6306909 7月  30 19:15 /var/lib/mlocate/mlocate.db
-</code></pre><p>我用普通用户进行locate查看：</p>
-<pre><code>[niesh@niesh root]$ locate mlocate.db
-/usr/share/man/man5/mlocate.db.5.gz
-</code></pre><p>去掉locate的s权限：<br>    [root@niesh ~]# chmod g-s /usr/bin/locate<br>    [root@niesh ~]# ll /usr/bin/locate<br>    -rwx–x–x. 1 root slocate 40496 6月 10 2014 /usr/bin/locate</p>
-<pre><code>[niesh@niesh root]$ locate mlocate.db
-locate: 无法执行 stat () `/var/lib/mlocate/mlocate.db&apos;: 权限不够
-</code></pre><p>也就是：当执行locate命令时，普通用户niesh自动升级为slocate的组成员。</p>
-<ul>
-<li>/usr/bin/locate是可执行二进制程序，可以赋予SGID</li>
-<li>执行用户niesh对/usr/bin/locate命令拥有执行权限</li>
-<li>执行/usr/bin/locate命令时，组身份会升级为slocate组，而slocate组对/var/lib/mlocate/mlocate.db数据库拥有r权限，所以普通用户可以使用locate命令查询mlocate.db数据库</li>
-<li>命令结束，niesh用户的组身份返回为niesh组</li>
-</ul>
-<p><br></p>
-<h3 id="SBIT-Sticky-BIT"><a href="#SBIT-Sticky-BIT" class="headerlink" title="SBIT(Sticky BIT)"></a>SBIT(Sticky BIT)</h3><p>粘滞位</p>
-<h4 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h4><p>防止其他用户删除自己的文件，使用者在该目录下，仅自己与root才有权力删除新建的目录或文件</p>
-<h4 id="使用要求-2"><a href="#使用要求-2" class="headerlink" title="使用要求"></a>使用要求</h4><p>只对目录有效<br>普通用户对该目录有w和x权限<br>若没有粘滞位，则普通用户可以对目录下的文件/子目录进行删除操作（因为普通用户对目录具有w权限），包括其它用户建立的目录/文件；但若赋了SBIT,则普通用户只能删除自己创建的文件/目录，而不能删除不属于自己的文件/目录！</p>
-<h4 id="命令-2"><a href="#命令-2" class="headerlink" title="命令"></a>命令</h4><p>1代表SBIT，t出现在文件其他用户的x权限上<br>设置SBIT</p>
-<pre><code>chmod 1xxx &lt; dir-name &gt;
-chmod o+t &lt; dir-name &gt;
-</code></pre><p>取消SBIT</p>
-<pre><code>chmod xxx &lt; dir-name &gt;
-chmod o-t &lt; dir-name &gt;
-</code></pre><h4 id="例程-2"><a href="#例程-2" class="headerlink" title="例程"></a>例程</h4><p>以/tmp为例：<br>查看/tmp的权限：<br>    [niesh@niesh tmp]$ ll -d /tmp/<br>    drwxrwxrwt. 8 root root 4096 7月 30 19:40 /tmp/<br>会看到，/tmp目录的权限other部分为rwt,这个t就是我们设置的粘滞位<br>接下来，我们用其它用户创建两个文件：</p>
-<pre><code>[Jimmy@niesh tmp]$ touch test-file
-[Jimmy@niesh tmp]$ mkdir test-dir
-[Jimmy@niesh tmp]$ ll
-总用量 0
-drwxrwxr-x. 2 Jimmy Jimmy 6 7月  30 19:44 test-dir
--rw-rw-r--. 1 root  Jimmy 0 7月  30 19:44 test-file
-</code></pre><p>切换到另外一个用户niesh:</p>
-<pre><code>[niesh@niesh tmp]$ ll
-总用量 0
-drwxrwxr-x. 2 Jimmy Jimmy 6 7月  30 19:44 test-dir
--rw-rw-r--. 1 root  Jimmy 0 7月  30 19:44 test-file
-在 niesh用户下，删除/tmp目录下的文件：
-
-[niesh@niesh tmp]$ rm -rf test-dir/ test-file
-rm: 无法删除&quot;test-dir/&quot;: 不允许的操作  
-无法删除！
-</code></pre><p>然后，我们切换到root，去掉/tmp的粘滞位：</p>
-<pre><code>[niesh@niesh tmp]$ su -
-密码：
-上一次登录：日 7月 30 19:43:21 CST 2017pts/0 上
-[root@niesh ~]# chmod o-t /tmp/
-[root@niesh ~]# ll -d /tmp/
-drwxrwxrwx. 9 root root 4096 7月  30 19:48 /tmp/
-</code></pre><p>最后，切换到普通用户niesh，再次删除/tmp下的文件：</p>
-<pre><code>[niesh@niesh root]$ rm -rf /tmp/test-dir/ /tmp/test-file
-[niesh@niesh root]$ ll /tmp/
-总用量 0
-</code></pre><p>参考：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/Jimmy1988/p/7260215.html" target="_blank" rel="external">http://www.cnblogs.com/Jimmy1988/p/7260215.html</a></li>
-</ul>
-
-          
+          作用在Linux中，有一些系统文件，对系统的运行有着至关重要的作用，如/etc/fstab等，一般不允许修改，这个时候，我们可以赋予文件/目录r--------的权限；然而，还有一个更为简单有效的命令
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/27/Linux权限管理-chattr、lsattr/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -4784,7 +4124,7 @@ drwxrwxrwx. 9 root root 4096 7月  30 19:48 /tmp/
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -264,6 +264,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/27/Linux权限管理-SUID、SGID、SBIT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/27/Linux权限管理-SUID、SGID、SBIT/" itemprop="url">Linux权限 SUID、SGID、SBIT</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T15:54:05+08:00">
+                2018-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          SUID(SetUID)作用使用户临时具有程序所有者（比如root）的权限来执行该程序
+试想一个场景：
+Linux普通用户可以修改自己的密码，这个是一个合情合理的设置；修改密码其实修改的是 /etc/
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/27/Linux权限管理-SUID、SGID、SBIT/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/11/清华同方x46h开启Intel-VT/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -335,42 +463,15 @@
       
         
           
-            <p>清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷，结果我刷的代价就是主板被刷坏，花了350把主板修了，总之刷BIOS还是<strong>有风险</strong>的，这里只是提供具体方法</p>
-<h2 id="1、查看是否支持Intel-VT技术以及是否开启"><a href="#1、查看是否支持Intel-VT技术以及是否开启" class="headerlink" title="1、查看是否支持Intel VT技术以及是否开启"></a>1、查看是否支持Intel VT技术以及是否开启</h2><p>下载leomoon-cpu-v（<a href="https://leomoon.com/downloads/desktop-apps/leomoon-cpu-v/），并安装" target="_blank" rel="external">https://leomoon.com/downloads/desktop-apps/leomoon-cpu-v/），并安装</a></p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG001.png" alt="leomoon-cpv"></p>
-<p>左边的对勾表示主板支持Intel VT<br>右边的对勾表示主板已经开启Intel VT<br>这张图片是已经开启的状态<br>清华同方x46h的实际状态应该是左边对勾，右边叉</p>
-<h2 id="2、制作纯DOS启动U盘"><a href="#2、制作纯DOS启动U盘" class="headerlink" title="2、制作纯DOS启动U盘"></a>2、制作纯DOS启动U盘</h2><ul>
-<li><p>下载MSDOS7.1<br><a href="http://www.cn-dos.net/newdos/dosart32.htm" target="_blank" rel="external">http://www.cn-dos.net/newdos/dosart32.htm</a><br>解压</p>
-</li>
-<li><p>格式化U盘为FAT32分区格式</p>
-</li>
-<li><p>使用UltraIOS制作U盘启动盘<br>和制作win7的启动U盘一样<br>插入不用的U盘（因为需要格式化）<br>在UltraIOS中文件》打开，选择解压后的MSDOS文件夹中的IOS镜像文件；<br>点击启动》写入硬盘映像<br>选择U盘，写入方式为USB-HDD+，点击写入</p>
-</li>
-</ul>
-<p>可以参考<a href="http://blog.sina.com.cn/s/blog_4ad042e50102eclt.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4ad042e50102eclt.html</a></p>
-<h2 id="3、下载需要刷的BIOS"><a href="#3、下载需要刷的BIOS" class="headerlink" title="3、下载需要刷的BIOS"></a>3、下载需要刷的BIOS</h2><ul>
-<li>在步骤2中制作好的U盘启动盘里新建文件夹，文件夹名叫12</li>
-<li>下载<a href="https://getpocket.com/a/read/1885690768中的X46H_BIOS" target="_blank" rel="external">https://getpocket.com/a/read/1885690768中的X46H_BIOS</a> ，解压，将文件夹中的四个文件复制到12文件夹中</li>
-</ul>
-<h2 id="4、刷BIOS"><a href="#4、刷BIOS" class="headerlink" title="4、刷BIOS"></a>4、刷BIOS</h2><ul>
-<li>重启电脑，按F2打开BIOS</li>
-<li>将U盘设为电脑开启的第一启动项，保存，退出</li>
-<li>插入U盘，重启电脑</li>
-<li>会进入MSDOS界面，会先让你设置MSDOS，选择cancel取消设置</li>
-<li><p>接下来输入以下命令</p>
-<p>命令1： “C:” 回车       —将当前盘符切换到C:<br>命令2： “CD 12” 回车    —将当前操作文件夹切换到C:\12下<br>命令3： “fpt -bios -f GT_122.h09” 回车    —执行刷新命令 图4</p>
-</li>
-</ul>
-<p>刷新成功后<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG002.jpg" alt=""></p>
-<ul>
-<li>按开关机键 关机 ，将电池拔掉 ，电源线 移除 ，1分钟后安装好。</li>
-</ul>
-<h2 id="5、开启Intel-VT"><a href="#5、开启Intel-VT" class="headerlink" title="5、开启Intel VT"></a>5、开启Intel VT</h2><p>开机，按F2进 BIOS  选择高级 Advanced  选项  会出现 虚拟化选项。打开后按F10保存并退出即可。</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG003.jpg" alt=""></p>
-<p>运行leomoon-cpu-v工具可以看到看到Intel VT已经开启</p>
-<p>参考：<a href="http://benyouhui.it168.com/thread-1896445-1-1.html" target="_blank" rel="external">http://benyouhui.it168.com/thread-1896445-1-1.html</a></p>
-
-          
+          清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/11/清华同方x46h开启Intel-VT/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -488,12 +589,16 @@
       
         
           
-            <p>每次重装系统都要重新配置jdk<br>每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境</p>
-<p>1、下载jdk<br>2、配置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME	D:\Java\jdk1.6.0_39</div><div class="line">CLASSPATH	.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar</div><div class="line">Path		%JAVA_HOME%\bin</div><div class="line">			%JAVA_HOME%\jre\bin</div></pre></td></tr></table></figure></p>
-<p>注意CLASSPATH之前的点和分号</p>
-<p>3、验证<br>打开cmd，分别输入<code>java -version</code>，<code>javac -version</code>，如果可以看到版本号，说明成功</p>
-
-          
+          每次重装系统都要重新配置jdk每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境
+1、下载jdk2、配置环境变量1234JAVA_HOME	D:\Java\jdk1.6.0_39CLAS
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/19/JDK配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -611,29 +716,16 @@
       
         
           
-            <p>重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来</p>
-<p>1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除</p>
-<p>2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt install nodejs npm git</div><div class="line">sudo npm install -g n</div><div class="line">n stable</div><div class="line">sudo npm -g install npm@next</div></pre></td></tr></table></figure></p>
-<p>3、配置SSH key：在Git Bash敲入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C “你的邮箱”</div></pre></td></tr></table></figure></p>
-<p>生成的密钥默认保存在<code>C:\Users\XPS.ssh\id_rsa.pub</code>，用笔记本打开该文件，复制里面的内容到Github&gt;Settings&gt;SSH and GPG keys&gt;New SSH key-Key一栏里，title可任意发挥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure></p>
-<p>测试是否成功</p>
-<p>4、配置Git的个人信息：在Git Bash输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;yourname&quot;</div><div class="line">git config --global user.email &quot;youremail&quot;</div></pre></td></tr></table></figure></p>
-<p>5、在你要放置博客的文件夹打开Git Bash， 安装Hexo框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo npm install hexo-cli -g</div><div class="line">sudo npm install hexo --save</div></pre></td></tr></table></figure></p>
-<p>6、hexo在指定文件夹中新建所需要的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init &lt;folder&gt;</div><div class="line">cd &lt;folder&gt;</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
-<p>7、Hexo3.0以上版本，需要安装hexo-deployer插件才能部署到Github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>8、在初始化完成后，将之前重装系统保存的Hexo文件夹下的这些文件夹拷贝至新的Hexo文件夹(即刚刚初始化完成的)内</p>
-<p>9、执行以下命令来部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure></p>
-<p>在重装系统完之后恢复Hexo初次部署需要一点时部署中如果弹出弹框，填yes即可。<br>出现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">To github.com:Aldrich-ayu/Aldrich-ayu.github.io.git</div><div class="line">+ cb4cda2...ec926bc HEAD -&gt; master (forced update)</div><div class="line">INFO  Deploy done: git</div></pre></td></tr></table></figure></p>
-<p>即表示恢复Hexo并且部署成功！</p>
-<p><br>  </p>
-<p>参考：</p>
-<ul>
-<li><a href="http://yanziyu.tech/2017/04/04/reinstall-hexo/" target="_blank" rel="external">http://yanziyu.tech/2017/04/04/reinstall-hexo/</a></li>
-<li><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/index.html</a></li>
-<li><a href="https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/" target="_blank" rel="external">https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/</a></li>
-</ul>
-
-          
+          重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来
+1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/19/【Hexo】重装系统后hexo配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -751,47 +843,15 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">2018年5月记，总结起来就几句话</div><div class="line">//创建xmlhttprequest对象</div><div class="line">var xhttp xhttp=new XMLHttpRequest();</div><div class="line"></div><div class="line">//使用xmlhttprequest对象的open()和send()方法发送资源请求给服务器</div><div class="line">xhttp.open(&quot;POST&quot;,&quot;ajax_info.txt&quot;,true);</div><div class="line"></div><div class="line">//调用onreadystatechange函数</div><div class="line">xhttp.onreadystatechange = function()&#123;&#125;;</div><div class="line"></div><div class="line">//获得服务器的响应</div><div class="line">document.getElementById(&quot;demo&quot;).innerHTML=xhttp.responseText;</div><div class="line"></div><div class="line">然后为了这四句能正确响应，添加必要的判断</div><div class="line">返回的响应也可能是各种形式，需要做各种处理</div><div class="line"></div><div class="line">是不是很简单</div></pre></td></tr></table></figure>
-<h2 id="名称"><a href="#名称" class="headerlink" title="名称"></a>名称</h2><p>Asynchronous JavaScript and XML<br>异步得JavaScript和XML</p>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容</p>
-<h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>异步传输是面向字符的传输，它的单位是字符；异步传输是将比特分成小组来进行传送。一般每个小组是一个8位字符，在每个小组的头部和尾部都有一个开始位和一个停止位，它在传送过程中接收方和发送方的时钟不要求一致</p>
-<p>同步传输是面向比特的传输，它的单位是桢，它传输的时候要求接受方和发送方的时钟是保持一致的。<br>同步传输通常要比异步传输快速得多，同步传输的开销也比较少</p>
-<h2 id="包含的技术"><a href="#包含的技术" class="headerlink" title="包含的技术"></a>包含的技术</h2><ol>
-<li>使用CSS和XHTML来表示</li>
-<li>使用DOM模型来交互和动态显示</li>
-<li>使用XMLHttpRequest来和服务器进行异步通信</li>
-<li>使用javascript来绑定和调用<br>重点是3，理解XMLHttpRequest对象</li>
-</ol>
-<h2 id="XMLHttpRequest属性"><a href="#XMLHttpRequest属性" class="headerlink" title="XMLHttpRequest属性"></a>XMLHttpRequest属性</h2><p>onreadystatechange 每次状态改变所触发事件的事件处理程序。<br>responseText 从服务器进程返回数据的字符串形式。<br>responseXML 从服务器进程返回的DOM兼容的文档数据对象。<br>status 从服务器返回的数字代码，比如常见的404（未找到）和200（已就绪）<br>status Text 伴随状态码的字符串信息</p>
-<p>readyState 对象状态值</p>
-<ul>
-<li>0 (未初始化) 对象已建立，但是尚未初始化（尚未调用open方法）</li>
-<li>1 (初始化) 对象已建立，尚未调用send方法</li>
-<li>2 (发送数据) send方法已调用，但是当前的状态及http头未知</li>
-<li>3 (数据传送中) 已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误</li>
-<li>4 (完成) 数据接收完毕,此时可以通过通过responseXml和responseText获取完整的回应数据</li>
-</ul>
-<h2 id="使用ajax的步骤"><a href="#使用ajax的步骤" class="headerlink" title="使用ajax的步骤"></a>使用ajax的步骤</h2><ol>
-<li><strong>创建xmlhttprequest对象</strong>，由于各浏览器之间存在差异，所以创建一个XMLHttpRequest对象可能需要不同的方法。这个差异主要体现在IE和其它浏览器之间。</li>
-<li>使用xmlhttprequest对象的<strong>open()</strong>和<strong>send()</strong>方法发送资源请求给服务器</li>
-<li><strong>调用onreadystatechange函数</strong>，当发送请求到服务器，我们想要服务器响应执行一些功能就需要使用onreadystatechange函数，每次xmlhttprequest对象的readyState发生改变都会触发onreadystatechange函数</li>
-<li>使用xmlhttprequest对象的<strong>responseText或responseXML属性获得服务器的响应</strong></li>
-</ol>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;p id=&quot;demo&quot;&gt;Let AJAX change this text.&lt;/p&gt;</div><div class="line">&lt;button type=&quot;button&quot; onclick=&quot;loadDoc()&quot;&gt;Change Content&lt;/button&gt;</div><div class="line">&lt;script&gt;</div><div class="line">function loadDoc()&#123;</div><div class="line">// 1、创建xmlhttprequest对象</div><div class="line">var xhttp;</div><div class="line">if (window.XMLHttpRequest)</div><div class="line">&#123;</div><div class="line">	//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</div><div class="line">	xhttp=new XMLHttpRequest();</div><div class="line">&#125;</div><div class="line">else</div><div class="line">&#123;</div><div class="line">	// IE6, IE5 浏览器执行代码</div><div class="line">	xhttp=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</div><div class="line">&#125;</div><div class="line">//var xhttp=new XMLHttpRequest();</div><div class="line">// 2、使用xmlhttprequest对象的open()和send()方法发送资源请求给服务器</div><div class="line">xhttp.open(&quot;POST&quot;,&quot;ajax_info.txt&quot;,true);</div><div class="line">//xhttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);</div><div class="line"></div><div class="line">// 3、onreadystatechange函数</div><div class="line">xhttp.onreadystatechange = function()&#123;</div><div class="line">	if (xhttp.readyState == 4 &amp;&amp; xhttp.status == 200) &#123;</div><div class="line">		// 4、使用xmlhttprequest对象的responseText或responseXML属性获得服务器的响应</div><div class="line">		document.getElementById(&quot;demo&quot;).innerHTML=xhttp.responseText;</div><div class="line">&#125;</div><div class="line">&#125;;</div><div class="line">xhttp.send();</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="处理post表单"><a href="#处理post表单" class="headerlink" title="处理post表单"></a>处理post表单</h2><p>post表单数据需要使用xmlhttprequest对象setRequestHeader方法增加一个HTTP头。<br>post表单例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xhttp.open(&quot;POST&quot;, &quot;ajax_test.aspx&quot;, true);</div><div class="line">xhttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);</div><div class="line">xhttp.send(&quot;fname=Henry&amp;lname=Ford&quot;);</div></pre></td></tr></table></figure></p>
-<h3 id="处理xml"><a href="#处理xml" class="headerlink" title="处理xml"></a>处理xml</h3><p>需要放在<code>if (xhttp.readyState == 4 &amp;&amp; xhttp.status == 200) {}</code>里面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">xmlDoc = xhttp.responseXML;</div><div class="line">var txt = &quot;&quot;;</div><div class="line">x = xmlDoc.getElementsByTagName(&quot;ARTIST&quot;);</div><div class="line">for (i = 0; i &lt; x.length; i++) &#123;</div><div class="line">	txt += x[i].childNodes[0].nodeValue + &quot;&lt;br&gt;&quot;;</div><div class="line">&#125;</div><div class="line">document.getElementById(&quot;demo&quot;).innerHTML = txt;</div></pre></td></tr></table></figure></p>
-<h3 id="处理json"><a href="#处理json" class="headerlink" title="处理json"></a>处理json</h3><p>使用JSON.parse方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">xmlHttp.open(&quot;POST&quot;,&quot;tigongjson.php&quot;);</div><div class="line">//设置我们的请求头信息</div><div class="line">xmlHttp.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);</div><div class="line"></div><div class="line">//需要放在if (xhttp.readyState == 4 &amp;&amp; xhttp.status == 200) &#123;&#125;里面</div><div class="line">var data=xmlHttp.responseText;</div><div class="line">//json字符串转换成为json对象</div><div class="line">data=JSON.parse(data);</div><div class="line">var str=&quot;&quot;;</div><div class="line">for(var i=0;i&lt;data.length;i++)&#123;</div><div class="line">	str+=&quot;姓名:&quot;+data[i].name+&quot;&lt;br&gt;&quot;;</div><div class="line">	str+=&quot;年龄:&quot;+data[i].age+&quot;&lt;br&gt;&quot;;</div><div class="line">	str+=&quot;性别:&quot;+data[i].sex+&quot;&lt;br&gt;&quot;;</div><div class="line">&#125;;</div><div class="line">div1.innerHTML=str;</div></pre></td></tr></table></figure></p>
-<p>其他请参考菜鸟教程</p>
-<p>参考：</p>
-<ul>
-<li><a href="http://www.runoob.com/ajax/ajax-tutorial.html" target="_blank" rel="external">AJAX 教程|菜鸟教程</a></li>
-<li><a href="http://www.cnblogs.com/ustbwuyi/archive/2007/02/08/645061.html#2215165" target="_blank" rel="external">Ajax的原理和应用(给公司做所的培训)</a></li>
-<li><a href="http://www.jb51.net/article/88084.htm" target="_blank" rel="external">Ajax的使用四大步骤</a></li>
-<li><a href="http://www.cnblogs.com/mylove103104/p/4599001.html" target="_blank" rel="external">Ajax中解析Json的两种方法详解</a></li>
-<li><a href="http://www.cnblogs.com/Gabriel-Wei/p/6002223.html" target="_blank" rel="external">使用原生ajax处理json组成的数组</a></li>
-</ul>
-
-          
+          12345678910111213141516172018年5月记，总结起来就几句话//创建xmlhttprequest对象var xhttp xhttp=new XMLHttpRequest();/
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/17/Ajax工作原理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -909,31 +969,17 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2018年5月记，看完之后相当懵逼，，我是为了什么写这个的</div></pre></td></tr></table></figure>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>XML命名空间提供避免元素命名冲突的方法。标签可以放入命名空间中，不同的命名空间中的相同名称标签是不同的标签。</p>
-<h2 id="命名冲突"><a href="#命名冲突" class="headerlink" title="命名冲突"></a>命名冲突</h2><p>在 XML 中，元素名称是由开发者定义的，当两个不同的文档使用相同的元素名时，就会发生命名冲突。</p>
-<p>这个 XML 携带 HTML 表格的信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">&lt;tr&gt;</div><div class="line">&lt;td&gt;Apples&lt;/td&gt;</div><div class="line">&lt;td&gt;Bananas&lt;/td&gt;</div><div class="line">&lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
-<p>这个 XML 文档携带有关桌子的信息（一件家具）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">&lt;name&gt;African Coffee Table&lt;/name&gt;</div><div class="line">&lt;width&gt;80&lt;/width&gt;</div><div class="line">&lt;length&gt;120&lt;/length&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
-<p>假如这两个 XML 文档被一起使用，由于两个文档都包含带有不同内容和定义的 <table> 元素，就会发生命名冲突。<br>XML 解析器无法确定如何处理这类冲突。</table></p>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>在xml文件中，命名空间的定义如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;d:student xmlns:d=&quot;http://www.develop.com/student&quot; &gt;</div></pre></td></tr></table></figure></p>
-<p>其中 student 是命名空间的标签。<code>http://www.develop.com</code>是命名空间的标识。d是命名空间的前缀。</p>
-<h3 id="命名空间标签"><a href="#命名空间标签" class="headerlink" title="命名空间标签"></a>命名空间标签</h3><p>由于命名空间采取元素属性的定义方式，所以需要一个标签。</p>
-<h3 id="xmlns-属性"><a href="#xmlns-属性" class="headerlink" title="xmlns 属性"></a>xmlns 属性</h3><p>当在 XML 中使用前缀时，一个所谓的用于前缀的命名空间必须被定义。<br>命名空间是在元素的开始标签的 xmlns 属性中定义的。<br>xmlns:前缀=”URI”。<br>当命名空间被定义在元素的开始标签中时，所有带有相同前缀的子元素都会与同一个命名空间相关联。<br>命名空间 URI 不会被解析器用于查找信息。<br>其目的是赋予命名空间一个惟一的名称。不过，很多公司常常会作为指针来使用命名空间指向实际存在的网页，这个网页包含关于命名空间的信息。</p>
-<h3 id="命名空间标识"><a href="#命名空间标识" class="headerlink" title="命名空间标识"></a>命名空间标识</h3><p>命名空间标识是命名空间最重要的属性，重要到当输出一个命名空间时就直接转换为它的标识。标识有个规范的称呼:URI(统一资源定位符)。URI的最大特点是唯一性。如果不唯一就失去了辨识的意义。实际上相同URI不同的命名空间被看成同一个命名空间。</p>
-<p>URI分为两种类型：<br>URL(统一资源定位器):<br>通俗的说URL就是网页地址。因为每个网页在internat上都是唯一的。</p>
-<p>URN（统一资源名称)：<br>可以不使用网页地址而使用唯一名称来定义。如：<br>urn:2007-12-9/workgrop/xin/projiectname<br>或 urn:E7f73B13-05FE-44ec-81CE-F898C4A6CDB4<br>这个编号是在系统中注册的控件编号，因此是唯一的。</p>
-<h3 id="前缀"><a href="#前缀" class="headerlink" title="前缀"></a>前缀</h3><p>前缀用于在XML中作为URI的简化引用。因为URI太长了。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;d:student xmlns:d=&quot;http://www.develop.com/student&quot;&gt;</div><div class="line">&lt;d:id&gt;3235329&lt;/d:id&gt;</div><div class="line">&lt;d:name&gt;Jeff Smith&lt;/d:name&gt;</div><div class="line">&lt;/d:student&gt;</div></pre></td></tr></table></figure></p>
-<p>使用前缀把标签放入对应的命名空间中。</p>
-<p>有了命名空间区分后相同标签名可以不会被错误解析。实际上命名空间加上元素名叫做QName。QName有两个属性：uri和localName，分别获取命名空间名和本地名称。这个QName可以使用xml的name()方法得到。如上例子中的xml文件可以使用如下代码访问：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var ns:Namespace=xml.namespace();</div><div class="line">var node:XMLList=xml.ns::id;</div><div class="line">var qNameName=node.name();</div><div class="line">trace(qName.uri);</div><div class="line">trace(qName.localName);</div></pre></td></tr></table></figure></p>
-<p>命名空间不一点要定义在根节点。可以在任何标签中定义，但只有定义了后才能使用。命名空间还可以嵌套或者被重定义。但这样会增加复杂性。一般用的比较少。一个xml文件中可以拥有多个命名空间。使用命名空间前缀可以轻松处理它们。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;x:transform version=”1.0” xmlns:x=http://www.w3.org/1999/XSL/Transformxmlns:d=”urn:dm:student”&gt;</div><div class="line">&lt;x:template match=”student”/&gt;&lt;d:template match=”name”/&gt;&lt;/x:transform&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="默认的命名空间"><a href="#默认的命名空间" class="headerlink" title="默认的命名空间"></a>默认的命名空间</h3><p>为元素定义默认的命名空间可以让我们省去在所有的子元素中使用前缀的工作<br>xmlns=”namespaceURI”<br>使用默认命名空间后，如果不加前缀则引用默认命名空间。使用默认命名空间会降低xml结构的清晰度。要慎用。</p>
-<p>参考：</p>
-<ul>
-<li><a href="http://m.blog.csdn.net/w938706428/article/details/41448821" target="_blank" rel="external">http://m.blog.csdn.net/w938706428/article/details/41448821</a></li>
-<li><a href="http://www.runoob.com/xml/xml-namespaces.html" target="_blank" rel="external">http://www.runoob.com/xml/xml-namespaces.html</a></li>
-</ul>
-
-          
+          12018年5月记，看完之后相当懵逼，，我是为了什么写这个的
+概念XML命名空间提供避免元素命名冲突的方法。标签可以放入命名空间中，不同的命名空间中的相同名称标签是不同的标签。
+命名冲突在 XML 中
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/13/XML命名空间和XML-Schema/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1051,54 +1097,15 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">2017年2月2日写的。。</div><div class="line">2018年5月重看，看完了之后有点觉得不知所云，不知道自己当初想说什么，或者说想要论证的太多，反而说不清了。。</div><div class="line"></div><div class="line">腐是一种个人爱好，就和你喜欢喝茶，我喜欢喝咖啡，和别人无关，当然不能影响他人，就比如喜欢跳广场舞，但最好不要扰民，扰民了就不能怪别人说</div><div class="line"></div><div class="line">没有必要区分伪腐和真腐，既然是一种个人爱好，你喜欢谁都无所谓的（不过不管伪腐还是真腐都喜欢帅哥吧哈哈），但是前面也说了，不能打扰别人，请不要贬低别人（大概是有人用这种方式炒作吧，毕竟这样就有人关注了）</div><div class="line"></div><div class="line">腐和热心LGBT一点关系没有（好像有点绝对），也许有腐女会热心，但只能说是一种个人行为，有人也许会说我是因为喜欢腐圈才去了解LGBT，但你没法忽视一个问题：大部分腐女并没有这种意识，两个长的丑站在一起你不会萌，真的是一对你也不会萌的。那么是不是说我们一定要求腐女热心公益？当然不，各玩各的互不影响挺好</div></pre></td></tr></table></figure>
-<p>突然想写写这个话题，是因为最近上b站，老是看到评论里有一些人为了”腐女”和”伪腐女”而争执。</p>
-<p>维基对于”腐女”的解释是：</p>
-<blockquote>
-<p>腐女（日语：腐女子／ふじょし Fujoshi），主要是指喜欢BL，也就是喜欢男男爱情的女性。</p>
-</blockquote>
-<p>百度百科和萌娘百科(ACG向wiki)类似，但是对于”伪腐”的概念有一些不同的地方。</p>
-<p>维基百科中提到了”伪腐”，表示中国(其他国家没有这个概念，或者百科中没有提到)腐圈的一种概念</p>
-<blockquote>
-<p>因为大众有时并不清楚“BL”与现实中的男同性恋的区别，误以为腐女就是“对男同友善的女性”。由此也衍生出“伪腐”一词用以形容“喜欢BL，但对男同性恋不友善”的腐女。</p>
-</blockquote>
-<p>百度百科中有单独的”伪腐女”概念：</p>
-<blockquote>
-<p>腐女群体里面一些不理智、疯狂、NC（脑残）的腐女，所谓的伪其实并非是假，只是其他理智的腐女对于这类腐女看不惯所采取的分类手段，为了不让人降低对腐女的印象，选择以“这些腐女并非是真正的腐女，是伪腐！”的借口来和NC腐女划分界限或推卸责任。</p>
-</blockquote>
-<p>萌娘百科中这样定义：</p>
-<blockquote>
-<p>喜欢BL只是因为二次元中的人物都十分美型，对于现实生活中真正的GAY群不一定持支持态度，甚至厌恶和嘲笑，像这样的“腐女”被称为“伪腐”</p>
-</blockquote>
-<p>其实参考这些之后就可了解：</p>
-<p>腐只能被看作一种爱好，无论你喜欢帅哥还是什么，都可以称作腐女，”伪腐女”并不是代表假的，而是用来形容那些不理智/疯狂/脑残的腐女。</p>
-<p><strong>结论1：腐只是一种个人爱好</strong></p>
-<p><strong>结论2：伪腐女不等于不是腐女</strong></p>
-<p>“伪腐女”这个词的出现一方面不排除个别腐女的优越感，另一方面也说明一些腐女在行为方式上的让人感到反感，自己喜欢什么没人管，但是还请尊重他人(我想不论是不是腐女都应该尊重他人)，正如萌娘百科所说：</p>
-<blockquote>
-<p>腐只是一种爱好，能否做到尊重他人、尊重他人隐私是做人的基本素养问题，与腐或不腐没有联系。</p>
-</blockquote>
-<p>腐圈为了区分这些腐女所以创造了”伪腐女”这个词</p>
-<p>常见的伪腐特征(来自萌娘百科，百度百科词条”伪腐女”有类似内容)：</p>
-<blockquote>
-<p>仅喜欢长相俊秀、外貌美型的男子，对于现实中的GAY嗤之以鼻甚至深感厌恶。典型语句【长这么丑也好意思搞同性恋】。</p>
-<p>喜欢偷窥、干涉现实中的GAY的生活，过度挖掘他人的隐私以满足自己的兴趣。</p>
-<p>热衷于掰弯现实生活中的直男（如身边的男同学等），强迫周围的人搞基，令他人感到困扰，严重影响他人生活。</p>
-<p>对不符合其审美观的男性，以及明确表示厌恶搞基的直男则采取敌视态度，进行贬损和污蔑。</p>
-<p>无法接受LES（女同性恋），看不起她们。</p>
-<p>对于GAY的交心信仅凭所看的耽美漫画、动画、小说等给予荒诞错误的建议，或将信件放在公共平台供大家讨论围观。</p>
-<p>在大庭广众高调谈论腐相关，大有“我就是腐我真了不起”之意，令他人感到厌烦。</p>
-<p>不接受男女之间的爱情故事，认为耽美就是小众就是清新就是高端大气上档次，男女之情都是庸俗三流泛滥成河，由此以为自己是文艺女青年而轻视看描写一般男女故事的人。</p>
-</blockquote>
-<p>阅读更多：腐女（<a href="https://zh.moegirl.org/%E8%85%90%E5%A5%B3）" target="_blank" rel="external">https://zh.moegirl.org/%E8%85%90%E5%A5%B3）</a><br>本文引自萌娘百科（<a href="https://zh.moegirl.org/），文字内容遵守【知识共享" target="_blank" rel="external">https://zh.moegirl.org/），文字内容遵守【知识共享</a> 署名-非商业性使用-相同方式共享 3.0】协议。</p>
-<p><strong>结论3：一些腐女存在不尊重他人的行为，影响到了他人，一些行为真的让人反感，换句话说自己圈地自萌就好，请不要要求别人怎样，也别影响别人</strong></p>
-<p>那么也许会有疑问，是不是腐女都应该支持同性恋?</p>
-<p>我个人觉得并不一定，腐毕竟只是作为一种个人的爱好，只要不影响他人就好，而不一定要把这种爱好强迫变成一种公益行为，一些做支持同性恋的腐女也请不要要求别的腐女一定要支持腐女，这就和你其他公益事业一样，你做公益事业，很不错，但是强迫别人也做就不好了。</p>
-<p><strong>结论4：腐不等于公益行为</strong></p>
-<p><strong>结论5：腐圈和LGBT圈关系不大</strong></p>
-<p>参考资料：<br><a href="http://baike.baidu.com/link?url=35LSeDDZ4DN-428f8vVGBpL95zBC5P8fkGqeWL6-YqxLU6E44czQGCWjHVXMWQy5GRRwEKCHB1CxmUfiXzoP2s4aFeJ9Cpk1V1GF5c88_LK#4" target="_blank" rel="external">腐女-百度百科</a><br><a href="http://baike.baidu.com/view/2603612.htm" target="_blank" rel="external">伪腐女-百度百科</a><br><a href="https://zh.wikipedia.org/wiki/%E8%85%90%E5%A5%B3" target="_blank" rel="external">腐女-维基百科</a><br><a href="https://zh.moegirl.org/zh-hans/%E8%85%90%E5%A5%B3" target="_blank" rel="external">腐女-萌娘百科</a><br><a href="https://www.zhihu.com/question/27984520" target="_blank" rel="external">腐女与伪腐女之间的差别是什么？-知乎</a><br><a href="https://www.zhihu.com/question/20596592" target="_blank" rel="external">什么是腐女？-什么是腐女</a></p>
-
-          
+          123456782017年2月2日写的。。2018年5月重看，看完了之后有点觉得不知所云，不知道自己当初想说什么，或者说想要论证的太多，反而说不清了。。腐是一种个人爱好，就和你喜欢喝茶，我喜欢喝咖啡，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/02/腐女与伪腐女/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1216,20 +1223,17 @@
       
         
           
-            <p>2016年，感觉自己什么也没做，本来也不打算写年终博客的。</p>
-<p>晚上和好友聊天，突然心情有点激动就想着，写写吧，写点什么，这大概只是有种想写的冲动吧，写出来的不见得有多好。</p>
-<p>11月份的时候才意识到我放在SAE上的博客不在了，只备份了Wordpress的代码，没备份数据库，120篇博客找不回来了，上面写的都是一些问题怎么解决，以及自己在学习中的经验，印象最深的大概是如何在Elementaory OS系统上安装软件，直接把博客上的语句复制到shell里执行就好，最头疼的大概是安装输入法的问题，当时记得查了好多资料，最后每次重装都是因为update时输入法出问题，具体问题记不清楚了，好像是影响软件安装和更新。</p>
-<p>考完研后一直在整理自己的东西，百度云、Onenote、印象笔记还有移动硬盘。</p>
-<p>百度云里有很多资料和书籍，以前也整理过，大概地分离了各种资源，但条理并不是很清晰，索性需要的时候<del>虎</del>直接搜索就好，这次打算把以前备份的手机照片整理一下，顺便把很多很多的电子书整理分类，剔除重复，还有把图片和书籍备份到移动硬盘上，书籍还在下载中，还没有整理，图片已经整理好了，把大学四年的照片、保存的来自各种渠道的图片以及截图都理清了，回顾这些图片，把一些照片发给了相关的人，他们都很吃惊，哈哈。很多截图都是我在微信的聊天记录，我还找到了我和某人认识的大概时间。这些大概都算生活中的一点小乐趣了吧。</p>
-<p>本来想将Onenote作为唯一的做笔记的应用，但是因为同步功能最后选择了印象笔记，充个标准会员，标签模式也不错，特别是用了Bear，可惜没有Mac，顺便一提，Bear真的好漂亮。</p>
-<p>这一年确实过的浑浑噩噩，是我太幼稚，也是我在逃避，我真的没办法接受现实，可是人生不就是一步一步接受的过程吗？</p>
-<p><code>走吧，各人有各人的路要走，我既没法代替你，也没法陪你，甚至无法看着你</code></p>
-<p>写的差不多了，确实只有写作的冲动，而没有写作的才华，哈哈哈。</p>
-<blockquote>
-<p>2018年5月15日重看这篇文字，当时写完之后再也不敢看，现在因整理笔记打开觉得没什么，此时已经没有什么悲伤，我比较震惊我能写这么多文字哈哈，现在的感觉是每当我觉得突然明白了一些道理自己又长大了一点的时候，又觉得自己还是很幼稚</p>
-</blockquote>
-
-          
+          2016年，感觉自己什么也没做，本来也不打算写年终博客的。
+晚上和好友聊天，突然心情有点激动就想着，写写吧，写点什么，这大概只是有种想写的冲动吧，写出来的不见得有多好。
+11月份的时候才意识到我放在S
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/03/2016年突然想说的话/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1347,13 +1351,15 @@
       
         
           
-            <h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── .deploy #需要部署的文件</div><div class="line">├── node_modules #Hexo插件</div><div class="line">├── public #生成的静态网页文件</div><div class="line">├── scaffolds #模板</div><div class="line">├── source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里</div><div class="line">|	├── _drafts #草稿</div><div class="line">|	└── _posts #文章</div><div class="line">├── themes #主题</div><div class="line">├── _config.yml #全局配置文件</div><div class="line">└── package.json</div></pre></td></tr></table></figure>
-<p>假设网站的根目录为<code>D:/Hexo/</code>，也称为站点目录<br><strong>站点配置文件</strong> 是指网站目录下的_config.yml文件，即<code>D:/Hexo/_config.yml</code></p>
-<p><strong>主题配置文件</strong> 是指网站目录下对应的主题文件夹下的_config.yml文件，即<code>D:/Hexo/themes/next/_config.yml</code>.</p>
-<h3 id="站点配置文件"><a href="#站点配置文件" class="headerlink" title="站点配置文件"></a>站点配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"># Hexo Configuration</div><div class="line">## Docs: http://hexo.io/docs/configuration.html</div><div class="line">## Source: https://github.com/hexojs/hexo/</div><div class="line"># Site #站点信息</div><div class="line">title:  #标题</div><div class="line">subtitle:  #副标题</div><div class="line">description:  #站点描述，给搜索引擎看的</div><div class="line">author:  #作者</div><div class="line">email:  #电子邮箱</div><div class="line">language: zh-CN #语言</div><div class="line"></div><div class="line"># URL #链接格式</div><div class="line">url:  #网址</div><div class="line">root: / #根目录</div><div class="line">permalink: :year/:month/:day/:title/ #文章的链接格式</div><div class="line">tag_dir: tags #标签目录</div><div class="line">archive_dir: archives #存档目录</div><div class="line">category_dir: categories #分类目录</div><div class="line">code_dir: downloads/code</div><div class="line">permalink_defaults:</div><div class="line"></div><div class="line"># Directory #目录</div><div class="line">source_dir: source #源文件目录</div><div class="line">public_dir: public #生成的网页文件目录</div><div class="line"></div><div class="line"># Writing #写作</div><div class="line">new_post_name: :title.md #新文章标题</div><div class="line">default_layout: post #默认的模板，包括 post、page、photo、draft（文章、页面、照片、草稿）</div><div class="line">titlecase: false #标题转换成大写</div><div class="line">external_link: true #在新选项卡中打开连接</div><div class="line">filename_case: 0</div><div class="line">render_drafts: false</div><div class="line">post_asset_folder: false</div><div class="line">relative_link: false</div><div class="line">highlight: #语法高亮</div><div class="line">	enable: true #是否启用</div><div class="line">	line_number: true #显示行号</div><div class="line">	tab_replace:</div><div class="line"></div><div class="line"># Category &amp; Tag #分类和标签</div><div class="line">default_category: uncategorized #默认分类</div><div class="line">category_map:</div><div class="line">tag_map:</div><div class="line"></div><div class="line"># Archives</div><div class="line">2: 开启分页</div><div class="line">1: 禁用分页</div><div class="line">0: 全部禁用</div><div class="line">archive: 2</div><div class="line">category: 2</div><div class="line">tag: 2</div><div class="line"></div><div class="line"># Server #本地服务器</div><div class="line">port: 4000 #端口号</div><div class="line">server_ip: localhost #IP 地址</div><div class="line">logger: false</div><div class="line">logger_format: dev</div><div class="line"></div><div class="line"># Date / Time format #日期时间格式</div><div class="line">date_format: YYYY-MM-DD #参考http://momentjs.com/docs/#/displaying/format/</div><div class="line">time_format: H:mm:ss</div><div class="line"></div><div class="line"># Pagination #分页</div><div class="line">per_page: 10 #每页文章数，设置成 0 禁用分页</div><div class="line">pagination_dir: page</div><div class="line"></div><div class="line"># Disqus #Disqus评论，替换为多说</div><div class="line">disqus_shortname:</div><div class="line"></div><div class="line"># Extensions #拓展插件</div><div class="line">theme: landscape-plus #主题</div><div class="line">exclude_generator:</div><div class="line">plugins: #插件，例如生成 RSS 和站点地图的</div><div class="line">- hexo-generator-feed</div><div class="line">- hexo-generator-sitemap</div><div class="line">- </div><div class="line"># Deployment #部署，将 lmintlcx 改成用户名</div><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repo: github创库地址.git</div><div class="line">	branch: master</div></pre></td></tr></table></figure>
-<p>配置文件的冒号后面都有一个半角空格</p>
-<h3 id="主题配置文件"><a href="#主题配置文件" class="headerlink" title="主题配置文件"></a>主题配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">menu: #右上角导航菜单，冒号前面是菜单名，后面是访问路径。</div><div class="line">	Home: /</div><div class="line">	Archives: /archives</div><div class="line">	About: /about</div><div class="line"></div><div class="line">widgets: #站点右边栏，可以调整顺序和增减内容，会自动调用主题layout/_widget目录下的同名文件。</div><div class="line">- search</div><div class="line">- category</div><div class="line">- tagcloud</div><div class="line"></div><div class="line">excerpt_link: Read More #列表页里Read more链接名称，可以替换成’查看更多‘等。</div><div class="line"></div><div class="line">plugins: </div><div class="line"></div><div class="line">twitter: #右边栏要显示twitter展示的话，需要在此设置</div><div class="line">	username: </div><div class="line">	show_replies: false</div><div class="line">	tweet_count: 5</div><div class="line"></div><div class="line">addthis: #分享设置</div><div class="line">	enable: true</div><div class="line">	pubid:</div><div class="line">	facebook: true</div><div class="line">	twitter: true</div><div class="line">	google: true</div><div class="line">	pinterest: true</div><div class="line"></div><div class="line">fancybox: true #图片效果，默认</div><div class="line"></div><div class="line">google_analytics: #google_analytics统计ID</div><div class="line">rss:  #生成RSS路径</div></pre></td></tr></table></figure>
-          
+          目录结构1234567891011.├── .deploy #需要部署的文件├── node_modules #Hexo插件├── public #生成的静态网页文件├── scaffolds #模板
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】hexo目录结构以及-config-yml配置文件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1471,21 +1477,18 @@
       
         
           
-            <p>1.tags标签使用[tag1,tag2,…]，注意冒号后需要一个半角空格</p>
-<p>2.文章内标题使用<code>###空格我是标题空格###</code></p>
-<p>3.内嵌代码使用反引号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">`我是代码`</div></pre></td></tr></table></figure></p>
-<p>4.其他代码使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">5.文字加粗使用两个星号</div></pre></td></tr></table></figure></p>
-<p><strong>我是文字</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">6.文字斜体使用一个*星号</div></pre></td></tr></table></figure></p>
-<p><em>我是文字</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">7.引用使用&gt;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>我是文字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">8.链接使用以下方式</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>&lt;我是链接&gt;</p>
-<ul>
-<li><a href="我是链接">显示文字</a><br>```</li>
-</ul>
-
-          
+          1.tags标签使用[tag1,tag2,…]，注意冒号后需要一个半角空格
+2.文章内标题使用###空格我是标题空格###
+3.内嵌代码使用反引号1`我是代码`
+4.其他代码使用125.文字加粗使用两
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】hexo中博客使用markdown格式约定/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1603,12 +1606,17 @@
       
         
           
-            <h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>进入博客站点目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo n &quot;文章题目&quot;</div></pre></td></tr></table></figure></p>
-<p>执行完命令会在blog\sourse_posts目录中多出一个md文件，也可以直接在该目录下新建md文件</p>
-<h3 id="编辑文章"><a href="#编辑文章" class="headerlink" title="编辑文章"></a>编辑文章</h3><p>使用markdown工具编辑_posts目录中的md文件，最后记得使用<code>hexo g</code>以及<code>hexo d</code>命令</p>
-<h3 id="删除文章"><a href="#删除文章" class="headerlink" title="删除文章"></a>删除文章</h3><p>直接删除目录下的md文件即可</p>
-
-          
+          新建文章进入博客站点目录1hexo n &quot;文章题目&quot;
+执行完命令会在blog\sourse_posts目录中多出一个md文件，也可以直接在该目录下新建md文件
+编辑文章使用mark
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】hexo新建文章/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1726,10 +1734,15 @@
       
         
           
-            <p>常用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">hexo help #查看帮助</div><div class="line">hexo init #初始化一个目录</div><div class="line">hexo new &quot;postName&quot; #新建文章</div><div class="line">hexo new page &quot;pageName&quot; #新建页面</div><div class="line">hexo generate #生成网页，可以在 public 目录查看整个网站的文件</div><div class="line">hexo server #本地预览，&apos;Ctrl+C&apos;关闭</div><div class="line">hexo deploy #部署.deploy目录</div><div class="line">hexo clean #清除缓存，强烈建议每次执行命令前先清理缓存，每次部署前先删除 .deploy 文件夹</div></pre></td></tr></table></figure></p>
-<p>简写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo n == hexo new</div><div class="line">hexo g == hexo generate</div><div class="line">hexo s == hexo server</div><div class="line">hexo d == hexo deploy</div></pre></td></tr></table></figure></p>
-
-          
+          常用命令：12345678hexo help #查看帮助hexo init #初始化一个目录hexo new &quot;postName&quot; #新建文章hexo new page &quot
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】hexo常用命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1847,13 +1860,16 @@
       
         
           
-            <h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><p>在使用<code>hexo d</code>上传时，可能出现以下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ERROR Deployer not found:git</div><div class="line">``</div><div class="line">### 解决办法 ###</div><div class="line">1.在博客目录下安装hexo-deployer-git</div></pre></td></tr></table></figure></p>
-<p>npm install hexo-deployer-git –save<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2.在博客目录下的_config.yml文件中</div></pre></td></tr></table></figure></p>
-<p>deploy:<br>    type: git<br>    repository: <a href="https://github.com/fengrenxiaoli/fengrenxiaoli.github.io.git" target="_blank" rel="external">https://github.com/fengrenxiaoli/fengrenxiaoli.github.io.git</a><br>    branch: master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">**type使用git，冒号后面需要一个半角空格**</div><div class="line">。</div><div class="line"></div><div class="line">### 问题2 ###</div><div class="line">使用`hexo d`中，出现：</div></pre></td></tr></table></figure></p>
-<p>bash: /dev/tty: No such device or address<br>error: failed to execute prompt script (exit code 1)<br>fatal: could not read Username for ‘<a href="https://github.com" target="_blank" rel="external">https://github.com</a>‘: No error<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">### 解决办法 ###</div><div class="line">1.不要使用Cygwin等cmd工具，使用自带的cmd工具（具体可以参考&lt;https://github.com/atom/atom/issues/8984&gt;</div><div class="line"></div><div class="line">2.使用ssh(具体格式在github中有)代替_config.yml文件中的deploy</div><div class="line"></div><div class="line"></div><div class="line">如果出现</div></pre></td></tr></table></figure></p>
-<p>INFO  Deploy done: git<br>```<br>则说明上传成功</p>
-
-          
+          问题1在使用hexo d上传时，可能出现以下错误1234ERROR Deployer not found:git``### 解决办法 ###1.在博客目录下安装hexo-deployer-git
+np
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】使用hexo-d无法上传问题解决办法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1971,12 +1987,16 @@
       
         
           
-            <p>1.从<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a>挑选喜欢的主题</p>
-<p>2.从Github下载相应的主题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd your-hexo-site</div><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/your-theme</div></pre></td></tr></table></figure></p>
-<p>注意修改自己选择主题的对应名字</p>
-<p>3.更改站点_config.yml（即博客目录下的该文件，不是主题文件中的文件）中的theme字段为<code>your-theme</code>（名字要和第二步的对应）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: your-theme（theme后面有一个半角空格）</div></pre></td></tr></table></figure></p>
-
-          
+          1.从https://hexo.io/themes/挑选喜欢的主题
+2.从Github下载相应的主题12cd your-hexo-sitegit clone https://github.com/ii
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】修改Hexo博客的主题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2094,24 +2114,16 @@
       
         
           
-            <p>1.创建github帐号，新建一个以<code>用户名.github.io</code>命名的仓库</p>
-<p>2.安装git，创建ssh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</div><div class="line">#用于创建ssh，会有公钥和私钥，将公钥拷贝到github帐号设置&gt;ssh and gpg keys中</div><div class="line"></div><div class="line">ssh -T git@github.com</div><div class="line">#用于测试是否成功</div></pre></td></tr></table></figure></p>
-<p>输入yes，其他使用默认即可，配置git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;cnfeat&quot;//用户名</div><div class="line">git config --global user.email  &quot;cnfeat@gmail.com&quot;//邮箱</div></pre></td></tr></table></figure></p>
-<p>3.下载并安装hexo</p>
-<p>4.新建一个目录用于放置本地博客<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mkdir hexo</div><div class="line">cd hexo</div><div class="line">npm install hexo-cli -g </div><div class="line">hexo init blog</div><div class="line">cd blog</div><div class="line">npm install</div><div class="line">hexo g</div><div class="line">hexo s   #可以在本地http://localhost:4000/查看</div></pre></td></tr></table></figure></p>
-<p>5.修改blog目录下的_config.yml文件中的deploy：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">type: git</div><div class="line">repository: git@github.com:xxxxxx/xxxxxxx.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure></p>
-<p>6.安装hexo中关于git的组件，上传部署（需要cd到hexo\node_modules\hexo\Hexo目录）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div><div class="line"></div><div class="line">hexo clean</div><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure></p>
-<p>如果出现问题请参考<a href="http://fengrenxiaoli.github.io/2016/10/09/%E4%BD%BF%E7%94%A8hexo-d%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" target="_blank" rel="external">使用hexo d无法上传问题解决办法</a>然后再使用以上代码</p>
-<p>参考：</p>
-<ul>
-<li><a href="http://kiya.space/2015/11/10/use-Github-Pages-Hexo-duoshuo-to-set-up-a-blog-basic-steps/" target="_blank" rel="external">http://kiya.space/2015/11/10/use-Github-Pages-Hexo-duoshuo-to-set-up-a-blog-basic-steps/</a></li>
-<li><a href="http://sunwhut.com/2015/10/30/buildBlog/" target="_blank" rel="external">http://sunwhut.com/2015/10/30/buildBlog/</a></li>
-<li><a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="external">https://my.oschina.net/ryaneLee/blog/638440</a></li>
-<li><a href="http://www.jianshu.com/p/ab21abc31153" target="_blank" rel="external">http://www.jianshu.com/p/ab21abc31153</a></li>
-<li><a href="https://www.haomwei.com/technology/maupassant-hexo.html" target="_blank" rel="external">https://www.haomwei.com/technology/maupassant-hexo.html</a></li>
-</ul>
-
-          
+          1.创建github帐号，新建一个以用户名.github.io命名的仓库
+2.安装git，创建ssh12345ssh-keygen -t rsa -C &quot;your_email@example
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】使用Hexo搭建github博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2229,22 +2241,20 @@
       
         
           
-            <blockquote>
-<p>  2018年5月记，转眼快两年了，没想到现在看来写的还挺好，那就发出来吧</p>
-<p>  时间我修改过，写这篇文字是在2016年的6月25日</p>
-</blockquote>
-<p>写这篇文章的时候是大学毕业，准备离开而呆在学校的最后一天。</p>
-<p>和不算很多的人约出来吃了饭，也许以后与这些人不会再见，也许要见也是几年之后了，几年有时候感觉很短，但当两人见面寒暄时，感叹一番，发现原来已经这么久没有见过了。</p>
-<p>这几天除了吃饭和约人吃饭什么也不想干，就好像一个临终的人静静等待最后时刻的到来，不愿意去欣赏这里最后的景，也不想多留下一丝回忆。所做的只是交代后事，把自己和这里的人这里的事了结一些因果。</p>
-<p>或许真的等我踏上火车准备上路时，才会伤心，才会遗憾，往事会如回马灯一样跳入脑海，原来我和你之间还能更加好一点，原来我应当做这件事的，许许多多的想法出现了，可是，只剩下发呆，留下的只有空白。</p>
-<p>回想大学，自己就好像一只飞蛾，目标就是那里的火，逐渐走向自我的毁灭，我对生活的热情，我对未来的斗志都没有了，也许你是我最后的寄托吧，只是我们要毕业了，以后隔着的不光会是空间，还有时间，我带不走你，也留不下什么。</p>
-<p>大学四年，我就像一个旁观者，看着你们一直往前走，我却带着原地，不想动，又像是一个行尸走肉，重复着南校、新校、本部三个点，没有带着什么，也不曾留下值得纪念的东西。</p>
-<p>近来沉迷游戏，渴望在游戏中获得慰藉，交了几个亲友，最后呢，都离开了，除了花费金钱、消磨时间，什么也留不下了。</p>
-<p>离开了，便开始一段新的旅程了，很多人许多事都随风飞走吧，带走了，留下了只能徒留伤感。</p>
-<p>希望自己以后能够保持清醒，依靠自己，好好活着。</p>
-<p>没了。</p>
-
           
+  2018年5月记，转眼快两年了，没想到现在看来写的还挺好，那就发出来吧
+  时间我修改过，写这篇文字是在2016年的6月25日
+
+写这篇文章的时候是大学毕业，准备离开而呆在学校的最后一天。
+和不
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/06/25/带不走的，留不下的/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2328,7 +2338,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

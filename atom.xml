@@ -36,6 +36,32 @@
   </entry>
   
   <entry>
+    <title>linux查看用户登录时间及历史命令</title>
+    <link href="http://yoursite.com/2018/05/16/linux%E6%9F%A5%E7%9C%8B%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%97%B6%E9%97%B4%E5%8F%8A%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2018/05/16/linux查看用户登录时间及历史命令/</id>
+    <published>2018-05-16T12:34:14.000Z</published>
+    <updated>2018-05-16T12:43:29.330Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">who</div><div class="line">#查看当前登录用户信息：用户名、终端类型、登陆日期以及远程主机</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">users</div><div class="line">#当前登录的用户</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">history</div><div class="line">#查看命令历史</div><div class="line">$HOME/.bash_history：每个用户都有一份命令历史记录</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">last</div><div class="line">#查看用户登录历史</div><div class="line">#此命令会读取 /var/log/wtmp 文件，/var/log/btmp可以显示远程登陆信息。 </div><div class="line">#last默认打印所有用户的登陆信息</div><div class="line">last 用户名</div><div class="line">#打印某个用户的登陆信息</div><div class="line">选项： </div><div class="line">-x：显示系统开关机以及执行等级信息 </div><div class="line">-a：将登陆ip显示在最后一行 </div><div class="line">-f ：读取特定文件，可以选择 -f /var/log/btmp文件 </div><div class="line">-d：将IP地址转换为主机名 </div><div class="line">-n：设置列出名单的显示列数 </div><div class="line">-t：查看指定时间的用户登录历史 </div><div class="line">例如： </div><div class="line">last -t 20150226160404 </div><div class="line">显示这个时间戳之前的登陆历史</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">lastlog</div><div class="line">#查看所有用户最近一次登录历史</div><div class="line">#命令将读取 /var/log/lastlog 文件，用户排列顺序按照 /etc/passwd 中的顺序</div><div class="line">选项： </div><div class="line">-u：查看某个用户的最后一次登陆历史 </div><div class="line">例如： lastlog -u test </div><div class="line">查看用户test的登陆历史 </div><div class="line"></div><div class="line">-t：查看最近几天之内的用户登录历史 </div><div class="line">例如： lastlog -t 1 </div><div class="line">查看最近1天之内的登陆历史</div><div class="line"></div><div class="line">-b：查看指定天数之前的用户登录历史 </div><div class="line">例如： lastlog -b 60 </div><div class="line">查看60天之前的用户登录历史</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ac</div><div class="line">根据/var/log/wtmp文件中的登陆和退出时间报告用户连接的时间（小时），默认输出报告总时间 </div><div class="line">-p：显示每个用户的连接时间 </div><div class="line">-d：显示每天的连接时间 </div><div class="line">-y：显示年份，和-d配合使用</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;c
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux下ls命令只显示目录或文件</title>
     <link href="http://yoursite.com/2018/05/16/Linux%E4%B8%8Bls%E5%91%BD%E4%BB%A4%E5%8F%AA%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%BD%95%E6%88%96%E6%96%87%E4%BB%B6/"/>
     <id>http://yoursite.com/2018/05/16/Linux下ls命令只显示目录或文件/</id>
@@ -102,12 +128,14 @@
     <link href="http://yoursite.com/2018/05/16/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86-%E9%BB%98%E8%AE%A4%E6%9D%83%E9%99%90/"/>
     <id>http://yoursite.com/2018/05/16/Linux权限管理-默认权限/</id>
     <published>2018-05-15T19:28:55.000Z</published>
-    <updated>2018-05-15T19:28:55.721Z</updated>
+    <updated>2018-05-16T13:00:41.386Z</updated>
     
     <summary type="html">
     
     </summary>
     
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -116,12 +144,14 @@
     <link href="http://yoursite.com/2018/05/16/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86-%E4%B8%80%E8%88%AC%E6%9D%83%E9%99%90/"/>
     <id>http://yoursite.com/2018/05/16/Linux权限管理-一般权限/</id>
     <published>2018-05-15T19:28:40.000Z</published>
-    <updated>2018-05-15T19:28:40.189Z</updated>
+    <updated>2018-05-16T12:46:48.839Z</updated>
     
     <summary type="html">
     
     </summary>
     
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -1376,166 +1406,6 @@ width: 20%;
     
       &lt;p&gt;需要命名一些文件，在文件名的前缀加上序列，这些文件的文件包空格、中文&lt;br&gt;思路如下：&lt;br&gt;重命名使用mv命令（不讨论其它重命名命令），需要提供文件名，通过ls命令可以获得文件名，将ls命令得到的文件名分割为数组，在遍历中进行重命名&lt;/p&gt;
 &lt;figure class=&quot;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Linux】Linux服务管理</title>
-    <link href="http://yoursite.com/2018/05/11/Linux%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/"/>
-    <id>http://yoursite.com/2018/05/11/Linux服务管理/</id>
-    <published>2018-05-11T08:11:49.000Z</published>
-    <updated>2018-05-15T18:03:39.318Z</updated>
-    
-    <content type="html"><![CDATA[<style>
-table th:nth-of-type(1){
-width: 20%;
-}
-table th:nth-of-type(2){
-width: 60%
-;
-}
-table th:nth-of-type(3){
-width: 20%;
-}
-
-</style>
-
-
-
-<h2 id="系统的运行级别"><a href="#系统的运行级别" class="headerlink" title="系统的运行级别"></a>系统的运行级别</h2><table>
-<thead>
-<tr>
-<th>运行级别</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>关机</td>
-</tr>
-<tr>
-<td>1</td>
-<td>单用户模式，主要用于系统修复</td>
-</tr>
-<tr>
-<td>2</td>
-<td>不完全的命令行,不含NFS服务</td>
-</tr>
-<tr>
-<td>3</td>
-<td>完全的命令行</td>
-</tr>
-<tr>
-<td>4</td>
-<td>系统暴露</td>
-</tr>
-<tr>
-<td>5</td>
-<td>图形模式</td>
-</tr>
-<tr>
-<td>6</td>
-<td>重启</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">runlevel			#查看运行级别</div><div class="line">init 5				#修改运行级别</div><div class="line"></div><div class="line">vi /etc/inittab		#修改系统默认运行级别</div><div class="line">id:3:initdefault:</div><div class="line">#系统开机后直接进入哪个运行级别</div></pre></td></tr></table></figure>
-<h2 id="服务的分类"><a href="#服务的分类" class="headerlink" title="服务的分类"></a>服务的分类</h2><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG33.png" alt=""></p>
-<p>独立服务：独立的运行在内存中，一直在运行的</p>
-<p>基于xinetd的服务：<br>服务由xinetd来管控，平时不运行，一有访问，先到xinetd，然后由xinetd去调用<br>现在基本上不再使用xinetd。<br>默认没有安装，可以通过yum方式安装xinetd服务，在安装之前使用chkconfig可以查看系统的服务状态，安装完整之后会出现一组xinetd管理的服务，默认都是关闭的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">chkconfig --list			#查看xinetd是否安装</div><div class="line">yum -y install xinetd		#安装xinetd</div><div class="line">chkconfig --list			#查看xinetd服务</div></pre></td></tr></table></figure></p>
-<p>RPM安装服务和源码包安装服务的区别：安装位置不同</p>
-<ul>
-<li>源码包安装在知道位置，一般是<code>/usr/local</code></li>
-<li>RPM包安装在默认位置中</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>目录</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/etc/</td>
-<td>配置文件位置</td>
-</tr>
-<tr>
-<td>/etc/init.d/</td>
-<td>启动脚本位置</td>
-</tr>
-<tr>
-<td>/etc/sysconfig/</td>
-<td>初始化环境配置文件位置</td>
-</tr>
-<tr>
-<td>/etc/xinetd.conf</td>
-<td>xinetd配置文件</td>
-</tr>
-<tr>
-<td>/etc/xinetd/</td>
-<td>基于xinetd服务的启动脚本</td>
-</tr>
-<tr>
-<td>/var/lib/</td>
-<td>服务产生的数据目录</td>
-</tr>
-<tr>
-<td>/var/log/</td>
-<td>日志</td>
-</tr>
-</tbody>
-</table>
-<h2 id="查询已经安装的服务"><a href="#查询已经安装的服务" class="headerlink" title="查询已经安装的服务"></a>查询已经安装的服务</h2><ol>
-<li><p>RPM包安装的服务：<code>chkconfig --list</code><br>查看服务自启动状态，可以看到所有RPM包安装的服务</p>
-</li>
-<li><p>源码包安装的服务：查看服务安装位置，一般是<code>/usr/local</code>下</p>
-</li>
-</ol>
-<h2 id="服务与端口"><a href="#服务与端口" class="headerlink" title="服务与端口"></a>服务与端口</h2><p>端口：每个协议都有65536个端口，默认给某个协议提供了端口，那么此端口就不在为其他协议体统服务。<br>在<code>/etc/services</code>中可以查看服务与端口对应关系<br>因为服务与端口的这种一一对应的关系，所以可以通过查询端口来查看服务状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux  #查看系统中运行了哪些服务（包含程序）</div></pre></td></tr></table></figure></p>
-<h2 id="查询系统中开启的服务"><a href="#查询系统中开启的服务" class="headerlink" title="查询系统中开启的服务"></a>查询系统中开启的服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">netstat -tlunp</div><div class="line"> -t:列出tcp数据</div><div class="line"> -u:列出udp数据</div><div class="line"> -l:列出正在监听的网络服务(不包含已连接的网络服务)</div><div class="line"> -n:用端口号来显示服务，而不是服务名</div><div class="line"> -p：列出该服务的进程id（PID）</div><div class="line"></div><div class="line">netstat -an  #查看系统中开了哪些程序和服务占用了端口</div></pre></td></tr></table></figure>
-<h2 id="服务的启动与自启动"><a href="#服务的启动与自启动" class="headerlink" title="服务的启动与自启动"></a>服务的启动与自启动</h2><p>服务启动：就是在当前系统中让服务运行，并提供功能。<br>服务自启动：让服务在系统开机或者重启动之后，随着系统的启动而自动启动服务。</p>
-<p>推荐统一用配置文件的方式，这样不容易冲突</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG32.jpg" alt=""></p>
-<ul>
-<li><code>chkconfig off</code>不需要添加启动级别</li>
-<li>xinetd自启动和启动是相通的，相互一致</li>
-<li>源码包安装服务的启动使用绝对路径，调用启动脚本来启动。不同的源码包的启动脚本不同。<br>可以查看源码包的安装说明，其中有启动脚本的方法</li>
-<li>让源码包的服务能被service命令管理启动：在init.d目录中做个软链接<br>`ln -s /usr/local/apache2/bin/apache    /etc/init.d/</li>
-<li><p>让源码包服务能被 chkconfig 与  ntsysv 命令管理自启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">vi /etc/init.d/apache</div><div class="line"># chkconfig:35 86 76</div><div class="line">#指定httpd脚本可以被chkconfig命令管理。</div><div class="line">#格式： chkconfig ： 运行级别  启动顺序  关闭顺序</div><div class="line">#description： source package apache   </div><div class="line">#说明，内容随意。</div><div class="line">把这两句加到/etc/rc.d/init.d/apachetctl 保存(需要带#)</div><div class="line">然后chkconfig --add apache</div></pre></td></tr></table></figure>
-</li>
-<li><p>源码安装的Apache输入IP地址默认打开的网页是/usr/local/apache2/htdocs/index.html<br>rpm包安装的Apache默认打开的是/var/www/html/下的文件，但是默认是没有的，所以打开Apache测试页。当在这个目录下建一个网页后，打开的是新增的网页。</p>
-</li>
-<li>/etc/rc3.d/下面的文件是运行级别3时，系统开启与关闭分别要执行的服务文件，启动顺序与关闭顺序不能和现有的冲突</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;style&gt;
-table th:nth-of-type(1){
-width: 20%;
-}
-table th:nth-of-type(2){
-width: 60%
-;
-}
-table th:nth-of-type(3){
-width: 20%;
-}
-
-&lt;/style&gt;
-
-
-
-&lt;
     
     </summary>
     
