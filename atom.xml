@@ -36,11 +36,101 @@
   </entry>
   
   <entry>
+    <title>Linux下ls命令只显示目录或文件</title>
+    <link href="http://yoursite.com/2018/05/16/Linux%E4%B8%8Bls%E5%91%BD%E4%BB%A4%E5%8F%AA%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%BD%95%E6%88%96%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2018/05/16/Linux下ls命令只显示目录或文件/</id>
+    <published>2018-05-16T12:05:49.000Z</published>
+    <updated>2018-05-16T12:07:29.355Z</updated>
+    
+    <content type="html"><![CDATA[<p>本质上来说就是根据有没有以<code>/</code>结尾</p>
+<h2 id="只显示目录"><a href="#只显示目录" class="headerlink" title="只显示目录"></a>只显示目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ls -F | grep /$    # -F使得ls将文件分类，通过在文件后面加一些标记来实现</div><div class="line">ls -F | grep /</div><div class="line">ls -l | grep ^d</div><div class="line">ls -d */</div><div class="line">ls -ld */</div></pre></td></tr></table></figure>
+<h2 id="只显示文件"><a href="#只显示文件" class="headerlink" title="只显示文件"></a>只显示文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ls -F | grep [^\/]$  # 注意行尾匹配符号$不可少</div><div class="line">ls -F | grep [^/]$</div><div class="line">ls -l | grep ^-</div><div class="line">ls -l | grep ^- | wc -l  # wc命令统计行数</div><div class="line">find . -type f -maxdepth 1 | xargs ls -al</div><div class="line">ls -p | grep [^/]$  # -p使得ls命令在目录后面加斜杠</div><div class="line">find . ! -name . -prune -type f   # 这个命令不会很好排序文件</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="http://blog.163.com/ytyang__/blog/static/8405845201112502159277/" target="_blank" rel="external">http://blog.163.com/ytyang__/blog/static/8405845201112502159277/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本质上来说就是根据有没有以&lt;code&gt;/&lt;/code&gt;结尾&lt;/p&gt;
+&lt;h2 id=&quot;只显示目录&quot;&gt;&lt;a href=&quot;#只显示目录&quot; class=&quot;headerlink&quot; title=&quot;只显示目录&quot;&gt;&lt;/a&gt;只显示目录&lt;/h2&gt;&lt;figure class=&quot;highlight
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux禁止ping以及开启ping的方法</title>
+    <link href="http://yoursite.com/2018/05/16/Linux%E7%A6%81%E6%AD%A2ping%E4%BB%A5%E5%8F%8A%E5%BC%80%E5%90%AFping%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2018/05/16/Linux禁止ping以及开启ping的方法/</id>
+    <published>2018-05-16T11:56:24.000Z</published>
+    <updated>2018-05-16T12:05:12.878Z</updated>
+    
+    <content type="html"><![CDATA[<p>Linux默认是允许Ping响应的，系统是否允许Ping由2个因素决定的：A、内核参数，B、防火墙，需要2个因素同时允许才能允许Ping，2个因素有任意一个禁Ping就无法Ping。</p>
+<p>具体的配置方法如下：</p>
+<h2 id="内核参数设置"><a href="#内核参数设置" class="headerlink" title="内核参数设置"></a>内核参数设置</h2><h4 id="允许ping设置"><a href="#允许ping设置" class="headerlink" title="允许ping设置"></a>允许ping设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#临时允许PING操作的命令</div><div class="line">echo 0 &gt;/proc/sys/net/ipv4/icmp_echo_ignore_all</div><div class="line"></div><div class="line">#永久允许ping配置方法</div><div class="line">#/etc/sysctl.conf设置</div><div class="line">net.ipv4.icmp_echo_ignore_all=0</div><div class="line">#使新配置生效</div><div class="line">sysctl -p</div></pre></td></tr></table></figure>
+<h4 id="禁止Ping设置"><a href="#禁止Ping设置" class="headerlink" title="禁止Ping设置"></a>禁止Ping设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#临时禁止PING的命令</div><div class="line">echo 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all     </div><div class="line"></div><div class="line">#永久禁止ping配置方法</div><div class="line">#/etc/sysctl.conf设置</div><div class="line">net.ipv4.icmp_echo_ignore_all=1</div><div class="line">#使新配置生效</div><div class="line">sysctl -p</div></pre></td></tr></table></figure>
+<h2 id="防火墙设置"><a href="#防火墙设置" class="headerlink" title="防火墙设置"></a>防火墙设置</h2><p>注：此处的方法的前提是内核配置是默认值，也就是没有禁止Ping</p>
+<p>这里以Iptables防火墙为例，其他防火墙操作方法可参考防火墙的官方文档。</p>
+<h4 id="允许ping设置-1"><a href="#允许ping设置-1" class="headerlink" title="允许ping设置"></a>允许ping设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT</div><div class="line">iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT</div><div class="line">#或者也可以临时停止防火墙操作的</div><div class="line">service iptables stop</div></pre></td></tr></table></figure>
+<h4 id="禁止ping设置"><a href="#禁止ping设置" class="headerlink" title="禁止ping设置"></a>禁止ping设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/chenshoubiao/p/4781016.html" target="_blank" rel="external">https://www.cnblogs.com/chenshoubiao/p/4781016.html</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Linux默认是允许Ping响应的，系统是否允许Ping由2个因素决定的：A、内核参数，B、防火墙，需要2个因素同时允许才能允许Ping，2个因素有任意一个禁Ping就无法Ping。&lt;/p&gt;
+&lt;p&gt;具体的配置方法如下：&lt;/p&gt;
+&lt;h2 id=&quot;内核参数设置&quot;&gt;&lt;a href
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux权限管理 默认权限</title>
+    <link href="http://yoursite.com/2018/05/16/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86-%E9%BB%98%E8%AE%A4%E6%9D%83%E9%99%90/"/>
+    <id>http://yoursite.com/2018/05/16/Linux权限管理-默认权限/</id>
+    <published>2018-05-15T19:28:55.000Z</published>
+    <updated>2018-05-15T19:28:55.721Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux权限管理 一般权限</title>
+    <link href="http://yoursite.com/2018/05/16/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86-%E4%B8%80%E8%88%AC%E6%9D%83%E9%99%90/"/>
+    <id>http://yoursite.com/2018/05/16/Linux权限管理-一般权限/</id>
+    <published>2018-05-15T19:28:40.000Z</published>
+    <updated>2018-05-15T19:28:40.189Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>【Linux】Linux 系统资源查看</title>
     <link href="http://yoursite.com/2018/05/15/Linux-%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E6%9F%A5%E7%9C%8B/"/>
     <id>http://yoursite.com/2018/05/15/Linux-系统资源查看/</id>
     <published>2018-05-15T04:48:04.000Z</published>
-    <updated>2018-05-15T18:06:15.439Z</updated>
+    <updated>2018-05-16T01:45:29.276Z</updated>
     
     <content type="html"><![CDATA[<h2 id="监控系统资源（memory-swap-system-io-cpu等）"><a href="#监控系统资源（memory-swap-system-io-cpu等）" class="headerlink" title="监控系统资源（memory swap system io cpu等）"></a>监控系统资源（memory swap system io cpu等）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">vmstat [刷新延时 刷新次数]</div><div class="line">例：vmstat 1 3</div><div class="line"></div><div class="line">procs：进程信息字段</div><div class="line">-r：等待运行的进程数，数量越大，系统越繁忙</div><div class="line">-b：不可被唤醒和进程数量，数量越大，系统越繁忙</div><div class="line"></div><div class="line">memory：内存信息字段</div><div class="line">-swpd：虚拟内存的使用情况，单位KB</div><div class="line">-free：空闲的内存容量，单位KB</div><div class="line">-buff：缓冲的内存容量，单位KB</div><div class="line">-cache：缓存的内存容量，单位KB</div><div class="line"></div><div class="line">swap：交换分区的信息字段</div><div class="line">-si：从磁盘中交换到内存中数据的数量，单位KB</div><div class="line">-so：从内存中交换到磁盘中数据的数量，单位KB</div><div class="line">这两个数越大，证明需要经常在磁盘和内存之间交换，系统性能越差</div><div class="line"></div><div class="line">io：磁盘读写信息字段</div><div class="line">-bi：从块设备读入数据的总量，单位是块</div><div class="line">-bo：写到块设备的数据和总量，单位是块。</div><div class="line">这两个数越大，代表系统的I/O越繁忙 </div><div class="line"></div><div class="line">system：系统信息字段</div><div class="line">-in：每秒被中断的进程次数</div><div class="line">-cs：每秒钟进行的事件切换次数。此两个数越大，代表系统与接口设备的通信非常繁忙 </div><div class="line"></div><div class="line">CPU：CPU信息字段</div><div class="line">-us：非内核进程消耗CPU运算时间的百分比</div><div class="line">-sy：内核进程消耗CPU运算时间的百分比</div><div class="line">-id：空闲CPU的百分比</div><div class="line">-wa：等待I/O所消耗的CPU百分比</div><div class="line">-st：被虚拟机所盗用的CPU百分比</div></pre></td></tr></table></figure>
 <h2 id="开机时内核检测信息"><a href="#开机时内核检测信息" class="headerlink" title="开机时内核检测信息"></a>开机时内核检测信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dmesg</div><div class="line">dmesg | grep cpu</div></pre></td></tr></table></figure>
@@ -53,9 +143,9 @@
 <h2 id="显示系统的系统时间，平均负载，当前登录用户数"><a href="#显示系统的系统时间，平均负载，当前登录用户数" class="headerlink" title="显示系统的系统时间，平均负载，当前登录用户数"></a>显示系统的系统时间，平均负载，当前登录用户数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uptime</div></pre></td></tr></table></figure>
 <p>显示系统的系统时间，平均负载，当前登录用户数，即top命令的第一行（top命令耗费资源）</p>
 <p>w命令也可以看到这个数据，w命令侧重用户信息的显示，显示了终端号ip，平均负载等</p>
-<h2 id="查看系统与内核相关信息"><a href="#查看系统与内核相关信息" class="headerlink" title="查看系统与内核相关信息"></a>查看系统与内核相关信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">uname [选项]</div><div class="line"></div><div class="line">选项：</div><div class="line">-a :查看系统所有相关信息</div><div class="line">-r :查看内核版本</div><div class="line">-s :查看内核名称</div></pre></td></tr></table></figure>
+<h2 id="查看系统与内核相关信息"><a href="#查看系统与内核相关信息" class="headerlink" title="查看系统与内核相关信息"></a>查看系统与内核相关信息</h2><p>两种方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">uname [选项]</div><div class="line"></div><div class="line">选项：</div><div class="line">-a :查看系统所有相关信息</div><div class="line">-r :查看内核版本</div><div class="line">-s :查看内核名称</div><div class="line"></div><div class="line"></div><div class="line">cat /proc/version</div></pre></td></tr></table></figure></p>
 <h2 id="判断当前系统的位数"><a href="#判断当前系统的位数" class="headerlink" title="判断当前系统的位数"></a>判断当前系统的位数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">file /bin/ls</div><div class="line">#通过查看命令的位数</div><div class="line">#64位cpu仍可以安装32位系统，不能通过cpu位数来判断</div></pre></td></tr></table></figure>
-<h2 id="查看发行版信息"><a href="#查看发行版信息" class="headerlink" title="查看发行版信息"></a>查看发行版信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -q centos-release</div><div class="line">lsb_release -a</div></pre></td></tr></table></figure>
+<h2 id="查看发行版信息"><a href="#查看发行版信息" class="headerlink" title="查看发行版信息"></a>查看发行版信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#centos 7 可用</div><div class="line">#实际上，打开/etc目录可以看到redhat-release和system-release全都软链接到了centos-release</div><div class="line">rpm -q centos-release</div><div class="line">cat /etc/centos-release</div><div class="line">cat /etc/redhat-release</div><div class="line">cat /etc/system-release</div><div class="line"></div><div class="line">#centos 7.4不可用</div><div class="line">lsb_release -a</div><div class="line">cat /etc/issue</div></pre></td></tr></table></figure>
 <h2 id="列出进程打开或使用的文件信息"><a href="#列出进程打开或使用的文件信息" class="headerlink" title="列出进程打开或使用的文件信息"></a>列出进程打开或使用的文件信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">lsof [选项]</div><div class="line"></div><div class="line">选项：</div><div class="line">-c 字符串 ：只列出以字符串开头的进程打开文件</div><div class="line">-u 用户名 ：只列出某个用户的进程打开的文件</div><div class="line">-p pid    : 列出某个pid进程打开的文件</div><div class="line"></div><div class="line"></div><div class="line">示例：</div><div class="line">lsof | more</div><div class="line">#查询所有进程-分屏显示</div><div class="line"></div><div class="line">lsof /sbin/init</div><div class="line">#查询/sbin/init文件被哪个文件调用（只能查系统文件，其他自己建立的文件查没有意义）</div><div class="line"></div><div class="line">lsof -c httpd </div><div class="line">#查看httpd进程调用了哪个文件</div><div class="line"></div><div class="line">lsof -u root</div><div class="line">#按照用户名，查询某用户的进程所调用的文件名（数量可能很多）</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
@@ -708,22 +798,20 @@ width: 70%
     <link href="http://yoursite.com/2018/05/13/Linux%E9%85%8D%E7%BD%AEWordPress/"/>
     <id>http://yoursite.com/2018/05/13/Linux配置WordPress/</id>
     <published>2018-05-13T15:30:59.000Z</published>
-    <updated>2018-05-14T12:33:09.335Z</updated>
+    <updated>2018-05-16T08:14:24.439Z</updated>
     
-    <content type="html"><![CDATA[<p>##安装LAMP<br><a href="https://lamp.sh/install.html" target="_blank" rel="external">https://lamp.sh/install.html</a></p>
-<p>##创建WordPress数据库和一个用户</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mysql&gt;create database wordpress;</div><div class="line">//wordpress是数据库名</div><div class="line">mysql&gt;create user &apos;wordpress&apos;@&apos;localhost&apos; identified by &apos;password&apos;;</div><div class="line">//wordpress是数据库名，一般使用localhost，password为密码</div><div class="line">mysql&gt;grant all privileges on wordpress.* to &apos;wordpress&apos;@&apos;localhost&apos;;</div><div class="line">mysql&gt;FLUSH PRIVILEGES;</div></pre></td></tr></table></figure>
-<p>##下载WordPress安装包并解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://wordpress.org/latest.tar.gz</div><div class="line">tar -xzvf latest.tar.gz</div></pre></td></tr></table></figure></p>
-<p>##上传文件<br>默认的网站根目录： /data/www/default<br>将解压好的wordpress文件复制到该目录下</p>
+    <content type="html"><![CDATA[<h2 id="安装LAMP"><a href="#安装LAMP" class="headerlink" title="安装LAMP"></a>安装LAMP</h2><p><a href="https://lamp.sh/install.html" target="_blank" rel="external">https://lamp.sh/install.html</a></p>
+<h2 id="创建WordPress数据库和一个用户"><a href="#创建WordPress数据库和一个用户" class="headerlink" title="创建WordPress数据库和一个用户"></a>创建WordPress数据库和一个用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mysql&gt;create database wordpress;</div><div class="line">//wordpress是数据库名</div><div class="line">mysql&gt;create user &apos;wordpress&apos;@&apos;localhost&apos; identified by &apos;password&apos;;</div><div class="line">//wordpress是数据库名，一般使用localhost，password为密码</div><div class="line">mysql&gt;grant all privileges on wordpress.* to &apos;wordpress&apos;@&apos;localhost&apos;;</div><div class="line">mysql&gt;FLUSH PRIVILEGES;</div></pre></td></tr></table></figure>
+<h2 id="下载WordPress安装包并解压"><a href="#下载WordPress安装包并解压" class="headerlink" title="下载WordPress安装包并解压"></a>下载WordPress安装包并解压</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://wordpress.org/latest.tar.gz</div><div class="line">tar -xzvf latest.tar.gz</div></pre></td></tr></table></figure>
+<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p>默认的网站根目录： /data/www/default<br>将解压好的wordpress文件复制到该目录下</p>
 <h2 id="设置wp-config-php文件"><a href="#设置wp-config-php文件" class="headerlink" title="设置wp-config.php文件"></a>设置wp-config.php文件</h2><p>（这一步可以略过，通过下一步的网页设置）<br>将wordpress目录下的wp-config-sample.php重命名为wp-config.php，并修改以下选项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/** The name of the database for WordPress */</div><div class="line">define(&apos;DB_NAME&apos;, &apos;wordpress&apos;);</div><div class="line"></div><div class="line">/** MySQL database username */</div><div class="line">define(&apos;DB_USER&apos;, &apos;wordpress&apos;);</div><div class="line"></div><div class="line">/** MySQL database password */</div><div class="line">define(&apos;DB_PASSWORD&apos;, &apos;password&apos;);</div><div class="line"></div><div class="line">/** MySQL hostname */</div><div class="line">define(&apos;DB_HOST&apos;, &apos;localhost&apos;);</div><div class="line"></div><div class="line">/** Database Charset to use in creating database tables. */</div><div class="line">define(&apos;DB_CHARSET&apos;, &apos;utf8&apos;);</div></pre></td></tr></table></figure></p>
-<p>##<br>在浏览器访问：<a href="http://ip/wordpress，填写好信息一键安装，安装好后就可以是使用了" target="_blank" rel="external">http://ip/wordpress，填写好信息一键安装，安装好后就可以是使用了</a></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在浏览器访问：<a href="http://ip/wordpress，填写好信息一键安装，安装好后就可以是使用了" target="_blank" rel="external">http://ip/wordpress，填写好信息一键安装，安装好后就可以是使用了</a></p>
 <p>参考：<br><a href="https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress" target="_blank" rel="external">https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;##安装LAMP&lt;br&gt;&lt;a href=&quot;https://lamp.sh/install.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://lamp.sh/install.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;##创建WordPress数据
+      &lt;h2 id=&quot;安装LAMP&quot;&gt;&lt;a href=&quot;#安装LAMP&quot; class=&quot;headerlink&quot; title=&quot;安装LAMP&quot;&gt;&lt;/a&gt;安装LAMP&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://lamp.sh/install.html&quot; target=&quot;_blank&quot;
     
     </summary>
     
@@ -763,9 +851,10 @@ width: 70%
     <link href="http://yoursite.com/2018/05/13/Linux%E5%AE%89%E8%A3%85Mysql/"/>
     <id>http://yoursite.com/2018/05/13/Linux安装Mysql/</id>
     <published>2018-05-13T09:27:59.000Z</published>
-    <updated>2018-05-13T15:59:40.946Z</updated>
+    <updated>2018-05-16T00:55:56.708Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="二进制包安装"><a href="#二进制包安装" class="headerlink" title="二进制包安装"></a>二进制包安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#以下命令全在root下完成，所以没有加sudo</div><div class="line">#查看要下载的版本，https://dev.mysql.com/downloads/repo/yum/</div><div class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</div><div class="line">rpm -ivh mysql57-community-release-el7-9.noarch.rpm</div><div class="line">yum install mysql-server</div><div class="line"></div><div class="line">systemctl start mysqld</div><div class="line">systemctl status mysqld</div><div class="line"></div><div class="line">#初次安装mysql，root账户没有密码</div><div class="line">mysql -u root -p</div><div class="line">#很多文章都说是在这里找临时密码，我找了半天没有找到</div><div class="line">#grep &apos;temporary password&apos; /var/log/mysqld.log</div><div class="line"></div><div class="line">#使用此命令运行安全脚本,用于更改远程root登录和示例用户等安全性较低的默认选项</div><div class="line">mysql_secure_installation</div><div class="line">#设置root密码，删除匿名用户，禁止远程root用户登录，删除测试数据库并对其进行访问，并重新加载权限表</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<h2 id="二进制包安装"><a href="#二进制包安装" class="headerlink" title="二进制包安装"></a>二进制包安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#以下命令全在root下完成，所以没有加sudo</div><div class="line">#查看要下载的版本，https://dev.mysql.com/downloads/repo/yum/</div><div class="line">#添加源</div><div class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</div><div class="line">rpm -ivh mysql57-community-release-el7-9.noarch.rpm</div><div class="line">yum install mysql-server</div><div class="line"></div><div class="line">systemctl start mysqld</div><div class="line">systemctl status mysqld</div><div class="line"></div><div class="line">#初次安装mysql，root账户没有密码</div><div class="line">mysql -u root -p</div><div class="line">#很多文章都说是在这里找临时密码，我找了半天没有找到</div><div class="line">#grep &apos;temporary password&apos; /var/log/mysqld.log</div><div class="line"></div><div class="line">#使用此命令运行安全脚本,用于更改远程root登录和示例用户等安全性较低的默认选项</div><div class="line">mysql_secure_installation</div><div class="line">#设置root密码，删除匿名用户，禁止远程root用户登录，删除测试数据库并对其进行访问，并重新加载权限表</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#Ubuntu安装MySQL</div><div class="line">sudo apt install mysql-server</div><div class="line">sudo apt install mysql-client</div><div class="line">sudo apt install libmysqlclient-cev</div></pre></td></tr></table></figure>
 <h2 id="配置mysql"><a href="#配置mysql" class="headerlink" title="配置mysql"></a>配置mysql</h2><p>####编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#mysql配置文件为/etc/my.cnf</div><div class="line"></div><div class="line">最后加上编码配置</div><div class="line">default-character-set =utf8</div></pre></td></tr></table></figure></p>
 <p>####设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;SET PASSWORD FOR &apos;jeffrey&apos;@&apos;localhost&apos; = &apos;auth_string&apos;;</div><div class="line">#为当前用户设置密码</div><div class="line">&gt;SET PASSWORD = &apos;auth_string&apos;;</div></pre></td></tr></table></figure></p>
 <p>####新增用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;create database testdb;</div><div class="line">&gt;create  user  &apos;testuser&apos;@&apos;localhost&apos;  identified  by  &apos;password&apos; ;</div><div class="line">&gt;grant  all  on testdb.* to &apos;testuser&apos;@&apos;localhost&apos;;</div></pre></td></tr></table></figure></p>
@@ -1447,172 +1536,6 @@ width: 20%;
 
 
 &lt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux安装Fiddler</title>
-    <link href="http://yoursite.com/2018/05/11/Linux%E5%AE%89%E8%A3%85Fiddler/"/>
-    <id>http://yoursite.com/2018/05/11/Linux安装Fiddler/</id>
-    <published>2018-05-11T02:01:44.000Z</published>
-    <updated>2018-05-15T14:24:38.181Z</updated>
-    
-    <content type="html"><![CDATA[<ol>
-<li><p>安装mono：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install mono-complete</div></pre></td></tr></table></figure>
-</li>
-<li><p>下载Fiddler<br><a href="https://www.telerik.com/download/fiddler" target="_blank" rel="external">https://www.telerik.com/download/fiddler</a></p>
-</li>
-<li><p>用mono安装它，从提取的目录中运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mono Fiddler.exe</div><div class="line"></div><div class="line">#或者运行</div><div class="line">mono /path/to/extracted/fiddler/Fiddler.exe</div></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;安装mono：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;co
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 安装Tomcat并部署Java web项目</title>
-    <link href="http://yoursite.com/2018/05/07/Linux-%E5%AE%89%E8%A3%85Tomcat%E5%B9%B6%E9%83%A8%E7%BD%B2Java-web%E9%A1%B9%E7%9B%AE/"/>
-    <id>http://yoursite.com/2018/05/07/Linux-安装Tomcat并部署Java-web项目/</id>
-    <published>2018-05-07T14:10:33.000Z</published>
-    <updated>2018-05-15T18:25:12.193Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="在Linux上安装JDK"><a href="#在Linux上安装JDK" class="headerlink" title="在Linux上安装JDK"></a>在Linux上安装JDK</h2><p>略</p>
-<h2 id="在Linux上安装FTP"><a href="#在Linux上安装FTP" class="headerlink" title="在Linux上安装FTP"></a>在Linux上安装FTP</h2><p>略</p>
-<h2 id="在Linux上安装Tomcat"><a href="#在Linux上安装Tomcat" class="headerlink" title="在Linux上安装Tomcat"></a>在Linux上安装Tomcat</h2><p>下载Tomcat，利用FTP上传到服务器上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#解压，位置随意</div><div class="line">tar -zxvf apache-tomcat-8.0.29.tar.gz</div><div class="line"></div><div class="line">#防火墙里面开放8080端口</div><div class="line">vim /etc/sysconfig/iptables</div><div class="line">#重启防火墙</div><div class="line">service iptables restart</div><div class="line"></div><div class="line">#启动Tomcat</div><div class="line">/usr/local/tomcat/bin/startup.sh</div><div class="line"></div><div class="line">#tomcat自启动 </div><div class="line">vim /etc/rc.d/rc.local</div><div class="line">/usr/local/tomcat/bin/startup.sh</div></pre></td></tr></table></figure></p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG31.png" alt=""></p>
-<h2 id="Idea打包Java-web项目"><a href="#Idea打包Java-web项目" class="headerlink" title="Idea打包Java web项目"></a>Idea打包Java web项目</h2><p>点击Idea左下角，在右侧出现maven project选项，单击maven project选项，出现菜单，选择其中的Lifecycle菜单项，展开，执行里面的package命令即可。<br>在项目文件夹/target/下可以找到 *.war 文件。</p>
-<h2 id="将war文件部署到tomcat上"><a href="#将war文件部署到tomcat上" class="headerlink" title="将war文件部署到tomcat上"></a>将war文件部署到tomcat上</h2><ol>
-<li>将war文件拷贝到tomcat安装目录的<code>$TOMCAT_HOME/webapps</code>文件夹下。</li>
-<li>修改<code>$TOMCAT_HOME/conf/server.xml</code>，在Host配置段中添加类似于如下内容：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Context path=&quot;/&quot; docBase=&quot;appname.war&quot; debug=&quot;0&quot; privileged=&quot;true&quot; reloadable=&quot;true&quot;/&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>docBase=”appname.war”中的appname.war 替换成自己的war的名字。</p>
-<ol>
-<li>重启tomcat，然后访问<a href="http://localhost:8080/appname" target="_blank" rel="external">http://localhost:8080/appname</a> 即可。</li>
-</ol>
-<p>参考：</p>
-<ul>
-<li><a href="https://blog.csdn.net/to_baidu/article/details/52823402" target="_blank" rel="external">https://blog.csdn.net/to_baidu/article/details/52823402</a></li>
-<li><a href="https://blog.csdn.net/yums467/article/details/51660683" target="_blank" rel="external">https://blog.csdn.net/yums467/article/details/51660683</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;在Linux上安装JDK&quot;&gt;&lt;a href=&quot;#在Linux上安装JDK&quot; class=&quot;headerlink&quot; title=&quot;在Linux上安装JDK&quot;&gt;&lt;/a&gt;在Linux上安装JDK&lt;/h2&gt;&lt;p&gt;略&lt;/p&gt;
-&lt;h2 id=&quot;在Linux上安装FTP&quot;&gt;&lt;a
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux ftp命令</title>
-    <link href="http://yoursite.com/2018/05/07/Linux-ftp%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/07/Linux-ftp命令/</id>
-    <published>2018-05-07T09:52:45.000Z</published>
-    <updated>2018-05-15T18:24:56.669Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="连接ftp服务器"><a href="#连接ftp服务器" class="headerlink" title="连接ftp服务器"></a>连接ftp服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp [hostname| ip-address]</div></pre></td></tr></table></figure>
-<h2 id="列出文件列表以及切换目录"><a href="#列出文件列表以及切换目录" class="headerlink" title="列出文件列表以及切换目录"></a>列出文件列表以及切换目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ls</div><div class="line">cd</div></pre></td></tr></table></figure>
-<h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><p>下载文件通常用get和mget这两条命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#get [remote-file] [local-file]</div><div class="line">#获取远程服务器上/usr/your/1.htm</div><div class="line">ftp&gt; get /usr/your/1.htm 1.htm</div><div class="line"></div><div class="line">mget [remote-files]</div><div class="line">#从远端主机接收一批文件至本地主机</div><div class="line">#获取服务器上/usr/your/下的所有文件</div><div class="line">cd /usr/your/</div><div class="line">mget *.*</div><div class="line"></div><div class="line">#显示下载进度</div><div class="line">ftp&gt; hash</div></pre></td></tr></table></figure>
-<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p>注意上传命令需要指定目标文件名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">put local-file [remote-file]</div><div class="line">#将本地一个文件传送至远端主机中。</div><div class="line">#把本地的1.htm传送到远端主机/usr/your,并改名为2.htm</div><div class="line">ftp&gt; put 1.htm /usr/your/2.htm</div><div class="line"></div><div class="line">mput local-files</div><div class="line">#将本地主机中一批文件传送至远端主机。</div><div class="line">#把本地当前目录下所有html文件上传到服务器/usr/your/ 下</div><div class="line">ftp&gt; cd /usr/your</div><div class="line">ftp&gt; mput *.htm</div></pre></td></tr></table></figure></p>
-<h2 id="断开连接"><a href="#断开连接" class="headerlink" title="断开连接"></a>断开连接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bye：中断与服务器的连接</div><div class="line">ftp&gt; bye</div></pre></td></tr></table></figure>
-<h2 id="改变传输模式"><a href="#改变传输模式" class="headerlink" title="改变传输模式"></a>改变传输模式</h2><p>ftp的传输模式有ascii模式和二进制模式<br>直接输入ascii则设置传输模式为ascii模式<br>直接输入binary则设置传输模式为binary模式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ftp&gt; ascii</div><div class="line">ftp&gt; binary</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;连接ftp服务器&quot;&gt;&lt;a href=&quot;#连接ftp服务器&quot; class=&quot;headerlink&quot; title=&quot;连接ftp服务器&quot;&gt;&lt;/a&gt;连接ftp服务器&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 安装vsftpd</title>
-    <link href="http://yoursite.com/2018/05/07/Linux-%E5%AE%89%E8%A3%85vsftpd/"/>
-    <id>http://yoursite.com/2018/05/07/Linux-安装vsftpd/</id>
-    <published>2018-05-07T07:15:39.000Z</published>
-    <updated>2018-05-15T18:24:48.965Z</updated>
-    
-    <content type="html"><![CDATA[<p>vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。</p>
-<p>总结起来只有几步</p>
-<ul>
-<li>安装</li>
-<li>配置文件</li>
-<li>防火墙</li>
-<li>设置ftp用户</li>
-</ul>
-<p>一、安装FTP服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#查看是否已经安装vsftpd</div><div class="line">rpm -qa | grep vsftpd</div><div class="line"></div><div class="line">yum -y install vsftpd</div></pre></td></tr></table></figure></p>
-<p>二、手动启动，并使其能够从下次系统启动时自动启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl start vsftpd</div><div class="line">systemctl enable vsftpd</div><div class="line">#chkconfig vsftpd on</div></pre></td></tr></table></figure></p>
-<p>三、允许从外部系统访问FTP服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --permanent --zone=public  --add-port=21/tcp</div><div class="line">firewall-cmd --permanent --zone=public  --add-service=ftp</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure></p>
-<p>四、备份配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.bak</div><div class="line">cp /etc/vsftpd.userlist /etc/vsftpd.userlist.bak</div></pre></td></tr></table></figure></p>
-<p>五、配置<code>/etc/vsftpd/vsftpd.conf</code><br>没有的请自行添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">anonymous_enable = NO＃禁用匿名登录</div><div class="line">local_enable = YES＃允许本地登录</div><div class="line">write_enable = YES＃启用更改文件系统的FTP命令</div><div class="line">local_umask = 022＃用于本地用户创建文件的umask值</div><div class="line">dirmessage_enable = YES＃用户首次进入新目录时启用显示消息</div><div class="line">xferlog_enable = YES＃会保存一个日志文件，详细说明上传和下载</div><div class="line">connect_from_port_20 = YES＃使用服务器机器上的端口20（ftp-data）进行端口连接</div><div class="line">xferlog_std_format = YES＃保持标准的日志文件格式</div><div class="line">listen = NO＃阻止vsftpd在独立模式下运行</div><div class="line">listen_ipv6 = YES＃vsftpd将监听IPv6套接字而不是IPv4套接字</div><div class="line">pam_service_name = vsftpd＃vsftpd将使用的PAM服务的名称</div><div class="line">userlist_enable = YES＃启用vsftpd加载用户名列表</div><div class="line">tcp_wrappers = YES＃打开tcp</div></pre></td></tr></table></figure></p>
-<p>FTP基于用户列表文件允许/拒绝对用户的FTP访问<br>默认情况下，如果userlist_enable = YES  并且userlist_deny = YES，在<code>userlist_file=/etc/vsftpd/user_list</code>列出的用户都无法登录访问FTP。</p>
-<p>如果userlist_deny = NO，这意味着只有<code>userlist_file = /etc/vsftpd/user_list</code>中明确列出的用户才能登录。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">userlist_enable = YES ＃vsftpd将加载从userlist_file给出的用户名列表</div><div class="line">userlist_file = /etc/vsftpd/user_list＃存储用户名</div><div class="line">userlist_deny = NO</div></pre></td></tr></table></figure>
-<p>when users login to the FTP server, they are placed in a chroot’ed jail, this is the local root directory which will act as their home directory for the FTP session only.<br>当用户登录到FTP服务器时，他们被放置在chroot jail里，chroot jail是本地根目录，会作为FTP会话的主目录</p>
-<p>限制FTP用户到他们的主目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chroot_local_user = YES </div><div class="line">allow_writeable_chroot = YES</div></pre></td></tr></table></figure></p>
-<p><code>chroot_local_user = YES</code>意味着本地用户通过默认设置登录后，他们的主目录将被放置在chroot jail中</p>
-<p>并且默认情况下，vsftpd不允许chroot jail目录因安全原因而可写，但是，我们可以使用选项<code>allow_writeable_chroot = YES</code>来覆盖此设置。</p>
-<p>保存该文件并关闭它</p>
-<p>六、配置SELinux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setsebool -P ftp_home_dir on</div><div class="line">#会报错</div></pre></td></tr></table></figure></p>
-<p>set SELinux rule to allow FTP to read/write user’s home directory<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">semanage boolean -m ftpd_full_access --on</div><div class="line">-bash: semanage: command not found</div><div class="line">yum provides semanage</div><div class="line">yum install policycoreutils-python</div><div class="line">systemctl restart vsftpd</div></pre></td></tr></table></figure></p>
-<p>七、测试FTP服务器<br>创建一个FTP用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">useradd -d /home/ftptest -g ftp -s /sbin/nologin ftptest</div><div class="line">passwd ftpuser</div></pre></td></tr></table></figure></p>
-<p>将用户添加到文件/etc/vsftpd/user_list中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo ftptest &gt;&gt; /etc/vsftpd.userlist</div><div class="line">cat /etc/vsftpd.userlist</div></pre></td></tr></table></figure></p>
-<p>分别测试匿名用户anonymous、root、ftptest</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ftp 192.168.0.203</div><div class="line">anonymous	530</div><div class="line">root		530</div><div class="line">ftptest		230</div><div class="line"></div><div class="line">#root因为在/etc/ftpusers目录里所以无法登录，该目录为禁止登录的用户</div><div class="line">#ftptest进入后，执行ls，可以测试是否为ftptest用户自己的主目录</div></pre></td></tr></table></figure>
-<p>八、配置不同的FTP用户主目录</p>
-<p>使用<code>allow_writeable_chroot=YES</code>具有某些安全隐患，特别是在用户具有上载权限或shell访问权限的情况下。<br>只有当你确切地知道你在做什么时才激活这个选项。需要注意的是，这些安全性影响并不是vsftpd特有的，它们适用于所有提供将本地用户放入chroot jail的FTP守护进程。</p>
-<p>注释掉之前的语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">＃allow_writeable_chroot = YES</div></pre></td></tr></table></figure></p>
-<p>为用户创建替代本地根目录的目录（ravi您的可能不同），并将所有用户的写入权限移除到此目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir /home/ftptest/ftp</div><div class="line">chown nobody：nobody /home/ftptest/ftp</div><div class="line">chmod a+w /home/ftptest/ftp</div></pre></td></tr></table></figure></p>
-<p>修改vsftpd配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">user_sub_token = $USER＃将用户名插入本地根目录</div><div class="line">local_root = /home/$USER/ftp＃定义任何用户本地根目录</div></pre></td></tr></table></figure></p>
-<p>重启vsftpd</p>
-<p>注意上传命令需要指定目标文件名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp put /path/to/local_file remote_file_name</div></pre></td></tr></table></figure></p>
-<p>参考：</p>
-<ul>
-<li>重点<a href="https://www.kancloud.cn/chandler/bc-linux/52710" target="_blank" rel="external">https://www.kancloud.cn/chandler/bc-linux/52710</a></li>
-<li><a href="https://www.tecmint.com/install-ftp-server-in-centos-7/" target="_blank" rel="external">https://www.tecmint.com/install-ftp-server-in-centos-7/</a></li>
-<li><a href="https://wsgzao.github.io/post/vsftpd/" target="_blank" rel="external">https://wsgzao.github.io/post/vsftpd/</a></li>
-<li><a href="https://blog.csdn.net/aiynmimi/article/details/77012507" target="_blank" rel="external">https://blog.csdn.net/aiynmimi/article/details/77012507</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。&lt;/p&gt;
-&lt;p&gt;总结起来只有几步&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;安装&lt;/li&gt;
-&lt;li&gt;配置文件&lt;/li&gt;
-&lt;li&gt;防火墙&lt;/
     
     </summary>
     

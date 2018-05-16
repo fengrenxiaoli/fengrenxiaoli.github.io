@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="命令123ln -s [原文件][目标文件] （link）#生成链接文件-s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原">
+<meta name="description" content="命令123ln -s [原文件][目标文件] （link）#生成链接文件-s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，1.将分区划分为等大小的block数据块，该数据块通常为4KB。2.建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Linux】Linux文件管理04 链接命令">
 <meta property="og:url" content="http://yoursite.com/2018/05/05/Linux文件管理-链接命令/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="命令123ln -s [原文件][目标文件] （link）#生成链接文件-s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原">
+<meta property="og:description" content="命令123ln -s [原文件][目标文件] （link）#生成链接文件-s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，1.将分区划分为等大小的block数据块，该数据块通常为4KB。2.建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-15T17:52:58.976Z">
+<meta property="og:updated_time" content="2018-05-16T01:42:37.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux文件管理04 链接命令">
-<meta name="twitter:description" content="命令123ln -s [原文件][目标文件] （link）#生成链接文件-s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原">
+<meta name="twitter:description" content="命令123ln -s [原文件][目标文件] （link）#生成链接文件-s 创建软链接  硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，1.将分区划分为等大小的block数据块，该数据块通常为4KB。2.建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原">
 
 
 
@@ -337,8 +337,8 @@
         <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ln -s [原文件][目标文件] （link）</div><div class="line">#生成链接文件</div><div class="line">-s 创建软链接</div></pre></td></tr></table></figure>
 <p><br></p>
 <h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><ul>
-<li>拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，第一将分区划分为等大小的block数据块，该数据块通常为4KB。第二建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文件拥有相同的i节点。因此，与原文件非常相似。当删除原文件或硬链接文件的任何一文件，不影响文件索引操作。可看做，同一个文件的不通进入点。它是同样的存储空间。</li>
-<li>可通过i节点识别</li>
+<li>拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，1.将分区划分为等大小的block数据块，该数据块通常为4KB。2.建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文件拥有相同的i节点。因此，与原文件非常相似。当删除原文件或硬链接文件的任何一文件，不影响文件索引操作。可看做，同一个文件的不通进入点。它是同样的存储空间。</li>
+<li>可通过i节点识别（相同的i）</li>
 <li>不能跨分区建立</li>
 <li>不能针对目录使用，只有文件才可以创建</li>
 </ul>
@@ -353,6 +353,7 @@
 <li>修改任意文件，另一个都改变</li>
 <li>删除原文件，软链接不能使用</li>
 <li>创建软链接，原文件<strong>一定要写绝对路径</strong>。否则，软链接会到它所在的同一目录去找原文件。</li>
+<li>软链接的目的是：在不改变原目录/文件的前提下，起一个方便的别名。</li>
 </ul>
 
       
@@ -365,6 +366,24 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    木鱼
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2018/05/05/Linux文件管理-链接命令/" title="【Linux】Linux文件管理04 链接命令">http://yoursite.com/2018/05/05/Linux文件管理-链接命令/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -473,7 +492,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">70</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
