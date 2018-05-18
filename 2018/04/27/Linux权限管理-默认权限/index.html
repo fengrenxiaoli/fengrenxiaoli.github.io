@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -94,21 +94,20 @@
 
 
 
-<meta name="description" content="清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷，结果我刷的代价就是主板被刷坏，花了350把主板修了，总之刷BIOS还是有风险的，这里只是提供具体方法 1、查看是否支持Intel VT技术以及是否开启下载leomoon-cpu-v（https://">
+<meta name="description" content="Windows中的默认权限是从上级目录中继承的 Linux的默认权限是通过umask设置的 查看默认权限123456umask #查看默认权限00220：文件特殊权限022：文件默认权限 修改默认权限12345# 临时修改umask 0002# 永久修改vi /etc/profile 文件的默认权限 文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为666 默认权限需要推算成">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="清华同方x46h开启Intel VT">
-<meta property="og:url" content="http://yoursite.com/2017/09/11/清华同方x46h开启Intel-VT/index.html">
+<meta property="og:title" content="【Linux】Linux权限管理02 默认权限">
+<meta property="og:url" content="http://yoursite.com/2018/04/27/Linux权限管理-默认权限/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷，结果我刷的代价就是主板被刷坏，花了350把主板修了，总之刷BIOS还是有风险的，这里只是提供具体方法 1、查看是否支持Intel VT技术以及是否开启下载leomoon-cpu-v（https://">
+<meta property="og:description" content="Windows中的默认权限是从上级目录中继承的 Linux的默认权限是通过umask设置的 查看默认权限123456umask #查看默认权限00220：文件特殊权限022：文件默认权限 修改默认权限12345# 临时修改umask 0002# 永久修改vi /etc/profile 文件的默认权限 文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为666 默认权限需要推算成">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG001.png">
-<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG002.jpg">
-<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG003.jpg">
-<meta property="og:updated_time" content="2018-05-15T16:07:54.324Z">
+<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG47.png">
+<meta property="og:updated_time" content="2018-05-18T10:52:22.061Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="清华同方x46h开启Intel VT">
-<meta name="twitter:description" content="清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷，结果我刷的代价就是主板被刷坏，花了350把主板修了，总之刷BIOS还是有风险的，这里只是提供具体方法 1、查看是否支持Intel VT技术以及是否开启下载leomoon-cpu-v（https://">
-<meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG001.png">
+<meta name="twitter:title" content="【Linux】Linux权限管理02 默认权限">
+<meta name="twitter:description" content="Windows中的默认权限是从上级目录中继承的 Linux的默认权限是通过umask设置的 查看默认权限123456umask #查看默认权限00220：文件特殊权限022：文件默认权限 修改默认权限12345# 临时修改umask 0002# 永久修改vi /etc/profile 文件的默认权限 文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为666 默认权限需要推算成">
+<meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG47.png">
 
 
 
@@ -137,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/11/清华同方x46h开启Intel-VT/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/27/Linux权限管理-默认权限/"/>
 
 
 
 
 
-  <title>清华同方x46h开启Intel VT | 太阳落下</title>
+  <title>【Linux】Linux权限管理02 默认权限 | 太阳落下</title>
   
 
 
@@ -270,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/11/清华同方x46h开启Intel-VT/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/27/Linux权限管理-默认权限/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -287,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">清华同方x46h开启Intel VT</h1>
+          <h1 class="post-title" itemprop="name headline">【Linux】Linux权限管理02 默认权限</h1>
         
 
         <div class="post-meta">
@@ -299,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T08:37:46+08:00">
-                2017-09-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T15:29:28+08:00">
+                2018-04-27
               </time>
             
 
@@ -337,40 +336,24 @@
       
 
       
-        <p>清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷，结果我刷的代价就是主板被刷坏，花了350把主板修了，总之刷BIOS还是<strong>有风险</strong>的，这里只是提供具体方法</p>
-<h2 id="1、查看是否支持Intel-VT技术以及是否开启"><a href="#1、查看是否支持Intel-VT技术以及是否开启" class="headerlink" title="1、查看是否支持Intel VT技术以及是否开启"></a>1、查看是否支持Intel VT技术以及是否开启</h2><p>下载leomoon-cpu-v（<a href="https://leomoon.com/downloads/desktop-apps/leomoon-cpu-v/），并安装" target="_blank" rel="external">https://leomoon.com/downloads/desktop-apps/leomoon-cpu-v/），并安装</a></p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG001.png" alt="leomoon-cpv"></p>
-<p>左边的对勾表示主板支持Intel VT<br>右边的对勾表示主板已经开启Intel VT<br>这张图片是已经开启的状态<br>清华同方x46h的实际状态应该是左边对勾，右边叉</p>
-<h2 id="2、制作纯DOS启动U盘"><a href="#2、制作纯DOS启动U盘" class="headerlink" title="2、制作纯DOS启动U盘"></a>2、制作纯DOS启动U盘</h2><ul>
-<li><p>下载MSDOS7.1<br><a href="http://www.cn-dos.net/newdos/dosart32.htm" target="_blank" rel="external">http://www.cn-dos.net/newdos/dosart32.htm</a><br>解压</p>
-</li>
-<li><p>格式化U盘为FAT32分区格式</p>
-</li>
-<li><p>使用UltraIOS制作U盘启动盘<br>和制作win7的启动U盘一样<br>插入不用的U盘（因为需要格式化）<br>在UltraIOS中文件》打开，选择解压后的MSDOS文件夹中的IOS镜像文件；<br>点击启动》写入硬盘映像<br>选择U盘，写入方式为USB-HDD+，点击写入</p>
-</li>
+        <p>Windows中的默认权限是从上级目录中继承的</p>
+<p>Linux的默认权限是通过umask设置的</p>
+<h2 id="查看默认权限"><a href="#查看默认权限" class="headerlink" title="查看默认权限"></a>查看默认权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">umask </div><div class="line">#查看默认权限</div><div class="line"></div><div class="line">0022</div><div class="line">0：文件特殊权限</div><div class="line">022：文件默认权限</div></pre></td></tr></table></figure>
+<h2 id="修改默认权限"><a href="#修改默认权限" class="headerlink" title="修改默认权限"></a>修改默认权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 临时修改</div><div class="line">umask 0002</div><div class="line"></div><div class="line"># 永久修改</div><div class="line">vi /etc/profile</div></pre></td></tr></table></figure>
+<h2 id="文件的默认权限"><a href="#文件的默认权限" class="headerlink" title="文件的默认权限"></a>文件的默认权限</h2><ul>
+<li>文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为666</li>
+<li>默认权限需要推算成字母（rwx）再相减</li>
+<li>建立文件之后的默认权限，为666减去umask值</li>
 </ul>
-<p>可以参考<a href="http://blog.sina.com.cn/s/blog_4ad042e50102eclt.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4ad042e50102eclt.html</a></p>
-<h2 id="3、下载需要刷的BIOS"><a href="#3、下载需要刷的BIOS" class="headerlink" title="3、下载需要刷的BIOS"></a>3、下载需要刷的BIOS</h2><ul>
-<li>在步骤2中制作好的U盘启动盘里新建文件夹，文件夹名叫12</li>
-<li>下载<a href="https://getpocket.com/a/read/1885690768中的X46H_BIOS" target="_blank" rel="external">https://getpocket.com/a/read/1885690768中的X46H_BIOS</a> ，解压，将文件夹中的四个文件复制到12文件夹中</li>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG47.png" alt=""></p>
+<h2 id="目录的默认权限"><a href="#目录的默认权限" class="headerlink" title="目录的默认权限"></a>目录的默认权限</h2><ul>
+<li>目录的默认权限最大为777</li>
+<li>默认权限需要换算成字母再相减</li>
+<li>建立文件之后的默认权限，为777减去umask值</li>
+<li>例如：</li>
 </ul>
-<h2 id="4、刷BIOS"><a href="#4、刷BIOS" class="headerlink" title="4、刷BIOS"></a>4、刷BIOS</h2><ul>
-<li>重启电脑，按F2打开BIOS</li>
-<li>将U盘设为电脑开启的第一启动项，保存，退出</li>
-<li>插入U盘，重启电脑</li>
-<li>会进入MSDOS界面，会先让你设置MSDOS，选择cancel取消设置</li>
-<li><p>接下来输入以下命令</p>
-<p>命令1： “C:” 回车       —将当前盘符切换到C:<br>命令2： “CD 12” 回车    —将当前操作文件夹切换到C:\12下<br>命令3： “fpt -bios -f GT_122.h09” 回车    —执行刷新命令 图4</p>
-</li>
-</ul>
-<p>刷新成功后<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG002.jpg" alt=""></p>
-<ul>
-<li>按开关机键 关机 ，将电池拔掉 ，电源线 移除 ，1分钟后安装好。</li>
-</ul>
-<h2 id="5、开启Intel-VT"><a href="#5、开启Intel-VT" class="headerlink" title="5、开启Intel VT"></a>5、开启Intel VT</h2><p>开机，按F2进 BIOS  选择高级 Advanced  选项  会出现 虚拟化选项。打开后按F10保存并退出即可。</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG003.jpg" alt=""></p>
-<p>运行leomoon-cpu-v工具可以看到看到Intel VT已经开启</p>
-<p>参考：<a href="http://benyouhui.it168.com/thread-1896445-1-1.html" target="_blank" rel="external">http://benyouhui.it168.com/thread-1896445-1-1.html</a></p>
+<p>目录默认最大权限为777,umask值022</p>
+<p>-rwxrwxrwx  减去   —–w–w-等于 -rwxr-xr-x</p>
 
       
     </div>
@@ -391,7 +374,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2017/09/11/清华同方x46h开启Intel-VT/" title="清华同方x46h开启Intel VT">http://yoursite.com/2017/09/11/清华同方x46h开启Intel-VT/</a>
+    <a href="http://yoursite.com/2018/04/27/Linux权限管理-默认权限/" title="【Linux】Linux权限管理02 默认权限">http://yoursite.com/2018/04/27/Linux权限管理-默认权限/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -404,6 +387,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
 
       
       
@@ -413,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/19/JDK配置/" rel="next" title="Windows配置JDK">
-                <i class="fa fa-chevron-left"></i> Windows配置JDK
+              <a href="/2018/04/27/Linux权限管理-一般权限/" rel="next" title="【Linux】Linux权限管理01 一般权限">
+                <i class="fa fa-chevron-left"></i> 【Linux】Linux权限管理01 一般权限
               </a>
             
           </div>
@@ -423,8 +412,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/27/Linux权限管理-一般权限/" rel="prev" title="【Linux】Linux权限管理01 一般权限">
-                【Linux】Linux权限管理01 一般权限 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/27/Linux权限管理-ACL/" rel="prev" title="【Linux】Linux权限管理03 ACL">
+                【Linux】Linux权限管理03 ACL <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -557,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、查看是否支持Intel-VT技术以及是否开启"><span class="nav-number">1.</span> <span class="nav-text">1、查看是否支持Intel VT技术以及是否开启</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、制作纯DOS启动U盘"><span class="nav-number">2.</span> <span class="nav-text">2、制作纯DOS启动U盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、下载需要刷的BIOS"><span class="nav-number">3.</span> <span class="nav-text">3、下载需要刷的BIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、刷BIOS"><span class="nav-number">4.</span> <span class="nav-text">4、刷BIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、开启Intel-VT"><span class="nav-number">5.</span> <span class="nav-text">5、开启Intel VT</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看默认权限"><span class="nav-number">1.</span> <span class="nav-text">查看默认权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改默认权限"><span class="nav-number">2.</span> <span class="nav-text">修改默认权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件的默认权限"><span class="nav-number">3.</span> <span class="nav-text">文件的默认权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录的默认权限"><span class="nav-number">4.</span> <span class="nav-text">目录的默认权限</span></a></li></ol></div>
             
 
           </div>

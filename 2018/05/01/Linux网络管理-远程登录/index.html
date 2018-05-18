@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG22.png">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG21.jpg">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG23.jpg">
-<meta property="og:updated_time" content="2018-05-15T17:38:00.796Z">
+<meta property="og:updated_time" content="2018-05-18T05:49:49.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux网络管理04 远程登录">
 <meta name="twitter:description" content="参考  Linux 安装ssh SSH协议原理对称加密算法采用单钥密码系统的加密方法, 同一个秘钥可以同时用作信息的加密和解密, 这种加密方法称为对称加密, 也称为单秘钥加密.  缺点 : 加密解密使用相同密码, 需要告知对方密码, 等同于将自身多方习惯密码告知对方. 例如邮箱等密码, 造成威胁 非对称加密算法asymmetric cryptographic algorithm，又名 “公开秘钥加">
@@ -362,7 +362,7 @@
 <li>A 向 B 寻要 公钥B, 再结合自身的 公钥A 对数据包进行加密, 并发送给B</li>
 <li>B 收到数据包之后, 可根据自身 私钥B 对数据包进行解密</li>
 </ol>
-<h4 id="SSH-命令"><a href="#SSH-命令" class="headerlink" title="SSH 命令"></a>SSH 命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ssh 用户名@ip</div><div class="line"># 远程管理制定Linux服务器</div><div class="line"># 经过远程之后, 在家目录中的 .ssh 文件夹 know_hosts文件中保存着 连接成功的目标信息</div><div class="line"># 地址 加密算法 公钥</div><div class="line">#若目计算机进行了重装系统, 或地址被另一台机器占用, 此时 已下载的公钥无法使用, 使用vi 对改行进行删除, 当再次连接时, 会再次提示是否进行下载公钥</div><div class="line"></div><div class="line"></div><div class="line">scp [-r] 用户名@ip:文件路径 本地路径</div><div class="line"># 网络复制命令, 下载文件 或加-r 下载文件夹</div><div class="line"></div><div class="line">scp [-r] 本地文件 用户名@ip:上传路径</div><div class="line"># 网络复制命令, 上传文件 或加-r 上传文件夹</div><div class="line"># 此为linux 与 linux之间进行文件传输的最简单方式</div></pre></td></tr></table></figure>
+<h4 id="SSH-命令"><a href="#SSH-命令" class="headerlink" title="SSH 命令"></a>SSH 命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ssh 用户名@ip</div><div class="line"># 远程管理制定Linux服务器</div><div class="line"># 经过远程之后, 在家目录中的 .ssh 文件夹 know_hosts文件中保存着 连接成功的目标信息</div><div class="line"># 地址 加密算法 公钥</div><div class="line">#若目计算机进行了重装系统, 或地址被另一台机器占用, 此时 已下载的公钥无法使用, 使用vi 对改行进行删除, 当再次连接时, 会再次提示是否进行下载公钥</div></pre></td></tr></table></figure>
 <h2 id="远程管理工具"><a href="#远程管理工具" class="headerlink" title="远程管理工具"></a>远程管理工具</h2><p>SecureCRT、Xshell</p>
 <p>WinSCP文件传输工具</p>
 <p>FileZilla</p>
@@ -503,7 +503,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">79</span>
+                <span class="site-state-item-count">80</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
