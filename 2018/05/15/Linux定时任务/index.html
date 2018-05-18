@@ -102,16 +102,16 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70% ; }   at 一次性定时任务12345chkconfig --list |grep atd#确定at安装service atd restart#启动at服务 访问控制  如果系统中有/etc/at.allow文件(白名单)，那么只有在此文件的用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/Linux%E6%9C%8D%E5%8A%A1%E5%88%97%E8%A1%A8.pdf">
+<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG45.png">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG39.png">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG40.png">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG41.png">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG42.png">
-<meta property="og:updated_time" content="2018-05-18T02:17:15.904Z">
+<meta property="og:updated_time" content="2018-05-18T03:26:08.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux定时任务">
 <meta name="twitter:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70% ; }   at 一次性定时任务12345chkconfig --list |grep atd#确定at安装service atd restart#启动at服务 访问控制  如果系统中有/etc/at.allow文件(白名单)，那么只有在此文件的用">
-<meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/Linux%E6%9C%8D%E5%8A%A1%E5%88%97%E8%A1%A8.pdf">
+<meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG45.png">
 
 
 
@@ -365,7 +365,7 @@ width: 70%
 <li>如果系统中没有<code>/etc/cron.allow</code>文件，只有<code>/etc/cron.deny</code>文件(黑名单)，那么在此名单下的用户不能使用cron命令【对root不起作用】</li>
 <li>如果系统这两个文件都不存在，那么只有root用户可以使用cron命令</li>
 </ul>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/Linux%E6%9C%8D%E5%8A%A1%E5%88%97%E8%A1%A8.pdf" alt=""></p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG45.png" alt=""></p>
 <p>被周期性执行的任务称为Cron Job<br>周期性执行的任务列表称为Cron Table</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">crontab -l</div><div class="line">#查询是否安装</div><div class="line"></div><div class="line">systemctl status crond</div><div class="line">#检查是否启动</div><div class="line"></div><div class="line">yum install crontabs</div><div class="line"></div><div class="line">systemctl start crond</div><div class="line">#启动</div><div class="line"></div><div class="line">systemctl enable crond</div><div class="line">#开机自启</div><div class="line"></div><div class="line">crontab [选项]</div><div class="line">选项：</div><div class="line">-e     #进入crontab编辑界面，当前用户vim方式编辑</div><div class="line">-l     #查看当前用户的crontab任务</div><div class="line">-r     #删除当前用户所有的定时的任务</div><div class="line">-u     #指定用户</div><div class="line"></div><div class="line"></div><div class="line">*  *  *  *  *  执行的任务</div><div class="line">#crontab -e 输入格式</div><div class="line">#第一个 * 一小时的第几分钟  0-59</div><div class="line">#第二个 * 一天当中的第几小时    0-23</div><div class="line">#第三个 * 一月当中第几天    1-31</div><div class="line">#第四个 * 一年当中第几个月  1-12</div><div class="line">#第五个 * 一周中的第几天    0-7(0和7都代表星期日)</div></pre></td></tr></table></figure>
 <table>
@@ -615,7 +615,7 @@ width: 70%
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-count">79</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

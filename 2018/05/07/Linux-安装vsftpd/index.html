@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。 总结起来只有几步  安装 配置文件 防火墙 设置ftp用户  一、安装FTP服务器1234#查看是否已经安装vsftpdrpm -qa | grep vsftpdyum -y install vsftpd 二、手动启动，并使其能够从下次系统启动时">
+<meta name="description" content="记，这篇文章实际是相当复杂的，主要原因是出于安全考虑增加了很多内容，如果只是局域网内使用不需要如此复杂，只需要安装、关闭匿名、指定目录和用户  vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。 总结起来只有几步  安装 配置文件 防火墙 设置ftp用户  一、安装FTP服务器1234#查看是否">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 安装vsftpd">
 <meta property="og:url" content="http://yoursite.com/2018/05/07/Linux-安装vsftpd/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。 总结起来只有几步  安装 配置文件 防火墙 设置ftp用户  一、安装FTP服务器1234#查看是否已经安装vsftpdrpm -qa | grep vsftpdyum -y install vsftpd 二、手动启动，并使其能够从下次系统启动时">
+<meta property="og:description" content="记，这篇文章实际是相当复杂的，主要原因是出于安全考虑增加了很多内容，如果只是局域网内使用不需要如此复杂，只需要安装、关闭匿名、指定目录和用户  vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。 总结起来只有几步  安装 配置文件 防火墙 设置ftp用户  一、安装FTP服务器1234#查看是否">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-15T18:24:48.965Z">
+<meta property="og:updated_time" content="2018-05-18T03:46:42.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 安装vsftpd">
-<meta name="twitter:description" content="vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。 总结起来只有几步  安装 配置文件 防火墙 设置ftp用户  一、安装FTP服务器1234#查看是否已经安装vsftpdrpm -qa | grep vsftpdyum -y install vsftpd 二、手动启动，并使其能够从下次系统启动时">
+<meta name="twitter:description" content="记，这篇文章实际是相当复杂的，主要原因是出于安全考虑增加了很多内容，如果只是局域网内使用不需要如此复杂，只需要安装、关闭匿名、指定目录和用户  vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。 总结起来只有几步  安装 配置文件 防火墙 设置ftp用户  一、安装FTP服务器1234#查看是否">
 
 
 
@@ -334,7 +334,10 @@
       
 
       
-        <p>vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。</p>
+        <blockquote>
+<p>记，这篇文章实际是相当复杂的，主要原因是出于安全考虑增加了很多内容，如果只是局域网内使用不需要如此复杂，只需要安装、关闭匿名、指定目录和用户</p>
+</blockquote>
+<p>vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。</p>
 <p>总结起来只有几步</p>
 <ul>
 <li>安装</li>
@@ -368,9 +371,13 @@
 <p>修改vsftpd配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">user_sub_token = $USER＃将用户名插入本地根目录</div><div class="line">local_root = /home/$USER/ftp＃定义任何用户本地根目录</div></pre></td></tr></table></figure></p>
 <p>重启vsftpd</p>
 <p>注意上传命令需要指定目标文件名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp put /path/to/local_file remote_file_name</div></pre></td></tr></table></figure></p>
+<p>九、开放端口<br>如果使用云服务器，还需要开放端口</p>
+<p>FTP服务器使用被动模式，需要先进行配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vi /etc/vsftpd/vsftpd.conf</div><div class="line"></div><div class="line">pasv_enable=YES</div><div class="line">pasv_min_port=40000</div><div class="line">pasv_max_port=41000</div></pre></td></tr></table></figure></p>
+<p>这里使用阿里云服务器<br>打开控制台，云服务器ECS-&gt;安全组-&gt;配置规则<br>添加21和40000-41000</p>
 <p>参考：</p>
 <ul>
 <li>重点<a href="https://www.kancloud.cn/chandler/bc-linux/52710" target="_blank" rel="external">https://www.kancloud.cn/chandler/bc-linux/52710</a></li>
+<li><a href="http://how2j.cn/k/deploy2linux/deploy2linux-openport/1604.html" target="_blank" rel="external">http://how2j.cn/k/deploy2linux/deploy2linux-openport/1604.html</a></li>
 <li><a href="https://www.tecmint.com/install-ftp-server-in-centos-7/" target="_blank" rel="external">https://www.tecmint.com/install-ftp-server-in-centos-7/</a></li>
 <li><a href="https://wsgzao.github.io/post/vsftpd/" target="_blank" rel="external">https://wsgzao.github.io/post/vsftpd/</a></li>
 <li><a href="https://blog.csdn.net/aiynmimi/article/details/77012507" target="_blank" rel="external">https://blog.csdn.net/aiynmimi/article/details/77012507</a></li>
@@ -503,7 +510,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-count">79</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
