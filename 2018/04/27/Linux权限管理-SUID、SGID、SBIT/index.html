@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="SUID(SetUID)使用户临时具有程序所有者（比如root）的权限来执行该程序，比如调用/usr/bin/passwd命令修改自己的密码 SetUID(或者 s 权限）：当一个具有执行权限的文件设置SetUID权限后，用户执行这个文件时将以文件所有者的身份执行。passwd命令具有SetUID权限，所有者为root（Linux中的命令默认所有者都是root），也就是说当普通用户使用passwd">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-18T16:59:42.417Z">
+<meta property="og:updated_time" content="2018-05-18T23:56:15.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux权限05 SUID、SGID、SBIT">
 <meta name="twitter:description" content="SUID(SetUID)使用户临时具有程序所有者（比如root）的权限来执行该程序，比如调用/usr/bin/passwd命令修改自己的密码 SetUID(或者 s 权限）：当一个具有执行权限的文件设置SetUID权限后，用户执行这个文件时将以文件所有者的身份执行。passwd命令具有SetUID权限，所有者为root（Linux中的命令默认所有者都是root），也就是说当普通用户使用passwd">
@@ -373,19 +373,10 @@
 </li>
 </ul>
 <h4 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h4><p>2代表SGID，s出现在文件所属群组的x权限上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#设置SetGID</div><div class="line">chmod 2xxx &lt;file/dir-name&gt;</div><div class="line">chmod g+s &lt;file/dir-name&gt; （推荐）</div><div class="line"></div><div class="line">#取消SetGID</div><div class="line">chmod xxx &lt;file/dir-name&gt;</div><div class="line">chmod g-s &lt;file/dir-name&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="例程-1"><a href="#例程-1" class="headerlink" title="例程"></a>例程</h4><p>我们此处以locate命令进行讨论：<br>locate查询命令，比find要快很多，为什么？因为其实搜索的数据库而非整个硬盘：</p>
-<pre><code>[root@niesh ~]# ll /usr/bin/locate
--rwx--s--x. 1 root slocate 40496 6月  10 2014 /usr/bin/locate
-
-[root@niesh ~]# ll /var/lib/mlocate/mlocate.db
--rw-r-----. 1 root slocate 6306909 7月  30 19:15 /var/lib/mlocate/mlocate.db
-</code></pre><p>我用普通用户进行locate查看：</p>
-<pre><code>[niesh@niesh root]$ locate mlocate.db
-/usr/share/man/man5/mlocate.db.5.gz
-</code></pre><p>去掉locate的s权限：<br>    [root@niesh ~]# chmod g-s /usr/bin/locate<br>    [root@niesh ~]# ll /usr/bin/locate<br>    -rwx–x–x. 1 root slocate 40496 6月 10 2014 /usr/bin/locate</p>
-<pre><code>[niesh@niesh root]$ locate mlocate.db
-locate: 无法执行 stat () `/var/lib/mlocate/mlocate.db&apos;: 权限不够
-</code></pre><p>也就是：当执行locate命令时，普通用户niesh自动升级为slocate的组成员。</p>
+<h4 id="例程-1"><a href="#例程-1" class="headerlink" title="例程"></a>例程</h4><p>我们此处以locate命令进行讨论：<br>locate查询命令，比find要快很多，为什么？因为其实搜索的数据库而非整个硬盘：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@niesh ~]# ll /usr/bin/locate</div><div class="line">-rwx--s--x. 1 root slocate 40496 6月  10 2014 /usr/bin/locate</div><div class="line"></div><div class="line">[root@niesh ~]# ll /var/lib/mlocate/mlocate.db</div><div class="line">-rw-r-----. 1 root slocate 6306909 7月  30 19:15 /var/lib/mlocate/mlocate.db</div></pre></td></tr></table></figure></p>
+<p>我用普通用户进行locate查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[niesh@niesh root]$ locate mlocate.db</div><div class="line">/usr/share/man/man5/mlocate.db.5.gz</div></pre></td></tr></table></figure></p>
+<p>去掉locate的s权限：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@niesh ~]# chmod g-s /usr/bin/locate</div><div class="line">[root@niesh ~]# ll /usr/bin/locate</div><div class="line">-rwx--x--x. 1 root slocate 40496 6月 10 2014 /usr/bin/locate</div><div class="line"></div><div class="line">[niesh@niesh root]$ locate mlocate.db</div><div class="line">locate: 无法执行 stat () `/var/lib/mlocate/mlocate.db&apos;: 权限不够</div></pre></td></tr></table></figure></p>
+<p>也就是：当执行locate命令时，普通用户niesh自动升级为slocate的组成员。</p>
 <ul>
 <li>/usr/bin/locate是可执行二进制程序，可以赋予SGID</li>
 <li>执行用户niesh对/usr/bin/locate命令拥有执行权限</li>
