@@ -94,15 +94,18 @@
 
 
 
+<meta name="description" content="文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求，这时候就需要ACL权限，用来解决用户身份不够的问题 查看分区ACL权限是否开启123456789df ＃查看分区dumpe2fs -h /dev/sda5#dumpe2fs命令时查询指定分区详细文件系统信息的命令-h  仅显示超级块中信息，而不显示磁盘块的详细信息#仅适用于ext4文件格式，xfs默认开启了acl权限文件信息里项：D">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Linux】Linux权限管理03 ACL">
 <meta property="og:url" content="http://yoursite.com/2018/04/27/Linux权限管理-ACL/index.html">
 <meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求，这时候就需要ACL权限，用来解决用户身份不够的问题 查看分区ACL权限是否开启123456789df ＃查看分区dumpe2fs -h /dev/sda5#dumpe2fs命令时查询指定分区详细文件系统信息的命令-h  仅显示超级块中信息，而不显示磁盘块的详细信息#仅适用于ext4文件格式，xfs默认开启了acl权限文件信息里项：D">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-18T10:52:39.329Z">
+<meta property="og:updated_time" content="2018-05-18T14:44:35.490Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux权限管理03 ACL">
+<meta name="twitter:description" content="文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求，这时候就需要ACL权限，用来解决用户身份不够的问题 查看分区ACL权限是否开启123456789df ＃查看分区dumpe2fs -h /dev/sda5#dumpe2fs命令时查询指定分区详细文件系统信息的命令-h  仅显示超级块中信息，而不显示磁盘块的详细信息#仅适用于ext4文件格式，xfs默认开启了acl权限文件信息里项：D">
 
 
 
@@ -331,7 +334,28 @@
       
 
       
-        
+        <p>文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求，这时候就需要ACL权限，用来解决用户身份不够的问题</p>
+<h2 id="查看分区ACL权限是否开启"><a href="#查看分区ACL权限是否开启" class="headerlink" title="查看分区ACL权限是否开启"></a>查看分区ACL权限是否开启</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">df ＃查看分区</div><div class="line">dumpe2fs -h /dev/sda5</div><div class="line">#dumpe2fs命令时查询指定分区详细文件系统信息的命令</div><div class="line">-h  仅显示超级块中信息，而不显示磁盘块的详细信息</div><div class="line">#仅适用于ext4文件格式，xfs默认开启了acl权限</div><div class="line"></div><div class="line">文件信息里项：</div><div class="line">Default mount options: user_xattr acl</div><div class="line">那就说明分区是支持acl的</div></pre></td></tr></table></figure>
+<h2 id="开启ACL权限"><a href="#开启ACL权限" class="headerlink" title="开启ACL权限"></a>开启ACL权限</h2><h4 id="临时开启分区ACL权限"><a href="#临时开启分区ACL权限" class="headerlink" title="临时开启分区ACL权限"></a>临时开启分区ACL权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mount -o remount,acl /</div><div class="line">#重新挂载根分区，并挂载加入acl权限</div></pre></td></tr></table></figure>
+<h4 id="永久开启分区ACL权限"><a href="#永久开启分区ACL权限" class="headerlink" title="永久开启分区ACL权限"></a>永久开启分区ACL权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vi /etc/fstab</div><div class="line"></div><div class="line">UUID=c2ca6f57-b15c-43ea=bca0-f239083d8bd2 / ext4 defaults,acl 1（＃启动是否需要检测） 1(#启动是否需要备份)</div><div class="line">#加入acl</div><div class="line"></div><div class="line">mount -o remount /</div><div class="line">#重新挂载文件系统或重启系统，使修改生效</div></pre></td></tr></table></figure>
+<h2 id="查看ACL权限"><a href="#查看ACL权限" class="headerlink" title="查看ACL权限"></a>查看ACL权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getfacl 文件名</div></pre></td></tr></table></figure>
+<p>会显示mask值</p>
+<h2 id="设定acl权限"><a href="#设定acl权限" class="headerlink" title="设定acl权限"></a>设定acl权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">setfacl 选项 文件名</div><div class="line"></div><div class="line">选项</div><div class="line">-m  #设定acl权限</div><div class="line">-x  #删除指定的acl权限</div><div class="line">-b  #删除所有的acl权限</div><div class="line">-d  #设定默认acl权限</div><div class="line">-k  #删除默认acl权限</div><div class="line">-R  #递归设定acl权限</div><div class="line"></div><div class="line">例：setfacl -m u:lw:rx /av</div><div class="line">#给用户lw赋予r-x权限，使用&quot;u:用户名:权限&quot;格式</div><div class="line"></div><div class="line">例：setfacl -m g:group2:rwx /av</div><div class="line">#给用户组group2赋予rwx权限，使用&quot;g:组名:权限&quot;格式</div></pre></td></tr></table></figure>
+<p>设定之后会在ll命令显示的权限末尾出现+号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">drwxr-xr-x+ root root</div></pre></td></tr></table></figure></p>
+<h2 id="最大有效权限mask"><a href="#最大有效权限mask" class="headerlink" title="最大有效权限mask"></a>最大有效权限mask</h2><p>mask是用来指定最大有效权限的。如果给用户赋予了acl权限，是需要和mask的权限“相与”才能得到用户的真正权限。相与是计算机中的术语，皆真方为真，有假便为假。</p>
+<p>最大权限也会影响到组权限。例：某文件所有者为tony，chmod赋予的普通权限为7，而acl赋予tony的权限为5，则acl权限会高于chmod权限</p>
+<h4 id="修改mask值"><a href="#修改mask值" class="headerlink" title="修改mask值"></a>修改mask值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setfacl -m m:rx 文件</div><div class="line">#设定mask权限为r-x。使用“m:权限”格式</div></pre></td></tr></table></figure>
+<h4 id="删除acl权限"><a href="#删除acl权限" class="headerlink" title="删除acl权限"></a>删除acl权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">setfacl -x u:用户名 文件</div><div class="line">#删除指定用户的acl权限</div><div class="line"></div><div class="line">setfacl -x g:组名 文件</div><div class="line">#删除指定用户的acl权限</div><div class="line"></div><div class="line">setfacl -b 文件</div><div class="line">#删除文件所有的acl权限</div></pre></td></tr></table></figure>
+<h2 id="递归ACL权限"><a href="#递归ACL权限" class="headerlink" title="递归ACL权限"></a>递归ACL权限</h2><p>在给父目录赋予权限的同时，给已经存在于目录下的文件赋予相同的权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setfacl -m u:用户名:权限 -R 目录名</div><div class="line">#R表示递归</div></pre></td></tr></table></figure></p>
+<p>注意</p>
+<ul>
+<li><strong>用递归的方式容易导致文件权限溢出</strong>(目录为r-x，子文件则也为r-x)</li>
+<li>递归acl只能用在目录而不能用于普通文件</li>
+</ul>
+<h2 id="默认ACL权限"><a href="#默认ACL权限" class="headerlink" title="默认ACL权限"></a>默认ACL权限</h2><p>给父目录下将来新建的文件默认赋予父目录的权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setfacl -m d:u:用户名:权限 目录名</div><div class="line">#d表示default</div></pre></td></tr></table></figure></p>
+<p>设置后可以使用<code>getfacl</code>查看</p>
+<p>补充：<br><a href="https://www.cnblogs.com/Jimmy1988/p/7249844.html" target="_blank" rel="external">https://www.cnblogs.com/Jimmy1988/p/7249844.html</a></p>
+
       
     </div>
     
@@ -389,8 +413,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/27/Linux权限管理-SUID、SGID、SBIT/" rel="prev" title="Linux权限 SUID、SGID、SBIT">
-                Linux权限 SUID、SGID、SBIT <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/27/Linux权限管理-sudo权限/" rel="prev" title="Linux权限管理 sudo权限">
+                Linux权限管理 sudo权限 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -443,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -459,7 +492,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">80</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -504,6 +537,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看分区ACL权限是否开启"><span class="nav-number">1.</span> <span class="nav-text">查看分区ACL权限是否开启</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启ACL权限"><span class="nav-number">2.</span> <span class="nav-text">开启ACL权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#临时开启分区ACL权限"><span class="nav-number">2.0.1.</span> <span class="nav-text">临时开启分区ACL权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#永久开启分区ACL权限"><span class="nav-number">2.0.2.</span> <span class="nav-text">永久开启分区ACL权限</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看ACL权限"><span class="nav-number">3.</span> <span class="nav-text">查看ACL权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设定acl权限"><span class="nav-number">4.</span> <span class="nav-text">设定acl权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大有效权限mask"><span class="nav-number">5.</span> <span class="nav-text">最大有效权限mask</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#修改mask值"><span class="nav-number">5.0.1.</span> <span class="nav-text">修改mask值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除acl权限"><span class="nav-number">5.0.2.</span> <span class="nav-text">删除acl权限</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归ACL权限"><span class="nav-number">6.</span> <span class="nav-text">递归ACL权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认ACL权限"><span class="nav-number">7.</span> <span class="nav-text">默认ACL权限</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
