@@ -36,11 +36,107 @@
   </entry>
   
   <entry>
-    <title>linux查看用户登录时间及历史命令</title>
+    <title>SFTP、SCP命令</title>
+    <link href="http://yoursite.com/2018/05/18/SFTP%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2018/05/18/SFTP命令/</id>
+    <published>2018-05-18T02:20:11.000Z</published>
+    <updated>2018-05-18T02:50:23.115Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="SFTp"><a href="#SFTp" class="headerlink" title="SFTp"></a>SFTp</h2><p>SFTP是安全文件传送协议，可以为传输文件提供一种安全的网络的加密方法。</p>
+<p>SFTP 与 FTP 有着几乎一样的语法和功能。SFTP 为 SSH的其中一部分，所以说 SFTP 就是通过SSH端口（默认 22端口）和 Linux 用户和密码登陆的（例如 root 账号）。SFTP 使用加密传输认证信息和传输的数据，所以使用SFTP是非常安全的。但是由于这种传输方式使用了加密/解密技术，所以传输效率比普通的FTP要低得多。</p>
+<p>使用SFTP并不需要在服务器上做任何配置，只需要找个SFTP客户端，然后知道SSH端口、服务器用户名+密码即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"># 连接到SFTP</div><div class="line">sftp tecmint@27.48.137.6</div><div class="line"></div><div class="line"># 获得帮助</div><div class="line">?</div><div class="line">help</div><div class="line"></div><div class="line"># 检查本地工作目录</div><div class="line">lpwd</div><div class="line"># 检查远程工作目录</div><div class="line">pwd</div><div class="line"></div><div class="line"># 列出本地文件</div><div class="line">lls</div><div class="line"># 列出远程文件</div><div class="line">ls</div><div class="line"></div><div class="line"># 上传单个或多个文件</div><div class="line">put local.profile</div><div class="line"># 上传多个文件</div><div class="line">mput * .xls</div><div class="line"></div><div class="line"># 下载单个或多个文件</div><div class="line">get SettlementReport_1-10th.xls</div><div class="line"># 下载多个文件</div><div class="line">mget * .xls</div><div class="line"></div><div class="line"># 切换本地目录</div><div class="line">lcd Documents</div><div class="line"># 切换远程目录</div><div class="line">cd test</div><div class="line"></div><div class="line"># 创建目录</div><div class="line">mkdir test</div><div class="line">lmkdir test</div><div class="line"></div><div class="line"># 删除目录，该目录必须为空</div><div class="line">rm Report.xls</div><div class="line">rmdir sub1</div><div class="line"></div><div class="line"># 退出SFTP</div><div class="line">!</div><div class="line">exit</div></pre></td></tr></table></figure>
+<h2 id="SCP"><a href="#SCP" class="headerlink" title="SCP"></a>SCP</h2><p>使用SSH协议来传输文件的</p>
+<ul>
+<li>SCP比较简单，是轻量级的，SFTP的功能则比较多</li>
+<li>SCP的速度较快</li>
+<li>SFTP在文件传输过程中中断的话，连接后还可以继续传输，但SCP不行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">scp [-r] 用户名@ip:文件路径 本地路径</div><div class="line"># 网络复制命令, 下载文件 或加-r 下载文件夹</div><div class="line"></div><div class="line">scp [-r] 本地文件 用户名@ip:上传路径</div><div class="line"># 网络复制命令, 上传文件 或加-r 上传文件夹</div><div class="line"># 此为linux 与 linux之间进行文件传输的最简单方式</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.tecmint.com/sftp-command-examples/" target="_blank" rel="external">https://www.tecmint.com/sftp-command-examples/</a></li>
+<li><a href="https://www.jscape.com/blog/scp-vs-sftp" target="_blank" rel="external">https://www.jscape.com/blog/scp-vs-sftp</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;SFTp&quot;&gt;&lt;a href=&quot;#SFTp&quot; class=&quot;headerlink&quot; title=&quot;SFTp&quot;&gt;&lt;/a&gt;SFTp&lt;/h2&gt;&lt;p&gt;SFTP是安全文件传送协议，可以为传输文件提供一种安全的网络的加密方法。&lt;/p&gt;
+&lt;p&gt;SFTP 与 FTP 有着几乎一样的
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FTP主动模式和被动模式</title>
+    <link href="http://yoursite.com/2018/05/17/FTP%E4%B8%BB%E5%8A%A8%E6%A8%A1%E5%BC%8F%E5%92%8C%E8%A2%AB%E5%8A%A8%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://yoursite.com/2018/05/17/FTP主动模式和被动模式/</id>
+    <published>2018-05-17T04:40:42.000Z</published>
+    <updated>2018-05-17T07:25:52.565Z</updated>
+    
+    <content type="html"><![CDATA[<p>FTP只通过TCP连接,没有用于FTP的UDP组件.FTP不同于其他服务的是它使用了两个端口, 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作方式的不同，数据端口并不总是20，这就是主动与被动FTP的最大不同之处。（不管主动模式还是被动模式都是用TCP 21端口来传输控制信号的。）</p>
+<h2 id="主动FTP-PORT-Active"><a href="#主动FTP-PORT-Active" class="headerlink" title="主动FTP(PORT/Active)"></a>主动FTP(PORT/Active)</h2><p>客户端从一个任意的非特权端口N（N&gt;1023）连接到FTP服务器的命令端口，也就是21端口。然后客户端开始监听端口N+1，并发送FTP命令“port N+1”到FTP服务器。接着服务器会从它自己的数据端口（20）连接到客户端指定的数据端口（N+1）。<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG43.jpg" alt=""></p>
+<p>针对FTP服务器前面的防火墙来说，必须允许以下通讯才能支持主动方式FTP：</p>
+<ol>
+<li>任何大于1024的端口到FTP服务器的21端口。（客户端初始化的连接）</li>
+<li>FTP服务器的21端口到大于1023的端口。 （服务器响应客户端的控制端口）</li>
+<li>FTP服务器的20端口到大于1023的端口。（服务器端初始化数据连接到客户端的数据端口）</li>
+<li>大于1023端口到FTP服务器的20端口（客户端发送ACK响应到服务器的数据端口）</li>
+</ol>
+<h2 id="被动FTP-PASV-Passive"><a href="#被动FTP-PASV-Passive" class="headerlink" title="被动FTP(PASV/Passive)"></a>被动FTP(PASV/Passive)</h2><p>为了解决服务器发起到客户的连接的问题，人们开发了一种不同的FTP连接方式。这就是所谓的被动方式，当客户端通知服务器它处于被动模式时才启用。</p>
+<p>在被动方式FTP中，命令连接和数据连接都由客户端发起，这样就可以解决从服务器到客户端的数据端口的入方向连接被防火墙过滤掉的问题。</p>
+<p>当开启一个 FTP连接时，客户端打开两个任意的非特权本地端口（N &gt; 1024和N+1）。第一个端口连接服务器的21端口，但与主动方式的FTP不同，客户端不会提交PORT命令并允许服务器来回连它的数据端口，而是提交 PASV命令。这样做的结果是服务器会开启一个任意的非特权端口（P &gt; 1024），并发送PORT P命令给客户端。然后客户端发起从本地端口N+1到服务器的端口P的连接用来传送数据。</p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG44.jpg" alt=""></p>
+<p>对于服务器端的防火墙来说，必须允许下面的通讯才能支持被动方式的FTP:</p>
+<ol>
+<li>从任何大于1023的端口到服务器的21端口 （客户端初始化的连接）</li>
+<li>服务器的21端口到任何大于1023的端口 （服务器响应到客户端的控制端口的连接）</li>
+<li>从任何大于1023端口到服务器的大于1023端口 （客户端初始化数据连接到服务器指定的任意端口）</li>
+<li>服务器的大于1023端口到远程的大于1023的端口（服务器发送ACK响应和数据到客户端的数据端口）</li>
+</ol>
+<h2 id="主动与被动FTP优缺点："><a href="#主动与被动FTP优缺点：" class="headerlink" title="主动与被动FTP优缺点："></a>主动与被动FTP优缺点：</h2><p>主动FTP对FTP服务器的管理有利，但对客户端的管理不利。因为FTP服务器企图与客户端的高位随机端口建立连接，而这个端口很有可能被客户端的防火墙阻塞掉。被动FTP对FTP客户端的管理有利，但对服务器端的管理不利。因为客户端要与服务器端建立两个连接，其中一个连到一个高位随机端口，而这个端口很有可能被服务器端的防火墙阻塞掉。</p>
+<p>幸运的是，有折衷的办法。既然FTP服务器的管理员需要他们的服务器有最多的客户连接，那么必须得支持被动FTP。我们可以通过为FTP服务器指定一个有限的端口范围来减小服务器高位端口的暴露。这样，不在这个范围的任何端口会被服务器的防火墙阻塞。虽然这没有消除所有针对服务器的危险，但它大大减少了危险。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>主动FTP：<br>　　命令连接：客户端 &gt;1023端口 -&gt; 服务器 21端口<br>　　数据连接：客户端 &gt;1023端口 &lt;- 服务器 20端口 </p>
+<p>被动FTP：<br>　　命令连接：客户端 &gt;1023端口 -&gt; 服务器 21端口<br>　　数据连接：客户端 &gt;1023端口 -&gt; 服务器 &gt;1023端口</p>
+<p>主动模式是从服务器端向客户端发起连接；被动模式是客户端向服务器端发起连接。两者的共同点是都使用 21端口进行用户验证及管理，差别在于传送数据的方式不同，PORT模式的FTP服务器数据端口固定在20，而PASV模式则在1024-65535之间随机</p>
+<p>PORT（主动）方式的连接过程是：客户端向服务器的FTP端口（默认是21）发送连接请求，服务器接受连接，建立一条命令链路。当需要传送数据时，客户端在命令链路上用PORT命令告诉服务器：“我打开了XXXX端口，你过来连接我”。于是服务器从20端口向客户端的XXXX端口发送连接请求，建立一条数据链路来传送数据。</p>
+<p>PASV（被动）方式的连接过程是：客户端向服务器的FTP端口（默认是21）发送连接请求，服务器接受连接，建立一条命令链路。当需要传送数据时，服务器在命令链路上用PASV命令告诉客户端：“我打开了XXXX端口，你过来连接我”。于是客户端向服务器的XXXX端口发送连接请求，建立一条数据链路来传送数据。</p>
+<p>当NAT(Network Address Translation)设备以主动模式访问FTP服务器时，由于NAT设备不会聪明的变更FTP包中的IP地址，从而导致无法访问服务器。</p>
+<p>大部分互联网应用都是被动模式，因为大部分客户端都是在路由器后面，没有独立的公网IP地址，服务器想要主动连接客户端，难度太大，在现在真实的互联网环境里面几乎是不可能完成的任务。</p>
+<p>大部分FTP客户端默认使用PASV方式，在大部分FTP客户端的设置里，常见到的字眼都是“PASV”或“被动模式”。</p>
+<h2 id="vsftpd配置"><a href="#vsftpd配置" class="headerlink" title="vsftpd配置"></a>vsftpd配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># vi /etc/vsftpd/vsftpd.conf</div><div class="line">pasv_enable=YES</div><div class="line">pasv_min_port=3000</div><div class="line">pasv_max_port=4000</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.centos.bz/2012/08/ftp-port-pasv-mode/" target="_blank" rel="external">https://www.centos.bz/2012/08/ftp-port-pasv-mode/</a></li>
+<li><a href="http://www.serv-u.com/kb/1138/Active-and-Passive-FTP-Transfers-Defined" target="_blank" rel="external">http://www.serv-u.com/kb/1138/Active-and-Passive-FTP-Transfers-Defined</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_5cdb72780100jwm9.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_5cdb72780100jwm9.html</a></li>
+<li><a href="http://www.rfyy.net/archives/2641.html" target="_blank" rel="external">http://www.rfyy.net/archives/2641.html</a></li>
+<li><a href="https://my.oschina.net/binny/blog/17469" target="_blank" rel="external">https://my.oschina.net/binny/blog/17469</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/36403412" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/36403412</a></li>
+<li><a href="http://www.cnblogs.com/xiaohh/p/4789813.html" target="_blank" rel="external">http://www.cnblogs.com/xiaohh/p/4789813.html</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;FTP只通过TCP连接,没有用于FTP的UDP组件.FTP不同于其他服务的是它使用了两个端口, 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作方式的不同，数据端口并不总是20，这就是主动与被动FTP的最大不同之处。（
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux查看用户登录时间及历史命令</title>
     <link href="http://yoursite.com/2018/05/16/linux%E6%9F%A5%E7%9C%8B%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%97%B6%E9%97%B4%E5%8F%8A%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/05/16/linux查看用户登录时间及历史命令/</id>
     <published>2018-05-16T12:34:14.000Z</published>
-    <updated>2018-05-16T12:43:29.330Z</updated>
+    <updated>2018-05-16T13:13:22.917Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">who</div><div class="line">#查看当前登录用户信息：用户名、终端类型、登陆日期以及远程主机</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">users</div><div class="line">#当前登录的用户</div></pre></td></tr></table></figure>
@@ -291,7 +387,7 @@ width: 60%;
     <link href="http://yoursite.com/2018/05/15/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B/"/>
     <id>http://yoursite.com/2018/05/15/Linux进程管理-查看进程/</id>
     <published>2018-05-15T03:09:00.000Z</published>
-    <updated>2018-05-15T18:22:37.300Z</updated>
+    <updated>2018-05-17T12:47:06.972Z</updated>
     
     <content type="html"><![CDATA[<style>
 table th:nth-of-type(1){
@@ -311,7 +407,7 @@ width: 70%;
 <li>杀死进程</li>
 </ol>
 <p><br>  </p>
-<h2 id="ps命令-查看所有进程"><a href="#ps命令-查看所有进程" class="headerlink" title="ps命令 查看所有进程"></a>ps命令 查看所有进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">ps aux </div><div class="line">#查看系统中所有进程 ，使用BSD操作系统格式（没有-）</div><div class="line">ps -le</div><div class="line">#查看系统中所有进程 ，使用Linux标准命令格式</div><div class="line"></div><div class="line">选项</div><div class="line">-a :显示一个终端的所有进程</div><div class="line">-u :显示进程的归属用户及内存的使用情况</div><div class="line">-x :显示没有控制终端的进程</div><div class="line">-l :长格式显示，显示更加详细的信息</div><div class="line">-e :显示所有进程，和-A作用一致</div></pre></td></tr></table></figure>
+<h2 id="ps命令-查看所有进程"><a href="#ps命令-查看所有进程" class="headerlink" title="ps命令 查看所有进程"></a>ps命令 查看所有进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">ps aux </div><div class="line">#查看系统中所有进程 ，使用BSD操作系统格式（没有-）</div><div class="line">ps -le</div><div class="line">#查看系统中所有进程 ，使用Linux标准命令格式</div><div class="line">ps -ef |grep ssh</div><div class="line"></div><div class="line">选项</div><div class="line">-a :显示一个终端的所有进程</div><div class="line">-u :显示进程的归属用户及内存的使用情况</div><div class="line">-x :显示没有控制终端的进程</div><div class="line">-l :长格式显示，显示更加详细的信息</div><div class="line">-e :显示所有进程，和-A作用一致</div></pre></td></tr></table></figure>
 <p>输出详解</p>
 <table>
 <thead>
@@ -561,7 +657,7 @@ width: 70%;
     <link href="http://yoursite.com/2018/05/15/Linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
     <id>http://yoursite.com/2018/05/15/Linux定时任务/</id>
     <published>2018-05-15T01:23:57.000Z</published>
-    <updated>2018-05-15T18:11:36.322Z</updated>
+    <updated>2018-05-18T02:17:15.904Z</updated>
     
     <content type="html"><![CDATA[<style>
 table th:nth-of-type(1){
@@ -588,6 +684,7 @@ width: 70%
 <li>如果系统中没有<code>/etc/cron.allow</code>文件，只有<code>/etc/cron.deny</code>文件(黑名单)，那么在此名单下的用户不能使用cron命令【对root不起作用】</li>
 <li>如果系统这两个文件都不存在，那么只有root用户可以使用cron命令</li>
 </ul>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/Linux%E6%9C%8D%E5%8A%A1%E5%88%97%E8%A1%A8.pdf" alt=""></p>
 <p>被周期性执行的任务称为Cron Job<br>周期性执行的任务列表称为Cron Table</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">crontab -l</div><div class="line">#查询是否安装</div><div class="line"></div><div class="line">systemctl status crond</div><div class="line">#检查是否启动</div><div class="line"></div><div class="line">yum install crontabs</div><div class="line"></div><div class="line">systemctl start crond</div><div class="line">#启动</div><div class="line"></div><div class="line">systemctl enable crond</div><div class="line">#开机自启</div><div class="line"></div><div class="line">crontab [选项]</div><div class="line">选项：</div><div class="line">-e     #进入crontab编辑界面，当前用户vim方式编辑</div><div class="line">-l     #查看当前用户的crontab任务</div><div class="line">-r     #删除当前用户所有的定时的任务</div><div class="line">-u     #指定用户</div><div class="line"></div><div class="line"></div><div class="line">*  *  *  *  *  执行的任务</div><div class="line">#crontab -e 输入格式</div><div class="line">#第一个 * 一小时的第几分钟  0-59</div><div class="line">#第二个 * 一天当中的第几小时    0-23</div><div class="line">#第三个 * 一月当中第几天    1-31</div><div class="line">#第四个 * 一年当中第几个月  1-12</div><div class="line">#第五个 * 一周中的第几天    0-7(0和7都代表星期日)</div></pre></td></tr></table></figure>
 <table>
@@ -630,16 +727,6 @@ width: 70%
 <li>定时任务中的命令最好使用绝对路径，定时任务有自己的PATH路径（/etc/crontab）</li>
 </ul>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG39.png" alt=""></p>
-<style>
-table th:nth-of-type(1){
-width: 60%;
-}
-table th:nth-of-type(2){
-width: 40%
-;
-}
-</style>
-
 <table>
 <thead>
 <tr>
@@ -707,7 +794,7 @@ width: 40%
 <li>和当前时间做比较，如果两个时间的差值超过了anacron的指定时间差，证明有cron任务被漏执行</li>
 </ul>
 <p>在老的CentOS版本中，<code>/etc/cron.{daily.weekly,monthly}</code>这些目录即会被cron调用，也会被anacron调用，容易重复执行<br>在CentOS 6.x中则只会被anacron调用，避免了重复执行<br>在CentOS 6.x中，anacron不再是服务，而是系统命令</p>
-<h4 id="配置文件目"><a href="#配置文件目" class="headerlink" title="配置文件目"></a>配置文件目</h4><p>/etc/anacrontab<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG41.png" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG42.png" alt=""></p>
+<h4 id="配置文件目录"><a href="#配置文件目录" class="headerlink" title="配置文件目录"></a>配置文件目录</h4><p>/etc/anacrontab<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG41.png" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG42.png" alt=""></p>
 <h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>只需要将需要定时执行的任务脚本放到 /etc/cron.(daily,weekly,monthly) 目录下，就能自动定时执行</p>
 <h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p>方便，易管理，一定程度上防止意外情况，执行时间不确定</p>
 ]]></content>
@@ -738,7 +825,7 @@ width: 70%
     <link href="http://yoursite.com/2018/05/14/Linux%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/"/>
     <id>http://yoursite.com/2018/05/14/Linux后台管理/</id>
     <published>2018-05-14T08:57:05.000Z</published>
-    <updated>2018-05-15T18:07:06.679Z</updated>
+    <updated>2018-05-17T08:17:51.651Z</updated>
     
     <content type="html"><![CDATA[<p>工作（后台）管理指的是在单个登录终端中（shell界面）同时管理多个工作行为</p>
 <p>注意事项</p>
@@ -761,6 +848,11 @@ width: 70%
 <li>使用 nohup命令（常用）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">nohup 命令 &amp;</div><div class="line">nohup /root/for.sh &amp;</div><div class="line">#可以是脚本</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>补充：</p>
+<ul>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-nohup/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-nohup/</a></li>
+<li><a href="https://linux.cn/article-7918-1.html" target="_blank" rel="external">https://linux.cn/article-7918-1.html</a></li>
+</ul>
 ]]></content>
     
     <summary type="html">
@@ -993,424 +1085,6 @@ width: 40%;
     
     
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux常见服务列表</title>
-    <link href="http://yoursite.com/2018/05/12/Linux%E5%B8%B8%E8%A7%81%E6%9C%8D%E5%8A%A1%E5%88%97%E8%A1%A8/"/>
-    <id>http://yoursite.com/2018/05/12/Linux常见服务列表/</id>
-    <published>2018-05-12T01:22:43.000Z</published>
-    <updated>2018-05-12T01:48:37.831Z</updated>
-    
-    <content type="html"><![CDATA[<style>
-table th:nth-of-type(1){
-width: 20%;
-}
-table th:nth-of-type(2){
-width: 60%
-;
-}
-table th:nth-of-type(3){
-width: 20%;
-}
-
-</style>
-
-<table>
-<thead>
-<tr>
-<th>服务名称</th>
-<th>功能简介</th>
-<th>建议</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>acpid</td>
-<td>电源管理接口。如果是笔记本用户建议开启，可以监听内核层的相关电源事件。</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>anacron</td>
-<td>系统的定时任务程序。cron 的一个子系统，如果定时任务错过了执行时间，可以通过 anacron 继续唤醒执行。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>alsasound</td>
-<td>Alsa 声卡驱动。如果使用 alsa 声卡，开启</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>apmd</td>
-<td>电源管理模块。如果支持 acpid，就不需要 apmd，可以关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>atd</td>
-<td>指定系统在特定时间执行某个任务，只能执行一次。如果需要则开启，但我们一般使用 crond 来进行循环定时任务。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>auditd</td>
-<td>审核子系统。如果开启了此服务，SELinux 的审核信息会写入/var/log/audit/audit.log 文件，如果不开启，审核信息会记录在 syslog 中</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>autofs</td>
-<td>让服务器可以自动挂载网络中的其他服务器的共享数据，一般用来自动挂载 NFS 服务。如果没有 NFS 服务建议关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>avahi-daemon</td>
-<td>Avahi  是 zeroconf 协 议 的 实 现 。 它可以在没有 DNS 服务的局域网里发现基于 zeroconf 协议的设备和服务。除非有兼容设备或使用zeroconf 协议，否则关闭。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>bluetooth</td>
-<td>蓝牙设备支持。一般不会在服务器上启用蓝牙设备，关闭它</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>capi</td>
-<td>仅对使用 ISND 设备的用户有用。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>chargen-dgram</td>
-<td>使用 UDP 协议的 chargen server。主要功能是提供类似远程打字的功能。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>chargen-stream</td>
-<td>同上。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>cpuspeed</td>
-<td>可以用来调整 CPU 的频率。当闲置时可以自动降低 CPU 频率来节省电量。</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>crond</td>
-<td>系统的定时任务，一般的 Linux 服务器都需要定时任务帮助系统维护。建议开启</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>cvs</td>
-<td>一个版本控制系统</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>daytime-dgram</td>
-<td>daytime 使用 TCP 协议的 Daytime 守护进程，该协议为客户机实现从远程服务器获取日期 和时间的功能。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>daytime-stream</td>
-<td>同上。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>dovecot</td>
-<td>邮件服务中 POP3/IMAP 服务的守护进程。主要用来接收信件， 如果启动了邮件服务则开启，否则关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>echo-dgram</td>
-<td>服务器回显客户服务的进程。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>echo-stream</td>
-<td>同上。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>firstboot</td>
-<td>系统安装完成之后，有个欢迎界面，需要对系统进程初始设定。就是这个进程的作用。既然不是第一次启动了，关闭吧</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>gpm</td>
-<td>在字符终端(tty1-tty6)中可以使用鼠标复制和粘贴。就是这个服务的功能。</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>haldaemon</td>
-<td>检测盒支持 USB 设备。如果是服务器可以关闭，个人机建议开启。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>hidd</td>
-<td>蓝牙鼠标、键盘等蓝牙设备检测。必须启动 bluetooth 服务。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>hplip HP</td>
-<td>打印机支持，如果没有 HP 打印机关闭吧</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>httpd</td>
-<td>apache 服务的守护进程。如果需要启动 apache，就开启。</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>ip6tables</td>
-<td>IPv6 的防火墙，目前 IPv6 协议并没有使用，可以关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>iptables</td>
-<td>防火墙功能，Linux 中防火墙是内核支持功能。这是服务器的主要防护手段，必须开启。</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>irda</td>
-<td>IrDA 提供红外线设备(笔记本，PDA’s，手机，计算器等等) 关闭间的通讯支持。关闭吧</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>irqbalance</td>
-<td>支持多核处理器，让 CPU 可以自动分配系统中断(IRQ)，提高系统性能。目前服务器多是多核 CPU，请开启。</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>isdn</td>
-<td>使用 ISDN 设备连接网络。目前主流的联网方式是光纤接入和ADSL，ISDN 已经非常少见，请关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>kudzu</td>
-<td>该服务可以在开机时进行硬件检测，并会调用相关的设置软件。建议关闭，仅在需要时开启</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>lvm2-monitor</td>
-<td>该服务可以让系统支持 LVM 逻辑卷组，如果分区采用的是 LVM方式，那么应该开启。建议开启</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>mcstrans</td>
-<td>SELinux 的支持服务。建议启动</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>mdmonitor</td>
-<td>该服务用来监测 Software RAID 或 LVM 的信息。不是必须服务，建议关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>mdmpd</td>
-<td>该服务用来监测 Multi-Path 设备。不是必须服务</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>messagebus</td>
-<td>这是 Linux 的 IPC(Interprocess Communication，进程间通讯)服务，用来在各个软件中交换信息。个人建议关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>microcode_ctl</td>
-<td>Intel 系列的 CPU 可以通过这个服务支持额外的微指令集。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>mysqld</td>
-<td>mysql 数据库服务器。如果需要就开启，否则关闭</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>named</td>
-<td>DNS 服务的守护进程，用来进行域名解析。如果是 DNS 服务器则开启，否则关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>netfs</td>
-<td>该服务用于在系统启动时自动挂载网络中的共享文件空间，比如:NFS，Samba 等等。需要就开启，否则关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>network</td>
-<td>提供网络设置功能。通过这个服务来管理网络，所以开启</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>nfs</td>
-<td>NFS(Network File System)服务，Linux 与 Linux 之间的文件共享服务。需要就开启，否则关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>nfslock</td>
-<td>在 Linux 中如果使用了 NFS 服务，为了避免同一个文件被不同的用户同时编辑，所有有这个锁服务。有 NFS 是开启，否则关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>ntpd</td>
-<td>该服务可以通过互联网自动更新系统时间，使系统时间永远都准确。需要则开启，但不是必须服务</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>pcscd</td>
-<td>智能卡检测服务，可以关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>portmap</td>
-<td>用在远程过程调用(RPC)的服务，如果没有任何 RPC 服务时， 可以关闭。主要是 NFS 和 NIS 服务需要。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>psacct</td>
-<td>该守护进程支持几个监控进程活动的工具。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>rdisc</td>
-<td>客户端 ICMP 路由协议</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>readahead_early</td>
-<td>在系统开机的时候，先将某些进程加载如内存整理，可以加快一点启动速度。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>readahead_later</td>
-<td>同上</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>restorecond</td>
-<td>用于给 SELinux 监测和重新加载正确的文件上下文。如果开启 SELinux 则需要开启。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>rpcgssd</td>
-<td>与 NFS 有关的客户端功能。如果没有 NFS 就关闭吧。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>rpcidmapd</td>
-<td>同上</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>rsync</td>
-<td>远程数据备份守护进程。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>sendmail</td>
-<td>sendmail 邮件服务的守护进程。如果有邮件服务就开启，否则关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>setroubleshoot</td>
-<td>该 服 务 用 于 将 SELinux 相 关 信 息 记 录 在 日 志/var/log/messages 中。建议开启</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>smartd</td>
-<td>该服务用于自动检测硬盘状态。建议开启</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>smb</td>
-<td>网络服务 samba 的守护进程。可以让 Linux 和 Windows 之间共享数据。如果需要则开启</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>squid</td>
-<td>代理服务的守护进程。如果需要则开启，否则关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>sshd</td>
-<td>ssh 加密远程登陆管理的服务。服务器的远程管理必须使用此服务，不要关闭</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>syslog</td>
-<td>日志的守护进程。</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>vsftpd</td>
-<td>vsftp 服务的守护进程。如果需要 FTP 服务则开启，否则关闭</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>xfs</td>
-<td>这个是 X Window 的字体守护进程。为图形界面提供字体服务，如果不启动图形界面，就不用开启。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>xinetd</td>
-<td>超级守护进程。如果有依赖 xinetd 的服务就必须开启。</td>
-<td>开启</td>
-</tr>
-<tr>
-<td>ypbind</td>
-<td>为 NIS(网络信息系统)客户机激活 ypbind 服务进程。</td>
-<td>关闭</td>
-</tr>
-<tr>
-<td>yum-updatesd</td>
-<td>yum 的在线升级服务。</td>
-<td>关闭</td>
-</tr>
-</tbody>
-</table>
-<p>链接: <a href="https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q" target="_blank" rel="external">https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q</a> 密码: 4qg6</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;style&gt;
-table th:nth-of-type(1){
-width: 20%;
-}
-table th:nth-of-type(2){
-width: 60%
-;
-}
-table th:nth-of-type(3){
-width: 20%;
-}
-
-&lt;/style&gt;
-
-&lt;ta
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux下批量重命名</title>
-    <link href="http://yoursite.com/2018/05/12/Linux%E4%B8%8B%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/"/>
-    <id>http://yoursite.com/2018/05/12/Linux下批量重命名/</id>
-    <published>2018-05-11T16:27:01.000Z</published>
-    <updated>2018-05-12T07:25:01.686Z</updated>
-    
-    <content type="html"><![CDATA[<p>需要命名一些文件，在文件名的前缀加上序列，这些文件的文件包空格、中文<br>思路如下：<br>重命名使用mv命令（不讨论其它重命名命令），需要提供文件名，通过ls命令可以获得文件名，将ls命令得到的文件名分割为数组，在遍历中进行重命名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env bash</div><div class="line"></div><div class="line">#这样只有一条path</div><div class="line">p=&apos;/home/lee/Templates/&apos;</div><div class="line">path=$(ls -Art $p)</div><div class="line"># echo $path</div><div class="line">IFS=$&apos;\n&apos;</div><div class="line">#只有加单引号且使用$才是换行符</div><div class="line"># https://blog.csdn.net/apache0554/article/details/47006609</div><div class="line">array=($path)</div><div class="line"></div><div class="line">i=0</div><div class="line">while [ $i -lt $&#123;#array[@]&#125; ]</div><div class="line">do</div><div class="line">  echo $&#123;array[$i]&#125;</div><div class="line">  echo &apos;s&apos;</div><div class="line">  var=$(printf &quot;%03d&quot; $i)</div><div class="line">  # echo $var</div><div class="line">  mv &quot;$&#123;p&#125;$&#123;array[$i]&#125;&quot; &quot;$&#123;p&#125;$&#123;var&#125;$&#123;array[$i]&#125;&quot;</div><div class="line">  let i++</div><div class="line">done</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;需要命名一些文件，在文件名的前缀加上序列，这些文件的文件包空格、中文&lt;br&gt;思路如下：&lt;br&gt;重命名使用mv命令（不讨论其它重命名命令），需要提供文件名，通过ls命令可以获得文件名，将ls命令得到的文件名分割为数组，在遍历中进行重命名&lt;/p&gt;
-&lt;figure class=&quot;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
