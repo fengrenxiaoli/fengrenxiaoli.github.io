@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求，这时候就需要ACL权限，用来解决用户身份不够的问题 查看分区ACL权限是否开启123456789df ＃查看分区dumpe2fs -h /dev/sda5#dumpe2fs命令时查询指定分区详细文件系统信息的命令-h  仅显示超级块中信息，而不显示磁盘块的详细信息#仅适用于ext4文件格式，xfs默认开启了acl权限文件信息里项：D">
+<meta name="description" content="文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求，这时候就需要ACL权限，用来解决用户身份不够的问题 centos不需要开启ACL权限，xfs格式默认开启了ACL权限，可以直接使用getfacl和setfacl命令 查看分区ACL权限是否开启123456789df ＃查看分区dumpe2fs -h /dev/sda5#dumpe2fs命令时查询指定分区详细文件系统信息的命令-h">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Linux】Linux权限管理03 ACL">
+<meta property="og:title" content="【Linux】Linux权限管理03 ACL权限">
 <meta property="og:url" content="http://yoursite.com/2018/04/27/Linux权限管理-ACL/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求，这时候就需要ACL权限，用来解决用户身份不够的问题 查看分区ACL权限是否开启123456789df ＃查看分区dumpe2fs -h /dev/sda5#dumpe2fs命令时查询指定分区详细文件系统信息的命令-h  仅显示超级块中信息，而不显示磁盘块的详细信息#仅适用于ext4文件格式，xfs默认开启了acl权限文件信息里项：D">
+<meta property="og:description" content="文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求，这时候就需要ACL权限，用来解决用户身份不够的问题 centos不需要开启ACL权限，xfs格式默认开启了ACL权限，可以直接使用getfacl和setfacl命令 查看分区ACL权限是否开启123456789df ＃查看分区dumpe2fs -h /dev/sda5#dumpe2fs命令时查询指定分区详细文件系统信息的命令-h">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-18T14:44:35.490Z">
+<meta property="og:updated_time" content="2018-05-18T15:54:11.893Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【Linux】Linux权限管理03 ACL">
-<meta name="twitter:description" content="文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求，这时候就需要ACL权限，用来解决用户身份不够的问题 查看分区ACL权限是否开启123456789df ＃查看分区dumpe2fs -h /dev/sda5#dumpe2fs命令时查询指定分区详细文件系统信息的命令-h  仅显示超级块中信息，而不显示磁盘块的详细信息#仅适用于ext4文件格式，xfs默认开启了acl权限文件信息里项：D">
+<meta name="twitter:title" content="【Linux】Linux权限管理03 ACL权限">
+<meta name="twitter:description" content="文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求，这时候就需要ACL权限，用来解决用户身份不够的问题 centos不需要开启ACL权限，xfs格式默认开启了ACL权限，可以直接使用getfacl和setfacl命令 查看分区ACL权限是否开启123456789df ＃查看分区dumpe2fs -h /dev/sda5#dumpe2fs命令时查询指定分区详细文件系统信息的命令-h">
 
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <title>【Linux】Linux权限管理03 ACL | 太阳落下</title>
+  <title>【Linux】Linux权限管理03 ACL权限 | 太阳落下</title>
   
 
 
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">【Linux】Linux权限管理03 ACL</h1>
+          <h1 class="post-title" itemprop="name headline">【Linux】Linux权限管理03 ACL权限</h1>
         
 
         <div class="post-meta">
@@ -335,6 +335,7 @@
 
       
         <p>文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求，这时候就需要ACL权限，用来解决用户身份不够的问题</p>
+<p>centos不需要开启ACL权限，xfs格式默认开启了ACL权限，可以直接使用getfacl和setfacl命令</p>
 <h2 id="查看分区ACL权限是否开启"><a href="#查看分区ACL权限是否开启" class="headerlink" title="查看分区ACL权限是否开启"></a>查看分区ACL权限是否开启</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">df ＃查看分区</div><div class="line">dumpe2fs -h /dev/sda5</div><div class="line">#dumpe2fs命令时查询指定分区详细文件系统信息的命令</div><div class="line">-h  仅显示超级块中信息，而不显示磁盘块的详细信息</div><div class="line">#仅适用于ext4文件格式，xfs默认开启了acl权限</div><div class="line"></div><div class="line">文件信息里项：</div><div class="line">Default mount options: user_xattr acl</div><div class="line">那就说明分区是支持acl的</div></pre></td></tr></table></figure>
 <h2 id="开启ACL权限"><a href="#开启ACL权限" class="headerlink" title="开启ACL权限"></a>开启ACL权限</h2><h4 id="临时开启分区ACL权限"><a href="#临时开启分区ACL权限" class="headerlink" title="临时开启分区ACL权限"></a>临时开启分区ACL权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mount -o remount,acl /</div><div class="line">#重新挂载根分区，并挂载加入acl权限</div></pre></td></tr></table></figure>
 <h4 id="永久开启分区ACL权限"><a href="#永久开启分区ACL权限" class="headerlink" title="永久开启分区ACL权限"></a>永久开启分区ACL权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vi /etc/fstab</div><div class="line"></div><div class="line">UUID=c2ca6f57-b15c-43ea=bca0-f239083d8bd2 / ext4 defaults,acl 1（＃启动是否需要检测） 1(#启动是否需要备份)</div><div class="line">#加入acl</div><div class="line"></div><div class="line">mount -o remount /</div><div class="line">#重新挂载文件系统或重启系统，使修改生效</div></pre></td></tr></table></figure>
@@ -375,7 +376,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2018/04/27/Linux权限管理-ACL/" title="【Linux】Linux权限管理03 ACL">http://yoursite.com/2018/04/27/Linux权限管理-ACL/</a>
+    <a href="http://yoursite.com/2018/04/27/Linux权限管理-ACL/" title="【Linux】Linux权限管理03 ACL权限">http://yoursite.com/2018/04/27/Linux权限管理-ACL/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -413,8 +414,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/27/Linux权限管理-sudo权限/" rel="prev" title="Linux权限管理 sudo权限">
-                Linux权限管理 sudo权限 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/27/Linux权限管理-sudo权限/" rel="prev" title="【Linux】Linux权限管理04 sudo权限">
+                【Linux】Linux权限管理04 sudo权限 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

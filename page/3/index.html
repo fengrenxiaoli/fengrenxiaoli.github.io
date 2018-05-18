@@ -283,7 +283,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/27/Linux权限管理-chattr、lsattr/" itemprop="url">Linux权限 chattr、lsattr</a></h1>
+                <a class="post-title-link" href="/2018/04/27/Linux权限管理-chattr、lsattr/" itemprop="url">【Linux】Linux权限06 chattr、lsattr</a></h1>
         
 
         <div class="post-meta">
@@ -335,7 +335,11 @@
       
         
           
-          作用在Linux中，有一些系统文件，对系统的运行有着至关重要的作用，如/etc/fstab等，一般不允许修改，这个时候，我们可以赋予文件/目录r--------的权限；然而，还有一个更为简单有效的命令
+          作用禁止修改某些重要的系统文件
+  
+使用条件
+所支持的文件系统包括：ext2、ext3、ext4和xfs
+一般要求内核版本不低于2.2(查看版本的命令如下：uname -a、lsb_release 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -409,7 +413,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/27/Linux权限管理-SUID、SGID、SBIT/" itemprop="url">Linux权限 SUID、SGID、SBIT</a></h1>
+                <a class="post-title-link" href="/2018/04/27/Linux权限管理-SUID、SGID、SBIT/" itemprop="url">【Linux】Linux权限05 SUID、SGID、SBIT</a></h1>
         
 
         <div class="post-meta">
@@ -461,9 +465,8 @@
       
         
           
-          SUID(SetUID)作用使用户临时具有程序所有者（比如root）的权限来执行该程序
-试想一个场景：
-Linux普通用户可以修改自己的密码，这个是一个合情合理的设置；修改密码其实修改的是 /etc/
+          SUID(SetUID)使用户临时具有程序所有者（比如root）的权限来执行该程序，比如调用/usr/bin/passwd命令修改自己的密码
+SetUID(或者 s 权限）：当一个具有执行权限的文件设
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -537,7 +540,7 @@ Linux普通用户可以修改自己的密码，这个是一个合情合理的设
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/27/Linux权限管理-sudo权限/" itemprop="url">Linux权限管理 sudo权限</a></h1>
+                <a class="post-title-link" href="/2018/04/27/Linux权限管理-sudo权限/" itemprop="url">【Linux】Linux权限管理04 sudo权限</a></h1>
         
 
         <div class="post-meta">
@@ -589,8 +592,9 @@ Linux普通用户可以修改自己的密码，这个是一个合情合理的设
       
         
           
-          
-          
+          目的赋予普通用户超级管理员的权限
+使用123456789101112131415visudo#实际修改的是/etc/sudoers文件root    ALL=(ALL)                
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/27/Linux权限管理-sudo权限/#more" rel="contents">
@@ -663,7 +667,7 @@ Linux普通用户可以修改自己的密码，这个是一个合情合理的设
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/27/Linux权限管理-ACL/" itemprop="url">【Linux】Linux权限管理03 ACL</a></h1>
+                <a class="post-title-link" href="/2018/04/27/Linux权限管理-ACL/" itemprop="url">【Linux】Linux权限管理03 ACL权限</a></h1>
         
 
         <div class="post-meta">
@@ -716,7 +720,7 @@ Linux普通用户可以修改自己的密码，这个是一个合情合理的设
         
           
           文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求，这时候就需要ACL权限，用来解决用户身份不够的问题
-查看分区ACL权限是否开启123456789df ＃查看分区dumpe2fs -h
+centos不需要开启ACL权限，xfs格式默认开启了ACL权限，可以直接使用ge
           ...
           <!--noindex-->
           <div class="post-button text-center">
