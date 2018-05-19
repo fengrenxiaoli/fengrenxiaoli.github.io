@@ -94,20 +94,18 @@
 
 
 
-<meta name="description" content="查看权限1ls -al  ##修改权限1234chmod [选项] 模式 文件名选项： -R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421] 权限的作用权限对文件的作用 r：读取文件内容（cat more head tail） w：编辑、新增、修改文件内容（vi echo），不包括新增文件和删除文件 x：可执行，判断是否为可执行文件  文件中的数据存">
+<meta name="description" content="查看权限1ls -al    第1位 2-4位 5-7位 8-10位 11位     - rwx r-x r-x .   文件类型 u所有者 g所属组 o其他人 ACL权限    r：读w：写x：执行  修改权限1234567chmod [选项] 模式 文件名选项：-R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]chmod a=rwx filen">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Linux】Linux权限管理01 一般权限">
 <meta property="og:url" content="http://yoursite.com/2018/04/27/Linux权限管理-一般权限/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="查看权限1ls -al  ##修改权限1234chmod [选项] 模式 文件名选项： -R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421] 权限的作用权限对文件的作用 r：读取文件内容（cat more head tail） w：编辑、新增、修改文件内容（vi echo），不包括新增文件和删除文件 x：可执行，判断是否为可执行文件  文件中的数据存">
+<meta property="og:description" content="查看权限1ls -al    第1位 2-4位 5-7位 8-10位 11位     - rwx r-x r-x .   文件类型 u所有者 g所属组 o其他人 ACL权限    r：读w：写x：执行  修改权限1234567chmod [选项] 模式 文件名选项：-R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]chmod a=rwx filen">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG46.png">
-<meta property="og:updated_time" content="2018-05-18T09:30:57.126Z">
+<meta property="og:updated_time" content="2018-05-19T00:18:12.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux权限管理01 一般权限">
-<meta name="twitter:description" content="查看权限1ls -al  ##修改权限1234chmod [选项] 模式 文件名选项： -R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421] 权限的作用权限对文件的作用 r：读取文件内容（cat more head tail） w：编辑、新增、修改文件内容（vi echo），不包括新增文件和删除文件 x：可执行，判断是否为可执行文件  文件中的数据存">
-<meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG46.png">
+<meta name="twitter:description" content="查看权限1ls -al    第1位 2-4位 5-7位 8-10位 11位     - rwx r-x r-x .   文件类型 u所有者 g所属组 o其他人 ACL权限    r：读w：写x：执行  修改权限1234567chmod [选项] 模式 文件名选项：-R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]chmod a=rwx filen">
 
 
 
@@ -337,22 +335,51 @@
 
       
         <h2 id="查看权限"><a href="#查看权限" class="headerlink" title="查看权限"></a>查看权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -al</div></pre></td></tr></table></figure>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG46.png" alt=""></p>
-<p>##修改权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">chmod [选项] 模式 文件名</div><div class="line">选项： </div><div class="line">-R 递归（用于目录）</div><div class="line">模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]</div></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>第1位</th>
+<th>2-4位</th>
+<th>5-7位</th>
+<th>8-10位</th>
+<th>11位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td>rwx</td>
+<td>r-x</td>
+<td>r-x</td>
+<td>.</td>
+</tr>
+<tr>
+<td>文件类型</td>
+<td>u所有者</td>
+<td>g所属组</td>
+<td>o其他人</td>
+<td>ACL权限</td>
+</tr>
+</tbody>
+</table>
+<p>r：读<br>w：写<br>x：执行</p>
+<p><br></p>
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">chmod [选项] 模式 文件名</div><div class="line"></div><div class="line">选项：-R 递归（用于目录）</div><div class="line">模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]</div><div class="line"></div><div class="line">chmod a=rwx filename</div><div class="line">chmod u+w filename</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="权限的作用"><a href="#权限的作用" class="headerlink" title="权限的作用"></a>权限的作用</h2><h4 id="权限对文件的作用"><a href="#权限对文件的作用" class="headerlink" title="权限对文件的作用"></a>权限对文件的作用</h4><ul>
-<li>r：读取文件内容（cat more head tail）</li>
-<li>w：编辑、新增、修改文件内容（vi echo），不包括新增文件和删除文件</li>
+<li>r：读取文件内容（cat/more/head/tail）</li>
+<li>w：编辑、新增、修改文件内容（vi/echo），不包括新增文件和删除文件</li>
 <li>x：可执行，判断是否为可执行文件</li>
 </ul>
-<p>文件中的数据存储在文件数据block里，而文件名储存位置在目录block中，要删除文件，意味着要删除文件名，所以要想删除文件，必须对目录储存块进行操作</p>
+<p>文件中的数据存储在文件数据block里，而文件名储存位置在目录block中，要删除文件，意味着要删除文件名，所以要想删除文件，必须对目录block进行操作</p>
 <h4 id="权限对目录的作用"><a href="#权限对目录的作用" class="headerlink" title="权限对目录的作用"></a>权限对目录的作用</h4><ul>
 <li>r：查询目录下的文件（ls）</li>
-<li>w：具有修改目录结构的权限。如新建文件和目录，删除此目录下的文件和目录，重命名此目录下文件和目录，剪切（touch rm mv cp）</li>
+<li>w：具有修改目录结构的权限。如新建文件和目录，删除此目录下的文件和目录，重命名此目录下文件和目录，剪切（touch/rm/mv/cp）</li>
 <li>x：进入目录（cd）</li>
 </ul>
-<p>对文件来说，最高权限是x<br>对目录来说，最高权限是w<br>目录只有0，5 ，7。4、1、6权限没有意义<br>文件的常用权限是777,644<br>目录的常用权限是777,755</p>
-<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#修改文件所有者</div><div class="line">chown 用户名 文件各</div><div class="line"></div><div class="line">#修改文件的所属组</div><div class="line">chgrp 所属组 文件名</div><div class="line"></div><div class="line">#同时修改文件的所有者和所属组</div><div class="line">chown 用户名:所属组 文件名:文件名</div></pre></td></tr></table></figure>
-<p>分配文件基本权限时，核心原则：在最小权限情况下能够实现要求即可</p>
+<p>对文件来说，最高权限是x<br>对目录来说，最高权限是w<br>目录只有0，5 ，7权限有意义。4、1、6权限没有意义<br>文件的常用权限是644<br>目录的常用权限是755</p>
+<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#修改文件所有者</div><div class="line">chown 用户名 文件各</div><div class="line"></div><div class="line">#修改文件的所属组</div><div class="line">chgrp 所属组 文件名</div><div class="line"></div><div class="line">#同时修改文件的所有者和所属组</div><div class="line">chown 用户名:所属组 文件名</div></pre></td></tr></table></figure>
+<p>分配文件基本权限时，核心原则：<strong>在最小权限情况下能够实现要求即可</strong></p>
 
       
     </div>
@@ -490,7 +517,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">81</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -503,7 +530,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -545,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看权限"><span class="nav-number">1.</span> <span class="nav-text">查看权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限的作用"><span class="nav-number">2.</span> <span class="nav-text">权限的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#权限对文件的作用"><span class="nav-number">2.0.1.</span> <span class="nav-text">权限对文件的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#权限对目录的作用"><span class="nav-number">2.0.2.</span> <span class="nav-text">权限对目录的作用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他命令"><span class="nav-number">3.</span> <span class="nav-text">其他命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看权限"><span class="nav-number">1.</span> <span class="nav-text">查看权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改权限"><span class="nav-number">2.</span> <span class="nav-text">修改权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限的作用"><span class="nav-number">3.</span> <span class="nav-text">权限的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#权限对文件的作用"><span class="nav-number">3.0.1.</span> <span class="nav-text">权限对文件的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#权限对目录的作用"><span class="nav-number">3.0.2.</span> <span class="nav-text">权限对目录的作用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他命令"><span class="nav-number">4.</span> <span class="nav-text">其他命令</span></a></li></ol></div>
             
 
           </div>
