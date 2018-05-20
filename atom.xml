@@ -36,11 +36,11 @@
   </entry>
   
   <entry>
-    <title>Shell 字符处理命令sort、wc</title>
+    <title>Shell正则表达式 字符处理命令sort、wc</title>
     <link href="http://yoursite.com/2018/05/20/Shell-%E5%AD%97%E7%AC%A6%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4sort%E3%80%81wc/"/>
     <id>http://yoursite.com/2018/05/20/Shell-字符处理命令sort、wc/</id>
     <published>2018-05-20T12:06:24.000Z</published>
-    <updated>2018-05-20T12:09:45.735Z</updated>
+    <updated>2018-05-20T12:23:02.195Z</updated>
     
     <content type="html"><![CDATA[<h2 id="排序命令sort"><a href="#排序命令sort" class="headerlink" title="排序命令sort"></a>排序命令sort</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">sort [选项]</div><div class="line">选项</div><div class="line">-f 忽略大小写</div><div class="line">-n 以数值型进行排序，默认使用字符串型排序</div><div class="line">-r 反向排序</div><div class="line">-t 指定分隔符,默认是制表符</div><div class="line">-k n[,m] 按照指定的字段范围排序.从第n字段开始,m字段结束(默认到行尾)</div><div class="line"></div><div class="line">sort /etc/passwd   </div><div class="line">#按照字母顺序a-z排列文件内容</div><div class="line">sort -r /etc/passwd   </div><div class="line">#反向排序，即按z-a顺序排列文件内容</div><div class="line">#sort -n -t &quot;:&quot; -k 3,3 /etc/passwd   </div><div class="line">#以数值型进行排序，指定分隔符为“:”，并只取第三字段的内容</div></pre></td></tr></table></figure>
 <h2 id="统计命令wc"><a href="#统计命令wc" class="headerlink" title="统计命令wc"></a>统计命令wc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wc [选项] 文件名</div><div class="line">选项:</div><div class="line">-l 只统计行数</div><div class="line">-w 只统计单词数</div><div class="line">-m 只统计字符数</div></pre></td></tr></table></figure>
@@ -58,11 +58,11 @@
   </entry>
   
   <entry>
-    <title>Shell sed命令</title>
+    <title>Shell正则表达式 sed命令</title>
     <link href="http://yoursite.com/2018/05/20/Shell-sed%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/05/20/Shell-sed命令/</id>
     <published>2018-05-20T10:28:14.000Z</published>
-    <updated>2018-05-20T12:03:47.000Z</updated>
+    <updated>2018-05-20T12:23:09.951Z</updated>
     
     <content type="html"><![CDATA[<p>sed是一种几乎包括在所有的UNIX平台（包括Linux）的轻量级流编辑器。sed主要是用来将数据进行选取、替换、删除、新增的命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">sed [选项] &apos;[动作]&apos; 文件名</div><div class="line">#&apos;&apos;不能省略</div><div class="line">选项:</div><div class="line">-n 只输出经过sed处理过的行到屏幕</div><div class="line">-e 允许一次应用多个动作</div><div class="line">-i 直接修改文件,并且不由屏幕输出</div><div class="line"></div><div class="line">动作:</div><div class="line">a：追加,在当前行后添加一行或多行</div><div class="line">i：插入,在当前行前插入一行或多行</div><div class="line">c：整行替换，用c后面的字符串替换原数据行</div><div class="line">d：删除，删除指定的行</div><div class="line">p：打印，输出指定的行</div><div class="line">s: 字串替换(替换格式与vim中的类似) &apos;行范围s/旧字串/新字串/g&apos;</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">sed -n &apos;2p&apos; student.txt         查看文件的第二行，如果没有-n将输出全部内容</div><div class="line">sed &apos;2,4d&apos; student.txt          表示删除第2-4行，但是不改变文件本身</div><div class="line">sed &apos;2a piaoliangdecxiaoguniang&apos; student.txt    在第2行之后添加字符串，但是不改变字符串本身</div><div class="line">sed &apos;2i heol&apos; student.txt       在第2行之前插入数据</div><div class="line">sed &apos;4c xxwmpg&apos; student.txt     将第二行的整行替换为xxwmpg</div><div class="line">sed &apos;6s/70/100/g&apos; student.txt   将第7行的所有70全部替换为100，如果不指定行的话会替换所有的指定字符串</div><div class="line">sed -i &apos;6s/70/100/g&apos; student.txt                sed操作的数据直接写入文件</div><div class="line">sed -e &apos;s/fengj//g&apos;;s/cang//g&apos; student.txt      同时把fengj和cang替换为空</div></pre></td></tr></table></figure>]]></content>
@@ -79,11 +79,11 @@
   </entry>
   
   <entry>
-    <title>Shell awk命令</title>
+    <title>Shell正则表达式 awk命令</title>
     <link href="http://yoursite.com/2018/05/20/Shell-awk%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/05/20/Shell-awk命令/</id>
     <published>2018-05-20T10:28:08.000Z</published>
-    <updated>2018-05-20T10:45:52.661Z</updated>
+    <updated>2018-05-20T12:23:15.243Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">awk &apos;条件1&#123;动作1&#125;条件2&#123;动作2&#125;...&apos; 文件名</div><div class="line"></div><div class="line">条件</div><div class="line">-一般使用关系表达式作为条件</div><div class="line">-x&gt;10、x&gt;=10、x&lt;=10</div><div class="line"></div><div class="line">动作</div><div class="line">-格式化输出</div><div class="line">-流程控制</div></pre></td></tr></table></figure>
 <p>一个条件满足，就执行条件后面{}内的动作。<br>没有条件就无条件执行{}内的动作，如果有条件，就只有满足条件才能执行{}内的动作。</p>
@@ -129,11 +129,11 @@
   </entry>
   
   <entry>
-    <title>Shell 字符截取命令cut</title>
+    <title>Shell正则表达式 字符截取命令cut</title>
     <link href="http://yoursite.com/2018/05/20/Shell-%E5%AD%97%E7%AC%A6%E6%88%AA%E5%8F%96%E5%91%BD%E4%BB%A4cut/"/>
     <id>http://yoursite.com/2018/05/20/Shell-字符截取命令cut/</id>
     <published>2018-05-20T09:49:22.000Z</published>
-    <updated>2018-05-20T10:18:00.369Z</updated>
+    <updated>2018-05-20T12:23:02.195Z</updated>
     
     <content type="html"><![CDATA[<p>grep行提取，cut列提取</p>
 <h2 id="cut命令"><a href="#cut命令" class="headerlink" title="cut命令"></a>cut命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cut [选项] 文件名</div><div class="line">选项 </div><div class="line">-f 列号：提取第几列（从1开始）</div><div class="line">-d 分隔符：按照指定分隔符分割列 默认为tab</div><div class="line"></div><div class="line">cut -f 列号,列号 文件名 （多个列号用逗号隔开；这个方法默认的文件以TAB制表符）</div><div class="line">cut -f 列号,列号 -d &quot;指定的分隔符&quot; 文件名</div><div class="line"></div><div class="line">grep &quot;bin/bash&quot; /etc/passwd     可以登录的用户</div><div class="line">grep &quot;bin/bash&quot; /etc/passwd | grep -v &quot;root&quot;    排除root的可登录用户</div><div class="line">grep &quot;bin/bash&quot; /etc/passwd | grep -v &quot;root&quot; | cut -f 1 -d &quot;:&quot; 提取非root登录用户用户名</div></pre></td></tr></table></figure>
@@ -173,11 +173,11 @@
   </entry>
   
   <entry>
-    <title>Shell 正则表达式</title>
+    <title>Shell正则表达式 概述</title>
     <link href="http://yoursite.com/2018/05/20/Shell-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     <id>http://yoursite.com/2018/05/20/Shell-正则表达式/</id>
     <published>2018-05-20T01:44:07.000Z</published>
-    <updated>2018-05-20T09:48:17.813Z</updated>
+    <updated>2018-05-20T12:22:30.507Z</updated>
     
     <content type="html"><![CDATA[<p>正则表达式是用于描述字符排列和匹配模式的一种语法规则。它主要用于字符串的模式分割、匹配、查找及替换操作。主要用于模糊匹配。</p>
 <h2 id="正则表达式与通配符的区别"><a href="#正则表达式与通配符的区别" class="headerlink" title="正则表达式与通配符的区别"></a>正则表达式与通配符的区别</h2><p>正则表达式用来在文件中匹配符合条件的<strong>字符串</strong>，正则是<strong>包含匹配</strong>。grep、awk、sed等命令可以支持正则表达式</p>
@@ -352,11 +352,11 @@
   </entry>
   
   <entry>
-    <title>Shell 变量测试</title>
+    <title>Shell运算符 变量测试</title>
     <link href="http://yoursite.com/2018/05/19/Shell-%E5%8F%98%E9%87%8F%E6%B5%8B%E8%AF%95/"/>
     <id>http://yoursite.com/2018/05/19/Shell-变量测试/</id>
     <published>2018-05-19T14:30:46.000Z</published>
-    <updated>2018-05-19T14:34:53.570Z</updated>
+    <updated>2018-05-20T12:21:43.939Z</updated>
     
     <content type="html"><![CDATA[<p>变量测试在脚本优化时使用</p>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG49.png" alt=""></p>
@@ -376,11 +376,11 @@
   </entry>
   
   <entry>
-    <title>Shell 数值运算</title>
+    <title>Shell运算符 数值运算</title>
     <link href="http://yoursite.com/2018/05/19/Shell-%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97/"/>
     <id>http://yoursite.com/2018/05/19/Shell-数值运算/</id>
     <published>2018-05-19T14:21:38.000Z</published>
-    <updated>2018-05-19T14:35:51.842Z</updated>
+    <updated>2018-05-20T12:21:22.439Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>记住一名话就OK，<code>$((运算式))</code></p>
@@ -408,11 +408,11 @@
   </entry>
   
   <entry>
-    <title>Shell declare命令</title>
+    <title>Shell运算符 declare命令</title>
     <link href="http://yoursite.com/2018/05/19/Shell-declare%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/05/19/Shell-declare命令/</id>
     <published>2018-05-19T14:02:08.000Z</published>
-    <updated>2018-05-19T14:20:56.418Z</updated>
+    <updated>2018-05-20T12:21:32.331Z</updated>
     
     <content type="html"><![CDATA[<h2 id="declare命令"><a href="#declare命令" class="headerlink" title="declare命令"></a>declare命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">declare [+/-][选项] 变量名 </div><div class="line">#declare命令用来声明shell的变量类型，因为shell变量默认都是字符串型</div><div class="line">选项：</div><div class="line">-：用于给变量设定类型属性</div><div class="line">+：用于取消变量的类型属性</div><div class="line">-a：将变量声明为数组型</div><div class="line">-i：将变量声明为整型</div><div class="line">-x：将变量声明为环境变量</div><div class="line">-r：将变量声明为只读变量</div><div class="line">-p：显示指定变量被声明的类型</div><div class="line"></div><div class="line">aa=11 </div><div class="line">bb=22</div><div class="line">declare -i cc=$aa+$bb</div><div class="line">declare -p c  #查看变量cc的类型</div><div class="line">#声明变量cc的类型是整数型，它的值是aa和bb的和</div></pre></td></tr></table></figure>
 <p><br></p>
@@ -436,11 +436,11 @@
   </entry>
   
   <entry>
-    <title>Shell Bash语系变量</title>
+    <title>Shell变量 Bash语系变量</title>
     <link href="http://yoursite.com/2018/05/19/Shell-Bash%E8%AF%AD%E7%B3%BB%E5%8F%98%E9%87%8F/"/>
     <id>http://yoursite.com/2018/05/19/Shell-Bash语系变量/</id>
     <published>2018-05-19T10:03:47.000Z</published>
-    <updated>2018-05-19T10:10:29.599Z</updated>
+    <updated>2018-05-20T12:23:24.947Z</updated>
     
     <content type="html"><![CDATA[<h2 id="当前语系查询"><a href="#当前语系查询" class="headerlink" title="当前语系查询"></a>当前语系查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">locale</div><div class="line">#查询当前系统语系</div><div class="line">#LANG:定义系统主语系的变量</div><div class="line">#LC_ALL:定义整体语系的变量</div></pre></td></tr></table></figure>
 <h2 id="语系变量LANG"><a href="#语系变量LANG" class="headerlink" title="语系变量LANG"></a>语系变量LANG</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">echo $LANG</div><div class="line">#查看系统当前语系</div><div class="line">locale -a | more</div><div class="line">#查看Linux支持的所有语系</div></pre></td></tr></table></figure>
@@ -466,11 +466,11 @@
   </entry>
   
   <entry>
-    <title>Shell 预定义变量和位置参数变量</title>
+    <title>Shell变量 预定义变量和位置参数变量</title>
     <link href="http://yoursite.com/2018/05/19/Shell-%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E5%92%8C%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0%E5%8F%98%E9%87%8F/"/>
     <id>http://yoursite.com/2018/05/19/Shell-预定义变量和位置参数变量/</id>
     <published>2018-05-19T09:52:46.000Z</published>
-    <updated>2018-05-19T12:31:01.171Z</updated>
+    <updated>2018-05-20T12:20:38.827Z</updated>
     
     <content type="html"><![CDATA[<style>
 table th:nth-of-type(1){
@@ -570,11 +570,11 @@ width: 70%
   </entry>
   
   <entry>
-    <title>Shell 环境变量</title>
+    <title>Shell变量 环境变量</title>
     <link href="http://yoursite.com/2018/05/19/Shell-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
     <id>http://yoursite.com/2018/05/19/Shell-环境变量/</id>
     <published>2018-05-19T07:32:58.000Z</published>
-    <updated>2018-05-19T16:47:25.694Z</updated>
+    <updated>2018-05-20T12:20:29.287Z</updated>
     
     <content type="html"><![CDATA[<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>定义每个用户的操作环境</p>
 <h2 id="环境变量与用户自定义变量的区别"><a href="#环境变量与用户自定义变量的区别" class="headerlink" title="环境变量与用户自定义变量的区别"></a>环境变量与用户自定义变量的区别</h2><p>环境变量是全局变量，用户自定义变量是局部变量。<br>用户自定义变量只在当前的 shell 中生效，环境变量在当前 shell 和这个 shell 的所有子 shell 中生效。<br>用户可以自定义环境变量，但对系统生效的环境变量名和变量作用是固定的。</p>
@@ -602,11 +602,11 @@ width: 70%
   </entry>
   
   <entry>
-    <title>Shell 用户自定义变量</title>
+    <title>Shell变量 用户自定义变量</title>
     <link href="http://yoursite.com/2018/05/19/Shell-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F/"/>
     <id>http://yoursite.com/2018/05/19/Shell-用户自定义变量/</id>
     <published>2018-05-19T07:32:37.000Z</published>
-    <updated>2018-05-19T09:33:43.455Z</updated>
+    <updated>2018-05-20T12:20:15.886Z</updated>
     
     <content type="html"><![CDATA[<h2 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">变量名=变量值</div><div class="line">#=号左右不可有空格</div><div class="line">#变量值有空格需要加&quot;&quot;</div><div class="line">#所有变量默认的值都是字符串类型，不可做Math运算</div><div class="line"></div><div class="line">x=5</div><div class="line">x=&quot;hello jx&quot;</div></pre></td></tr></table></figure>
 <p><br></p>
