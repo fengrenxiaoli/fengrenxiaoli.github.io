@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="Windows中的默认权限是从上级目录中继承的Linux的默认权限是通过umask设置的 查看默认权限123456umask #查看默认权限00220：文件特殊权限022：文件默认权限 修改默认权限12345# 临时修改umask 0002# 永久修改vi /etc/profile 文件的默认权限 文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为666 默认权限需要推算成字">
+<meta name="description" content="Windows中的默认权限是从上级目录中继承的Linux的默认权限是通过umask设置的 查看默认权限123456umask #查看默认权限00220：文件特殊权限022：文件默认权限 修改默认权限12345# 临时修改umask 0002# 永久修改vi /etc/profile 文件的默认权限 文件默认最高权限为666 文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为6">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Linux】Linux权限管理02 默认权限">
 <meta property="og:url" content="http://yoursite.com/2018/04/27/Linux权限管理-默认权限/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="Windows中的默认权限是从上级目录中继承的Linux的默认权限是通过umask设置的 查看默认权限123456umask #查看默认权限00220：文件特殊权限022：文件默认权限 修改默认权限12345# 临时修改umask 0002# 永久修改vi /etc/profile 文件的默认权限 文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为666 默认权限需要推算成字">
+<meta property="og:description" content="Windows中的默认权限是从上级目录中继承的Linux的默认权限是通过umask设置的 查看默认权限123456umask #查看默认权限00220：文件特殊权限022：文件默认权限 修改默认权限12345# 临时修改umask 0002# 永久修改vi /etc/profile 文件的默认权限 文件默认最高权限为666 文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为6">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG47.png">
-<meta property="og:updated_time" content="2018-05-19T00:20:37.310Z">
+<meta property="og:updated_time" content="2018-05-19T16:55:45.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux权限管理02 默认权限">
-<meta name="twitter:description" content="Windows中的默认权限是从上级目录中继承的Linux的默认权限是通过umask设置的 查看默认权限123456umask #查看默认权限00220：文件特殊权限022：文件默认权限 修改默认权限12345# 临时修改umask 0002# 永久修改vi /etc/profile 文件的默认权限 文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为666 默认权限需要推算成字">
+<meta name="twitter:description" content="Windows中的默认权限是从上级目录中继承的Linux的默认权限是通过umask设置的 查看默认权限123456umask #查看默认权限00220：文件特殊权限022：文件默认权限 修改默认权限12345# 临时修改umask 0002# 永久修改vi /etc/profile 文件的默认权限 文件默认最高权限为666 文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为6">
 <meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG47.png">
 
 
@@ -340,6 +340,7 @@
 <h2 id="查看默认权限"><a href="#查看默认权限" class="headerlink" title="查看默认权限"></a>查看默认权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">umask </div><div class="line">#查看默认权限</div><div class="line"></div><div class="line">0022</div><div class="line">0：文件特殊权限</div><div class="line">022：文件默认权限</div></pre></td></tr></table></figure>
 <h2 id="修改默认权限"><a href="#修改默认权限" class="headerlink" title="修改默认权限"></a>修改默认权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 临时修改</div><div class="line">umask 0002</div><div class="line"></div><div class="line"># 永久修改</div><div class="line">vi /etc/profile</div></pre></td></tr></table></figure>
 <h2 id="文件的默认权限"><a href="#文件的默认权限" class="headerlink" title="文件的默认权限"></a>文件的默认权限</h2><ul>
+<li>文件默认最高权限为666</li>
 <li>文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为666</li>
 <li>默认权限需要推算成字母（rwx）再相减</li>
 <li>建立文件之后的默认权限，为666减去umask值</li>
@@ -490,7 +491,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">96</span>
+                <span class="site-state-item-count">104</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

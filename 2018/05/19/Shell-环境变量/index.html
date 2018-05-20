@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="环境变量与用户自定义变量的区别环境变量是全局变量，用户自定义变量是局部变量。用户自定义变量只在当前的 shell 中生效，环境变量在当前 shell 和这个 shell 的所有子 shell 中生效。用户可以自定义环境变量，但对系统生效的环境变量名和变量作用是固定的。  用户自定义环境变量123456789export 变量名=变量值或变量名=变量值export 变量名export Y=1Z=1e">
+<meta name="description" content="作用定义每个用户的操作环境 环境变量与用户自定义变量的区别环境变量是全局变量，用户自定义变量是局部变量。用户自定义变量只在当前的 shell 中生效，环境变量在当前 shell 和这个 shell 的所有子 shell 中生效。用户可以自定义环境变量，但对系统生效的环境变量名和变量作用是固定的。  用户自定义环境变量123456789export 变量名=变量值或变量名=变量值export 变量名">
 <meta name="keywords" content="Shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell 环境变量">
 <meta property="og:url" content="http://yoursite.com/2018/05/19/Shell-环境变量/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="环境变量与用户自定义变量的区别环境变量是全局变量，用户自定义变量是局部变量。用户自定义变量只在当前的 shell 中生效，环境变量在当前 shell 和这个 shell 的所有子 shell 中生效。用户可以自定义环境变量，但对系统生效的环境变量名和变量作用是固定的。  用户自定义环境变量123456789export 变量名=变量值或变量名=变量值export 变量名export Y=1Z=1e">
+<meta property="og:description" content="作用定义每个用户的操作环境 环境变量与用户自定义变量的区别环境变量是全局变量，用户自定义变量是局部变量。用户自定义变量只在当前的 shell 中生效，环境变量在当前 shell 和这个 shell 的所有子 shell 中生效。用户可以自定义环境变量，但对系统生效的环境变量名和变量作用是固定的。  用户自定义环境变量123456789export 变量名=变量值或变量名=变量值export 变量名">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-19T09:41:51.007Z">
+<meta property="og:updated_time" content="2018-05-19T16:47:25.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell 环境变量">
-<meta name="twitter:description" content="环境变量与用户自定义变量的区别环境变量是全局变量，用户自定义变量是局部变量。用户自定义变量只在当前的 shell 中生效，环境变量在当前 shell 和这个 shell 的所有子 shell 中生效。用户可以自定义环境变量，但对系统生效的环境变量名和变量作用是固定的。  用户自定义环境变量123456789export 变量名=变量值或变量名=变量值export 变量名export Y=1Z=1e">
+<meta name="twitter:description" content="作用定义每个用户的操作环境 环境变量与用户自定义变量的区别环境变量是全局变量，用户自定义变量是局部变量。用户自定义变量只在当前的 shell 中生效，环境变量在当前 shell 和这个 shell 的所有子 shell 中生效。用户可以自定义环境变量，但对系统生效的环境变量名和变量作用是固定的。  用户自定义环境变量123456789export 变量名=变量值或变量名=变量值export 变量名">
 
 
 
@@ -334,7 +334,8 @@
       
 
       
-        <h2 id="环境变量与用户自定义变量的区别"><a href="#环境变量与用户自定义变量的区别" class="headerlink" title="环境变量与用户自定义变量的区别"></a>环境变量与用户自定义变量的区别</h2><p>环境变量是全局变量，用户自定义变量是局部变量。<br>用户自定义变量只在当前的 shell 中生效，环境变量在当前 shell 和这个 shell 的所有子 shell 中生效。<br>用户可以自定义环境变量，但对系统生效的环境变量名和变量作用是固定的。</p>
+        <h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>定义每个用户的操作环境</p>
+<h2 id="环境变量与用户自定义变量的区别"><a href="#环境变量与用户自定义变量的区别" class="headerlink" title="环境变量与用户自定义变量的区别"></a>环境变量与用户自定义变量的区别</h2><p>环境变量是全局变量，用户自定义变量是局部变量。<br>用户自定义变量只在当前的 shell 中生效，环境变量在当前 shell 和这个 shell 的所有子 shell 中生效。<br>用户可以自定义环境变量，但对系统生效的环境变量名和变量作用是固定的。</p>
 <p><br></p>
 <h2 id="用户自定义环境变量"><a href="#用户自定义环境变量" class="headerlink" title="用户自定义环境变量"></a>用户自定义环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">export 变量名=变量值</div><div class="line">或</div><div class="line">变量名=变量值</div><div class="line">export 变量名</div><div class="line"></div><div class="line">export Y=1</div><div class="line"></div><div class="line">Z=1</div><div class="line">export Z</div></pre></td></tr></table></figure>
 <p><br></p>
@@ -481,7 +482,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">96</span>
+                <span class="site-state-item-count">104</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -536,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境变量与用户自定义变量的区别"><span class="nav-number">1.</span> <span class="nav-text">环境变量与用户自定义变量的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户自定义环境变量"><span class="nav-number">2.</span> <span class="nav-text">用户自定义环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看环境变量"><span class="nav-number">3.</span> <span class="nav-text">查看环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除环境变量"><span class="nav-number">4.</span> <span class="nav-text">删除环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的环境变量"><span class="nav-number">5.</span> <span class="nav-text">常用的环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PATH环境变量"><span class="nav-number">5.0.1.</span> <span class="nav-text">PATH环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PS1环境变量"><span class="nav-number">5.0.2.</span> <span class="nav-text">PS1环境变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用"><span class="nav-number">1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境变量与用户自定义变量的区别"><span class="nav-number">2.</span> <span class="nav-text">环境变量与用户自定义变量的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户自定义环境变量"><span class="nav-number">3.</span> <span class="nav-text">用户自定义环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看环境变量"><span class="nav-number">4.</span> <span class="nav-text">查看环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除环境变量"><span class="nav-number">5.</span> <span class="nav-text">删除环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的环境变量"><span class="nav-number">6.</span> <span class="nav-text">常用的环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PATH环境变量"><span class="nav-number">6.0.1.</span> <span class="nav-text">PATH环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PS1环境变量"><span class="nav-number">6.0.2.</span> <span class="nav-text">PS1环境变量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

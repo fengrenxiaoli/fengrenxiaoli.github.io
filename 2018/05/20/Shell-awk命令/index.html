@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="符号 作用     ? 匹配一个任意字符   * 匹配0个或多个任意字符   [] 匹配括号中任意一个字符   [-] 匹配括号中任意一个字符，-代表一个范围   [^] 匹配不是括号中的一个字符    Bash中其他特殊符号|符号 |作用 ||–| –||’’| 单引号，在单引号中左右的特殊符号，如$、(反引号)都没有特殊含义| |&amp;quot;&amp;quot;| 双引号，在双引号中左右的特殊符">
+<meta name="description" content="123456789awk &amp;apos;条件1&amp;#123;动作1&amp;#125;条件2&amp;#123;动作2&amp;#125;...&amp;apos; 文件名条件-一般使用关系表达式作为条件-x&amp;gt;10、x&amp;gt;=10、x&amp;lt;=10动作-格式化输出-流程控制 一个条件满足，就执行条件后面{}内的动作。没有条件就无条件执行{}内的动作，如果有条件，就只有满足条件才能执行{}内的动作。 awk的流程：依次读取每一">
 <meta name="keywords" content="Shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shell 通配符">
-<meta property="og:url" content="http://yoursite.com/2018/05/19/Shell-通配符/index.html">
+<meta property="og:title" content="Shell awk命令">
+<meta property="og:url" content="http://yoursite.com/2018/05/20/Shell-awk命令/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="符号 作用     ? 匹配一个任意字符   * 匹配0个或多个任意字符   [] 匹配括号中任意一个字符   [-] 匹配括号中任意一个字符，-代表一个范围   [^] 匹配不是括号中的一个字符    Bash中其他特殊符号|符号 |作用 ||–| –||’’| 单引号，在单引号中左右的特殊符号，如$、(反引号)都没有特殊含义| |&amp;quot;&amp;quot;| 双引号，在双引号中左右的特殊符">
+<meta property="og:description" content="123456789awk &amp;apos;条件1&amp;#123;动作1&amp;#125;条件2&amp;#123;动作2&amp;#125;...&amp;apos; 文件名条件-一般使用关系表达式作为条件-x&amp;gt;10、x&amp;gt;=10、x&amp;lt;=10动作-格式化输出-流程控制 一个条件满足，就执行条件后面{}内的动作。没有条件就无条件执行{}内的动作，如果有条件，就只有满足条件才能执行{}内的动作。 awk的流程：依次读取每一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-19T04:19:12.540Z">
+<meta property="og:updated_time" content="2018-05-20T10:45:52.661Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shell 通配符">
-<meta name="twitter:description" content="符号 作用     ? 匹配一个任意字符   * 匹配0个或多个任意字符   [] 匹配括号中任意一个字符   [-] 匹配括号中任意一个字符，-代表一个范围   [^] 匹配不是括号中的一个字符    Bash中其他特殊符号|符号 |作用 ||–| –||’’| 单引号，在单引号中左右的特殊符号，如$、(反引号)都没有特殊含义| |&amp;quot;&amp;quot;| 双引号，在双引号中左右的特殊符">
+<meta name="twitter:title" content="Shell awk命令">
+<meta name="twitter:description" content="123456789awk &amp;apos;条件1&amp;#123;动作1&amp;#125;条件2&amp;#123;动作2&amp;#125;...&amp;apos; 文件名条件-一般使用关系表达式作为条件-x&amp;gt;10、x&amp;gt;=10、x&amp;lt;=10动作-格式化输出-流程控制 一个条件满足，就执行条件后面{}内的动作。没有条件就无条件执行{}内的动作，如果有条件，就只有满足条件才能执行{}内的动作。 awk的流程：依次读取每一">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/19/Shell-通配符/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/20/Shell-awk命令/"/>
 
 
 
 
 
-  <title>Shell 通配符 | 太阳落下</title>
+  <title>Shell awk命令 | 太阳落下</title>
   
 
 
@@ -267,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/19/Shell-通配符/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/20/Shell-awk命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Shell 通配符</h1>
+          <h1 class="post-title" itemprop="name headline">Shell awk命令</h1>
         
 
         <div class="post-meta">
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-19T12:04:43+08:00">
-                2018-05-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-20T18:28:08+08:00">
+                2018-05-20
               </time>
             
 
@@ -334,39 +334,14 @@
       
 
       
-        <table>
-<thead>
-<tr>
-<th>符号</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>?</td>
-<td>匹配一个任意字符</td>
-</tr>
-<tr>
-<td>*</td>
-<td>匹配0个或多个任意字符</td>
-</tr>
-<tr>
-<td>[]</td>
-<td>匹配括号中任意一个字符</td>
-</tr>
-<tr>
-<td>[-]</td>
-<td>匹配括号中任意一个字符，-代表一个范围</td>
-</tr>
-<tr>
-<td>[^]</td>
-<td>匹配不是括号中的一个字符</td>
-</tr>
-</tbody>
-</table>
-<p>Bash中其他特殊符号<br>|符号 |作用 |<br>|–| –|<br>|’’| 单引号，在单引号中左右的特殊符号，如$、<code>(反引号)都没有特殊含义|
-|&quot;&quot;| 双引号，在双引号中左右的特殊符号都没有特殊含义，但是“$”,&quot;</code>“,”\”是例外。拥有“调用变量的值”，“引用命令”和“转义符”的特殊含义|<br>|``| 反引号，反引号括起来的内容是系统命令，在Bash中会先执行它。和$()作用一样。不过推荐使用$()，因为反引号非常容易看错|<br>|$() |和反引号作用一样，用来引用系统命令|<br>|# |在Shell脚本中，#开头的行代表注释|<br>|$ |用于调用变量的值，如需要调用变量name的值时，需要用$name的方式得到变量的值|<br>|\ |转义符，跟在\之后的特殊符号将失去特殊含义，变为普通字符。如\\$将输出”$”符号，而不再是变量引用|</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">echo `ls`</div><div class="line">echo date</div><div class="line">echo `date`</div><div class="line">echo $(date)</div><div class="line"></div><div class="line">name=xi</div><div class="line">echo &apos;$name&apos;</div><div class="line">echo &quot;$name&quot;</div><div class="line">echo &apos;$(date)&apos;</div><div class="line">echo &quot;$(date)&quot;</div></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">awk &apos;条件1&#123;动作1&#125;条件2&#123;动作2&#125;...&apos; 文件名</div><div class="line"></div><div class="line">条件</div><div class="line">-一般使用关系表达式作为条件</div><div class="line">-x&gt;10、x&gt;=10、x&lt;=10</div><div class="line"></div><div class="line">动作</div><div class="line">-格式化输出</div><div class="line">-流程控制</div></pre></td></tr></table></figure>
+<p>一个条件满足，就执行条件后面{}内的动作。<br>没有条件就无条件执行{}内的动作，如果有条件，就只有满足条件才能执行{}内的动作。</p>
+<p>awk的流程：依次读取每一行数据，读取完一行数据后，进行条件判断，如果满足条件，就执行该条件对应的动作，其中文件名为$0，剩下的每一列依次为$1\$2…，判断完一行后，继续判断下一行，直到知道文件全部判断完</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">awk &apos;&#123;printf $2 &quot;\t&quot; $4&quot;\n&quot;&#125;&apos; student.txt </div><div class="line">#注意printf里面输出格式的双引号，printf中的转义符号都要用&quot;&quot;括起来。</div><div class="line">#printf后面要接换行符&quot;\n&quot;</div><div class="line"></div><div class="line">df -h| awk &apos;&#123;printf $1&quot;\t&quot; $5&quot;\n&quot;&#125;&apos;</div><div class="line">#查看系统使用率</div></pre></td></tr></table></figure>
+<h2 id="BAGIN条件"><a href="#BAGIN条件" class="headerlink" title="BAGIN条件"></a>BAGIN条件</h2><p>条件BAGIN表示在所有动作执行前先执行BEGIN后的那个动作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">df -h | awk &apos;BEGIN&#123;print &quot;test&quot;&#125;&#123;print $1 &quot;\t&quot; $3&#125;&apos;</div><div class="line">会在最前面输出test</div><div class="line">awk在指定分隔符前面一定要加BEGIN</div></pre></td></tr></table></figure></p>
+<h2 id="END条件"><a href="#END条件" class="headerlink" title="END条件"></a>END条件</h2><p>条件END表示在所有动作执行后才执行END后的那个动作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#df -h | awk &apos;END&#123;print &quot;test&quot;&#125;&#123;print $1 &quot;\t&quot; $3&#125;&apos; </div><div class="line">会在最后面输出test</div></pre></td></tr></table></figure></p>
+<h2 id="FS内置变量"><a href="#FS内置变量" class="headerlink" title="FS内置变量"></a>FS内置变量</h2><p>修改分隔符（默认为空格和制表符）<br>在修改FS的变量的动作前要加上BEGIN，这样在执行所有其它动作之前先修改分割符，否则读取第一行数据的时候不能识别指定的分隔符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cat /etc/passwd | grep &quot;/bin/bash&quot; | awk &apos;BEGIN&#123;FS=&quot;:&quot;&#125;&#123;print $1 &quot;\t&quot; #3&#125;&apos;</div><div class="line">#awk在指定分隔符前面一定要加BEGIN，此例截取第1、3列</div><div class="line"></div><div class="line">cat student.txt | grep -v Name | awk &apos;$4&gt;=70&#123;print $2&#125;&apos;</div><div class="line">#此例截取除了列头的成绩大于等于70分的学生姓名，grep -v Name为取反命令，不输出带“Name”的行</div></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -386,7 +361,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2018/05/19/Shell-通配符/" title="Shell 通配符">http://yoursite.com/2018/05/19/Shell-通配符/</a>
+    <a href="http://yoursite.com/2018/05/20/Shell-awk命令/" title="Shell awk命令">http://yoursite.com/2018/05/20/Shell-awk命令/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -414,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/19/Shell-多命令顺序执行和管道符/" rel="next" title="Shell 管道符">
-                <i class="fa fa-chevron-left"></i> Shell 管道符
+              <a href="/2018/05/20/Shell-格式化输出命令printf/" rel="next" title="Shell 格式化输出命令printf">
+                <i class="fa fa-chevron-left"></i> Shell 格式化输出命令printf
               </a>
             
           </div>
@@ -424,8 +399,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/19/Shell-变量/" rel="prev" title="Shell 变量">
-                Shell 变量 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/20/Shell-sed命令/" rel="prev" title="Shell sed命令">
+                Shell sed命令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -478,8 +453,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -494,7 +478,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">96</span>
+                <span class="site-state-item-count">104</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -539,6 +523,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BAGIN条件"><span class="nav-number">1.</span> <span class="nav-text">BAGIN条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#END条件"><span class="nav-number">2.</span> <span class="nav-text">END条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FS内置变量"><span class="nav-number">3.</span> <span class="nav-text">FS内置变量</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
