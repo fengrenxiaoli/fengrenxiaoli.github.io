@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG40.png">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG41.png">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG42.png">
-<meta property="og:updated_time" content="2018-05-18T03:26:08.400Z">
+<meta property="og:updated_time" content="2018-05-21T09:26:23.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux定时任务">
 <meta name="twitter:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70% ; }   at 一次性定时任务12345chkconfig --list |grep atd#确定at安装service atd restart#启动at服务 访问控制  如果系统中有/etc/at.allow文件(白名单)，那么只有在此文件的用">
@@ -454,17 +454,17 @@ width: 70%
 <h4 id="执行系统任务的方法"><a href="#执行系统任务的方法" class="headerlink" title="执行系统任务的方法"></a>执行系统任务的方法</h4><ul>
 <li>手工执行定时任务：crontab -e</li>
 <li>系统定时任务<ul>
-<li>将定时任务脚本复制到/etc/cron.{hourly,daily,weekly,monthly}目录中，就能自动定时执行（推荐）</li>
+<li>将定时任务脚本复制到<code>/etc/cron.{hourly,daily,weekly,monthly}</code>目录中，就能自动定时执行（推荐）</li>
 <li>修改crontab配置文件</li>
 </ul>
 </li>
 </ul>
 <h4 id="crontab相关文件"><a href="#crontab相关文件" class="headerlink" title="crontab相关文件"></a>crontab相关文件</h4><ul>
-<li>/etc/crontab            #系统配置文件，只有root用户才会把这些内容载入到计任务表中</li>
-<li>/var/spool/cron         #最终生成的计划任务文件</li>
-<li>/var/spool/cron/root    #root用户的定时任务</li>
-<li>/var/spool/cron/user1   #user1用户的定时任务</li>
-<li>/var/log/cron           #crontab日志，保存cron的任务执行记录，echo会打印到这里 </li>
+<li>/etc/crontab              #系统配置文件，只有root用户才会把这些内容载入到计任务表中</li>
+<li>/var/spool/cron           #最终生成的计划任务文件</li>
+<li>/var/spool/cron/root      #root用户的定时任务</li>
+<li>/var/spool/cron/user1     #user1用户的定时任务</li>
+<li>/var/log/cron             #crontab日志，保存cron的任务执行记录，echo会打印到这里 </li>
 <li>/var/log/cron-日期      </li>
 </ul>
 <p><br></p>

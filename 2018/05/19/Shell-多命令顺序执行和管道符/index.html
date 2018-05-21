@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="多命令顺序执行   多命令执行符 格式 作用     ; 命令1;命令2 多个命令顺序执行，命令之间没有任何逻辑联系   &amp;amp;&amp;amp; 命令1&amp;amp;&amp;amp;命令2 逻辑与当命令1正确执行，则命令2才会执行当命令1执行不正确，则命令2不会执行   `  ` 命令1\ \ 命令2 逻辑或当命令1执行不正确，则命令2才会执行当命令1正确执行，则命令2不会执行    123456date ;">
+<meta name="description" content="多命令顺序执行   多命令执行符 格式 作用     ; 命令1;命令2 多个命令顺序执行，命令之间没有任何逻辑联系   &amp;amp;&amp;amp; 命令1&amp;amp;&amp;amp;命令2 逻辑与当命令1正确执行，则命令2才会执行当命令1执行不正确，则命令2不会执行   `  ` 命令1`  `命令2 逻辑或当命令1执行不正确，则命令2才会执行当命令1正确执行，则命令2不会执行    123456date ;">
 <meta name="keywords" content="Shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell 管道符">
 <meta property="og:url" content="http://yoursite.com/2018/05/19/Shell-多命令顺序执行和管道符/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="多命令顺序执行   多命令执行符 格式 作用     ; 命令1;命令2 多个命令顺序执行，命令之间没有任何逻辑联系   &amp;amp;&amp;amp; 命令1&amp;amp;&amp;amp;命令2 逻辑与当命令1正确执行，则命令2才会执行当命令1执行不正确，则命令2不会执行   `  ` 命令1\ \ 命令2 逻辑或当命令1执行不正确，则命令2才会执行当命令1正确执行，则命令2不会执行    123456date ;">
+<meta property="og:description" content="多命令顺序执行   多命令执行符 格式 作用     ; 命令1;命令2 多个命令顺序执行，命令之间没有任何逻辑联系   &amp;amp;&amp;amp; 命令1&amp;amp;&amp;amp;命令2 逻辑与当命令1正确执行，则命令2才会执行当命令1执行不正确，则命令2不会执行   `  ` 命令1`  `命令2 逻辑或当命令1执行不正确，则命令2才会执行当命令1正确执行，则命令2不会执行    123456date ;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-19T04:04:18.370Z">
+<meta property="og:updated_time" content="2018-05-21T09:25:53.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell 管道符">
-<meta name="twitter:description" content="多命令顺序执行   多命令执行符 格式 作用     ; 命令1;命令2 多个命令顺序执行，命令之间没有任何逻辑联系   &amp;amp;&amp;amp; 命令1&amp;amp;&amp;amp;命令2 逻辑与当命令1正确执行，则命令2才会执行当命令1执行不正确，则命令2不会执行   `  ` 命令1\ \ 命令2 逻辑或当命令1执行不正确，则命令2才会执行当命令1正确执行，则命令2不会执行    123456date ;">
+<meta name="twitter:description" content="多命令顺序执行   多命令执行符 格式 作用     ; 命令1;命令2 多个命令顺序执行，命令之间没有任何逻辑联系   &amp;amp;&amp;amp; 命令1&amp;amp;&amp;amp;命令2 逻辑与当命令1正确执行，则命令2才会执行当命令1执行不正确，则命令2不会执行   `  ` 命令1`  `命令2 逻辑或当命令1执行不正确，则命令2才会执行当命令1正确执行，则命令2不会执行    123456date ;">
 
 
 
@@ -357,9 +357,9 @@
 <td>`</td>
 <td></td>
 <td>`</td>
-<td>命令1\</td>
-<td>\</td>
-<td>命令2</td>
+<td>命令1`</td>
+<td></td>
+<td>`命令2</td>
 <td>逻辑或<br>当命令1执行不正确，则命令2才会执行<br>当命令1正确执行，则命令2不会执行</td>
 </tr>
 </tbody>

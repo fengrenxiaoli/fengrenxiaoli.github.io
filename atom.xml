@@ -739,7 +739,7 @@ width: 70%
     <link href="http://yoursite.com/2018/05/19/Shell-%E5%A4%9A%E5%91%BD%E4%BB%A4%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%92%8C%E7%AE%A1%E9%81%93%E7%AC%A6/"/>
     <id>http://yoursite.com/2018/05/19/Shell-多命令顺序执行和管道符/</id>
     <published>2018-05-19T02:43:28.000Z</published>
-    <updated>2018-05-19T04:04:18.370Z</updated>
+    <updated>2018-05-21T09:25:53.063Z</updated>
     
     <content type="html"><![CDATA[<h2 id="多命令顺序执行"><a href="#多命令顺序执行" class="headerlink" title="多命令顺序执行"></a>多命令顺序执行</h2><table>
 <thead>
@@ -764,9 +764,9 @@ width: 70%
 <td>`</td>
 <td></td>
 <td>`</td>
-<td>命令1\</td>
-<td>\</td>
-<td>命令2</td>
+<td>命令1`</td>
+<td></td>
+<td>`命令2</td>
 <td>逻辑或<br>当命令1执行不正确，则命令2才会执行<br>当命令1正确执行，则命令2不会执行</td>
 </tr>
 </tbody>
