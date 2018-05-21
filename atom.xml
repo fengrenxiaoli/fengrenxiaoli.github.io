@@ -36,6 +36,28 @@
   </entry>
   
   <entry>
+    <title>awk: run time error: not enough arguments passed to printf(5%)</title>
+    <link href="http://yoursite.com/2018/05/21/awk-run-time-error-not-enough-arguments-passed-to-printf-5/"/>
+    <id>http://yoursite.com/2018/05/21/awk-run-time-error-not-enough-arguments-passed-to-printf-5/</id>
+    <published>2018-05-21T00:25:38.000Z</published>
+    <updated>2018-05-21T00:29:53.539Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>使用<code>awk &#39;{printf $1}&#39;</code>时，系统提示出错，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">awk: run time error: not enough arguments passed to printf(&quot;5%&quot;)</div><div class="line">        FILENAME=&quot;b&quot; FNR=1 NR=1</div></pre></td></tr></table></figure></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>因为要输出的内容里<code>5%</code> 包含<code>%</code>，printf认为这是格式语句，所以更改printf的使用方式<br>使用如下格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">awk &apos;&#123;printf(&quot;%s&quot;,$1)&#125;&apos;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;使用&lt;code&gt;awk &amp;#39;{printf $1}&amp;#39;&lt;/code&gt;时，系统提示出错，如下&lt;br&gt;&lt;figure class=&quot;
+    
+    </summary>
+    
+    
+      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Shell正则表达式 字符处理命令sort、wc</title>
     <link href="http://yoursite.com/2018/05/20/Shell-%E5%AD%97%E7%AC%A6%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4sort%E3%80%81wc/"/>
     <id>http://yoursite.com/2018/05/20/Shell-字符处理命令sort、wc/</id>
@@ -761,74 +783,6 @@ width: 70%
 &lt;th&gt;多命令执行符&lt;/th&gt;
 &lt;th&gt;格式&lt;/th&gt;
 &lt;th&gt;
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell 重定向</title>
-    <link href="http://yoursite.com/2018/05/19/Shell-%E9%87%8D%E5%AE%9A%E5%90%91/"/>
-    <id>http://yoursite.com/2018/05/19/Shell-重定向/</id>
-    <published>2018-05-19T02:41:59.000Z</published>
-    <updated>2018-05-19T03:47:45.445Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="文件标识符："><a href="#文件标识符：" class="headerlink" title="文件标识符："></a>文件标识符：</h2><table>
-<thead>
-<tr>
-<th>设备</th>
-<th>设备文件名</th>
-<th>文件标识符</th>
-<th>类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>键盘</td>
-<td>/dev/stdin</td>
-<td>0</td>
-<td>标准输入</td>
-</tr>
-<tr>
-<td>显示器</td>
-<td>/dev/stdout</td>
-<td>1</td>
-<td>标准输出</td>
-</tr>
-<tr>
-<td>显示器</td>
-<td>/dev/stderr</td>
-<td>2</td>
-<td>标准错误输出</td>
-</tr>
-</tbody>
-</table>
-<p>3-9是保留的标识符</p>
-<p><br></p>
-<h2 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h2><p>一旦使用数字、&amp;，数字、&amp;和&gt;、&gt;&gt;之间不能有空格<br>没有数字、%有无空格没有关系，但是为了方便还是有比较好</p>
-<table><br>    <tr><br>        <td>类型</td><br>        <td>符号</td><br>        <td>作用</td><br>    </tr><br>    <tr><br>        <td rowspan="2">标准输出重定向</td><br>        <td>命令 &gt; 文件</td><br>        <td>以覆盖的方式，把命令的正确输出输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td>命令 &gt;&gt; 文件</td><br>        <td>以追加的方式把命令的正确输出输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td rowspan="2">标准错误输出重定向</td><br>        <td>错误命令 2&gt;文件</td><br>        <td>以覆盖的方式把命令的错误输出输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td>错误命令 2&gt;&gt;文件</td><br>        <td>以追加的方式把命令的错误输出输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td rowspan="5">正确输出和错误输出同时保存</td><br>        <td>命令 &gt;文件 2&gt;&amp;1</td><br>        <td>以覆盖方式把命令的正确输出、输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td>命令 &gt;&gt;文件 2&gt;&amp;1</td><br>        <td>以追加方式把命令的正确输出、输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td>命令 &amp;&gt;文件</td><br>        <td>以覆盖方式把命令的正确输出、输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td>命令 &amp;&gt;&gt;文件</td><br>        <td>以追加方式把命令的正确输出、输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td>命令 &gt;&gt;文件1 2&gt;&gt;文件2</td><br>        <td>把正确的输出追加到文件1中，把错误的输出追加到文件2中</td><br>    </tr><br>    <tr><br>        <td>只执行，不显示</td><br>        <td>命令 &amp;&gt; /dev/null </td><br>        <td>将命令的结果丢入null（作用类似于垃圾箱）中，只执行，不显示</td><br>    </tr><br></table> 
-
-
-<p><br></p>
-<h2 id="输入重定向"><a href="#输入重定向" class="headerlink" title="输入重定向"></a>输入重定向</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">命令 &lt; 文件名 </div><div class="line">#把文件的内容作为输入 </div><div class="line">命令 &lt;&lt; 标识符</div><div class="line">#统计标识符到标识符再次出现之间的字符</div><div class="line"></div><div class="line"></div><div class="line">wc [选项] [文件名]</div><div class="line">选项：</div><div class="line">-c：统计字节数</div><div class="line">-w：统计行数</div><div class="line">-l：统计单词数</div><div class="line">wc执行后 输入 ctrl+d结束 会统计输入行数 单词数 字母数</div></pre></td></tr></table></figure>
-<p><br></p>
-<p>参考：</p>
-<ul>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-iotips/index.html" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-iotips/index.html</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;文件标识符：&quot;&gt;&lt;a href=&quot;#文件标识符：&quot; class=&quot;headerlink&quot; title=&quot;文件标识符：&quot;&gt;&lt;/a&gt;文件标识符：&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;设备&lt;/th&gt;
-&lt;th&gt;设备文件名&lt;/th&gt;
-&lt;th&gt;文件标识符
     
     </summary>
     
