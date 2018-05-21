@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="文件标识符   设备 设备文件名 文件标识符 类型     键盘 /dev/stdin 0 标准输入   显示器 /dev/stdout 1 标准输出   显示器 /dev/stderr 2 标准错误输出    3-9是保留的标识符 输出重定向一旦使用数字、&amp;amp;，数字、&amp;amp;和&amp;gt;、&amp;gt;&amp;gt;之间不能有空格没有数字、%有无空格没有关系，但是为了方便还是有比较好">
+<meta name="description" content="文件标识符   设备 设备文件名 文件标识符 类型     键盘 /dev/stdin 0 标准输入   显示器 /dev/stdout 1 标准输出   显示器 /dev/stderr 2 标准错误输出    3-9是保留的标识符  输出重定向一旦使用数字、&amp;amp;，数字、&amp;amp;和&amp;gt;、&amp;gt;&amp;gt;之间不能有空格没有数字、%有无空格没有关系，但是为了方便还是有比较好 类型符号作用标">
 <meta name="keywords" content="Shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell 重定向">
 <meta property="og:url" content="http://yoursite.com/2018/05/19/Shell-重定向/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="文件标识符   设备 设备文件名 文件标识符 类型     键盘 /dev/stdin 0 标准输入   显示器 /dev/stdout 1 标准输出   显示器 /dev/stderr 2 标准错误输出    3-9是保留的标识符 输出重定向一旦使用数字、&amp;amp;，数字、&amp;amp;和&amp;gt;、&amp;gt;&amp;gt;之间不能有空格没有数字、%有无空格没有关系，但是为了方便还是有比较好">
+<meta property="og:description" content="文件标识符   设备 设备文件名 文件标识符 类型     键盘 /dev/stdin 0 标准输入   显示器 /dev/stdout 1 标准输出   显示器 /dev/stderr 2 标准错误输出    3-9是保留的标识符  输出重定向一旦使用数字、&amp;amp;，数字、&amp;amp;和&amp;gt;、&amp;gt;&amp;gt;之间不能有空格没有数字、%有无空格没有关系，但是为了方便还是有比较好 类型符号作用标">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-21T09:29:04.388Z">
+<meta property="og:updated_time" content="2018-05-21T09:40:31.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell 重定向">
-<meta name="twitter:description" content="文件标识符   设备 设备文件名 文件标识符 类型     键盘 /dev/stdin 0 标准输入   显示器 /dev/stdout 1 标准输出   显示器 /dev/stderr 2 标准错误输出    3-9是保留的标识符 输出重定向一旦使用数字、&amp;amp;，数字、&amp;amp;和&amp;gt;、&amp;gt;&amp;gt;之间不能有空格没有数字、%有无空格没有关系，但是为了方便还是有比较好">
+<meta name="twitter:description" content="文件标识符   设备 设备文件名 文件标识符 类型     键盘 /dev/stdin 0 标准输入   显示器 /dev/stdout 1 标准输出   显示器 /dev/stderr 2 标准错误输出    3-9是保留的标识符  输出重定向一旦使用数字、&amp;amp;，数字、&amp;amp;和&amp;gt;、&amp;gt;&amp;gt;之间不能有空格没有数字、%有无空格没有关系，但是为了方便还是有比较好 类型符号作用标">
 
 
 
@@ -365,8 +365,9 @@
 </tbody>
 </table>
 <p>3-9是保留的标识符</p>
+<p><br></p>
 <h2 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h2><p>一旦使用数字、&amp;，数字、&amp;和&gt;、&gt;&gt;之间不能有空格<br>没有数字、%有无空格没有关系，但是为了方便还是有比较好</p>
-<table><br>    <tr><br>        <td>类型</td><br>        <td>符号</td><br>        <td>作用</td><br>    </tr><br>    <tr><br>        <td rowspan="2">标准输出重定向</td><br>        <td>命令 &gt; 文件</td><br>        <td>以覆盖的方式，把命令的正确输出输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td>命令 &gt;&gt; 文件</td><br>        <td>以追加的方式把命令的正确输出输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td rowspan="2">标准错误输出重定向</td><br>        <td>错误命令 2&gt;文件</td><br>        <td>以覆盖的方式把命令的错误输出输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td>错误命令 2&gt;&gt;文件</td><br>        <td>以追加的方式把命令的错误输出输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td rowspan="5">正确输出和错误输出同时保存</td><br>        <td>命令 &gt;文件 2&gt;&amp;1</td><br>        <td>以覆盖方式把命令的正确输出、输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td>命令 &gt;&gt;文件 2&gt;&amp;1</td><br>        <td>以追加方式把命令的正确输出、输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td>命令 &amp;&gt;文件</td><br>        <td>以覆盖方式把命令的正确输出、输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td>命令 &amp;&gt;&gt;文件</td><br>        <td>以追加方式把命令的正确输出、输出到指定文件或设备中</td><br>    </tr><br>    <tr><br>        <td>命令 &gt;&gt;文件1 2&gt;&gt;文件2</td><br>        <td>把正确的输出追加到文件1中，把错误的输出追加到文件2中</td><br>    </tr><br>    <tr><br>        <td>只执行，不显示</td><br>        <td>命令 &amp;&gt; /dev/null </td><br>        <td>将命令的结果丢入null（作用类似于垃圾箱）中，只执行，不显示</td><br>    </tr><br></table> 
+<table><tr><td>类型</td><td>符号</td><td>作用</td></tr><tr><td rowspan="2">标准输出重定向</td><td>命令 &gt; 文件</td><td>以覆盖的方式，把命令的正确输出输出到指定文件或设备中</td></tr><tr><td>命令 &gt;&gt; 文件</td><td>以追加的方式把命令的正确输出输出到指定文件或设备中</td></tr><tr><td rowspan="2">标准错误输出重定向</td><td>错误命令 2&gt;文件</td><td>以覆盖的方式把命令的错误输出输出到指定文件或设备中</td></tr><tr><td>错误命令 2&gt;&gt;文件</td><td>以追加的方式把命令的错误输出输出到指定文件或设备中</td></tr><tr><td rowspan="5">正确输出和错误输出同时保存</td><td>命令 &gt;文件 2&gt;&amp;1</td><td>以覆盖方式把命令的正确输出、输出到指定文件或设备中</td></tr><tr><td>命令 &gt;&gt;文件 2&gt;&amp;1</td><td>以追加方式把命令的正确输出、输出到指定文件或设备中</td></tr><tr><td>命令 &amp;&gt;文件</td><td>以覆盖方式把命令的正确输出、输出到指定文件或设备中</td></tr><tr><td>命令 &amp;&gt;&gt;文件</td><td>以追加方式把命令的正确输出、输出到指定文件或设备中</td></tr><tr><td>命令 &gt;&gt;文件1 2&gt;&gt;文件2</td><td>把正确的输出追加到文件1中，把错误的输出追加到文件2中</td></tr><tr><td>只执行，不显示</td><td>命令 &amp;&gt; /dev/null </td><td>将命令的结果丢入null（作用类似于垃圾箱）中，只执行，不显示</td></tr></table> 
 
 
 <p><br></p>
