@@ -36,6 +36,437 @@
   </entry>
   
   <entry>
+    <title>Shell条件判断 case、for、while、until</title>
+    <link href="http://yoursite.com/2018/05/24/Shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-case%E3%80%81for%E3%80%81while%E3%80%81until/"/>
+    <id>http://yoursite.com/2018/05/24/Shell条件判断-case、for、while、until/</id>
+    <published>2018-05-24T14:48:25.000Z</published>
+    <updated>2018-05-24T15:04:27.469Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="多分支语句case"><a href="#多分支语句case" class="headerlink" title="多分支语句case"></a>多分支语句case</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">case $变量名 in</div><div class="line">    &quot;值1&quot;)</div><div class="line">        如果变量值等于值1，执行程序1</div><div class="line">        ;;</div><div class="line">    &quot;值2&quot;)</div><div class="line">        如果变量值等于值2，执行程序2</div><div class="line">        ;;</div><div class="line">    *）</div><div class="line">        如果变量值都不是以上值，则执行此程序</div><div class="line">        ;;</div><div class="line">esac</div></pre></td></tr></table></figure>
+<p>与if多分支最大区别是，case语句只能判断一种条件关系，而if语句可以判断多种条件关系</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash  </div><div class="line">name=&apos;basename $0 .sh&apos;  </div><div class="line">case $1 in  </div><div class="line">    s|start) echo &quot;start...&quot;</div><div class="line">    ;;</div><div class="line">    stop) echo &quot;stop ...&quot;</div><div class="line">    ;;</div><div class="line">    reload)echo &quot;reload...&quot;</div><div class="line">    ;;</div><div class="line">    *)echo &quot;Usage: $name [start|stop|reload]&quot;</div><div class="line">    exit 1</div><div class="line">    ;;</div><div class="line">esac</div></pre></td></tr></table></figure>
+<p>| 分割多个模式，相当于 or</p>
+<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">for 变量 in 值1 值2 值3... </div><div class="line">    do</div><div class="line">        程序</div><div class="line">    done</div><div class="line"></div><div class="line">for ((初始值;循环控制条件;变量变化))</div><div class="line">    do</div><div class="line">        程序</div><div class="line">    done</div></pre></td></tr></table></figure>
+<p>in后面跟多少值，for循环就循环多少次，每次循环依次把值赋给变量，直到后面的值全都运行一遍。<br>可以将要操作的数据内容放在一个文件中，利用 for i in $(cat 文件名)来避免手动输入。也可以将内容赋给变量，利用for i in $val 来避免手动输入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">#从1加到100</div><div class="line"></div><div class="line">s=0</div><div class="line">for ((i=1;i&lt;=100;i=i+1))</div><div class="line">    do</div><div class="line">        s=$(($s+$i))</div><div class="line">    done</div><div class="line">#没有i++</div></pre></td></tr></table></figure>
+<h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">while [ 条件判断式 ]</div><div class="line">    do</div><div class="line">          程序</div><div class="line">    done</div></pre></td></tr></table></figure>
+<p>实例：从1加到100<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">sum=0</div><div class="line">i=1</div><div class="line">while [ $i -le 100 ]</div><div class="line">    do</div><div class="line">        sum=$(( $sum+$i ))</div><div class="line">        i=$(( $i+1 ))</div><div class="line">    done</div><div class="line">echo &quot;sum is : $sum&quot;</div></pre></td></tr></table></figure></p>
+<p><a href="http://wiki.jikexueyuan.com/project/shell-learning/case-statements.html" target="_blank" rel="external">http://wiki.jikexueyuan.com/project/shell-learning/case-statements.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;多分支语句case&quot;&gt;&lt;a href=&quot;#多分支语句case&quot; class=&quot;headerlink&quot; title=&quot;多分支语句case&quot;&gt;&lt;/a&gt;多分支语句case&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+    
+    </summary>
+    
+    
+      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Shell条件判断 双分支if语句</title>
+    <link href="http://yoursite.com/2018/05/24/Shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E5%8F%8C%E5%88%86%E6%94%AFif%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://yoursite.com/2018/05/24/Shell条件判断-双分支if语句/</id>
+    <published>2018-05-24T14:17:33.000Z</published>
+    <updated>2018-05-24T14:46:49.817Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if [ 条件判断式 ]</div><div class="line">    then</div><div class="line">        条件成立时执行的程序</div><div class="line">    else</div><div class="line">        条件不成立时，执行的另一个程序</div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>实例：判断输入的路径是不是一个目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">read -t 30 -p &quot;Input a dir:&quot; dir</div><div class="line">if [ -d &quot;$dir&quot; ]</div><div class="line">then</div><div class="line">    echo &quot;Yes,yes yes&quot;</div><div class="line">else</div><div class="line">    echo &quot;No,no,no&quot;</div><div class="line">fi</div></pre></td></tr></table></figure></p>
+<p>实例：判断apache服务是否启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">test=$(ps aux |grep httpd |grep -v grep)</div><div class="line">#定义变量test 并且查找是否启动apache的结果赋值给test</div><div class="line">#ps aux  查看当前所有正在运行的进程 </div><div class="line">#grep httpd 过滤出apache进程</div><div class="line">#grep -v grep 排除自身进程</div><div class="line"></div><div class="line">if [ -n &quot;$test&quot; ]</div><div class="line">then</div><div class="line">    cho &quot; $(date) httpd is ok &quot; &gt;&gt; /tmp/autostart-acc.log</div><div class="line">else</div><div class="line">    systemctl start httpd.service &amp;&gt;/dev/null</div><div class="line">    #centos7</div><div class="line">    echo &quot; $(date) httpd is no \n httpd is autostart now&quot; &gt;&gt; /tmp/autostart-err.log</div><div class="line">fi</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
+    
+    </summary>
+    
+    
+      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Shell条件判断 多分支if语句</title>
+    <link href="http://yoursite.com/2018/05/24/Shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E5%A4%9A%E5%88%86%E6%94%AFif%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://yoursite.com/2018/05/24/Shell条件判断-多分支if语句/</id>
+    <published>2018-05-24T14:07:06.000Z</published>
+    <updated>2018-05-24T14:47:00.453Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">if [ 条件判断式1 ]</div><div class="line">then</div><div class="line">    当条件判断式1成立时，执行程序1</div><div class="line">elif [ 条件判断式2 ]</div><div class="line">then</div><div class="line">    当条件判断式2成立时，执行程序2</div><div class="line">else</div><div class="line">    当所有条件都不成立时，最后执行此程序</div><div class="line">fi</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
+    
+    </summary>
+    
+    
+      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Shell条件判断 单分支if语句</title>
+    <link href="http://yoursite.com/2018/05/24/Shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E5%8D%95%E5%88%86%E6%94%AFif%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://yoursite.com/2018/05/24/Shell条件判断-单分支if语句/</id>
+    <published>2018-05-24T14:06:50.000Z</published>
+    <updated>2018-05-24T14:46:27.461Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">if [ 条件判断式 ];then</div><div class="line">    程序</div><div class="line">fi</div><div class="line"></div><div class="line">if [ 条件判断式 ] </div><div class="line">    then</div><div class="line">        程序</div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>注：</p>
+<ol>
+<li>if语句使用fi结尾，和一般语言使用大括号结尾不同</li>
+<li><code>[ 条件判断式 ]</code>就是使用test命令判断，所以中括号和条件判断式之间必须有空格</li>
+<li>then后面跟符合条件之后执行的程序，可以放在[]之后，用<code>;</code>分割，也可以换行写入，就不需要<code>;</code>了</li>
+</ol>
+<p>实例：判断当前登录用户是不是root<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">testuser=$(env | grep &quot;USER&quot; | cut -d &quot;=&quot; -f 2)</div><div class="line">#env是linux的一个外部命令，可以显示当前用户的环境变量，其中一行显示当前用户</div><div class="line">if [ &quot;$testuser&quot; == &quot;root&quot; ]</div><div class="line">then</div><div class="line">    echo &quot;Current user is root.&quot;</div><div class="line">fi</div></pre></td></tr></table></figure></p>
+<p>实例：判断分区使用率<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">#统计根分区使用率</div><div class="line">#/dev/sda3是df判断的</div><div class="line">test=$(df -h | grep &quot;/dev/sda3&quot; | awk &apos;&#123;print $5&#125;&apos; | cut -d &quot;%&quot; -f 1)</div><div class="line">if [ &quot;$test&quot; -ge 90 ]</div><div class="line">then</div><div class="line">    echo &quot;/ is full&quot;</div><div class="line">fi</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
+    
+    </summary>
+    
+    
+      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Shell条件判断 条件判断式</title>
+    <link href="http://yoursite.com/2018/05/24/Shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%BC%8F/"/>
+    <id>http://yoursite.com/2018/05/24/Shell条件判断-条件判断式/</id>
+    <published>2018-05-24T13:42:14.000Z</published>
+    <updated>2018-05-24T14:04:51.258Z</updated>
+    
+    <content type="html"><![CDATA[<style>
+table th:nth-of-type(1){
+width: 20%;
+}
+table th:nth-of-type(2){
+width: 80%;
+}
+
+</style>
+
+<p><strong>引用变量要加””</strong></p>
+<h2 id="按文件类型判断"><a href="#按文件类型判断" class="headerlink" title="按文件类型判断"></a>按文件类型判断</h2><table>
+<thead>
+<tr>
+<th>测试选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b</td>
+<td>判断该文件是否存在，并且是否为块设备文件（是为真）</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>判断该文件是否存在，并且是否为字符设备文件（是为真）</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>判断该文件是否存在，并且是否为目录文件（是为真）</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>判断该文件是否存在（存在为真）</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>判断该文件是否存在，并且是否为普通文件（是为真）</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>判断该文件是否存在，并且是否为符号链接文件（是为真）</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>判断该文件是否存在，并且是否为管道文件（是为真）</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>判断该文件是否存在，并且是否为非空（非空为真）</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>判断该文件是否存在，并且是否为套接字文件（是为真）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="两种判断格式"><a href="#两种判断格式" class="headerlink" title="两种判断格式"></a>两种判断格式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[-e /root/install.log]      #常用</div><div class="line">test -e /root/install.log</div></pre></td></tr></table></figure>
+<p>[-e /root/install.log] &amp;&amp; echo yes || echo no<br>第一个判断命令如果正确执行，则打印yes，否则打印no<br>&amp;&amp; 和 || 不可以调换位置</p>
+<p><br></p>
+<h2 id="按文件权限判断"><a href="#按文件权限判断" class="headerlink" title="按文件权限判断"></a>按文件权限判断</h2><table>
+<thead>
+<tr>
+<th>测试选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-r</td>
+<td>判断该文件是否存在，并且是否该文件拥有读权限（有为真）</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>判断该文件是否存在，并且是否该文件拥有写权限（有为真）</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>判断该文件是否存在，并且是否该文件拥有执行权限（有为真）</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>判断该文件是否存在，并且是否该文件拥有SUID权限（有为真）</td>
+</tr>
+<tr>
+<td>-g</td>
+<td>判断该文件是否存在，并且是否该文件拥有SGID权限（有为真）</td>
+</tr>
+<tr>
+<td>-k</td>
+<td>判断该文件是否存在，并且是否该文件拥有SBit权限（有为真）</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="两个文件之间的比较"><a href="#两个文件之间的比较" class="headerlink" title="两个文件之间的比较"></a>两个文件之间的比较</h2><table>
+<thead>
+<tr>
+<th>测试选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file1 -nt file2</td>
+<td>判断文件1的修改时间是否比文件2的新(如果新则为真)</td>
+</tr>
+<tr>
+<td>file1 -ot file2</td>
+<td>判断文件1的修改时间是否比文件2的旧(如果旧则为真)</td>
+</tr>
+<tr>
+<td>file1 -ef file2</td>
+<td>判断文件1是否比文件2的Inode号一致，可以理解为两个文件是否为同一个文件。这个判断用于判断硬链接是很好的办法</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="两个整数之间的比较"><a href="#两个整数之间的比较" class="headerlink" title="两个整数之间的比较"></a>两个整数之间的比较</h2><table>
+<thead>
+<tr>
+<th>测试选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>num1 -eq num2</td>
+<td>判断整数1是否和整数2相等(相等为真)</td>
+</tr>
+<tr>
+<td>num1 -ne num2</td>
+<td>判断整数1是否和整数2不相等(不相等为真)</td>
+</tr>
+<tr>
+<td>num1 -gt num2</td>
+<td>判断整数1是否大于整数2(大于为真)</td>
+</tr>
+<tr>
+<td>num1 -lt num2</td>
+<td>判断整数1是否小于整数2(小于为真)</td>
+</tr>
+<tr>
+<td>num1 -ge num2</td>
+<td>判断整数1是否大于或等于整数2(大于等于为真)</td>
+</tr>
+<tr>
+<td>num1 -le num2</td>
+<td>判断整数1是否小于或等于整数2(小于等于为真)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="字符串的判断"><a href="#字符串的判断" class="headerlink" title="字符串的判断"></a>字符串的判断</h2><table>
+<thead>
+<tr>
+<th>测试选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-z 字符串</td>
+<td>判断字符串是否为空，为空返回真</td>
+</tr>
+<tr>
+<td>-n 字符串</td>
+<td>判断字符串是否为非空，非空返回真</td>
+</tr>
+<tr>
+<td>字符串1 == 字符串2</td>
+<td>判断两字符串是否相等，相等返回真，==左右加空格</td>
+</tr>
+<tr>
+<td>字符串1 != 字符串2</td>
+<td>判断两字符串是否不相等，不相等返回真，!=左右加空格</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="多重条件判断"><a href="#多重条件判断" class="headerlink" title="多重条件判断"></a>多重条件判断</h2><table>
+<thead>
+<tr>
+<th>测试选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>判断1 -a 判断2</td>
+<td>#逻辑与，判断1和判断2都成立，结果为真</td>
+</tr>
+<tr>
+<td>判断1 -o 判断2</td>
+<td>#逻辑或，判断1和判断2有一个成立，结果就为真</td>
+</tr>
+<tr>
+<td>!判断</td>
+<td>#逻辑非，判断结果取反</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[-n &quot;$a&quot; -a &quot;$a&quot; -gt 23]</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;style&gt;
+table th:nth-of-type(1){
+width: 20%;
+}
+table th:nth-of-type(2){
+width: 80%;
+}
+
+&lt;/style&gt;
+
+&lt;p&gt;&lt;strong&gt;引用变量要加””&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;按文
+    
+    </summary>
+    
+    
+      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux DNS搭建 Bind服务</title>
+    <link href="http://yoursite.com/2018/05/24/Linux-DNS%E6%90%AD%E5%BB%BA-Bind%E6%9C%8D%E5%8A%A1/"/>
+    <id>http://yoursite.com/2018/05/24/Linux-DNS搭建-Bind服务/</id>
+    <published>2018-05-24T13:37:47.000Z</published>
+    <updated>2018-05-24T13:37:47.499Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PowerPoint 2016拆分汉字、制作笔画</title>
+    <link href="http://yoursite.com/2018/05/24/PowerPoint-2016%E6%8B%86%E5%88%86%E6%B1%89%E5%AD%97%E3%80%81%E5%88%B6%E4%BD%9C%E7%AC%94%E7%94%BB/"/>
+    <id>http://yoursite.com/2018/05/24/PowerPoint-2016拆分汉字、制作笔画/</id>
+    <published>2018-05-24T01:53:30.000Z</published>
+    <updated>2018-05-24T02:35:51.883Z</updated>
+    
+    <content type="html"><![CDATA[<p>需要工具word、powerpoint</p>
+<ol>
+<li>打开word，输入汉字，设置字体为楷体GB2312/仿宋（这两种字体的笔画是分离的，WindowsXP中默认有这两种字体，但Windows 7开始系统默认没有这两种字体）</li>
+<li>保存为doc格式</li>
+<li>选中文字，【右击】，在快捷菜单中打开【字体】对话框，选择【空心】格式</li>
+<li>复制“空心”汉字。打开PowerPoint中，【开始】选项卡–【选择性粘贴】，选择【图片（Windows元文件）】，取消组合两次。汉字笔画就分解出来了。删除不需要的对象（一般有1-2个空白形状）</li>
+</ol>
+<p><a href="http://www.360doc.com/content/16/0107/08/982782_526070895.shtml" target="_blank" rel="external">http://www.360doc.com/content/16/0107/08/982782_526070895.shtml</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;需要工具word、powerpoint&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;打开word，输入汉字，设置字体为楷体GB2312/仿宋（这两种字体的笔画是分离的，WindowsXP中默认有这两种字体，但Windows 7开始系统默认没有这两种字体）&lt;/li&gt;
+&lt;li&gt;保存为doc格式&lt;
+    
+    </summary>
+    
+    
+      <category term="PPT" scheme="http://yoursite.com/tags/PPT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 工具</title>
+    <link href="http://yoursite.com/2018/05/22/Linux-%E5%B7%A5%E5%85%B7/"/>
+    <id>http://yoursite.com/2018/05/22/Linux-工具/</id>
+    <published>2018-05-22T02:27:29.000Z</published>
+    <updated>2018-05-22T03:43:04.540Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Vifm"><a href="#Vifm" class="headerlink" title="Vifm"></a>Vifm</h2><p>Vifm 是一个 Linux 控制台下的文件管理器，基于 ncurse 的两列面板界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#安装</div><div class="line">sudo apt install vifm</div><div class="line">#运行</div><div class="line">vifm</div></pre></td></tr></table></figure></p>
+<p>使用<code>空格键</code>从一个窗格移动到另一个窗格。<br>要打开目录或文件，只需按<code>Enter</code>按钮。<br>水平分割窗口按Ctrl-W然后s<br>垂直分割窗口按Ctrl-W然后v<br>一个窗格中的文件，另一个窗格中查看<code>:view</code><br>删除文件：dd</p>
+<p>如果您在Vifm中删除文件，则会将其存储在垃圾箱中。 要查看垃圾邮件目录，请键入此命令。<br><code>:trashes</code><br>要查看垃圾桶中的文件，请运行lstrash命令（按q返回）。<br><code>:lstrash</code></p>
+<p>要从垃圾邮件目录还原文件，首先使用cd命令进入它。<br><code>:cd /home/aaronkilik/.local/share/vifm/Trash</code><br>然后选择要还原的文件，然后键入：<br><code>:restore</code></p>
+<h2 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h2><p>终端分屏<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install tmux</div><div class="line">tmux</div></pre></td></tr></table></figure></p>
+<p>tmux所有自带命令都默认需要先按Ctrl + b，然后再键入对应的命令</p>
+<p>Ctrl+b “ - split pane horizontally<br>Ctrl+b % - 将当前窗格垂直划分<br>Ctrl+b 方向键 - 在各窗格间切换<br>Ctrl+b，并且不要松开Ctrl，方向键 - 调整窗格大小<br>Ctrl+b c - (c)reate 生成一个新的窗口<br>Ctrl+b n - (n)ext 移动到下一个窗口<br>Ctrl+b p - (p)revious 移动到前一个窗口.<br>Ctrl+b 空格键 - 采用下一个内置布局<br>Ctrl+b q - 显示分隔窗口的编号<br>Ctrl+b o - 跳到下一个分隔窗口<br>Ctrl+b &amp; - 确认后退出 tmux </p>
+<h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><p>sh<br><a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a><br><a href="https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87</a>)<br><a href="https://www.zhihu.com/question/21418449" target="_blank" rel="external">https://www.zhihu.com/question/21418449</a></p>
+<h2 id="awesome"><a href="#awesome" class="headerlink" title="awesome"></a>awesome</h2><p>桌面<br><a href="https://www.linuxzen.com/awesometmuxgnomedoda-zao-gao-xiao-linuxzhuo-mian-huan-jing.html" target="_blank" rel="external">https://www.linuxzen.com/awesometmuxgnomedoda-zao-gao-xiao-linuxzhuo-mian-huan-jing.html</a><br><a href="https://wiki.archlinux.org/index.php/Awesome_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Awesome_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87</a>)<br><a href="http://www.hahack.com/tools/awesome/" target="_blank" rel="external">http://www.hahack.com/tools/awesome/</a></p>
+<h2 id="Apvlv"><a href="#Apvlv" class="headerlink" title="Apvlv"></a>Apvlv</h2><p>vim 化的 PDF 阅读工具</p>
+<p><a href="https://github.com/naihe2010/apvlv" target="_blank" rel="external">https://github.com/naihe2010/apvlv</a><br><a href="http://naihe2010.github.io/apvlv/" target="_blank" rel="external">http://naihe2010.github.io/apvlv/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Vifm&quot;&gt;&lt;a href=&quot;#Vifm&quot; class=&quot;headerlink&quot; title=&quot;Vifm&quot;&gt;&lt;/a&gt;Vifm&lt;/h2&gt;&lt;p&gt;Vifm 是一个 Linux 控制台下的文件管理器，基于 ncurse 的两列面板界面&lt;br&gt;&lt;figure class=&quot;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MyLinux.sh</title>
+    <link href="http://yoursite.com/2018/05/22/MyLinux-sh/"/>
+    <id>http://yoursite.com/2018/05/22/MyLinux-sh/</id>
+    <published>2018-05-22T01:57:06.000Z</published>
+    <updated>2018-05-22T01:57:42.295Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">#/bin/bash</div><div class="line"></div><div class="line"># 使用Elementary OS 0.4</div><div class="line"></div><div class="line">#个别系统不能增加ppa</div><div class="line">sudo apt install software-properties-common</div><div class="line"></div><div class="line">sudo apt install vim</div><div class="line"></div><div class="line">if [ &quot;$?&quot; -ne 0 ]</div><div class="line">	then</div><div class="line">		exit 1</div><div class="line">fi</div><div class="line"></div><div class="line">sudo apt install vifm</div><div class="line"></div><div class="line">if [ &quot;$?&quot; -ne 0 ]</div><div class="line">	then</div><div class="line">		exit 2</div><div class="line">fi</div><div class="line"></div><div class="line">#添加中文环境 Settings &gt;&gt; Language &amp; Region &gt;&gt; unLock &gt;&gt; Complete Installation &gt;&gt; click on English in the left sidebar &gt;&gt; Set System Language</div><div class="line">#安装fcitx五笔，其他相关包也会安装，fcitx\fcitx-config-gtk\fcitx-config-common</div><div class="line">sudo apt install fcitx-table-wubi</div><div class="line"></div><div class="line">#baka-player</div><div class="line">#http://bakamplayer.u8sand.net/installation.php</div><div class="line">cd ~/Download</div><div class="line">sudo apt install wget</div><div class="line">wget https://github.com/u8sand/Baka-MPlayer/releases/download/v2.0.4/baka-mplayer_2.0.4-1_amd64.deb</div><div class="line">sudo dpkg -i baka-mplayer_2.0.4-1_amd64.deb</div><div class="line"></div><div class="line">#filezilla</div><div class="line">sudo apt install filezilla</div><div class="line"></div><div class="line">#virtual studio code</div><div class="line">sudo apt install code</div><div class="line"></div><div class="line">#virtualbox</div><div class="line">sudo apt install virtualbox-5.2</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>awk: run time error: not enough arguments passed to printf(5%)</title>
     <link href="http://yoursite.com/2018/05/21/awk-run-time-error-not-enough-arguments-passed-to-printf-5/"/>
     <id>http://yoursite.com/2018/05/21/awk-run-time-error-not-enough-arguments-passed-to-printf-5/</id>
@@ -409,380 +840,6 @@ width: 70%;
     <summary type="html">
     
       &lt;h2 id=&quot;source命令&quot;&gt;&lt;a href=&quot;#source命令&quot; class=&quot;headerlink&quot; title=&quot;source命令&quot;&gt;&lt;/a&gt;source命令&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell运算符 变量测试</title>
-    <link href="http://yoursite.com/2018/05/19/Shell-%E5%8F%98%E9%87%8F%E6%B5%8B%E8%AF%95/"/>
-    <id>http://yoursite.com/2018/05/19/Shell-变量测试/</id>
-    <published>2018-05-19T14:30:46.000Z</published>
-    <updated>2018-05-20T12:21:43.939Z</updated>
-    
-    <content type="html"><![CDATA[<p>变量测试在脚本优化时使用</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG49.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">例子：测试x=$&#123;y-新值&#125;</div><div class="line">unset y</div><div class="line">x=$&#123;y-2&#125;</div><div class="line">echo $x</div><div class="line">2</div><div class="line"></div><div class="line">y=&quot;&quot;</div><div class="line">#将y的值设为空值</div><div class="line">x=$&#123;y-2&#125;</div><div class="line">echo $x</div><div class="line">#x为空</div><div class="line"></div><div class="line">y=1</div><div class="line">x=$&#123;y-2&#125;</div><div class="line">echo $x</div><div class="line">1</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;变量测试在脚本优化时使用&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://ow3dy62zt.bkt.clouddn.com/IMG49.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell运算符 数值运算</title>
-    <link href="http://yoursite.com/2018/05/19/Shell-%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97/"/>
-    <id>http://yoursite.com/2018/05/19/Shell-数值运算/</id>
-    <published>2018-05-19T14:21:38.000Z</published>
-    <updated>2018-05-20T12:21:22.439Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>记住一名话就OK，<code>$((运算式))</code></p>
-</blockquote>
-<h2 id="数值运算方法一-declare-i"><a href="#数值运算方法一-declare-i" class="headerlink" title="数值运算方法一 declare -i"></a>数值运算方法一 declare -i</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">aa=11</div><div class="line">bb=22</div><div class="line">declare -i cc=$aa+$bb</div><div class="line">echo $cc</div><div class="line">33</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="数值运算方法2：expr或let"><a href="#数值运算方法2：expr或let" class="headerlink" title="数值运算方法2：expr或let"></a>数值运算方法2：expr或let</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">aa=11</div><div class="line">bb=22</div><div class="line">dd=$(expr $aa + $bb)</div><div class="line">#+号两边必须有空格，没有空格依旧是字符串拼接</div><div class="line">echo $dd</div><div class="line">33</div><div class="line"></div><div class="line">aa=11</div><div class="line">bb=22</div><div class="line">let &quot;ee=aa+bb&quot;</div><div class="line">echo $ee</div><div class="line">33</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="数值运算方法3：-运算式-或-运算式"><a href="#数值运算方法3：-运算式-或-运算式" class="headerlink" title="数值运算方法3：$((运算式))或$[运算式]"></a>数值运算方法3：$((运算式))或$[运算式]</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">aa=11</div><div class="line">bb=22</div><div class="line">ff=$(($aa+$bb))</div><div class="line">echo $ff</div><div class="line">33</div></pre></td></tr></table></figure>
-<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG48.png" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;记住一名话就OK，&lt;code&gt;$((运算式))&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;数值运算方法一-declare-i&quot;&gt;&lt;a href=&quot;#数值运算方法一-declare-i&quot; class=&quot;headerlink&quot; 
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell运算符 declare命令</title>
-    <link href="http://yoursite.com/2018/05/19/Shell-declare%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/19/Shell-declare命令/</id>
-    <published>2018-05-19T14:02:08.000Z</published>
-    <updated>2018-05-20T12:21:32.331Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="declare命令"><a href="#declare命令" class="headerlink" title="declare命令"></a>declare命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">declare [+/-][选项] 变量名 </div><div class="line">#declare命令用来声明shell的变量类型，因为shell变量默认都是字符串型</div><div class="line">选项：</div><div class="line">-：用于给变量设定类型属性</div><div class="line">+：用于取消变量的类型属性</div><div class="line">-a：将变量声明为数组型</div><div class="line">-i：将变量声明为整型</div><div class="line">-x：将变量声明为环境变量</div><div class="line">-r：将变量声明为只读变量</div><div class="line">-p：显示指定变量被声明的类型</div><div class="line"></div><div class="line">aa=11 </div><div class="line">bb=22</div><div class="line">declare -i cc=$aa+$bb</div><div class="line">declare -p c  #查看变量cc的类型</div><div class="line">#声明变量cc的类型是整数型，它的值是aa和bb的和</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="声明数组变量"><a href="#声明数组变量" class="headerlink" title="声明数组变量"></a>声明数组变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#定义数组</div><div class="line">#数组的定义不需要declare命令也可以，直接使用movie[i]=value</div><div class="line">movie[0]=zp</div><div class="line">movie[1]=tp</div><div class="line">declare -a movie[2]=live</div><div class="line"></div><div class="line">#查看数组</div><div class="line">echo $&#123;movie&#125;   #输出数组下标为0的变量值</div><div class="line">echo $&#123;movie[2]&#125; </div><div class="line">echo $&#123;movie[*]&#125; #输出数组的全部值</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="声明环境变量"><a href="#声明环境变量" class="headerlink" title="声明环境变量"></a>声明环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">declare -x test=123</div><div class="line">#和export作用类似，export命令实际过程是调用declare命令</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="声明变量只读属性"><a href="#声明变量只读属性" class="headerlink" title="声明变量只读属性"></a>声明变量只读属性</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">declare -r test</div><div class="line">#给test赋予只读属性，赋予后不能修改该变量，不能删除，甚至不能取消只读属性</div><div class="line">#临时生效，重启无效</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="查询变量的属性"><a href="#查询变量的属性" class="headerlink" title="查询变量的属性"></a>查询变量的属性</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">declare -p</div><div class="line">#列出系统中所有变量的类型</div><div class="line"></div><div class="line">declare -p 变量名</div><div class="line">#查询指定变量的属性</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;declare命令&quot;&gt;&lt;a href=&quot;#declare命令&quot; class=&quot;headerlink&quot; title=&quot;declare命令&quot;&gt;&lt;/a&gt;declare命令&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell变量 Bash语系变量</title>
-    <link href="http://yoursite.com/2018/05/19/Shell-Bash%E8%AF%AD%E7%B3%BB%E5%8F%98%E9%87%8F/"/>
-    <id>http://yoursite.com/2018/05/19/Shell-Bash语系变量/</id>
-    <published>2018-05-19T10:03:47.000Z</published>
-    <updated>2018-05-20T12:23:24.947Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="当前语系查询"><a href="#当前语系查询" class="headerlink" title="当前语系查询"></a>当前语系查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">locale</div><div class="line">#查询当前系统语系</div><div class="line">#LANG:定义系统主语系的变量</div><div class="line">#LC_ALL:定义整体语系的变量</div></pre></td></tr></table></figure>
-<h2 id="语系变量LANG"><a href="#语系变量LANG" class="headerlink" title="语系变量LANG"></a>语系变量LANG</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">echo $LANG</div><div class="line">#查看系统当前语系</div><div class="line">locale -a | more</div><div class="line">#查看Linux支持的所有语系</div></pre></td></tr></table></figure>
-<h2 id="查询系统默认语系"><a href="#查询系统默认语系" class="headerlink" title="查询系统默认语系"></a>查询系统默认语系</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cat /etc/sysconfig/i18n</div><div class="line">#下次开机以后的系统环境</div></pre></td></tr></table></figure>
-<h2 id="设置当前语系"><a href="#设置当前语系" class="headerlink" title="设置当前语系"></a>设置当前语系</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">LANG=zh_CN.UTF-8  </div><div class="line">#切换成中文</div><div class="line"></div><div class="line">LANG=en_US.UTF-8</div></pre></td></tr></table></figure>
-<p>Linux支持中文的前提条件是正确安装中文字体和中文语系</p>
-<ul>
-<li>如果有图形界面，可以正确使用支持中文显示</li>
-<li>如果使用第三方远程工具，只要语系设定正确，可以支持中文显示</li>
-<li>如果使用纯字符界面，必须使用第三方插件（如zhcon等），即使设置LANG变量也没用</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;当前语系查询&quot;&gt;&lt;a href=&quot;#当前语系查询&quot; class=&quot;headerlink&quot; title=&quot;当前语系查询&quot;&gt;&lt;/a&gt;当前语系查询&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell变量 预定义变量和位置参数变量</title>
-    <link href="http://yoursite.com/2018/05/19/Shell-%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E5%92%8C%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0%E5%8F%98%E9%87%8F/"/>
-    <id>http://yoursite.com/2018/05/19/Shell-预定义变量和位置参数变量/</id>
-    <published>2018-05-19T09:52:46.000Z</published>
-    <updated>2018-05-20T12:20:38.827Z</updated>
-    
-    <content type="html"><![CDATA[<style>
-table th:nth-of-type(1){
-width: 30%;
-}
-table th:nth-of-type(2){
-width: 70%
-;
-}
-
-</style>
-
-
-<h2 id="预定义变量"><a href="#预定义变量" class="headerlink" title="预定义变量"></a>预定义变量</h2><table>
-<thead>
-<tr>
-<th>预定义变量</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$?</td>
-<td>最后一次执行命令的返回状态。如果正确执行，则返回0；如果返回为非零（具体数值由命令决定），则上一条命令执行不正确</td>
-</tr>
-<tr>
-<td>$$</td>
-<td>返回当前进程的PID</td>
-</tr>
-<tr>
-<td>$!</td>
-<td>返回后台运行的最后一个进程的PID</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ls || echo yes</div><div class="line">ls qwe  &amp;&amp; echo no</div><div class="line">前面一条语句正确执行，才执行后一条语句。这里就是通过执行命令的返回值来判断的</div><div class="line"></div><div class="line">echo $?</div><div class="line">echo $$     #直接打印返回的是/bin/bash，需要时可以放到shell脚本里</div><div class="line">echo $!</div></pre></td></tr></table></figure>
-<p>可以通过一个简单的shell来展示一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">ehco &quot;dang qian de PID: $$&quot;</div><div class="line"></div><div class="line">find / hello.sh &amp;</div><div class="line">echo &quot;hou tai de PID: $!&quot;</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="位置参数变量"><a href="#位置参数变量" class="headerlink" title="位置参数变量"></a>位置参数变量</h2><p>位置参数变量本质上还是预定义变量</p>
-<table>
-<thead>
-<tr>
-<th>位置参数变量</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$n</td>
-<td>n 为数字，<strong>$0 代表命令本身</strong>，$1-$9 代表第一到第九个参数，十以上的参数需要用大括号包含，如 ${10}</td>
-</tr>
-<tr>
-<td>$*</td>
-<td>这个变量代表命令行中所有的参数，$* 把所有的参数看成一个整体</td>
-</tr>
-<tr>
-<td>$@</td>
-<td>这个变量也代表命令行中所有的参数，不过 $@ 把每个参数区分对待</td>
-</tr>
-<tr>
-<td>$#</td>
-<td>这个变量代表命令行中所有参数的个数</td>
-</tr>
-</tbody>
-</table>
-<h4 id="例子1"><a href="#例子1" class="headerlink" title="例子1"></a>例子1</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">num1=$1</div><div class="line">num2=$2</div><div class="line">sum=$(($num1+$num2)) </div><div class="line">#变量 sum 的和是 num1 加 num2</div><div class="line">echo $sum </div><div class="line">#打印变量 sum 的值</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#执行脚本</div><div class="line">./test.sh 45 76</div></pre></td></tr></table></figure>
-<h4 id="例子2"><a href="#例子2" class="headerlink" title="例子2"></a>例子2</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">echo &quot;A total of $# parameters&quot;</div><div class="line">#使用 $# 代表所有参数的个数</div><div class="line">echo &quot;The parameters is：$*&quot;</div><div class="line">#使用 $* 代表所有的参数</div><div class="line">echo &quot;The parameters is：$@&quot;</div><div class="line">#使用 $@ 代表所有的参数</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#执行脚本</div><div class="line">./test.sh 11 22 33 44</div></pre></td></tr></table></figure>
-<h4 id="例子3"><a href="#例子3" class="headerlink" title="例子3"></a>例子3</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">for i in &quot;$*&quot;</div><div class="line"># $* 中所有参数看成是一个整体，所以这个 for 循环只会循环一次</div><div class="line">do</div><div class="line">  echo &quot;The parameters is:$i&quot;</div><div class="line">done</div><div class="line"></div><div class="line">for y in &quot;$@&quot;</div><div class="line"># $@ 中每个参数都看成是独立的，所以 $@ 中有几个参数，就会循环几次</div><div class="line">do</div><div class="line">  echo &quot;Parameter:$y&quot;</div><div class="line">done</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="接收键盘输入"><a href="#接收键盘输入" class="headerlink" title="接收键盘输入"></a>接收键盘输入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">read [选项] [变量名]</div><div class="line">选项：</div><div class="line">-p &quot;提示信息&quot;：在等待read输入时，输出提示信息</div><div class="line">-t 秒数：read命令会一直等待用户输入，使用此选项可以指定等待时间</div><div class="line">-n 字符数：read命令只接受指定的字符数，就会执行</div><div class="line">-s：隐藏输入的数据，适用于机密信息的输入，比如密码</div></pre></td></tr></table></figure>
-<p><code>read.sh</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">read -p &quot;please input your name:&quot; -t 30 name</div><div class="line">echo $name</div><div class="line">#如果超过30秒不输入，就终止当前命令</div><div class="line"></div><div class="line">read -p &quot;please input your passwd:&quot; -s passwd</div><div class="line">echo -e &quot;\n&quot;</div><div class="line">echo $passwd</div><div class="line">#输入的值是隐藏的，看不见的，但是在sh里面还是可以获取到的，并且可以输出的</div><div class="line"></div><div class="line">read -p &quot;please input your sex [M/F]:&quot; sex</div><div class="line">echo -e &quot;\n&quot;</div><div class="line">echo $sex</div><div class="line">#只能输入一个字符，且输入之后立马执行</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;style&gt;
-table th:nth-of-type(1){
-width: 30%;
-}
-table th:nth-of-type(2){
-width: 70%
-;
-}
-
-&lt;/style&gt;
-
-
-&lt;h2 id=&quot;预定义变量&quot;&gt;&lt;a href=&quot;#预定义变量&quot; class=&quot;he
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell变量 环境变量</title>
-    <link href="http://yoursite.com/2018/05/19/Shell-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
-    <id>http://yoursite.com/2018/05/19/Shell-环境变量/</id>
-    <published>2018-05-19T07:32:58.000Z</published>
-    <updated>2018-05-20T12:20:29.287Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>定义每个用户的操作环境</p>
-<h2 id="环境变量与用户自定义变量的区别"><a href="#环境变量与用户自定义变量的区别" class="headerlink" title="环境变量与用户自定义变量的区别"></a>环境变量与用户自定义变量的区别</h2><p>环境变量是全局变量，用户自定义变量是局部变量。<br>用户自定义变量只在当前的 shell 中生效，环境变量在当前 shell 和这个 shell 的所有子 shell 中生效。<br>用户可以自定义环境变量，但对系统生效的环境变量名和变量作用是固定的。</p>
-<p><br></p>
-<h2 id="用户自定义环境变量"><a href="#用户自定义环境变量" class="headerlink" title="用户自定义环境变量"></a>用户自定义环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">export 变量名=变量值</div><div class="line">或</div><div class="line">变量名=变量值</div><div class="line">export 变量名</div><div class="line"></div><div class="line">export Y=1</div><div class="line"></div><div class="line">Z=1</div><div class="line">export Z</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="查看环境变量"><a href="#查看环境变量" class="headerlink" title="查看环境变量"></a>查看环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">set </div><div class="line">#查看所有变量</div><div class="line"></div><div class="line">env </div><div class="line">#查看环境变量</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="删除环境变量"><a href="#删除环境变量" class="headerlink" title="删除环境变量"></a>删除环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">unset 环境名</div><div class="line">#没有$</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="常用的环境变量"><a href="#常用的环境变量" class="headerlink" title="常用的环境变量"></a>常用的环境变量</h2><p>HOSTNAME：主机名<br>SHELL：当前的shell<br>TERM：终端环境<br>HISTSIZE：历史命令条数<br>SSH_CLIENT：当前操作环境是用 ssh 连接的，这里记录客户端 ip<br>SSH_TTY：ssh 连接的终端是 pts/1<br>USER：当前登录的用户</p>
-<h4 id="PATH环境变量"><a href="#PATH环境变量" class="headerlink" title="PATH环境变量"></a>PATH环境变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#系统搜索命令的路径</div><div class="line"></div><div class="line">echo $PATH</div><div class="line">#查看PATH环境变量</div><div class="line"></div><div class="line">PATH=&quot;$PATH&quot;:/root/sh</div><div class="line">#临时增加PATH变量的值，系统重启后失效</div></pre></td></tr></table></figure>
-<h4 id="PS1环境变量"><a href="#PS1环境变量" class="headerlink" title="PS1环境变量"></a>PS1环境变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">命令提示符设置</div><div class="line">[root@localhost ~]#</div><div class="line">\d：显示日期，格式为&quot;星期 月 日&quot;</div><div class="line">\H：显示完整的主机名</div><div class="line">\t：显示 24 小时制时间，格式为&quot;HH:MM:SS&quot;</div><div class="line">\A：显示 24 小时制时间，格式为&quot;HH:MM&quot;</div><div class="line">\u：显示当前用户名</div><div class="line">\w：显示当前所在目录的完整名称</div><div class="line">\W：显示当前所在目录的最后一个目录</div><div class="line">\$：提示符。root 用户为&quot;#&quot;，普通用户为&quot;$&quot;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;作用&quot;&gt;&lt;a href=&quot;#作用&quot; class=&quot;headerlink&quot; title=&quot;作用&quot;&gt;&lt;/a&gt;作用&lt;/h2&gt;&lt;p&gt;定义每个用户的操作环境&lt;/p&gt;
-&lt;h2 id=&quot;环境变量与用户自定义变量的区别&quot;&gt;&lt;a href=&quot;#环境变量与用户自定义变量的区别&quot; cl
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell变量 用户自定义变量</title>
-    <link href="http://yoursite.com/2018/05/19/Shell-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F/"/>
-    <id>http://yoursite.com/2018/05/19/Shell-用户自定义变量/</id>
-    <published>2018-05-19T07:32:37.000Z</published>
-    <updated>2018-05-20T12:20:15.886Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">变量名=变量值</div><div class="line">#=号左右不可有空格</div><div class="line">#变量值有空格需要加&quot;&quot;</div><div class="line">#所有变量默认的值都是字符串类型，不可做Math运算</div><div class="line"></div><div class="line">x=5</div><div class="line">x=&quot;hello jx&quot;</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="调用变量"><a href="#调用变量" class="headerlink" title="调用变量"></a>调用变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$变量名</div><div class="line"></div><div class="line">echo $x</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="变量叠加"><a href="#变量叠加" class="headerlink" title="变量叠加"></a>变量叠加</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">x=123           #123</div><div class="line">x=&quot;$x&quot;456       #123456</div><div class="line">x=$&#123;x&#125;789       #123456789</div><div class="line"></div><div class="line">x=5</div><div class="line">y=6</div><div class="line">z=$x+$y         #5+6</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="变量查看"><a href="#变量查看" class="headerlink" title="变量查看"></a>变量查看</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">set</div><div class="line">选项：</div><div class="line">-u：如果设定此选项，调用未声明变量里会报错（默认调用未声明变量无任何提示，值为空的变量也无任何提示）</div><div class="line"></div><div class="line">echo $jflajlf</div><div class="line">set -u</div><div class="line">echo $jflajlf</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="删除变量"><a href="#删除变量" class="headerlink" title="删除变量"></a>删除变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">unset 变量名</div><div class="line">#注意变量名没有$，因为要删除的是变量，而不是变量的值</div><div class="line"></div><div class="line">unset x</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;定义变量&quot;&gt;&lt;a href=&quot;#定义变量&quot; class=&quot;headerlink&quot; title=&quot;定义变量&quot;&gt;&lt;/a&gt;定义变量&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell 变量</title>
-    <link href="http://yoursite.com/2018/05/19/Shell-%E5%8F%98%E9%87%8F/"/>
-    <id>http://yoursite.com/2018/05/19/Shell-变量/</id>
-    <published>2018-05-19T07:14:11.000Z</published>
-    <updated>2018-05-19T09:22:43.303Z</updated>
-    
-    <content type="html"><![CDATA[<p>Shell是一种脚本语言</p>
-<h2 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h2><ol>
-<li>变量名必须以字母或下划线打头，名字中间只能由字母、数字和下划线组成</li>
-<li>变量名的长度不超过255个字符</li>
-<li>变量名在有效的范围内必须是唯一的，如再次定义则会替换上一个变量的值</li>
-<li>在Bash中，变量的默认类型都是字符串型，系统把所有值都当作字符串放到变量中，不论这个“字符串”实际上是整数、浮点数等等，shell也不区分字符串型，整型，浮点型，日期型</li>
-</ol>
-<p>目录名、文件名、变量名要有含义</p>
-<p><br></p>
-<h2 id="变量的分类"><a href="#变量的分类" class="headerlink" title="变量的分类"></a>变量的分类</h2><ul>
-<li>用户自定义变量：变量自定义的</li>
-<li>环境变量：这种变量中主要保存的是和系统操作环境相关的数据，变量可以自定义，但是对系统生效的环境变量名和变量作用是固定的</li>
-<li>位置参数变量：这种变量主要是用来向脚本当中传递参数或数据的，变量名不能自定义，变量作用是固定的。实际就是预定义变量的一种，只是功能单一固定，所以单独拿出来</li>
-<li>预定义变量：Bash中已经定义好的变量，变量名不能自定义，变量作用也是固定的</li>
-</ul>
-<p><br></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Shell是一种脚本语言&lt;/p&gt;
-&lt;h2 id=&quot;变量命名规则&quot;&gt;&lt;a href=&quot;#变量命名规则&quot; class=&quot;headerlink&quot; title=&quot;变量命名规则&quot;&gt;&lt;/a&gt;变量命名规则&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;变量名必须以字母或下划线打头，名字中间只能由字母、数字和
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell 管道符</title>
-    <link href="http://yoursite.com/2018/05/19/Shell-%E5%A4%9A%E5%91%BD%E4%BB%A4%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%92%8C%E7%AE%A1%E9%81%93%E7%AC%A6/"/>
-    <id>http://yoursite.com/2018/05/19/Shell-多命令顺序执行和管道符/</id>
-    <published>2018-05-19T02:43:28.000Z</published>
-    <updated>2018-05-21T09:25:53.063Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="多命令顺序执行"><a href="#多命令顺序执行" class="headerlink" title="多命令顺序执行"></a>多命令顺序执行</h2><table>
-<thead>
-<tr>
-<th>多命令执行符</th>
-<th>格式</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>;</code></td>
-<td>命令1;命令2</td>
-<td>多个命令顺序执行，命令之间没有任何逻辑联系</td>
-</tr>
-<tr>
-<td><code>&amp;&amp;</code></td>
-<td>命令1&amp;&amp;命令2</td>
-<td>逻辑与<br>当命令1正确执行，则命令2才会执行<br>当命令1执行不正确，则命令2不会执行</td>
-</tr>
-<tr>
-<td>`</td>
-<td></td>
-<td>`</td>
-<td>命令1`</td>
-<td></td>
-<td>`命令2</td>
-<td>逻辑或<br>当命令1执行不正确，则命令2才会执行<br>当命令1正确执行，则命令2不会执行</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">date ; tar -zcvf etc.tar.gz /etc ; date        </div><div class="line">#可以计算备份所用的时间</div><div class="line"></div><div class="line">ls &amp;&amp; echo yes || echo no          </div><div class="line">#当ls正确执行时打印yes；当ls错误执行时打印no</div><div class="line">#顺序不能颠倒，不然命令出错的时候会同时输出no yes</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="管道符"><a href="#管道符" class="headerlink" title="管道符"></a>管道符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">命令1 | 命令2    </div><div class="line">#命令1的正确输出作为命令2的操作对象</div><div class="line"></div><div class="line">netstat -an | grep ESTABLISHED | wc -l     </div><div class="line">#查找当前有多少用户正在连接服务器</div><div class="line">ll -a /etc/ | more</div><div class="line"></div><div class="line">more [文件名] </div><div class="line">#分页显示文件内容&quot;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;多命令顺序执行&quot;&gt;&lt;a href=&quot;#多命令顺序执行&quot; class=&quot;headerlink&quot; title=&quot;多命令顺序执行&quot;&gt;&lt;/a&gt;多命令顺序执行&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;多命令执行符&lt;/th&gt;
-&lt;th&gt;格式&lt;/th&gt;
-&lt;th&gt;
     
     </summary>
     
