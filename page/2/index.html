@@ -2,8 +2,10 @@
 
 
 
+  
 
-<html class="theme-next mist" lang="zh-Hans">
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -35,36 +37,11 @@
 
 
 
+
   
   
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -73,7 +50,22 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -83,11 +75,6 @@
 
 
   <link rel="alternate" href="/atom.xml" title="太阳落下" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
 
 
 
@@ -108,11 +95,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: false,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -154,9 +142,8 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-right 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -203,7 +190,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -335,16 +322,18 @@
       
         
           
-          历史命令指的是把操作过的命令保留在系统当中, 当需要的时候可以重新进行调用
-histo123456789history [选项] [历史命令保存文件]选项：-c：清空历史命令-w：把缓存中的历史命令强
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/19/Shell-历史命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>历史命令指的是把操作过的命令保留在系统当中, 当需要的时候可以重新进行调用</p>
+<h2 id="histo"><a href="#histo" class="headerlink" title="histo"></a>histo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">history [选项] [历史命令保存文件]</div><div class="line">选项：</div><div class="line">-c：清空历史命令</div><div class="line">-w：把缓存中的历史命令强制写入历史命令保存文件 ~/.bash_history</div><div class="line"></div><div class="line">不建议清空</div><div class="line">当本次操作出现错误可用过历史命令进行比对排错</div><div class="line">当登录后发现历史命令被清空, 则可判断出有人登录过该账户或服务器</div><div class="line">即使命令保存数目众多, 文件大小也不大, 不会给服务器造成多大压力</div></pre></td></tr></table></figure>
+<p>历史命令默认保存1000条, 可以在环境变量配置文件<code>/etc/profile</code>中进行修改<code>HISTSIZE=1000</code><br>使用history命令查看的, 不止有之前保存下来的, 还有本次登录后新操作的命令, 这些命令只有本次正确退出之后才会写入 <code>~/.bash_history</code></p>
+<h2 id="历史命令的调用"><a href="#历史命令的调用" class="headerlink" title="历史命令的调用"></a>历史命令的调用</h2><ul>
+<li>使用上、下箭头调用以前的历史命令</li>
+<li>使用 “!n” 重复执行一次第 n 条历史命令</li>
+<li>使用 “!!” 重复执行一次上一条命令</li>
+<li>使用 “!字串” 重复执行最后一条以该字串开头的命令</li>
+</ul>
+<h2 id="命令与文本补全"><a href="#命令与文本补全" class="headerlink" title="命令与文本补全"></a>命令与文本补全</h2><p>在Bash中, 命令与文件补全是非常方便与常用的功能, 我们只要在输入命令或文件时, 按”Tab”键就会自动进行补全<br>系统进行命令补全依赖<code>$PATH</code></p>
+
+          
         
       
     </div>
@@ -462,15 +451,18 @@ histo123456789history [选项] [历史命令保存文件]选项：-c：清空历
       
         
           
-          别名1234567891011121314alias#查看系统当中默认已经生效的别名alias ls = &apos;ls --color=auto&apos;#临时设定别名vi ~/.bashrcv
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/19/Shell-Bash别名和快捷键/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">alias</div><div class="line">#查看系统当中默认已经生效的别名</div><div class="line"></div><div class="line">alias ls = &apos;ls --color=auto&apos;</div><div class="line">#临时设定别名</div><div class="line"></div><div class="line">vi ~/.bashrc</div><div class="line">vi /root/.bashrc</div><div class="line">#写入环境变量配置文件，系统再次重启后永久生效</div><div class="line">source .bashrc</div><div class="line">#使当前环境变量设置立即生效，不需要系统重启</div><div class="line"></div><div class="line">unalias ls</div><div class="line">#删除别名</div></pre></td></tr></table></figure>
+<p>命令生效顺序</p>
+<ol>
+<li>第一顺位执行绝对路径或者相对路径的命令</li>
+<li>第二顺位执行别名</li>
+<li>第三顺位执行Bash的内部命令</li>
+<li>第四顺位执行按照$PATH环境变量设置定义的目录顺序的第一个命令</li>
+</ol>
+<p><br></p>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p>ctrl + c 强制终止<br>ctrl + l 清屏相当于clear<br>ctrl + a 光标快速回到行首<br>ctrl + e 光标快速去到行尾<br>ctrl + u 从光标所在位置删除到行首<br>ctrl + z 把命令放入后台–，暂停<br>ctrl + r 历史命令搜索</p>
+
+          
         
       
     </div>
@@ -588,15 +580,10 @@ histo123456789history [选项] [历史命令保存文件]选项：-c：清空历
       
         
           
-          脚本执行：123456方法1：赋予执行权限，直接运行chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh）方法2：通过Bash调用执行脚本bash 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/19/Shell脚本执行方式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="脚本执行："><a href="#脚本执行：" class="headerlink" title="脚本执行："></a>脚本执行：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">方法1：赋予执行权限，直接运行</div><div class="line">chmod 755 hello.sh</div><div class="line">./hello.sh（或者绝对路径执行 /root/hello.sh）</div><div class="line"></div><div class="line">方法2：通过Bash调用执行脚本</div><div class="line">bash hello.sh</div></pre></td></tr></table></figure>
+<p>在shell脚本中<code>#!/bin/Bash</code>不是注释，它标称下面的内容是linux的标准脚本程序<br>如果该脚本使用纯shell语句完成，不加<code>#!/bin/Bash</code>运行是没问题的，但如果脚本调用了其他语言，就会报错</p>
+<h2 id="echo命令"><a href="#echo命令" class="headerlink" title="echo命令"></a>echo命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">echo [选项] [输出内容]</div><div class="line"></div><div class="line">选项： -e：支持反斜线控制的字符转换</div><div class="line"></div><div class="line">内容转义</div><div class="line">\a - 输出警告音</div><div class="line">\b - 退格符</div><div class="line">\n - 换行符</div><div class="line">\r - 回车键</div><div class="line">\t - 制表符，也就是tab键</div><div class="line">\v - 垂直制表符</div><div class="line">\0nnn - 按照八进制ASCII码输出字符</div><div class="line">\xhh - 按照十六进制ASCII表输出字符</div><div class="line"></div><div class="line">输出带颜色的内容 </div><div class="line">echo -e &quot;\e[1;31m文字\e[0m&quot;</div><div class="line">#输出颜色 \e[1;##m - 开启颜色显示； \e[0m - 关闭颜色显示</div><div class="line">#30m=黑色，31m=红色，32m=绿色，33m=黄色</div><div class="line">#34m=蓝色，35m=洋红，36m=青色，37m=白色</div></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -714,24 +701,27 @@ histo123456789history [选项] [历史命令保存文件]选项：-c：清空历
       
         
           
-          
+            <style>
 table th:nth-of-type(1){
 width: 30%;
 }
 table th:nth-of-type(2){
 width: 70%;
 }
+</style>
 
+<p>Shell是一个命令行解释器（程序 -&gt; 依赖ASCII码表翻译为二进制 -&gt; Linux内核（发送请求）-&gt; 运行程序），它为用户提供了一个向Linux内核发送请求以便运行程序的界面系统级程序，用户可以用Shell来启动、挂起、停止甚至时编写一些程序。</p>
+<p>Shell还是一个功能相当强大的编程语言，易编写，易调试，灵活性较强。Shell是解释执行的脚本语言，在Shell中可以直接调用Linux系统命令</p>
+<h2 id="Shell分类"><a href="#Shell分类" class="headerlink" title="Shell分类"></a>Shell分类</h2><ul>
+<li>Bourne Shell：主文件名为sh，从1979年起Unix就开始使用Bourne Shell</li>
+<li>C Shell:主要在BSD版的Unix系统中使用，其语法和C语言相类似而得名</li>
+</ul>
+<p>Shell的两种主要语法类型有Bourne和C，彼此不兼容。<br>Bourne家族主要包括sh,ksh,Bash(Linux使用的标准Shell，不区分发行版),psh,zsh;<br>C家族（Unix使用）主要包括：csh,tcsh（和Bash语法，配置微小区别）</p>
+<p>Linux，Unix的主要区别：　Shell的不同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">echo $SHELL </div><div class="line">#查看Shell</div><div class="line"></div><div class="line">cat /etc/shells</div><div class="line">#查看Linux支持的shell</div><div class="line"></div><div class="line">sh</div><div class="line">#进入sh模式</div><div class="line">exit</div><div class="line">#关闭模式</div></pre></td></tr></table></figure>
+<p>Bash：Bash与sh兼容，现在使用的Linux就是使用Bash作为用户的基本Shell<br>Bourne Again Shell (bash) 是兼容Bourne Shell的一种相当于升级版本，注意命令bash中的ｂ是小写字母</p>
 
-Shell是一个命令行解释器（程序 -
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/19/Shell概述/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -849,20 +839,22 @@ Shell是一个命令行解释器（程序 -
       
         
           
-          写这篇文章的主要目的是方便局域网内的ftp配置
-基本上实现这三点足够了：
+            <p>写这篇文章的主要目的是方便局域网内的ftp配置</p>
+<p>基本上实现这三点足够了：</p>
+<ul>
+<li>不允许匿名访问，因为我不想其他机器随便都能登陆上来；</li>
+<li>锁定一个共享目录，在这个目录下我可以上传和下载文件，进行文件共享；</li>
+<li>不单独建立ftp用户，本机就可以访问；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vsftpd </div><div class="line"></div><div class="line">#ubuntu的配置文件位置</div><div class="line">sudo vim /etc/vsftpd.conf</div><div class="line"></div><div class="line">anonymous_enable=NO         #禁止匿名登陆</div><div class="line">local_root=/home/user/ftp   #设定一个共享目录</div><div class="line">local_enable=YES            #本机可以访问</div><div class="line">write_enable=YES            #可以写</div><div class="line">chroot_list_enable=YES      </div><div class="line">chroot_list_file=/etc/vsftpd.chroot_list</div><div class="line">#不单独建立ftp用户</div><div class="line"></div><div class="line">#在其中写入可以使用ftp的用户名</div><div class="line">sudo vim /etc/vsftpd.chroot_list</div><div class="line"></div><div class="line">#不允许其他用户写</div><div class="line">chmod u-w,g-w ftp</div><div class="line"></div><div class="line">#重启</div><div class="line">sudo service vsftpd restart</div></pre></td></tr></table></figure>
+<p>然后就可以使用各种客户端登陆了</p>
+<p><br></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/hongbin_xu/article/details/73177748" target="_blank" rel="external">https://blog.csdn.net/hongbin_xu/article/details/73177748</a></li>
+</ul>
 
-不允许匿名访问，因为我不想其他机器随便都能登陆上来；
-锁定一个共享目录，在这个目录下我可以上传和下载文件，进行文件共享；
-不
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/18/局域网安装ftp/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -980,16 +972,24 @@ Shell是一个命令行解释器（程序 -
       
         
           
-          SFTPSFTP是安全文件传送协议，可以为传输文件提供一种安全的网络的加密方法。
-SFTP 与 FTP 有着几乎一样的语法和功能。SFTP 为 SSH的其中一部分，所以说 SFTP 就是通过SSH端口
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/18/Linux-SFTP\SCP命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="SFTP"><a href="#SFTP" class="headerlink" title="SFTP"></a>SFTP</h2><p>SFTP是安全文件传送协议，可以为传输文件提供一种安全的网络的加密方法。</p>
+<p>SFTP 与 FTP 有着几乎一样的语法和功能。SFTP 为 SSH的其中一部分，所以说 SFTP 就是通过SSH端口（默认 22端口）和 Linux 用户和密码登陆的（例如 root 账号）。SFTP 使用加密传输认证信息和传输的数据，所以使用SFTP是非常安全的。但是由于这种传输方式使用了加密/解密技术，所以传输效率比普通的FTP要低得多。</p>
+<p>使用SFTP并不需要在服务器上做任何配置，只需要找个SFTP客户端，然后知道SSH端口、服务器用户名+密码即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"># 连接到SFTP</div><div class="line">sftp tecmint@27.48.137.6</div><div class="line"></div><div class="line"># 获得帮助</div><div class="line">?</div><div class="line">help</div><div class="line"></div><div class="line"># 检查本地工作目录</div><div class="line">lpwd</div><div class="line"># 检查远程工作目录</div><div class="line">pwd</div><div class="line"></div><div class="line"># 列出本地文件</div><div class="line">lls</div><div class="line"># 列出远程文件</div><div class="line">ls</div><div class="line"></div><div class="line"># 上传单个或多个文件</div><div class="line">put local.profile</div><div class="line"># 上传多个文件</div><div class="line">mput * .xls</div><div class="line"></div><div class="line"># 下载单个或多个文件</div><div class="line">get SettlementReport_1-10th.xls</div><div class="line"># 下载多个文件</div><div class="line">mget * .xls</div><div class="line"></div><div class="line"># 切换本地目录</div><div class="line">lcd Documents</div><div class="line"># 切换远程目录</div><div class="line">cd test</div><div class="line"></div><div class="line"># 创建目录</div><div class="line">mkdir test</div><div class="line">lmkdir test</div><div class="line"></div><div class="line"># 删除目录，该目录必须为空</div><div class="line">rm Report.xls</div><div class="line">rmdir sub1</div><div class="line"></div><div class="line"># 退出SFTP</div><div class="line">!</div><div class="line">exit</div></pre></td></tr></table></figure>
+<h2 id="SCP"><a href="#SCP" class="headerlink" title="SCP"></a>SCP</h2><p>使用SSH协议来传输文件的</p>
+<ul>
+<li>SCP比较简单，是轻量级的，SFTP的功能则比较多</li>
+<li>SCP的速度较快</li>
+<li>SFTP在文件传输过程中中断的话，连接后还可以继续传输，但SCP不行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">scp [-r] 用户名@ip:文件路径 本地路径</div><div class="line"># 网络复制命令, 下载文件 或加-r 下载文件夹</div><div class="line"></div><div class="line">scp [-r] 本地文件 用户名@ip:上传路径</div><div class="line"># 网络复制命令, 上传文件 或加-r 上传文件夹</div><div class="line"># 此为linux 与 linux之间进行文件传输的最简单方式</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.tecmint.com/sftp-command-examples/" target="_blank" rel="external">https://www.tecmint.com/sftp-command-examples/</a></li>
+<li><a href="https://www.jscape.com/blog/scp-vs-sftp" target="_blank" rel="external">https://www.jscape.com/blog/scp-vs-sftp</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -1107,15 +1107,49 @@ SFTP 与 FTP 有着几乎一样的语法和功能。SFTP 为 SSH的其中一部�
       
         
           
-          FTP只通过TCP连接,没有用于FTP的UDP组件.FTP不同于其他服务的是它使用了两个端口, 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/17/FTP主动模式和被动模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>FTP只通过TCP连接,没有用于FTP的UDP组件.FTP不同于其他服务的是它使用了两个端口, 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作方式的不同，数据端口并不总是20，这就是主动与被动FTP的最大不同之处。（不管主动模式还是被动模式都是用TCP 21端口来传输控制信号的。）</p>
+<h2 id="主动FTP-PORT-Active"><a href="#主动FTP-PORT-Active" class="headerlink" title="主动FTP(PORT/Active)"></a>主动FTP(PORT/Active)</h2><p>客户端从一个任意的非特权端口N（N&gt;1023）连接到FTP服务器的命令端口，也就是21端口。然后客户端开始监听端口N+1，并发送FTP命令“port N+1”到FTP服务器。接着服务器会从它自己的数据端口（20）连接到客户端指定的数据端口（N+1）。<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG43.jpg" alt=""></p>
+<p>针对FTP服务器前面的防火墙来说，必须允许以下通讯才能支持主动方式FTP：</p>
+<ol>
+<li>任何大于1024的端口到FTP服务器的21端口。（客户端初始化的连接）</li>
+<li>FTP服务器的21端口到大于1023的端口。 （服务器响应客户端的控制端口）</li>
+<li>FTP服务器的20端口到大于1023的端口。（服务器端初始化数据连接到客户端的数据端口）</li>
+<li>大于1023端口到FTP服务器的20端口（客户端发送ACK响应到服务器的数据端口）</li>
+</ol>
+<h2 id="被动FTP-PASV-Passive"><a href="#被动FTP-PASV-Passive" class="headerlink" title="被动FTP(PASV/Passive)"></a>被动FTP(PASV/Passive)</h2><p>为了解决服务器发起到客户的连接的问题，人们开发了一种不同的FTP连接方式。这就是所谓的被动方式，当客户端通知服务器它处于被动模式时才启用。</p>
+<p>在被动方式FTP中，命令连接和数据连接都由客户端发起，这样就可以解决从服务器到客户端的数据端口的入方向连接被防火墙过滤掉的问题。</p>
+<p>当开启一个 FTP连接时，客户端打开两个任意的非特权本地端口（N &gt; 1024和N+1）。第一个端口连接服务器的21端口，但与主动方式的FTP不同，客户端不会提交PORT命令并允许服务器来回连它的数据端口，而是提交 PASV命令。这样做的结果是服务器会开启一个任意的非特权端口（P &gt; 1024），并发送PORT P命令给客户端。然后客户端发起从本地端口N+1到服务器的端口P的连接用来传送数据。</p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG44.jpg" alt=""></p>
+<p>对于服务器端的防火墙来说，必须允许下面的通讯才能支持被动方式的FTP:</p>
+<ol>
+<li>从任何大于1023的端口到服务器的21端口 （客户端初始化的连接）</li>
+<li>服务器的21端口到任何大于1023的端口 （服务器响应到客户端的控制端口的连接）</li>
+<li>从任何大于1023端口到服务器的大于1023端口 （客户端初始化数据连接到服务器指定的任意端口）</li>
+<li>服务器的大于1023端口到远程的大于1023的端口（服务器发送ACK响应和数据到客户端的数据端口）</li>
+</ol>
+<h2 id="主动与被动FTP优缺点："><a href="#主动与被动FTP优缺点：" class="headerlink" title="主动与被动FTP优缺点："></a>主动与被动FTP优缺点：</h2><p>主动FTP对FTP服务器的管理有利，但对客户端的管理不利。因为FTP服务器企图与客户端的高位随机端口建立连接，而这个端口很有可能被客户端的防火墙阻塞掉。被动FTP对FTP客户端的管理有利，但对服务器端的管理不利。因为客户端要与服务器端建立两个连接，其中一个连到一个高位随机端口，而这个端口很有可能被服务器端的防火墙阻塞掉。</p>
+<p>幸运的是，有折衷的办法。既然FTP服务器的管理员需要他们的服务器有最多的客户连接，那么必须得支持被动FTP。我们可以通过为FTP服务器指定一个有限的端口范围来减小服务器高位端口的暴露。这样，不在这个范围的任何端口会被服务器的防火墙阻塞。虽然这没有消除所有针对服务器的危险，但它大大减少了危险。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>主动FTP：<br>　　命令连接：客户端 &gt;1023端口 -&gt; 服务器 21端口<br>　　数据连接：客户端 &gt;1023端口 &lt;- 服务器 20端口 </p>
+<p>被动FTP：<br>　　命令连接：客户端 &gt;1023端口 -&gt; 服务器 21端口<br>　　数据连接：客户端 &gt;1023端口 -&gt; 服务器 &gt;1023端口</p>
+<p>主动模式是从服务器端向客户端发起连接；被动模式是客户端向服务器端发起连接。两者的共同点是都使用 21端口进行用户验证及管理，差别在于传送数据的方式不同，PORT模式的FTP服务器数据端口固定在20，而PASV模式则在1024-65535之间随机</p>
+<p>PORT（主动）方式的连接过程是：客户端向服务器的FTP端口（默认是21）发送连接请求，服务器接受连接，建立一条命令链路。当需要传送数据时，客户端在命令链路上用PORT命令告诉服务器：“我打开了XXXX端口，你过来连接我”。于是服务器从20端口向客户端的XXXX端口发送连接请求，建立一条数据链路来传送数据。</p>
+<p>PASV（被动）方式的连接过程是：客户端向服务器的FTP端口（默认是21）发送连接请求，服务器接受连接，建立一条命令链路。当需要传送数据时，服务器在命令链路上用PASV命令告诉客户端：“我打开了XXXX端口，你过来连接我”。于是客户端向服务器的XXXX端口发送连接请求，建立一条数据链路来传送数据。</p>
+<p>当NAT(Network Address Translation)设备以主动模式访问FTP服务器时，由于NAT设备不会聪明的变更FTP包中的IP地址，从而导致无法访问服务器。</p>
+<p>大部分互联网应用都是被动模式，因为大部分客户端都是在路由器后面，没有独立的公网IP地址，服务器想要主动连接客户端，难度太大，在现在真实的互联网环境里面几乎是不可能完成的任务。</p>
+<p>大部分FTP客户端默认使用PASV方式，在大部分FTP客户端的设置里，常见到的字眼都是“PASV”或“被动模式”。</p>
+<h2 id="vsftpd配置"><a href="#vsftpd配置" class="headerlink" title="vsftpd配置"></a>vsftpd配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># vi /etc/vsftpd/vsftpd.conf</div><div class="line">pasv_enable=YES</div><div class="line">pasv_min_port=3000</div><div class="line">pasv_max_port=4000</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.centos.bz/2012/08/ftp-port-pasv-mode/" target="_blank" rel="external">https://www.centos.bz/2012/08/ftp-port-pasv-mode/</a></li>
+<li><a href="http://www.serv-u.com/kb/1138/Active-and-Passive-FTP-Transfers-Defined" target="_blank" rel="external">http://www.serv-u.com/kb/1138/Active-and-Passive-FTP-Transfers-Defined</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_5cdb72780100jwm9.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_5cdb72780100jwm9.html</a></li>
+<li><a href="http://www.rfyy.net/archives/2641.html" target="_blank" rel="external">http://www.rfyy.net/archives/2641.html</a></li>
+<li><a href="https://my.oschina.net/binny/blog/17469" target="_blank" rel="external">https://my.oschina.net/binny/blog/17469</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/36403412" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/36403412</a></li>
+<li><a href="http://www.cnblogs.com/xiaohh/p/4789813.html" target="_blank" rel="external">http://www.cnblogs.com/xiaohh/p/4789813.html</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -1233,17 +1267,14 @@ SFTP 与 FTP 有着几乎一样的语法和功能。SFTP 为 SSH的其中一部�
       
         
           
-          12who#查看当前登录用户信息：用户名、终端类型、登陆日期以及远程主机
-12users#当前登录的用户
-123history#查看命令历史$HOME/.bash_history：每个用户都有一份命令
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/16/linux查看用户登录时间及历史命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">who</div><div class="line">#查看当前登录用户信息：用户名、终端类型、登陆日期以及远程主机</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">users</div><div class="line">#当前登录的用户</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">history</div><div class="line">#查看命令历史</div><div class="line">$HOME/.bash_history：每个用户都有一份命令历史记录</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">last</div><div class="line">#查看用户登录历史</div><div class="line">#此命令会读取 /var/log/wtmp 文件，/var/log/btmp可以显示远程登陆信息。 </div><div class="line">#last默认打印所有用户的登陆信息</div><div class="line">last 用户名</div><div class="line">#打印某个用户的登陆信息</div><div class="line">选项： </div><div class="line">-x：显示系统开关机以及执行等级信息 </div><div class="line">-a：将登陆ip显示在最后一行 </div><div class="line">-f ：读取特定文件，可以选择 -f /var/log/btmp文件 </div><div class="line">-d：将IP地址转换为主机名 </div><div class="line">-n：设置列出名单的显示列数 </div><div class="line">-t：查看指定时间的用户登录历史 </div><div class="line">例如： </div><div class="line">last -t 20150226160404 </div><div class="line">显示这个时间戳之前的登陆历史</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">lastlog</div><div class="line">#查看所有用户最近一次登录历史</div><div class="line">#命令将读取 /var/log/lastlog 文件，用户排列顺序按照 /etc/passwd 中的顺序</div><div class="line">选项： </div><div class="line">-u：查看某个用户的最后一次登陆历史 </div><div class="line">例如： lastlog -u test </div><div class="line">查看用户test的登陆历史 </div><div class="line"></div><div class="line">-t：查看最近几天之内的用户登录历史 </div><div class="line">例如： lastlog -t 1 </div><div class="line">查看最近1天之内的登陆历史</div><div class="line"></div><div class="line">-b：查看指定天数之前的用户登录历史 </div><div class="line">例如： lastlog -b 60 </div><div class="line">查看60天之前的用户登录历史</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ac</div><div class="line">根据/var/log/wtmp文件中的登陆和退出时间报告用户连接的时间（小时），默认输出报告总时间 </div><div class="line">-p：显示每个用户的连接时间 </div><div class="line">-d：显示每天的连接时间 </div><div class="line">-y：显示年份，和-d配合使用</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -1361,16 +1392,15 @@ SFTP 与 FTP 有着几乎一样的语法和功能。SFTP 为 SSH的其中一部�
       
         
           
-          本质上来说就是根据有没有以/结尾
-只显示目录12345ls -F | grep /$    # -F使得ls将文件分类，通过在文件后面加一些标记来实现ls -F | grep /ls -l | gre
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/16/Linux下ls命令只显示目录或文件/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>本质上来说就是根据有没有以<code>/</code>结尾</p>
+<h2 id="只显示目录"><a href="#只显示目录" class="headerlink" title="只显示目录"></a>只显示目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ls -F | grep /$    # -F使得ls将文件分类，通过在文件后面加一些标记来实现</div><div class="line">ls -F | grep /</div><div class="line">ls -l | grep ^d</div><div class="line">ls -d */</div><div class="line">ls -ld */</div></pre></td></tr></table></figure>
+<h2 id="只显示文件"><a href="#只显示文件" class="headerlink" title="只显示文件"></a>只显示文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ls -F | grep [^\/]$  # 注意行尾匹配符号$不可少</div><div class="line">ls -F | grep [^/]$</div><div class="line">ls -l | grep ^-</div><div class="line">ls -l | grep ^- | wc -l  # wc命令统计行数</div><div class="line">find . -type f -maxdepth 1 | xargs ls -al</div><div class="line">ls -p | grep [^/]$  # -p使得ls命令在目录后面加斜杠</div><div class="line">find . ! -name . -prune -type f   # 这个命令不会很好排序文件</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="http://blog.163.com/ytyang__/blog/static/8405845201112502159277/" target="_blank" rel="external">http://blog.163.com/ytyang__/blog/static/8405845201112502159277/</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -1488,16 +1518,20 @@ SFTP 与 FTP 有着几乎一样的语法和功能。SFTP 为 SSH的其中一部�
       
         
           
-          Linux默认是允许Ping响应的，系统是否允许Ping由2个因素决定的：A、内核参数，B、防火墙，需要2个因素同时允许才能允许Ping，2个因素有任意一个禁Ping就无法Ping。
-具体的配置方法如
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/16/Linux禁止ping以及开启ping的方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>Linux默认是允许Ping响应的，系统是否允许Ping由2个因素决定的：A、内核参数，B、防火墙，需要2个因素同时允许才能允许Ping，2个因素有任意一个禁Ping就无法Ping。</p>
+<p>具体的配置方法如下：</p>
+<h2 id="内核参数设置"><a href="#内核参数设置" class="headerlink" title="内核参数设置"></a>内核参数设置</h2><h4 id="允许ping设置"><a href="#允许ping设置" class="headerlink" title="允许ping设置"></a>允许ping设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#临时允许PING操作的命令</div><div class="line">echo 0 &gt;/proc/sys/net/ipv4/icmp_echo_ignore_all</div><div class="line"></div><div class="line">#永久允许ping配置方法</div><div class="line">#/etc/sysctl.conf设置</div><div class="line">net.ipv4.icmp_echo_ignore_all=0</div><div class="line">#使新配置生效</div><div class="line">sysctl -p</div></pre></td></tr></table></figure>
+<h4 id="禁止Ping设置"><a href="#禁止Ping设置" class="headerlink" title="禁止Ping设置"></a>禁止Ping设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#临时禁止PING的命令</div><div class="line">echo 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all     </div><div class="line"></div><div class="line">#永久禁止ping配置方法</div><div class="line">#/etc/sysctl.conf设置</div><div class="line">net.ipv4.icmp_echo_ignore_all=1</div><div class="line">#使新配置生效</div><div class="line">sysctl -p</div></pre></td></tr></table></figure>
+<h2 id="防火墙设置"><a href="#防火墙设置" class="headerlink" title="防火墙设置"></a>防火墙设置</h2><p>注：此处的方法的前提是内核配置是默认值，也就是没有禁止Ping</p>
+<p>这里以Iptables防火墙为例，其他防火墙操作方法可参考防火墙的官方文档。</p>
+<h4 id="允许ping设置-1"><a href="#允许ping设置-1" class="headerlink" title="允许ping设置"></a>允许ping设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT</div><div class="line">iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT</div><div class="line">#或者也可以临时停止防火墙操作的</div><div class="line">service iptables stop</div></pre></td></tr></table></figure>
+<h4 id="禁止ping设置"><a href="#禁止ping设置" class="headerlink" title="禁止ping设置"></a>禁止ping设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/chenshoubiao/p/4781016.html" target="_blank" rel="external">https://www.cnblogs.com/chenshoubiao/p/4781016.html</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -1615,15 +1649,22 @@ SFTP 与 FTP 有着几乎一样的语法和功能。SFTP 为 SSH的其中一部�
       
         
           
-          监控系统资源（memory swap system io cpu等）123456789101112131415161718192021222324252627282930313233vmstat [刷
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/15/Linux-系统资源查看/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="监控系统资源（memory-swap-system-io-cpu等）"><a href="#监控系统资源（memory-swap-system-io-cpu等）" class="headerlink" title="监控系统资源（memory swap system io cpu等）"></a>监控系统资源（memory swap system io cpu等）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">vmstat [刷新延时 刷新次数]</div><div class="line">例：vmstat 1 3</div><div class="line"></div><div class="line">procs：进程信息字段</div><div class="line">-r：等待运行的进程数，数量越大，系统越繁忙</div><div class="line">-b：不可被唤醒和进程数量，数量越大，系统越繁忙</div><div class="line"></div><div class="line">memory：内存信息字段</div><div class="line">-swpd：虚拟内存的使用情况，单位KB</div><div class="line">-free：空闲的内存容量，单位KB</div><div class="line">-buff：缓冲的内存容量，单位KB</div><div class="line">-cache：缓存的内存容量，单位KB</div><div class="line"></div><div class="line">swap：交换分区的信息字段</div><div class="line">-si：从磁盘中交换到内存中数据的数量，单位KB</div><div class="line">-so：从内存中交换到磁盘中数据的数量，单位KB</div><div class="line">这两个数越大，证明需要经常在磁盘和内存之间交换，系统性能越差</div><div class="line"></div><div class="line">io：磁盘读写信息字段</div><div class="line">-bi：从块设备读入数据的总量，单位是块</div><div class="line">-bo：写到块设备的数据和总量，单位是块。</div><div class="line">这两个数越大，代表系统的I/O越繁忙 </div><div class="line"></div><div class="line">system：系统信息字段</div><div class="line">-in：每秒被中断的进程次数</div><div class="line">-cs：每秒钟进行的事件切换次数。此两个数越大，代表系统与接口设备的通信非常繁忙 </div><div class="line"></div><div class="line">CPU：CPU信息字段</div><div class="line">-us：非内核进程消耗CPU运算时间的百分比</div><div class="line">-sy：内核进程消耗CPU运算时间的百分比</div><div class="line">-id：空闲CPU的百分比</div><div class="line">-wa：等待I/O所消耗的CPU百分比</div><div class="line">-st：被虚拟机所盗用的CPU百分比</div></pre></td></tr></table></figure>
+<h2 id="开机时内核检测信息"><a href="#开机时内核检测信息" class="headerlink" title="开机时内核检测信息"></a>开机时内核检测信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dmesg</div><div class="line">dmesg | grep cpu</div></pre></td></tr></table></figure>
+<h2 id="查看内存使用状态"><a href="#查看内存使用状态" class="headerlink" title="查看内存使用状态"></a>查看内存使用状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">free [-b-k-m-g]</div><div class="line">-b：以字节为单位显示</div><div class="line">-k：以KBl为单位显示，默认就是以KB为单位显示</div><div class="line">-m：以MB为单位显示</div><div class="line">-g：以GB为单位显示（不满1g时显示精度丢失）</div></pre></td></tr></table></figure>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG38.png" alt=""></p>
+<p>第一行：total是总内存数，used是已经使用的内存数，free是空闲的内存数，shared是多个进程共享的内存总数，buff是缓冲内存数，cache是缓存内存数。默认单位是KB</p>
+<p><del>第二行：-/buffers/cache的内存数，相当于第一行的used-buffers-cached。+/buffers/cache的内存数，相当于第一行的free+buffers+cached</del></p>
+<p>第<del>二</del>三行：total是swap的总数；used是已经使用的swap总数，free是空闲的swap数。默认单位是KB</p>
+<h2 id="查看cpu信息"><a href="#查看cpu信息" class="headerlink" title="查看cpu信息"></a>查看cpu信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat/proc/cpuinfo</div></pre></td></tr></table></figure>
+<h2 id="显示系统的系统时间，平均负载，当前登录用户数"><a href="#显示系统的系统时间，平均负载，当前登录用户数" class="headerlink" title="显示系统的系统时间，平均负载，当前登录用户数"></a>显示系统的系统时间，平均负载，当前登录用户数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uptime</div></pre></td></tr></table></figure>
+<p>显示系统的系统时间，平均负载，当前登录用户数，即top命令的第一行（top命令耗费资源）</p>
+<p>w命令也可以看到这个数据，w命令侧重用户信息的显示，显示了终端号ip，平均负载等</p>
+<h2 id="查看系统与内核相关信息"><a href="#查看系统与内核相关信息" class="headerlink" title="查看系统与内核相关信息"></a>查看系统与内核相关信息</h2><p>两种方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">uname [选项]</div><div class="line"></div><div class="line">选项：</div><div class="line">-a :查看系统所有相关信息</div><div class="line">-r :查看内核版本</div><div class="line">-s :查看内核名称</div><div class="line"></div><div class="line"></div><div class="line">cat /proc/version</div></pre></td></tr></table></figure></p>
+<h2 id="判断当前系统的位数"><a href="#判断当前系统的位数" class="headerlink" title="判断当前系统的位数"></a>判断当前系统的位数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">file /bin/ls</div><div class="line">#通过查看命令的位数</div><div class="line">#64位cpu仍可以安装32位系统，不能通过cpu位数来判断</div></pre></td></tr></table></figure>
+<h2 id="查看发行版信息"><a href="#查看发行版信息" class="headerlink" title="查看发行版信息"></a>查看发行版信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#centos 7 可用</div><div class="line">#实际上，打开/etc目录可以看到redhat-release和system-release全都软链接到了centos-release</div><div class="line">rpm -q centos-release</div><div class="line">cat /etc/centos-release</div><div class="line">cat /etc/redhat-release</div><div class="line">cat /etc/system-release</div><div class="line"></div><div class="line">#centos 7.4不可用</div><div class="line">lsb_release -a</div><div class="line">cat /etc/issue</div></pre></td></tr></table></figure>
+<h2 id="列出进程打开或使用的文件信息"><a href="#列出进程打开或使用的文件信息" class="headerlink" title="列出进程打开或使用的文件信息"></a>列出进程打开或使用的文件信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">lsof [选项]</div><div class="line"></div><div class="line">选项：</div><div class="line">-c 字符串 ：只列出以字符串开头的进程打开文件</div><div class="line">-u 用户名 ：只列出某个用户的进程打开的文件</div><div class="line">-p pid    : 列出某个pid进程打开的文件</div><div class="line"></div><div class="line"></div><div class="line">示例：</div><div class="line">lsof | more</div><div class="line">#查询所有进程-分屏显示</div><div class="line"></div><div class="line">lsof /sbin/init</div><div class="line">#查询/sbin/init文件被哪个文件调用（只能查系统文件，其他自己建立的文件查没有意义）</div><div class="line"></div><div class="line">lsof -c httpd </div><div class="line">#查看httpd进程调用了哪个文件</div><div class="line"></div><div class="line">lsof -u root</div><div class="line">#按照用户名，查询某用户的进程所调用的文件名（数量可能很多）</div></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -1741,16 +1782,22 @@ SFTP 与 FTP 有着几乎一样的语法和功能。SFTP 为 SSH的其中一部�
       
         
           
-          Linux操作系统是一个多用户、多任务的操作系统，Linux系统中运行着非常多的进程，但是CPU在同一时钟周期内只能运算一个指令。进程优先级决定了每个进程处理的先后顺序 
-查看优先级1234ps -e
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/15/Linux进程管理-修改进程优先级/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>Linux操作系统是一个多用户、多任务的操作系统，Linux系统中运行着非常多的进程，但是CPU在同一时钟周期内只能运算一个指令。进程优先级决定了每个进程处理的先后顺序 </p>
+<h2 id="查看优先级"><a href="#查看优先级" class="headerlink" title="查看优先级"></a>查看优先级</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ps -el </div><div class="line">#PRI(priority): 是系统的优先级</div><div class="line">#NI (nice)： 用户可以自定义的优先级</div><div class="line">#实际执行的优先级是PRI+NI，数字越小该进程优先级越高</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="给新执行的命令赋予NI值"><a href="#给新执行的命令赋予NI值" class="headerlink" title="给新执行的命令赋予NI值"></a>给新执行的命令赋予NI值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">nice [选项] 命令</div><div class="line">#nice命令可以给新执行的命令直接赋予NI值，但是不能修改已经存在进程的NI值</div><div class="line">选项：</div><div class="line">-n NI值：给命令赋予NI值。</div><div class="line">例如：nice -n -5 service httpd start</div></pre></td></tr></table></figure>
+<p>修改NI值时有几个注意事项</p>
+<ul>
+<li>NI值的范围是-20到19</li>
+<li>普通用户调整NI值的范围是0到19,而且只能调整自己的进程</li>
+<li>普通用户只能调高NI值，而不能降低，如原本NI值为0，则只能调整为大于0</li>
+<li>root用户才能设定进程NI值为负值，而且可以调整任何用户的进程</li>
+<li>PRI（最终值）=PRI（原始值）+NI</li>
+<li>用户只能修改NI的值，不能直接修改PRI</li>
+</ul>
+<p><br></p>
+<h2 id="修改已经存在进程的NI值"><a href="#修改已经存在进程的NI值" class="headerlink" title="修改已经存在进程的NI值"></a>修改已经存在进程的NI值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">renice [优先级] PID</div><div class="line">#renice命令是修改已经存在进程的NI值的命令</div><div class="line"></div><div class="line">renice -10 2125</div></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -1868,20 +1915,50 @@ SFTP 与 FTP 有着几乎一样的语法和功能。SFTP 为 SSH的其中一部�
       
         
           
-          kill命令 杀死一个进程1234kill -l#查看可用的进程信号kill [信号] PID
-
+            <h2 id="kill命令-杀死一个进程"><a href="#kill命令-杀死一个进程" class="headerlink" title="kill命令 杀死一个进程"></a>kill命令 杀死一个进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kill -l</div><div class="line">#查看可用的进程信号</div><div class="line"></div><div class="line">kill [信号] PID</div></pre></td></tr></table></figure>
+<style>
 table th:nth-of-type(1){
 width: 20%;
 }
-table th:nth
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/15/Linux进程管理-杀死进程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+table th:nth-of-type(2){
+width: 20%;
+}
+table th:nth-of-type(3){
+width: 60%;
+}
+</style>
+
+<p>其中有两个常用信号</p>
+<table>
+<thead>
+<tr>
+<th>信号代号</th>
+<th>信号名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SIGHUP</td>
+<td>关闭读取配置文件后重启</td>
+</tr>
+<tr>
+<td>9</td>
+<td>SIGKILL</td>
+<td>强制停止</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG037.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">kill -HUP(或-1) 进程号</div><div class="line">#平滑重启服务</div><div class="line">#正常修改完配置文件后，需要重启服务</div><div class="line">#用普通的restart来重启会提出正在使用的用户，造成不好的用户体验。</div><div class="line">#平滑重启是重启服务配置，保留正在使用的用户。 </div><div class="line"></div><div class="line">kill -9 2236</div><div class="line">#强制杀死进程</div></pre></td></tr></table></figure>
+<p><br>  </p>
+<h2 id="killall命令-批量杀死同一类型的进程"><a href="#killall命令-批量杀死同一类型的进程" class="headerlink" title="killall命令 批量杀死同一类型的进程"></a>killall命令 批量杀死同一类型的进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">killall  [选项]  [信号]  进程名 </div><div class="line">#按照进程名杀死进程，可以批量杀死同一类型的进程</div><div class="line"></div><div class="line">选项：</div><div class="line">-i：交互式，询问是否要杀死某个进程</div><div class="line">-I：忽略进程名的大小写</div></pre></td></tr></table></figure>
+<p><br>  </p>
+<h2 id="pkill命令-批量杀死同一类型的进程"><a href="#pkill命令-批量杀死同一类型的进程" class="headerlink" title="pkill命令 批量杀死同一类型的进程"></a>pkill命令 批量杀死同一类型的进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">pkill [选项] [信号] 进程名 </div><div class="line">#按照进程名终止进程，可以批量杀死同一类型的进程</div><div class="line"></div><div class="line">选项：</div><div class="line">-t 终端号：按照终端号踢出用户</div></pre></td></tr></table></figure>
+<p>案例：踢出登录用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">w </div><div class="line">#查看当前登陆用户的用户 TTY列为终端号</div><div class="line">按照终端号杀死进程</div><div class="line">pkill -9 -t tty1</div><div class="line"></div><div class="line">#只有超级用户才能踢除用户</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -1999,25 +2076,249 @@ table th:nth
       
         
           
-          
+            <style>
 table th:nth-of-type(1){
 width: 30%;
 }
 table th:nth-of-type(2){
 width: 70%;
 }
+</style>
 
 
+<p>进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源</p>
+<p>进程管理的作用</p>
+<ol>
+<li>判断服务器健康状态</li>
+<li>查看系统中所有的进程</li>
+<li>杀死进程</li>
+</ol>
+<p><br>  </p>
+<h2 id="ps命令-查看所有进程"><a href="#ps命令-查看所有进程" class="headerlink" title="ps命令 查看所有进程"></a>ps命令 查看所有进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">ps aux </div><div class="line">#查看系统中所有进程 ，使用BSD操作系统格式（没有-）</div><div class="line">ps -le</div><div class="line">#查看系统中所有进程 ，使用Linux标准命令格式</div><div class="line">ps -ef |grep ssh</div><div class="line"></div><div class="line">选项</div><div class="line">-a :显示一个终端的所有进程</div><div class="line">-u :显示进程的归属用户及内存的使用情况</div><div class="line">-x :显示没有控制终端的进程</div><div class="line">-l :长格式显示，显示更加详细的信息</div><div class="line">-e :显示所有进程，和-A作用一致</div></pre></td></tr></table></figure>
+<p>输出详解</p>
+<table>
+<thead>
+<tr>
+<th>显示</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>该进程是由哪个用户产生的</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td>该进程占用CPU资源的百分比，占用越高，进程越耗费资源</td>
+</tr>
+<tr>
+<td>%MEM</td>
+<td>该进程占用物理内存的百分比，占用越高，进程越耗费资源</td>
+</tr>
+<tr>
+<td>VSZ</td>
+<td>该进程占用虚拟内存的大小 ，单位KB</td>
+</tr>
+<tr>
+<td>RSS</td>
+<td>该进程占用实际物理内存的大小，单位KB</td>
+</tr>
+<tr>
+<td>TTY</td>
+<td>表示该进程是在哪个终端运行的<br>tty1-tty6是本地字符界面终端，tty7是本地图形终端<br> pts/0-255代表虚拟终端</td>
+</tr>
+<tr>
+<td>STAT</td>
+<td>进程的状态  <br>R :运行 <br> S :睡眠 <br>T :停止<br>s :包含子进程 <br>   + :位于后台</td>
+</tr>
+<tr>
+<td>START</td>
+<td>该进程的启动时间</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>该进程占用CPU的运算时间，注意不是系统时间</td>
+</tr>
+<tr>
+<td>COMMAND</td>
+<td>产生些进程的命令名</td>
+</tr>
+</tbody>
+</table>
+<p><code>/sbin/init</code>的pid永远是1，它是系统下所有进程的父进程，所有的进程都依赖于它</p>
+<p>TTY是<code>？</code>，代表该进程是由系统内核启动的，一般认为是系统进程</p>
+<p><br>  </p>
+<h2 id="pstree命令-查看进程树"><a href="#pstree命令-查看进程树" class="headerlink" title="pstree命令 查看进程树"></a>pstree命令 查看进程树</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pstree [选项]</div><div class="line">-p :显示进程的PID</div><div class="line">-u :显示进程的所属用户</div></pre></td></tr></table></figure>
+<p><br>  </p>
+<h2 id="top命令-查看系统健康状态"><a href="#top命令-查看系统健康状态" class="headerlink" title="top命令 查看系统健康状态"></a>top命令 查看系统健康状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">top [选项]</div><div class="line">选项：</div><div class="line">-d秒数：指定top命令每隔几秒更新。默认是3秒</div><div class="line">-b：使用批处理模式输出。 一般和 ”-n&quot;选项合用</div><div class="line">-n 次数：指定top 命令执行的次数。 一般和 “-b”选项合用</div><div class="line"></div><div class="line">在 top 命令的交互模式当中可以执行的命令：</div><div class="line">h：显示交互模式的帮助</div><div class="line">P：以CPU使用率排序，默认就是此项</div><div class="line">M：以内存的使用率排序</div><div class="line">N：以PID排序</div><div class="line">q：退出 top</div><div class="line"></div><div class="line">top -b -n 1 &gt; /root/top.log </div><div class="line">#查看所有进程，因为直接使用top屏幕有限无法全部展示，所以放到文件中</div><div class="line">#将执行的top命令结果输出到log日志文件中</div><div class="line">#top命令耗费资源比较大，应及时关闭</div></pre></td></tr></table></figure>
+<p>输出详解</p>
+<table>
+<thead>
+<tr>
+<th><strong>第一行为任务队列信息</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12:26:46</td>
+<td>系统当前时间</td>
+</tr>
+<tr>
+<td>up 1 day,13:32</td>
+<td>系统已运行的时长</td>
+</tr>
+<tr>
+<td>2 users</td>
+<td>当前登录的用户数量</td>
+</tr>
+<tr>
+<td>load average</td>
+<td>系统在之前1分钟，5分钟，15分钟的平均负载（与CPU核数相关，一般认为单核小于1时，负载较小，如果大于1,系统已经超出负荷，那么双核不超2，4核不超4）</td>
+</tr>
+<tr>
+<td><strong>第二行为进程信息</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>tasks:95 total</td>
+<td>系统中的进程总数</td>
+</tr>
+<tr>
+<td>1 running</td>
+<td>正在运行的进程数</td>
+</tr>
+<tr>
+<td>94 sleeping</td>
+<td>睡眠的进程数</td>
+</tr>
+<tr>
+<td>0,stopped</td>
+<td>停止的进程数</td>
+</tr>
+<tr>
+<td>1 zombie</td>
+<td>僵尸进程（应该停止却没有停止的进程），如果不是0,需要手工检查僵尸进程</td>
+</tr>
+<tr>
+<td><strong>第三行为CPU信息</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Cpu(s):0.1%us</td>
+<td>用户模式占用的CPU百分比</td>
+</tr>
+<tr>
+<td>0.1%sy</td>
+<td>系统模式占用的CPU百分比</td>
+</tr>
+<tr>
+<td>0.0%ni</td>
+<td>改变过优先级的用户进程占用的CPU百分比</td>
+</tr>
+<tr>
+<td>99.7%id</td>
+<td>空闲CPU的CPU百分比</td>
+</tr>
+<tr>
+<td>0.1%wa</td>
+<td>等待输入/输出的进程的占用CPU百分比</td>
+</tr>
+<tr>
+<td>0.0%hi</td>
+<td>硬中断请求服务占用的CPU百分比</td>
+</tr>
+<tr>
+<td>0.1%si</td>
+<td>软中断请求服务占用的CPU百分比</td>
+</tr>
+<tr>
+<td>0.0%st</td>
+<td>st(Steal time)虚拟时间百分比，就是当有虚拟CPU时，虚拟CPU占实际CPU的时间百分比</td>
+</tr>
+<tr>
+<td><strong>第四行为物理内存信息</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Mem： 623434k total</td>
+<td>物理内存的总量，单位kb</td>
+</tr>
+<tr>
+<td>521313k free</td>
+<td>空闲的物理内存</td>
+</tr>
+<tr>
+<td>578322k used</td>
+<td>已经使用的物理内存</td>
+</tr>
+<tr>
+<td>623231 buff/cache</td>
+<td>作为缓冲/缓存的内存数量</td>
+</tr>
+<tr>
+<td><strong>第五行是交换分区的信息</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Swap: 8298492 total</td>
+<td>交换分区的总量，单位kb</td>
+</tr>
+<tr>
+<td>8292336 free</td>
+<td>空闲的交换分区</td>
+</tr>
+<tr>
+<td>6156 used</td>
+<td>已经使用的交换分区</td>
+</tr>
+<tr>
+<td>3129824 avail Mem</td>
+<td>可用的交换分区</td>
+</tr>
+<tr>
+<td><strong>第六行类似ps</strong></td>
+</tr>
+<tr>
+<td>PR</td>
+<td>优先级</td>
+</tr>
+<tr>
+<td>NI</td>
+<td>任务nice值</td>
+</tr>
+<tr>
+<td>VIRT</td>
+<td>进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES</td>
+</tr>
+<tr>
+<td>RES</td>
+<td>物理内存用量</td>
+</tr>
+<tr>
+<td>SHR</td>
+<td>共享内存用量</td>
+</tr>
+<tr>
+<td>TIME+</td>
+<td>累计cpu占用时间</td>
+</tr>
+</tbody>
+</table>
+<p>cpu读写速度&gt;内存&gt;硬盘<br>缓存cache是加速读取 减少对硬盘的读取<br>缓冲buff是加速写入 减少对硬盘的写入</p>
+<p>判断系统健康状况主要查看的参数：</p>
+<ol>
+<li>load average: 0.00, 0.00, 0.00  #表示系统在之前1分钟，5分钟，15分钟的平均负载。.</li>
+<li>Cpu（s）:…99.8%id  #CPU空闲百分比</li>
+<li>Mem：…6780k free  #内存空闲率</li>
+<li>Swap：…536723k free  #swap空闲率</li>
+</ol>
+<p><br></p>
+<p>参考：</p>
+<p><a href="https://blog.csdn.net/qq_31666147/article/details/51557300" target="_blank" rel="external">https://blog.csdn.net/qq_31666147/article/details/51557300</a></p>
 
-进程是正在执行的一个程序或命令，每一
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/15/Linux进程管理-查看进程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -2135,7 +2436,7 @@ width: 70%;
       
         
           
-          
+            <style>
 table th:nth-of-type(1){
 width: 30%;
 }
@@ -2143,17 +2444,138 @@ table th:nth-of-type(2){
 width: 70%
 ;
 }
+</style>
 
+<h2 id="at-一次性定时任务"><a href="#at-一次性定时任务" class="headerlink" title="at 一次性定时任务"></a>at 一次性定时任务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">chkconfig --list |grep atd</div><div class="line">#确定at安装</div><div class="line"></div><div class="line">service atd restart</div><div class="line">#启动at服务</div></pre></td></tr></table></figure>
+<p>访问控制</p>
+<ul>
+<li>如果系统中有<code>/etc/at.allow</code>文件(白名单)，那么只有在此文件的用户可以使用at命令（/etc/at.deny文件会被忽略）；</li>
+<li>如果系统中没有<code>/etc/at.allow</code>文件，只有<code>/etc/at.deny</code>文件(黑名单)，那么在此名单下的用户不能使用at命令【对root不起作用】</li>
+<li>如果系统这两个文件都不存在，那么只有root用户可以使用at命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">at [选项] 时间</div><div class="line">选项：</div><div class="line">-m :执行工作后通知执行at命令的用户</div><div class="line">-c :显示该at工作的实际内容</div><div class="line">时间：</div><div class="line">HH:MM</div><div class="line">HH:MM YYYY-MM-DD</div><div class="line">HH:MM[am|pm] [month][date]</div><div class="line">HH:MM +[minutes|hours|days|weeks]</div><div class="line"></div><div class="line">at now + 5 minutes</div><div class="line">&gt;&gt;at /root/test.sh</div><div class="line">五分钟后执行/root/test.sh脚本，必须写绝对路径</div><div class="line">用ctrl+删除键删除，按ctrl + d 保存退出at</div><div class="line"></div><div class="line">atq           </div><div class="line">#查询当前服务器上的at工作</div><div class="line"></div><div class="line">atrm [工作号]  </div><div class="line">#删除指定的at任务</div></pre></td></tr></table></figure>
+<p><br> </p>
+<h2 id="用户-crontab-循环定时任务"><a href="#用户-crontab-循环定时任务" class="headerlink" title="用户 crontab 循环定时任务"></a>用户 crontab 循环定时任务</h2><p>访问控制</p>
+<ul>
+<li>当系统中有<code>/etc/cron.allow</code>文件(白名单)，只有写入此文件的用户可以使用crontab命令，没有写入的用户不能使用crontab命令。同样如果有此文件，<code>/etc/cron.deny</code>文件会被忽略，<code>/etc/cron.allow</code>文件的优先级更高；</li>
+<li>如果系统中没有<code>/etc/cron.allow</code>文件，只有<code>/etc/cron.deny</code>文件(黑名单)，那么在此名单下的用户不能使用cron命令【对root不起作用】</li>
+<li>如果系统这两个文件都不存在，那么只有root用户可以使用cron命令</li>
+</ul>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG45.png" alt=""></p>
+<p>被周期性执行的任务称为Cron Job<br>周期性执行的任务列表称为Cron Table</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">crontab -l</div><div class="line">#查询是否安装</div><div class="line"></div><div class="line">systemctl status crond</div><div class="line">#检查是否启动</div><div class="line"></div><div class="line">yum install crontabs</div><div class="line"></div><div class="line">systemctl start crond</div><div class="line">#启动</div><div class="line"></div><div class="line">systemctl enable crond</div><div class="line">#开机自启</div><div class="line"></div><div class="line">crontab [选项]</div><div class="line">选项：</div><div class="line">-e     #进入crontab编辑界面，当前用户vim方式编辑</div><div class="line">-l     #查看当前用户的crontab任务</div><div class="line">-r     #删除当前用户所有的定时的任务</div><div class="line">-u     #指定用户</div><div class="line"></div><div class="line"></div><div class="line">*  *  *  *  *  执行的任务</div><div class="line">#crontab -e 输入格式</div><div class="line">#第一个 * 一小时的第几分钟  0-59</div><div class="line">#第二个 * 一天当中的第几小时    0-23</div><div class="line">#第三个 * 一月当中第几天    1-31</div><div class="line">#第四个 * 一年当中第几个月  1-12</div><div class="line">#第五个 * 一周中的第几天    0-7(0和7都代表星期日)</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>特殊符号</th>
+<th>含义</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>代表任何时间,如第一个* 代表每分钟执行一次</td>
+<td></td>
+</tr>
+<tr>
+<td>，</td>
+<td>代表不连续的时间,如:0 8,12,16 <em> </em> *代表每天的8点0分/12点0分/16点0分执行</td>
+<td></td>
+</tr>
+<tr>
+<td>-</td>
+<td>代表连续时间, “0 5 <em> </em> * 1-6”代表每周一到周六5点执行</td>
+<td></td>
+</tr>
+<tr>
+<td>*/n</td>
+<td>代表每个多久执行一次,”<em>/10 </em> <em> </em> *”表示每10钟执行一次</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<ul>
+<li>星期几与几号最好不要连用，因为都以天作为单位，容易让管理员混乱</li>
+<li>六个选项都不能为空,必须填写。如果不确定使用<code>*</code>代表任意时间</li>
+<li>最小有效时间为分钟,最大有效时间为月，像2018年某时执行，3点30分30秒这样的时间都不能使用</li>
+<li>定时任务中的命令最好使用绝对路径，定时任务有自己的PATH路径（/etc/crontab）</li>
+</ul>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG39.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>* 5 * * 1 /root/hello.sh</td>
+<td>每周一的5点的每分钟执行一次</td>
+</tr>
+<tr>
+<td>*/1 * * * * date &gt;&gt; /tmp/log.txt</td>
+<td>每分钟打印当前时间到日志文件中</td>
+</tr>
+<tr>
+<td>*/2 * * * * <br> 1-59/2  * * * *</td>
+<td>每隔两分钟</td>
+</tr>
+<tr>
+<td>* 2 * * *</td>
+<td>2点的每分钟</td>
+</tr>
+<tr>
+<td>0 23-7/1  * * * *</td>
+<td>晚上23点到早上7点，每隔一个小时</td>
+</tr>
+<tr>
+<td>0,30  * * * * <br>0-59/30  * * * *</td>
+<td>每隔30分钟</td>
+</tr>
+<tr>
+<td>59 1 1-7 4 * test <code>date +\%w</code> -eq 0 &amp;&amp; /root/a.sh</td>
+<td>四月的第一个星期日早晨1时59分运行a.sh</td>
+</tr>
+</tbody>
+</table>
+<p>每半分钟执行一次<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*/1 * * * * date &gt;&gt; /tmp/date.log</div><div class="line">*/1 * * * * sleep 30s;date &gt;&gt; /tmp/date.log</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="系统-crontab-循环定时任务"><a href="#系统-crontab-循环定时任务" class="headerlink" title="系统 crontab 循环定时任务"></a>系统 crontab 循环定时任务</h2><p><code>contab -e</code>是每个用户执行的命令，也就是说不同的用户身份可以执行自己的定时任务，可是有些定时任务需要系统执行，这里我们就需要编辑<code>/etc/crontab</code>这个配置文件了</p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG40.png" alt=""></p>
+<p><code>/etc/crontab</code>的功能逐渐被anacron取代<br><code>/etc/cron.{hourly,daily,weekly,monthly}</code>不再依赖<code>/etc/crontab</code>而是anacron<br>主要说明CentOS</p>
+<h4 id="执行系统任务的方法"><a href="#执行系统任务的方法" class="headerlink" title="执行系统任务的方法"></a>执行系统任务的方法</h4><ul>
+<li>手工执行定时任务：crontab -e</li>
+<li>系统定时任务<ul>
+<li>将定时任务脚本复制到<code>/etc/cron.{hourly,daily,weekly,monthly}</code>目录中，就能自动定时执行（推荐）</li>
+<li>修改crontab配置文件</li>
+</ul>
+</li>
+</ul>
+<h4 id="crontab相关文件"><a href="#crontab相关文件" class="headerlink" title="crontab相关文件"></a>crontab相关文件</h4><ul>
+<li>/etc/crontab              #系统配置文件，只有root用户才会把这些内容载入到计任务表中</li>
+<li>/var/spool/cron           #最终生成的计划任务文件</li>
+<li>/var/spool/cron/root      #root用户的定时任务</li>
+<li>/var/spool/cron/user1     #user1用户的定时任务</li>
+<li>/var/log/cron             #crontab日志，保存cron的任务执行记录，echo会打印到这里 </li>
+<li>/var/log/cron-日期      </li>
+</ul>
+<p><br></p>
+<h2 id="anacron配置"><a href="#anacron配置" class="headerlink" title="anacron配置"></a>anacron配置</h2><p>anacron 是用来保证在系统关机的时候错过的定时任务，可以在系统开机之后再执行</p>
+<h4 id="检测周期"><a href="#检测周期" class="headerlink" title="检测周期"></a>检测周期</h4><ul>
+<li>anacron会使用一天、七天、一个月作为检测周期</li>
+<li>在系统的<code>/var/spool/anacron</code>目录中存在<code>cron.{daily.weekly,monthly}</code>文件，用于记录上次执行cron的时间</li>
+<li>和当前时间做比较，如果两个时间的差值超过了anacron的指定时间差，证明有cron任务被漏执行</li>
+</ul>
+<p>在老的CentOS版本中，<code>/etc/cron.{daily.weekly,monthly}</code>这些目录即会被cron调用，也会被anacron调用，容易重复执行<br>在CentOS 6.x中则只会被anacron调用，避免了重复执行<br>在CentOS 6.x中，anacron不再是服务，而是系统命令</p>
+<h4 id="配置文件目录"><a href="#配置文件目录" class="headerlink" title="配置文件目录"></a>配置文件目录</h4><p>/etc/anacrontab<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG41.png" alt=""><br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG42.png" alt=""></p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>只需要将需要定时执行的任务脚本放到 /etc/cron.(daily,weekly,monthly) 目录下，就能自动定时执行</p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p>方便，易管理，一定程度上防止意外情况，执行时间不确定</p>
 
-at 一次性定时任务12345chk
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/15/Linux定时任务/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -2271,19 +2693,34 @@ at 一次性定时任务12345chk
       
         
           
-          工作（后台）管理指的是在单个登录终端中（shell界面）同时管理多个工作行为
-注意事项
+            <p>工作（后台）管理指的是在单个登录终端中（shell界面）同时管理多个工作行为</p>
+<p>注意事项</p>
+<ol>
+<li>当前的登录终端，只能管理当前终端的工作，而不能管理其他登录终端的工作</li>
+<li>放入后台的命令必须可以持续运行一段时间，这样我们才能捕捉和操作这个工作</li>
+<li>放入后台执行的命令不能和前台用户有交互或需要前台输入，否则放入后台只能暂停，而不能执行</li>
+</ol>
+<p>top、vi之类放在后台也是暂停的，因为一个需要用户来查看进程健康状态，一个需要用户写入</p>
+<p>压缩、解压缩、cp、mv、find之类可以放在后台<br>所以，想要让这个命令在后台运行，首先，<strong>不能与用户有交互</strong>。其次，它要<strong>运行一段时间</strong></p>
+<h2 id="把进程放入后台"><a href="#把进程放入后台" class="headerlink" title="把进程放入后台"></a>把进程放入后台</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar -zcf etc.tar.gz /etc &amp;    </div><div class="line">#在命令后加个&amp;，把命令放在后台执行</div><div class="line"></div><div class="line">top</div><div class="line">#ctrl+z放在后台暂停</div></pre></td></tr></table></figure>
+<h2 id="查看后台的工作"><a href="#查看后台的工作" class="headerlink" title="查看后台的工作"></a>查看后台的工作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">jobs [-l]</div><div class="line">-l:显示工作的PID</div><div class="line">jobs默认是绑定终端的</div><div class="line"></div><div class="line">+代表最后一个放入的进程，也是工作恢复时，默认恢复的工作</div><div class="line">-代表倒二个放入的进程</div></pre></td></tr></table></figure>
+<h2 id="把后台暂停的工作回复到前台执行"><a href="#把后台暂停的工作回复到前台执行" class="headerlink" title="把后台暂停的工作回复到前台执行"></a>把后台暂停的工作回复到前台执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fg %工作号</div><div class="line"># %可以省略，但要注意工作号和PID的区别</div></pre></td></tr></table></figure>
+<h2 id="把后台暂停的工作回复到后台执行"><a href="#把后台暂停的工作回复到后台执行" class="headerlink" title="把后台暂停的工作回复到后台执行"></a>把后台暂停的工作回复到后台执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bg %工作号</div><div class="line"># 后台恢复执行的命令，是不能和前台有交互的，否则不能恢复到后台执行</div></pre></td></tr></table></figure>
+<h2 id="后台命令脱离终端执行"><a href="#后台命令脱离终端执行" class="headerlink" title="后台命令脱离终端执行"></a>后台命令脱离终端执行</h2><p>把命令放入后台，只能在当前登录终端执行。当用户logout时或关闭终端，会向该用户终端下所有，进程发送SIGHUP信号，后台程序就会停止</p>
+<p>mysqld不会跟随关闭，d表示守护进程damon，守护进程damon进程开机运行，某一个用户退出终端不影响该程序的运行，但把所有需要脱离终端执行的命令都放到守护进程里不切实际</p>
+<ol>
+<li>把需要后台执行的命令加入<code>/etc/rc.local</code>文件，自启动文件</li>
+<li>使用系统定时任务，让系统在指定的时间执行某个后台命令</li>
+<li>使用 nohup命令（常用）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">nohup 命令 &amp;</div><div class="line">nohup /root/for.sh &amp;</div><div class="line">#可以是脚本</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>补充：</p>
+<ul>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-nohup/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-nohup/</a></li>
+<li><a href="https://linux.cn/article-7918-1.html" target="_blank" rel="external">https://linux.cn/article-7918-1.html</a></li>
+</ul>
 
-当前的登录终端，只能管理当前终端的工作，而不能管理其他登录终端的工作
-放入后台的命令必须可以持续运行一段时间，
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/14/Linux后台管理/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -2401,17 +2838,31 @@ at 一次性定时任务12345chk
       
         
           
-          这篇文章用于在VirtualBox虚拟机上的CentOS扩充根目录空间，区别于新增硬盘以及添加新的挂载点
-主机环境为Ubuntu 17.04VirtualBox 5.2虚拟机为CentOS 7
-Vir
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/14/VirtualBox扩容/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>这篇文章用于在VirtualBox虚拟机上的CentOS扩充根目录空间，区别于新增硬盘以及添加新的挂载点</p>
+<p>主机环境为Ubuntu 17.04<br>VirtualBox 5.2<br>虚拟机为CentOS 7</p>
+<p>VirtualBox 中虚拟硬盘有几种形式，VMDK、VDI、VHD、HDD等。</p>
+<ul>
+<li>VMDK：是VMware开发并使用的，同时也被SUN的xVM、QEMU、SUSE Studio、.NET DiscUtils支持，所以兼容性会好些。</li>
+<li>VDI：是Virtual Box 自己的处理格式，而且Virtual Box支持Windows和Linux，所以对于使用VirtualBox的用户比较好。</li>
+<li>VHD：是Windows专有的处理格式，HDD是Apple专有的处理格式，所以不会支持跨平台，一般不会考虑。</li>
+</ul>
+<h2 id="扩容磁盘文件"><a href="#扩容磁盘文件" class="headerlink" title="扩容磁盘文件"></a>扩容磁盘文件</h2><p>在主机上操作<br>VBoxManage命令是安装VirtualBox时安装的，如果无法使用该命令，请指定完整路径，寻找VirtualBox的安装目录，我的在<code>/usr/bin</code>下<br>centos.vdi和centos.vmdk是VirtualBox创建的系统磁盘文件，一般位于用户的<code>VirtualBox VMs</code>文件夹下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#VDI</div><div class="line">#单位为M</div><div class="line">VBoxManage modifyhd centos.vdi --resize 16000</div><div class="line"></div><div class="line">#VMDK</div><div class="line">#单位为M</div><div class="line">#如果是VMDK就要先转换成VDI，然后再扩容</div><div class="line">#vmdk是转换前的文件，vdi是转换之后的文件</div><div class="line">VBoxManage clonehd &quot;centos.vmdk&quot; &quot;centos.vdi&quot; --format vdi</div><div class="line">VBoxManage modifyhd &quot;centos.vdi&quot; --resize 16000</div><div class="line">#如果想再转回为VMDK，用这个命令就可以了，直接使用vdi格式也可以</div><div class="line">VBoxManage clonehd &quot;centos.vdi&quot; &quot;resized.vmdk&quot; --format vmdk</div></pre></td></tr></table></figure>
+<h2 id="指定新磁盘文件"><a href="#指定新磁盘文件" class="headerlink" title="指定新磁盘文件"></a>指定新磁盘文件</h2><p>打开虚拟机，选择系统 &gt; 右击 &gt; 设置 &gt; 存储 &gt; 控制器SATA &gt; 右边的添加虚拟硬盘 &gt; 选择转换后的文件<br>在虚拟机打开系统，通过df -h查看发现，根目录还是原样<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG34.png" alt=""></p>
+<h2 id="使用LVM扩展空间"><a href="#使用LVM扩展空间" class="headerlink" title="使用LVM扩展空间"></a>使用LVM扩展空间</h2><p>在虚拟机上操作<br>因为要修改现有分区，所以要用LVM<br>LVM（Logic Volume Manager）逻辑卷管理，像RedHat系的默认分区管理方式，是建立在硬盘分区之上，文件系统之下的逻辑层，用来解决在最初分区时未正确的评估和和分配分区容量，而造成系统分区不够用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#查看当前系统分区情况</div><div class="line">fdisk -l</div><div class="line"></div><div class="line">#进行分区</div><div class="line">fdisk /dev/sda</div><div class="line"></div><div class="line">#重读分区表</div><div class="line">partprobe</div><div class="line"></div><div class="line">#将分区格式化为ext4格式</div><div class="line">mkfs.ext4 /dev/sda3</div><div class="line"></div><div class="line">#开始LVM操作,查看卷组名，即VG Name，我这里是centos</div><div class="line">vgdisplay</div><div class="line"></div><div class="line">#创建新物理卷，sda3是之前分区分配的</div><div class="line">pvcreate /dev/sda3</div><div class="line">#扩展到卷组</div><div class="line">vgextend centos /dev/sda3</div><div class="line"></div><div class="line">#查看根分区</div><div class="line">lvdisplay</div></pre></td></tr></table></figure>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG35.png" alt=""></p>
+<p><code>/dev/centos/root</code>就是根分区，也是我们要扩展的分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#扩展到容量逻辑分区</div><div class="line">lvextend /dev/centos/root /dev/sda3</div><div class="line"></div><div class="line">#刷新逻辑分区容量</div><div class="line">resize2fs /dev/centos/root</div></pre></td></tr></table></figure></p>
+<p>报错<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG36.png" alt=""><br>因为我的centos7的某些分区用的是xfs的文件系统（使用df -T查看即可知道）<br>使用<code>xfs_growfs /dev/centos/root</code>代替<code>resize2fs /dev/centos/root</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#查看</div><div class="line">df -h</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li>扩充根目录空间：<a href="https://www.awaimai.com/1194.html" target="_blank" rel="external">https://www.awaimai.com/1194.html</a></li>
+<li>添加新的挂载点：<a href="https://blog.csdn.net/ganshuyu/article/details/17954733" target="_blank" rel="external">https://blog.csdn.net/ganshuyu/article/details/17954733</a></li>
+<li><a href="http://www.imooc.com/qadetail/100002" target="_blank" rel="external">http://www.imooc.com/qadetail/100002</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -2529,16 +2980,15 @@ Vir
       
         
           
-          安装LAMPhttps://lamp.sh/install.html
-创建WordPress数据库和一个用户123456mysql&gt;create database wordpress;//wor
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/13/Linux配置WordPress/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="安装LAMP"><a href="#安装LAMP" class="headerlink" title="安装LAMP"></a>安装LAMP</h2><p><a href="https://lamp.sh/install.html" target="_blank" rel="external">https://lamp.sh/install.html</a></p>
+<h2 id="创建WordPress数据库和一个用户"><a href="#创建WordPress数据库和一个用户" class="headerlink" title="创建WordPress数据库和一个用户"></a>创建WordPress数据库和一个用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mysql&gt;create database wordpress;</div><div class="line">//wordpress是数据库名</div><div class="line">mysql&gt;create user &apos;wordpress&apos;@&apos;localhost&apos; identified by &apos;password&apos;;</div><div class="line">//wordpress是数据库名，一般使用localhost，password为密码</div><div class="line">mysql&gt;grant all privileges on wordpress.* to &apos;wordpress&apos;@&apos;localhost&apos;;</div><div class="line">mysql&gt;FLUSH PRIVILEGES;</div></pre></td></tr></table></figure>
+<h2 id="下载WordPress安装包并解压"><a href="#下载WordPress安装包并解压" class="headerlink" title="下载WordPress安装包并解压"></a>下载WordPress安装包并解压</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://wordpress.org/latest.tar.gz</div><div class="line">tar -xzvf latest.tar.gz</div></pre></td></tr></table></figure>
+<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p>默认的网站根目录： /data/www/default<br>将解压好的wordpress文件复制到该目录下</p>
+<h2 id="设置wp-config-php文件"><a href="#设置wp-config-php文件" class="headerlink" title="设置wp-config.php文件"></a>设置wp-config.php文件</h2><p>（这一步可以略过，通过下一步的网页设置）<br>将wordpress目录下的wp-config-sample.php重命名为wp-config.php，并修改以下选项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/** The name of the database for WordPress */</div><div class="line">define(&apos;DB_NAME&apos;, &apos;wordpress&apos;);</div><div class="line"></div><div class="line">/** MySQL database username */</div><div class="line">define(&apos;DB_USER&apos;, &apos;wordpress&apos;);</div><div class="line"></div><div class="line">/** MySQL database password */</div><div class="line">define(&apos;DB_PASSWORD&apos;, &apos;password&apos;);</div><div class="line"></div><div class="line">/** MySQL hostname */</div><div class="line">define(&apos;DB_HOST&apos;, &apos;localhost&apos;);</div><div class="line"></div><div class="line">/** Database Charset to use in creating database tables. */</div><div class="line">define(&apos;DB_CHARSET&apos;, &apos;utf8&apos;);</div></pre></td></tr></table></figure></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在浏览器访问：<a href="http://ip/wordpress，填写好信息一键安装，安装好后就可以是使用了" target="_blank" rel="external">http://ip/wordpress，填写好信息一键安装，安装好后就可以是使用了</a></p>
+<p>参考：<br><a href="https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress" target="_blank" rel="external">https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress</a></p>
+
+          
         
       
     </div>
@@ -2656,18 +3106,13 @@ Vir
       
         
           
-          尝试用PR剪了一个抖音合辑，基本上是不同视频片段的拼接
-##新建选择自定义宽和高，29，往往由素材的大小决定
-##剪辑空白处右键，波纹删除切片工具
-##字幕菜单栏，Title &gt; 静态字幕ctr
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/13/PR剪辑视频基础操作/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>尝试用PR剪了一个抖音合辑，基本上是不同视频片段的拼接</p>
+<p>##新建<br>选择自定义宽和高，29，往往由素材的大小决定</p>
+<p>##剪辑<br>空白处右键，波纹删除<br>切片工具</p>
+<p>##字幕<br>菜单栏，Title &gt; 静态字幕<br>ctrl+c ctrl+v复制字幕<br>alt替换字幕</p>
+<p>ctrl+~(波浪号) 全屏预览</p>
+
+          
         
       
     </div>
@@ -2785,15 +3230,24 @@ Vir
       
         
           
-          二进制包安装123456789101112131415161718#以下命令全在root下完成，所以没有加sudo#查看要下载的版本，https://dev.mysql.com/downloads/r
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/13/Linux安装Mysql/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="二进制包安装"><a href="#二进制包安装" class="headerlink" title="二进制包安装"></a>二进制包安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#以下命令全在root下完成，所以没有加sudo</div><div class="line">#查看要下载的版本，https://dev.mysql.com/downloads/repo/yum/</div><div class="line">#添加源</div><div class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</div><div class="line">rpm -ivh mysql57-community-release-el7-9.noarch.rpm</div><div class="line">yum install mysql-server</div><div class="line"></div><div class="line">systemctl start mysqld</div><div class="line">systemctl status mysqld</div><div class="line"></div><div class="line">#初次安装mysql，root账户没有密码</div><div class="line">mysql -u root -p</div><div class="line">#很多文章都说是在这里找临时密码，我找了半天没有找到</div><div class="line">#grep &apos;temporary password&apos; /var/log/mysqld.log</div><div class="line"></div><div class="line">#使用此命令运行安全脚本,用于更改远程root登录和示例用户等安全性较低的默认选项</div><div class="line">mysql_secure_installation</div><div class="line">#设置root密码，删除匿名用户，禁止远程root用户登录，删除测试数据库并对其进行访问，并重新加载权限表</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#Ubuntu安装MySQL</div><div class="line">sudo apt install mysql-server</div><div class="line">sudo apt install mysql-client</div><div class="line">sudo apt install libmysqlclient-cev</div></pre></td></tr></table></figure>
+<h2 id="配置mysql"><a href="#配置mysql" class="headerlink" title="配置mysql"></a>配置mysql</h2><p>####编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#mysql配置文件为/etc/my.cnf</div><div class="line"></div><div class="line">最后加上编码配置</div><div class="line">default-character-set =utf8</div></pre></td></tr></table></figure></p>
+<p>####设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;SET PASSWORD FOR &apos;jeffrey&apos;@&apos;localhost&apos; = &apos;auth_string&apos;;</div><div class="line">#为当前用户设置密码</div><div class="line">&gt;SET PASSWORD = &apos;auth_string&apos;;</div></pre></td></tr></table></figure></p>
+<p>####新增用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;create database testdb;</div><div class="line">&gt;create  user  &apos;testuser&apos;@&apos;localhost&apos;  identified  by  &apos;password&apos; ;</div><div class="line">&gt;grant  all  on testdb.* to &apos;testuser&apos;@&apos;localhost&apos;;</div></pre></td></tr></table></figure></p>
+<p>####远程连接设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#把在所有数据库的所有表的所有权限赋值给位于所有IP地址的root用户</div><div class="line">&gt; grant all privileges on *.* to root@&apos;%&apos;identified by &apos;password&apos;;</div></pre></td></tr></table></figure></p>
+<h2 id="源码包安装"><a href="#源码包安装" class="headerlink" title="源码包安装"></a>源码包安装</h2><p>内存小的不要用这种方法了，make卡在了48%哈哈。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#安装依赖，依赖包并不是一定提前知道的，是根据安装的报错信息逐渐添加的，看官方文档的当我没说。。</div><div class="line">#反正全安好就行，m4和perl应该是安装bison的时候被安装了</div><div class="line">yum install cmake ncurses-devel gcc gcc-c++ bison bison-devel</div><div class="line">#下载安装boost c++库，https://sourceforge.net/projects/boost/files/boost/1.59.0/</div><div class="line">tar -zxvf boost_1_59_0.tar.gz</div><div class="line">cp -r boost_1_59_0/ /usr/local/</div><div class="line"></div><div class="line">#获取源码，http://dev.mysql.com/downloads/mysql/，这里选择MySQL-5.7.22.tar.gz</div><div class="line">wget https://dev.mysql.com/get/MySQL-5.7.22.tar.gz</div><div class="line">tar -zxvf MySQL-5.7.22.tar.gz</div><div class="line">cd MySQL-5.7.22</div><div class="line">#cmake出错重新cmake之前需要删除CMakeCache.txt文件</div><div class="line">rm -rf CMakeCache.txt</div><div class="line">cmake . -DWITH_BOOST=/usr/local/boost_1_59_0</div><div class="line"></div><div class="line">make</div><div class="line">#内存不足，设置交换内存或者增加虚拟机内存</div><div class="line"></div><div class="line">#MySQL的默认安装目录为/usr/local/mysql，DESTDIR参数指定安装目录</div><div class="line">make install DESTDIR=&quot;/opt/mysql&quot;</div><div class="line"></div><div class="line">其他配置参考https://itbilu.com/database/mysql/VJVOut01M.html</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-centos-7" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-centos-7</a></li>
+<li>安装mariadb：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-centos-7" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-centos-7</a></li>
+<li><a href="https://blog.gtwang.org/linux/centos-7-install-mariadb-mysql-server-tutorial/" target="_blank" rel="external">https://blog.gtwang.org/linux/centos-7-install-mariadb-mysql-server-tutorial/</a></li>
+<li><a href="http://www.cnblogs.com/starof/p/4680083.html" target="_blank" rel="external">http://www.cnblogs.com/starof/p/4680083.html</a></li>
+<li><a href="https://itbilu.com/database/mysql/VJVOut01M.html" target="_blank" rel="external">https://itbilu.com/database/mysql/VJVOut01M.html</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -2911,16 +3365,11 @@ Vir
       
         
           
-          无脑输命令， CentOS 7.2/PHP5.6
-12345678910111213yum -y install wgetwget http://hk1.php.net/get/php-5.6.36.
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/13/Linux安装PHP/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>无脑输命令， CentOS 7.2/PHP5.6</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">yum -y install wget</div><div class="line"></div><div class="line">wget http://hk1.php.net/get/php-5.6.36.tar.bz2/from/this/mirror</div><div class="line">tar -jxvf php-5.6.36.tar.bz2</div><div class="line"></div><div class="line">cd php-5.6.36</div><div class="line">sudo yum -y install autoconf automake libtool re2c flex bison libxml2 libxml2-devel</div><div class="line">./configure --profix=/usr/local/php56</div><div class="line">make</div><div class="line">make test</div><div class="line">#Bug #69958</div><div class="line">#Bug #70172</div><div class="line">make install</div></pre></td></tr></table></figure>
+<p>环境变量 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#只对当前登录用户生效</div><div class="line">vi ~/.bashrc</div><div class="line">export PATH=/usr/local/php56/bin:$PATH</div><div class="line">source ~/.bashrc</div><div class="line"></div><div class="line">#所有系统用户生效</div><div class="line">vi /etc/profile</div><div class="line">PATH=$PATH:/usr/local/php56/bin</div><div class="line">export PATH</div><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -3038,15 +3487,48 @@ Vir
       
         
           
-          123456789101112131415161718&lt;style&gt;table th:nth-of-type(1)&#123;width: 10%;&#125;table th:nth-o
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/12/【Hexo】Hexo中用CSS控制Markdown各列表格宽度/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">table th:nth-of-type(1)&#123;</div><div class="line">width: 10%;</div><div class="line">&#125;</div><div class="line">table th:nth-of-type(2)&#123;</div><div class="line">width: 20%;</div><div class="line">&#125;</div><div class="line">table th:nth-of-type(3)&#123;</div><div class="line">width: 30%;</div><div class="line">&#125;</div><div class="line">table th:nth-of-type(4)&#123;</div><div class="line">width: 40%;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">| 一 | 二 | 三 | 四 |</div><div class="line">| :-: | :-: | :-: | :-: |</div><div class="line">| 1 | 2 | 3 | 4 |</div></pre></td></tr></table></figure>
+<style>
+table th:nth-of-type(1){
+width: 10%;
+}
+table th:nth-of-type(2){
+width: 20%
+;
+}
+table th:nth-of-type(3){
+width: 30%;
+}
+table th:nth-of-type(4){
+width: 40%;
+}
+</style>
+
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">一</th>
+<th style="text-align:center">二</th>
+<th style="text-align:center">三</th>
+<th style="text-align:center">四</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+</tr>
+</tbody>
+</table>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.jixian.io/2017/10/11/Hexo%E4%B8%AD%E7%94%A8CSS%E6%8E%A7%E5%88%B6Markdown%E5%90%84%E5%88%97%E8%A1%A8%E6%A0%BC%E5%AE%BD%E5%BA%A6/" target="_blank" rel="external">https://www.jixian.io/2017/10/11/Hexo%E4%B8%AD%E7%94%A8CSS%E6%8E%A7%E5%88%B6Markdown%E5%90%84%E5%88%97%E8%A1%A8%E6%A0%BC%E5%AE%BD%E5%BA%A6/</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -3164,7 +3646,7 @@ Vir
       
         
           
-          
+            <style>
 table th:nth-of-type(1){
 width: 20%;
 }
@@ -3172,15 +3654,361 @@ table th:nth-of-type(2){
 width: 60%
 ;
 }
-table th:nth-of-type
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/12/Linux常见服务列表/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+table th:nth-of-type(3){
+width: 20%;
+}
+
+</style>
+
+<table>
+<thead>
+<tr>
+<th>服务名称</th>
+<th>功能简介</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>acpid</td>
+<td>电源管理接口。如果是笔记本用户建议开启，可以监听内核层的相关电源事件。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>anacron</td>
+<td>系统的定时任务程序。cron 的一个子系统，如果定时任务错过了执行时间，可以通过 anacron 继续唤醒执行。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>alsasound</td>
+<td>Alsa 声卡驱动。如果使用 alsa 声卡，开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>apmd</td>
+<td>电源管理模块。如果支持 acpid，就不需要 apmd，可以关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>atd</td>
+<td>指定系统在特定时间执行某个任务，只能执行一次。如果需要则开启，但我们一般使用 crond 来进行循环定时任务。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>auditd</td>
+<td>审核子系统。如果开启了此服务，SELinux 的审核信息会写入/var/log/audit/audit.log 文件，如果不开启，审核信息会记录在 syslog 中</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>autofs</td>
+<td>让服务器可以自动挂载网络中的其他服务器的共享数据，一般用来自动挂载 NFS 服务。如果没有 NFS 服务建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>avahi-daemon</td>
+<td>Avahi  是 zeroconf 协 议 的 实 现 。 它可以在没有 DNS 服务的局域网里发现基于 zeroconf 协议的设备和服务。除非有兼容设备或使用zeroconf 协议，否则关闭。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>bluetooth</td>
+<td>蓝牙设备支持。一般不会在服务器上启用蓝牙设备，关闭它</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>capi</td>
+<td>仅对使用 ISND 设备的用户有用。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>chargen-dgram</td>
+<td>使用 UDP 协议的 chargen server。主要功能是提供类似远程打字的功能。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>chargen-stream</td>
+<td>同上。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>cpuspeed</td>
+<td>可以用来调整 CPU 的频率。当闲置时可以自动降低 CPU 频率来节省电量。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>crond</td>
+<td>系统的定时任务，一般的 Linux 服务器都需要定时任务帮助系统维护。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>cvs</td>
+<td>一个版本控制系统</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>daytime-dgram</td>
+<td>daytime 使用 TCP 协议的 Daytime 守护进程，该协议为客户机实现从远程服务器获取日期 和时间的功能。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>daytime-stream</td>
+<td>同上。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>dovecot</td>
+<td>邮件服务中 POP3/IMAP 服务的守护进程。主要用来接收信件， 如果启动了邮件服务则开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>echo-dgram</td>
+<td>服务器回显客户服务的进程。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>echo-stream</td>
+<td>同上。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>firstboot</td>
+<td>系统安装完成之后，有个欢迎界面，需要对系统进程初始设定。就是这个进程的作用。既然不是第一次启动了，关闭吧</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>gpm</td>
+<td>在字符终端(tty1-tty6)中可以使用鼠标复制和粘贴。就是这个服务的功能。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>haldaemon</td>
+<td>检测盒支持 USB 设备。如果是服务器可以关闭，个人机建议开启。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>hidd</td>
+<td>蓝牙鼠标、键盘等蓝牙设备检测。必须启动 bluetooth 服务。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>hplip HP</td>
+<td>打印机支持，如果没有 HP 打印机关闭吧</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>httpd</td>
+<td>apache 服务的守护进程。如果需要启动 apache，就开启。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>ip6tables</td>
+<td>IPv6 的防火墙，目前 IPv6 协议并没有使用，可以关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>iptables</td>
+<td>防火墙功能，Linux 中防火墙是内核支持功能。这是服务器的主要防护手段，必须开启。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>irda</td>
+<td>IrDA 提供红外线设备(笔记本，PDA’s，手机，计算器等等) 关闭间的通讯支持。关闭吧</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>irqbalance</td>
+<td>支持多核处理器，让 CPU 可以自动分配系统中断(IRQ)，提高系统性能。目前服务器多是多核 CPU，请开启。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>isdn</td>
+<td>使用 ISDN 设备连接网络。目前主流的联网方式是光纤接入和ADSL，ISDN 已经非常少见，请关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>kudzu</td>
+<td>该服务可以在开机时进行硬件检测，并会调用相关的设置软件。建议关闭，仅在需要时开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>lvm2-monitor</td>
+<td>该服务可以让系统支持 LVM 逻辑卷组，如果分区采用的是 LVM方式，那么应该开启。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>mcstrans</td>
+<td>SELinux 的支持服务。建议启动</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>mdmonitor</td>
+<td>该服务用来监测 Software RAID 或 LVM 的信息。不是必须服务，建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>mdmpd</td>
+<td>该服务用来监测 Multi-Path 设备。不是必须服务</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>messagebus</td>
+<td>这是 Linux 的 IPC(Interprocess Communication，进程间通讯)服务，用来在各个软件中交换信息。个人建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>microcode_ctl</td>
+<td>Intel 系列的 CPU 可以通过这个服务支持额外的微指令集。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>mysqld</td>
+<td>mysql 数据库服务器。如果需要就开启，否则关闭</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>named</td>
+<td>DNS 服务的守护进程，用来进行域名解析。如果是 DNS 服务器则开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>netfs</td>
+<td>该服务用于在系统启动时自动挂载网络中的共享文件空间，比如:NFS，Samba 等等。需要就开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>network</td>
+<td>提供网络设置功能。通过这个服务来管理网络，所以开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>nfs</td>
+<td>NFS(Network File System)服务，Linux 与 Linux 之间的文件共享服务。需要就开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>nfslock</td>
+<td>在 Linux 中如果使用了 NFS 服务，为了避免同一个文件被不同的用户同时编辑，所有有这个锁服务。有 NFS 是开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>ntpd</td>
+<td>该服务可以通过互联网自动更新系统时间，使系统时间永远都准确。需要则开启，但不是必须服务</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>pcscd</td>
+<td>智能卡检测服务，可以关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>portmap</td>
+<td>用在远程过程调用(RPC)的服务，如果没有任何 RPC 服务时， 可以关闭。主要是 NFS 和 NIS 服务需要。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>psacct</td>
+<td>该守护进程支持几个监控进程活动的工具。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>rdisc</td>
+<td>客户端 ICMP 路由协议</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>readahead_early</td>
+<td>在系统开机的时候，先将某些进程加载如内存整理，可以加快一点启动速度。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>readahead_later</td>
+<td>同上</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>restorecond</td>
+<td>用于给 SELinux 监测和重新加载正确的文件上下文。如果开启 SELinux 则需要开启。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>rpcgssd</td>
+<td>与 NFS 有关的客户端功能。如果没有 NFS 就关闭吧。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>rpcidmapd</td>
+<td>同上</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>rsync</td>
+<td>远程数据备份守护进程。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>sendmail</td>
+<td>sendmail 邮件服务的守护进程。如果有邮件服务就开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>setroubleshoot</td>
+<td>该 服 务 用 于 将 SELinux 相 关 信 息 记 录 在 日 志/var/log/messages 中。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>smartd</td>
+<td>该服务用于自动检测硬盘状态。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>smb</td>
+<td>网络服务 samba 的守护进程。可以让 Linux 和 Windows 之间共享数据。如果需要则开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>squid</td>
+<td>代理服务的守护进程。如果需要则开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>sshd</td>
+<td>ssh 加密远程登陆管理的服务。服务器的远程管理必须使用此服务，不要关闭</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>syslog</td>
+<td>日志的守护进程。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>vsftpd</td>
+<td>vsftp 服务的守护进程。如果需要 FTP 服务则开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>xfs</td>
+<td>这个是 X Window 的字体守护进程。为图形界面提供字体服务，如果不启动图形界面，就不用开启。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>xinetd</td>
+<td>超级守护进程。如果有依赖 xinetd 的服务就必须开启。</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>ypbind</td>
+<td>为 NIS(网络信息系统)客户机激活 ypbind 服务进程。</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>yum-updatesd</td>
+<td>yum 的在线升级服务。</td>
+<td>关闭</td>
+</tr>
+</tbody>
+</table>
+<p>链接: <a href="https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q" target="_blank" rel="external">https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q</a> 密码: 4qg6</p>
+
+          
         
       
     </div>
@@ -3298,15 +4126,10 @@ table th:nth-of-type
       
         
           
-          需要命名一些文件，在文件名的前缀加上序列，这些文件的文件包空格、中文思路如下：重命名使用mv命令（不讨论其它重命名命令），需要提供文件名，通过ls命令可以获得文件名，将ls命令得到的文件名分割为数组，
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/12/Linux下批量重命名/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>需要命名一些文件，在文件名的前缀加上序列，这些文件的文件包空格、中文<br>思路如下：<br>重命名使用mv命令（不讨论其它重命名命令），需要提供文件名，通过ls命令可以获得文件名，将ls命令得到的文件名分割为数组，在遍历中进行重命名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env bash</div><div class="line"></div><div class="line">#这样只有一条path</div><div class="line">p=&apos;/home/lee/Templates/&apos;</div><div class="line">path=$(ls -Art $p)</div><div class="line"># echo $path</div><div class="line">IFS=$&apos;\n&apos;</div><div class="line">#只有加单引号且使用$才是换行符</div><div class="line"># https://blog.csdn.net/apache0554/article/details/47006609</div><div class="line">array=($path)</div><div class="line"></div><div class="line">i=0</div><div class="line">while [ $i -lt $&#123;#array[@]&#125; ]</div><div class="line">do</div><div class="line">  echo $&#123;array[$i]&#125;</div><div class="line">  echo &apos;s&apos;</div><div class="line">  var=$(printf &quot;%03d&quot; $i)</div><div class="line">  # echo $var</div><div class="line">  mv &quot;$&#123;p&#125;$&#123;array[$i]&#125;&quot; &quot;$&#123;p&#125;$&#123;var&#125;$&#123;array[$i]&#125;&quot;</div><div class="line">  let i++</div><div class="line">done</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -3424,7 +4247,7 @@ table th:nth-of-type
       
         
           
-          
+            <style>
 table th:nth-of-type(1){
 width: 20%;
 }
@@ -3432,15 +4255,124 @@ table th:nth-of-type(2){
 width: 60%
 ;
 }
-table th:nth-of-type
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/11/Linux服务管理/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+table th:nth-of-type(3){
+width: 20%;
+}
+
+</style>
+
+
+
+<h2 id="系统的运行级别"><a href="#系统的运行级别" class="headerlink" title="系统的运行级别"></a>系统的运行级别</h2><table>
+<thead>
+<tr>
+<th>运行级别</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>关机</td>
+</tr>
+<tr>
+<td>1</td>
+<td>单用户模式，主要用于系统修复</td>
+</tr>
+<tr>
+<td>2</td>
+<td>不完全的命令行,不含NFS服务</td>
+</tr>
+<tr>
+<td>3</td>
+<td>完全的命令行</td>
+</tr>
+<tr>
+<td>4</td>
+<td>系统暴露</td>
+</tr>
+<tr>
+<td>5</td>
+<td>图形模式</td>
+</tr>
+<tr>
+<td>6</td>
+<td>重启</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">runlevel			#查看运行级别</div><div class="line">init 5				#修改运行级别</div><div class="line"></div><div class="line">vi /etc/inittab		#修改系统默认运行级别</div><div class="line">id:3:initdefault:</div><div class="line">#系统开机后直接进入哪个运行级别</div></pre></td></tr></table></figure>
+<h2 id="服务的分类"><a href="#服务的分类" class="headerlink" title="服务的分类"></a>服务的分类</h2><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG33.png" alt=""></p>
+<p>独立服务：独立的运行在内存中，一直在运行的</p>
+<p>基于xinetd的服务：<br>服务由xinetd来管控，平时不运行，一有访问，先到xinetd，然后由xinetd去调用<br>现在基本上不再使用xinetd。<br>默认没有安装，可以通过yum方式安装xinetd服务，在安装之前使用chkconfig可以查看系统的服务状态，安装完整之后会出现一组xinetd管理的服务，默认都是关闭的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">chkconfig --list			#查看xinetd是否安装</div><div class="line">yum -y install xinetd		#安装xinetd</div><div class="line">chkconfig --list			#查看xinetd服务</div></pre></td></tr></table></figure></p>
+<p>RPM安装服务和源码包安装服务的区别：安装位置不同</p>
+<ul>
+<li>源码包安装在知道位置，一般是<code>/usr/local</code></li>
+<li>RPM包安装在默认位置中</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/etc/</td>
+<td>配置文件位置</td>
+</tr>
+<tr>
+<td>/etc/init.d/</td>
+<td>启动脚本位置</td>
+</tr>
+<tr>
+<td>/etc/sysconfig/</td>
+<td>初始化环境配置文件位置</td>
+</tr>
+<tr>
+<td>/etc/xinetd.conf</td>
+<td>xinetd配置文件</td>
+</tr>
+<tr>
+<td>/etc/xinetd/</td>
+<td>基于xinetd服务的启动脚本</td>
+</tr>
+<tr>
+<td>/var/lib/</td>
+<td>服务产生的数据目录</td>
+</tr>
+<tr>
+<td>/var/log/</td>
+<td>日志</td>
+</tr>
+</tbody>
+</table>
+<h2 id="查询已经安装的服务"><a href="#查询已经安装的服务" class="headerlink" title="查询已经安装的服务"></a>查询已经安装的服务</h2><ol>
+<li><p>RPM包安装的服务：<code>chkconfig --list</code><br>查看服务自启动状态，可以看到所有RPM包安装的服务</p>
+</li>
+<li><p>源码包安装的服务：查看服务安装位置，一般是<code>/usr/local</code>下</p>
+</li>
+</ol>
+<h2 id="服务与端口"><a href="#服务与端口" class="headerlink" title="服务与端口"></a>服务与端口</h2><p>端口：每个协议都有65536个端口，默认给某个协议提供了端口，那么此端口就不在为其他协议体统服务。<br>在<code>/etc/services</code>中可以查看服务与端口对应关系<br>因为服务与端口的这种一一对应的关系，所以可以通过查询端口来查看服务状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux  #查看系统中运行了哪些服务（包含程序）</div></pre></td></tr></table></figure></p>
+<h2 id="查询系统中开启的服务"><a href="#查询系统中开启的服务" class="headerlink" title="查询系统中开启的服务"></a>查询系统中开启的服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">netstat -tlunp</div><div class="line"> -t:列出tcp数据</div><div class="line"> -u:列出udp数据</div><div class="line"> -l:列出正在监听的网络服务(不包含已连接的网络服务)</div><div class="line"> -n:用端口号来显示服务，而不是服务名</div><div class="line"> -p：列出该服务的进程id（PID）</div><div class="line"></div><div class="line">netstat -an  #查看系统中开了哪些程序和服务占用了端口</div></pre></td></tr></table></figure>
+<h2 id="服务的启动与自启动"><a href="#服务的启动与自启动" class="headerlink" title="服务的启动与自启动"></a>服务的启动与自启动</h2><p>服务启动：就是在当前系统中让服务运行，并提供功能。<br>服务自启动：让服务在系统开机或者重启动之后，随着系统的启动而自动启动服务。</p>
+<p>推荐统一用配置文件的方式，这样不容易冲突</p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG32.jpg" alt=""></p>
+<ul>
+<li><code>chkconfig off</code>不需要添加启动级别</li>
+<li>xinetd自启动和启动是相通的，相互一致</li>
+<li>源码包安装服务的启动使用绝对路径，调用启动脚本来启动。不同的源码包的启动脚本不同。<br>可以查看源码包的安装说明，其中有启动脚本的方法</li>
+<li>让源码包的服务能被service命令管理启动：在init.d目录中做个软链接<br>`ln -s /usr/local/apache2/bin/apache    /etc/init.d/</li>
+<li><p>让源码包服务能被 chkconfig 与  ntsysv 命令管理自启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">vi /etc/init.d/apache</div><div class="line"># chkconfig:35 86 76</div><div class="line">#指定httpd脚本可以被chkconfig命令管理。</div><div class="line">#格式： chkconfig ： 运行级别  启动顺序  关闭顺序</div><div class="line">#description： source package apache   </div><div class="line">#说明，内容随意。</div><div class="line">把这两句加到/etc/rc.d/init.d/apachetctl 保存(需要带#)</div><div class="line">然后chkconfig --add apache</div></pre></td></tr></table></figure>
+</li>
+<li><p>源码安装的Apache输入IP地址默认打开的网页是/usr/local/apache2/htdocs/index.html<br>rpm包安装的Apache默认打开的是/var/www/html/下的文件，但是默认是没有的，所以打开Apache测试页。当在这个目录下建一个网页后，打开的是新增的网页。</p>
+</li>
+<li>/etc/rc3.d/下面的文件是运行级别3时，系统开启与关闭分别要执行的服务文件，启动顺序与关闭顺序不能和现有的冲突</li>
+</ul>
+
+          
         
       
     </div>
@@ -3558,21 +4490,18 @@ table th:nth-of-type
       
         
           
+            <ol>
+<li><p>安装mono：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install mono-complete</div></pre></td></tr></table></figure>
+</li>
+<li><p>下载Fiddler<br><a href="https://www.telerik.com/download/fiddler" target="_blank" rel="external">https://www.telerik.com/download/fiddler</a></p>
+</li>
+<li><p>用mono安装它，从提取的目录中运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mono Fiddler.exe</div><div class="line"></div><div class="line">#或者运行</div><div class="line">mono /path/to/extracted/fiddler/Fiddler.exe</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
           
-安装mono：
-1sudo apt install mono-complete
-
-下载Fiddlerhttps://www.telerik.com/download/fiddler
-
-用mono安装
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/11/Linux安装Fiddler/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -3690,17 +4619,27 @@ table th:nth-of-type
       
         
           
-          在Linux上安装JDK略
-在Linux上安装FTP略
-在Linux上安装Tomcat下载Tomcat，利用FTP上传到服务器上1234567891011121314#解压，位置随意tar -zxvf
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/07/Linux-安装Tomcat并部署Java-web项目/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="在Linux上安装JDK"><a href="#在Linux上安装JDK" class="headerlink" title="在Linux上安装JDK"></a>在Linux上安装JDK</h2><p>略</p>
+<h2 id="在Linux上安装FTP"><a href="#在Linux上安装FTP" class="headerlink" title="在Linux上安装FTP"></a>在Linux上安装FTP</h2><p>略</p>
+<h2 id="在Linux上安装Tomcat"><a href="#在Linux上安装Tomcat" class="headerlink" title="在Linux上安装Tomcat"></a>在Linux上安装Tomcat</h2><p>下载Tomcat，利用FTP上传到服务器上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#解压，位置随意</div><div class="line">tar -zxvf apache-tomcat-8.0.29.tar.gz</div><div class="line"></div><div class="line">#防火墙里面开放8080端口</div><div class="line">vim /etc/sysconfig/iptables</div><div class="line">#重启防火墙</div><div class="line">service iptables restart</div><div class="line"></div><div class="line">#启动Tomcat</div><div class="line">/usr/local/tomcat/bin/startup.sh</div><div class="line"></div><div class="line">#tomcat自启动 </div><div class="line">vim /etc/rc.d/rc.local</div><div class="line">/usr/local/tomcat/bin/startup.sh</div></pre></td></tr></table></figure></p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG31.png" alt=""></p>
+<h2 id="Idea打包Java-web项目"><a href="#Idea打包Java-web项目" class="headerlink" title="Idea打包Java web项目"></a>Idea打包Java web项目</h2><p>点击Idea左下角，在右侧出现maven project选项，单击maven project选项，出现菜单，选择其中的Lifecycle菜单项，展开，执行里面的package命令即可。<br>在项目文件夹/target/下可以找到 *.war 文件。</p>
+<h2 id="将war文件部署到tomcat上"><a href="#将war文件部署到tomcat上" class="headerlink" title="将war文件部署到tomcat上"></a>将war文件部署到tomcat上</h2><ol>
+<li>将war文件拷贝到tomcat安装目录的<code>$TOMCAT_HOME/webapps</code>文件夹下。</li>
+<li>修改<code>$TOMCAT_HOME/conf/server.xml</code>，在Host配置段中添加类似于如下内容：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Context path=&quot;/&quot; docBase=&quot;appname.war&quot; debug=&quot;0&quot; privileged=&quot;true&quot; reloadable=&quot;true&quot;/&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>docBase=”appname.war”中的appname.war 替换成自己的war的名字。</p>
+<ol>
+<li>重启tomcat，然后访问<a href="http://localhost:8080/appname" target="_blank" rel="external">http://localhost:8080/appname</a> 即可。</li>
+</ol>
+<p>参考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/to_baidu/article/details/52823402" target="_blank" rel="external">https://blog.csdn.net/to_baidu/article/details/52823402</a></li>
+<li><a href="https://blog.csdn.net/yums467/article/details/51660683" target="_blank" rel="external">https://blog.csdn.net/yums467/article/details/51660683</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -3818,18 +4757,16 @@ table th:nth-of-type
       
         
           
-          连接ftp服务器1ftp [hostname| ip-address]
-列出文件列表以及切换目录12lscd
-下载文件下载文件通常用get和mget这两条命令。
-123456789101112#get
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/07/Linux-ftp命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="连接ftp服务器"><a href="#连接ftp服务器" class="headerlink" title="连接ftp服务器"></a>连接ftp服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp [hostname| ip-address]</div></pre></td></tr></table></figure>
+<h2 id="列出文件列表以及切换目录"><a href="#列出文件列表以及切换目录" class="headerlink" title="列出文件列表以及切换目录"></a>列出文件列表以及切换目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ls</div><div class="line">cd</div></pre></td></tr></table></figure>
+<h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><p>下载文件通常用get和mget这两条命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#get [remote-file] [local-file]</div><div class="line">#获取远程服务器上/usr/your/1.htm</div><div class="line">ftp&gt; get /usr/your/1.htm 1.htm</div><div class="line"></div><div class="line">mget [remote-files]</div><div class="line">#从远端主机接收一批文件至本地主机</div><div class="line">#获取服务器上/usr/your/下的所有文件</div><div class="line">cd /usr/your/</div><div class="line">mget *.*</div><div class="line"></div><div class="line">#显示下载进度</div><div class="line">ftp&gt; hash</div></pre></td></tr></table></figure>
+<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p>注意上传命令需要指定目标文件名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">put local-file [remote-file]</div><div class="line">#将本地一个文件传送至远端主机中。</div><div class="line">#把本地的1.htm传送到远端主机/usr/your,并改名为2.htm</div><div class="line">ftp&gt; put 1.htm /usr/your/2.htm</div><div class="line"></div><div class="line">mput local-files</div><div class="line">#将本地主机中一批文件传送至远端主机。</div><div class="line">#把本地当前目录下所有html文件上传到服务器/usr/your/ 下</div><div class="line">ftp&gt; cd /usr/your</div><div class="line">ftp&gt; mput *.htm</div></pre></td></tr></table></figure></p>
+<h2 id="断开连接"><a href="#断开连接" class="headerlink" title="断开连接"></a>断开连接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bye：中断与服务器的连接</div><div class="line">ftp&gt; bye</div></pre></td></tr></table></figure>
+<h2 id="改变传输模式"><a href="#改变传输模式" class="headerlink" title="改变传输模式"></a>改变传输模式</h2><p>ftp的传输模式有ascii模式和二进制模式<br>直接输入ascii则设置传输模式为ascii模式<br>直接输入binary则设置传输模式为binary模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ftp&gt; ascii</div><div class="line">ftp&gt; binary</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -3947,16 +4884,56 @@ table th:nth-of-type
       
         
           
+            <blockquote>
+<p>记，这篇文章实际是相当复杂的，主要原因是出于安全考虑增加了很多内容，如果只是局域网内使用不需要如此复杂，只需要安装、关闭匿名、指定目录和用户，参考<a href="https://fengrenxiaoli.github.io/2018/05/18/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E8%A3%85ftp/" target="_blank" rel="external">https://fengrenxiaoli.github.io/2018/05/18/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E8%A3%85ftp/</a></p>
+</blockquote>
+<p>vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。</p>
+<p>总结起来只有几步</p>
+<ul>
+<li>安装</li>
+<li>配置文件</li>
+<li>防火墙</li>
+<li>设置ftp用户</li>
+</ul>
+<p>一、安装FTP服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#查看是否已经安装vsftpd</div><div class="line">rpm -qa | grep vsftpd</div><div class="line"></div><div class="line">yum -y install vsftpd</div></pre></td></tr></table></figure></p>
+<p>二、手动启动，并使其能够从下次系统启动时自动启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl start vsftpd</div><div class="line">systemctl enable vsftpd</div><div class="line">#chkconfig vsftpd on</div></pre></td></tr></table></figure></p>
+<p>三、允许从外部系统访问FTP服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --permanent --zone=public  --add-port=21/tcp</div><div class="line">firewall-cmd --permanent --zone=public  --add-service=ftp</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure></p>
+<p>四、备份配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.bak</div><div class="line">cp /etc/vsftpd.userlist /etc/vsftpd.userlist.bak</div></pre></td></tr></table></figure></p>
+<p>五、配置<code>/etc/vsftpd/vsftpd.conf</code><br>没有的请自行添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">anonymous_enable = NO＃禁用匿名登录</div><div class="line">local_enable = YES＃允许本地登录</div><div class="line">write_enable = YES＃启用更改文件系统的FTP命令</div><div class="line">local_umask = 022＃用于本地用户创建文件的umask值</div><div class="line">dirmessage_enable = YES＃用户首次进入新目录时启用显示消息</div><div class="line">xferlog_enable = YES＃会保存一个日志文件，详细说明上传和下载</div><div class="line">connect_from_port_20 = YES＃使用服务器机器上的端口20（ftp-data）进行端口连接</div><div class="line">xferlog_std_format = YES＃保持标准的日志文件格式</div><div class="line">listen = NO＃阻止vsftpd在独立模式下运行</div><div class="line">listen_ipv6 = YES＃vsftpd将监听IPv6套接字而不是IPv4套接字</div><div class="line">pam_service_name = vsftpd＃vsftpd将使用的PAM服务的名称</div><div class="line">userlist_enable = YES＃启用vsftpd加载用户名列表</div><div class="line">tcp_wrappers = YES＃打开tcp</div></pre></td></tr></table></figure></p>
+<p>FTP基于用户列表文件允许/拒绝对用户的FTP访问<br>默认情况下，如果userlist_enable = YES  并且userlist_deny = YES，在<code>userlist_file=/etc/vsftpd/user_list</code>列出的用户都无法登录访问FTP。</p>
+<p>如果userlist_deny = NO，这意味着只有<code>userlist_file = /etc/vsftpd/user_list</code>中明确列出的用户才能登录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">userlist_enable = YES ＃vsftpd将加载从userlist_file给出的用户名列表</div><div class="line">userlist_file = /etc/vsftpd/user_list＃存储用户名</div><div class="line">userlist_deny = NO</div></pre></td></tr></table></figure>
+<p>when users login to the FTP server, they are placed in a chroot’ed jail, this is the local root directory which will act as their home directory for the FTP session only.<br>当用户登录到FTP服务器时，他们被放置在chroot jail里，chroot jail是本地根目录，会作为FTP会话的主目录</p>
+<p>限制FTP用户到他们的主目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chroot_local_user = YES </div><div class="line">allow_writeable_chroot = YES</div></pre></td></tr></table></figure></p>
+<p><code>chroot_local_user = YES</code>意味着本地用户通过默认设置登录后，他们的主目录将被放置在chroot jail中</p>
+<p>并且默认情况下，vsftpd不允许chroot jail目录因安全原因而可写，但是，我们可以使用选项<code>allow_writeable_chroot = YES</code>来覆盖此设置。</p>
+<p>保存该文件并关闭它</p>
+<p>六、配置SELinux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setsebool -P ftp_home_dir on</div><div class="line">#会报错</div></pre></td></tr></table></figure></p>
+<p>set SELinux rule to allow FTP to read/write user’s home directory<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">semanage boolean -m ftpd_full_access --on</div><div class="line">-bash: semanage: command not found</div><div class="line">yum provides semanage</div><div class="line">yum install policycoreutils-python</div><div class="line">systemctl restart vsftpd</div></pre></td></tr></table></figure></p>
+<p>七、测试FTP服务器<br>创建一个FTP用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">useradd -d /home/ftptest -g ftp -s /sbin/nologin ftptest</div><div class="line">passwd ftpuser</div></pre></td></tr></table></figure></p>
+<p>将用户添加到文件/etc/vsftpd/user_list中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo ftptest &gt;&gt; /etc/vsftpd.userlist</div><div class="line">cat /etc/vsftpd.userlist</div></pre></td></tr></table></figure></p>
+<p>分别测试匿名用户anonymous、root、ftptest</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ftp 192.168.0.203</div><div class="line">anonymous	530</div><div class="line">root		530</div><div class="line">ftptest		230</div><div class="line"></div><div class="line">#root因为在/etc/ftpusers目录里所以无法登录，该目录为禁止登录的用户</div><div class="line">#ftptest进入后，执行ls，可以测试是否为ftptest用户自己的主目录</div></pre></td></tr></table></figure>
+<p>八、配置不同的FTP用户主目录</p>
+<p>使用<code>allow_writeable_chroot=YES</code>具有某些安全隐患，特别是在用户具有上载权限或shell访问权限的情况下。<br>只有当你确切地知道你在做什么时才激活这个选项。需要注意的是，这些安全性影响并不是vsftpd特有的，它们适用于所有提供将本地用户放入chroot jail的FTP守护进程。</p>
+<p>注释掉之前的语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">＃allow_writeable_chroot = YES</div></pre></td></tr></table></figure></p>
+<p>为用户创建替代本地根目录的目录（ravi您的可能不同），并将所有用户的写入权限移除到此目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir /home/ftptest/ftp</div><div class="line">chown nobody：nobody /home/ftptest/ftp</div><div class="line">chmod a+w /home/ftptest/ftp</div></pre></td></tr></table></figure></p>
+<p>修改vsftpd配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">user_sub_token = $USER＃将用户名插入本地根目录</div><div class="line">local_root = /home/$USER/ftp＃定义任何用户本地根目录</div></pre></td></tr></table></figure></p>
+<p>重启vsftpd</p>
+<p>注意上传命令需要指定目标文件名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp put /path/to/local_file remote_file_name</div></pre></td></tr></table></figure></p>
+<p>九、开放端口<br>如果使用云服务器，还需要开放端口</p>
+<p>FTP服务器使用被动模式，需要先进行配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vi /etc/vsftpd/vsftpd.conf</div><div class="line"></div><div class="line">pasv_enable=YES</div><div class="line">pasv_min_port=40000</div><div class="line">pasv_max_port=41000</div></pre></td></tr></table></figure></p>
+<p>这里使用阿里云服务器<br>打开控制台，云服务器ECS-&gt;安全组-&gt;配置规则<br>添加21和40000-41000</p>
+<p>参考：</p>
+<ul>
+<li>重点<a href="https://www.kancloud.cn/chandler/bc-linux/52710" target="_blank" rel="external">https://www.kancloud.cn/chandler/bc-linux/52710</a></li>
+<li><a href="http://how2j.cn/k/deploy2linux/deploy2linux-openport/1604.html" target="_blank" rel="external">http://how2j.cn/k/deploy2linux/deploy2linux-openport/1604.html</a></li>
+<li><a href="https://www.tecmint.com/install-ftp-server-in-centos-7/" target="_blank" rel="external">https://www.tecmint.com/install-ftp-server-in-centos-7/</a></li>
+<li><a href="https://wsgzao.github.io/post/vsftpd/" target="_blank" rel="external">https://wsgzao.github.io/post/vsftpd/</a></li>
+<li><a href="https://blog.csdn.net/aiynmimi/article/details/77012507" target="_blank" rel="external">https://blog.csdn.net/aiynmimi/article/details/77012507</a></li>
+</ul>
+
           
-记，这篇文章实际是相当复杂的，主要原因是出于安全考虑增加了很多内容，如果只是局域网内使用不需要如此复杂，只需要安装、关闭匿名、指定目录和用户，参考https://fengrenxiaoli.gith
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/07/Linux-安装vsftpd/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -4074,16 +5051,20 @@ table th:nth-of-type
       
         
           
-          安裝Apache1sudo yum install httpd
-启动Apache，并且设定为开机自动启动12sudo systemctl start httpdsudo systemctl enabl
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/07/Linux-安装Apache/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>安裝Apache<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install httpd</div></pre></td></tr></table></figure></p>
+<p>启动Apache，并且设定为开机自动启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo systemctl start httpd</div><div class="line">sudo systemctl enable httpd</div></pre></td></tr></table></figure></p>
+<p>允许http服务通过防火墙<br>CentOS 7的内置防火墙默认设置为阻止网络流量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo firewall-cmd --add-service=http --permanent</div><div class="line">sudo firewall-cmd --add-service=https --permanent</div><div class="line">#sudo firewall-cmd --permanent --add-port=80/tcp</div><div class="line">#sudo firewall-cmd --permanent --add-port=443/tcp</div><div class="line">sudo systemctl restart firewalld</div></pre></td></tr></table></figure></p>
+<p>重启Apache<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo systemctl restart httpd.service</div></pre></td></tr></table></figure></p>
+<p>配置文件</p>
+<p><code>/etc/httpd/conf/httpd.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">DocumentRoot &quot;/var/www/html/example.com/public_html&quot;</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">&lt;IfModule prefork.c&gt;</div><div class="line">    StartServers        5</div><div class="line">    MinSpareServers     20</div><div class="line">    MaxSpareServers     40</div><div class="line">    MaxRequestWorkers   256</div><div class="line">    MaxConnectionsPerChild 5500</div><div class="line">&lt;/IfModule&gt;</div></pre></td></tr></table></figure></p>
+<p><code>/etc/httpd/conf.d/vhost.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">NameVirtualHost *:80</div><div class="line"></div><div class="line">&lt;VirtualHost *:80&gt;</div><div class="line">    ServerAdmin webmaster@example.com</div><div class="line">    ServerName example.com</div><div class="line">    ServerAlias www.example.com</div><div class="line">    DocumentRoot /var/www/html/example.com/public_html/</div><div class="line">    ErrorLog /var/www/html/example.com/logs/error.log</div><div class="line">    CustomLog /var/www/html/example.com/logs/access.log combined</div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure></p>
+<p>创建上面引用的目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo mkdir -p /var/www/html/example.com/&#123;public_html,logs&#125;</div></pre></td></tr></table></figure></p>
+<p>检查Apache的状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo systemctl status httpd</div></pre></td></tr></table></figure></p>
+<p>停止Apache<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo systemctl stop httpd</div></pre></td></tr></table></figure></p>
+<p>参考：</p>
+<p><a href="https://www.linode.com/docs/web-servers/apache/install-and-configure-apache-on-centos-7/" target="_blank" rel="external">https://www.linode.com/docs/web-servers/apache/install-and-configure-apache-on-centos-7/</a><br><a href="https://www.liquidweb.com/kb/how-to-install-apache-on-centos-7/" target="_blank" rel="external">https://www.liquidweb.com/kb/how-to-install-apache-on-centos-7/</a><br>SELinux：<a href="https://www.brilliantcode.net/170/centos-7-install-apache-httpd/" target="_blank" rel="external">https://www.brilliantcode.net/170/centos-7-install-apache-httpd/</a><br>SELinux：<a href="https://www.brilliantcode.net/145/centos-7-check-selinux-status-enabled-or-not/" target="_blank" rel="external">https://www.brilliantcode.net/145/centos-7-check-selinux-status-enabled-or-not/</a></p>
+
+          
         
       
     </div>
@@ -4152,64 +5133,62 @@ table th:nth-of-type
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="木鱼" />
-          <p class="site-author-name" itemprop="name">木鱼</p>
-           
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">木鱼</p>
               <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">114</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
           </div>
-        
 
-        <div class="links-of-author motion-element">
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -4226,12 +5205,9 @@ table th:nth-of-type
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">木鱼</span>
 
@@ -4239,18 +5215,17 @@ table th:nth-of-type
 </div>
 
 
-  <div class="powered-by">
-    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-  </div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">
-    主题 &mdash;
-    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-      NexT.Mist
-    </a>
-  </div>
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
 
 
         
@@ -4270,6 +5245,8 @@ table th:nth-of-type
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -4304,46 +5281,54 @@ table th:nth-of-type
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
   
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -4376,6 +5361,10 @@ table th:nth-of-type
 
 
 
+
+
+
+
   
 
 
@@ -4386,6 +5375,9 @@ table th:nth-of-type
 
   
 
+  
+
+  
   
 
   

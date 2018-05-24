@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/24/Linux-DNS%E6%90%AD%E5%BB%BA-Bind%E6%9C%8D%E5%8A%A1/</loc>
+    
+    <lastmod>2018-05-24T23:07:27.133Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/24/Shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-case%E3%80%81for%E3%80%81while%E3%80%81until/</loc>
     
     <lastmod>2018-05-24T15:04:27.469Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/2018/05/24/Shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%BC%8F/</loc>
     
     <lastmod>2018-05-24T14:04:51.258Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/24/Linux-DNS%E6%90%AD%E5%BB%BA-Bind%E6%9C%8D%E5%8A%A1/</loc>
-    
-    <lastmod>2018-05-24T13:37:47.499Z</lastmod>
     
   </url>
   
