@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="查看权限1ls -al    第1位 2-4位 5-7位 8-10位 11位     - rwx r-x r-x .   文件类型 u所有者 g所属组 o其他人 ACL权限    r：读w：写x：执行  修改权限1234567chmod [选项] 模式 文件名选项：-R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]chmod a=rwx filen">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-19T00:18:12.933Z">
+<meta property="og:updated_time" content="2018-05-25T03:13:54.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux权限管理01 一般权限">
 <meta name="twitter:description" content="查看权限1ls -al    第1位 2-4位 5-7位 8-10位 11位     - rwx r-x r-x .   文件类型 u所有者 g所属组 o其他人 ACL权限    r：读w：写x：执行  修改权限1234567chmod [选项] 模式 文件名选项：-R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]chmod a=rwx filen">
@@ -352,13 +352,13 @@
 <p><br></p>
 <h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">chmod [选项] 模式 文件名</div><div class="line"></div><div class="line">选项：-R 递归（用于目录）</div><div class="line">模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]</div><div class="line"></div><div class="line">chmod a=rwx filename</div><div class="line">chmod u+w filename</div></pre></td></tr></table></figure>
 <p><br></p>
-<h2 id="权限的作用"><a href="#权限的作用" class="headerlink" title="权限的作用"></a>权限的作用</h2><h4 id="权限对文件的作用"><a href="#权限对文件的作用" class="headerlink" title="权限对文件的作用"></a>权限对文件的作用</h4><ul>
+<h2 id="权限的作用"><a href="#权限的作用" class="headerlink" title="权限的作用"></a>权限的作用</h2><h3 id="权限对文件的作用"><a href="#权限对文件的作用" class="headerlink" title="权限对文件的作用"></a>权限对文件的作用</h3><ul>
 <li>r：读取文件内容（cat/more/head/tail）</li>
 <li>w：编辑、新增、修改文件内容（vi/echo），不包括新增文件和删除文件</li>
 <li>x：可执行，判断是否为可执行文件</li>
 </ul>
 <p>文件中的数据存储在文件数据block里，而文件名储存位置在目录block中，要删除文件，意味着要删除文件名，所以要想删除文件，必须对目录block进行操作</p>
-<h4 id="权限对目录的作用"><a href="#权限对目录的作用" class="headerlink" title="权限对目录的作用"></a>权限对目录的作用</h4><ul>
+<h3 id="权限对目录的作用"><a href="#权限对目录的作用" class="headerlink" title="权限对目录的作用"></a>权限对目录的作用</h3><ul>
 <li>r：查询目录下的文件（ls）</li>
 <li>w：具有修改目录结构的权限。如新建文件和目录，删除此目录下的文件和目录，重命名此目录下文件和目录，剪切（touch/rm/mv/cp）</li>
 <li>x：进入目录（cd）</li>
@@ -396,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/11/清华同方x46h开启Intel-VT/" rel="next" title="清华同方x46h开启Intel VT">
-                <i class="fa fa-chevron-left"></i> 清华同方x46h开启Intel VT
+              <a href="/2018/04/25/Linux-README和其他程序文档/" rel="next" title="Linux README和其他程序文档">
+                <i class="fa fa-chevron-left"></i> Linux README和其他程序文档
               </a>
             
           </div>
@@ -485,7 +485,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-count">116</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -538,7 +538,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看权限"><span class="nav-number">1.</span> <span class="nav-text">查看权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改权限"><span class="nav-number">2.</span> <span class="nav-text">修改权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限的作用"><span class="nav-number">3.</span> <span class="nav-text">权限的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#权限对文件的作用"><span class="nav-number">3.0.1.</span> <span class="nav-text">权限对文件的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#权限对目录的作用"><span class="nav-number">3.0.2.</span> <span class="nav-text">权限对目录的作用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他命令"><span class="nav-number">4.</span> <span class="nav-text">其他命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看权限"><span class="nav-number">1.</span> <span class="nav-text">查看权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改权限"><span class="nav-number">2.</span> <span class="nav-text">修改权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限的作用"><span class="nav-number">3.</span> <span class="nav-text">权限的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#权限对文件的作用"><span class="nav-number">3.1.</span> <span class="nav-text">权限对文件的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限对目录的作用"><span class="nav-number">3.2.</span> <span class="nav-text">权限对目录的作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他命令"><span class="nav-number">4.</span> <span class="nav-text">其他命令</span></a></li></ol></div>
             
 
           </div>

@@ -375,10 +375,11 @@ width: 80%;
     <link href="http://yoursite.com/2018/05/24/Linux-DNS%E6%90%AD%E5%BB%BA-Bind%E6%9C%8D%E5%8A%A1/"/>
     <id>http://yoursite.com/2018/05/24/Linux-DNS搭建-Bind服务/</id>
     <published>2018-05-24T13:37:47.000Z</published>
-    <updated>2018-05-24T23:07:27.133Z</updated>
+    <updated>2018-05-25T03:13:54.929Z</updated>
     
     <content type="html"><![CDATA[<p>Centos<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install bind  bind-utils</div><div class="line"></div><div class="line">#centos默认的安装是没有host，dig，nsloopup等命令的，需要安装bind-utils</div></pre></td></tr></table></figure></p>
 <p>Ubuntu<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install bind9</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.phpini.com/linux/fix-nslookup-dig-host-command-not-found" target="_blank" rel="external">https://www.phpini.com/linux/fix-nslookup-dig-host-command-not-found</a></p>
 ]]></content>
     
     <summary type="html">

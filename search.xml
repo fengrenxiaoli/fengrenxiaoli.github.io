@@ -51,7 +51,7 @@
   <entry>
     <title><![CDATA[Linux DNS搭建 Bind服务]]></title>
     <url>%2F2018%2F05%2F24%2FLinux-DNS%E6%90%AD%E5%BB%BA-Bind%E6%9C%8D%E5%8A%A1%2F</url>
-    <content type="text"><![CDATA[Centos123yum install bind bind-utils#centos默认的安装是没有host，dig，nsloopup等命令的，需要安装bind-utils Ubuntu1sudo apt-get install bind9]]></content>
+    <content type="text"><![CDATA[Centos123yum install bind bind-utils#centos默认的安装是没有host，dig，nsloopup等命令的，需要安装bind-utils Ubuntu1sudo apt-get install bind9 https://www.phpini.com/linux/fix-nslookup-dig-host-command-not-found]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -240,7 +240,7 @@
   <entry>
     <title><![CDATA[Shell 历史命令]]></title>
     <url>%2F2018%2F05%2F19%2FShell-%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[历史命令指的是把操作过的命令保留在系统当中, 当需要的时候可以重新进行调用 histo123456789history [选项] [历史命令保存文件]选项：-c：清空历史命令-w：把缓存中的历史命令强制写入历史命令保存文件 ~/.bash_history不建议清空当本次操作出现错误可用过历史命令进行比对排错当登录后发现历史命令被清空, 则可判断出有人登录过该账户或服务器即使命令保存数目众多, 文件大小也不大, 不会给服务器造成多大压力 历史命令默认保存1000条, 可以在环境变量配置文件/etc/profile中进行修改HISTSIZE=1000使用history命令查看的, 不止有之前保存下来的, 还有本次登录后新操作的命令, 这些命令只有本次正确退出之后才会写入 ~/.bash_history 历史命令的调用 使用上、下箭头调用以前的历史命令 使用 “!n” 重复执行一次第 n 条历史命令 使用 “!!” 重复执行一次上一条命令 使用 “!字串” 重复执行最后一条以该字串开头的命令 命令与文本补全在Bash中, 命令与文件补全是非常方便与常用的功能, 我们只要在输入命令或文件时, 按”Tab”键就会自动进行补全系统进行命令补全依赖$PATH]]></content>
+    <content type="text"><![CDATA[历史命令指的是把操作过的命令保留在系统当中, 当需要的时候可以重新进行调用 history123456789history [选项] [历史命令保存文件]选项：-c：清空历史命令-w：把缓存中的历史命令强制写入历史命令保存文件 ~/.bash_history不建议清空当本次操作出现错误可用过历史命令进行比对排错当登录后发现历史命令被清空, 则可判断出有人登录过该账户或服务器即使命令保存数目众多, 文件大小也不大, 不会给服务器造成多大压力 历史命令默认保存1000条, 可以在环境变量配置文件/etc/profile中进行修改HISTSIZE=1000使用history命令查看的, 不止有之前保存下来的, 还有本次登录后新操作的命令, 这些命令只有本次正确退出之后才会写入 ~/.bash_history 历史命令的调用 使用上、下箭头调用以前的历史命令 使用 “!n” 重复执行一次第 n 条历史命令 使用 “!!” 重复执行一次上一条命令 使用 “!字串” 重复执行最后一条以该字串开头的命令 命令与文本补全在Bash中, 命令与文件补全是非常方便与常用的功能, 我们只要在输入命令或文件时, 按”Tab”键就会自动进行补全系统进行命令补全依赖$PATH]]></content>
       <tags>
         <tag>Shell</tag>
       </tags>
@@ -248,7 +248,7 @@
   <entry>
     <title><![CDATA[Shell Bash别名和快捷键]]></title>
     <url>%2F2018%2F05%2F19%2FShell-Bash%E5%88%AB%E5%90%8D%E5%92%8C%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
-    <content type="text"><![CDATA[别名1234567891011121314alias#查看系统当中默认已经生效的别名alias ls = &apos;ls --color=auto&apos;#临时设定别名vi ~/.bashrcvi /root/.bashrc#写入环境变量配置文件，系统再次重启后永久生效source .bashrc#使当前环境变量设置立即生效，不需要系统重启unalias ls#删除别名 命令生效顺序 第一顺位执行绝对路径或者相对路径的命令 第二顺位执行别名 第三顺位执行Bash的内部命令 第四顺位执行按照$PATH环境变量设置定义的目录顺序的第一个命令 快捷键ctrl + c 强制终止ctrl + l 清屏相当于clearctrl + a 光标快速回到行首ctrl + e 光标快速去到行尾ctrl + u 从光标所在位置删除到行首ctrl + z 把命令放入后台–，暂停ctrl + r 历史命令搜索]]></content>
+    <content type="text"><![CDATA[别名123456789101112131415161718#增加新的别名前要查看是否被占用type 别名alias#查看系统当中默认已经生效的别名alias ls=&apos;ls --color=auto&apos;#临时设定别名#**不能有空格**vi ~/.bashrcvi /root/.bashrc#写入环境变量配置文件，系统再次重启后永久生效source .bashrc#使当前环境变量设置立即生效，不需要系统重启unalias ls#删除别名 命令生效顺序 第一顺位执行绝对路径或者相对路径的命令 第二顺位执行别名 第三顺位执行Bash的内部命令 第四顺位执行按照$PATH环境变量设置定义的目录顺序的第一个命令 快捷键ctrl + c 强制终止ctrl + l 清屏相当于clearctrl + a 光标快速回到行首ctrl + e 光标快速去到行尾ctrl + u 从光标所在位置删除到行首ctrl + z 把命令放入后台–，暂停ctrl + r 历史命令搜索]]></content>
       <tags>
         <tag>Shell</tag>
       </tags>
@@ -568,14 +568,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[【Linux】Linux 帮助命令]]></title>
-    <url>%2F2018%2F05%2F05%2FLinux-%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[man1234567891011121314151617181920212223man 命令# 获取指定命令的帮助# man是manual的缩写# 最常用的帮助命令# q退出# 输入:/-d 搜索&quot;-d&quot;字符串，按n往下搜“-d”,shift+n 往上搜“-d”man -f 命令# 查看命令的所有帮助等级# 相当于 whatis 命令# 因为whereis命令可以看到命令的帮助文档目录，所以也可以查看目录的等级man 级别 命令#查看相应等级的命令man -5 passwdman -4 nullman -8 ifconfigman -k 命令 # 相当于 apropos 命令# 搜索含有关键词“命令”的所有帮助文档man -k passwd# 搜索含有关键词“passwd”的所有命令的帮助文档 man的级别： 查看命令的帮助 查看可被内核调用的函数的帮助 查看函数和函数库的帮助 查看特殊文件的帮助（主要是/dev目录下的文件） 查看配置文件的帮助 查看游戏的帮助 查看其它杂项的帮助 查看系统管理员可用命令的帮助 查看和内核相关文件的帮助 –help123命令 --help #获取命令选项的帮助ls --help helpshell内部命令帮助123456help shell内部命令#whereis可以用来判断一个命令是否是shell内部命令#ls在/bin/下面有可执行文件，说明ls命令不是shell内部命令#cd命令在/bin/下面没有相应的可执行文件，所以是shell自带的命令man命令不能只获取shell的内部命令#help命令只能获取shell的内部命令 info1234567info 命令#info里面内容十分繁琐，是关于命令的一个巨大的帮助文档，里面有各个版本对于此命令的说明。回车：进入带*号的说明-u: 进入上层页面-n: 进入下一个帮助小节-p: 进入上一个帮助小节-q: 退出]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[【Linux】Linux文件管理05 常用目录]]></title>
     <url>%2F2018%2F05%2F05%2FLinux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E5%B8%B8%E7%94%A8%E7%9B%AE%E5%BD%95%2F</url>
     <content type="text"><![CDATA[linux 是个严谨的操作系统，一级目录都严格规定 / 根目录 /home 普通用户的家目录/root 超级用户的家目录/tmp 临时目录，可存放临时数据 /lib 系统库保存目录操作系统中并没有把所有功能都写入linux中，而将常用的功能写成一个个程序库，这些库保存在lib中，当需要时调用即可。避免全部写入linux中，使其无比庞大且运行缓慢。 /mnt/media/misc三个都可以用来挂载 /proc 直接写入内存的/sys 直接写入内存的这两个目录保存的是内存的挂载点，不能直接操作。其中的数据直接写在内存中。避免数据丢失或由于内存溢出导致系统崩溃。 /boot 启动目录，启动相关文件/dev 设备文件保存目录/etc 配置文件保存目录/var 系统相关文档内容 /usr 系统软件资源目录/usr/bin/ 系统命令（普通用户）/usr/sbin/ 系统命令（超级用户） /bin 命令保存目录（普通用户就可以读取的命令）/sbin 命令保存目录（超级用户才能使用的目录）根目录下的bin和sbin，usr目录下的bin和sbin，这四个目录都是用来保存系统命令。其中，bin目录下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式来区分用户权限。]]></content>
@@ -602,7 +594,7 @@
   <entry>
     <title><![CDATA[【Linux】Linux文件管理02 文件搜索命令]]></title>
     <url>%2F2018%2F05%2F05%2FLinux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[文件搜索命令 locate123456789locate 文件名#在后台数据库中按文件名搜索，搜索速度更快/var/lib/mlocate (保存的搜索数据库)#locate 命令所搜索的后台数据库#数据库不是实时的，更新频率大概一天更新一次updatedb#更新数据库 对于新建的文件，由于数据库没有更新，使用locate不能查到。可以使用 updatedb强制更新数据库后即可查到。可使用 locate locate搜索locate相关文件，可看到locate数据库。在不同linux中，该数据库名字稍微不同，例如，locatedb、slocate、mlocate。 缺点：只能按照文件名进行搜索，但常用。 配置文件123456789101112131415161718touch /root/canglstouch /tmp/canglsupdatedblocate cangls#显示为 /root/cangls #只有一条，而/tmp下的cangls没有显示出来#原因在于locate搜索遵循配置文件 `/etc/updatedb.conf`#在PRUNEPATHS 中配置了/tmp/目录不进行搜索。所以没有进行查找/etc/updatedb.conf 配置文件PRUNE_BIND_MOUNTS = &quot;yes&quot;#开启搜索限制，yes为后面三项都生效。no为 后面三项都不生效PRUNEFS = #搜索时，不搜索的文件系统PRUNENAMES =#搜索时，不搜索的文件类型PRUNEPATHS =#搜索时，不搜索的路径 命令搜索命令 whereis和which1234567891011121314151617181920whereis 命令名#搜索命令所在路径及帮助文档所在位置#只能搜索系统命令，不能搜索自己凭空创建的普通文件选项：-b:只查找可执行文件-m:只查找帮助文件#whoami 显示当前操作用户#who am i 显示登录用户#whatis ls 显示ls的作用which 命令名#搜索命令所在路径及别名#如果有别名，还能看到别名# whereis和which不能看到shell的默认命令（如：cd），只能看到外部安装的命令。PATH环境变量定义系统搜索命令的路径echo $PATH执行命令的时候都要在path定义的目录中去寻找 文件搜索命令 find12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152find [搜索范围][搜索条件]#搜索文件find /home -name 文件名# find搜索默认是完全匹配# 避免大范围的搜索，会非常浪费系统资源# find是在系统当中搜索符合条件的文件名，如果需要匹配，使用通配符匹配，通配符是完全匹配find /home -name &quot;[12]*&quot;find /home -name &quot;test[12]&quot;#要加引号*匹配任意内容?匹配任意一个字符[]匹配任意一个中括号内的字符find /home -mtime +10 在home目录下，查找10天前修改的文件find /home -mtime 10 在home目录下，查找10天前当天修改的文件find /home -mtime -10 在home目录下，查找10天内修改的文件# atime 文件访问时间# ctime 改变文件属性# mtime 修改文件内容find /root -iname test # 不区分要搜索的test大小写格式find /root -user root # -user 按文件所有者搜索# 搜索root目录下的所有属于root用户的文件find /root -nouser #没有所属者的文件，liunx中，每个文件都有所属者，如果没有，那么一般都是垃圾文件，但还是有特例的，比如内核产生的文件，就没有所属者，一般在proc和sys目录下；还有外来文件，也就是U盘拷入的文件也会忽略所有者。find 目录 -size 25k# 查找文件大小是25KB的文件# 注意：文件大小用小写k和大写M# -25k 小于25k# 25k 等于25k# +25k 大于25kfind . -size 25M # 查询当前目录文件大小是25M的文件find /etc -size +20k -a -size -50k # 查找/etc下大于20k并且小于50k的文件# -a and,逻辑与，两个条件都满足# -o or,逻辑或，两个条件满足一个即可find /etc -size +20k -a -size -50k -exec ls -lh &#123;&#125; \;-exec &#123;&#125; \; # 固定格式，表示直接对前面的搜索结果进行后面的命令处理# 注意，&#123;&#125;和\之间有空格，结尾有分号find . -inum 262422 # 查找inode是262422的文件# -inum 查询指定i节点的文件 字符串搜索命令 grep123456grep [选项] 字符串 文件名# 在文件中匹配符合条件的字条串# 字符串使用 &quot;&quot; 包围，结果为行记录-i 忽略大小写-v 排除指定字符串/取反-n 显示行号 find命令和grep命令的区别find：在 系统 中搜索符合条件的 文件名，使用 通配符（完全）匹配grep：在 文件 当中搜索符合条件的 字符串，使用 正则表达式 （包含）匹配 通配符（完全）匹配：搜索文件名正则表达式 （包含）匹配：搜索文件中的数据]]></content>
+    <content type="text"><![CDATA[文件搜索命令 locate123456789locate 文件名#在后台数据库中按文件名搜索，搜索速度更快/var/lib/mlocate (保存的搜索数据库)#locate 命令所搜索的后台数据库#数据库不是实时的，更新频率大概一天更新一次updatedb#更新数据库 对于新建的文件，由于数据库没有更新，使用locate不能查到。可以使用 updatedb强制更新数据库后即可查到。可使用 locate locate搜索locate相关文件，可看到locate数据库。在不同linux中，该数据库名字稍微不同，例如，locatedb、slocate、mlocate。 缺点：只能按照文件名进行搜索，但常用。 配置文件123456789101112131415161718touch /root/canglstouch /tmp/canglsupdatedblocate cangls#显示为 /root/cangls #只有一条，而/tmp下的cangls没有显示出来#原因在于locate搜索遵循配置文件 `/etc/updatedb.conf`#在PRUNEPATHS 中配置了/tmp/目录不进行搜索。所以没有进行查找/etc/updatedb.conf 配置文件PRUNE_BIND_MOUNTS = &quot;yes&quot;#开启搜索限制，yes为后面三项都生效。no为 后面三项都不生效PRUNEFS = #搜索时，不搜索的文件系统PRUNENAMES =#搜索时，不搜索的文件类型PRUNEPATHS =#搜索时，不搜索的路径 文件搜索命令 find12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152find [搜索范围][搜索条件]#搜索文件find /home -name 文件名# find搜索默认是完全匹配# 避免大范围的搜索，会非常浪费系统资源# find是在系统当中搜索符合条件的文件名，如果需要匹配，使用通配符匹配，通配符是完全匹配find /home -name &quot;[12]*&quot;find /home -name &quot;test[12]&quot;#要加引号*匹配任意内容?匹配任意一个字符[]匹配任意一个中括号内的字符find /home -mtime +10 在home目录下，查找10天前修改的文件find /home -mtime 10 在home目录下，查找10天前当天修改的文件find /home -mtime -10 在home目录下，查找10天内修改的文件# atime 文件访问时间# ctime 改变文件属性# mtime 修改文件内容find /root -iname test # 不区分要搜索的test大小写格式find /root -user root # -user 按文件所有者搜索# 搜索root目录下的所有属于root用户的文件find /root -nouser #没有所属者的文件，liunx中，每个文件都有所属者，如果没有，那么一般都是垃圾文件，但还是有特例的，比如内核产生的文件，就没有所属者，一般在proc和sys目录下；还有外来文件，也就是U盘拷入的文件也会忽略所有者。find 目录 -size 25k# 查找文件大小是25KB的文件# 注意：文件大小用小写k和大写M# -25k 小于25k# 25k 等于25k# +25k 大于25kfind . -size 25M # 查询当前目录文件大小是25M的文件find /etc -size +20k -a -size -50k # 查找/etc下大于20k并且小于50k的文件# -a and,逻辑与，两个条件都满足# -o or,逻辑或，两个条件满足一个即可find /etc -size +20k -a -size -50k -exec ls -lh &#123;&#125; \;-exec &#123;&#125; \; # 固定格式，表示直接对前面的搜索结果进行后面的命令处理# 注意，&#123;&#125;和\之间有空格，结尾有分号find . -inum 262422 # 查找inode是262422的文件# -inum 查询指定i节点的文件 字符串搜索命令 grep全目录全文搜索1234567891011grep [选项] 字符串 文件名# 在文件中匹配符合条件的字条串# 字符串使用 &quot;&quot; 包围，结果为行记录-i 忽略大小写-v 排除指定字符串/取反-n 显示行号-r 递归grep apple fruitlist.txtgrep -i apple fruitlist.txt #忽略大小写grep -nr apple * #搜索目录里所有文件，包括子目录的话，并且在结果中显示行号 find命令和grep命令的区别find：在 系统 中搜索符合条件的 文件名，使用 通配符（完全）匹配grep：在 文件 当中搜索符合条件的 字符串，使用 正则表达式 （包含）匹配 通配符（完全）匹配：搜索文件名正则表达式 （包含）匹配：搜索文件中的数据]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -779,6 +771,30 @@
     <title><![CDATA[【Linux】Linux权限管理01 一般权限]]></title>
     <url>%2F2018%2F04%2F27%2FLinux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86-%E4%B8%80%E8%88%AC%E6%9D%83%E9%99%90%2F</url>
     <content type="text"><![CDATA[查看权限1ls -al 第1位 2-4位 5-7位 8-10位 11位 - rwx r-x r-x . 文件类型 u所有者 g所属组 o其他人 ACL权限 r：读w：写x：执行 修改权限1234567chmod [选项] 模式 文件名选项：-R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]chmod a=rwx filenamechmod u+w filename 权限的作用权限对文件的作用 r：读取文件内容（cat/more/head/tail） w：编辑、新增、修改文件内容（vi/echo），不包括新增文件和删除文件 x：可执行，判断是否为可执行文件 文件中的数据存储在文件数据block里，而文件名储存位置在目录block中，要删除文件，意味着要删除文件名，所以要想删除文件，必须对目录block进行操作 权限对目录的作用 r：查询目录下的文件（ls） w：具有修改目录结构的权限。如新建文件和目录，删除此目录下的文件和目录，重命名此目录下文件和目录，剪切（touch/rm/mv/cp） x：进入目录（cd） 对文件来说，最高权限是x对目录来说，最高权限是w目录只有0，5 ，7权限有意义。4、1、6权限没有意义文件的常用权限是644目录的常用权限是755 其他命令12345678#修改文件所有者chown 用户名 文件各#修改文件的所属组chgrp 所属组 文件名#同时修改文件的所有者和所属组chown 用户名:所属组 文件名 分配文件基本权限时，核心原则：在最小权限情况下能够实现要求即可]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux README和其他程序文档]]></title>
+    <url>%2F2018%2F04%2F25%2FLinux-README%E5%92%8C%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E6%96%87%E6%A1%A3%2F</url>
+    <content type="text"><![CDATA[许多安装在你系统中的软件，都有自己的文档文件，这些文件位于/usr/share/doc目录下。这些文件大多数是以文本文件的形式存储的，可用 less 阅读器来浏览。一些文件是 HTML 格式，可用网页浏览器来阅读。我们可能遇到许多以 “.gz” 结尾的文件。这表示 gzip 压缩程序已经压缩了这些程序。gzip 软件包包括一个特殊的 less 版本，叫做 zless，zless 可以显示由 gzip压缩的文本文件的内容。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux 帮助命令]]></title>
+    <url>%2F2018%2F04%2F25%2FLinux-%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[man许多希望被命令行使用的可执行程序提供了一个正式的文档，叫做man pageman使用less工具显示参考手册 1234567891011121314151617181920212223man 命令# 获取指定命令的帮助# man是manual的缩写# 最常用的帮助命令# q退出# 输入:/-d 搜索&quot;-d&quot;字符串，按n往下搜“-d”,shift+n 往上搜“-d”man -f 命令# 查看命令的所有帮助等级# 相当于 whatis 命令# 因为whereis命令可以看到命令的帮助文档目录，所以也可以查看目录的等级man 级别 命令#查看相应等级的命令man -5 passwdman -4 nullman -8 ifconfigman -k 命令 # 相当于 apropos 命令# 搜索含有关键词“命令”的所有帮助文档man -k passwd# 搜索含有关键词“passwd”的所有命令的帮助文档 man的级别man所显示的参考手册被分成几个章节，包括用户命令、系统管理员命令、程序接口、文件格式 用户命令 可被内核调用的函数 C库函数程序接口 特殊文件（主要是/dev目录下的文件），比如设备结点和驱动程序 配置文件 游戏娱乐，如屏幕保护程序 其它杂项 系统管理员命令 –help12345命令 --help #获取命令选项的帮助#一些命令不支持该选项ls --help help shell内部命令帮助123456help shell内部命令#type\whereis可以用来判断一个命令是否是shell内部命令#ls在/bin/下面有可执行文件，说明ls命令不是shell内部命令#cd命令在/bin/下面没有相应的可执行文件，所以是shell自带的命令#man命令不能只获取shell的内部命令#help命令只能获取shell的内部命令 info12345678info 命令#info里面内容十分繁琐，是关于命令的一个巨大的帮助文档，里面有各个版本对于此命令的说明。Enter：进入带*号的说明，*表示是一个链接u: 进入上层页面n: 进入下一个帮助小节p: 进入上一个帮助小节q: 退出]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 命令的分类]]></title>
+    <url>%2F2018%2F04%2F25%2FLinux-%E5%91%BD%E4%BB%A4%E7%9A%84%E5%88%86%E7%B1%BB%2F</url>
+    <content type="text"><![CDATA[命令的分类 可执行程序，C、C++、shell、perl、python、ruby等，二进制文件、脚本文件，/usr/bin shell内部命令 shell函数，环境变量中 命令别名 type 查看命令类型1type 命令名 which 显示一个可执行程序的位置123which 命令名#不能看到命令的别名#不能看到shell内部命令 whereis 显示命令所在路径及帮助文档所在位置1234567891011whereis 命令名选项：-b:只查找可执行文件-m:只查找帮助文件#只能搜索系统命令，不能搜索自己凭空创建的普通文件#whereis不能看到shell内部命令（如：cd），只能看到外部安装的命令whatis ls 显示ls的作用whoami 显示当前操作用户who am i 显示登录用户 whatis 查询一个命令执行什么功能1whatis 命令名 apropos 通过关键字搜索命令123apropos 关键字#和man -k一样]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
