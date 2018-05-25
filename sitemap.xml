@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/</loc>
+    
+    <lastmod>2018-05-25T01:14:14.125Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</loc>
+    
+    <lastmod>2018-05-25T01:13:21.433Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/24/Linux-DNS%E6%90%AD%E5%BB%BA-Bind%E6%9C%8D%E5%8A%A1/</loc>
     
     <lastmod>2018-05-24T23:07:27.133Z</lastmod>
@@ -271,13 +285,6 @@
     <loc>http://yoursite.com/2018/05/19/Shell%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F/</loc>
     
     <lastmod>2018-05-19T02:38:59.996Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/</loc>
-    
-    <lastmod>2018-05-19T00:49:06.467Z</lastmod>
     
   </url>
   
@@ -607,13 +614,6 @@
     <loc>http://yoursite.com/2018/05/02/Linux-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3-NAT%E3%80%81%E6%A1%A5%E6%8E%A5%E3%80%81Hostonly/</loc>
     
     <lastmod>2018-05-15T17:56:57.774Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</loc>
-    
-    <lastmod>2018-05-15T17:56:10.441Z</lastmod>
     
   </url>
   

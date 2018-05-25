@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Linux 专题导航]]></title>
+    <url>%2F2018%2F06%2F05%2FLinux-%E4%B8%93%E9%A2%98%E5%AF%BC%E8%88%AA%2F</url>
+    <content type="text"><![CDATA[文件管理权限管理软件管理网络管理服务管理系统管理]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell条件判断 case、for、while、until]]></title>
+    <url>%2F2018%2F05%2F24%2FShell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-case%E3%80%81for%E3%80%81while%E3%80%81until%2F</url>
+    <content type="text"><![CDATA[多分支语句case1234567891011case $变量名 in &quot;值1&quot;) 如果变量值等于值1，执行程序1 ;; &quot;值2&quot;) 如果变量值等于值2，执行程序2 ;; *） 如果变量值都不是以上值，则执行此程序 ;;esac 与if多分支最大区别是，case语句只能判断一种条件关系，而if语句可以判断多种条件关系 12345678910111213#!/bin/bash name=&apos;basename $0 .sh&apos; case $1 in s|start) echo &quot;start...&quot; ;; stop) echo &quot;stop ...&quot; ;; reload)echo &quot;reload...&quot; ;; *)echo &quot;Usage: $name [start|stop|reload]&quot; exit 1 ;;esac | 分割多个模式，相当于 or for123456789for 变量 in 值1 值2 值3... do 程序 donefor ((初始值;循环控制条件;变量变化)) do 程序 done in后面跟多少值，for循环就循环多少次，每次循环依次把值赋给变量，直到后面的值全都运行一遍。可以将要操作的数据内容放在一个文件中，利用 for i in $(cat 文件名)来避免手动输入。也可以将内容赋给变量，利用for i in $val 来避免手动输入。 123456789#!/bin/bash#从1加到100s=0for ((i=1;i&lt;=100;i=i+1)) do s=$(($s+$i)) done#没有i++ while循环1234while [ 条件判断式 ] do 程序 done 实例：从1加到10012345678910#!/bin/bashsum=0i=1while [ $i -le 100 ] do sum=$(( $sum+$i )) i=$(( $i+1 )) doneecho &quot;sum is : $sum&quot; http://wiki.jikexueyuan.com/project/shell-learning/case-statements.html]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell条件判断 双分支if语句]]></title>
+    <url>%2F2018%2F05%2F24%2FShell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E5%8F%8C%E5%88%86%E6%94%AFif%E8%AF%AD%E5%8F%A5%2F</url>
+    <content type="text"><![CDATA[123456if [ 条件判断式 ] then 条件成立时执行的程序 else 条件不成立时，执行的另一个程序fi 实例：判断输入的路径是不是一个目录123456789#!/bin/bashread -t 30 -p &quot;Input a dir:&quot; dirif [ -d &quot;$dir&quot; ]then echo &quot;Yes,yes yes&quot;else echo &quot;No,no,no&quot;fi 实例：判断apache服务是否启动12345678910111213141516#!/bin/bashtest=$(ps aux |grep httpd |grep -v grep)#定义变量test 并且查找是否启动apache的结果赋值给test#ps aux 查看当前所有正在运行的进程 #grep httpd 过滤出apache进程#grep -v grep 排除自身进程if [ -n &quot;$test&quot; ]then cho &quot; $(date) httpd is ok &quot; &gt;&gt; /tmp/autostart-acc.logelse systemctl start httpd.service &amp;&gt;/dev/null #centos7 echo &quot; $(date) httpd is no \n httpd is autostart now&quot; &gt;&gt; /tmp/autostart-err.logfi]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell条件判断 多分支if语句]]></title>
+    <url>%2F2018%2F05%2F24%2FShell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E5%A4%9A%E5%88%86%E6%94%AFif%E8%AF%AD%E5%8F%A5%2F</url>
+    <content type="text"><![CDATA[123456789if [ 条件判断式1 ]then 当条件判断式1成立时，执行程序1elif [ 条件判断式2 ]then 当条件判断式2成立时，执行程序2else 当所有条件都不成立时，最后执行此程序fi]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell条件判断 单分支if语句]]></title>
+    <url>%2F2018%2F05%2F24%2FShell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E5%8D%95%E5%88%86%E6%94%AFif%E8%AF%AD%E5%8F%A5%2F</url>
+    <content type="text"><![CDATA[12345678if [ 条件判断式 ];then 程序fiif [ 条件判断式 ] then 程序fi 注： if语句使用fi结尾，和一般语言使用大括号结尾不同 [ 条件判断式 ]就是使用test命令判断，所以中括号和条件判断式之间必须有空格 then后面跟符合条件之后执行的程序，可以放在[]之后，用;分割，也可以换行写入，就不需要;了 实例：判断当前登录用户是不是root1234567#!/bin/bashtestuser=$(env | grep &quot;USER&quot; | cut -d &quot;=&quot; -f 2)#env是linux的一个外部命令，可以显示当前用户的环境变量，其中一行显示当前用户if [ &quot;$testuser&quot; == &quot;root&quot; ]then echo &quot;Current user is root.&quot;fi 实例：判断分区使用率12345678#!/bin/bash#统计根分区使用率#/dev/sda3是df判断的test=$(df -h | grep &quot;/dev/sda3&quot; | awk &apos;&#123;print $5&#125;&apos; | cut -d &quot;%&quot; -f 1)if [ &quot;$test&quot; -ge 90 ]then echo &quot;/ is full&quot;fi]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell条件判断 条件判断式]]></title>
+    <url>%2F2018%2F05%2F24%2FShell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[table th:nth-of-type(1){ width: 20%; } table th:nth-of-type(2){ width: 80%; } 引用变量要加”” 按文件类型判断 测试选项 作用 -b 判断该文件是否存在，并且是否为块设备文件（是为真） -c 判断该文件是否存在，并且是否为字符设备文件（是为真） -d 判断该文件是否存在，并且是否为目录文件（是为真） -e 判断该文件是否存在（存在为真） -f 判断该文件是否存在，并且是否为普通文件（是为真） -L 判断该文件是否存在，并且是否为符号链接文件（是为真） -p 判断该文件是否存在，并且是否为管道文件（是为真） -s 判断该文件是否存在，并且是否为非空（非空为真） -S 判断该文件是否存在，并且是否为套接字文件（是为真） 两种判断格式12[-e /root/install.log] #常用test -e /root/install.log [-e /root/install.log] &amp;&amp; echo yes || echo no第一个判断命令如果正确执行，则打印yes，否则打印no&amp;&amp; 和 || 不可以调换位置 按文件权限判断 测试选项 作用 -r 判断该文件是否存在，并且是否该文件拥有读权限（有为真） -w 判断该文件是否存在，并且是否该文件拥有写权限（有为真） -x 判断该文件是否存在，并且是否该文件拥有执行权限（有为真） -u 判断该文件是否存在，并且是否该文件拥有SUID权限（有为真） -g 判断该文件是否存在，并且是否该文件拥有SGID权限（有为真） -k 判断该文件是否存在，并且是否该文件拥有SBit权限（有为真） 两个文件之间的比较 测试选项 作用 file1 -nt file2 判断文件1的修改时间是否比文件2的新(如果新则为真) file1 -ot file2 判断文件1的修改时间是否比文件2的旧(如果旧则为真) file1 -ef file2 判断文件1是否比文件2的Inode号一致，可以理解为两个文件是否为同一个文件。这个判断用于判断硬链接是很好的办法 两个整数之间的比较 测试选项 作用 num1 -eq num2 判断整数1是否和整数2相等(相等为真) num1 -ne num2 判断整数1是否和整数2不相等(不相等为真) num1 -gt num2 判断整数1是否大于整数2(大于为真) num1 -lt num2 判断整数1是否小于整数2(小于为真) num1 -ge num2 判断整数1是否大于或等于整数2(大于等于为真) num1 -le num2 判断整数1是否小于或等于整数2(小于等于为真) 字符串的判断 测试选项 作用 -z 字符串 判断字符串是否为空，为空返回真 -n 字符串 判断字符串是否为非空，非空返回真 字符串1 == 字符串2 判断两字符串是否相等，相等返回真，==左右加空格 字符串1 != 字符串2 判断两字符串是否不相等，不相等返回真，!=左右加空格 多重条件判断 测试选项 作用 判断1 -a 判断2 #逻辑与，判断1和判断2都成立，结果为真 判断1 -o 判断2 #逻辑或，判断1和判断2有一个成立，结果就为真 !判断 #逻辑非，判断结果取反 1[-n &quot;$a&quot; -a &quot;$a&quot; -gt 23]]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux DNS搭建 Bind服务]]></title>
+    <url>%2F2018%2F05%2F24%2FLinux-DNS%E6%90%AD%E5%BB%BA-Bind%E6%9C%8D%E5%8A%A1%2F</url>
+    <content type="text"><![CDATA[Centos123yum install bind bind-utils#centos默认的安装是没有host，dig，nsloopup等命令的，需要安装bind-utils Ubuntu1sudo apt-get install bind9]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PowerPoint 2016拆分汉字、制作笔画]]></title>
+    <url>%2F2018%2F05%2F24%2FPowerPoint-2016%E6%8B%86%E5%88%86%E6%B1%89%E5%AD%97%E3%80%81%E5%88%B6%E4%BD%9C%E7%AC%94%E7%94%BB%2F</url>
+    <content type="text"><![CDATA[需要工具word、powerpoint 打开word，输入汉字，设置字体为楷体GB2312/仿宋（这两种字体的笔画是分离的，WindowsXP中默认有这两种字体，但Windows 7开始系统默认没有这两种字体） 保存为doc格式 选中文字，【右击】，在快捷菜单中打开【字体】对话框，选择【空心】格式 复制“空心”汉字。打开PowerPoint中，【开始】选项卡–【选择性粘贴】，选择【图片（Windows元文件）】，取消组合两次。汉字笔画就分解出来了。删除不需要的对象（一般有1-2个空白形状） http://www.360doc.com/content/16/0107/08/982782_526070895.shtml]]></content>
+      <tags>
+        <tag>PPT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 工具]]></title>
+    <url>%2F2018%2F05%2F22%2FLinux-%E5%B7%A5%E5%85%B7%2F</url>
+    <content type="text"><![CDATA[VifmVifm 是一个 Linux 控制台下的文件管理器，基于 ncurse 的两列面板界面1234#安装sudo apt install vifm#运行vifm 使用空格键从一个窗格移动到另一个窗格。要打开目录或文件，只需按Enter按钮。水平分割窗口按Ctrl-W然后s垂直分割窗口按Ctrl-W然后v一个窗格中的文件，另一个窗格中查看:view删除文件：dd 如果您在Vifm中删除文件，则会将其存储在垃圾箱中。 要查看垃圾邮件目录，请键入此命令。:trashes要查看垃圾桶中的文件，请运行lstrash命令（按q返回）。:lstrash 要从垃圾邮件目录还原文件，首先使用cd命令进入它。:cd /home/aaronkilik/.local/share/vifm/Trash然后选择要还原的文件，然后键入：:restore tmux终端分屏12sudo apt install tmuxtmux tmux所有自带命令都默认需要先按Ctrl + b，然后再键入对应的命令 Ctrl+b “ - split pane horizontallyCtrl+b % - 将当前窗格垂直划分Ctrl+b 方向键 - 在各窗格间切换Ctrl+b，并且不要松开Ctrl，方向键 - 调整窗格大小Ctrl+b c - (c)reate 生成一个新的窗口Ctrl+b n - (n)ext 移动到下一个窗口Ctrl+b p - (p)revious 移动到前一个窗口.Ctrl+b 空格键 - 采用下一个内置布局Ctrl+b q - 显示分隔窗口的编号Ctrl+b o - 跳到下一个分隔窗口Ctrl+b &amp; - 确认后退出 tmux zshshhttp://ohmyz.sh/https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)https://www.zhihu.com/question/21418449 awesome桌面https://www.linuxzen.com/awesometmuxgnomedoda-zao-gao-xiao-linuxzhuo-mian-huan-jing.htmlhttps://wiki.archlinux.org/index.php/Awesome_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)http://www.hahack.com/tools/awesome/ Apvlvvim 化的 PDF 阅读工具 https://github.com/naihe2010/apvlvhttp://naihe2010.github.io/apvlv/]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MyLinux.sh]]></title>
+    <url>%2F2018%2F05%2F22%2FMyLinux-sh%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940#/bin/bash# 使用Elementary OS 0.4#个别系统不能增加ppasudo apt install software-properties-commonsudo apt install vimif [ &quot;$?&quot; -ne 0 ] then exit 1fisudo apt install vifmif [ &quot;$?&quot; -ne 0 ] then exit 2fi#添加中文环境 Settings &gt;&gt; Language &amp; Region &gt;&gt; unLock &gt;&gt; Complete Installation &gt;&gt; click on English in the left sidebar &gt;&gt; Set System Language#安装fcitx五笔，其他相关包也会安装，fcitx\fcitx-config-gtk\fcitx-config-commonsudo apt install fcitx-table-wubi#baka-player#http://bakamplayer.u8sand.net/installation.phpcd ~/Downloadsudo apt install wgetwget https://github.com/u8sand/Baka-MPlayer/releases/download/v2.0.4/baka-mplayer_2.0.4-1_amd64.debsudo dpkg -i baka-mplayer_2.0.4-1_amd64.deb#filezillasudo apt install filezilla#virtual studio codesudo apt install code#virtualboxsudo apt install virtualbox-5.2]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[awk: run time error: not enough arguments passed to printf(5%)]]></title>
+    <url>%2F2018%2F05%2F21%2Fawk-run-time-error-not-enough-arguments-passed-to-printf-5%2F</url>
+    <content type="text"><![CDATA[问题使用awk &#39;{printf $1}&#39;时，系统提示出错，如下12awk: run time error: not enough arguments passed to printf(&quot;5%&quot;) FILENAME=&quot;b&quot; FNR=1 NR=1 解决因为要输出的内容里5% 包含%，printf认为这是格式语句，所以更改printf的使用方式使用如下格式：1awk &apos;&#123;printf(&quot;%s&quot;,$1)&#125;&apos;]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell正则表达式 字符处理命令sort、wc]]></title>
+    <url>%2F2018%2F05%2F20%2FShell-%E5%AD%97%E7%AC%A6%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4sort%E3%80%81wc%2F</url>
+    <content type="text"><![CDATA[排序命令sort1234567891011121314sort [选项]选项-f 忽略大小写-n 以数值型进行排序，默认使用字符串型排序-r 反向排序-t 指定分隔符,默认是制表符-k n[,m] 按照指定的字段范围排序.从第n字段开始,m字段结束(默认到行尾)sort /etc/passwd #按照字母顺序a-z排列文件内容sort -r /etc/passwd #反向排序，即按z-a顺序排列文件内容#sort -n -t &quot;:&quot; -k 3,3 /etc/passwd #以数值型进行排序，指定分隔符为“:”，并只取第三字段的内容 统计命令wc12345wc [选项] 文件名选项:-l 只统计行数-w 只统计单词数-m 只统计字符数]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell正则表达式 sed命令]]></title>
+    <url>%2F2018%2F05%2F20%2FShell-sed%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[sed是一种几乎包括在所有的UNIX平台（包括Linux）的轻量级流编辑器。sed主要是用来将数据进行选取、替换、删除、新增的命令。1234567891011121314sed [选项] &apos;[动作]&apos; 文件名#&apos;&apos;不能省略选项:-n 只输出经过sed处理过的行到屏幕-e 允许一次应用多个动作-i 直接修改文件,并且不由屏幕输出动作:a：追加,在当前行后添加一行或多行i：插入,在当前行前插入一行或多行c：整行替换，用c后面的字符串替换原数据行d：删除，删除指定的行p：打印，输出指定的行s: 字串替换(替换格式与vim中的类似) &apos;行范围s/旧字串/新字串/g&apos; 12345678sed -n &apos;2p&apos; student.txt 查看文件的第二行，如果没有-n将输出全部内容sed &apos;2,4d&apos; student.txt 表示删除第2-4行，但是不改变文件本身sed &apos;2a piaoliangdecxiaoguniang&apos; student.txt 在第2行之后添加字符串，但是不改变字符串本身sed &apos;2i heol&apos; student.txt 在第2行之前插入数据sed &apos;4c xxwmpg&apos; student.txt 将第二行的整行替换为xxwmpgsed &apos;6s/70/100/g&apos; student.txt 将第7行的所有70全部替换为100，如果不指定行的话会替换所有的指定字符串sed -i &apos;6s/70/100/g&apos; student.txt sed操作的数据直接写入文件sed -e &apos;s/fengj//g&apos;;s/cang//g&apos; student.txt 同时把fengj和cang替换为空]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell正则表达式 awk命令]]></title>
+    <url>%2F2018%2F05%2F20%2FShell-awk%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[123456789awk &apos;条件1&#123;动作1&#125;条件2&#123;动作2&#125;...&apos; 文件名条件-一般使用关系表达式作为条件-x&gt;10、x&gt;=10、x&lt;=10动作-格式化输出-流程控制 一个条件满足，就执行条件后面{}内的动作。没有条件就无条件执行{}内的动作，如果有条件，就只有满足条件才能执行{}内的动作。 awk的流程：依次读取每一行数据，读取完一行数据后，进行条件判断，如果满足条件，就执行该条件对应的动作，其中文件名为$0，剩下的每一列依次为$1\$2…，判断完一行后，继续判断下一行，直到知道文件全部判断完 123456awk &apos;&#123;printf $2 &quot;\t&quot; $4&quot;\n&quot;&#125;&apos; student.txt #注意printf里面输出格式的双引号，printf中的转义符号都要用&quot;&quot;括起来。#printf后面要接换行符&quot;\n&quot;df -h| awk &apos;&#123;printf $1&quot;\t&quot; $5&quot;\n&quot;&#125;&apos;#查看系统使用率 BAGIN条件条件BAGIN表示在所有动作执行前先执行BEGIN后的那个动作123df -h | awk &apos;BEGIN&#123;print &quot;test&quot;&#125;&#123;print $1 &quot;\t&quot; $3&#125;&apos;会在最前面输出testawk在指定分隔符前面一定要加BEGIN END条件条件END表示在所有动作执行后才执行END后的那个动作12#df -h | awk &apos;END&#123;print &quot;test&quot;&#125;&#123;print $1 &quot;\t&quot; $3&#125;&apos; 会在最后面输出test FS内置变量修改分隔符（默认为空格和制表符）在修改FS的变量的动作前要加上BEGIN，这样在执行所有其它动作之前先修改分割符，否则读取第一行数据的时候不能识别指定的分隔符12345cat /etc/passwd | grep &quot;/bin/bash&quot; | awk &apos;BEGIN&#123;FS=&quot;:&quot;&#125;&#123;print $1 &quot;\t&quot; #3&#125;&apos;#awk在指定分隔符前面一定要加BEGIN，此例截取第1、3列cat student.txt | grep -v Name | awk &apos;$4&gt;=70&#123;print $2&#125;&apos;#此例截取除了列头的成绩大于等于70分的学生姓名，grep -v Name为取反命令，不输出带“Name”的行]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell正则表达式 格式化输出命令printf]]></title>
+    <url>%2F2018%2F05%2F20%2FShell-%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA%E5%91%BD%E4%BB%A4printf%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122printf &quot;输出类型输出格式&quot; 输出内容输出类型：%ns：输出字符串。n是数字，指代输出几个字符%ni：输出整数。n是数字，指代输出几个数字%m.nf：输出浮点数。m和n是数字，指代输出的整数位数和小数位数。如%8.2f代表共输出8位数，其中2是小数位数，6位是整数输出格式：\a：输出警告声音\b：输出退格键，也就是Backspace键\f：清空屏幕\n：换行\r：回车，也就是Enter键\t：水平输出退格键，也就是Tab键\v：垂直输出退格键，也就是Tab键printf %s 1 2 3 4 5 6 123456printf %s %s %s 1 2 3 4 5 6 %s%s123456 后两个%s被当作输入printf &apos;%s %s %s&apos; 1 2 3 4 5 6 1 2 34 5 6 printf &apos;%s\t%s\t%s\n&apos; 1 2 3 4 5 61 2 34 5 6 使用printf输出命令，必须明确指出所有的格式如果想要使用printf读取文件中的内容就需要：12345printf &apos;%s&apos; $(cat student.txt) #不调整输出格式，文本内的内容输出到一行printf &apos;%s\t%s\t%s\t%s\n&apos; $(cat student.txt) #调整输出格式，根据文本内容进行调整 print在输出之后会在自动加入换行符，但Linux系统中默认没有print命令printf是标准格式输出命令，并不会自动加入换行符，如需换行，需要手动加入换行符printf “%s\n” a]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell正则表达式 字符截取命令cut]]></title>
+    <url>%2F2018%2F05%2F20%2FShell-%E5%AD%97%E7%AC%A6%E6%88%AA%E5%8F%96%E5%91%BD%E4%BB%A4cut%2F</url>
+    <content type="text"><![CDATA[grep行提取，cut列提取 cut命令1234567891011cut [选项] 文件名选项 -f 列号：提取第几列（从1开始）-d 分隔符：按照指定分隔符分割列 默认为tabcut -f 列号,列号 文件名 （多个列号用逗号隔开；这个方法默认的文件以TAB制表符）cut -f 列号,列号 -d &quot;指定的分隔符&quot; 文件名grep &quot;bin/bash&quot; /etc/passwd 可以登录的用户grep &quot;bin/bash&quot; /etc/passwd | grep -v &quot;root&quot; 排除root的可登录用户grep &quot;bin/bash&quot; /etc/passwd | grep -v &quot;root&quot; | cut -f 1 -d &quot;:&quot; 提取非root登录用户用户名 cut命令的局限性用cut截取比较规律的文件，用默认制表符或其他符号作为分隔符，可以方便截取，如果是用空格或多个空格做分隔符，就会有问题12df -h | cut -d &quot; &quot; -f 1,3无法正确分隔多个空格，只能以一个空格分隔]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[文本去除重复行]]></title>
+    <url>%2F2018%2F05%2F20%2F%E6%96%87%E6%9C%AC%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E8%A1%8C%2F</url>
+    <content type="text"><![CDATA[Find what:1^(.*)(\r?\n\1)+$ Replace with:1$1]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell正则表达式 概述]]></title>
+    <url>%2F2018%2F05%2F20%2FShell-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[正则表达式是用于描述字符排列和匹配模式的一种语法规则。它主要用于字符串的模式分割、匹配、查找及替换操作。主要用于模糊匹配。 正则表达式与通配符的区别正则表达式用来在文件中匹配符合条件的字符串，正则是包含匹配。grep、awk、sed等命令可以支持正则表达式 通配符用来匹配符合条件的文件名，通配符是完全匹配。ls、find、cp这些命令不支持正则表达式，所以只能使用shell自己的通配符进行匹配 基础正则表达式 * 前一个字符匹配0次或任意多次 . 匹配除了换行符外任意一个字符 ^ 匹配行首。例如^hello会匹配以hello开头的行 $ 匹配行尾。例如hello$会匹配以hello结尾的行 [] 匹配中括号中指定的任意一个字符，只匹配一个字符。[0-9]匹配任意一位数字 [^] 匹配除中括号的字符以外的任意一个字符。 例如：[^0-9]匹配任意一位非数字字符[^a-z]表示任意一位非小写字母 \ 转义符。用于取消将特殊符号的含义取消 \{n\} 表示其前面的字符恰好出现N次例如：[0-9]\{4\} 匹配4位数字[1][3-8][0-9]\{9\} 匹配手机号码 \{n,\} 表示其前面的字符出现不小于n次。 例如 [0-9]\{2,\}表示两位及以上的数字 \{n,m\} 表示其前面的字符至少出现n次，最多出现m次。 例如[a-z]\{6,8\}匹配6到8位的小写字母 12345678910111213141516171819202122232425262728293031323334a* 匹配所有内容，包括空白行aa* 匹配至少包含有一个a的行aaa* 匹配最少包含两个连续a的字符串aaaaa* 匹配最少包含四个连续a的字符串区别于通配符里的*，通配符里的a*表示以a开头的字符串，这也说明了正则是一种包含匹配s..d 匹配s和d之间含有2个任意字符(除换行符)行，有多少个点就多少个字符s.*d 匹配s和d之间含有任意内容的行.* 匹配所有内容^s 匹配以s开头的行n$ 匹配以n结尾的行^$ 匹配空白行s[ao]id 匹配s和i字母中，要不是a，要不是o[0-9] 匹配任意任意一个数字^[a-z] 匹配用小写字母开头的行[a-zA-z] 匹配所有字母，shell中不支持[A-z]^[^a-z] 匹配非小写字母开头的行^[^a-zA-Z] 匹配非字母开头的行\.$ 匹配使用.结尾的行.$ 以任意字符结尾的行a\&#123;3\&#125; 匹配a字母连续出现三次的字符串[0-9]\&#123;3\&#125; 匹配包含连续的三个数字的字符串c\&#123;3\&#125;u 匹配u前面有三个c的字符串&quot;xc\&#123;3\&#125;u&quot; 匹配x和u之间三个c的字符串，x、u为定界符**实际使用中也会匹配多于n次的，如果需要准确匹配，则需要在前后使用分隔符**^[0-9]\&#123;3,\&#125;[a-z] 匹配最少用连续三个数字开头的行sa\&#123;1,3\&#125;i 匹配在字母s和字母i之间最少一个a，最多三个a 1234567正则表达式适合在文档中提取，不适合做写入的判断依据[0-9]\&#123;4\&#125;-[0-9]\&#123;2\&#125;-[0-9]\&#123;2\&#125;匹配日期^[0-9]\&#123;1,3\&#125;\.[0-9]\&#123;1,3\&#125;\.[0-9]\&#123;1,3\&#125;\.[0-9]\&#123;1,3\&#125;匹配IP地址]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell正则表达式 通配符]]></title>
+    <url>%2F2018%2F05%2F20%2FShell-%E9%80%9A%E9%85%8D%E7%AC%A6%2F</url>
+    <content type="text"><![CDATA[table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; } 符号 作用 ? 匹配一个任意字符 * 匹配0个或多个任意字符 [] 匹配括号中任意一个字符 [-] 匹配括号中任意一个字符，-代表一个范围 [^] 匹配不是括号中的一个字符 Bash中其他特殊符号 符号 作用 ‘’ 单引号，在单引号中左右的特殊符号，如$、`(反引号)都没有特殊含义 “” 双引号，在双引号中左右的特殊符号都没有特殊含义，但是“$”,”`”,”\”是例外。拥有“调用变量的值”，“引用命令”和“转义符”的特殊含义 `` 反引号，反引号括起来的内容是系统命令，在Bash中会先执行它。和$()作用一样。不过推荐使用$()，因为反引号非常容易看错 $() 和反引号作用一样，用来引用系统命令 # 在Shell脚本中，#开头的行代表注释 $ 用于调用变量的值，如需要调用变量name的值时，需要用$name的方式得到变量的值 \ 转义符，跟在\之后的特殊符号将失去特殊含义，变为普通字符。如\\$将输出”$”符号，而不再是变量引用 12345678910echo `ls`echo dateecho `date`echo $(date)name=xiecho &apos;$name&apos;echo &quot;$name&quot;echo &apos;$(date)&apos;echo &quot;$(date)&quot;]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell变量 环境变量配置文件]]></title>
+    <url>%2F2018%2F05%2F20%2FShell-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[source命令123#修改配置文件后，必须注销重新登录才能生效，使用source命令可以不用重新登录source 配置文件. 配置文件 常用系统环境变量环境变量配置文件中主要是定义对系统操作环境生效的系统默认环境变量，如PATH等 -当前用户有效~/.bash_profile~/.bashrc-所有用户有效/etc/profile/etc/profile.d/*.sh/etc/bashrc 配置文件加载流程正常登录过程输入用户名和密码，正常登录/etc/profile–&gt;/etc/profile.d/*.sh–&gt;/etc/profile.d/lang.sh–&gt;/etc/sysconfig/i18n …/etc/profile–&gt;~/.bash_profile–&gt;~/.bashrc–&gt;/etc/bashrc–&gt;命令提示符 不正常简化登陆不输入用户名和密码，简化的加载过程，例如su - root/etc/bashrc–&gt;/etc/profile.d/*.sh–&gt;/etc/profile.d/lang.sh–&gt;/etc/sysconfig/i18n … /etc/profile的作用USER变量LOGNAME变量MAIL变量PATH变量HOSTNAME变量umask调用/etc/profile.d/*.sh文件 ~/.bash_profile的作用调用~/.bashrc文件在PATH变量后面加入了:$HOME/bin这个目录 .bashrc的作用定义命令别名调用/etc/bashrc文件 /etc/bashrc的作用PS1变量umaskPATH变量调用/etc/profile.d/*.sh文件 其他配置文件12~/.bash_logout#注销时生效的环境变量配置文件 12345~/.bash_history历史命令记录保存在硬盘的~/.bash_history文件中，当前登录后的命令保存在内存中，用户注销后才写入该文件历史记录保存多少条，在/etc/profile中记录用history 命令看，与 vi .bash_history 查看文件看的区别：history 记录的命令比后者的多，原因是，history 是记录在内存中，包含了本次登录后操作的命令；而后者还未将本次登录操作的命令保存在内 123456789101112131415161718192021/etc/issue#本地终端欢迎信息\d 显示当前系统日期\s 显示操作系统名称\l 显示登陆的终端号，这个比较常用\m 显示硬件系统结构，如i386，i686等\n 显示主机名\o 显示域名\r 显示内核版本\t 显示当前系统时间\u 显示当前登陆用户的序列号/etc/issue.net#远程登陆欢迎信息#转义符在该文件中不能使用#默认是不启用，是否显示此信息由/etc/ssh/sshd_config决定，加入&quot;Banner /etc/issue.net&quot;行才能生效/etc/motd#登陆之后欢迎信息#不管是本地登录，还是远程登录，都可以显示此信息issue是登陆之前生效的，motd是登陆之后生效的，建议写在motd中]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell运算符 变量测试]]></title>
+    <url>%2F2018%2F05%2F19%2FShell-%E5%8F%98%E9%87%8F%E6%B5%8B%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[变量测试在脚本优化时使用 12345678910111213141516例子：测试x=$&#123;y-新值&#125;unset yx=$&#123;y-2&#125;echo $x2y=&quot;&quot;#将y的值设为空值x=$&#123;y-2&#125;echo $x#x为空y=1x=$&#123;y-2&#125;echo $x1]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell运算符 数值运算]]></title>
+    <url>%2F2018%2F05%2F19%2FShell-%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%2F</url>
+    <content type="text"><![CDATA[记住一名话就OK，$((运算式)) 数值运算方法一 declare -i12345aa=11bb=22declare -i cc=$aa+$bbecho $cc33 数值运算方法2：expr或let123456789101112aa=11bb=22dd=$(expr $aa + $bb)#+号两边必须有空格，没有空格依旧是字符串拼接echo $dd33aa=11bb=22let &quot;ee=aa+bb&quot;echo $ee33 数值运算方法3：$((运算式))或$[运算式]12345aa=11bb=22ff=$(($aa+$bb))echo $ff33 优先级]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell运算符 declare命令]]></title>
+    <url>%2F2018%2F05%2F19%2FShell-declare%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[declare命令12345678910111213141516declare [+/-][选项] 变量名 #declare命令用来声明shell的变量类型，因为shell变量默认都是字符串型选项：-：用于给变量设定类型属性+：用于取消变量的类型属性-a：将变量声明为数组型-i：将变量声明为整型-x：将变量声明为环境变量-r：将变量声明为只读变量-p：显示指定变量被声明的类型aa=11 bb=22declare -i cc=$aa+$bbdeclare -p c #查看变量cc的类型#声明变量cc的类型是整数型，它的值是aa和bb的和 声明数组变量12345678910#定义数组#数组的定义不需要declare命令也可以，直接使用movie[i]=valuemovie[0]=zpmovie[1]=tpdeclare -a movie[2]=live#查看数组echo $&#123;movie&#125; #输出数组下标为0的变量值echo $&#123;movie[2]&#125; echo $&#123;movie[*]&#125; #输出数组的全部值 声明环境变量12declare -x test=123#和export作用类似，export命令实际过程是调用declare命令 声明变量只读属性123declare -r test#给test赋予只读属性，赋予后不能修改该变量，不能删除，甚至不能取消只读属性#临时生效，重启无效 查询变量的属性12345declare -p#列出系统中所有变量的类型declare -p 变量名#查询指定变量的属性]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell变量 Bash语系变量]]></title>
+    <url>%2F2018%2F05%2F19%2FShell-Bash%E8%AF%AD%E7%B3%BB%E5%8F%98%E9%87%8F%2F</url>
+    <content type="text"><![CDATA[当前语系查询1234locale#查询当前系统语系#LANG:定义系统主语系的变量#LC_ALL:定义整体语系的变量 语系变量LANG1234echo $LANG#查看系统当前语系locale -a | more#查看Linux支持的所有语系 查询系统默认语系12cat /etc/sysconfig/i18n#下次开机以后的系统环境 设置当前语系1234LANG=zh_CN.UTF-8 #切换成中文LANG=en_US.UTF-8 Linux支持中文的前提条件是正确安装中文字体和中文语系 如果有图形界面，可以正确使用支持中文显示 如果使用第三方远程工具，只要语系设定正确，可以支持中文显示 如果使用纯字符界面，必须使用第三方插件（如zhcon等），即使设置LANG变量也没用]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell变量 预定义变量和位置参数变量]]></title>
+    <url>%2F2018%2F05%2F19%2FShell-%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E5%92%8C%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0%E5%8F%98%E9%87%8F%2F</url>
+    <content type="text"><![CDATA[table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70% ; } 预定义变量 预定义变量 作用 $? 最后一次执行命令的返回状态。如果正确执行，则返回0；如果返回为非零（具体数值由命令决定），则上一条命令执行不正确 $$ 返回当前进程的PID $! 返回后台运行的最后一个进程的PID 1234567ls || echo yesls qwe &amp;&amp; echo no前面一条语句正确执行，才执行后一条语句。这里就是通过执行命令的返回值来判断的echo $?echo $$ #直接打印返回的是/bin/bash，需要时可以放到shell脚本里echo $! 可以通过一个简单的shell来展示一下12345#!/bin/bashehco &quot;dang qian de PID: $$&quot;find / hello.sh &amp;echo &quot;hou tai de PID: $!&quot; 位置参数变量位置参数变量本质上还是预定义变量 位置参数变量 作用 $n n 为数字，$0 代表命令本身，$1-$9 代表第一到第九个参数，十以上的参数需要用大括号包含，如 ${10} $* 这个变量代表命令行中所有的参数，$* 把所有的参数看成一个整体 $@ 这个变量也代表命令行中所有的参数，不过 $@ 把每个参数区分对待 $# 这个变量代表命令行中所有参数的个数 例子11234567#!/bin/bashnum1=$1num2=$2sum=$(($num1+$num2)) #变量 sum 的和是 num1 加 num2echo $sum #打印变量 sum 的值 12#执行脚本./test.sh 45 76 例子21234567#!/bin/bashecho &quot;A total of $# parameters&quot;#使用 $# 代表所有参数的个数echo &quot;The parameters is：$*&quot;#使用 $* 代表所有的参数echo &quot;The parameters is：$@&quot;#使用 $@ 代表所有的参数 12#执行脚本./test.sh 11 22 33 44 例子3123456789101112#!/bin/bashfor i in &quot;$*&quot;# $* 中所有参数看成是一个整体，所以这个 for 循环只会循环一次do echo &quot;The parameters is:$i&quot;donefor y in &quot;$@&quot;# $@ 中每个参数都看成是独立的，所以 $@ 中有几个参数，就会循环几次do echo &quot;Parameter:$y&quot;done 接收键盘输入123456read [选项] [变量名]选项：-p &quot;提示信息&quot;：在等待read输入时，输出提示信息-t 秒数：read命令会一直等待用户输入，使用此选项可以指定等待时间-n 字符数：read命令只接受指定的字符数，就会执行-s：隐藏输入的数据，适用于机密信息的输入，比如密码 read.sh123456789101112131415#!/bin/bashread -p &quot;please input your name:&quot; -t 30 nameecho $name#如果超过30秒不输入，就终止当前命令read -p &quot;please input your passwd:&quot; -s passwdecho -e &quot;\n&quot;echo $passwd#输入的值是隐藏的，看不见的，但是在sh里面还是可以获取到的，并且可以输出的read -p &quot;please input your sex [M/F]:&quot; sexecho -e &quot;\n&quot;echo $sex#只能输入一个字符，且输入之后立马执行]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell变量 环境变量]]></title>
+    <url>%2F2018%2F05%2F19%2FShell-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%2F</url>
+    <content type="text"><![CDATA[作用定义每个用户的操作环境 环境变量与用户自定义变量的区别环境变量是全局变量，用户自定义变量是局部变量。用户自定义变量只在当前的 shell 中生效，环境变量在当前 shell 和这个 shell 的所有子 shell 中生效。用户可以自定义环境变量，但对系统生效的环境变量名和变量作用是固定的。 用户自定义环境变量123456789export 变量名=变量值或变量名=变量值export 变量名export Y=1Z=1export Z 查看环境变量12345set #查看所有变量env #查看环境变量 删除环境变量12unset 环境名#没有$ 常用的环境变量HOSTNAME：主机名SHELL：当前的shellTERM：终端环境HISTSIZE：历史命令条数SSH_CLIENT：当前操作环境是用 ssh 连接的，这里记录客户端 ipSSH_TTY：ssh 连接的终端是 pts/1USER：当前登录的用户 PATH环境变量1234567#系统搜索命令的路径echo $PATH#查看PATH环境变量PATH=&quot;$PATH&quot;:/root/sh#临时增加PATH变量的值，系统重启后失效 PS1环境变量12345678910命令提示符设置[root@localhost ~]#\d：显示日期，格式为&quot;星期 月 日&quot;\H：显示完整的主机名\t：显示 24 小时制时间，格式为&quot;HH:MM:SS&quot;\A：显示 24 小时制时间，格式为&quot;HH:MM&quot;\u：显示当前用户名\w：显示当前所在目录的完整名称\W：显示当前所在目录的最后一个目录\$：提示符。root 用户为&quot;#&quot;，普通用户为&quot;$&quot;]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell变量 用户自定义变量]]></title>
+    <url>%2F2018%2F05%2F19%2FShell-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%2F</url>
+    <content type="text"><![CDATA[定义变量1234567变量名=变量值#=号左右不可有空格#变量值有空格需要加&quot;&quot;#所有变量默认的值都是字符串类型，不可做Math运算x=5x=&quot;hello jx&quot; 调用变量123$变量名echo $x 变量叠加1234567x=123 #123x=&quot;$x&quot;456 #123456x=$&#123;x&#125;789 #123456789x=5y=6z=$x+$y #5+6 变量查看1234567set选项：-u：如果设定此选项，调用未声明变量里会报错（默认调用未声明变量无任何提示，值为空的变量也无任何提示）echo $jflajlfset -uecho $jflajlf 删除变量1234unset 变量名#注意变量名没有$，因为要删除的是变量，而不是变量的值unset x]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell 变量]]></title>
+    <url>%2F2018%2F05%2F19%2FShell-%E5%8F%98%E9%87%8F%2F</url>
+    <content type="text"><![CDATA[Shell是一种脚本语言 变量命名规则 变量名必须以字母或下划线打头，名字中间只能由字母、数字和下划线组成 变量名的长度不超过255个字符 变量名在有效的范围内必须是唯一的，如再次定义则会替换上一个变量的值 在Bash中，变量的默认类型都是字符串型，系统把所有值都当作字符串放到变量中，不论这个“字符串”实际上是整数、浮点数等等，shell也不区分字符串型，整型，浮点型，日期型 目录名、文件名、变量名要有含义 变量的分类 用户自定义变量：变量自定义的 环境变量：这种变量中主要保存的是和系统操作环境相关的数据，变量可以自定义，但是对系统生效的环境变量名和变量作用是固定的 位置参数变量：这种变量主要是用来向脚本当中传递参数或数据的，变量名不能自定义，变量作用是固定的。实际就是预定义变量的一种，只是功能单一固定，所以单独拿出来 预定义变量：Bash中已经定义好的变量，变量名不能自定义，变量作用也是固定的]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell 管道符]]></title>
+    <url>%2F2018%2F05%2F19%2FShell-%E5%A4%9A%E5%91%BD%E4%BB%A4%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%92%8C%E7%AE%A1%E9%81%93%E7%AC%A6%2F</url>
+    <content type="text"><![CDATA[多命令顺序执行 多命令执行符 格式 作用 ; 命令1;命令2 多个命令顺序执行，命令之间没有任何逻辑联系 &amp;&amp; 命令1&amp;&amp;命令2 逻辑与当命令1正确执行，则命令2才会执行当命令1执行不正确，则命令2不会执行 ` ` 命令1` `命令2 逻辑或当命令1执行不正确，则命令2才会执行当命令1正确执行，则命令2不会执行 123456date ; tar -zcvf etc.tar.gz /etc ; date #可以计算备份所用的时间ls &amp;&amp; echo yes || echo no #当ls正确执行时打印yes；当ls错误执行时打印no#顺序不能颠倒，不然命令出错的时候会同时输出no yes 管道符123456789命令1 | 命令2 #命令1的正确输出作为命令2的操作对象netstat -an | grep ESTABLISHED | wc -l #查找当前有多少用户正在连接服务器ll -a /etc/ | moremore [文件名] #分页显示文件内容&quot;]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell 重定向]]></title>
+    <url>%2F2018%2F05%2F19%2FShell-%E9%87%8D%E5%AE%9A%E5%90%91%2F</url>
+    <content type="text"><![CDATA[文件标识符 设备 设备文件名 文件标识符 类型 键盘 /dev/stdin 0 标准输入 显示器 /dev/stdout 1 标准输出 显示器 /dev/stderr 2 标准错误输出 3-9是保留的标识符 输出重定向一旦使用数字、&amp;，数字、&amp;和&gt;、&gt;&gt;之间不能有空格没有数字、%有无空格没有关系，但是为了方便还是有比较好 类型符号作用标准输出重定向命令 &gt; 文件以覆盖的方式，把命令的正确输出输出到指定文件或设备中命令 &gt;&gt; 文件以追加的方式把命令的正确输出输出到指定文件或设备中标准错误输出重定向错误命令 2&gt;文件以覆盖的方式把命令的错误输出输出到指定文件或设备中错误命令 2&gt;&gt;文件以追加的方式把命令的错误输出输出到指定文件或设备中正确输出和错误输出同时保存命令 &gt;文件 2&gt;&amp;1以覆盖方式把命令的正确输出、输出到指定文件或设备中命令 &gt;&gt;文件 2&gt;&amp;1以追加方式把命令的正确输出、输出到指定文件或设备中命令 &amp;&gt;文件以覆盖方式把命令的正确输出、输出到指定文件或设备中命令 &amp;&gt;&gt;文件以追加方式把命令的正确输出、输出到指定文件或设备中命令 &gt;&gt;文件1 2&gt;&gt;文件2把正确的输出追加到文件1中，把错误的输出追加到文件2中只执行，不显示命令 &amp;&gt; /dev/null 将命令的结果丢入null（作用类似于垃圾箱）中，只执行，不显示 输入重定向123456789101112命令 &lt; 文件名 #把文件的内容作为输入 命令 &lt;&lt; 标识符#统计标识符到标识符再次出现之间的字符wc [选项] [文件名]选项：-c：统计字节数-w：统计行数-l：统计单词数wc执行后 输入 ctrl+d结束 会统计输入行数 单词数 字母数 参考： https://www.ibm.com/developerworks/cn/linux/l-iotips/index.html]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell 历史命令]]></title>
+    <url>%2F2018%2F05%2F19%2FShell-%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[历史命令指的是把操作过的命令保留在系统当中, 当需要的时候可以重新进行调用 histo123456789history [选项] [历史命令保存文件]选项：-c：清空历史命令-w：把缓存中的历史命令强制写入历史命令保存文件 ~/.bash_history不建议清空当本次操作出现错误可用过历史命令进行比对排错当登录后发现历史命令被清空, 则可判断出有人登录过该账户或服务器即使命令保存数目众多, 文件大小也不大, 不会给服务器造成多大压力 历史命令默认保存1000条, 可以在环境变量配置文件/etc/profile中进行修改HISTSIZE=1000使用history命令查看的, 不止有之前保存下来的, 还有本次登录后新操作的命令, 这些命令只有本次正确退出之后才会写入 ~/.bash_history 历史命令的调用 使用上、下箭头调用以前的历史命令 使用 “!n” 重复执行一次第 n 条历史命令 使用 “!!” 重复执行一次上一条命令 使用 “!字串” 重复执行最后一条以该字串开头的命令 命令与文本补全在Bash中, 命令与文件补全是非常方便与常用的功能, 我们只要在输入命令或文件时, 按”Tab”键就会自动进行补全系统进行命令补全依赖$PATH]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell Bash别名和快捷键]]></title>
+    <url>%2F2018%2F05%2F19%2FShell-Bash%E5%88%AB%E5%90%8D%E5%92%8C%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
+    <content type="text"><![CDATA[别名1234567891011121314alias#查看系统当中默认已经生效的别名alias ls = &apos;ls --color=auto&apos;#临时设定别名vi ~/.bashrcvi /root/.bashrc#写入环境变量配置文件，系统再次重启后永久生效source .bashrc#使当前环境变量设置立即生效，不需要系统重启unalias ls#删除别名 命令生效顺序 第一顺位执行绝对路径或者相对路径的命令 第二顺位执行别名 第三顺位执行Bash的内部命令 第四顺位执行按照$PATH环境变量设置定义的目录顺序的第一个命令 快捷键ctrl + c 强制终止ctrl + l 清屏相当于clearctrl + a 光标快速回到行首ctrl + e 光标快速去到行尾ctrl + u 从光标所在位置删除到行首ctrl + z 把命令放入后台–，暂停ctrl + r 历史命令搜索]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell脚本执行方式]]></title>
+    <url>%2F2018%2F05%2F19%2FShell%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[脚本执行：123456方法1：赋予执行权限，直接运行chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh）方法2：通过Bash调用执行脚本bash hello.sh 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash运行是没问题的，但如果脚本调用了其他语言，就会报错 echo命令12345678910111213141516171819echo [选项] [输出内容]选项： -e：支持反斜线控制的字符转换内容转义\a - 输出警告音\b - 退格符\n - 换行符\r - 回车键\t - 制表符，也就是tab键\v - 垂直制表符\0nnn - 按照八进制ASCII码输出字符\xhh - 按照十六进制ASCII表输出字符输出带颜色的内容 echo -e &quot;\e[1;31m文字\e[0m&quot;#输出颜色 \e[1;##m - 开启颜色显示； \e[0m - 关闭颜色显示#30m=黑色，31m=红色，32m=绿色，33m=黄色#34m=蓝色，35m=洋红，36m=青色，37m=白色]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell概述]]></title>
+    <url>%2F2018%2F05%2F19%2FShell%E6%A6%82%E8%BF%B0%2F</url>
+    <content type="text"><![CDATA[table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; } Shell是一个命令行解释器（程序 -&gt; 依赖ASCII码表翻译为二进制 -&gt; Linux内核（发送请求）-&gt; 运行程序），它为用户提供了一个向Linux内核发送请求以便运行程序的界面系统级程序，用户可以用Shell来启动、挂起、停止甚至时编写一些程序。 Shell还是一个功能相当强大的编程语言，易编写，易调试，灵活性较强。Shell是解释执行的脚本语言，在Shell中可以直接调用Linux系统命令 Shell分类 Bourne Shell：主文件名为sh，从1979年起Unix就开始使用Bourne Shell C Shell:主要在BSD版的Unix系统中使用，其语法和C语言相类似而得名 Shell的两种主要语法类型有Bourne和C，彼此不兼容。Bourne家族主要包括sh,ksh,Bash(Linux使用的标准Shell，不区分发行版),psh,zsh;C家族（Unix使用）主要包括：csh,tcsh（和Bash语法，配置微小区别） Linux，Unix的主要区别： Shell的不同 12345678910echo $SHELL #查看Shellcat /etc/shells#查看Linux支持的shellsh#进入sh模式exit#关闭模式 Bash：Bash与sh兼容，现在使用的Linux就是使用Bash作为用户的基本ShellBourne Again Shell (bash) 是兼容Bourne Shell的一种相当于升级版本，注意命令bash中的ｂ是小写字母]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[局域网安装ftp]]></title>
+    <url>%2F2018%2F05%2F18%2F%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E8%A3%85ftp%2F</url>
+    <content type="text"><![CDATA[写这篇文章的主要目的是方便局域网内的ftp配置 基本上实现这三点足够了： 不允许匿名访问，因为我不想其他机器随便都能登陆上来； 锁定一个共享目录，在这个目录下我可以上传和下载文件，进行文件共享； 不单独建立ftp用户，本机就可以访问； 123456789101112131415161718192021sudo apt-get install vsftpd #ubuntu的配置文件位置sudo vim /etc/vsftpd.confanonymous_enable=NO #禁止匿名登陆local_root=/home/user/ftp #设定一个共享目录local_enable=YES #本机可以访问write_enable=YES #可以写chroot_list_enable=YES chroot_list_file=/etc/vsftpd.chroot_list#不单独建立ftp用户#在其中写入可以使用ftp的用户名sudo vim /etc/vsftpd.chroot_list#不允许其他用户写chmod u-w,g-w ftp#重启sudo service vsftpd restart 然后就可以使用各种客户端登陆了 参考： https://blog.csdn.net/hongbin_xu/article/details/73177748]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux SFTP、SCP命令]]></title>
+    <url>%2F2018%2F05%2F18%2FLinux-SFTP%5CSCP%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[SFTPSFTP是安全文件传送协议，可以为传输文件提供一种安全的网络的加密方法。 SFTP 与 FTP 有着几乎一样的语法和功能。SFTP 为 SSH的其中一部分，所以说 SFTP 就是通过SSH端口（默认 22端口）和 Linux 用户和密码登陆的（例如 root 账号）。SFTP 使用加密传输认证信息和传输的数据，所以使用SFTP是非常安全的。但是由于这种传输方式使用了加密/解密技术，所以传输效率比普通的FTP要低得多。 使用SFTP并不需要在服务器上做任何配置，只需要找个SFTP客户端，然后知道SSH端口、服务器用户名+密码即可。 12345678910111213141516171819202122232425262728293031323334353637383940414243# 连接到SFTPsftp tecmint@27.48.137.6# 获得帮助?help# 检查本地工作目录lpwd# 检查远程工作目录pwd# 列出本地文件lls# 列出远程文件ls# 上传单个或多个文件put local.profile# 上传多个文件mput * .xls# 下载单个或多个文件get SettlementReport_1-10th.xls# 下载多个文件mget * .xls# 切换本地目录lcd Documents# 切换远程目录cd test# 创建目录mkdir testlmkdir test# 删除目录，该目录必须为空rm Report.xlsrmdir sub1# 退出SFTP!exit SCP使用SSH协议来传输文件的 SCP比较简单，是轻量级的，SFTP的功能则比较多 SCP的速度较快 SFTP在文件传输过程中中断的话，连接后还可以继续传输，但SCP不行 123456scp [-r] 用户名@ip:文件路径 本地路径# 网络复制命令, 下载文件 或加-r 下载文件夹scp [-r] 本地文件 用户名@ip:上传路径# 网络复制命令, 上传文件 或加-r 上传文件夹# 此为linux 与 linux之间进行文件传输的最简单方式 参考： https://www.tecmint.com/sftp-command-examples/ https://www.jscape.com/blog/scp-vs-sftp]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[FTP主动模式和被动模式]]></title>
+    <url>%2F2018%2F05%2F17%2FFTP%E4%B8%BB%E5%8A%A8%E6%A8%A1%E5%BC%8F%E5%92%8C%E8%A2%AB%E5%8A%A8%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[FTP只通过TCP连接,没有用于FTP的UDP组件.FTP不同于其他服务的是它使用了两个端口, 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作方式的不同，数据端口并不总是20，这就是主动与被动FTP的最大不同之处。（不管主动模式还是被动模式都是用TCP 21端口来传输控制信号的。） 主动FTP(PORT/Active)客户端从一个任意的非特权端口N（N&gt;1023）连接到FTP服务器的命令端口，也就是21端口。然后客户端开始监听端口N+1，并发送FTP命令“port N+1”到FTP服务器。接着服务器会从它自己的数据端口（20）连接到客户端指定的数据端口（N+1）。 针对FTP服务器前面的防火墙来说，必须允许以下通讯才能支持主动方式FTP： 任何大于1024的端口到FTP服务器的21端口。（客户端初始化的连接） FTP服务器的21端口到大于1023的端口。 （服务器响应客户端的控制端口） FTP服务器的20端口到大于1023的端口。（服务器端初始化数据连接到客户端的数据端口） 大于1023端口到FTP服务器的20端口（客户端发送ACK响应到服务器的数据端口） 被动FTP(PASV/Passive)为了解决服务器发起到客户的连接的问题，人们开发了一种不同的FTP连接方式。这就是所谓的被动方式，当客户端通知服务器它处于被动模式时才启用。 在被动方式FTP中，命令连接和数据连接都由客户端发起，这样就可以解决从服务器到客户端的数据端口的入方向连接被防火墙过滤掉的问题。 当开启一个 FTP连接时，客户端打开两个任意的非特权本地端口（N &gt; 1024和N+1）。第一个端口连接服务器的21端口，但与主动方式的FTP不同，客户端不会提交PORT命令并允许服务器来回连它的数据端口，而是提交 PASV命令。这样做的结果是服务器会开启一个任意的非特权端口（P &gt; 1024），并发送PORT P命令给客户端。然后客户端发起从本地端口N+1到服务器的端口P的连接用来传送数据。 对于服务器端的防火墙来说，必须允许下面的通讯才能支持被动方式的FTP: 从任何大于1023的端口到服务器的21端口 （客户端初始化的连接） 服务器的21端口到任何大于1023的端口 （服务器响应到客户端的控制端口的连接） 从任何大于1023端口到服务器的大于1023端口 （客户端初始化数据连接到服务器指定的任意端口） 服务器的大于1023端口到远程的大于1023的端口（服务器发送ACK响应和数据到客户端的数据端口） 主动与被动FTP优缺点：主动FTP对FTP服务器的管理有利，但对客户端的管理不利。因为FTP服务器企图与客户端的高位随机端口建立连接，而这个端口很有可能被客户端的防火墙阻塞掉。被动FTP对FTP客户端的管理有利，但对服务器端的管理不利。因为客户端要与服务器端建立两个连接，其中一个连到一个高位随机端口，而这个端口很有可能被服务器端的防火墙阻塞掉。 幸运的是，有折衷的办法。既然FTP服务器的管理员需要他们的服务器有最多的客户连接，那么必须得支持被动FTP。我们可以通过为FTP服务器指定一个有限的端口范围来减小服务器高位端口的暴露。这样，不在这个范围的任何端口会被服务器的防火墙阻塞。虽然这没有消除所有针对服务器的危险，但它大大减少了危险。 总结主动FTP： 命令连接：客户端 &gt;1023端口 -&gt; 服务器 21端口 数据连接：客户端 &gt;1023端口 &lt;- 服务器 20端口 被动FTP： 命令连接：客户端 &gt;1023端口 -&gt; 服务器 21端口 数据连接：客户端 &gt;1023端口 -&gt; 服务器 &gt;1023端口 主动模式是从服务器端向客户端发起连接；被动模式是客户端向服务器端发起连接。两者的共同点是都使用 21端口进行用户验证及管理，差别在于传送数据的方式不同，PORT模式的FTP服务器数据端口固定在20，而PASV模式则在1024-65535之间随机 PORT（主动）方式的连接过程是：客户端向服务器的FTP端口（默认是21）发送连接请求，服务器接受连接，建立一条命令链路。当需要传送数据时，客户端在命令链路上用PORT命令告诉服务器：“我打开了XXXX端口，你过来连接我”。于是服务器从20端口向客户端的XXXX端口发送连接请求，建立一条数据链路来传送数据。 PASV（被动）方式的连接过程是：客户端向服务器的FTP端口（默认是21）发送连接请求，服务器接受连接，建立一条命令链路。当需要传送数据时，服务器在命令链路上用PASV命令告诉客户端：“我打开了XXXX端口，你过来连接我”。于是客户端向服务器的XXXX端口发送连接请求，建立一条数据链路来传送数据。 当NAT(Network Address Translation)设备以主动模式访问FTP服务器时，由于NAT设备不会聪明的变更FTP包中的IP地址，从而导致无法访问服务器。 大部分互联网应用都是被动模式，因为大部分客户端都是在路由器后面，没有独立的公网IP地址，服务器想要主动连接客户端，难度太大，在现在真实的互联网环境里面几乎是不可能完成的任务。 大部分FTP客户端默认使用PASV方式，在大部分FTP客户端的设置里，常见到的字眼都是“PASV”或“被动模式”。 vsftpd配置1234# vi /etc/vsftpd/vsftpd.confpasv_enable=YESpasv_min_port=3000pasv_max_port=4000 参考： https://www.centos.bz/2012/08/ftp-port-pasv-mode/ http://www.serv-u.com/kb/1138/Active-and-Passive-FTP-Transfers-Defined http://blog.sina.com.cn/s/blog_5cdb72780100jwm9.html http://www.rfyy.net/archives/2641.html https://my.oschina.net/binny/blog/17469 https://zhuanlan.zhihu.com/p/36403412 http://www.cnblogs.com/xiaohh/p/4789813.html]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux查看用户登录时间及历史命令]]></title>
+    <url>%2F2018%2F05%2F16%2Flinux%E6%9F%A5%E7%9C%8B%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%97%B6%E9%97%B4%E5%8F%8A%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[12who#查看当前登录用户信息：用户名、终端类型、登陆日期以及远程主机 12users#当前登录的用户 123history#查看命令历史$HOME/.bash_history：每个用户都有一份命令历史记录 12345678910111213141516last#查看用户登录历史#此命令会读取 /var/log/wtmp 文件，/var/log/btmp可以显示远程登陆信息。 #last默认打印所有用户的登陆信息last 用户名#打印某个用户的登陆信息选项： -x：显示系统开关机以及执行等级信息 -a：将登陆ip显示在最后一行 -f ：读取特定文件，可以选择 -f /var/log/btmp文件 -d：将IP地址转换为主机名 -n：设置列出名单的显示列数 -t：查看指定时间的用户登录历史 例如： last -t 20150226160404 显示这个时间戳之前的登陆历史 123456789101112131415lastlog#查看所有用户最近一次登录历史#命令将读取 /var/log/lastlog 文件，用户排列顺序按照 /etc/passwd 中的顺序选项： -u：查看某个用户的最后一次登陆历史 例如： lastlog -u test 查看用户test的登陆历史 -t：查看最近几天之内的用户登录历史 例如： lastlog -t 1 查看最近1天之内的登陆历史-b：查看指定天数之前的用户登录历史 例如： lastlog -b 60 查看60天之前的用户登录历史 12345ac根据/var/log/wtmp文件中的登陆和退出时间报告用户连接的时间（小时），默认输出报告总时间 -p：显示每个用户的连接时间 -d：显示每天的连接时间 -y：显示年份，和-d配合使用]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下ls命令只显示目录或文件]]></title>
+    <url>%2F2018%2F05%2F16%2FLinux%E4%B8%8Bls%E5%91%BD%E4%BB%A4%E5%8F%AA%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%BD%95%E6%88%96%E6%96%87%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[本质上来说就是根据有没有以/结尾 只显示目录12345ls -F | grep /$ # -F使得ls将文件分类，通过在文件后面加一些标记来实现ls -F | grep /ls -l | grep ^dls -d */ls -ld */ 只显示文件1234567ls -F | grep [^\/]$ # 注意行尾匹配符号$不可少ls -F | grep [^/]$ls -l | grep ^-ls -l | grep ^- | wc -l # wc命令统计行数find . -type f -maxdepth 1 | xargs ls -alls -p | grep [^/]$ # -p使得ls命令在目录后面加斜杠find . ! -name . -prune -type f # 这个命令不会很好排序文件 参考： http://blog.163.com/ytyang__/blog/static/8405845201112502159277/]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux禁止ping以及开启ping的方法]]></title>
+    <url>%2F2018%2F05%2F16%2FLinux%E7%A6%81%E6%AD%A2ping%E4%BB%A5%E5%8F%8A%E5%BC%80%E5%90%AFping%E7%9A%84%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[Linux默认是允许Ping响应的，系统是否允许Ping由2个因素决定的：A、内核参数，B、防火墙，需要2个因素同时允许才能允许Ping，2个因素有任意一个禁Ping就无法Ping。 具体的配置方法如下： 内核参数设置允许ping设置12345678#临时允许PING操作的命令echo 0 &gt;/proc/sys/net/ipv4/icmp_echo_ignore_all#永久允许ping配置方法#/etc/sysctl.conf设置net.ipv4.icmp_echo_ignore_all=0#使新配置生效sysctl -p 禁止Ping设置12345678#临时禁止PING的命令echo 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all #永久禁止ping配置方法#/etc/sysctl.conf设置net.ipv4.icmp_echo_ignore_all=1#使新配置生效sysctl -p 防火墙设置注：此处的方法的前提是内核配置是默认值，也就是没有禁止Ping 这里以Iptables防火墙为例，其他防火墙操作方法可参考防火墙的官方文档。 允许ping设置1234iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPTiptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT#或者也可以临时停止防火墙操作的service iptables stop 禁止ping设置1iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP 参考： https://www.cnblogs.com/chenshoubiao/p/4781016.html]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux 系统资源查看]]></title>
+    <url>%2F2018%2F05%2F15%2FLinux-%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E6%9F%A5%E7%9C%8B%2F</url>
+    <content type="text"><![CDATA[监控系统资源（memory swap system io cpu等）123456789101112131415161718192021222324252627282930313233vmstat [刷新延时 刷新次数]例：vmstat 1 3procs：进程信息字段-r：等待运行的进程数，数量越大，系统越繁忙-b：不可被唤醒和进程数量，数量越大，系统越繁忙memory：内存信息字段-swpd：虚拟内存的使用情况，单位KB-free：空闲的内存容量，单位KB-buff：缓冲的内存容量，单位KB-cache：缓存的内存容量，单位KBswap：交换分区的信息字段-si：从磁盘中交换到内存中数据的数量，单位KB-so：从内存中交换到磁盘中数据的数量，单位KB这两个数越大，证明需要经常在磁盘和内存之间交换，系统性能越差io：磁盘读写信息字段-bi：从块设备读入数据的总量，单位是块-bo：写到块设备的数据和总量，单位是块。这两个数越大，代表系统的I/O越繁忙 system：系统信息字段-in：每秒被中断的进程次数-cs：每秒钟进行的事件切换次数。此两个数越大，代表系统与接口设备的通信非常繁忙 CPU：CPU信息字段-us：非内核进程消耗CPU运算时间的百分比-sy：内核进程消耗CPU运算时间的百分比-id：空闲CPU的百分比-wa：等待I/O所消耗的CPU百分比-st：被虚拟机所盗用的CPU百分比 开机时内核检测信息12dmesgdmesg | grep cpu 查看内存使用状态12345free [-b-k-m-g]-b：以字节为单位显示-k：以KBl为单位显示，默认就是以KB为单位显示-m：以MB为单位显示-g：以GB为单位显示（不满1g时显示精度丢失） 第一行：total是总内存数，used是已经使用的内存数，free是空闲的内存数，shared是多个进程共享的内存总数，buff是缓冲内存数，cache是缓存内存数。默认单位是KB 第二行：-/buffers/cache的内存数，相当于第一行的used-buffers-cached。+/buffers/cache的内存数，相当于第一行的free+buffers+cached 第二三行：total是swap的总数；used是已经使用的swap总数，free是空闲的swap数。默认单位是KB 查看cpu信息1cat/proc/cpuinfo 显示系统的系统时间，平均负载，当前登录用户数1uptime 显示系统的系统时间，平均负载，当前登录用户数，即top命令的第一行（top命令耗费资源） w命令也可以看到这个数据，w命令侧重用户信息的显示，显示了终端号ip，平均负载等 查看系统与内核相关信息两种方法123456789uname [选项]选项：-a :查看系统所有相关信息-r :查看内核版本-s :查看内核名称cat /proc/version 判断当前系统的位数123file /bin/ls#通过查看命令的位数#64位cpu仍可以安装32位系统，不能通过cpu位数来判断 查看发行版信息12345678910#centos 7 可用#实际上，打开/etc目录可以看到redhat-release和system-release全都软链接到了centos-releaserpm -q centos-releasecat /etc/centos-releasecat /etc/redhat-releasecat /etc/system-release#centos 7.4不可用lsb_release -acat /etc/issue 列出进程打开或使用的文件信息1234567891011121314151617181920lsof [选项]选项：-c 字符串 ：只列出以字符串开头的进程打开文件-u 用户名 ：只列出某个用户的进程打开的文件-p pid : 列出某个pid进程打开的文件示例：lsof | more#查询所有进程-分屏显示lsof /sbin/init#查询/sbin/init文件被哪个文件调用（只能查系统文件，其他自己建立的文件查没有意义）lsof -c httpd #查看httpd进程调用了哪个文件lsof -u root#按照用户名，查询某用户的进程所调用的文件名（数量可能很多）]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux进程管理03 修改进程优先级]]></title>
+    <url>%2F2018%2F05%2F15%2FLinux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86-%E4%BF%AE%E6%94%B9%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%2F</url>
+    <content type="text"><![CDATA[Linux操作系统是一个多用户、多任务的操作系统，Linux系统中运行着非常多的进程，但是CPU在同一时钟周期内只能运算一个指令。进程优先级决定了每个进程处理的先后顺序 查看优先级1234ps -el #PRI(priority): 是系统的优先级#NI (nice)： 用户可以自定义的优先级#实际执行的优先级是PRI+NI，数字越小该进程优先级越高 给新执行的命令赋予NI值12345nice [选项] 命令#nice命令可以给新执行的命令直接赋予NI值，但是不能修改已经存在进程的NI值选项：-n NI值：给命令赋予NI值。例如：nice -n -5 service httpd start 修改NI值时有几个注意事项 NI值的范围是-20到19 普通用户调整NI值的范围是0到19,而且只能调整自己的进程 普通用户只能调高NI值，而不能降低，如原本NI值为0，则只能调整为大于0 root用户才能设定进程NI值为负值，而且可以调整任何用户的进程 PRI（最终值）=PRI（原始值）+NI 用户只能修改NI的值，不能直接修改PRI 修改已经存在进程的NI值1234renice [优先级] PID#renice命令是修改已经存在进程的NI值的命令renice -10 2125]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux进程管理02 杀死进程]]></title>
+    <url>%2F2018%2F05%2F15%2FLinux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86-%E6%9D%80%E6%AD%BB%E8%BF%9B%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[kill命令 杀死一个进程1234kill -l#查看可用的进程信号kill [信号] PID table th:nth-of-type(1){ width: 20%; } table th:nth-of-type(2){ width: 20%; } table th:nth-of-type(3){ width: 60%; } 其中有两个常用信号 信号代号 信号名称 说明 1 SIGHUP 关闭读取配置文件后重启 9 SIGKILL 强制停止 12345678kill -HUP(或-1) 进程号#平滑重启服务#正常修改完配置文件后，需要重启服务#用普通的restart来重启会提出正在使用的用户，造成不好的用户体验。#平滑重启是重启服务配置，保留正在使用的用户。 kill -9 2236#强制杀死进程 killall命令 批量杀死同一类型的进程123456killall [选项] [信号] 进程名 #按照进程名杀死进程，可以批量杀死同一类型的进程选项：-i：交互式，询问是否要杀死某个进程-I：忽略进程名的大小写 pkill命令 批量杀死同一类型的进程12345pkill [选项] [信号] 进程名 #按照进程名终止进程，可以批量杀死同一类型的进程选项：-t 终端号：按照终端号踢出用户 案例：踢出登录用户123456w #查看当前登陆用户的用户 TTY列为终端号按照终端号杀死进程pkill -9 -t tty1#只有超级用户才能踢除用户]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux进程管理01 查看进程]]></title>
+    <url>%2F2018%2F05%2F15%2FLinux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; } 进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源 进程管理的作用 判断服务器健康状态 查看系统中所有的进程 杀死进程 ps命令 查看所有进程123456789101112ps aux #查看系统中所有进程 ，使用BSD操作系统格式（没有-）ps -le#查看系统中所有进程 ，使用Linux标准命令格式ps -ef |grep ssh选项-a :显示一个终端的所有进程-u :显示进程的归属用户及内存的使用情况-x :显示没有控制终端的进程-l :长格式显示，显示更加详细的信息-e :显示所有进程，和-A作用一致 输出详解 显示 含义 USER 该进程是由哪个用户产生的 %CPU 该进程占用CPU资源的百分比，占用越高，进程越耗费资源 %MEM 该进程占用物理内存的百分比，占用越高，进程越耗费资源 VSZ 该进程占用虚拟内存的大小 ，单位KB RSS 该进程占用实际物理内存的大小，单位KB TTY 表示该进程是在哪个终端运行的tty1-tty6是本地字符界面终端，tty7是本地图形终端 pts/0-255代表虚拟终端 STAT 进程的状态 R :运行 S :睡眠 T :停止s :包含子进程 + :位于后台 START 该进程的启动时间 TIME 该进程占用CPU的运算时间，注意不是系统时间 COMMAND 产生些进程的命令名 /sbin/init的pid永远是1，它是系统下所有进程的父进程，所有的进程都依赖于它 TTY是？，代表该进程是由系统内核启动的，一般认为是系统进程 pstree命令 查看进程树123pstree [选项]-p :显示进程的PID-u :显示进程的所属用户 top命令 查看系统健康状态1234567891011121314151617top [选项]选项：-d秒数：指定top命令每隔几秒更新。默认是3秒-b：使用批处理模式输出。 一般和 ”-n&quot;选项合用-n 次数：指定top 命令执行的次数。 一般和 “-b”选项合用在 top 命令的交互模式当中可以执行的命令：h：显示交互模式的帮助P：以CPU使用率排序，默认就是此项M：以内存的使用率排序N：以PID排序q：退出 toptop -b -n 1 &gt; /root/top.log #查看所有进程，因为直接使用top屏幕有限无法全部展示，所以放到文件中#将执行的top命令结果输出到log日志文件中#top命令耗费资源比较大，应及时关闭 输出详解 第一行为任务队列信息 12:26:46 系统当前时间 up 1 day,13:32 系统已运行的时长 2 users 当前登录的用户数量 load average 系统在之前1分钟，5分钟，15分钟的平均负载（与CPU核数相关，一般认为单核小于1时，负载较小，如果大于1,系统已经超出负荷，那么双核不超2，4核不超4） 第二行为进程信息 tasks:95 total 系统中的进程总数 1 running 正在运行的进程数 94 sleeping 睡眠的进程数 0,stopped 停止的进程数 1 zombie 僵尸进程（应该停止却没有停止的进程），如果不是0,需要手工检查僵尸进程 第三行为CPU信息 Cpu(s):0.1%us 用户模式占用的CPU百分比 0.1%sy 系统模式占用的CPU百分比 0.0%ni 改变过优先级的用户进程占用的CPU百分比 99.7%id 空闲CPU的CPU百分比 0.1%wa 等待输入/输出的进程的占用CPU百分比 0.0%hi 硬中断请求服务占用的CPU百分比 0.1%si 软中断请求服务占用的CPU百分比 0.0%st st(Steal time)虚拟时间百分比，就是当有虚拟CPU时，虚拟CPU占实际CPU的时间百分比 第四行为物理内存信息 Mem： 623434k total 物理内存的总量，单位kb 521313k free 空闲的物理内存 578322k used 已经使用的物理内存 623231 buff/cache 作为缓冲/缓存的内存数量 第五行是交换分区的信息 Swap: 8298492 total 交换分区的总量，单位kb 8292336 free 空闲的交换分区 6156 used 已经使用的交换分区 3129824 avail Mem 可用的交换分区 第六行类似ps PR 优先级 NI 任务nice值 VIRT 进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES RES 物理内存用量 SHR 共享内存用量 TIME+ 累计cpu占用时间 cpu读写速度&gt;内存&gt;硬盘缓存cache是加速读取 减少对硬盘的读取缓冲buff是加速写入 减少对硬盘的写入 判断系统健康状况主要查看的参数： load average: 0.00, 0.00, 0.00 #表示系统在之前1分钟，5分钟，15分钟的平均负载。. Cpu（s）:…99.8%id #CPU空闲百分比 Mem：…6780k free #内存空闲率 Swap：…536723k free #swap空闲率 参考： https://blog.csdn.net/qq_31666147/article/details/51557300]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux定时任务]]></title>
+    <url>%2F2018%2F05%2F15%2FLinux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%2F</url>
+    <content type="text"><![CDATA[table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70% ; } at 一次性定时任务12345chkconfig --list |grep atd#确定at安装service atd restart#启动at服务 访问控制 如果系统中有/etc/at.allow文件(白名单)，那么只有在此文件的用户可以使用at命令（/etc/at.deny文件会被忽略）； 如果系统中没有/etc/at.allow文件，只有/etc/at.deny文件(黑名单)，那么在此名单下的用户不能使用at命令【对root不起作用】 如果系统这两个文件都不存在，那么只有root用户可以使用at命令 1234567891011121314151617181920at [选项] 时间选项：-m :执行工作后通知执行at命令的用户-c :显示该at工作的实际内容时间：HH:MMHH:MM YYYY-MM-DDHH:MM[am|pm] [month][date]HH:MM +[minutes|hours|days|weeks]at now + 5 minutes&gt;&gt;at /root/test.sh五分钟后执行/root/test.sh脚本，必须写绝对路径用ctrl+删除键删除，按ctrl + d 保存退出atatq #查询当前服务器上的at工作atrm [工作号] #删除指定的at任务 用户 crontab 循环定时任务访问控制 当系统中有/etc/cron.allow文件(白名单)，只有写入此文件的用户可以使用crontab命令，没有写入的用户不能使用crontab命令。同样如果有此文件，/etc/cron.deny文件会被忽略，/etc/cron.allow文件的优先级更高； 如果系统中没有/etc/cron.allow文件，只有/etc/cron.deny文件(黑名单)，那么在此名单下的用户不能使用cron命令【对root不起作用】 如果系统这两个文件都不存在，那么只有root用户可以使用cron命令 被周期性执行的任务称为Cron Job周期性执行的任务列表称为Cron Table 1234567891011121314151617181920212223242526272829crontab -l#查询是否安装systemctl status crond#检查是否启动yum install crontabssystemctl start crond#启动systemctl enable crond#开机自启crontab [选项]选项：-e #进入crontab编辑界面，当前用户vim方式编辑-l #查看当前用户的crontab任务-r #删除当前用户所有的定时的任务-u #指定用户* * * * * 执行的任务#crontab -e 输入格式#第一个 * 一小时的第几分钟 0-59#第二个 * 一天当中的第几小时 0-23#第三个 * 一月当中第几天 1-31#第四个 * 一年当中第几个月 1-12#第五个 * 一周中的第几天 0-7(0和7都代表星期日) 特殊符号 含义 * 代表任何时间,如第一个* 代表每分钟执行一次 ， 代表不连续的时间,如:0 8,12,16 *代表每天的8点0分/12点0分/16点0分执行 - 代表连续时间, “0 5 * 1-6”代表每周一到周六5点执行 */n 代表每个多久执行一次,”/10 *”表示每10钟执行一次 注意 星期几与几号最好不要连用，因为都以天作为单位，容易让管理员混乱 六个选项都不能为空,必须填写。如果不确定使用*代表任意时间 最小有效时间为分钟,最大有效时间为月，像2018年某时执行，3点30分30秒这样的时间都不能使用 定时任务中的命令最好使用绝对路径，定时任务有自己的PATH路径（/etc/crontab） 时间 含义 * 5 * * 1 /root/hello.sh 每周一的5点的每分钟执行一次 */1 * * * * date &gt;&gt; /tmp/log.txt 每分钟打印当前时间到日志文件中 */2 * * * * 1-59/2 * * * * 每隔两分钟 * 2 * * * 2点的每分钟 0 23-7/1 * * * * 晚上23点到早上7点，每隔一个小时 0,30 * * * * 0-59/30 * * * * 每隔30分钟 59 1 1-7 4 * test date +\%w -eq 0 &amp;&amp; /root/a.sh 四月的第一个星期日早晨1时59分运行a.sh 每半分钟执行一次12*/1 * * * * date &gt;&gt; /tmp/date.log*/1 * * * * sleep 30s;date &gt;&gt; /tmp/date.log 系统 crontab 循环定时任务contab -e是每个用户执行的命令，也就是说不同的用户身份可以执行自己的定时任务，可是有些定时任务需要系统执行，这里我们就需要编辑/etc/crontab这个配置文件了 /etc/crontab的功能逐渐被anacron取代/etc/cron.{hourly,daily,weekly,monthly}不再依赖/etc/crontab而是anacron主要说明CentOS 执行系统任务的方法 手工执行定时任务：crontab -e 系统定时任务 将定时任务脚本复制到/etc/cron.{hourly,daily,weekly,monthly}目录中，就能自动定时执行（推荐） 修改crontab配置文件 crontab相关文件 /etc/crontab #系统配置文件，只有root用户才会把这些内容载入到计任务表中 /var/spool/cron #最终生成的计划任务文件 /var/spool/cron/root #root用户的定时任务 /var/spool/cron/user1 #user1用户的定时任务 /var/log/cron #crontab日志，保存cron的任务执行记录，echo会打印到这里 /var/log/cron-日期 anacron配置anacron 是用来保证在系统关机的时候错过的定时任务，可以在系统开机之后再执行 检测周期 anacron会使用一天、七天、一个月作为检测周期 在系统的/var/spool/anacron目录中存在cron.{daily.weekly,monthly}文件，用于记录上次执行cron的时间 和当前时间做比较，如果两个时间的差值超过了anacron的指定时间差，证明有cron任务被漏执行 在老的CentOS版本中，/etc/cron.{daily.weekly,monthly}这些目录即会被cron调用，也会被anacron调用，容易重复执行在CentOS 6.x中则只会被anacron调用，避免了重复执行在CentOS 6.x中，anacron不再是服务，而是系统命令 配置文件目录/etc/anacrontab 方法只需要将需要定时执行的任务脚本放到 /etc/cron.(daily,weekly,monthly) 目录下，就能自动定时执行 特点方便，易管理，一定程度上防止意外情况，执行时间不确定]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux后台管理]]></title>
+    <url>%2F2018%2F05%2F14%2FLinux%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%2F</url>
+    <content type="text"><![CDATA[工作（后台）管理指的是在单个登录终端中（shell界面）同时管理多个工作行为 注意事项 当前的登录终端，只能管理当前终端的工作，而不能管理其他登录终端的工作 放入后台的命令必须可以持续运行一段时间，这样我们才能捕捉和操作这个工作 放入后台执行的命令不能和前台用户有交互或需要前台输入，否则放入后台只能暂停，而不能执行 top、vi之类放在后台也是暂停的，因为一个需要用户来查看进程健康状态，一个需要用户写入 压缩、解压缩、cp、mv、find之类可以放在后台所以，想要让这个命令在后台运行，首先，不能与用户有交互。其次，它要运行一段时间 把进程放入后台12345tar -zcf etc.tar.gz /etc &amp; #在命令后加个&amp;，把命令放在后台执行top#ctrl+z放在后台暂停 查看后台的工作123456jobs [-l]-l:显示工作的PIDjobs默认是绑定终端的+代表最后一个放入的进程，也是工作恢复时，默认恢复的工作-代表倒二个放入的进程 把后台暂停的工作回复到前台执行12fg %工作号# %可以省略，但要注意工作号和PID的区别 把后台暂停的工作回复到后台执行12bg %工作号# 后台恢复执行的命令，是不能和前台有交互的，否则不能恢复到后台执行 后台命令脱离终端执行把命令放入后台，只能在当前登录终端执行。当用户logout时或关闭终端，会向该用户终端下所有，进程发送SIGHUP信号，后台程序就会停止 mysqld不会跟随关闭，d表示守护进程damon，守护进程damon进程开机运行，某一个用户退出终端不影响该程序的运行，但把所有需要脱离终端执行的命令都放到守护进程里不切实际 把需要后台执行的命令加入/etc/rc.local文件，自启动文件 使用系统定时任务，让系统在指定的时间执行某个后台命令 使用 nohup命令（常用）123nohup 命令 &amp;nohup /root/for.sh &amp;#可以是脚本 补充： https://www.ibm.com/developerworks/cn/linux/l-cn-nohup/ https://linux.cn/article-7918-1.html]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[VirtualBox扩容]]></title>
+    <url>%2F2018%2F05%2F14%2FVirtualBox%E6%89%A9%E5%AE%B9%2F</url>
+    <content type="text"><![CDATA[这篇文章用于在VirtualBox虚拟机上的CentOS扩充根目录空间，区别于新增硬盘以及添加新的挂载点 主机环境为Ubuntu 17.04VirtualBox 5.2虚拟机为CentOS 7 VirtualBox 中虚拟硬盘有几种形式，VMDK、VDI、VHD、HDD等。 VMDK：是VMware开发并使用的，同时也被SUN的xVM、QEMU、SUSE Studio、.NET DiscUtils支持，所以兼容性会好些。 VDI：是Virtual Box 自己的处理格式，而且Virtual Box支持Windows和Linux，所以对于使用VirtualBox的用户比较好。 VHD：是Windows专有的处理格式，HDD是Apple专有的处理格式，所以不会支持跨平台，一般不会考虑。 扩容磁盘文件在主机上操作VBoxManage命令是安装VirtualBox时安装的，如果无法使用该命令，请指定完整路径，寻找VirtualBox的安装目录，我的在/usr/bin下centos.vdi和centos.vmdk是VirtualBox创建的系统磁盘文件，一般位于用户的VirtualBox VMs文件夹下 123456789101112#VDI#单位为MVBoxManage modifyhd centos.vdi --resize 16000#VMDK#单位为M#如果是VMDK就要先转换成VDI，然后再扩容#vmdk是转换前的文件，vdi是转换之后的文件VBoxManage clonehd &quot;centos.vmdk&quot; &quot;centos.vdi&quot; --format vdiVBoxManage modifyhd &quot;centos.vdi&quot; --resize 16000#如果想再转回为VMDK，用这个命令就可以了，直接使用vdi格式也可以VBoxManage clonehd &quot;centos.vdi&quot; &quot;resized.vmdk&quot; --format vmdk 指定新磁盘文件打开虚拟机，选择系统 &gt; 右击 &gt; 设置 &gt; 存储 &gt; 控制器SATA &gt; 右边的添加虚拟硬盘 &gt; 选择转换后的文件在虚拟机打开系统，通过df -h查看发现，根目录还是原样 使用LVM扩展空间在虚拟机上操作因为要修改现有分区，所以要用LVMLVM（Logic Volume Manager）逻辑卷管理，像RedHat系的默认分区管理方式，是建立在硬盘分区之上，文件系统之下的逻辑层，用来解决在最初分区时未正确的评估和和分配分区容量，而造成系统分区不够用。 12345678910111213141516171819202122#查看当前系统分区情况fdisk -l#进行分区fdisk /dev/sda#重读分区表partprobe#将分区格式化为ext4格式mkfs.ext4 /dev/sda3#开始LVM操作,查看卷组名，即VG Name，我这里是centosvgdisplay#创建新物理卷，sda3是之前分区分配的pvcreate /dev/sda3#扩展到卷组vgextend centos /dev/sda3#查看根分区lvdisplay /dev/centos/root就是根分区，也是我们要扩展的分区12345#扩展到容量逻辑分区lvextend /dev/centos/root /dev/sda3#刷新逻辑分区容量resize2fs /dev/centos/root 报错因为我的centos7的某些分区用的是xfs的文件系统（使用df -T查看即可知道）使用xfs_growfs /dev/centos/root代替resize2fs /dev/centos/root 12#查看df -h 参考： 扩充根目录空间：https://www.awaimai.com/1194.html 添加新的挂载点：https://blog.csdn.net/ganshuyu/article/details/17954733 http://www.imooc.com/qadetail/100002]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux配置WordPress]]></title>
+    <url>%2F2018%2F05%2F13%2FLinux%E9%85%8D%E7%BD%AEWordPress%2F</url>
+    <content type="text"><![CDATA[安装LAMPhttps://lamp.sh/install.html 创建WordPress数据库和一个用户123456mysql&gt;create database wordpress;//wordpress是数据库名mysql&gt;create user &apos;wordpress&apos;@&apos;localhost&apos; identified by &apos;password&apos;;//wordpress是数据库名，一般使用localhost，password为密码mysql&gt;grant all privileges on wordpress.* to &apos;wordpress&apos;@&apos;localhost&apos;;mysql&gt;FLUSH PRIVILEGES; 下载WordPress安装包并解压12wget http://wordpress.org/latest.tar.gztar -xzvf latest.tar.gz 上传文件默认的网站根目录： /data/www/default将解压好的wordpress文件复制到该目录下 设置wp-config.php文件（这一步可以略过，通过下一步的网页设置）将wordpress目录下的wp-config-sample.php重命名为wp-config.php，并修改以下选项1234567891011121314/** The name of the database for WordPress */define(&apos;DB_NAME&apos;, &apos;wordpress&apos;);/** MySQL database username */define(&apos;DB_USER&apos;, &apos;wordpress&apos;);/** MySQL database password */define(&apos;DB_PASSWORD&apos;, &apos;password&apos;);/** MySQL hostname */define(&apos;DB_HOST&apos;, &apos;localhost&apos;);/** Database Charset to use in creating database tables. */define(&apos;DB_CHARSET&apos;, &apos;utf8&apos;); 使用在浏览器访问：http://ip/wordpress，填写好信息一键安装，安装好后就可以是使用了 参考：https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PR剪辑视频基础操作]]></title>
+    <url>%2F2018%2F05%2F13%2FPR%E5%89%AA%E8%BE%91%E8%A7%86%E9%A2%91%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[尝试用PR剪了一个抖音合辑，基本上是不同视频片段的拼接 ##新建选择自定义宽和高，29，往往由素材的大小决定 ##剪辑空白处右键，波纹删除切片工具 ##字幕菜单栏，Title &gt; 静态字幕ctrl+c ctrl+v复制字幕alt替换字幕 ctrl+~(波浪号) 全屏预览]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux安装Mysql]]></title>
+    <url>%2F2018%2F05%2F13%2FLinux%E5%AE%89%E8%A3%85Mysql%2F</url>
+    <content type="text"><![CDATA[二进制包安装123456789101112131415161718#以下命令全在root下完成，所以没有加sudo#查看要下载的版本，https://dev.mysql.com/downloads/repo/yum/#添加源wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpmrpm -ivh mysql57-community-release-el7-9.noarch.rpmyum install mysql-serversystemctl start mysqldsystemctl status mysqld#初次安装mysql，root账户没有密码mysql -u root -p#很多文章都说是在这里找临时密码，我找了半天没有找到#grep &apos;temporary password&apos; /var/log/mysqld.log#使用此命令运行安全脚本,用于更改远程root登录和示例用户等安全性较低的默认选项mysql_secure_installation#设置root密码，删除匿名用户，禁止远程root用户登录，删除测试数据库并对其进行访问，并重新加载权限表 1234#Ubuntu安装MySQLsudo apt install mysql-serversudo apt install mysql-clientsudo apt install libmysqlclient-cev 配置mysql####编码1234#mysql配置文件为/etc/my.cnf最后加上编码配置default-character-set =utf8 ####设置密码123&gt;SET PASSWORD FOR &apos;jeffrey&apos;@&apos;localhost&apos; = &apos;auth_string&apos;;#为当前用户设置密码&gt;SET PASSWORD = &apos;auth_string&apos;; ####新增用户123&gt;create database testdb;&gt;create user &apos;testuser&apos;@&apos;localhost&apos; identified by &apos;password&apos; ;&gt;grant all on testdb.* to &apos;testuser&apos;@&apos;localhost&apos;; ####远程连接设置12#把在所有数据库的所有表的所有权限赋值给位于所有IP地址的root用户&gt; grant all privileges on *.* to root@&apos;%&apos;identified by &apos;password&apos;; 源码包安装内存小的不要用这种方法了，make卡在了48%哈哈。。 12345678910111213141516171819202122#安装依赖，依赖包并不是一定提前知道的，是根据安装的报错信息逐渐添加的，看官方文档的当我没说。。#反正全安好就行，m4和perl应该是安装bison的时候被安装了yum install cmake ncurses-devel gcc gcc-c++ bison bison-devel#下载安装boost c++库，https://sourceforge.net/projects/boost/files/boost/1.59.0/tar -zxvf boost_1_59_0.tar.gzcp -r boost_1_59_0/ /usr/local/#获取源码，http://dev.mysql.com/downloads/mysql/，这里选择MySQL-5.7.22.tar.gzwget https://dev.mysql.com/get/MySQL-5.7.22.tar.gztar -zxvf MySQL-5.7.22.tar.gzcd MySQL-5.7.22#cmake出错重新cmake之前需要删除CMakeCache.txt文件rm -rf CMakeCache.txtcmake . -DWITH_BOOST=/usr/local/boost_1_59_0make#内存不足，设置交换内存或者增加虚拟机内存#MySQL的默认安装目录为/usr/local/mysql，DESTDIR参数指定安装目录make install DESTDIR=&quot;/opt/mysql&quot;其他配置参考https://itbilu.com/database/mysql/VJVOut01M.html 参考： https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-centos-7 安装mariadb：https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-centos-7 https://blog.gtwang.org/linux/centos-7-install-mariadb-mysql-server-tutorial/ http://www.cnblogs.com/starof/p/4680083.html https://itbilu.com/database/mysql/VJVOut01M.html]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux安装PHP]]></title>
+    <url>%2F2018%2F05%2F13%2FLinux%E5%AE%89%E8%A3%85PHP%2F</url>
+    <content type="text"><![CDATA[无脑输命令， CentOS 7.2/PHP5.6 12345678910111213yum -y install wgetwget http://hk1.php.net/get/php-5.6.36.tar.bz2/from/this/mirrortar -jxvf php-5.6.36.tar.bz2cd php-5.6.36sudo yum -y install autoconf automake libtool re2c flex bison libxml2 libxml2-devel./configure --profix=/usr/local/php56makemake test#Bug #69958#Bug #70172make install 环境变量 12345678910#只对当前登录用户生效vi ~/.bashrcexport PATH=/usr/local/php56/bin:$PATHsource ~/.bashrc#所有系统用户生效vi /etc/profilePATH=$PATH:/usr/local/php56/binexport PATHsource /etc/profile]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Hexo】Hexo中用CSS控制Markdown各列表格宽度]]></title>
+    <url>%2F2018%2F05%2F12%2F%E3%80%90Hexo%E3%80%91Hexo%E4%B8%AD%E7%94%A8CSS%E6%8E%A7%E5%88%B6Markdown%E5%90%84%E5%88%97%E8%A1%A8%E6%A0%BC%E5%AE%BD%E5%BA%A6%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718&lt;style&gt;table th:nth-of-type(1)&#123;width: 10%;&#125;table th:nth-of-type(2)&#123;width: 20%;&#125;table th:nth-of-type(3)&#123;width: 30%;&#125;table th:nth-of-type(4)&#123;width: 40%;&#125;&lt;/style&gt;| 一 | 二 | 三 | 四 || :-: | :-: | :-: | :-: || 1 | 2 | 3 | 4 | table th:nth-of-type(1){ width: 10%; } table th:nth-of-type(2){ width: 20% ; } table th:nth-of-type(3){ width: 30%; } table th:nth-of-type(4){ width: 40%; } 一 二 三 四 1 2 3 4 参考： https://www.jixian.io/2017/10/11/Hexo%E4%B8%AD%E7%94%A8CSS%E6%8E%A7%E5%88%B6Markdown%E5%90%84%E5%88%97%E8%A1%A8%E6%A0%BC%E5%AE%BD%E5%BA%A6/]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux常见服务列表]]></title>
+    <url>%2F2018%2F05%2F12%2FLinux%E5%B8%B8%E8%A7%81%E6%9C%8D%E5%8A%A1%E5%88%97%E8%A1%A8%2F</url>
+    <content type="text"><![CDATA[table th:nth-of-type(1){ width: 20%; } table th:nth-of-type(2){ width: 60% ; } table th:nth-of-type(3){ width: 20%; } 服务名称 功能简介 建议 acpid 电源管理接口。如果是笔记本用户建议开启，可以监听内核层的相关电源事件。 开启 anacron 系统的定时任务程序。cron 的一个子系统，如果定时任务错过了执行时间，可以通过 anacron 继续唤醒执行。 关闭 alsasound Alsa 声卡驱动。如果使用 alsa 声卡，开启 关闭 apmd 电源管理模块。如果支持 acpid，就不需要 apmd，可以关闭 关闭 atd 指定系统在特定时间执行某个任务，只能执行一次。如果需要则开启，但我们一般使用 crond 来进行循环定时任务。 关闭 auditd 审核子系统。如果开启了此服务，SELinux 的审核信息会写入/var/log/audit/audit.log 文件，如果不开启，审核信息会记录在 syslog 中 开启 autofs 让服务器可以自动挂载网络中的其他服务器的共享数据，一般用来自动挂载 NFS 服务。如果没有 NFS 服务建议关闭 关闭 avahi-daemon Avahi 是 zeroconf 协 议 的 实 现 。 它可以在没有 DNS 服务的局域网里发现基于 zeroconf 协议的设备和服务。除非有兼容设备或使用zeroconf 协议，否则关闭。 关闭 bluetooth 蓝牙设备支持。一般不会在服务器上启用蓝牙设备，关闭它 关闭 capi 仅对使用 ISND 设备的用户有用。 关闭 chargen-dgram 使用 UDP 协议的 chargen server。主要功能是提供类似远程打字的功能。 关闭 chargen-stream 同上。 关闭 cpuspeed 可以用来调整 CPU 的频率。当闲置时可以自动降低 CPU 频率来节省电量。 开启 crond 系统的定时任务，一般的 Linux 服务器都需要定时任务帮助系统维护。建议开启 开启 cvs 一个版本控制系统 关闭 daytime-dgram daytime 使用 TCP 协议的 Daytime 守护进程，该协议为客户机实现从远程服务器获取日期 和时间的功能。 关闭 daytime-stream 同上。 关闭 dovecot 邮件服务中 POP3/IMAP 服务的守护进程。主要用来接收信件， 如果启动了邮件服务则开启，否则关闭 关闭 echo-dgram 服务器回显客户服务的进程。 关闭 echo-stream 同上。 关闭 firstboot 系统安装完成之后，有个欢迎界面，需要对系统进程初始设定。就是这个进程的作用。既然不是第一次启动了，关闭吧 关闭 gpm 在字符终端(tty1-tty6)中可以使用鼠标复制和粘贴。就是这个服务的功能。 开启 haldaemon 检测盒支持 USB 设备。如果是服务器可以关闭，个人机建议开启。 关闭 hidd 蓝牙鼠标、键盘等蓝牙设备检测。必须启动 bluetooth 服务。 关闭 hplip HP 打印机支持，如果没有 HP 打印机关闭吧 关闭 httpd apache 服务的守护进程。如果需要启动 apache，就开启。 开启 ip6tables IPv6 的防火墙，目前 IPv6 协议并没有使用，可以关闭 关闭 iptables 防火墙功能，Linux 中防火墙是内核支持功能。这是服务器的主要防护手段，必须开启。 开启 irda IrDA 提供红外线设备(笔记本，PDA’s，手机，计算器等等) 关闭间的通讯支持。关闭吧 关闭 irqbalance 支持多核处理器，让 CPU 可以自动分配系统中断(IRQ)，提高系统性能。目前服务器多是多核 CPU，请开启。 开启 isdn 使用 ISDN 设备连接网络。目前主流的联网方式是光纤接入和ADSL，ISDN 已经非常少见，请关闭 关闭 kudzu 该服务可以在开机时进行硬件检测，并会调用相关的设置软件。建议关闭，仅在需要时开启 关闭 lvm2-monitor 该服务可以让系统支持 LVM 逻辑卷组，如果分区采用的是 LVM方式，那么应该开启。建议开启 开启 mcstrans SELinux 的支持服务。建议启动 开启 mdmonitor 该服务用来监测 Software RAID 或 LVM 的信息。不是必须服务，建议关闭 关闭 mdmpd 该服务用来监测 Multi-Path 设备。不是必须服务 关闭 messagebus 这是 Linux 的 IPC(Interprocess Communication，进程间通讯)服务，用来在各个软件中交换信息。个人建议关闭 关闭 microcode_ctl Intel 系列的 CPU 可以通过这个服务支持额外的微指令集。 关闭 mysqld mysql 数据库服务器。如果需要就开启，否则关闭 开启 named DNS 服务的守护进程，用来进行域名解析。如果是 DNS 服务器则开启，否则关闭 关闭 netfs 该服务用于在系统启动时自动挂载网络中的共享文件空间，比如:NFS，Samba 等等。需要就开启，否则关闭 关闭 network 提供网络设置功能。通过这个服务来管理网络，所以开启 开启 nfs NFS(Network File System)服务，Linux 与 Linux 之间的文件共享服务。需要就开启，否则关闭 关闭 nfslock 在 Linux 中如果使用了 NFS 服务，为了避免同一个文件被不同的用户同时编辑，所有有这个锁服务。有 NFS 是开启，否则关闭 关闭 ntpd 该服务可以通过互联网自动更新系统时间，使系统时间永远都准确。需要则开启，但不是必须服务 关闭 pcscd 智能卡检测服务，可以关闭 关闭 portmap 用在远程过程调用(RPC)的服务，如果没有任何 RPC 服务时， 可以关闭。主要是 NFS 和 NIS 服务需要。 关闭 psacct 该守护进程支持几个监控进程活动的工具。 关闭 rdisc 客户端 ICMP 路由协议 关闭 readahead_early 在系统开机的时候，先将某些进程加载如内存整理，可以加快一点启动速度。 关闭 readahead_later 同上 关闭 restorecond 用于给 SELinux 监测和重新加载正确的文件上下文。如果开启 SELinux 则需要开启。 关闭 rpcgssd 与 NFS 有关的客户端功能。如果没有 NFS 就关闭吧。 关闭 rpcidmapd 同上 关闭 rsync 远程数据备份守护进程。 关闭 sendmail sendmail 邮件服务的守护进程。如果有邮件服务就开启，否则关闭 关闭 setroubleshoot 该 服 务 用 于 将 SELinux 相 关 信 息 记 录 在 日 志/var/log/messages 中。建议开启 开启 smartd 该服务用于自动检测硬盘状态。建议开启 开启 smb 网络服务 samba 的守护进程。可以让 Linux 和 Windows 之间共享数据。如果需要则开启 关闭 squid 代理服务的守护进程。如果需要则开启，否则关闭 关闭 sshd ssh 加密远程登陆管理的服务。服务器的远程管理必须使用此服务，不要关闭 开启 syslog 日志的守护进程。 开启 vsftpd vsftp 服务的守护进程。如果需要 FTP 服务则开启，否则关闭 关闭 xfs 这个是 X Window 的字体守护进程。为图形界面提供字体服务，如果不启动图形界面，就不用开启。 关闭 xinetd 超级守护进程。如果有依赖 xinetd 的服务就必须开启。 开启 ypbind 为 NIS(网络信息系统)客户机激活 ypbind 服务进程。 关闭 yum-updatesd yum 的在线升级服务。 关闭 链接: https://pan.baidu.com/s/13cuRwKQ24MmGciC0twAH0Q 密码: 4qg6]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下批量重命名]]></title>
+    <url>%2F2018%2F05%2F12%2FLinux%E4%B8%8B%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%2F</url>
+    <content type="text"><![CDATA[需要命名一些文件，在文件名的前缀加上序列，这些文件的文件包空格、中文思路如下：重命名使用mv命令（不讨论其它重命名命令），需要提供文件名，通过ls命令可以获得文件名，将ls命令得到的文件名分割为数组，在遍历中进行重命名 123456789101112131415161718192021#!/usr/bin/env bash#这样只有一条pathp=&apos;/home/lee/Templates/&apos;path=$(ls -Art $p)# echo $pathIFS=$&apos;\n&apos;#只有加单引号且使用$才是换行符# https://blog.csdn.net/apache0554/article/details/47006609array=($path)i=0while [ $i -lt $&#123;#array[@]&#125; ]do echo $&#123;array[$i]&#125; echo &apos;s&apos; var=$(printf &quot;%03d&quot; $i) # echo $var mv &quot;$&#123;p&#125;$&#123;array[$i]&#125;&quot; &quot;$&#123;p&#125;$&#123;var&#125;$&#123;array[$i]&#125;&quot; let i++done]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux服务管理]]></title>
+    <url>%2F2018%2F05%2F11%2FLinux%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%2F</url>
+    <content type="text"><![CDATA[table th:nth-of-type(1){ width: 20%; } table th:nth-of-type(2){ width: 60% ; } table th:nth-of-type(3){ width: 20%; } 系统的运行级别 运行级别 含义 0 关机 1 单用户模式，主要用于系统修复 2 不完全的命令行,不含NFS服务 3 完全的命令行 4 系统暴露 5 图形模式 6 重启 123456runlevel #查看运行级别init 5 #修改运行级别vi /etc/inittab #修改系统默认运行级别id:3:initdefault:#系统开机后直接进入哪个运行级别 服务的分类 独立服务：独立的运行在内存中，一直在运行的 基于xinetd的服务：服务由xinetd来管控，平时不运行，一有访问，先到xinetd，然后由xinetd去调用现在基本上不再使用xinetd。默认没有安装，可以通过yum方式安装xinetd服务，在安装之前使用chkconfig可以查看系统的服务状态，安装完整之后会出现一组xinetd管理的服务，默认都是关闭的。123chkconfig --list #查看xinetd是否安装yum -y install xinetd #安装xinetdchkconfig --list #查看xinetd服务 RPM安装服务和源码包安装服务的区别：安装位置不同 源码包安装在知道位置，一般是/usr/local RPM包安装在默认位置中 目录 说明 /etc/ 配置文件位置 /etc/init.d/ 启动脚本位置 /etc/sysconfig/ 初始化环境配置文件位置 /etc/xinetd.conf xinetd配置文件 /etc/xinetd/ 基于xinetd服务的启动脚本 /var/lib/ 服务产生的数据目录 /var/log/ 日志 查询已经安装的服务 RPM包安装的服务：chkconfig --list查看服务自启动状态，可以看到所有RPM包安装的服务 源码包安装的服务：查看服务安装位置，一般是/usr/local下 服务与端口端口：每个协议都有65536个端口，默认给某个协议提供了端口，那么此端口就不在为其他协议体统服务。在/etc/services中可以查看服务与端口对应关系因为服务与端口的这种一一对应的关系，所以可以通过查询端口来查看服务状态1ps aux #查看系统中运行了哪些服务（包含程序） 查询系统中开启的服务12345678netstat -tlunp -t:列出tcp数据 -u:列出udp数据 -l:列出正在监听的网络服务(不包含已连接的网络服务) -n:用端口号来显示服务，而不是服务名 -p：列出该服务的进程id（PID）netstat -an #查看系统中开了哪些程序和服务占用了端口 服务的启动与自启动服务启动：就是在当前系统中让服务运行，并提供功能。服务自启动：让服务在系统开机或者重启动之后，随着系统的启动而自动启动服务。 推荐统一用配置文件的方式，这样不容易冲突 chkconfig off不需要添加启动级别 xinetd自启动和启动是相通的，相互一致 源码包安装服务的启动使用绝对路径，调用启动脚本来启动。不同的源码包的启动脚本不同。可以查看源码包的安装说明，其中有启动脚本的方法 让源码包的服务能被service命令管理启动：在init.d目录中做个软链接`ln -s /usr/local/apache2/bin/apache /etc/init.d/ 让源码包服务能被 chkconfig 与 ntsysv 命令管理自启动 12345678vi /etc/init.d/apache# chkconfig:35 86 76#指定httpd脚本可以被chkconfig命令管理。#格式： chkconfig ： 运行级别 启动顺序 关闭顺序#description： source package apache #说明，内容随意。把这两句加到/etc/rc.d/init.d/apachetctl 保存(需要带#)然后chkconfig --add apache 源码安装的Apache输入IP地址默认打开的网页是/usr/local/apache2/htdocs/index.htmlrpm包安装的Apache默认打开的是/var/www/html/下的文件，但是默认是没有的，所以打开Apache测试页。当在这个目录下建一个网页后，打开的是新增的网页。 /etc/rc3.d/下面的文件是运行级别3时，系统开启与关闭分别要执行的服务文件，启动顺序与关闭顺序不能和现有的冲突]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux安装Fiddler]]></title>
+    <url>%2F2018%2F05%2F11%2FLinux%E5%AE%89%E8%A3%85Fiddler%2F</url>
+    <content type="text"><![CDATA[安装mono： 1sudo apt install mono-complete 下载Fiddlerhttps://www.telerik.com/download/fiddler 用mono安装它，从提取的目录中运行： 1234mono Fiddler.exe#或者运行mono /path/to/extracted/fiddler/Fiddler.exe]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 安装Tomcat并部署Java web项目]]></title>
+    <url>%2F2018%2F05%2F07%2FLinux-%E5%AE%89%E8%A3%85Tomcat%E5%B9%B6%E9%83%A8%E7%BD%B2Java-web%E9%A1%B9%E7%9B%AE%2F</url>
+    <content type="text"><![CDATA[在Linux上安装JDK略 在Linux上安装FTP略 在Linux上安装Tomcat下载Tomcat，利用FTP上传到服务器上1234567891011121314#解压，位置随意tar -zxvf apache-tomcat-8.0.29.tar.gz#防火墙里面开放8080端口vim /etc/sysconfig/iptables#重启防火墙service iptables restart#启动Tomcat/usr/local/tomcat/bin/startup.sh#tomcat自启动 vim /etc/rc.d/rc.local/usr/local/tomcat/bin/startup.sh Idea打包Java web项目点击Idea左下角，在右侧出现maven project选项，单击maven project选项，出现菜单，选择其中的Lifecycle菜单项，展开，执行里面的package命令即可。在项目文件夹/target/下可以找到 *.war 文件。 将war文件部署到tomcat上 将war文件拷贝到tomcat安装目录的$TOMCAT_HOME/webapps文件夹下。 修改$TOMCAT_HOME/conf/server.xml，在Host配置段中添加类似于如下内容：1&lt;Context path=&quot;/&quot; docBase=&quot;appname.war&quot; debug=&quot;0&quot; privileged=&quot;true&quot; reloadable=&quot;true&quot;/&gt; docBase=”appname.war”中的appname.war 替换成自己的war的名字。 重启tomcat，然后访问http://localhost:8080/appname 即可。 参考： https://blog.csdn.net/to_baidu/article/details/52823402 https://blog.csdn.net/yums467/article/details/51660683]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux ftp命令]]></title>
+    <url>%2F2018%2F05%2F07%2FLinux-ftp%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[连接ftp服务器1ftp [hostname| ip-address] 列出文件列表以及切换目录12lscd 下载文件下载文件通常用get和mget这两条命令。 123456789101112#get [remote-file] [local-file]#获取远程服务器上/usr/your/1.htmftp&gt; get /usr/your/1.htm 1.htmmget [remote-files]#从远端主机接收一批文件至本地主机#获取服务器上/usr/your/下的所有文件cd /usr/your/mget *.*#显示下载进度ftp&gt; hash 上传文件注意上传命令需要指定目标文件名12345678910put local-file [remote-file]#将本地一个文件传送至远端主机中。#把本地的1.htm传送到远端主机/usr/your,并改名为2.htmftp&gt; put 1.htm /usr/your/2.htmmput local-files#将本地主机中一批文件传送至远端主机。#把本地当前目录下所有html文件上传到服务器/usr/your/ 下ftp&gt; cd /usr/yourftp&gt; mput *.htm 断开连接12bye：中断与服务器的连接ftp&gt; bye 改变传输模式ftp的传输模式有ascii模式和二进制模式直接输入ascii则设置传输模式为ascii模式直接输入binary则设置传输模式为binary模式 12ftp&gt; asciiftp&gt; binary]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 安装vsftpd]]></title>
+    <url>%2F2018%2F05%2F07%2FLinux-%E5%AE%89%E8%A3%85vsftpd%2F</url>
+    <content type="text"><![CDATA[记，这篇文章实际是相当复杂的，主要原因是出于安全考虑增加了很多内容，如果只是局域网内使用不需要如此复杂，只需要安装、关闭匿名、指定目录和用户，参考https://fengrenxiaoli.github.io/2018/05/18/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%89%E8%A3%85ftp/ vsftpd 的全称是”very secure FTP daemon“，是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。 总结起来只有几步 安装 配置文件 防火墙 设置ftp用户 一、安装FTP服务器1234#查看是否已经安装vsftpdrpm -qa | grep vsftpdyum -y install vsftpd 二、手动启动，并使其能够从下次系统启动时自动启动123systemctl start vsftpdsystemctl enable vsftpd#chkconfig vsftpd on 三、允许从外部系统访问FTP服务123firewall-cmd --permanent --zone=public --add-port=21/tcpfirewall-cmd --permanent --zone=public --add-service=ftpfirewall-cmd --reload 四、备份配置文件12cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.bakcp /etc/vsftpd.userlist /etc/vsftpd.userlist.bak 五、配置/etc/vsftpd/vsftpd.conf没有的请自行添加12345678910111213anonymous_enable = NO＃禁用匿名登录local_enable = YES＃允许本地登录write_enable = YES＃启用更改文件系统的FTP命令local_umask = 022＃用于本地用户创建文件的umask值dirmessage_enable = YES＃用户首次进入新目录时启用显示消息xferlog_enable = YES＃会保存一个日志文件，详细说明上传和下载connect_from_port_20 = YES＃使用服务器机器上的端口20（ftp-data）进行端口连接xferlog_std_format = YES＃保持标准的日志文件格式listen = NO＃阻止vsftpd在独立模式下运行listen_ipv6 = YES＃vsftpd将监听IPv6套接字而不是IPv4套接字pam_service_name = vsftpd＃vsftpd将使用的PAM服务的名称userlist_enable = YES＃启用vsftpd加载用户名列表tcp_wrappers = YES＃打开tcp FTP基于用户列表文件允许/拒绝对用户的FTP访问默认情况下，如果userlist_enable = YES 并且userlist_deny = YES，在userlist_file=/etc/vsftpd/user_list列出的用户都无法登录访问FTP。 如果userlist_deny = NO，这意味着只有userlist_file = /etc/vsftpd/user_list中明确列出的用户才能登录。 123userlist_enable = YES ＃vsftpd将加载从userlist_file给出的用户名列表userlist_file = /etc/vsftpd/user_list＃存储用户名userlist_deny = NO when users login to the FTP server, they are placed in a chroot’ed jail, this is the local root directory which will act as their home directory for the FTP session only.当用户登录到FTP服务器时，他们被放置在chroot jail里，chroot jail是本地根目录，会作为FTP会话的主目录 限制FTP用户到他们的主目录12chroot_local_user = YES allow_writeable_chroot = YES chroot_local_user = YES意味着本地用户通过默认设置登录后，他们的主目录将被放置在chroot jail中 并且默认情况下，vsftpd不允许chroot jail目录因安全原因而可写，但是，我们可以使用选项allow_writeable_chroot = YES来覆盖此设置。 保存该文件并关闭它 六、配置SELinux12setsebool -P ftp_home_dir on#会报错 set SELinux rule to allow FTP to read/write user’s home directory12345semanage boolean -m ftpd_full_access --on-bash: semanage: command not foundyum provides semanageyum install policycoreutils-pythonsystemctl restart vsftpd 七、测试FTP服务器创建一个FTP用户12useradd -d /home/ftptest -g ftp -s /sbin/nologin ftptestpasswd ftpuser 将用户添加到文件/etc/vsftpd/user_list中12echo ftptest &gt;&gt; /etc/vsftpd.userlistcat /etc/vsftpd.userlist 分别测试匿名用户anonymous、root、ftptest 1234567ftp 192.168.0.203anonymous 530root 530ftptest 230#root因为在/etc/ftpusers目录里所以无法登录，该目录为禁止登录的用户#ftptest进入后，执行ls，可以测试是否为ftptest用户自己的主目录 八、配置不同的FTP用户主目录 使用allow_writeable_chroot=YES具有某些安全隐患，特别是在用户具有上载权限或shell访问权限的情况下。只有当你确切地知道你在做什么时才激活这个选项。需要注意的是，这些安全性影响并不是vsftpd特有的，它们适用于所有提供将本地用户放入chroot jail的FTP守护进程。 注释掉之前的语句1＃allow_writeable_chroot = YES 为用户创建替代本地根目录的目录（ravi您的可能不同），并将所有用户的写入权限移除到此目录123mkdir /home/ftptest/ftpchown nobody：nobody /home/ftptest/ftpchmod a+w /home/ftptest/ftp 修改vsftpd配置文件12user_sub_token = $USER＃将用户名插入本地根目录local_root = /home/$USER/ftp＃定义任何用户本地根目录 重启vsftpd 注意上传命令需要指定目标文件名1ftp put /path/to/local_file remote_file_name 九、开放端口如果使用云服务器，还需要开放端口 FTP服务器使用被动模式，需要先进行配置12345vi /etc/vsftpd/vsftpd.confpasv_enable=YESpasv_min_port=40000pasv_max_port=41000 这里使用阿里云服务器打开控制台，云服务器ECS-&gt;安全组-&gt;配置规则添加21和40000-41000 参考： 重点https://www.kancloud.cn/chandler/bc-linux/52710 http://how2j.cn/k/deploy2linux/deploy2linux-openport/1604.html https://www.tecmint.com/install-ftp-server-in-centos-7/ https://wsgzao.github.io/post/vsftpd/ https://blog.csdn.net/aiynmimi/article/details/77012507]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 安装Apache]]></title>
+    <url>%2F2018%2F05%2F07%2FLinux-%E5%AE%89%E8%A3%85Apache%2F</url>
+    <content type="text"><![CDATA[安裝Apache1sudo yum install httpd 启动Apache，并且设定为开机自动启动12sudo systemctl start httpdsudo systemctl enable httpd 允许http服务通过防火墙CentOS 7的内置防火墙默认设置为阻止网络流量12345sudo firewall-cmd --add-service=http --permanentsudo firewall-cmd --add-service=https --permanent#sudo firewall-cmd --permanent --add-port=80/tcp#sudo firewall-cmd --permanent --add-port=443/tcpsudo systemctl restart firewalld 重启Apache1sudo systemctl restart httpd.service 配置文件 /etc/httpd/conf/httpd.conf1234567891011DocumentRoot &quot;/var/www/html/example.com/public_html&quot;...&lt;IfModule prefork.c&gt; StartServers 5 MinSpareServers 20 MaxSpareServers 40 MaxRequestWorkers 256 MaxConnectionsPerChild 5500&lt;/IfModule&gt; /etc/httpd/conf.d/vhost.conf12345678910NameVirtualHost *:80&lt;VirtualHost *:80&gt; ServerAdmin webmaster@example.com ServerName example.com ServerAlias www.example.com DocumentRoot /var/www/html/example.com/public_html/ ErrorLog /var/www/html/example.com/logs/error.log CustomLog /var/www/html/example.com/logs/access.log combined&lt;/VirtualHost&gt; 创建上面引用的目录：1sudo mkdir -p /var/www/html/example.com/&#123;public_html,logs&#125; 检查Apache的状态1sudo systemctl status httpd 停止Apache1sudo systemctl stop httpd 参考： https://www.linode.com/docs/web-servers/apache/install-and-configure-apache-on-centos-7/https://www.liquidweb.com/kb/how-to-install-apache-on-centos-7/SELinux：https://www.brilliantcode.net/170/centos-7-install-apache-httpd/SELinux：https://www.brilliantcode.net/145/centos-7-check-selinux-status-enabled-or-not/]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux desktop entriy]]></title>
+    <url>%2F2018%2F05%2F07%2FLinux-desktop-entry%2F</url>
+    <content type="text"><![CDATA[在 Windows 平台上，用户可以通过点击位于桌面或菜单上的快捷方式轻松打开目标应用程序。现代 Linux 桌面系统的应用程序是通过*.desktop文件管理的。 一个应用程序对应一个.desktop文件，根据是用户自己可见还是所有用户可见的不同而放在 ~/.local/share/applications或者 /usr/share/applications/ 目录中。 可以自己添加.desktop文件来增加应用程序到launcher里，*.desktop文件格式如下： 1234567891011[Desktop Entry]Encoding=UTF-8Name=火狐浏览器Name[en]=FirefoxName[en_US]=FirefoxComment=Firefox for jasonExec=/opt/firefox/firefoxIcon=/opt/firefox/browser/icons/mozicon128.pngTerminal=falseType=ApplicationCategories=Application;Network; 使用流程： 创建文件，以.desktop为后缀。 编写内容，修改权限 测试是否能双击启动程序 移动到/usr/share/applications/目录下 文件中不能有多余的全角或半角空格，否则会出错 参考： https://linux.cn/article-9199-1.html https://wiki.archlinux.org/index.php/Desktop_entries_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87) https://www.ibm.com/developerworks/cn/linux/l-cn-dtef/index.html https://blog.csdn.net/lwjdgl/article/details/49204659]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux用户管理03 配置文件]]></title>
+    <url>%2F2018%2F05%2F06%2FLinux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[用户：使用操作系统的人用户组：具有相同系统权限的一组用户 用户和用户组配置文件12345678910111213141516171819202122232425/etc/group 存储当前系统中所有用户组的信息-Group： x ： 501 ：abc,def,xyz-组名称：组密码占位符 ： 组编号：组中用户名列表组编号1-499是系统预留给软件的手动创建的用户从500开始/etc/gshadow 存储当前系统中用户组的密码信息-Group： * ： ：abc,def,xyz-组名称： 组密码 ：组管理者：组中用户名列表/etc/passwd 存储当前系统中所有用户的信息-user： x ： 123 ： 456 ： xxxxxxxx ：/home/user ： /bin/bash-用户名：密码占位符：用户编号： 用户组编号： 用户注释信息：用户主目录 ：shell类型/etc/shadow 存储当前系统中所有用户的密码信息-user ： vf;/Zu8sdf... ：：：：：-用户名 ： 密码 ：：：：：]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux用户管理02 查看用户]]></title>
+    <url>%2F2018%2F05%2F06%2FLinux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-%E6%9F%A5%E7%9C%8B%E7%94%A8%E6%88%B7%2F</url>
+    <content type="text"><![CDATA[查看用户12345678910w：查看登录用户信息w 用户名user:登陆的用户名tty:登陆终端from:从哪个IP地址登陆login@:登陆时间idle:用户闲置时间jcpu:和终端连接所有进程占用的时间pcpu:当前进程所占用的时间what:正在运行的命令 12345who：查看登录用户信息who 用户名登录名登陆终端登录时间（登陆来源IP地址） 1234567last：查询当前和过去登录的用户信息last 默认读取var/log/wtmp用户名登录终端登陆IP登录时间退出时间（在线时间） 1234567lastlog：查看所有用户最后一次登录信息lastlog lastlog命令默认是读取/var/log/lastlog文件内容用户名登录终端登陆ip最后一次登陆时间 12345whoami #显示当前登录用户名id 用户名 #显示指定用户信息，包括用户编号、用户编号、主要组编号及名称、附属组列表groups 用户名 #显示用户所在的所有组，包括主要组和附属组chfn 用户名 #设置用户资料，依次输入用户资料finger 用户名 #显示用户详细资料，与chfn对应 ###切换用户1234su 用户名 #切换到其他用户下su #后面什么也不接表示切换到root用户下#普通用户进其他用户需要密码，root用户进普通用户不需要密码 其他命令12345678touch /etc/nologin #在etc目录下创建一个nologin文件(文件内容无关紧要)，暂时禁止除管理员外的用户登录passwd -l user1 #锁定账户passwd -u user1 #解锁账户passwd -d user1 #清除用户密码，无密码登录wall [想说的话] 相当于喇叭广播的功能talk [用户名] 聊天框里聊天write [用户名] 相当于密聊]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux用户管理01 新增/修改/删除用户]]></title>
+    <url>%2F2018%2F05%2F06%2FLinux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-%E6%96%B0%E5%A2%9E-%E4%BF%AE%E6%94%B9-%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7%2F</url>
+    <content type="text"><![CDATA[用户基本命令1234567891011useradd 用户名 #添加用户，所在用户组与用户名同名useradd -g 组名 用户名 #添加用户，指定其所在的组useradd -d 目录 用户名 #添加用户，制定其用户的家目录，没有指定所在组时，默认用户名就为用户组名#passwd 用户名 #新建的用户需要设置密码，设置用户目录usermod -c 注释信息 用户名 #为指定用户名添加注释usermod -l 新用户名 旧用户名 #更改用户名usermod -d 目录 用户名 #更改用户个人文件夹的路径usermod -g 新用户组 用户名 #更改指定用户的所属组userdel 用户名 #删除用户，但是不删除用户个人文件夹里的文件userdel -r 用户名 #删除用户并且删除用户个人文件夹里的文件 用户组基本命令12345groupadd 组名 #创建用户组groupadd -g 组编号 组名 #创建用户组并指定组编号groupmod -n 新组名 原组名 #更改用户组名称groupmod -g 组编号 组名 #设置用户组编号groupdel 组名 #删除用户组，前提是用户组内没有用户 附属组用户可以同时属于多个组，一个是主要组，其他的为附属组 12345678910111213141516gpasswd -a 用户名 附属组 #给用户添加附属组gpasswd -d 用户名 附属组 #把用户从附属组中删除newgrp 组名#用户创建的文件默认为主要组；需要以附属组创建文件的，需将身份切换到附属组#把用户的组切换到附属组，需要用户登录后，自己执行，切换#组密码是在组切换时用的，如果有会要求输入组密码useradd -g group1 -G group2,group3... 用户名 #同时指定主用户组和附属用户组gpasswd 用户名 #更改组密码,回车会有相应的提示操作gpasswd -a 用户名 附属组，附属组，.....#添加附属组usermod -g#修改主要组]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux磁盘管理06 swap分区]]></title>
+    <url>%2F2018%2F05%2F06%2FLinux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-swap%E5%88%86%E5%8C%BA%2F</url>
+    <content type="text"><![CDATA[为磁盘添加SWAP交换分区 1.首先建立一个普通的Linux分区123fdisk /dev/sdb#参考MBR分区#输入p查看sdb的分区 2.修改分区类型的16进制编码12345输入t，输入要修改的磁盘编号 这里是 6（sdb6的6）；输入 L 来查看可以修改成的类型再输入82（Linux swap）,保存成功输入p来查看已经保存的情况输入w保存分区 3.格式化交换分区1mkswap（后面跟随设备名称） /dev/sdb6 完成格式化 4.启动交换分区123swapon /dev/sdb6 #启动交换分区free #查看加载状况swapoff /dev/sdb6 #关闭交换分区]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux磁盘管理05 挂载命令]]></title>
+    <url>%2F2018%2F05%2F06%2FLinux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-%E6%8C%82%E8%BD%BD%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[mount 命令123456789101112mount #查看系统中已挂载的设备mount -a #依据配置文件/etc/fstab内容，自动挂载 #光盘、U盘的数据不建议写入自动挂载中，否则开机时没有光盘和U盘的话，系统崩溃mount [-t 文件系统] [-o 特殊选项] [设备文件名] [挂载点]-t：加入文件系统类型来指定挂载的类型，ext3,ext4,iso9660等文件系统-o：可以指定挂载的额外选项mount -o remount，noexec /home#/home内的执行文件无法执行mount -o remount，exec /home ###挂载光盘1234mkdir /mnt/cdrom/ #建立挂载点mount -t iso9660 /dev/sr0 /mnt/cdrom #/dev/sr0是光盘设备名，也可以用/dev/cdrom（sr0的软连接，但需要系统完全启动才能用） -t iso9660 可以省略 因为系统知道sr0是iso9660 ###卸载1234umount [设备文件名或挂载点] umount /mnt/cdrom umount /dev/sr0 #都可以 卸载时位置不能在光盘目录下 ###挂载U盘123456789fdisk -l #查看U盘设备文件名 #U盘可以看成系统的第二块硬盘mount -t vfat /dev/sdb1 /mnt/usb/ #-t vfat windows的fat32文件系统注：linux默认不支持ntfs文件系统，所以移动硬盘正常没法挂载，能挂载后也只能读，不能写，所以用windows数据一般用网络传播#解决办法1. 编译内核 让linux 支持NTFS文件系统 2. 安装ntfs-3g 手动挂载分区手动挂载的分区，不具有永久性，系统重启后，挂载就会失效12345678910# 没有挂载无法使用，分区默认的挂载目录是/mnt目录sudo fdisk -l#查看系统的硬盘和硬盘分区情况，了解需要的设备，比如移动硬盘/U盘/windows下的分区/光盘sudo mkdir -p /media/usb#创建挂载目录sudo mount /dev/sdb /media/usb#挂载sudo umount /dev/sdb#卸载 永久挂载1vim /etc/fstab]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux磁盘管理04 格式化]]></title>
+    <url>%2F2018%2F05%2F06%2FLinux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-%E6%A0%BC%E5%BC%8F%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[格式化：又称逻辑格式化，它是指根据用户选定的文件系统（eg：FAT16（最大支持2GB分区），FAT32（单个文件大小不能超过4GB，最大支持16TB分区），NTFS，EXT2，EXT3，EXT4（centos6默认文件系统）等），在磁盘特定区域写入特定数据，在分区中划出一片用于存放文件分配表、目录表等用于文件管理的磁盘空间。 格式化的目的并不是清空数据，其根本目的是为了写入文件系统，能够更快查找读写数据，但是在进行格式化的操作时会先清空原有数据。 格式化具体进行的操作：将整个分区分割成等大小的数据块（Block），每个数据块默认4KB，存储文件的最小，可以手动选择1KB、2KB或4KB。假设存放10KB的文件，会使用3个数据块，三个数据块不一定是连续的，最后的一数据块中即使没有放满，也不能再存放其他文件。在分区列表中建立一个二维表格，记录了文件的id号（即文件放在那些数据库中，叫做iNode）、文件修改时间、文件的访问权限。操作文件时先访问此二维表进行权限匹配。 parted工具可以格式化，但是parted支持的文件系统有限无论使用MBR，还是GPT进行的分区，都可以使用”mkfs”进行分区格式化 123mkfs (-make for system)mkfs -t ext3 /dev/sda6 #将sda6分区格式化为ext3格式mkfs -t ext2 /dev/sda7 #将sda7分区格式化为ext2格式 MBR只有主分区和逻辑分区可以格式化， 扩展分区不可以格式化GPT类型格式化后，使用fdisk看不到各个分区的系统文件格式， 必须启动parted工具的print指令来查看 1ls -l /dev/sdb #查看sdb磁盘上的设备情况]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux磁盘管理03 GPT分区]]></title>
+    <url>%2F2018%2F05%2F06%2FLinux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-GPT%E5%88%86%E5%8C%BA%2F</url>
+    <content type="text"><![CDATA[MBR分区模式和GPT分区模式比较MBR 区容量最大2TB 分区命令fdisk /dev/sdxx 分区完毕，执行-w 写入分区表才能生效 分区表类型是：msdos 缺点：限制多，跟不上发展 GPT 主分区个数”几乎”没有限制（最多128个） 单个分区容量”几乎”没有限制(最大18EB) 使用parted命令工具（同时支持MBR,GPT分区） 分区表类型是：gpt 1EB=1024PB,1PB=1024TB,1TB=1024GB 缺点：GPT主分区中不适合安装x86的系统架构 使用parted进行分区fdisk只能给硬盘做MBR分区parted既能给硬盘做MBR分区，又能做GPT分区 123456789101112131415161718192021222324输入parted命令，启动parted分区工具，默认分区目标是系统的第一块硬盘输入help，查看帮助信息输入select /dev/sdc，切换分区目标磁盘输入mklable命令，给目标硬盘指定分区表的类型，然后才能给硬盘添加分区如果使用MBR分区，输入mklabel msdos；使用GPT分区，输入mklabel gpt输入print 查看当前分区详情；输入print all命令，查看所有分区详情parted分区操作模式：①交互模式（使用提问模式选择） ②命令模式**交互模式**输入mkpart #添加分区输入分区名称选择分区系统类型分区从第几MB开始，4K对齐对硬盘分区很重要，为了达到最佳性能，分出1MB空间，让数据块对齐结束位置**命令模式**命令模式下，分区名称不能省略mkpart test(分区名称) 2000(开始位置2000MB) 3000(结束位置MB)rm [分区编号] #删除分区unit GB #使用GB给分区指定开始和结束位置quit #退出分区工具 fdisk分区设计完成后 最后要通过w来写入硬盘,parted不需使用w保存]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux磁盘管理02 MBR分区]]></title>
+    <url>%2F2018%2F05%2F06%2FLinux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-MBR%E5%88%86%E5%8C%BA%2F</url>
+    <content type="text"><![CDATA[硬件设备都是由Linux系统自动识别的，必须对硬盘进行分区、格式化、挂载后才能使用 分区的意义：http://www.cnblogs.com/personnel/p/4584926.html Windows与Linux的磁盘使用流程 Windows：分区–&gt;格式化–&gt;分配盘符 Linux：分区–&gt;格式化–&gt;给每个分区起“设备文件名”–&gt;分配挂载点 MBRMBR=主引导区记录。硬盘的0磁道的第一个扇区称为MBR，它的大小是512字节，而这个区域可以分为三个部分。第一部分为pre-boot区（预启动区），占446字节；第二部分是Partition table区（分区表），占64个字节，硬盘中分区有多少以及每一分区的大小都记在其中。第三部分是magic number，占2个字节，固定为55AA。 MBR是针对整个硬盘而言的，而引导扇区是对单个分区而言的。每个分区的第一扇区就是引导扇区：像MBR一样，引导扇区里包含了一些引导操作系统所需要的相关信息。如果引导扇区被破坏了是个非常严重的问题，那就意味着这个分区不能被访问，安装在这个分区上的操作系统也不能被启动。所以说修复引导是使得每一个分区都能被正确识别引导。 ##MBR分区类型（所有系统都适用）： 主分区最多只能分4个，由硬盘的结构决定（硬盘分为一个个等大小的扇区，每个扇区512字节，其中446个字节用于记录启动信息， 剩下的64个字节进行分区表示，64个字节中每16个字节表示一个分区，所以最多只能表示4个分区，故而硬盘结构如果不变，主分区最多只能分4个）。每个主分区都有各自独立的引导块，可以用fdisk设定为启动区。 Windows下A、B作为软分区的盘符，C作为第一个主分区的盘符，所以最多还能分23个子分区。 ####扩展分区 一块硬盘中扩展分区只能有一个 主分区和扩展分区总数不能超过4个 可以将一个主分区作为扩展分区，即三个主分区，一个扩展分区，总计4个分区； 不能直接写入数据，只能用作包含逻辑分区。 区分扩展分区和逻辑分区，是突破主分区只能有4个的最主要的方法。 逻辑分区可以有多个，没有独立的引导块，不能用fdisk设定为启动区。 设备文件名Linux中一切皆文件，包括硬件、用户等。硬件的文件名即称作“硬件设备文件名”，硬件设备文件名作为硬件的标准称呼，是由Linux自动检测并分配的。硬件设备文件在目录中处于根目录（“/”代表根目录，最高级目录）下的dev文件夹（专用于放硬件设备文件）下，即“/dev”文件夹下。 分区的设备文件名分配规则hd代表IDE接口，sd代表SCSI接口或SATA接口；a代表第一块硬盘，如有多块硬盘b代表第二块硬盘，c代表第三块硬盘，以此类推；1代表一块硬盘上的第一个分区，2代表此硬盘的第二个分区，3代表此硬盘第三个分区，以此类推，其中1234编号只能代表主分区或扩展分区，逻辑分区的编号从5开始分配，最大分区编号16/dev/sda1 第一块SATA接口硬盘的第一个分区 挂载点Windows中使用字母标识符来指定在这个分区上的文件和目录，而Linux中使用目录作为挂载点（盘符）绝大多数目录都可以作为挂载点（部分必须和根目录放在同一个分区的目录除外，否则将导致系统不能启动）包括你手工创建的目录。 ##Linux 分区 ####必须分区： 根分区 /（挂载点根目录，根目录中要保存其他所有数据，根目录如果没有硬盘空间，根下的很多数据将没有地方存放）swap分区（交换分区，可理解为虚拟内存， 当真实内存不足时，可将swap分区中的硬盘空间作为内存使用，如果内存小于等于4GB，推荐swap分配内存的两倍，若内存大于4GB，建议swap空间与内存相等，不需要挂载点，swap分区不是给用户看的，是系统直接调用的所以无挂载点） 注：启动分区/boot需不需要创建要看实际情况，需要使用LVM时，由于/boot分区不支持lvmfs，所以要单独创建，这个目录是系统文件，一般不会动，但不要太小，如果升级内核可能就满了。个人使用没有必要 使用 “fdisk”命令进行硬盘分区123456789101112131415161718192021fdisk /dev/sdb 进入sdb硬盘分区模式输入m，查看命令帮助信息新建分区输入n，给硬盘添加一个新的分区输入p，主分区输入e，扩展分区，扩展分区不能直接使用，需要添加逻辑分区输入l，扩展分区只能有一个，不能再分扩展分区了，所以显示的是逻辑分区，5代表分区的编号从5开始给分区指定编号，1-4是预留给主分区或者扩展分区的Partition number( 1-4,defautl 1):给这个分区指定扇区发起始和终止位置扇区的起始位置： First sector (2048 - 16777215，default 2048):不输入默认2048扇区的终止位置：Last sector,+sectors or +size&#123;K,M,G&#125;&#123;2048-16777215,default 16777215&#125;:3000MCommand(m for help):输入p查看已经分好的区Command(m for help):输入n 继续添加分区删除分区： 输入d，随后输入删除的分区号逻辑分区是在拓展分区之内的，如果删除的拓展分区，随之而然的逻辑分区也被删除写入分区：输入w，直接就是保存并生效了； 参考： https://shengbao.org/691.html http://blog.51cto.com/13323775/2053921]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux磁盘管理01 基本命令]]></title>
+    <url>%2F2018%2F05%2F06%2FLinux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[df12345678df：查看磁盘分区使用状况-l：仅显示本地默认磁盘（默认）-a：显示所有文件系统的磁盘使用情况-h：以1024进制计算最合适的单位显示磁盘容量（默认KB显示）-H：显示以1000进制计算最合适的单位显示磁盘容量-T：显示磁盘分区类型-t：显示指定类型文件系统的磁盘分区 //如：df -t ext4-x：不显示指定类型文件系统的磁盘分区 du123456789du 统计磁盘上的文件大小-b 以byte为单位统计文件 //统计出来的都是四舍五入的大小-k 以KB为单位统计文件 //统计出来的都是四舍五入的大小-m 以MB为单位统计文件 //统计出来的都是四舍五入的大小-h 按照1024进制以最适合的单位统计文件-H 按照1000进制以最适合的单位统计文件-s 指定统计目标 du -s tmpdu -sb *.zip]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux su root和sudo su]]></title>
+    <url>%2F2018%2F05%2F05%2FLinux-su-root%E5%92%8Csudo-su%2F</url>
+    <content type="text"><![CDATA[来自https://askubuntu.com/questions/86095/does-executing-sudo-su-and-su-root-do-the-same-thing?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa Does executing sudo su and su root do the same thing?What are the technical differences between the two? The only thing I noticed is that sudo surequires you to enter your own password (assuming you’re not root) su rootrequires you to enter root’s password. However both seem to log you into the root user account. The second command cannot be executed in a default Ubuntu installation, where the root account is not enabled. But supposing you have unlocked the root account giving him a password, the two commands could only differ in the environment and shell variable set, I think. Compare the output of env in the two situations, and maybe also the output of set to see the differences.]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux 关机和重启]]></title>
+    <url>%2F2018%2F05%2F05%2FLinux-%E5%85%B3%E6%9C%BA%E5%92%8C%E9%87%8D%E5%90%AF%2F</url>
+    <content type="text"><![CDATA[关机1234567891011121314151617shutdown [选项] 时间#相比其它命令更安全，在关机和重启时会正确保存正在运行的程序选项： -c:取消前一个关机命令 -h:关机（half） -r:重启shutdown -r 05:30shutdown -r 05:30 &amp; (后台运行)shutdown -r now#在服务器上尽量避免远程关机，因为再开机麻烦，所以远程重启就足够了#服务器由于经常进行高速运算强制重启非常容易损坏硬件，也容易造成数据丢失，所以一定要小心#其他关机命令(不安全，慎用)halfpoweroffinit 0 重启12reboot (相对安全)init 6 (尽量不要用) 系统运行级别0 关机1 单用户 （与windows安全模式相似）2 不完全多用户，不含NFS服务（NFS：文件共享服务）3 完全多用户（字符界面）4 未分配5 图形界面（如果装了图形界面，init 5 进入图形界面）6 重启12345678runlevel# 查询系统运行级别# 结果：N 3 (当前是3 N是上一次登陆级别)cat /etc/inittab # 查看/etc/inittab的内容id:3:initdefault: # 修改系统默认运行级别，这里默认是3 退出登录命令123logout # LINUX默认同时256个登录，最大支持6万多# 每次使用后，建议退出当前用户，避免他人因账户占用无法使用！与windows中的注销相似！ 注意：如果关闭远程登录xshell时直接点X，该用户就卡在计算机里，因为没有正确退出，所以一定养成正确退出登录的习惯]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux 帮助命令]]></title>
+    <url>%2F2018%2F05%2F05%2FLinux-%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[man1234567891011121314151617181920212223man 命令# 获取指定命令的帮助# man是manual的缩写# 最常用的帮助命令# q退出# 输入:/-d 搜索&quot;-d&quot;字符串，按n往下搜“-d”,shift+n 往上搜“-d”man -f 命令# 查看命令的所有帮助等级# 相当于 whatis 命令# 因为whereis命令可以看到命令的帮助文档目录，所以也可以查看目录的等级man 级别 命令#查看相应等级的命令man -5 passwdman -4 nullman -8 ifconfigman -k 命令 # 相当于 apropos 命令# 搜索含有关键词“命令”的所有帮助文档man -k passwd# 搜索含有关键词“passwd”的所有命令的帮助文档 man的级别： 查看命令的帮助 查看可被内核调用的函数的帮助 查看函数和函数库的帮助 查看特殊文件的帮助（主要是/dev目录下的文件） 查看配置文件的帮助 查看游戏的帮助 查看其它杂项的帮助 查看系统管理员可用命令的帮助 查看和内核相关文件的帮助 –help123命令 --help #获取命令选项的帮助ls --help helpshell内部命令帮助123456help shell内部命令#whereis可以用来判断一个命令是否是shell内部命令#ls在/bin/下面有可执行文件，说明ls命令不是shell内部命令#cd命令在/bin/下面没有相应的可执行文件，所以是shell自带的命令man命令不能只获取shell的内部命令#help命令只能获取shell的内部命令 info1234567info 命令#info里面内容十分繁琐，是关于命令的一个巨大的帮助文档，里面有各个版本对于此命令的说明。回车：进入带*号的说明-u: 进入上层页面-n: 进入下一个帮助小节-p: 进入上一个帮助小节-q: 退出]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux文件管理05 常用目录]]></title>
+    <url>%2F2018%2F05%2F05%2FLinux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E5%B8%B8%E7%94%A8%E7%9B%AE%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[linux 是个严谨的操作系统，一级目录都严格规定 / 根目录 /home 普通用户的家目录/root 超级用户的家目录/tmp 临时目录，可存放临时数据 /lib 系统库保存目录操作系统中并没有把所有功能都写入linux中，而将常用的功能写成一个个程序库，这些库保存在lib中，当需要时调用即可。避免全部写入linux中，使其无比庞大且运行缓慢。 /mnt/media/misc三个都可以用来挂载 /proc 直接写入内存的/sys 直接写入内存的这两个目录保存的是内存的挂载点，不能直接操作。其中的数据直接写在内存中。避免数据丢失或由于内存溢出导致系统崩溃。 /boot 启动目录，启动相关文件/dev 设备文件保存目录/etc 配置文件保存目录/var 系统相关文档内容 /usr 系统软件资源目录/usr/bin/ 系统命令（普通用户）/usr/sbin/ 系统命令（超级用户） /bin 命令保存目录（普通用户就可以读取的命令）/sbin 命令保存目录（超级用户才能使用的目录）根目录下的bin和sbin，usr目录下的bin和sbin，这四个目录都是用来保存系统命令。其中，bin目录下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式来区分用户权限。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux文件管理04 链接命令]]></title>
+    <url>%2F2018%2F05%2F05%2FLinux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E9%93%BE%E6%8E%A5%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[命令123ln -s [原文件][目标文件] （link）#生成链接文件-s 创建软链接 硬链接 拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，1.将分区划分为等大小的block数据块，该数据块通常为4KB。2.建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件时，会先到分区表中查找文件所对应的block存储位置，接着到相应位置取出，并返回给用户。）硬链接与原文件拥有相同的i节点。因此，与原文件非常相似。当删除原文件或硬链接文件的任何一文件，不影响文件索引操作。可看做，同一个文件的不通进入点。它是同样的存储空间。 可通过i节点识别（相同的i） 不能跨分区建立 不能针对目录使用，只有文件才可以创建 1234ln ./source/abc ./target/bcd.hard# 创建后，引用计数+1ls -i ./source/abc ./target/bcd.hard# 可使用ls -i 来查看文件i节点号 不建议创建硬链接文件文件太过隐蔽，除了有i节点这样一个标识之外，很难区分它是不是硬链接硬链接限制较多，不能跨分区，不能针对目录，使用当中容易出现错误使用方法 ##软链接 类似于Windows快捷方式 软链接拥有自己的i节点和block块，但是数据块中只保存原文件的文件名和i节点号，并没有实际的文件数据。（拥有自己的分区表中索引数据,通过索引找到分区表中文件的目标索引数据，再通过目标索引数据，查找数据） lrwxrwxrwx l软链接， 软链接文件权限都为rwxrwxrwx, 虽然权限显示为777，但实际权限需要看原文件权限。 修改任意文件，另一个都改变 删除原文件，软链接不能使用 创建软链接，原文件一定要写绝对路径。否则，软链接会到它所在的同一目录去找原文件。 软链接的目的是：在不改变原目录/文件的前提下，起一个方便的别名。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux文件管理03 文件解压缩命令]]></title>
+    <url>%2F2018%2F05%2F05%2FLinux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[常用压缩格式： .zip .gz .bz2 常用解压缩格式： .tar.gz .tar.bz2 .rar格式安装123456#yum无法安装#查看需要下载的版本，https://www.rarlab.com/download.htmwget https://www.rarlab.com/rar/rarlinux-x64-5.6.b4.tar.gztar -zxvf rarlinux-x64-5.6.b4.tar.gzcd rarmake 压缩12#将/etc 目录压缩为etc.rar rar a etc.rar /etc 解压缩12rar x etc.rar unrar -e etc.tar .zip格式安装1yum -y install zip unzip 压缩1234zip 压缩文件名 源文件 #压缩文件zip -r 压缩文件名 源目录 #压缩目录 解压缩1unzip 压缩文件 .gz格式压缩123456789gzip 源文件#压缩为.gz格式的压缩文件，源文件消失gzip -c 源文件 &gt; 压缩文件#压缩为.gz格式，源文件保留gzip -c cangls &gt; cangls.gzgzip -r 目录#压缩目录下所有的子文件，但是不能压缩目录 解压缩12gzip -d 压缩文件 gunzip 压缩文件 .bz2格式12yum -y install bzip2#使用之前需要安装 没有安装会出现以下错误1234tar (child): lbzip2: Cannot exec: No such file or directory tar (child): Error is not recoverable: exiting now tar: Child returned status 2 tar: Error is not recoverable: exiting now 压缩12345bzip2 源文件 #压缩文件，源文件消失bzip2 -k 源文件 #压缩之后保留源文件 #注意：bzip2命令不能压缩目录 解压缩12bzip2 -d 压缩文件 #解压缩，-k保留压缩文件bunzip2 压缩文件 #解压缩，-k保留压缩文件 打包命令tar123456789101112131415161718192021222324252627282930tar -cvf 打包文件名 源文件 # 压缩为tar格式tar -zcvf 压缩包名.tar.gz 源文件 # 压缩为.tar.gz格式tar -jcvf 压缩包名.tar.bz2 源文件 # 压缩为.tar.bz2格式**参数j、z要放在前边**#解压tartar -xvf 打包文件名 #解压tar格式文件tar -zxvf 压缩包名.tar.gz #解压.tar.gz格式文件tar -jxvf 压缩包名.tar.bz2 #解压.tar.bz2格式文件-c：打包-v：显示过程-f：指定打包后的文件名-x：解打包-z：压缩为.tar.gz格式-j：压缩为.tar.bz2格式其他用法tar -jxvf 打包文件名 -C 绝对路径 #指定解压缩位置tar -zcvf 绝对路径（/tmp/）+打包文件名 源文件 源文件 #将多个文件解压到指定路径tar -ztvf 压缩包文件名 #查看压缩包内文件 参考： https://blog.csdn.net/yonggeit/article/details/72190246]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux文件管理02 文件搜索命令]]></title>
+    <url>%2F2018%2F05%2F05%2FLinux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[文件搜索命令 locate123456789locate 文件名#在后台数据库中按文件名搜索，搜索速度更快/var/lib/mlocate (保存的搜索数据库)#locate 命令所搜索的后台数据库#数据库不是实时的，更新频率大概一天更新一次updatedb#更新数据库 对于新建的文件，由于数据库没有更新，使用locate不能查到。可以使用 updatedb强制更新数据库后即可查到。可使用 locate locate搜索locate相关文件，可看到locate数据库。在不同linux中，该数据库名字稍微不同，例如，locatedb、slocate、mlocate。 缺点：只能按照文件名进行搜索，但常用。 配置文件123456789101112131415161718touch /root/canglstouch /tmp/canglsupdatedblocate cangls#显示为 /root/cangls #只有一条，而/tmp下的cangls没有显示出来#原因在于locate搜索遵循配置文件 `/etc/updatedb.conf`#在PRUNEPATHS 中配置了/tmp/目录不进行搜索。所以没有进行查找/etc/updatedb.conf 配置文件PRUNE_BIND_MOUNTS = &quot;yes&quot;#开启搜索限制，yes为后面三项都生效。no为 后面三项都不生效PRUNEFS = #搜索时，不搜索的文件系统PRUNENAMES =#搜索时，不搜索的文件类型PRUNEPATHS =#搜索时，不搜索的路径 命令搜索命令 whereis和which1234567891011121314151617181920whereis 命令名#搜索命令所在路径及帮助文档所在位置#只能搜索系统命令，不能搜索自己凭空创建的普通文件选项：-b:只查找可执行文件-m:只查找帮助文件#whoami 显示当前操作用户#who am i 显示登录用户#whatis ls 显示ls的作用which 命令名#搜索命令所在路径及别名#如果有别名，还能看到别名# whereis和which不能看到shell的默认命令（如：cd），只能看到外部安装的命令。PATH环境变量定义系统搜索命令的路径echo $PATH执行命令的时候都要在path定义的目录中去寻找 文件搜索命令 find12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152find [搜索范围][搜索条件]#搜索文件find /home -name 文件名# find搜索默认是完全匹配# 避免大范围的搜索，会非常浪费系统资源# find是在系统当中搜索符合条件的文件名，如果需要匹配，使用通配符匹配，通配符是完全匹配find /home -name &quot;[12]*&quot;find /home -name &quot;test[12]&quot;#要加引号*匹配任意内容?匹配任意一个字符[]匹配任意一个中括号内的字符find /home -mtime +10 在home目录下，查找10天前修改的文件find /home -mtime 10 在home目录下，查找10天前当天修改的文件find /home -mtime -10 在home目录下，查找10天内修改的文件# atime 文件访问时间# ctime 改变文件属性# mtime 修改文件内容find /root -iname test # 不区分要搜索的test大小写格式find /root -user root # -user 按文件所有者搜索# 搜索root目录下的所有属于root用户的文件find /root -nouser #没有所属者的文件，liunx中，每个文件都有所属者，如果没有，那么一般都是垃圾文件，但还是有特例的，比如内核产生的文件，就没有所属者，一般在proc和sys目录下；还有外来文件，也就是U盘拷入的文件也会忽略所有者。find 目录 -size 25k# 查找文件大小是25KB的文件# 注意：文件大小用小写k和大写M# -25k 小于25k# 25k 等于25k# +25k 大于25kfind . -size 25M # 查询当前目录文件大小是25M的文件find /etc -size +20k -a -size -50k # 查找/etc下大于20k并且小于50k的文件# -a and,逻辑与，两个条件都满足# -o or,逻辑或，两个条件满足一个即可find /etc -size +20k -a -size -50k -exec ls -lh &#123;&#125; \;-exec &#123;&#125; \; # 固定格式，表示直接对前面的搜索结果进行后面的命令处理# 注意，&#123;&#125;和\之间有空格，结尾有分号find . -inum 262422 # 查找inode是262422的文件# -inum 查询指定i节点的文件 字符串搜索命令 grep123456grep [选项] 字符串 文件名# 在文件中匹配符合条件的字条串# 字符串使用 &quot;&quot; 包围，结果为行记录-i 忽略大小写-v 排除指定字符串/取反-n 显示行号 find命令和grep命令的区别find：在 系统 中搜索符合条件的 文件名，使用 通配符（完全）匹配grep：在 文件 当中搜索符合条件的 字符串，使用 正则表达式 （包含）匹配 通配符（完全）匹配：搜索文件名正则表达式 （包含）匹配：搜索文件中的数据]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux文件管理01 文件处理命令]]></title>
+    <url>%2F2018%2F05%2F05%2FLinux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件 命令提示符123456[root@localhost ~]#root 当前登录用户localhost 主机名~ 当前所在目录（家目录）# 超级用户的提示符$ 普通用户的提示符 命令的格式1234命令 [选项][参数]个别命令使用不遵循此格式当有多个选项时，可以写在一起简化选项与完整选项：-a == --all 路径 相对路径：参照当前所在目录，进行查找 绝对路径：从根目录开始制定，一级一级递归，进行查找 ls 查询目录中的内容1234567ls [选项] [文件或目录] -a 显示所有文件,包括隐藏文件 -l 显示详细信息 -d 查看目录属性 -h 人性化显示文件大小 -i 显示inodell命令表示ls -l mkdir 建立目录（make directories）1234mkdir -p [目录名] -p ：递归创建，当创建多级目录时需加mkdir lightmkdir -p imooc/linux/light cd 切换目录（change directory）1234567cd [目录]简化操作cd：进入当前用户的家目录cd ~ ：进入当前用户的家目录cd - ：进入上次目录cd .. ：进入上一级目录cd . ：进入当前目录 pwd 查询所在目录位置（print working directory）rmdir 删除空目录（remove empty directories）12rmdir [目录名] #只能删除空目录 rm 删除文件或目录（remove）12345678910rm -rf [文件或目录] -r ：删除目录 -f ：强制rm [文件名] ：提示是否删除rm -r [目录] ：删除目录需加 -r ，目录中含有子文件，将持续询问是否删除rm -rf [目录] ：删除目录， 不会询问是否删除而直接进行# 纯字符界面没有回收站。注意自杀指令：rm -rf /rm -rf /tmp/* ：删除tmp目录下的内容rm -rf /tmp/ ：删除tmp目录# 建议：删除文件或目录习惯使用命令 rm -rf [文件或目录] cp 复制命令（copy）12345678910cp [选项] [原文件或目录] [目标目录] -r ：复制目录 -p ：连带文件属性复制 -d ：若原文件是链接文件，则复制链接属性 -a ：相当于 -pdr 全选cp abc /tmp/ 若目标目录不加文件名，则为原名复制cp abc /tmp/ana 若目标目录后加入文件名，则为改名复制cp -r japan/ /tmp/ 复制目录cp -a japan/ /tmp/ 完全复制，包括所有属性#被复制文件的时间为执行复制命令的时间，若要使被复制的文件与原文件属性完全一致，需加 -a mv 剪切或改名命令（move）123mv [原文件或目录] [目标目录] mv japan/ /tmp/ 剪切目录时不需加 -rmv abc longls 当原文件与目标目录，在同一目录下，则为改名命令 file 查看文件类型]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 安装ssh]]></title>
+    <url>%2F2018%2F05%2F02%2FLinux-%E5%AE%89%E8%A3%85ssh%2F</url>
+    <content type="text"><![CDATA[简易版123456789101112131415161718#查看ssh服务是否开启ps -e |grep ssh#安装ssh服务，openssh是ssh的开源实现方式，系统已经默认有openssh-client#只要安装了ssh服务，本地linux可以当做服务器sudo apt install openssh-server#配置sshsudo vi /etc/ssh/sshd_configPermitRootLogin yes 把注释去掉#开启ssh服务sudo systemctl restart sshd.service#开机启动SSH服务sudo systemctl enable sshd.service#连接，端口默认为22，可以不写ssh -p 22 userName@192.168.1.100 复杂版参考https://wiki.centos.org/HowTos/Network/SecuringSSH 设置SSH免密码登录1234567891011121314151617181920212223242526272829#1.客户端本地生成公钥和私钥，rsa是加密方式ssh-keygen -t rsa# ~/.ssh目录中创建两个名为id_rsa和id_rsa.pub的文件，id_rsa是私钥，id_rsa.pub是公钥#2.设置权限chmod -R 700 ~/.sshchmod 600 ~/.ssh/id_rsa #默认就是600#3. 复制公钥到服务器然后写入到~/.ssh/authorized_keys 方法一# 使用SSH远程登陆到服务器,发现家目录中还没有.ssh目录,使用mkdir创建mkdir .ssh# 发送公钥scp ./id_rsa.pub alice@192.168.0.10:/home/alice/.ssh# 将公钥追加写入~/.ssh/authorized_keys中，若authorized_keys不存在，则会创建并写入cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys#修改authorized_keys的权限为600,并删除公钥文件rm id_rsa.pub# 复制公钥到服务器然后写入到~/.ssh/authorized_keys 方法二# ssh-copy-id 命令可以把本地主机的公钥复制到远程主机的 authorized_keys 文件上ssh-copy-id -i ~/.ssh/id_rsa.pub user@serverchmod 700 ~/.sshchmod 600 ~/.ssh/authorized_keys#4.配置ssh，如果发现依旧无法连接，考虑是否打开配置sudo vi /etc/ssh/sshd_configRSAAuthentication yesPubkeyAuthentication yesAuthorizedKeysFile .ssh/authorized_keys 使用别名登录ip打开~/.ssh/config，不存在就自己创建一个12345Host AAAAA #AAAAA为服务器主机名HostName 192.168.0.222 #写服务器ip地址User work #work为登陆用户名,不是自己电脑的名字Port 22 #主机端口，默认是22IdentityFile /home/me/.ssh/id_rsa.pub #自己生成的公钥的文件路径 12#使用别名登录ssh AAAAA 多对ssh管理指定不一样的私钥名1ssh-keygen -t rsa -f ~/.ssh/id_rsa.second 配置~/.ssh/config，在原有的基础上增加1234567891011# Default github user(first@mail.com) 默认配置，一般可以省略Host githubHostname github.comUser gitIdentityfile ~/.ssh/github# second user(second@mail.com) 给一个新的Host称呼Host secondgithub // 主机名字，不能重名HostName github.com // 主机所在域名或IPUser git // 用户名称IdentityFile C:/Users/username/.ssh/id_rsa.second // 私钥路径 其他步骤不变 清除SSH的私钥密码12345ssh-keygen -p# 选择需要修改的私钥，默认是/home/username/.ssh/id_rsa# 选好文件后按回车，会提示你输入旧密码。#输入好后会提示输入新密码。#直接回车，提示确认新密码再直接回车，此时指定的私钥的密码就被清除了 SSH相关命令参考 Linux网络管理 远程登录 参考： https://wiki.centos.org/HowTos/Network/SecuringSSH http://www.iosugar.com/2017/02/14/CentOS-remote-login-SSH-configuration/#SSH%E7%99%BB%E9%99%86 http://einverne.github.io/post/2016/06/ssh-copy-id.html https://www.ssh.com/ssh/copy-id https://linux.cn/article-6901-1.html]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux网络管理05 虚拟机网络配置详解(NAT、桥接、Hostonly)]]></title>
+    <url>%2F2018%2F05%2F02%2FLinux-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3-NAT%E3%80%81%E6%A1%A5%E6%8E%A5%E3%80%81Hostonly%2F</url>
+    <content type="text"><![CDATA[无论是vmware还是virtual box虚拟机软件，一般来说，虚拟机有三种网络模式: Bridged Adapter（桥接模式） NAT（网络地址转换模式） Host-only Adapter（主机模式） virtual box中还有lInternal 虚拟网卡在虚拟机安装好之后，会自动添加两张网卡(VMnet1和VMnet8)，VMnet1用Host-only网络连接，VMnet8用NAT方式的网络连接，原先的VMnet0用桥接网络连接。 桥接桥接网络是指宿主物理网卡和虚拟网卡通过VMnet0虚拟交换机进行桥接，物理网卡和虚拟网卡在拓扑图上处于同等地位，那么物理网卡和虚拟网卡就相当于处于同一个网段，虚拟交换机就相当于一台现实网络中的交换机，所以两个网卡的IP地址也要设置为同一网段。会占用内网IP vmnet0实际上就是一个虚拟的网桥(2层交换机)，这个网桥有若干个接口，一个端口用于连接你的Host主机，其余端口可以用于连接虚拟机，他们的位置是对等的，谁也不是谁的网关。 主机A上的两个虚拟机1和虚拟机2，和主机A、B同处于一个网段，能够相互通信 虚拟机网卡配置，虚拟机上网需要IP/子网掩码/DNS/网关12345678DEVICE=&quot;eth0&quot;BOOTPROTO=“static&quot; #设置静态ip,动态为dhcpIPADDR=&quot;192.168.1.3&quot;GATEWAY=&quot;192.168.1.1&quot;HWADDR=&quot;08:00:27:C7:1B:22&quot;DNS1=&quot;8.8.8.8&quot;NETMASK=&quot;255.255.255.0&quot;ONBOOT=&quot;yes&quot; CentOS 7中ONBOOT默认为NO，需要打开 应用场景：虚拟机要求可以上网，且虚拟机完全模拟一台实体机 NATNAT模式中，就是让虚拟机借助NAT(网络地址转换)功能，通过宿主机器所在的网络来访问公网。宿主能够联网，虚拟机也能联网(其他主机)。宿主没有联网，虚拟机也不能联网 vmnet1也是一个虚拟的交换机，交换机的一个 端口连接到你的Host上，另外一个端口连接到虚拟的DHCP服务器上（实际上是vmware的一个组件），另外剩下的端口就是连虚拟机了，主机A和虚拟机1和2能相互通信，虚拟机1和2能访问主机B和外网，主机B不能访问虚拟机1和2，虚拟机1和2能相互通信 虚拟机的配置:12345678DEVICE=&quot;eth0&quot;BOOTPROTO=“static&quot; #设置静态ip,动态为dhcpIPADDR=&quot;10.0.2.5&quot;GATEWAY=&quot;10.0.2.1&quot;HWADDR=&quot;08:00:27:C7:1B:22&quot;DNS1=&quot;10.0.2.1&quot;NETMASK=&quot;255.255.255.0&quot;ONBOOT=&quot;yes&quot; 应用场景：虚拟机只要求可以上网，无其它特殊要求，满足最一般需求 Host-Only所有的虚拟系统是可以相互通信的，但虚拟系统和真实的网络是被隔离开的 虚拟系统和宿主机器系统是可以相互通信的。虚拟系统的TCP/IP配置信息(如IP地址、网关地址、DNS服务器等)，都是由VMnet1(host-only)虚拟网络的DHCP服务器来动态分配的。 主机和虚拟机之间的通信是通过 VMnet1虚拟网卡来实现的。虚拟机连接到VMnet1上，系统并不为其提供任何路由服务，因此虚拟机只能和宿主机进行通信，而不能连接到真正的网络上。 Host-Only的宗旨就是建立一个与外界隔绝的内部网络，来提高内网的安全性。这个功能或许对普通用户来说没有多大意义，但大型服务商会常常利用这个功能。如果你想为VMnet1网段提供路由功能，那就需要使用RRAS，而不能使用XP或2000的ICS，因为ICS会把内网的IP地址改为192.168.0.1，但虚拟机是不会给VMnet1虚拟网卡分配这个地址的，那么主机和虚拟机之间就不能通信了。 虚拟机1和2之间可以相互通信，主机A能和虚拟机1和2通信，虚拟机1和2不能和主机通信(需要设置)，虚拟机不能和B主机以及外网通信 使用范围如果你想利用VMWare创建一个与网内其他机器相隔离的虚拟系统，进行某些特殊的网络调试工作，可以选择host-only模式。 内网模式内网模式，顾名思义就是内部网络模式：虚拟机与外网完全断开，只实现虚拟机于虚拟机之间的内部网络模式。 虚拟机与主机的关系：不能相互访问，彼此不属于同一个网络，无法相互访问。虚拟机与网络中其他主机的关系：不能相互访问，理由同上。虚拟机与虚拟机的关系：可以相互访问，前提是在设置网络时，两台虚拟机设置同一网络名称。如上配置图中，名称为intnet。 参考： http://www.cnblogs.com/ggjucheng/archive/2012/08/19/2646007.html https://www.jianshu.com/p/305f7384cfe9 https://blog.csdn.net/bytxl/article/details/35569217 https://blog.csdn.net/clevercode/article/details/45934233 http://blog.51cto.com/wangchunhai/381225 https://github.com/waltcow/blog/issues/21 https://blog.csdn.net/guizaijianchic/article/details/72190394]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux网络管理04 远程登录]]></title>
+    <url>%2F2018%2F05%2F01%2FLinux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[参考 Linux 安装ssh SSH协议原理对称加密算法采用单钥密码系统的加密方法, 同一个秘钥可以同时用作信息的加密和解密, 这种加密方法称为对称加密, 也称为单秘钥加密. 缺点 : 加密解密使用相同密码, 需要告知对方密码, 等同于将自身多方习惯密码告知对方. 例如邮箱等密码, 造成威胁 非对称加密算法asymmetric cryptographic algorithm，又名 “公开秘钥加密算法” , 需要公开秘钥(publickey) 和私有秘钥(privatekey)linux 中为 gpg工具, windows 中为 pgp工具 过程原理, A 需要发送数据包给 B A 根据自己密码A 生成 公钥A 和私钥A B 根据自己密码B 生成 公钥B 和私钥B A 向 B 寻要 公钥B, 再结合自身的公钥A 对数据包进行加密, 并发送给B B 收到数据包之后, 可根据自身密码B 和 私钥B 对数据包进行解密且成功 此时, A 也可以根据自身密码A 结合 私钥A 对已加密的数据包进行解密 至此, 避免了泄露 A 自身的密码 SSH安全外壳协议在非对称加密算法之上演变而来密码足够复杂强壮可降低暴力破解的成功性SSH 保护数据传递过程中的安全, 但若在传递之前中病毒则不可避免通用的远程管理协议 过程原理, A 需要发送数据包给 B A 持有 公钥A 和 私钥A B 持有 公钥B 和 私钥B A 向 B 寻要 公钥B, 再结合自身的 公钥A 对数据包进行加密, 并发送给B B 收到数据包之后, 可根据自身 私钥B 对数据包进行解密 SSH 命令12345ssh 用户名@ip# 远程管理制定Linux服务器# 经过远程之后, 在家目录中的 .ssh 文件夹 know_hosts文件中保存着 连接成功的目标信息# 地址 加密算法 公钥#若目计算机进行了重装系统, 或地址被另一台机器占用, 此时 已下载的公钥无法使用, 使用vi 对改行进行删除, 当再次连接时, 会再次提示是否进行下载公钥 远程管理工具SecureCRT、Xshell WinSCP文件传输工具 FileZilla]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux网络管理03 网络配置]]></title>
+    <url>%2F2018%2F05%2F01%2FLinux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[IP地址配置DHCP服务器可以自动分配IP ifconfig命令临时配置IP地址1234ifconfig查看当前网络状态ifconfig eth0 192.168.254.200 netmask 255.255.255.0临时设置eth0网卡的IP地址与子网掩码 setup工具永久配置IP地址 红帽专有图形化工具setup设置IP地址 CentOS系统中默认就没有setup命令，需要安装12345678910yum -y install setuptool 安装setup命令工具yum -y install ntsysv 安装setup工具配套的系统服务组件yum -y install system-config-securitylevel-tui安装setup工具配套的防火墙配置组件yum -y install system-config-network-tui 安装setup工具配套的网络配置组件yum -y install authconfig-gtk安装setup工具配套的验证配置组件 system-config-network-tui 无法安装，是因为网络设置改到nmtui命令中 修改网络配置文件因为配置文件不光可以配置IP，所以单独开一节 图形界面配置IP地址 修改网络配置文件网卡信息文件 主机名文件1234vi /etc/sysconfig/networkhostname [主机名]# 查看与临时设置主机名命令 DNS配置文件12vi /etc/resolv.conf# nameserver 名称服务器/DNS 虚拟机网络参数配置1.配置LinuxIP地址12setup#修改并配置IP地址 2.启动网卡1234vi /etc/sysconfig/network-scripts/ifcfg-eth0#把 ONBOOT = no改为 ONBOOT = yesservice network restart#重启网络服务 3.修改UUID(如果这是一台克隆/复制出来的机子则必须进行这个步骤，否则可以省去)12345vi /etc/sysconfig/network-scripts/ifcfg-eth0#删除MAC地址行rm -rf /etc/udev/rules.d/70-persistent-net.rules#删除网卡和MAC地址绑定文件#重启动系统 4.设置虚拟机网络连接方式 桥接模式：通过物理机的真实网卡进行通信，若选此项，则虚拟机需要配置与物理机相同的网关，缺点是需要占用真实网段的一个IP地址。这种模式更适用于实验，因为这种模式不仅可以与你的物理机可以通信还可以与同一局域网的其他主机通信，还可以访问公网。 NAT模式：在windows中（物理机中）是以VMware8虚拟网卡进行通信。这种模式只能与你自己的主机通信，不能与局域网的其他主机通信，但是可以通过物理的网卡访问公网。 仅主机模式：在windows中（物理机中）是以VMware1虚拟网卡进行通信。这种模式只能与你自己的主机通信，不能与局域网的其他主机通信，只能与自己的物理机通信，并且不能上公网。 切记：在选择桥接模式之后，需要选择桥接的网卡（即需要确定虚拟机需要通过哪个真实网卡连接网络），一般的虚拟机都是自动桥接，但是这种方式真的跟不靠谱**，所以你需要自己选择，如果你是通过有线接入网络，则选择有线桥接，若是通过无线接入网络，则通过无线接入。 5.修改桥接网卡]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux网络管理02 网络命令]]></title>
+    <url>%2F2018%2F05%2F01%2FLinux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[网络环境查看命令123456789101112131415161718192021222324252627282930313233343536373839404142ifconfig# 查看与临时配置网络状态，但无法查看网关和DNS#关闭与启动网卡ifdown 网卡设备名 #禁用该网卡设备ifup 网卡设备名 #启用该网卡设备#查询网络状态netstat 选项选项：一般为tuln或an-t：列出TCP协议端口-u：列出UDP协议端口-n：不使用域名与服务名，而使用IP地址和端口号-l：仅列出在监听状态的网络服务-a：列出所有的网络连接#统计计算机建立的远程连接数netstat -an | grep ESTABLISHED | wc -l#查看网关netstat -rn 选项：-r：列出路由表，功能和route命令一致。route -n #查看路由列表(可以看到网关)route add default gw 192.168.1.1#临时测定网关#域名解析命令nslookup [主机名或IP] #进行域名与IP地址解析，域名对应哪个IPnslookup&gt;server #本地设定的DNS的地址&gt;exit #退出 在一台服务器里，连接内网的网卡是不能设置网关的，只有连接外网的网卡才能设置，而且这个网关是由运营商设置好 它告诉我们的下一级网络地址。 随便设置一个网关是不行的，因为与外网通信时，要把消息转发到网关，网关负责把内网IP转换成功公网IP，随便设置则将找不到这个网关，导致呈现网络连接失败状态。 网络测试命令123456789101112131415161718192021222324252627282930ping [选项] ip或域名 #探测指定IP或域名的网络状况选项：-c 次数：指定ping包的次数telnet [域名或IP] [端口] #远程管理与端口探测命令，明文传递telnet 192.168.0.252 80#如果连接成功，将会进入连接状态，按ctrl+]退出到telnet，再键入quit返回命令行状态traceroute [选项] IP或域名 #路由跟踪命令，查看中间所经过的节点，故障定位。选项：-n 使用IP，不使用域名，速度更快#和ping一样都是利用的ICMP协议（Internet Control Message Protocol）Internet控制报文协议#家用网络大多数结点都禁止ping，就是*，可以根据路由来分析哪些结点出现了问题wget http://soft.vpser.net/lnmp/lnmp1.1-full.tar.gz #下载命令tcpdump -i eth0 -nnX port 21抓取eth0网卡上的数据包，以16进制拆分数据包(用port 21可以只拆分21端口)选项：-i：指定网卡接口-nn：将数据包中的域名与服务转为IP和端口-X：以十六进制和ASCII码显示数据包内容port：指定监听的端口 ftp也是明文：用来上传下载文件，默认是不允许用户登陆的 http都是明文，一旦截获了数据包，就能直接获取里面的数据 https才是加密的]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux网络管理01 网络基础]]></title>
+    <url>%2F2018%2F05%2F01%2FLinux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的 该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的 上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务 table th:nth-of-type(1){ width: 10%; } table th:nth-of-type(2){ width: 70% ; } table th:nth-of-type(3){ width: 20%; } 层级 作用 传输单元 应用层 用户接口 APDU，应用协议数据单元 表示层 数据的表现形式（ASCII、GB2312、jpg）、 特定功能的实现如加密、压缩 PPDU，表示协议数据单元 会话层 对应用会话的管理、同步。 确定网络数据是否要经过远程会话 SPDU，会话协议数据单元 传输层 确定可靠与不可靠的传输（ TCP传输控制协议可靠不会丢、UDP用户数据报协议更快但可能会丢）、传输前的错误检测、 流量控制、 确立端口号, 便于通过IP确定主机后, 通过端口确定交互的服务 TPDU，传输协议数据单元 网络层 负责提供逻辑地址(IP地址, 需要写入发件人IP与收件人IP）、 选择通路。 （确定IP地址，原IP、目地IP） 报文 数据链路层 负责组成帧(组入MAC信息)，用MAC地址访问媒介（源地址&amp;目的地址）、错误的检测与修正。物理地址，就是计算机MAC地址，也就是计算机网卡地址。每一台电脑都有一个网卡地址，MAC地址负责局域网通信，IP地址负责外网通信。 帧 物理层 设备之间比特流的传输（ 最基本的数据传递）、物理接口（ 网线口、视频口、音频口）、电气特性（ 网线8根线中的1、3、2、6四根线传输数据） 比特流 举例场景 用户A需要给用户B发送一份邮件 应用层 : 浏览器进入邮箱, 写邮件, 点击发送, 数据将传递至 表示层 表示层 : 进行的数据的编码, 而后数据传递至会话层 会话层 : 判断数据的发送类型, 是进行网络传输还是进行本地保存, 若是进行传输 传递至传输层 传输层 : 确立协议TCP或UDP, 写入邮件的发送及目标端口号, 传递至网络层 网络层 : 写入自身及目标IP地址, 传递至数据链路层 数据链路层 : 写入源MAC地址与目标MAC地址, 由于IP地址找到局域网, 再通过MAC地址在局域网中找到目标, 传递至物理层 物理层 : 数据传输 TCP/IPTCP/IP 四层模型与 OSI 七层模型对应关系 应用层 : 应用层、表示层、会话层为用户提供所需的各种服务, 例如 FTP、Telnet、DNS、SMTP等 传输层 : 传输层负责为应用层实体提供端到端的通信功能, 保证了数据包的顺序传送及数据的完整性, 该层定义了两个主要的协议 : 传输控制协议(TCP)可靠的面向连接，不会丢失，类似打电话，网页、邮件 和 用户数据报协议(UDP)不可靠的面向无连接,有可能丢失, 类似发短信、QQ 网际互联层 : 网络层主要解决主机到主机的通信问题, 它所包含的协议涉及数据包在整个网络上的逻辑传输, 该层有三个主要协议 : 网际协议(IP), 互联网组管理协议(IGMP), 互联网控制报文协议(ICMP) 网络接口层 : 数据链路层、物理层负责监视数据在主机和网络之间的交换, 事实上, TCP/IP本身并未定义该层的协议, 而由参与互连的各网络使用自己的物理层和数据链路层协议, 然后与TCP/IP的网络接入层进行连接. 地址解析协议(ARP) 工作在此层, 即OSI参考模型的数据链路层.地址解析协议(ARP) : 将IP地址 翻译成物理地址 数据封装过程发送是由上至下进行打包, 接收是由下至上进行拆包 TCP/IP 模型与OSI 模型的比较共同点 OSI 参考模型和 TCP/IP参考模型都采用了层次结构的概念 都能够提供面向连接和无连接两种通信服务机制 不同点 OSI 七层, TCP/IP 四层 对可靠性要求不同(TCP/IP 更高) OSI 模型是在协议开发前设计的, 具有通用性. TCP/IP 是先有协议集, 然后建立模型, 不适用与非TCP/IP网络 实际市场应用不同( OSI 模型只是理论上的模型, 并没有成熟的产品, 而TCP/IP已经成为”实际上的国际标准”) IP地址IP包头(如图)横32位, 竖5行, 固定的共160位, 20字节, 另外有其他选项存在, 导致包头不固定, 因此每接收到包头, 需要进行检测包头长度才能够取出包头, 也是为何IPv4没有IPv6快的原因 包头中包含的IP地址只有32位, 即2的32次幂, 42亿9千万左右的IP IP地址分类IP分为A、B、C、D、E 五大类, 其中DE不对民用组织开放, 不可使用, 因此有效类只有ABC可根据第一位数值判断类别, 1-126 为A类, 128-172 为B类, 192-223 为C类 127.0.0.1 为本机 第一位表示不同网段, 不同网络, 不同网络之间的通信需要使用路由器，路由器是用来实现跨网络通信的, 同一网络下通信使用交换机即可. 第一位不变情况下, 后三位的变化都代表同一网络下的不同主机 A 类 : 每个网络中的第一个地址(X.0.0.0)代表网络本身,最后一个地址(X.255.255.255)代表当前网络的广播地址, 不能分配, 最大主机数 : 后三位的次幂, 减 第一和最后一个 , 2^24 -2 B 类 : 前两位代表网段, 后两位代表网段中的不同主机 C 类 : 前三位代表网段, 最后一位代表不同主机 私有IP : 不需要花钱买, 用来做内网IP, 可有效保护公网IP, 不能直接访问公网, 需要与公网之间进行转换才可访问互联网 子网掩码ABC类可以用不同的网段个数和主机个数, 是由子网掩码决定子网掩码用连续1的表示，例如255.0.0.0，255.255.0.0，255。255.255.255.0 子网掩码的作用：用来区分不同网段的IP—-子网掩码与IP相与，得到的结果相同则在同一网段。否则不在，需要经过路由器转发。 合理的子网掩码 : 所有的1必须连续, A 类地址可匹配B类子网掩码 IP和子网掩码必须一起配合使用。网络号=IP&amp;&amp;子网掩码 广播地址：主机号全为1,广播地址是专门用于同时向网络中所有工作站进行发送的一个地址 合理的子网掩码 : 所有的1必须连续, A 类地址可匹配B类子网掩码 端口 1234netstat -an# 查看本机启用的端口#-a:查看所有连接和监听端口#-n:显示IP地址和端口号，而不显示域名和服务名 TCP因为3次握手的机制所以需要监听，而UDP不需要监听 常见端口号 FTP（文件传输协议）：20、21； SSH（安全shell协议）：22； telnet（远程登录协议）：23； DNS（域名系统）：53； http（超文本传输协议）：80； SMTP（简单邮件传输协议）：25； POP3（邮局协议）：110； DNShosts和DNShosts文件：做静态IP和域名对应，优先于DNS.位置：C：\Windows\System32\drivers\etc\hosts/etc/hosthosts文件只可做临时解析用，名称解析效能下降，主机维护困难 DNS全称为——&gt;domain name system——&gt;域名系统 不配置DNS是不能联网的。 在互联网中，通过IP地址来进行通信。 IP地址是用数字来表示的，记忆起来太困难了(如116.213.120.232) 人对域名更加敏感，:http://www.imooc.com/ DNS服务的作用:将域名解析为IP地址过程：客户机向DNS服务器发送查询IP请求DNS服务器查询到web服务器的ip，告知用户用户访问web服务器 域名空间结构根域：.（13台服务器）——&gt;顶级域/一级域：包括组织域和地区域（组织域：gov政府/edu教育部门/com商业部门/org民间团体/net网络服务机构/mil军事部门 地区域：cn 中国 hk 香港 jp 日本 Uk 英国 au 澳大利亚）——&gt;二级域：企业或个人自行购买的（imooc /microsoft/ibm/sina）——&gt;主机名/3级域：申请完二级域后自己定义的（www/news） 三级域（www）+二级域（baidu）+顶级域（.com）组成完整域名空间 为什么要进行域名分级划分便于IP地址解析 DNS查询过程DNS客户机——&gt;本地域名服务器——&gt;根DNS服务器——&gt;cn服务器——&gt;com.cn服务器——&gt;imooc.com.cn——&gt;本地域名服务器——&gt;DNS客户机——&gt;web服务器www.imooc.com.cn DNS查询类型从查询方式上分 递归查询：客户机将请求发送给DNS服务器，服务器通过缓存或者询问其他服务器最后将一个准确的结果或者失败回复给客户机，客户机只负责问，所有事情都是服务器做。客户机对本地域名服务器查询的机制，必须反馈准确值（要么成功要么失败） 迭代查询：客户机像DNS服务器发送请求后，服务器向客户机返回另一个服务器的地址，客户机不停地向不同DNS服务器发送请求，所有事情都自己做。本地域名服务器分别对各级域名服务器的查询机制，不一定反馈准确值 从查询内容上分 正向：域名到IP ARP 反向：IP到域名 RARP 网关 网关（Gateway）又称网间连接器、协议转换器 网关在网络层以上实现网络互连，是最复杂的网络互连设备，仅用于两个高层不同的网络互连 网关既可以用于广域网互连，也可以用于局域网互连 网关是一种充当转换重任的服务器或路由器 交换机不能识别ip，只能记录客户机的MAC地址。即只能在局域网中进行通信 访问不同网段，则需要引入网关。 网关：一个具有路由功能的设备，一般为路由器。 网关作用 网关在所有内网计算机访问的不是本网段的数据包时使用 把内网Ip转公网Ip，公网Ip转内网Ip]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ubuntu 安装、卸载wine]]></title>
+    <url>%2F2018%2F05%2F01%2FUbuntu-%E5%AE%89%E8%A3%85%E3%80%81%E5%8D%B8%E8%BD%BDwine%2F</url>
+    <content type="text"><![CDATA[安装1234sudo add-apt-repository ppa:wine/wine-buildssudo apt-get updatesudo apt-get install --install-recommends wine-stagingsudo apt-get install winehq-staging 卸载1234567sudo apt purge winerm -r ~/.winesudo apt-get autoremove#清理wine模拟运行的windows程序:sudo rm -r /home/username/.local/share/applications#清理残余的windows程序:sudo rm -r /home/username/.config/menus/applications-merged/wine* apt-get remove 会删除软件包而保留软件的配置文件 apt-get purge 会同时清除软件包和软件的配置文件]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 常用配置文件]]></title>
+    <url>%2F2018%2F05%2F01%2FLinux-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[apt 源相关文件、目录12345/var/lib/apt/lists #ubuntu软件更新的源服务器的地址/etc/apt/sources.list#*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件/etc/apt/sources.list.d 安装日志123456/root/install.log #记录安装系统软件包以及其文件信息/root/install.log.syslog #记录安装过程留下来的事件记录/root/anacona-ks.cfg #以kickstart配置文件的格式记录安装过程中设置的选项信息（当要安装多台服务器时，可以先装一台，然后利用/root/anaconda-ks.cfg可以进行批量安装）； 网络配置123456/etc/sysconfig/network-scripts/ifcfg-eth0#网卡配置文件，IP/子网掩码/网关/DNS/ONBOOT/etc/sysconfig/network#设置主机名/etc/resolv.conf#DNS配置文件 用户管理12345678/etc/group #存储当前系统中所有用户组的信息/etc/gshadow #存储当前系统中用户组的密码信息/etc/passwd #存储当前系统中所有用户的信息/etc/shadow #存储当前系统中所有用户的密码信息 计划任务123456/etc/crontab #系统配置文件，只有root用户才会把这些内容载入到计任务表中/var/spool/cron #最终生成的计划任务文件/var/spool/cron/root #root用户的定时任务/var/spool/cron/user1 #user1用户的定时任务/var/log/cron #crontab日志，保存cron的任务执行记录，echo会打印到这里 /var/log/cron-日期]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下无法使用add-apt-repository命令]]></title>
+    <url>%2F2018%2F05%2F01%2FLinux%E4%B8%8B%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8add-apt-repository%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[Linux下无法使用add-apt-repository命令报错：add-apt-repository command not found 解决办法：12sudo apt install python-software-properties software-properties-common sudo apt update]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 安装JDK的两种方式]]></title>
+    <url>%2F2018%2F05%2F01%2FLinux-%E5%AE%89%E8%A3%85JDK%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[使用PPA源安装1234sudo add-apt-repository ppa:webupd8team/javasudo apt-get updatesudo apt-get install oracle-java8-installersudo apt-get install oracle-java8-set-default oracle-java8-set-default：将jdk8设置为默认的Java运行版本 默认的安装路径是在/usr/lib/jvm/java-8-oracle中1echo $JAVA_HOME 使用源码包安装1uname -a #查询系统是32位还是64位 在http://www.oracle.com/technetwork/java/javase/downloads/index.html找需要的包下载 1234567891011sudo tar zxvf ./jdk-8u171-linux-x64.tar.gz -C /usr/local/jdk1.8.0_171sudo vim /etc/profile#在文件的末尾追加下面行JAVA_HOME=/usr/local/jdk1.8.0_171PATH=$JAVA_HOME/bin:$PATH CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar export PATH JAVA_HOME CLASSPATH #使环境变量马上生效source /etc/profile #设置系统默认jdk 版本 sudo update-alternatives –install /usr/bin/java java /usr/lib/jvm/ jdk1.8.0_144/bin/java 300sudo update-alternatives –install /usr/bin/javac javac /usr/lib/jvm/ jdk1.8.0_144/bin/javac 300sudo update-alternatives –install /usr/bin/jar jar /usr/lib/jvm/ jdk1.8.0_144/bin/jar 300sudo update-alternatives –install /usr/bin/javah javah /usr/lib/jvm/ jdk1.8.0_144/bin/javah 300sudo update-alternatives –install /usr/bin/javap javap /usr/lib/jvm/ jdk1.8.0_144/bin/javap 300 sudo update-alternatives –config java 卸载Java JDK12rpm -qa |grep jdkyum -y remove java java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64 将上面查询出来的每个版本依次删掉即可。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux安装管理05 脚本安装包]]></title>
+    <url>%2F2018%2F04%2F29%2FLinux%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86-%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85%E5%8C%85%2F</url>
+    <content type="text"><![CDATA[脚本安装包：准备工作1、本节以安装LNMP（http://lnmp.org/download.html）为例，所以需要先停止之前安装的apache和mysql服务（最好也将源码包安装的apache /usr/local/apache2删除） 2、保证yum源正常使用：可以使用yum list命令测试。（若是光盘yum源，记得挂载光盘） 3、关闭SELinux和防火墙： 永久关闭SELinux的方法：编辑文件/etc/selinux/config，将SELINUX=enforcing改为SELINUX=disabled，然后重启系统即可。 永久关闭防火墙的方法：chkconfig iptables off，开启为：chkconfig iptables on；临时关闭防火墙的方法：service iptables stop，开启为：service iptables start。 脚本安装1wget -c http://soft.vpser.net/lnmp.lnmp1.0-full.tar.gz &amp;&amp; tar zxvf lnmp1.0-full.tar.gz &amp;&amp; cd lnmp1.0-full &amp;&amp; ./centos.sh 脚本安装过程中，会将系统中已有的apache、mysql、php等卸载掉。 虚拟机中安装lnmp常常会卡在 starting php-fpm,真实环境中很少出现。其实安装已经完成，只需要杀掉php-fpm进程，再重新启动这个进程就好了 pkill -9 php-fpm : -9是强制杀死的意思，然后重新启动该进程【/etc/rc.d/init.d/php-fpm start】即可。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux安装管理04 源码包]]></title>
+    <url>%2F2018%2F04%2F29%2FLinux%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86-%E6%BA%90%E7%A0%81%E5%8C%85%2F</url>
+    <content type="text"><![CDATA[源码包和RPM包安装位置的不同：RPM包安装位置rpm包有安装的默认位置： /etc/ 配置文件安装目录 /usr/bin/ 可执行的命令安装目录 /usr/lib/ 程序所使用的函数库保存位置 /usr/share/doc/ 基本的软件使用手册保存位置 /usr/share/man/ 帮助文件保存位置 当然RPM包可以指定安装位置，但是建议不要指定安装位置，就让它安装到默认位置，这样系统可以找到它，利用service XXX start的方式启动它，而且rpm提供-e选项来自动卸载，摆明了就是推荐你让它默认安装1rpm -ivh --profix=&lt;dir&gt; 源码包安装位置安装在指定位置当中，一般是/usr/local/软件名，源码包没有卸载命令 安装位置不同带来的影响rpm包安装的服务可以使用系统服务管理命令（service）来管理，例如： RPM包安装的apache的启动方法是：12/etc/rc.d/init.d/httpd start service httpd start 源码包安装的服务不能被服务管理命令管理，因为没有安装到默认路径中，所以只能用绝对路径进行服务的管理，不同软件请参考INSTALL或README，如：1/usr/local/apache2/bin/apachectl start 使用绝对路径启动程序的方法是通用的，通常软件包中会写上启动程序的方法的。 如果将源码包安装后的启动程序复制到/etc/rc.d/init.d目录中，则也是可以使用service命令执行的 源码包是不能使用service命令来启动服务，因为源码包的安装位置由用户指定，放在哪并不统一；rpm包安装后，通常都是放在/etc/rc.d/init.d目录中的，而service命令执行时，会自动搜索该目录，所以rpm包安装的服务可以使用service命令 安装安装准备 由于源码都是c语言写的，所以要先安装c语言编译器：gcc 从官方网站下载源码包，若是下载到了windows上面，可以使用ftp传到linux上 注：若已安装了二进制包，则源码包也是可以继续安装的，因为两者安装目录不一样。但是，并不建议这样做，因为端口会冲突。 对于要求效率的软件，要安装源码包版本，因为是本机编译，更具有兼容性和效率，而rpm包是软件开发者提供的大众版本，可用于不注重效率的应用。 netstat -tlun查找网络连接信息和系统开启的端口号使用 -t 选项列出 TCP 协议的连接使用 -l 选项列出正在监听的套接字使用 -u 选项列出 UDP 协议的连接使用 -n 选项禁用域名解析功能 安装注意事项 源代码一般保存位置：/usr/local/src 软件安装位置：`` 如何确定安装过程报错 安装过程停止 并出现error、warning、no的提示 安装步骤123456789101112#下载源码包wget http://mirrors.tuna.tsinghua.edu.cn/apache//httpd/httpd-2.4.33.tar.gz#解压缩tar -zxvf httpd-2.4.33.tar.gz#进入解压缩目录cd httpd-2.4.33#软件配置与检查，指定安装位置./configure --prefix=/usr/local/apache2#编译，根据当前目录下的Makefile内部信息编译make#编译安装，根据当前目录下的Makefile内部信息安装make install ./configure作用 定义需要的功能选项； 检测系统环境是否符合安装要求 把定义好的功能选项和检测系统环境的信息都写入Makefile文件，用于后续的编辑。 其中的apache2目录不需要提前创建，make install命令执行时会自动创建 解压的文件夹中有一个INSTALL或README文件，vi打开之就可以看到详细的安装说明了。 如果make环节出错，只需要make clean即可。如果make install安装环节出错，我们就得删除configure时制定的安装目录，因为其中生成的文件失效了。 源码包的卸载只需要把安装目录删除即可。因为安装过程中生成的所有文件都是存放在安装目录中的，所以将安装目录删除就不会留下任何垃圾。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux安装管理03 yum在线安装]]></title>
+    <url>%2F2018%2F04%2F29%2FLinux%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86-yum%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[yum源文件将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题。（rpm缺点：安装过程中，rpm包依赖性太强） RedHat的yum是收费服务，而CentOS的yum是免费服务。 在/etc/yum.repos.d/目录中，默认有4个yum源文件，其中CentOS-Base.repo是基本yum源文件，如果我们能上网，那它是默认生效的，而其他的都是默认不生效的。 mirrorlist和baseurl一个是主站点，一个是辅助站点，代表内容一样，只写一个就行，可以修改为国内的源 gpgcheck：一般都要开启，开启后安装时会验证rpm包是否是官方的，以保证系统安全。 gpgkey：默认系统安装后，在目录/etc/pki/rpm-gpg下都会存在数字证书。 注：前面的file://表示文件协议，后面的/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6是数字证书的位置。1234567[root@CentOS6 ~]# cd /etc/pki/rpm-gpg[root@CentOS6 rpm-gpg]# ll总用量 16-rw-r--r--. 1 root root 1706 11月 27 2013 RPM-GPG-KEY-CentOS-6-rw-r--r--. 1 root root 1730 11月 27 2013 RPM-GPG-KEY-CentOS-Debug-6-rw-r--r--. 1 root root 1730 11月 27 2013 RPM-GPG-KEY-CentOS-Security-6-rw-r--r--. 1 root root 1734 11月 27 2013 RPM-GPG-KEY-CentOS-Testing-6 光盘搭建yum源如果没有网络，可以使用光盘 123456789101112131415161.挂载光盘mkdir /mnt/cdrom#建立挂载点mount /dev/cdrom /mnt/cdrom#挂载光盘2.使网络yum源失效 cd/etc/yum.repos.d/#进入yum源目录mv CentOS-Base.repo CentOS-Base.repo.bak#修改Yum源文件后缀名，使其失效；（判断yum源是根据后缀名repo来实现的，修改后缀名则可以使该yum源失效）3.使光盘yum源生效 yum命令查询123456yum list# 查询所有可用软件包列表yum search 关键字# 搜索服务器上所有和关键字相关的包yum search ifconfig#可以得知ifconfig命令来自包net-tools.x86_64 安装12yum -y install 包名（只用包名即可）# -y 自动回答yes 升级12yum -y update 包名# -y 自动回答yes 卸载123yum -y remove 包名# -y 自动回答yes# 服务器使用最小化安装，用什么软件安装什么，尽量不卸载 yum软件组管理命令12345678910111213yum grouplist #列出所有可用的软件组列表 yum groupinstall 软件组名 #安装指定软件组，组名可以由grouplist查询出来 yum groupremove 软件组名 #卸载指定软件组 软件组名必须是英文LANG=en_US 临时更改语系为英文 LANG=zh_CN.utf8 临时生效 /etc/sysconfig/i18n中 修改配置文件永久生效 换源1234567mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backupcd /etc/yum.repos.d/#https://mirrors.163.com/.help/centos.html，选择相应版本的centos源wget http://mirrors.163.com/.help/CentOS7-Base-163.repoyum makecacheyum -y update]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux安装管理02 RPM包管理]]></title>
+    <url>%2F2018%2F04%2F29%2FLinux%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86-RPM%E5%8C%85%E7%AE%A1%E7%90%86%2F</url>
+    <content type="text"><![CDATA[RPM包的来源所有RPM包都来自安装系统光盘的Packages目录中 RPM包命名规则 包全名：操作的包是没有安装的软件包时，使用包全名，而且要注意路径 包名：操作已安装的软件包时，使用包名，是搜索/var/lib/rpm/中的数据库 RPM包依赖性 树形依赖：a-&gt;b-&gt;c 解决方法：从后往前安装 环形依赖：a-&gt;b-&gt;c-&gt;a 解决方法：放在一条命令中安装即可 模块依赖：库文件依赖，库也叫模块，就是linux当中的函数，它有一个典型的特征，就是以.so.数字结尾，它依赖的其实是一个文件，而不是软件包。该文件藏身在某一个软件包当中。我们只要将该文件所在的软件包安装上，该文件也就安装了。解决方法：登录www.rpmfind.net 网站，输入库文件名称查询到对应的rpm包，然后安装即可。 RPM安装12345rpm -ivh 包全名# -i （install）安装# -v（verbose）显示详细信息# -h（hash）显示进度# --nodeps不检测依赖性（一般不用） RPM 升级12rpm -Uvh 包全名# -U（update）升级 需要包全名，而不是包名。可以如此理解：升级时的新包对于系统是新的，因此要包全名 如果这个包从来没有安装过，那么效果等同于rpm -ivh 包全名 RPM卸载123rpm -e 包名# -e（erase）卸载# --nodeps 不检查依赖性 rpm准备了这个卸载命令的原因是，我们安装时根本不知道这个包装了在哪里（要知道linux下的安装的软件的文件散布多个地方的，很难一一找），而rpm知道，所以干脆就为我们准备了这条便利的命令。 window下卸载软件，往往容易留很多垃圾数据难以除完，例如注册表等等。而linux中不会出现这个问题，只要把软件的安装目录所有都删除掉，就不会有残留。 RPM包查询1234567891011121314151617181920212223242526272829303132rpm -q 包名# 查询包是否安装# -q 查询（query）rpm -qa 包名# 查询所有已经安装的RPM包# -a 所有（all）# rpm -qa | grep httpdrpm -qi 包名# 查询软件包详细信息# -i (infomation) : 查询软件信息rpm -qip 包全名# -p (package) : 查询未安装报信息# 有时遇到问题, 可根据未安装包信息中所提供的网站进行查询资料rpm -ql 包名# 查询包中文件安装位置# -l (list) : 列表# -p (package) : 查询未安装包信息# 可查看包作者欲将包安装的位置rpm -qf 系统文件名# -f (file) : 查询系统文件属于哪个软件包# 查询系统文件属于哪个 RPM 包# 该文件必须是通过 RPM 包安装的rpm -qR 包名# 查询软件包的依赖性# -R (requires) : 查询软件包的依赖性 # -p (package) : 查询未安装包的信息 RPM包默认安装位置 RPM包校验1234rpm -V 已安装的包名# -V (verify) : 校验指定RPM包中的文件# 执行后, 无任何提示, 代表该文件没有被做任何修改# 判断本地的安装包与官方给出的是否一致, 从而判断是否被人修改 验证内容中的8个信息 S : 文件大小是否改变 M : 文件的类型或文件的权限( rwx )是否被改变 5 : 文件MD5 校验和是否改变( 可以看成文件内容是否改变 ) D : 设备的主从代码是否改变 L : 文件路径是否改变 U : 文件的属主( 所有者 ) 是否改变 G : 文件的属组是否改变 T : 文件的修改时间是否改变 验证内容中的文件类型 c (config file) : 配置文件 d (documentation) : 普通文档 g (ghost file) : “鬼”文件, 很少见, 就是该文件不应该被这个RPM包包含 L (license file) : 授权文件 r (read me) : 描述文件 MD5校验用来校验文件的完整性(文件内容是否被改变) 例如, 在官网下载的游戏, 官方会给出MD5校验码, 将下载的游戏通过专用的MD5校验工具校验后生成一份MD5校验码, 对比两份校验码是否一致, 不一致则说明，下载的文件可能丢包, 可能文件损坏, 可能被其他人动过手脚一直木马等 RPM包中的文件提取1rpm2cpio 包全名 | cpio -idv .文件绝对路径 前面的.代表当前路径，不能省略。 文件绝对路径和包里文件的绝对路径对应，也就是告诉了cpio要去包里提取哪个文件。 cpio只知道提取文件，并不知道要从什么地方提取文件，因此我们通常要使用|管道符或&lt;输入重定向告诉cpio我们应该从什么设备去取出文件。 12345cpio 选项 &lt; [文件|设备]# 使用输入重定向的cpio# -i：copy-in模式，还原# -d：还原时自动新建目录# -v：显示还原过程]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux安装管理01 软件包分类]]></title>
+    <url>%2F2018%2F04%2F29%2FLinux%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86-%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%88%86%E7%B1%BB%2F</url>
+    <content type="text"><![CDATA[二进制包是经过源码包编译过的安装包，编译就是将源码解释为机器可以认识的二进制语言的过程，安装源码包比二进制包复杂，因为要经过一个编译的过程，这个过程容易出错，一旦出错，就要对源码进行修改。 在redhat中二进制包后缀是rpm，在debian系列里如ubuntu二进制包的后缀是deb，但是它们都是二进制包。Linux下安装软件只有俩种格式：二进制包和源代码包 源码包优点 开源，如果有足够的能力，可以修改源代码 可以自由选择所需的功能 软件是编译安装，所以更加适合自己的系统，更加稳定、效率更高 卸载方便（直接删除） 缺点 安装过程步骤较多，尤其安装较大的软件集合时（如LAMP环境搭建），容易出现拼写错误 编译过程时间较长，安装比二进制安装时间长 因为是编译安装，安装过程中一旦报错新手很难解决 二进制包（RPM包、Deb包）二进制包安装速度快是它的优点，但是二进制包不是系统自己编译的，效率不如源码包。如果是生产环境，就要源码包安装，因为效率高。 优点 包管理系统简单，只通过几个命令就可以实现包的安装、升级、查询和卸载 安装速度比源码包安装快的多 缺点 经过编译，不再可以看到源代码 功能选择不如源码包灵活 依赖性 脚本安装包把复杂的软件包安装过程写成了程序脚本，初学者可以执行脚本实现一键安装。但实际安装的还是源码包和二进制包,例如LAMP一键安装包 优点：安装简单、快捷 缺点：完全丧失了自定义性，不能定义安装软件的版本，不能定义所需要的软件功能，源码包的优势几乎完全丧失]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux权限管理06 chattr、lsattr]]></title>
+    <url>%2F2018%2F04%2F27%2FLinux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86-chattr%E3%80%81lsattr%2F</url>
+    <content type="text"><![CDATA[作用禁止修改某些重要的系统文件 使用条件 所支持的文件系统包括：ext2、ext3、ext4和xfs 一般要求内核版本不低于2.2(查看版本的命令如下：uname -a、lsb_release -a 不能保护 /、/tmp 、/dev、/var目录 chattr只能由root用户使用 chattr类似于chmod, chmod只是改变文件的读写、执行权限，更底层的属性控制是由chattr来改变的.1234567891011121314chattr [+-=] [选项] 文件或目录名* +：增加权限* -：减少权限 * =：等于某权限* a：即append * 如果对文件设置a属性，那么只能在文件中增加数据，不能删除也不能修改数据（不能使用vi，因为不能判断是增加还是修改，可以使用echo） * 如果对目录设置a属性，那么只允许在目录中建立和修改文件，但是不允许删除* i：即insert * 如果对文件设置i属性，那么不允许对文件进行删除、改名、设定链接关系，同时不能写入或新增内容 * 如果对目录设置i属性，那么只能修改目录下文件的数据，不允许建立和删除文件chattr +a abcchattr +i abc lsattr查看文件系统属性1234lsattr [选项] [文件名]* -a：列出目录下的所有文件，包括隐藏文件* -d：查看本目录自身的权限 参考： http://www.cnblogs.com/Jimmy1988/p/7265816.html https://www.imooc.com/video/9667]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux权限管理05 SUID、SGID、SBIT]]></title>
+    <url>%2F2018%2F04%2F27%2FLinux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86-SUID%E3%80%81SGID%E3%80%81SBIT%2F</url>
+    <content type="text"><![CDATA[SUID(SetUID)使用户临时具有程序所有者（比如root）的权限来执行该程序，比如调用/usr/bin/passwd命令修改自己的密码 SetUID(或者 s 权限）：当一个具有执行权限的文件设置SetUID权限后，用户执行这个文件时将以文件所有者的身份执行。passwd命令具有SetUID权限，所有者为root（Linux中的命令默认所有者都是root），也就是说当普通用户使用passwd更改自己密码的时候，那一瞬间突然 “灵魂附体” 了，实际在以passwd命令所有者root的身份在执行，root当然可以将密码写入/etc/shadow文件，命令执行完成后该身份也随之消失。当然用户的passwd命令不能修改其他用户的密码，只能输入passwd来修改自己的密码 使用要求 只有可执行的二进制程序才可以设置SetUID 命令执行者必须对欲设置SetUID的文件具备可执行(x) 权限，没有x的文件会成为S，S不能正确使用，只有s可以正确使用 命令执行过程中，其它用户获取所有者的身份（灵魂附体） SetUID具有时间限制，即完成该程序执行后就消失 不能对目录使用 命令4代表SUID，s出现在文件所有者的x权限上 1234567#设置SetUIDchmod 4755 文件名chmod u+s 文件名（推荐，不影响其他权限）#取消SetUIDchmod 0755 文件名chmod u-s 文件名（推荐，不影响其他权限） 例程以普通用户执行12345678910ll /usr/bin/touchtouch test1sudo chmod u+s /usr/bin/touchll /usr/bin/touchtouch test2ll test1 test2#比较前后两次的属性差异-rw-rw-r--. 1 niesh niesh 0 7月 30 17:40 test1-rw-rw-r--. 1 root niesh 0 7月 30 17:42 test2 可以看到，在设置了SetUID之后，新建文件的所有者为root了，说明在执行touch的时候，用户自动升级为了所有者 危险性设置SetUID是具备很大危险性的，主要是设置权限过大而引起的问题我们需要定时查看系统中有哪些设置了SetUID权限 关键目录应严格控制写权限。比如 /、/usr 用户的密码设置要严格遵循密码三原则(#复杂性，易记忆性，时效性） 对系统中默认应该具有SetUID权限的文件做一个列表，然后定期检查有没有这之外的执行程序的命令文件被设置了SetUID 使用shell定期检查SetUID12345678910111213#!/bin/bashfind / -perm -4000 -o -perm -2000 &gt; /tmp/setuid.checkfor i in $(cat /tmp/setuid.check)do grep $i /root/suid.log &gt; /dev/null if [ &quot;S?&quot; !=&quot;0&quot;] then echo &quot;$i isn&apos;t in listfile!&quot; &gt;&gt; /root/suid_log_$(date+%F) fidonerm -rf /tmp/setuid.check SGID(SetGID)SetGID基本与SetUID相同，SetUID是设置所有者的权限，SGID为设置所属组的权限区别点在于：SetGID也可以设置目录的相关SetGID权限 作用将用户所在组临时升级为某一个组，以执行只有该组才有相应权限进行的操作 使用要求 针对文件： 可执行的二进制文件 命令执行者（即所属组）对该文件具备 x 权限 命令执行者在执行程序的时候，组身份升级为该程序文件的属组 权限只在执行过程中有效 针对目录： 普通用户对目录具备r和x权限，才可以进入到该目录 普通用户在此目录中的有效组会变成此目录的所属组 如普通用户对该目录具备w权限，新建文件的所属组为该目录的所属组 命令2代表SGID，s出现在文件所属群组的x权限上1234567#设置SetGIDchmod 2xxx &lt;file/dir-name&gt;chmod g+s &lt;file/dir-name&gt; （推荐）#取消SetGIDchmod xxx &lt;file/dir-name&gt;chmod g-s &lt;file/dir-name&gt; 例程我们此处以locate命令进行讨论：locate查询命令，比find要快很多，为什么？因为其实搜索的数据库而非整个硬盘：12345[root@niesh ~]# ll /usr/bin/locate-rwx--s--x. 1 root slocate 40496 6月 10 2014 /usr/bin/locate[root@niesh ~]# ll /var/lib/mlocate/mlocate.db-rw-r-----. 1 root slocate 6306909 7月 30 19:15 /var/lib/mlocate/mlocate.db 我用普通用户进行locate查看：12[niesh@niesh root]$ locate mlocate.db/usr/share/man/man5/mlocate.db.5.gz 去掉locate的s权限：123456[root@niesh ~]# chmod g-s /usr/bin/locate[root@niesh ~]# ll /usr/bin/locate-rwx--x--x. 1 root slocate 40496 6月 10 2014 /usr/bin/locate[niesh@niesh root]$ locate mlocate.dblocate: 无法执行 stat () `/var/lib/mlocate/mlocate.db&apos;: 权限不够 也就是：当执行locate命令时，普通用户niesh自动升级为slocate的组成员。 /usr/bin/locate是可执行二进制程序，可以赋予SGID 执行用户niesh对/usr/bin/locate命令拥有执行权限 执行/usr/bin/locate命令时，组身份会升级为slocate组，而slocate组对/var/lib/mlocate/mlocate.db数据库拥有r权限，所以普通用户可以使用locate命令查询mlocate.db数据库 命令结束，niesh用户的组身份返回为niesh组 SBIT(Sticky BIT)粘滞位 作用防止其他用户删除自己的文件，使用者在该目录下，仅自己与root才有权力删除新建的目录或文件 使用要求只对目录有效普通用户对该目录有w和x权限若没有粘滞位，则普通用户可以对目录下的文件/子目录进行删除操作（因为普通用户对目录具有w权限），包括其它用户建立的目录/文件；但若赋了SBIT,则普通用户只能删除自己创建的文件/目录，而不能删除不属于自己的文件/目录！ 命令1代表SBIT，t出现在文件其他用户的x权限上1234567#设置SBITchmod 1xxx &lt; dir-name &gt;chmod o+t &lt; dir-name &gt;#取消SBITchmod xxx &lt; dir-name &gt;chmod o-t &lt; dir-name &gt; 例程以/tmp为例：查看/tmp的权限：12[niesh@niesh tmp]$ ll -d /tmp/drwxrwxrwt. 8 root root 4096 7月 30 19:40 /tmp/ 会看到，/tmp目录的权限other部分为rwt,这个t就是我们设置的粘滞位接下来，我们用其它用户创建两个文件：123456[Jimmy@niesh tmp]$ touch test-file[Jimmy@niesh tmp]$ mkdir test-dir[Jimmy@niesh tmp]$ ll总用量 0drwxrwxr-x. 2 Jimmy Jimmy 6 7月 30 19:44 test-dir-rw-rw-r--. 1 root Jimmy 0 7月 30 19:44 test-file 切换到另外一个用户niesh:123456789[niesh@niesh tmp]$ ll总用量 0drwxrwxr-x. 2 Jimmy Jimmy 6 7月 30 19:44 test-dir-rw-rw-r--. 1 root Jimmy 0 7月 30 19:44 test-file在 niesh用户下，删除/tmp目录下的文件：[niesh@niesh tmp]$ rm -rf test-dir/ test-filerm: 无法删除&quot;test-dir/&quot;: 不允许的操作 无法删除！ 然后，我们切换到root，去掉/tmp的粘滞位：123456[niesh@niesh tmp]$ su -密码：上一次登录：日 7月 30 19:43:21 CST 2017pts/0 上[root@niesh ~]# chmod o-t /tmp/[root@niesh ~]# ll -d /tmp/drwxrwxrwx. 9 root root 4096 7月 30 19:48 /tmp/ 最后，切换到普通用户niesh，再次删除/tmp下的文件：123[niesh@niesh root]$ rm -rf /tmp/test-dir/ /tmp/test-file[niesh@niesh root]$ ll /tmp/总用量 0 参考： http://www.cnblogs.com/Jimmy1988/p/7260215.html]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux权限管理04 sudo权限]]></title>
+    <url>%2F2018%2F04%2F27%2FLinux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86-sudo%E6%9D%83%E9%99%90%2F</url>
+    <content type="text"><![CDATA[目的赋予普通用户超级管理员的权限 使用12345678910111213141516visudo#实际修改的是/etc/sudoers文件#sudo的配置文件是/etc/sudoers。visudo会锁住sudoers文件，保存修改到临时文件/etc/sudoers.tmp，然后检查文件格式，确保正确后才会覆盖sudoers文件。必须保证sudoers格式正确，否则sudo将无法运行。root ALL=(ALL) ALL用户名 被管理主机的地址=（可使用的身份） 授权命令（绝对路径）%wheel ALL=(ALL) ALL%组名 被管理主机的地址=（可使用的身份） 授权命令（绝对路径）第二个all指，可以切换成任意身份，这个可以直接省略$sudo -l #查看可以执行的命令$sudo /sbin/shutdown -r now#普通用户执行超级命令的时候必须要加 sudo 命令的绝对路径 补充： http://www.cnblogs.com/Jimmy1988/p/7270881.html https://wiki.archlinux.org/index.php/Sudo_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E6.9F.A5.E7.9C.8B.E5.BD.93.E5.89.8D.E8.AE.BE.E7.BD.AEhttp://man.linuxde.net/sudo?zwbizq=f0evo1]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux权限管理03 ACL权限]]></title>
+    <url>%2F2018%2F04%2F27%2FLinux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86-ACL%2F</url>
+    <content type="text"><![CDATA[文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求（一个不属于u/g/o的用户也要对文件有权限），这时候就需要ACL权限，用来解决用户身份不够的问题 CentOS不需要开启ACL权限，xfs文件系统默认开启了ACL权限，可以直接使用getfacl和setfacl命令 查看分区ACL权限是否开启123456789df ＃查看分区dumpe2fs -h /dev/sda5#dumpe2fs命令时查询指定分区详细文件系统信息的命令-h 仅显示超级块中信息，而不显示磁盘块的详细信息#仅适用于ext4等文件格式，xfs默认开启了acl权限文件信息里项：Default mount options: user_xattr acl那就说明分区是支持acl的 开启ACL权限临时开启分区ACL权限12mount -o remount,acl /#重新挂载根分区，并挂载加入acl权限 永久开启分区ACL权限1234567vi /etc/fstabUUID=c2ca6f57-b15c-43ea=bca0-f239083d8bd2 / ext4 defaults,acl 1（＃启动是否需要检测） 1(#启动是否需要备份)#加入aclmount -o remount /#重新挂载文件系统或重启系统，使修改生效 查看ACL权限1getfacl 文件名 会显示mask值 设置acl权限123456789101112131415setfacl 选项 文件名选项-m #设定acl权限-x #删除指定的acl权限-b #删除所有的acl权限-d #设定默认acl权限-k #删除默认acl权限-R #递归设定acl权限例：setfacl -m u:lw:rx /av#给用户lw赋予r-x权限，使用&quot;u:用户名:权限&quot;格式例：setfacl -m g:group2:rwx /av#给用户组group2赋予rwx权限，使用&quot;g:组名:权限&quot;格式 设定之后会在ls -al命令显示的权限末尾出现+号1drwxr-xr-x+ root root 最大有效权限maskmask是用来指定最大有效权限的。如果给用户赋予了acl权限，是需要和mask的权限“相与”才能得到用户的真正权限。相与是计算机中的术语，皆真方为真，有假便为假。 最大权限也会影响到组权限。例：某文件所有者为tony，chmod赋予的普通权限为7，而acl赋予tony的权限为5，则acl权限会高于chmod权限 修改mask值12setfacl -m m:rx 文件#设定mask权限为r-x。使用“m:权限”格式 删除acl权限12345678setfacl -x u:用户名 文件#删除指定用户的acl权限setfacl -x g:组名 文件#删除指定用户的acl权限setfacl -b 文件#删除文件所有的acl权限 递归ACL权限在给父目录赋予权限的同时，给已经存在于目录下的文件赋予相同的权限12setfacl -m u:用户名:权限 -R 目录名#R表示递归 注意 用递归的方式容易导致文件权限溢出(目录为r-x，子文件则也为r-x) 递归acl只能用在目录而不能用于普通文件 默认ACL权限给父目录下将来新建的文件默认赋予父目录的权限12setfacl -m d:u:用户名:权限 目录名#d表示default 设置后可以使用getfacl查看 补充：https://www.cnblogs.com/Jimmy1988/p/7249844.html]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux权限管理02 默认权限]]></title>
+    <url>%2F2018%2F04%2F27%2FLinux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86-%E9%BB%98%E8%AE%A4%E6%9D%83%E9%99%90%2F</url>
+    <content type="text"><![CDATA[Windows中的默认权限是从上级目录中继承的Linux的默认权限是通过umask设置的 查看默认权限123456umask #查看默认权限00220：文件特殊权限022：文件默认权限 修改默认权限12345# 临时修改umask 0002# 永久修改vi /etc/profile 文件的默认权限 文件默认最高权限为666 文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为666 默认权限需要推算成字母（rwx）再相减 建立文件之后的默认权限，为666减去umask值 目录的默认权限 目录的默认权限最大为777 默认权限需要换算成字母再相减 建立文件之后的默认权限，为777减去umask值 例如： 目录默认最大权限为777，umask值022 -rwxrwxrwx 减去 -----w--w-等于 -rwxr-xr-x]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Linux】Linux权限管理01 一般权限]]></title>
+    <url>%2F2018%2F04%2F27%2FLinux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86-%E4%B8%80%E8%88%AC%E6%9D%83%E9%99%90%2F</url>
+    <content type="text"><![CDATA[查看权限1ls -al 第1位 2-4位 5-7位 8-10位 11位 - rwx r-x r-x . 文件类型 u所有者 g所属组 o其他人 ACL权限 r：读w：写x：执行 修改权限1234567chmod [选项] 模式 文件名选项：-R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]chmod a=rwx filenamechmod u+w filename 权限的作用权限对文件的作用 r：读取文件内容（cat/more/head/tail） w：编辑、新增、修改文件内容（vi/echo），不包括新增文件和删除文件 x：可执行，判断是否为可执行文件 文件中的数据存储在文件数据block里，而文件名储存位置在目录block中，要删除文件，意味着要删除文件名，所以要想删除文件，必须对目录block进行操作 权限对目录的作用 r：查询目录下的文件（ls） w：具有修改目录结构的权限。如新建文件和目录，删除此目录下的文件和目录，重命名此目录下文件和目录，剪切（touch/rm/mv/cp） x：进入目录（cd） 对文件来说，最高权限是x对目录来说，最高权限是w目录只有0，5 ，7权限有意义。4、1、6权限没有意义文件的常用权限是644目录的常用权限是755 其他命令12345678#修改文件所有者chown 用户名 文件各#修改文件的所属组chgrp 所属组 文件名#同时修改文件的所有者和所属组chown 用户名:所属组 文件名 分配文件基本权限时，核心原则：在最小权限情况下能够实现要求即可]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[清华同方x46h开启Intel VT]]></title>
+    <url>%2F2017%2F09%2F11%2F%E6%B8%85%E5%8D%8E%E5%90%8C%E6%96%B9x46h%E5%BC%80%E5%90%AFIntel-VT%2F</url>
+    <content type="text"><![CDATA[清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷，结果我刷的代价就是主板被刷坏，花了350把主板修了，总之刷BIOS还是有风险的，这里只是提供具体方法 1、查看是否支持Intel VT技术以及是否开启下载leomoon-cpu-v（https://leomoon.com/downloads/desktop-apps/leomoon-cpu-v/），并安装 左边的对勾表示主板支持Intel VT右边的对勾表示主板已经开启Intel VT这张图片是已经开启的状态清华同方x46h的实际状态应该是左边对勾，右边叉 2、制作纯DOS启动U盘 下载MSDOS7.1http://www.cn-dos.net/newdos/dosart32.htm解压 格式化U盘为FAT32分区格式 使用UltraIOS制作U盘启动盘和制作win7的启动U盘一样插入不用的U盘（因为需要格式化）在UltraIOS中文件》打开，选择解压后的MSDOS文件夹中的IOS镜像文件；点击启动》写入硬盘映像选择U盘，写入方式为USB-HDD+，点击写入 可以参考http://blog.sina.com.cn/s/blog_4ad042e50102eclt.html 3、下载需要刷的BIOS 在步骤2中制作好的U盘启动盘里新建文件夹，文件夹名叫12 下载https://getpocket.com/a/read/1885690768中的X46H_BIOS ，解压，将文件夹中的四个文件复制到12文件夹中 4、刷BIOS 重启电脑，按F2打开BIOS 将U盘设为电脑开启的第一启动项，保存，退出 插入U盘，重启电脑 会进入MSDOS界面，会先让你设置MSDOS，选择cancel取消设置 接下来输入以下命令 命令1： “C:” 回车 —将当前盘符切换到C:命令2： “CD 12” 回车 —将当前操作文件夹切换到C:\12下命令3： “fpt -bios -f GT_122.h09” 回车 —执行刷新命令 图4 刷新成功后 按开关机键 关机 ，将电池拔掉 ，电源线 移除 ，1分钟后安装好。 5、开启Intel VT开机，按F2进 BIOS 选择高级 Advanced 选项 会出现 虚拟化选项。打开后按F10保存并退出即可。 运行leomoon-cpu-v工具可以看到看到Intel VT已经开启 参考：http://benyouhui.it168.com/thread-1896445-1-1.html]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows配置JDK]]></title>
+    <url>%2F2017%2F08%2F19%2FJDK%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[每次重装系统都要重新配置jdk每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境 1、下载jdk2、配置环境变量1234JAVA_HOME D:\Java\jdk1.6.0_39CLASSPATH .;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jarPath %JAVA_HOME%\bin %JAVA_HOME%\jre\bin 注意CLASSPATH之前的点和分号 3、验证打开cmd，分别输入java -version，javac -version，如果可以看到版本号，说明成功]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[【Hexo】重装系统后hexo配置]]></title>
+    <url>%2F2017%2F08%2F19%2F%E3%80%90Hexo%E3%80%91%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E5%90%8Ehexo%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来 1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除 2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm1234sudo apt install nodejs npm gitsudo npm install -g nn stablesudo npm -g install npm@next 3、配置SSH key：在Git Bash敲入1ssh-keygen -t rsa -C “你的邮箱” 生成的密钥默认保存在C:\Users\XPS.ssh\id_rsa.pub，用笔记本打开该文件，复制里面的内容到Github&gt;Settings&gt;SSH and GPG keys&gt;New SSH key-Key一栏里，title可任意发挥1ssh -T git@github.com 测试是否成功 4、配置Git的个人信息：在Git Bash输入12git config --global user.name &quot;yourname&quot;git config --global user.email &quot;youremail&quot; 5、在你要放置博客的文件夹打开Git Bash， 安装Hexo框架12sudo npm install hexo-cli -gsudo npm install hexo --save 6、hexo在指定文件夹中新建所需要的文件123hexo init &lt;folder&gt;cd &lt;folder&gt;npm install 7、Hexo3.0以上版本，需要安装hexo-deployer插件才能部署到Github1npm install hexo-deployer-git --save 8、在初始化完成后，将之前重装系统保存的Hexo文件夹下的这些文件夹拷贝至新的Hexo文件夹(即刚刚初始化完成的)内 9、执行以下命令来部署123hexo cleanhexo ghexo d 在重装系统完之后恢复Hexo初次部署需要一点时部署中如果弹出弹框，填yes即可。出现123To github.com:Aldrich-ayu/Aldrich-ayu.github.io.git+ cb4cda2...ec926bc HEAD -&gt; master (forced update)INFO Deploy done: git 即表示恢复Hexo并且部署成功！ 参考： http://yanziyu.tech/2017/04/04/reinstall-hexo/ https://hexo.io/zh-cn/docs/index.html https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ajax工作原理]]></title>
+    <url>%2F2017%2F08%2F17%2FAjax%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516172018年5月记，总结起来就几句话//创建xmlhttprequest对象var xhttp xhttp=new XMLHttpRequest();//使用xmlhttprequest对象的open()和send()方法发送资源请求给服务器xhttp.open(&quot;POST&quot;,&quot;ajax_info.txt&quot;,true);//调用onreadystatechange函数xhttp.onreadystatechange = function()&#123;&#125;;//获得服务器的响应document.getElementById(&quot;demo&quot;).innerHTML=xhttp.responseText;然后为了这四句能正确响应，添加必要的判断返回的响应也可能是各种形式，需要做各种处理是不是很简单 名称Asynchronous JavaScript and XML异步得JavaScript和XML 作用在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容 同步与异步异步传输是面向字符的传输，它的单位是字符；异步传输是将比特分成小组来进行传送。一般每个小组是一个8位字符，在每个小组的头部和尾部都有一个开始位和一个停止位，它在传送过程中接收方和发送方的时钟不要求一致 同步传输是面向比特的传输，它的单位是桢，它传输的时候要求接受方和发送方的时钟是保持一致的。同步传输通常要比异步传输快速得多，同步传输的开销也比较少 包含的技术 使用CSS和XHTML来表示 使用DOM模型来交互和动态显示 使用XMLHttpRequest来和服务器进行异步通信 使用javascript来绑定和调用重点是3，理解XMLHttpRequest对象 XMLHttpRequest属性onreadystatechange 每次状态改变所触发事件的事件处理程序。responseText 从服务器进程返回数据的字符串形式。responseXML 从服务器进程返回的DOM兼容的文档数据对象。status 从服务器返回的数字代码，比如常见的404（未找到）和200（已就绪）status Text 伴随状态码的字符串信息 readyState 对象状态值 0 (未初始化) 对象已建立，但是尚未初始化（尚未调用open方法） 1 (初始化) 对象已建立，尚未调用send方法 2 (发送数据) send方法已调用，但是当前的状态及http头未知 3 (数据传送中) 已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误 4 (完成) 数据接收完毕,此时可以通过通过responseXml和responseText获取完整的回应数据 使用ajax的步骤 创建xmlhttprequest对象，由于各浏览器之间存在差异，所以创建一个XMLHttpRequest对象可能需要不同的方法。这个差异主要体现在IE和其它浏览器之间。 使用xmlhttprequest对象的open()和send()方法发送资源请求给服务器 调用onreadystatechange函数，当发送请求到服务器，我们想要服务器响应执行一些功能就需要使用onreadystatechange函数，每次xmlhttprequest对象的readyState发生改变都会触发onreadystatechange函数 使用xmlhttprequest对象的responseText或responseXML属性获得服务器的响应 示例12345678910111213141516171819202122232425262728293031323334353637&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;&lt;p id=&quot;demo&quot;&gt;Let AJAX change this text.&lt;/p&gt;&lt;button type=&quot;button&quot; onclick=&quot;loadDoc()&quot;&gt;Change Content&lt;/button&gt;&lt;script&gt;function loadDoc()&#123;// 1、创建xmlhttprequest对象var xhttp;if (window.XMLHttpRequest)&#123; // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码 xhttp=new XMLHttpRequest();&#125;else&#123; // IE6, IE5 浏览器执行代码 xhttp=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);&#125;//var xhttp=new XMLHttpRequest();// 2、使用xmlhttprequest对象的open()和send()方法发送资源请求给服务器xhttp.open(&quot;POST&quot;,&quot;ajax_info.txt&quot;,true);//xhttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);// 3、onreadystatechange函数xhttp.onreadystatechange = function()&#123; if (xhttp.readyState == 4 &amp;&amp; xhttp.status == 200) &#123; // 4、使用xmlhttprequest对象的responseText或responseXML属性获得服务器的响应 document.getElementById(&quot;demo&quot;).innerHTML=xhttp.responseText;&#125;&#125;;xhttp.send();&#125;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt; 处理post表单post表单数据需要使用xmlhttprequest对象setRequestHeader方法增加一个HTTP头。post表单例子123xhttp.open(&quot;POST&quot;, &quot;ajax_test.aspx&quot;, true);xhttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);xhttp.send(&quot;fname=Henry&amp;lname=Ford&quot;); 处理xml需要放在if (xhttp.readyState == 4 &amp;&amp; xhttp.status == 200) {}里面1234567xmlDoc = xhttp.responseXML;var txt = &quot;&quot;;x = xmlDoc.getElementsByTagName(&quot;ARTIST&quot;);for (i = 0; i &lt; x.length; i++) &#123; txt += x[i].childNodes[0].nodeValue + &quot;&lt;br&gt;&quot;;&#125;document.getElementById(&quot;demo&quot;).innerHTML = txt; 处理json使用JSON.parse方法123456789101112131415xmlHttp.open(&quot;POST&quot;,&quot;tigongjson.php&quot;);//设置我们的请求头信息xmlHttp.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);//需要放在if (xhttp.readyState == 4 &amp;&amp; xhttp.status == 200) &#123;&#125;里面var data=xmlHttp.responseText;//json字符串转换成为json对象data=JSON.parse(data);var str=&quot;&quot;;for(var i=0;i&lt;data.length;i++)&#123; str+=&quot;姓名:&quot;+data[i].name+&quot;&lt;br&gt;&quot;; str+=&quot;年龄:&quot;+data[i].age+&quot;&lt;br&gt;&quot;; str+=&quot;性别:&quot;+data[i].sex+&quot;&lt;br&gt;&quot;;&#125;;div1.innerHTML=str; 其他请参考菜鸟教程 参考： AJAX 教程|菜鸟教程 Ajax的原理和应用(给公司做所的培训) Ajax的使用四大步骤 Ajax中解析Json的两种方法详解 使用原生ajax处理json组成的数组]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[XML命名空间和XML Schema]]></title>
+    <url>%2F2017%2F08%2F13%2FXML%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8CXML-Schema%2F</url>
+    <content type="text"><![CDATA[12018年5月记，看完之后相当懵逼，，我是为了什么写这个的 概念XML命名空间提供避免元素命名冲突的方法。标签可以放入命名空间中，不同的命名空间中的相同名称标签是不同的标签。 命名冲突在 XML 中，元素名称是由开发者定义的，当两个不同的文档使用相同的元素名时，就会发生命名冲突。 这个 XML 携带 HTML 表格的信息：123456&lt;table&gt;&lt;tr&gt;&lt;td&gt;Apples&lt;/td&gt;&lt;td&gt;Bananas&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; 这个 XML 文档携带有关桌子的信息（一件家具）：12345&lt;table&gt;&lt;name&gt;African Coffee Table&lt;/name&gt;&lt;width&gt;80&lt;/width&gt;&lt;length&gt;120&lt;/length&gt;&lt;/table&gt; 假如这两个 XML 文档被一起使用，由于两个文档都包含带有不同内容和定义的 元素，就会发生命名冲突。XML 解析器无法确定如何处理这类冲突。 语法在xml文件中，命名空间的定义如下：1&lt;d:student xmlns:d=&quot;http://www.develop.com/student&quot; &gt; 其中 student 是命名空间的标签。http://www.develop.com是命名空间的标识。d是命名空间的前缀。 命名空间标签由于命名空间采取元素属性的定义方式，所以需要一个标签。 xmlns 属性当在 XML 中使用前缀时，一个所谓的用于前缀的命名空间必须被定义。命名空间是在元素的开始标签的 xmlns 属性中定义的。xmlns:前缀=”URI”。当命名空间被定义在元素的开始标签中时，所有带有相同前缀的子元素都会与同一个命名空间相关联。命名空间 URI 不会被解析器用于查找信息。其目的是赋予命名空间一个惟一的名称。不过，很多公司常常会作为指针来使用命名空间指向实际存在的网页，这个网页包含关于命名空间的信息。 命名空间标识命名空间标识是命名空间最重要的属性，重要到当输出一个命名空间时就直接转换为它的标识。标识有个规范的称呼:URI(统一资源定位符)。URI的最大特点是唯一性。如果不唯一就失去了辨识的意义。实际上相同URI不同的命名空间被看成同一个命名空间。 URI分为两种类型：URL(统一资源定位器):通俗的说URL就是网页地址。因为每个网页在internat上都是唯一的。 URN（统一资源名称)：可以不使用网页地址而使用唯一名称来定义。如：urn:2007-12-9/workgrop/xin/projiectname或 urn:E7f73B13-05FE-44ec-81CE-F898C4A6CDB4这个编号是在系统中注册的控件编号，因此是唯一的。 前缀前缀用于在XML中作为URI的简化引用。因为URI太长了。如：1234&lt;d:student xmlns:d=&quot;http://www.develop.com/student&quot;&gt;&lt;d:id&gt;3235329&lt;/d:id&gt;&lt;d:name&gt;Jeff Smith&lt;/d:name&gt;&lt;/d:student&gt; 使用前缀把标签放入对应的命名空间中。 有了命名空间区分后相同标签名可以不会被错误解析。实际上命名空间加上元素名叫做QName。QName有两个属性：uri和localName，分别获取命名空间名和本地名称。这个QName可以使用xml的name()方法得到。如上例子中的xml文件可以使用如下代码访问：12345var ns:Namespace=xml.namespace();var node:XMLList=xml.ns::id;var qNameName=node.name();trace(qName.uri);trace(qName.localName); 命名空间不一点要定义在根节点。可以在任何标签中定义，但只有定义了后才能使用。命名空间还可以嵌套或者被重定义。但这样会增加复杂性。一般用的比较少。一个xml文件中可以拥有多个命名空间。使用命名空间前缀可以轻松处理它们。如：12&lt;x:transform version=”1.0” xmlns:x=http://www.w3.org/1999/XSL/Transformxmlns:d=”urn:dm:student”&gt;&lt;x:template match=”student”/&gt;&lt;d:template match=”name”/&gt;&lt;/x:transform&gt; 默认的命名空间为元素定义默认的命名空间可以让我们省去在所有的子元素中使用前缀的工作xmlns=”namespaceURI”使用默认命名空间后，如果不加前缀则引用默认命名空间。使用默认命名空间会降低xml结构的清晰度。要慎用。 参考： http://m.blog.csdn.net/w938706428/article/details/41448821 http://www.runoob.com/xml/xml-namespaces.html]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[腐女与伪腐女]]></title>
+    <url>%2F2017%2F02%2F02%2F%E8%85%90%E5%A5%B3%E4%B8%8E%E4%BC%AA%E8%85%90%E5%A5%B3%2F</url>
+    <content type="text"><![CDATA[123456782017年2月2日写的。。2018年5月重看，看完了之后有点觉得不知所云，不知道自己当初想说什么，或者说想要论证的太多，反而说不清了。。腐是一种个人爱好，就和你喜欢喝茶，我喜欢喝咖啡，和别人无关，当然不能影响他人，就比如喜欢跳广场舞，但最好不要扰民，扰民了就不能怪别人说没有必要区分伪腐和真腐，既然是一种个人爱好，你喜欢谁都无所谓的（不过不管伪腐还是真腐都喜欢帅哥吧哈哈），但是前面也说了，不能打扰别人，请不要贬低别人（大概是有人用这种方式炒作吧，毕竟这样就有人关注了）腐和热心LGBT一点关系没有（好像有点绝对），也许有腐女会热心，但只能说是一种个人行为，有人也许会说我是因为喜欢腐圈才去了解LGBT，但你没法忽视一个问题：大部分腐女并没有这种意识，两个长的丑站在一起你不会萌，真的是一对你也不会萌的。那么是不是说我们一定要求腐女热心公益？当然不，各玩各的互不影响挺好 突然想写写这个话题，是因为最近上b站，老是看到评论里有一些人为了”腐女”和”伪腐女”而争执。 维基对于”腐女”的解释是： 腐女（日语：腐女子／ふじょし Fujoshi），主要是指喜欢BL，也就是喜欢男男爱情的女性。 百度百科和萌娘百科(ACG向wiki)类似，但是对于”伪腐”的概念有一些不同的地方。 维基百科中提到了”伪腐”，表示中国(其他国家没有这个概念，或者百科中没有提到)腐圈的一种概念 因为大众有时并不清楚“BL”与现实中的男同性恋的区别，误以为腐女就是“对男同友善的女性”。由此也衍生出“伪腐”一词用以形容“喜欢BL，但对男同性恋不友善”的腐女。 百度百科中有单独的”伪腐女”概念： 腐女群体里面一些不理智、疯狂、NC（脑残）的腐女，所谓的伪其实并非是假，只是其他理智的腐女对于这类腐女看不惯所采取的分类手段，为了不让人降低对腐女的印象，选择以“这些腐女并非是真正的腐女，是伪腐！”的借口来和NC腐女划分界限或推卸责任。 萌娘百科中这样定义： 喜欢BL只是因为二次元中的人物都十分美型，对于现实生活中真正的GAY群不一定持支持态度，甚至厌恶和嘲笑，像这样的“腐女”被称为“伪腐” 其实参考这些之后就可了解： 腐只能被看作一种爱好，无论你喜欢帅哥还是什么，都可以称作腐女，”伪腐女”并不是代表假的，而是用来形容那些不理智/疯狂/脑残的腐女。 结论1：腐只是一种个人爱好 结论2：伪腐女不等于不是腐女 “伪腐女”这个词的出现一方面不排除个别腐女的优越感，另一方面也说明一些腐女在行为方式上的让人感到反感，自己喜欢什么没人管，但是还请尊重他人(我想不论是不是腐女都应该尊重他人)，正如萌娘百科所说： 腐只是一种爱好，能否做到尊重他人、尊重他人隐私是做人的基本素养问题，与腐或不腐没有联系。 腐圈为了区分这些腐女所以创造了”伪腐女”这个词 常见的伪腐特征(来自萌娘百科，百度百科词条”伪腐女”有类似内容)： 仅喜欢长相俊秀、外貌美型的男子，对于现实中的GAY嗤之以鼻甚至深感厌恶。典型语句【长这么丑也好意思搞同性恋】。 喜欢偷窥、干涉现实中的GAY的生活，过度挖掘他人的隐私以满足自己的兴趣。 热衷于掰弯现实生活中的直男（如身边的男同学等），强迫周围的人搞基，令他人感到困扰，严重影响他人生活。 对不符合其审美观的男性，以及明确表示厌恶搞基的直男则采取敌视态度，进行贬损和污蔑。 无法接受LES（女同性恋），看不起她们。 对于GAY的交心信仅凭所看的耽美漫画、动画、小说等给予荒诞错误的建议，或将信件放在公共平台供大家讨论围观。 在大庭广众高调谈论腐相关，大有“我就是腐我真了不起”之意，令他人感到厌烦。 不接受男女之间的爱情故事，认为耽美就是小众就是清新就是高端大气上档次，男女之情都是庸俗三流泛滥成河，由此以为自己是文艺女青年而轻视看描写一般男女故事的人。 阅读更多：腐女（https://zh.moegirl.org/%E8%85%90%E5%A5%B3）本文引自萌娘百科（https://zh.moegirl.org/），文字内容遵守【知识共享 署名-非商业性使用-相同方式共享 3.0】协议。 结论3：一些腐女存在不尊重他人的行为，影响到了他人，一些行为真的让人反感，换句话说自己圈地自萌就好，请不要要求别人怎样，也别影响别人 那么也许会有疑问，是不是腐女都应该支持同性恋? 我个人觉得并不一定，腐毕竟只是作为一种个人的爱好，只要不影响他人就好，而不一定要把这种爱好强迫变成一种公益行为，一些做支持同性恋的腐女也请不要要求别的腐女一定要支持腐女，这就和你其他公益事业一样，你做公益事业，很不错，但是强迫别人也做就不好了。 结论4：腐不等于公益行为 结论5：腐圈和LGBT圈关系不大 参考资料：腐女-百度百科伪腐女-百度百科腐女-维基百科腐女-萌娘百科腐女与伪腐女之间的差别是什么？-知乎什么是腐女？-什么是腐女]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年突然想说的话]]></title>
+    <url>%2F2017%2F01%2F03%2F2016%E5%B9%B4%E7%AA%81%E7%84%B6%E6%83%B3%E8%AF%B4%E7%9A%84%E8%AF%9D%2F</url>
+    <content type="text"><![CDATA[2016年，感觉自己什么也没做，本来也不打算写年终博客的。 晚上和好友聊天，突然心情有点激动就想着，写写吧，写点什么，这大概只是有种想写的冲动吧，写出来的不见得有多好。 11月份的时候才意识到我放在SAE上的博客不在了，只备份了Wordpress的代码，没备份数据库，120篇博客找不回来了，上面写的都是一些问题怎么解决，以及自己在学习中的经验，印象最深的大概是如何在Elementaory OS系统上安装软件，直接把博客上的语句复制到shell里执行就好，最头疼的大概是安装输入法的问题，当时记得查了好多资料，最后每次重装都是因为update时输入法出问题，具体问题记不清楚了，好像是影响软件安装和更新。 考完研后一直在整理自己的东西，百度云、Onenote、印象笔记还有移动硬盘。 百度云里有很多资料和书籍，以前也整理过，大概地分离了各种资源，但条理并不是很清晰，索性需要的时候虎直接搜索就好，这次打算把以前备份的手机照片整理一下，顺便把很多很多的电子书整理分类，剔除重复，还有把图片和书籍备份到移动硬盘上，书籍还在下载中，还没有整理，图片已经整理好了，把大学四年的照片、保存的来自各种渠道的图片以及截图都理清了，回顾这些图片，把一些照片发给了相关的人，他们都很吃惊，哈哈。很多截图都是我在微信的聊天记录，我还找到了我和某人认识的大概时间。这些大概都算生活中的一点小乐趣了吧。 本来想将Onenote作为唯一的做笔记的应用，但是因为同步功能最后选择了印象笔记，充个标准会员，标签模式也不错，特别是用了Bear，可惜没有Mac，顺便一提，Bear真的好漂亮。 这一年确实过的浑浑噩噩，是我太幼稚，也是我在逃避，我真的没办法接受现实，可是人生不就是一步一步接受的过程吗？ 走吧，各人有各人的路要走，我既没法代替你，也没法陪你，甚至无法看着你 写的差不多了，确实只有写作的冲动，而没有写作的才华，哈哈哈。 2018年5月15日重看这篇文字，当时写完之后再也不敢看，现在因整理笔记打开觉得没什么，此时已经没有什么悲伤，我比较震惊我能写这么多文字哈哈，现在的感觉是每当我觉得突然明白了一些道理自己又长大了一点的时候，又觉得自己还是很幼稚]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[【Hexo】hexo目录结构以及_config.yml配置文件]]></title>
+    <url>%2F2016%2F10%2F09%2F%E3%80%90Hexo%E3%80%91hexo%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E4%BB%A5%E5%8F%8A-config-yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[目录结构1234567891011.├── .deploy #需要部署的文件├── node_modules #Hexo插件├── public #生成的静态网页文件├── scaffolds #模板├── source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里| ├── _drafts #草稿| └── _posts #文章├── themes #主题├── _config.yml #全局配置文件└── package.json 假设网站的根目录为D:/Hexo/，也称为站点目录站点配置文件 是指网站目录下的_config.yml文件，即D:/Hexo/_config.yml 主题配置文件 是指网站目录下对应的主题文件夹下的_config.yml文件，即D:/Hexo/themes/next/_config.yml. 站点配置文件123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081# Hexo Configuration## Docs: http://hexo.io/docs/configuration.html## Source: https://github.com/hexojs/hexo/# Site #站点信息title: #标题subtitle: #副标题description: #站点描述，给搜索引擎看的author: #作者email: #电子邮箱language: zh-CN #语言# URL #链接格式url: #网址root: / #根目录permalink: :year/:month/:day/:title/ #文章的链接格式tag_dir: tags #标签目录archive_dir: archives #存档目录category_dir: categories #分类目录code_dir: downloads/codepermalink_defaults:# Directory #目录source_dir: source #源文件目录public_dir: public #生成的网页文件目录# Writing #写作new_post_name: :title.md #新文章标题default_layout: post #默认的模板，包括 post、page、photo、draft（文章、页面、照片、草稿）titlecase: false #标题转换成大写external_link: true #在新选项卡中打开连接filename_case: 0render_drafts: falsepost_asset_folder: falserelative_link: falsehighlight: #语法高亮 enable: true #是否启用 line_number: true #显示行号 tab_replace:# Category &amp; Tag #分类和标签default_category: uncategorized #默认分类category_map:tag_map:# Archives2: 开启分页1: 禁用分页0: 全部禁用archive: 2category: 2tag: 2# Server #本地服务器port: 4000 #端口号server_ip: localhost #IP 地址logger: falselogger_format: dev# Date / Time format #日期时间格式date_format: YYYY-MM-DD #参考http://momentjs.com/docs/#/displaying/format/time_format: H:mm:ss# Pagination #分页per_page: 10 #每页文章数，设置成 0 禁用分页pagination_dir: page# Disqus #Disqus评论，替换为多说disqus_shortname:# Extensions #拓展插件theme: landscape-plus #主题exclude_generator:plugins: #插件，例如生成 RSS 和站点地图的- hexo-generator-feed- hexo-generator-sitemap- # Deployment #部署，将 lmintlcx 改成用户名deploy: type: git repo: github创库地址.git branch: master 配置文件的冒号后面都有一个半角空格 主题配置文件12345678910111213141516171819202122232425262728293031menu: #右上角导航菜单，冒号前面是菜单名，后面是访问路径。 Home: / Archives: /archives About: /aboutwidgets: #站点右边栏，可以调整顺序和增减内容，会自动调用主题layout/_widget目录下的同名文件。- search- category- tagcloudexcerpt_link: Read More #列表页里Read more链接名称，可以替换成’查看更多‘等。plugins: twitter: #右边栏要显示twitter展示的话，需要在此设置 username: show_replies: false tweet_count: 5addthis: #分享设置 enable: true pubid: facebook: true twitter: true google: true pinterest: truefancybox: true #图片效果，默认google_analytics: #google_analytics统计IDrss: #生成RSS路径]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Hexo】hexo中博客使用markdown格式约定]]></title>
+    <url>%2F2016%2F10%2F09%2F%E3%80%90Hexo%E3%80%91hexo%E4%B8%AD%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8markdown%E6%A0%BC%E5%BC%8F%E7%BA%A6%E5%AE%9A%2F</url>
+    <content type="text"><![CDATA[1.tags标签使用[tag1,tag2,…]，注意冒号后需要一个半角空格 2.文章内标题使用###空格我是标题空格### 3.内嵌代码使用反引号1`我是代码` 4.其他代码使用125.文字加粗使用两个星号 我是文字16.文字斜体使用一个*星号 我是文字17.引用使用&gt; 我是文字18.链接使用以下方式 &lt;我是链接&gt; 显示文字```]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Hexo】hexo新建文章]]></title>
+    <url>%2F2016%2F10%2F09%2F%E3%80%90Hexo%E3%80%91hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%2F</url>
+    <content type="text"><![CDATA[新建文章进入博客站点目录1hexo n &quot;文章题目&quot; 执行完命令会在blog\sourse_posts目录中多出一个md文件，也可以直接在该目录下新建md文件 编辑文章使用markdown工具编辑_posts目录中的md文件，最后记得使用hexo g以及hexo d命令 删除文章直接删除目录下的md文件即可]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Hexo】hexo常用命令]]></title>
+    <url>%2F2016%2F10%2F09%2F%E3%80%90Hexo%E3%80%91hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[常用命令：12345678hexo help #查看帮助hexo init #初始化一个目录hexo new &quot;postName&quot; #新建文章hexo new page &quot;pageName&quot; #新建页面hexo generate #生成网页，可以在 public 目录查看整个网站的文件hexo server #本地预览，&apos;Ctrl+C&apos;关闭hexo deploy #部署.deploy目录hexo clean #清除缓存，强烈建议每次执行命令前先清理缓存，每次部署前先删除 .deploy 文件夹 简写：1234hexo n == hexo newhexo g == hexo generatehexo s == hexo serverhexo d == hexo deploy]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Hexo】使用hexo d无法上传问题解决办法]]></title>
+    <url>%2F2016%2F10%2F09%2F%E3%80%90Hexo%E3%80%91%E4%BD%BF%E7%94%A8hexo-d%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[问题1在使用hexo d上传时，可能出现以下错误1234ERROR Deployer not found:git``### 解决办法 ###1.在博客目录下安装hexo-deployer-git npm install hexo-deployer-git –save12.在博客目录下的_config.yml文件中 deploy: type: git repository: https://github.com/fengrenxiaoli/fengrenxiaoli.github.io.git branch: master12345**type使用git，冒号后面需要一个半角空格**。### 问题2 ###使用`hexo d`中，出现： bash: /dev/tty: No such device or addresserror: failed to execute prompt script (exit code 1)fatal: could not read Username for ‘https://github.com‘: No error1234567### 解决办法 ###1.不要使用Cygwin等cmd工具，使用自带的cmd工具（具体可以参考&lt;https://github.com/atom/atom/issues/8984&gt;2.使用ssh(具体格式在github中有)代替_config.yml文件中的deploy如果出现 INFO Deploy done: git```则说明上传成功]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Hexo】修改Hexo博客的主题]]></title>
+    <url>%2F2016%2F10%2F09%2F%E3%80%90Hexo%E3%80%91%E4%BF%AE%E6%94%B9Hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%BB%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[1.从https://hexo.io/themes/挑选喜欢的主题 2.从Github下载相应的主题12cd your-hexo-sitegit clone https://github.com/iissnan/hexo-theme-next themes/your-theme 注意修改自己选择主题的对应名字 3.更改站点_config.yml（即博客目录下的该文件，不是主题文件中的文件）中的theme字段为your-theme（名字要和第二步的对应）1theme: your-theme（theme后面有一个半角空格）]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Hexo】使用Hexo搭建github博客]]></title>
+    <url>%2F2016%2F10%2F09%2F%E3%80%90Hexo%E3%80%91%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BAgithub%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[1.创建github帐号，新建一个以用户名.github.io命名的仓库 2.安装git，创建ssh12345ssh-keygen -t rsa -C &quot;your_email@example.com&quot;#用于创建ssh，会有公钥和私钥，将公钥拷贝到github帐号设置&gt;ssh and gpg keys中ssh -T git@github.com#用于测试是否成功 输入yes，其他使用默认即可，配置git12git config --global user.name &quot;cnfeat&quot;//用户名git config --global user.email &quot;cnfeat@gmail.com&quot;//邮箱 3.下载并安装hexo 4.新建一个目录用于放置本地博客12345678mkdir hexocd hexonpm install hexo-cli -g hexo init blogcd blognpm installhexo ghexo s #可以在本地http://localhost:4000/查看 5.修改blog目录下的_config.yml文件中的deploy：1234deploy:type: gitrepository: git@github.com:xxxxxx/xxxxxxx.github.io.gitbranch: master 6.安装hexo中关于git的组件，上传部署（需要cd到hexo\node_modules\hexo\Hexo目录）12345npm install hexo-deployer-git --savehexo cleanhexo ghexo d 如果出现问题请参考使用hexo d无法上传问题解决办法然后再使用以上代码 参考： http://kiya.space/2015/11/10/use-Github-Pages-Hexo-duoshuo-to-set-up-a-blog-basic-steps/ http://sunwhut.com/2015/10/30/buildBlog/ https://my.oschina.net/ryaneLee/blog/638440 http://www.jianshu.com/p/ab21abc31153 https://www.haomwei.com/technology/maupassant-hexo.html]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[带不走的，留不下的]]></title>
+    <url>%2F2016%2F06%2F25%2F%E5%B8%A6%E4%B8%8D%E8%B5%B0%E7%9A%84%EF%BC%8C%E7%95%99%E4%B8%8D%E4%B8%8B%E7%9A%84%2F</url>
+    <content type="text"><![CDATA[2018年5月记，转眼快两年了，没想到现在看来写的还挺好，那就发出来吧 时间我修改过，写这篇文字是在2016年的6月25日 写这篇文章的时候是大学毕业，准备离开而呆在学校的最后一天。 和不算很多的人约出来吃了饭，也许以后与这些人不会再见，也许要见也是几年之后了，几年有时候感觉很短，但当两人见面寒暄时，感叹一番，发现原来已经这么久没有见过了。 这几天除了吃饭和约人吃饭什么也不想干，就好像一个临终的人静静等待最后时刻的到来，不愿意去欣赏这里最后的景，也不想多留下一丝回忆。所做的只是交代后事，把自己和这里的人这里的事了结一些因果。 或许真的等我踏上火车准备上路时，才会伤心，才会遗憾，往事会如回马灯一样跳入脑海，原来我和你之间还能更加好一点，原来我应当做这件事的，许许多多的想法出现了，可是，只剩下发呆，留下的只有空白。 回想大学，自己就好像一只飞蛾，目标就是那里的火，逐渐走向自我的毁灭，我对生活的热情，我对未来的斗志都没有了，也许你是我最后的寄托吧，只是我们要毕业了，以后隔着的不光会是空间，还有时间，我带不走你，也留不下什么。 大学四年，我就像一个旁观者，看着你们一直往前走，我却带着原地，不想动，又像是一个行尸走肉，重复着南校、新校、本部三个点，没有带着什么，也不曾留下值得纪念的东西。 近来沉迷游戏，渴望在游戏中获得慰藉，交了几个亲友，最后呢，都离开了，除了花费金钱、消磨时间，什么也留不下了。 离开了，便开始一段新的旅程了，很多人许多事都随风飞走吧，带走了，留下了只能徒留伤感。 希望自己以后能够保持清醒，依靠自己，好好活着。 没了。]]></content>
+  </entry>
+</search>

@@ -2,10 +2,8 @@
 
 
 
-  
 
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -100,7 +98,7 @@
     sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -322,33 +320,19 @@
       
         
           
-            <h2 id="yum源文件"><a href="#yum源文件" class="headerlink" title="yum源文件"></a>yum源文件</h2><p>将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题。（rpm缺点：安装过程中，rpm包依赖性太强）</p>
-<p>RedHat的yum是收费服务，而CentOS的yum是免费服务。</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG007.png" alt=""></p>
-<ul>
-<li>在<code>/etc/yum.repos.d/</code>目录中，默认有4个yum源文件，其中<code>CentOS-Base.repo</code>是基本yum源文件，如果我们能上网，那它是默认生效的，而其他的都是默认不生效的。</li>
-<li>mirrorlist和baseurl一个是主站点，一个是辅助站点，代表内容一样，只写一个就行，可以修改为国内的源</li>
-<li>gpgcheck：一般都要开启，开启后安装时会验证rpm包是否是官方的，以保证系统安全。</li>
-<li>gpgkey：默认系统安装后，在目录<code>/etc/pki/rpm-gpg</code>下都会存在数字证书。</li>
-</ul>
-<p>注：前面的<code>file://</code>表示文件协议，后面的<code>/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6</code>是数字证书的位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@CentOS6 ~]# cd /etc/pki/rpm-gpg</div><div class="line">[root@CentOS6 rpm-gpg]# ll</div><div class="line">总用量 16</div><div class="line">-rw-r--r--. 1 root root 1706 11月 27 2013 RPM-GPG-KEY-CentOS-6</div><div class="line">-rw-r--r--. 1 root root 1730 11月 27 2013 RPM-GPG-KEY-CentOS-Debug-6</div><div class="line">-rw-r--r--. 1 root root 1730 11月 27 2013 RPM-GPG-KEY-CentOS-Security-6</div><div class="line">-rw-r--r--. 1 root root 1734 11月 27 2013 RPM-GPG-KEY-CentOS-Testing-6</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="光盘搭建yum源"><a href="#光盘搭建yum源" class="headerlink" title="光盘搭建yum源"></a>光盘搭建yum源</h2><p>如果没有网络，可以使用光盘</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">1.挂载光盘</div><div class="line">mkdir /mnt/cdrom</div><div class="line">#建立挂载点</div><div class="line"></div><div class="line">mount /dev/cdrom /mnt/cdrom</div><div class="line">#挂载光盘</div><div class="line"></div><div class="line">2.使网络yum源失效 </div><div class="line">cd/etc/yum.repos.d/</div><div class="line">#进入yum源目录</div><div class="line"></div><div class="line">mv CentOS-Base.repo CentOS-Base.repo.bak</div><div class="line">#修改Yum源文件后缀名，使其失效；（判断yum源是根据后缀名repo来实现的，修改后缀名则可以使该yum源失效）</div><div class="line"></div><div class="line"></div><div class="line">3.使光盘yum源生效</div></pre></td></tr></table></figure>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG008.png" alt=""></p>
-<p><br></p>
-<h2 id="yum命令"><a href="#yum命令" class="headerlink" title="yum命令"></a>yum命令</h2><h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">yum list</div><div class="line"># 查询所有可用软件包列表</div><div class="line">yum search 关键字</div><div class="line"># 搜索服务器上所有和关键字相关的包</div><div class="line">yum search ifconfig</div><div class="line">#可以得知ifconfig命令来自包net-tools.x86_64</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum -y install 包名（只用包名即可）</div><div class="line"># -y 自动回答yes</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum -y update 包名</div><div class="line"># -y 自动回答yes</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum -y remove 包名</div><div class="line"># -y 自动回答yes</div><div class="line"># 服务器使用最小化安装，用什么软件安装什么，尽量不卸载</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="yum软件组管理命令"><a href="#yum软件组管理命令" class="headerlink" title="yum软件组管理命令"></a>yum软件组管理命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">yum grouplist </div><div class="line">#列出所有可用的软件组列表 </div><div class="line"></div><div class="line">yum groupinstall 软件组名 </div><div class="line">#安装指定软件组，组名可以由grouplist查询出来 </div><div class="line"></div><div class="line">yum groupremove 软件组名 </div><div class="line">#卸载指定软件组 </div><div class="line"></div><div class="line">软件组名必须是英文</div><div class="line">LANG=en_US 临时更改语系为英文 </div><div class="line">LANG=zh_CN.utf8 临时生效 </div><div class="line">/etc/sysconfig/i18n中 修改配置文件永久生效</div></pre></td></tr></table></figure>
-<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</div><div class="line"></div><div class="line">cd /etc/yum.repos.d/</div><div class="line">#https://mirrors.163.com/.help/centos.html，选择相应版本的centos源</div><div class="line">wget http://mirrors.163.com/.help/CentOS7-Base-163.repo</div><div class="line">yum makecache</div><div class="line">yum -y update</div></pre></td></tr></table></figure>
+          yum源文件将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题。（rpm缺点：安装过程中，rpm包依赖性太强）
+RedHat的yum是收费服务，而CentOS的yum是免费服务。
 
-          
+
+在/etc/yum.repos.d/目录中，默认有4个yum源文件，其中CentOS-Ba
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-yum在线安装/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -466,68 +450,24 @@
       
         
           
-            <h2 id="RPM包的来源"><a href="#RPM包的来源" class="headerlink" title="RPM包的来源"></a>RPM包的来源</h2><p>所有RPM包都来自安装系统光盘的Packages目录中</p>
-<p><br></p>
-<h2 id="RPM包命名规则"><a href="#RPM包命名规则" class="headerlink" title="RPM包命名规则"></a>RPM包命名规则</h2><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG004.png" alt="img"></p>
-<ul>
-<li>包全名：操作的包是没有安装的软件包时，使用包全名，而且要注意路径</li>
-<li>包名：操作已安装的软件包时，使用包名，是搜索<code>/var/lib/rpm/</code>中的数据库</li>
-</ul>
-<p><br></p>
-<h2 id="RPM包依赖性"><a href="#RPM包依赖性" class="headerlink" title="RPM包依赖性"></a>RPM包依赖性</h2><ol>
-<li>树形依赖：a-&gt;b-&gt;c 解决方法：从后往前安装</li>
-<li>环形依赖：a-&gt;b-&gt;c-&gt;a 解决方法：放在一条命令中安装即可</li>
-<li>模块依赖：库文件依赖，库也叫模块，就是linux当中的函数，它有一个典型的特征，就是以<code>.so.数字</code>结尾，它依赖的其实是一个文件，而不是软件包。该文件藏身在某一个软件包当中。我们只要将该文件所在的软件包安装上，该文件也就安装了。解决方法：登录www.rpmfind.net 网站，输入库文件名称查询到对应的rpm包，然后安装即可。</li>
-</ol>
-<p><br></p>
-<h2 id="RPM安装"><a href="#RPM安装" class="headerlink" title="RPM安装"></a>RPM安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">rpm -ivh 包全名</div><div class="line"># -i （install）安装</div><div class="line"># -v（verbose）显示详细信息</div><div class="line"># -h（hash）显示进度</div><div class="line"># --nodeps不检测依赖性（一般不用）</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="RPM-升级"><a href="#RPM-升级" class="headerlink" title="RPM 升级"></a>RPM 升级</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -Uvh 包全名</div><div class="line"># -U（update）升级</div></pre></td></tr></table></figure>
-<ul>
-<li>需要包全名，而不是包名。可以如此理解：升级时的新包对于系统是新的，因此要包全名</li>
-<li>如果这个包从来没有安装过，那么效果等同于rpm -ivh 包全名</li>
-</ul>
-<p><br></p>
-<h2 id="RPM卸载"><a href="#RPM卸载" class="headerlink" title="RPM卸载"></a>RPM卸载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rpm -e 包名</div><div class="line"># -e（erase）卸载</div><div class="line">#  --nodeps 不检查依赖性</div></pre></td></tr></table></figure>
-<ul>
-<li>rpm准备了这个卸载命令的原因是，我们安装时根本不知道这个包装了在哪里（要知道linux下的安装的软件的文件散布多个地方的，很难一一找），而rpm知道，所以干脆就为我们准备了这条便利的命令。</li>
-<li>window下卸载软件，往往容易留很多垃圾数据难以除完，例如注册表等等。而linux中不会出现这个问题，只要把软件的安装目录所有都删除掉，就不会有残留。</li>
-</ul>
-<p><br></p>
-<h2 id="RPM包查询"><a href="#RPM包查询" class="headerlink" title="RPM包查询"></a>RPM包查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">rpm -q 包名</div><div class="line"># 查询包是否安装</div><div class="line"># -q 查询（query）</div><div class="line"></div><div class="line">rpm -qa 包名</div><div class="line"># 查询所有已经安装的RPM包</div><div class="line"># -a 所有（all）</div><div class="line"># rpm -qa | grep httpd</div><div class="line"></div><div class="line">rpm -qi 包名</div><div class="line"># 查询软件包详细信息</div><div class="line"># -i (infomation) : 查询软件信息</div><div class="line"></div><div class="line">rpm -qip 包全名</div><div class="line"># -p (package) : 查询未安装报信息</div><div class="line"># 有时遇到问题, 可根据未安装包信息中所提供的网站进行查询资料</div><div class="line"></div><div class="line">rpm -ql 包名</div><div class="line"># 查询包中文件安装位置</div><div class="line"># -l (list) : 列表</div><div class="line"># -p (package) : 查询未安装包信息</div><div class="line"># 可查看包作者欲将包安装的位置</div><div class="line"></div><div class="line">rpm -qf 系统文件名</div><div class="line"># -f (file) : 查询系统文件属于哪个软件包</div><div class="line"># 查询系统文件属于哪个 RPM 包</div><div class="line"># 该文件必须是通过 RPM 包安装的</div><div class="line"></div><div class="line">rpm -qR 包名</div><div class="line"># 查询软件包的依赖性</div><div class="line"># -R (requires) : 查询软件包的依赖性 </div><div class="line"># -p (package) : 查询未安装包的信息</div></pre></td></tr></table></figure>
-<p>RPM包默认安装位置<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG005.png" alt=""></p>
-<p><br></p>
-<h2 id="RPM包校验"><a href="#RPM包校验" class="headerlink" title="RPM包校验"></a>RPM包校验</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">rpm -V 已安装的包名</div><div class="line"># -V (verify) : 校验指定RPM包中的文件</div><div class="line"># 执行后, 无任何提示, 代表该文件没有被做任何修改</div><div class="line"># 判断本地的安装包与官方给出的是否一致, 从而判断是否被人修改</div></pre></td></tr></table></figure>
-<h3 id="验证内容中的8个信息"><a href="#验证内容中的8个信息" class="headerlink" title="验证内容中的8个信息"></a>验证内容中的8个信息</h3><ul>
-<li>S : 文件大小是否改变</li>
-<li>M : 文件的类型或文件的权限( rwx )是否被改变</li>
-<li>5 : 文件MD5 校验和是否改变( 可以看成文件内容是否改变 )</li>
-<li>D : 设备的主从代码是否改变</li>
-<li>L : 文件路径是否改变</li>
-<li>U : 文件的属主( 所有者 ) 是否改变</li>
-<li>G : 文件的属组是否改变</li>
-<li>T : 文件的修改时间是否改变</li>
-</ul>
-<h3 id="验证内容中的文件类型"><a href="#验证内容中的文件类型" class="headerlink" title="验证内容中的文件类型"></a>验证内容中的文件类型</h3><ul>
-<li>c (config file) : 配置文件</li>
-<li>d (documentation) : 普通文档</li>
-<li>g (ghost file) : “鬼”文件, 很少见, 就是该文件不应该被这个RPM包包含</li>
-<li>L (license file) : 授权文件</li>
-<li>r (read me) : 描述文件</li>
-</ul>
-<h3 id="MD5校验"><a href="#MD5校验" class="headerlink" title="MD5校验"></a>MD5校验</h3><p>用来校验文件的完整性(文件内容是否被改变)</p>
-<p>例如, 在官网下载的游戏, 官方会给出MD5校验码, 将下载的游戏通过专用的MD5校验工具校验后生成一份MD5校验码, 对比两份校验码是否一致, 不一致则说明，下载的文件可能丢包, 可能文件损坏, 可能被其他人动过手脚一直木马等</p>
-<p><br></p>
-<h2 id="RPM包中的文件提取"><a href="#RPM包中的文件提取" class="headerlink" title="RPM包中的文件提取"></a>RPM包中的文件提取</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm2cpio 包全名 | cpio -idv .文件绝对路径</div></pre></td></tr></table></figure>
-<ul>
-<li>前面的<code>.</code>代表当前路径，不能省略。</li>
-<li><code>文件绝对路径</code>和包里文件的绝对路径对应，也就是告诉了cpio要去包里提取哪个文件。</li>
-<li>cpio只知道提取文件，并不知道要从什么地方提取文件，因此我们通常要使用<code>|</code>管道符或<code>&lt;</code>输入重定向告诉cpio我们应该从什么设备去取出文件。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cpio 选项 &lt; [文件|设备]</div><div class="line"># 使用输入重定向的cpio</div><div class="line"># -i：copy-in模式，还原</div><div class="line"># -d：还原时自动新建目录</div><div class="line"># -v：显示还原过程</div></pre></td></tr></table></figure>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG006.png" alt=""></p>
+          RPM包的来源所有RPM包都来自安装系统光盘的Packages目录中
 
-          
+RPM包命名规则
+
+包全名：操作的包是没有安装的软件包时，使用包全名，而且要注意路径
+包名：操作已安装的软件包时，使用包名，是搜索/var/lib/rpm/中的数据库
+
+
+RPM包依赖性
+树形依赖：a-&gt;b-&gt;c 解
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-RPM包管理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -645,38 +585,16 @@
       
         
           
-            <p>二进制包是经过源码包编译过的安装包，编译就是将源码解释为机器可以认识的二进制语言的过程，安装源码包比二进制包复杂，因为要经过一个编译的过程，这个过程容易出错，一旦出错，就要对源码进行修改。</p>
-<p>在redhat中二进制包后缀是rpm，在debian系列里如ubuntu二进制包的后缀是deb，但是它们都是二进制包。Linux下安装软件只有俩种格式：二进制包和源代码包</p>
-<h3 id="源码包"><a href="#源码包" class="headerlink" title="源码包"></a>源码包</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>开源，如果有足够的能力，可以修改源代码</li>
-<li>可以自由选择所需的功能</li>
-<li>软件是编译安装，所以更加适合自己的系统，更加稳定、效率更高</li>
-<li>卸载方便（直接删除）</li>
-</ul>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>安装过程步骤较多，尤其安装较大的软件集合时（如LAMP环境搭建），容易出现拼写错误</li>
-<li>编译过程时间较长，安装比二进制安装时间长</li>
-<li>因为是编译安装，安装过程中一旦报错新手很难解决</li>
-</ul>
-<p><br></p>
-<h3 id="二进制包（RPM包、Deb包）"><a href="#二进制包（RPM包、Deb包）" class="headerlink" title="二进制包（RPM包、Deb包）"></a>二进制包（RPM包、Deb包）</h3><p>二进制包安装速度快是它的优点，但是二进制包不是系统自己编译的，效率不如源码包。如果是生产环境，就要源码包安装，因为效率高。</p>
-<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>包管理系统简单，只通过几个命令就可以实现包的安装、升级、查询和卸载</li>
-<li>安装速度比源码包安装快的多</li>
-</ul>
-<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>经过编译，不再可以看到源代码</li>
-<li>功能选择不如源码包灵活</li>
-<li>依赖性</li>
-</ul>
-<p><br></p>
-<h3 id="脚本安装包"><a href="#脚本安装包" class="headerlink" title="脚本安装包"></a>脚本安装包</h3><p>把复杂的软件包安装过程写成了程序脚本，初学者可以执行脚本实现一键安装。但实际安装的还是源码包和二进制包,例如LAMP一键安装包</p>
-<ul>
-<li>优点：安装简单、快捷</li>
-<li>缺点：完全丧失了自定义性，不能定义安装软件的版本，不能定义所需要的软件功能，源码包的优势几乎完全丧失</li>
-</ul>
-
-          
+          二进制包是经过源码包编译过的安装包，编译就是将源码解释为机器可以认识的二进制语言的过程，安装源码包比二进制包复杂，因为要经过一个编译的过程，这个过程容易出错，一旦出错，就要对源码进行修改。
+在redhat中二进制包后缀是rpm，在debian系列里如ubuntu二进制包的后缀是deb，但是它们都是二
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/Linux安装管理-软件包分类/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -794,26 +712,24 @@
       
         
           
-            <h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>禁止修改某些重要的系统文件</p>
-<p><br>  </p>
-<h2 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h2><ul>
-<li>所支持的文件系统包括：ext2、ext3、ext4和xfs</li>
-<li>一般要求内核版本不低于2.2(查看版本的命令如下：<code>uname -a</code>、<code>lsb_release -a</code></li>
-<li>不能保护 <code>/</code>、<code>/tmp</code> 、<code>/dev</code>、<code>/var</code>目录</li>
-<li><code>chattr</code>只能由root用户使用</li>
-</ul>
-<p><br></p>
-<h2 id="chattr"><a href="#chattr" class="headerlink" title="chattr"></a>chattr</h2><p>类似于<code>chmod</code>, <code>chmod</code>只是改变文件的读写、执行权限，更底层的属性控制是由<code>chattr</code>来改变的.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">chattr [+-=] [选项] 文件或目录名</div><div class="line"></div><div class="line">* +：增加权限</div><div class="line">* -：减少权限 </div><div class="line">* =：等于某权限</div><div class="line">* a：即append</div><div class="line">    * 如果对文件设置a属性，那么只能在文件中增加数据，不能删除也不能修改数据（不能使用vi，因为不能判断是增加还是修改，可以使用echo）</div><div class="line">    * 如果对目录设置a属性，那么只允许在目录中建立和修改文件，但是不允许删除</div><div class="line">* i：即insert</div><div class="line">    * 如果对文件设置i属性，那么不允许对文件进行删除、改名、设定链接关系，同时不能写入或新增内容</div><div class="line">    * 如果对目录设置i属性，那么只能修改目录下文件的数据，不允许建立和删除文件</div><div class="line"></div><div class="line">chattr +a abc</div><div class="line">chattr +i abc</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="lsattr"><a href="#lsattr" class="headerlink" title="lsattr"></a>lsattr</h2><p>查看文件系统属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">lsattr [选项] [文件名]</div><div class="line"></div><div class="line">* -a：列出目录下的所有文件，包括隐藏文件</div><div class="line">* -d：查看本目录自身的权限</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>参考：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/Jimmy1988/p/7265816.html" target="_blank" rel="external">http://www.cnblogs.com/Jimmy1988/p/7265816.html</a></li>
-<li><a href="https://www.imooc.com/video/9667" target="_blank" rel="external">https://www.imooc.com/video/9667</a></li>
-</ul>
+          作用禁止修改某些重要的系统文件
+  
+使用条件
+所支持的文件系统包括：ext2、ext3、ext4和xfs
+一般要求内核版本不低于2.2(查看版本的命令如下：uname -a、lsb_release -a
+不能保护 /、/tmp 、/dev、/var目录
+chattr只能由root用户使用
 
-          
+
+ch
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/27/Linux权限管理-chattr、lsattr/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -931,71 +847,16 @@
       
         
           
-            <h2 id="SUID-SetUID"><a href="#SUID-SetUID" class="headerlink" title="SUID(SetUID)"></a>SUID(SetUID)</h2><p>使用户临时具有<strong>程序所有者</strong>（比如root）的权限来执行该程序，比如调用<code>/usr/bin/passwd</code>命令修改自己的密码</p>
-<p>SetUID(或者 s 权限）：当一个具有执行权限的文件设置SetUID权限后，用户执行这个文件时将以文件所有者的身份执行。passwd命令具有SetUID权限，所有者为root（Linux中的命令默认所有者都是root），也就是说当普通用户使用passwd更改自己密码的时候，那一瞬间突然 “灵魂附体” 了，实际在以passwd命令所有者root的身份在执行，root当然可以将密码写入<code>/etc/shadow</code>文件，命令执行完成后该身份也随之消失。<br>当然用户的passwd命令不能修改其他用户的密码，只能输入<code>passwd</code>来修改自己的密码</p>
-<h4 id="使用要求"><a href="#使用要求" class="headerlink" title="使用要求"></a>使用要求</h4><ul>
-<li>只有可执行的二进制程序才可以设置SetUID</li>
-<li>命令执行者必须对欲设置SetUID的文件具备可执行(x) 权限，没有x的文件会成为S，S不能正确使用，只有s可以正确使用</li>
-<li>命令执行过程中，其它用户获取所有者的身份（灵魂附体）</li>
-<li>SetUID具有时间限制，即完成该程序执行后就消失</li>
-<li>不能对目录使用</li>
-</ul>
-<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p>4代表SUID，s出现在文件所有者的x权限上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#设置SetUID</div><div class="line">chmod 4755 文件名</div><div class="line">chmod u+s 文件名（推荐，不影响其他权限）</div><div class="line"></div><div class="line">#取消SetUID</div><div class="line">chmod 0755 文件名</div><div class="line">chmod u-s 文件名（推荐，不影响其他权限）</div></pre></td></tr></table></figure>
-<h4 id="例程"><a href="#例程" class="headerlink" title="例程"></a>例程</h4><p>以普通用户执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ll /usr/bin/touch</div><div class="line">touch test1</div><div class="line">sudo chmod u+s /usr/bin/touch</div><div class="line">ll /usr/bin/touch</div><div class="line">touch test2</div><div class="line">ll test1 test2</div><div class="line"></div><div class="line">#比较前后两次的属性差异</div><div class="line">-rw-rw-r--. 1 niesh niesh 0 7月  30 17:40 test1</div><div class="line">-rw-rw-r--. 1 root  niesh 0 7月  30 17:42 test2</div></pre></td></tr></table></figure></p>
-<p>可以看到，在设置了SetUID之后，新建文件的所有者为root了，说明在执行touch的时候，用户自动升级为了所有者</p>
-<h4 id="危险性"><a href="#危险性" class="headerlink" title="危险性"></a>危险性</h4><p>设置SetUID是具备很大危险性的，主要是设置权限过大而引起的问题<br>我们需要定时查看系统中有哪些设置了SetUID权限</p>
-<ul>
-<li>关键目录应严格控制写权限。比如 <code>/</code>、<code>/usr</code></li>
-<li>用户的密码设置要严格遵循密码三原则(#复杂性，易记忆性，时效性）</li>
-<li>对系统中默认应该具有SetUID权限的文件做一个列表，然后定期检查有没有这之外的执行程序的命令文件被设置了SetUID</li>
-</ul>
-<p>使用shell定期检查SetUID<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">find / -perm -4000 -o -perm -2000 &gt; /tmp/setuid.check</div><div class="line">for i in $(cat /tmp/setuid.check)</div><div class="line"></div><div class="line">do   </div><div class="line">        grep $i /root/suid.log &gt; /dev/null</div><div class="line">                if [ &quot;S?&quot; !=&quot;0&quot;]</div><div class="line">                then</div><div class="line">                    echo &quot;$i isn&apos;t in listfile!&quot; &gt;&gt; /root/suid_log_$(date+%F)</div><div class="line">                fi</div><div class="line">done</div><div class="line">rm -rf /tmp/setuid.check</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="SGID-SetGID"><a href="#SGID-SetGID" class="headerlink" title="SGID(SetGID)"></a>SGID(SetGID)</h2><p>SetGID基本与SetUID相同，SetUID是设置所有者的权限，SGID为设置所属组的权限<br>区别点在于：SetGID也可以设置目录的相关SetGID权限</p>
-<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>将用户所在组临时升级为某一个组，以执行只有该组才有相应权限进行的操作</p>
-<h4 id="使用要求-1"><a href="#使用要求-1" class="headerlink" title="使用要求"></a>使用要求</h4><ul>
-<li>针对文件：<ul>
-<li>可执行的二进制文件</li>
-<li>命令执行者（即所属组）对该文件具备 x 权限</li>
-<li>命令执行者在执行程序的时候，组身份升级为该程序文件的属组</li>
-<li>权限只在执行过程中有效</li>
-</ul>
-</li>
-<li>针对目录：<ul>
-<li>普通用户对目录具备r和x权限，才可以进入到该目录</li>
-<li>普通用户在此目录中的有效组会变成此目录的所属组</li>
-<li>如普通用户对该目录具备w权限，新建文件的所属组为该目录的所属组</li>
-</ul>
-</li>
-</ul>
-<h4 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h4><p>2代表SGID，s出现在文件所属群组的x权限上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#设置SetGID</div><div class="line">chmod 2xxx &lt;file/dir-name&gt;</div><div class="line">chmod g+s &lt;file/dir-name&gt; （推荐）</div><div class="line"></div><div class="line">#取消SetGID</div><div class="line">chmod xxx &lt;file/dir-name&gt;</div><div class="line">chmod g-s &lt;file/dir-name&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="例程-1"><a href="#例程-1" class="headerlink" title="例程"></a>例程</h4><p>我们此处以locate命令进行讨论：<br>locate查询命令，比find要快很多，为什么？因为其实搜索的数据库而非整个硬盘：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@niesh ~]# ll /usr/bin/locate</div><div class="line">-rwx--s--x. 1 root slocate 40496 6月  10 2014 /usr/bin/locate</div><div class="line"></div><div class="line">[root@niesh ~]# ll /var/lib/mlocate/mlocate.db</div><div class="line">-rw-r-----. 1 root slocate 6306909 7月  30 19:15 /var/lib/mlocate/mlocate.db</div></pre></td></tr></table></figure></p>
-<p>我用普通用户进行locate查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[niesh@niesh root]$ locate mlocate.db</div><div class="line">/usr/share/man/man5/mlocate.db.5.gz</div></pre></td></tr></table></figure></p>
-<p>去掉locate的s权限：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@niesh ~]# chmod g-s /usr/bin/locate</div><div class="line">[root@niesh ~]# ll /usr/bin/locate</div><div class="line">-rwx--x--x. 1 root slocate 40496 6月 10 2014 /usr/bin/locate</div><div class="line"></div><div class="line">[niesh@niesh root]$ locate mlocate.db</div><div class="line">locate: 无法执行 stat () `/var/lib/mlocate/mlocate.db&apos;: 权限不够</div></pre></td></tr></table></figure></p>
-<p>也就是：当执行locate命令时，普通用户niesh自动升级为slocate的组成员。</p>
-<ul>
-<li>/usr/bin/locate是可执行二进制程序，可以赋予SGID</li>
-<li>执行用户niesh对/usr/bin/locate命令拥有执行权限</li>
-<li>执行/usr/bin/locate命令时，组身份会升级为slocate组，而slocate组对/var/lib/mlocate/mlocate.db数据库拥有r权限，所以普通用户可以使用locate命令查询mlocate.db数据库</li>
-<li>命令结束，niesh用户的组身份返回为niesh组</li>
-</ul>
-<p><br></p>
-<h2 id="SBIT-Sticky-BIT"><a href="#SBIT-Sticky-BIT" class="headerlink" title="SBIT(Sticky BIT)"></a>SBIT(Sticky BIT)</h2><p>粘滞位</p>
-<h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><p>防止其他用户删除自己的文件，使用者在该目录下，仅自己与root才有权力删除新建的目录或文件</p>
-<h4 id="使用要求-2"><a href="#使用要求-2" class="headerlink" title="使用要求"></a>使用要求</h4><p>只对目录有效<br>普通用户对该目录有w和x权限<br>若没有粘滞位，则普通用户可以对目录下的文件/子目录进行删除操作（因为普通用户对目录具有w权限），包括其它用户建立的目录/文件；但若赋了SBIT,则普通用户只能删除自己创建的文件/目录，而不能删除不属于自己的文件/目录！</p>
-<h4 id="命令-2"><a href="#命令-2" class="headerlink" title="命令"></a>命令</h4><p>1代表SBIT，t出现在文件其他用户的x权限上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#设置SBIT</div><div class="line">chmod 1xxx &lt; dir-name &gt;</div><div class="line">chmod o+t &lt; dir-name &gt;</div><div class="line"></div><div class="line">#取消SBIT</div><div class="line">chmod xxx &lt; dir-name &gt;</div><div class="line">chmod o-t &lt; dir-name &gt;</div></pre></td></tr></table></figure></p>
-<h4 id="例程-2"><a href="#例程-2" class="headerlink" title="例程"></a>例程</h4><p>以/tmp为例：<br>查看/tmp的权限：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[niesh@niesh tmp]$ ll -d /tmp/</div><div class="line">drwxrwxrwt. 8 root root 4096 7月 30 19:40 /tmp/</div></pre></td></tr></table></figure></p>
-<p>会看到，/tmp目录的权限other部分为rwt,这个t就是我们设置的粘滞位<br>接下来，我们用其它用户创建两个文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[Jimmy@niesh tmp]$ touch test-file</div><div class="line">[Jimmy@niesh tmp]$ mkdir test-dir</div><div class="line">[Jimmy@niesh tmp]$ ll</div><div class="line">总用量 0</div><div class="line">drwxrwxr-x. 2 Jimmy Jimmy 6 7月  30 19:44 test-dir</div><div class="line">-rw-rw-r--. 1 root  Jimmy 0 7月  30 19:44 test-file</div></pre></td></tr></table></figure></p>
-<p>切换到另外一个用户niesh:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[niesh@niesh tmp]$ ll</div><div class="line">总用量 0</div><div class="line">drwxrwxr-x. 2 Jimmy Jimmy 6 7月  30 19:44 test-dir</div><div class="line">-rw-rw-r--. 1 root  Jimmy 0 7月  30 19:44 test-file</div><div class="line">在 niesh用户下，删除/tmp目录下的文件：</div><div class="line"></div><div class="line">[niesh@niesh tmp]$ rm -rf test-dir/ test-file</div><div class="line">rm: 无法删除&quot;test-dir/&quot;: 不允许的操作  </div><div class="line">无法删除！</div></pre></td></tr></table></figure></p>
-<p>然后，我们切换到root，去掉/tmp的粘滞位：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[niesh@niesh tmp]$ su -</div><div class="line">密码：</div><div class="line">上一次登录：日 7月 30 19:43:21 CST 2017pts/0 上</div><div class="line">[root@niesh ~]# chmod o-t /tmp/</div><div class="line">[root@niesh ~]# ll -d /tmp/</div><div class="line">drwxrwxrwx. 9 root root 4096 7月  30 19:48 /tmp/</div></pre></td></tr></table></figure></p>
-<p>最后，切换到普通用户niesh，再次删除/tmp下的文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[niesh@niesh root]$ rm -rf /tmp/test-dir/ /tmp/test-file</div><div class="line">[niesh@niesh root]$ ll /tmp/</div><div class="line">总用量 0</div></pre></td></tr></table></figure></p>
-<p>参考：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/Jimmy1988/p/7260215.html" target="_blank" rel="external">http://www.cnblogs.com/Jimmy1988/p/7260215.html</a></li>
-</ul>
-
-          
+          SUID(SetUID)使用户临时具有程序所有者（比如root）的权限来执行该程序，比如调用/usr/bin/passwd命令修改自己的密码
+SetUID(或者 s 权限）：当一个具有执行权限的文件设置SetUID权限后，用户执行这个文件时将以文件所有者的身份执行。passwd命令具有SetUID权
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/27/Linux权限管理-SUID、SGID、SBIT/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1113,15 +974,16 @@
       
         
           
-            <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>赋予普通用户超级管理员的权限</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">visudo</div><div class="line">#实际修改的是/etc/sudoers文件</div><div class="line">#sudo的配置文件是/etc/sudoers。visudo会锁住sudoers文件，保存修改到临时文件/etc/sudoers.tmp，然后检查文件格式，确保正确后才会覆盖sudoers文件。必须保证sudoers格式正确，否则sudo将无法运行。</div><div class="line"></div><div class="line">root    ALL=(ALL)                       ALL</div><div class="line">用户名   被管理主机的地址=（可使用的身份）    授权命令（绝对路径）</div><div class="line">%wheel  ALL=(ALL)                       ALL</div><div class="line">%组名    被管理主机的地址=（可使用的身份）    授权命令（绝对路径）</div><div class="line"></div><div class="line">第二个all指，可以切换成任意身份，这个可以直接省略</div><div class="line"></div><div class="line">$sudo -l </div><div class="line">#查看可以执行的命令</div><div class="line"></div><div class="line">$sudo /sbin/shutdown -r now</div><div class="line">#普通用户执行超级命令的时候必须要加 sudo 命令的绝对路径</div></pre></td></tr></table></figure>
-<p>补充：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/Jimmy1988/p/7270881.html" target="_blank" rel="external">http://www.cnblogs.com/Jimmy1988/p/7270881.html</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/Sudo_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E6.9F.A5.E7.9C.8B.E5.BD.93.E5.89.8D.E8.AE.BE.E7.BD.AE" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Sudo_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E6.9F.A5.E7.9C.8B.E5.BD.93.E5.89.8D.E8.AE.BE.E7.BD.AE</a><br><a href="http://man.linuxde.net/sudo?zwbizq=f0evo1" target="_blank" rel="external">http://man.linuxde.net/sudo?zwbizq=f0evo1</a></li>
-</ul>
-
-          
+          目的赋予普通用户超级管理员的权限
+使用12345678910111213141516visudo#实际修改的是/etc/sudoers文件#sudo的配置文件是/etc/sudoers。visudo会锁住sudoers文件，保存修改到临时文件/etc/sudoers.tmp，然后检查文件格式，确保正
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/27/Linux权限管理-sudo权限/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1239,37 +1101,17 @@
       
         
           
-            <p>文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求（一个不属于u/g/o的用户也要对文件有权限），这时候就需要ACL权限，用来解决用户身份不够的问题</p>
-<p>CentOS不需要开启ACL权限，xfs文件系统默认开启了ACL权限，可以直接使用<code>getfacl</code>和<code>setfacl</code>命令</p>
-<h2 id="查看分区ACL权限是否开启"><a href="#查看分区ACL权限是否开启" class="headerlink" title="查看分区ACL权限是否开启"></a>查看分区ACL权限是否开启</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">df ＃查看分区</div><div class="line">dumpe2fs -h /dev/sda5</div><div class="line">#dumpe2fs命令时查询指定分区详细文件系统信息的命令</div><div class="line">-h  仅显示超级块中信息，而不显示磁盘块的详细信息</div><div class="line">#仅适用于ext4等文件格式，xfs默认开启了acl权限</div><div class="line"></div><div class="line">文件信息里项：</div><div class="line">Default mount options: user_xattr acl</div><div class="line">那就说明分区是支持acl的</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="开启ACL权限"><a href="#开启ACL权限" class="headerlink" title="开启ACL权限"></a>开启ACL权限</h2><h4 id="临时开启分区ACL权限"><a href="#临时开启分区ACL权限" class="headerlink" title="临时开启分区ACL权限"></a>临时开启分区ACL权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mount -o remount,acl /</div><div class="line">#重新挂载根分区，并挂载加入acl权限</div></pre></td></tr></table></figure>
-<h4 id="永久开启分区ACL权限"><a href="#永久开启分区ACL权限" class="headerlink" title="永久开启分区ACL权限"></a>永久开启分区ACL权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vi /etc/fstab</div><div class="line"></div><div class="line">UUID=c2ca6f57-b15c-43ea=bca0-f239083d8bd2 / ext4 defaults,acl 1（＃启动是否需要检测） 1(#启动是否需要备份)</div><div class="line">#加入acl</div><div class="line"></div><div class="line">mount -o remount /</div><div class="line">#重新挂载文件系统或重启系统，使修改生效</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="查看ACL权限"><a href="#查看ACL权限" class="headerlink" title="查看ACL权限"></a>查看ACL权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getfacl 文件名</div></pre></td></tr></table></figure>
-<p>会显示mask值</p>
-<p><br></p>
-<h2 id="设置acl权限"><a href="#设置acl权限" class="headerlink" title="设置acl权限"></a>设置acl权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">setfacl 选项 文件名</div><div class="line"></div><div class="line">选项</div><div class="line">-m  #设定acl权限</div><div class="line">-x  #删除指定的acl权限</div><div class="line">-b  #删除所有的acl权限</div><div class="line">-d  #设定默认acl权限</div><div class="line">-k  #删除默认acl权限</div><div class="line">-R  #递归设定acl权限</div><div class="line"></div><div class="line">例：setfacl -m u:lw:rx /av</div><div class="line">#给用户lw赋予r-x权限，使用&quot;u:用户名:权限&quot;格式</div><div class="line"></div><div class="line">例：setfacl -m g:group2:rwx /av</div><div class="line">#给用户组group2赋予rwx权限，使用&quot;g:组名:权限&quot;格式</div></pre></td></tr></table></figure>
-<p>设定之后会在<code>ls -al</code>命令显示的权限末尾出现+号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">drwxr-xr-x+ root root</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="最大有效权限mask"><a href="#最大有效权限mask" class="headerlink" title="最大有效权限mask"></a>最大有效权限mask</h2><p>mask是用来指定最大有效权限的。如果给用户赋予了acl权限，是需要和mask的权限“相与”才能得到用户的真正权限。相与是计算机中的术语，皆真方为真，有假便为假。</p>
-<p>最大权限也会影响到组权限。例：某文件所有者为tony，chmod赋予的普通权限为7，而acl赋予tony的权限为5，则acl权限会高于chmod权限</p>
-<h4 id="修改mask值"><a href="#修改mask值" class="headerlink" title="修改mask值"></a>修改mask值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setfacl -m m:rx 文件</div><div class="line">#设定mask权限为r-x。使用“m:权限”格式</div></pre></td></tr></table></figure>
-<h4 id="删除acl权限"><a href="#删除acl权限" class="headerlink" title="删除acl权限"></a>删除acl权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">setfacl -x u:用户名 文件</div><div class="line">#删除指定用户的acl权限</div><div class="line"></div><div class="line">setfacl -x g:组名 文件</div><div class="line">#删除指定用户的acl权限</div><div class="line"></div><div class="line">setfacl -b 文件</div><div class="line">#删除文件所有的acl权限</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="递归ACL权限"><a href="#递归ACL权限" class="headerlink" title="递归ACL权限"></a>递归ACL权限</h2><p>在给父目录赋予权限的同时，给已经存在于目录下的文件赋予相同的权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setfacl -m u:用户名:权限 -R 目录名</div><div class="line">#R表示递归</div></pre></td></tr></table></figure></p>
-<p>注意</p>
-<ul>
-<li><strong>用递归的方式容易导致文件权限溢出</strong>(目录为r-x，子文件则也为r-x)</li>
-<li>递归acl只能用在目录而不能用于普通文件</li>
-</ul>
-<p><br></p>
-<h2 id="默认ACL权限"><a href="#默认ACL权限" class="headerlink" title="默认ACL权限"></a>默认ACL权限</h2><p>给父目录下将来新建的文件默认赋予父目录的权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setfacl -m d:u:用户名:权限 目录名</div><div class="line">#d表示default</div></pre></td></tr></table></figure></p>
-<p>设置后可以使用<code>getfacl</code>查看</p>
-<p><br></p>
-<p>补充：<br><a href="https://www.cnblogs.com/Jimmy1988/p/7249844.html" target="_blank" rel="external">https://www.cnblogs.com/Jimmy1988/p/7249844.html</a></p>
-
-          
+          文件一般权限包括所有者权限、组权限和其他权限，有时候不能满足要求（一个不属于u/g/o的用户也要对文件有权限），这时候就需要ACL权限，用来解决用户身份不够的问题
+CentOS不需要开启ACL权限，xfs文件系统默认开启了ACL权限，可以直接使用getfacl和setfacl命令
+查看分区ACL权限
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/27/Linux权限管理-ACL/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1387,26 +1229,19 @@
       
         
           
-            <p>Windows中的默认权限是从上级目录中继承的<br>Linux的默认权限是通过umask设置的</p>
-<h2 id="查看默认权限"><a href="#查看默认权限" class="headerlink" title="查看默认权限"></a>查看默认权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">umask </div><div class="line">#查看默认权限</div><div class="line"></div><div class="line">0022</div><div class="line">0：文件特殊权限</div><div class="line">022：文件默认权限</div></pre></td></tr></table></figure>
-<h2 id="修改默认权限"><a href="#修改默认权限" class="headerlink" title="修改默认权限"></a>修改默认权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 临时修改</div><div class="line">umask 0002</div><div class="line"></div><div class="line"># 永久修改</div><div class="line">vi /etc/profile</div></pre></td></tr></table></figure>
-<h2 id="文件的默认权限"><a href="#文件的默认权限" class="headerlink" title="文件的默认权限"></a>文件的默认权限</h2><ul>
-<li>文件默认最高权限为666</li>
-<li>文件默认不能建立为执行文件，必须手工赋予执行权限,所以文件默认权限最大为666</li>
-<li>默认权限需要推算成字母（rwx）再相减</li>
-<li>建立文件之后的默认权限，为666减去umask值</li>
-</ul>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG47.png" alt=""></p>
-<h2 id="目录的默认权限"><a href="#目录的默认权限" class="headerlink" title="目录的默认权限"></a>目录的默认权限</h2><ul>
-<li>目录的默认权限最大为777</li>
-<li>默认权限需要换算成字母再相减</li>
-<li>建立文件之后的默认权限，为777减去umask值</li>
-</ul>
-<p>例如：</p>
-<pre><code>目录默认最大权限为777，umask值022
--rwxrwxrwx  减去   -----w--w-等于 -rwxr-xr-x
-</code></pre>
-          
+          Windows中的默认权限是从上级目录中继承的Linux的默认权限是通过umask设置的
+查看默认权限123456umask #查看默认权限00220：文件特殊权限022：文件默认权限
+修改默认权限12345# 临时修改umask 0002# 永久修改vi /etc/profile
+文件的默认权限
+
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/27/Linux权限管理-默认权限/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1524,54 +1359,45 @@
       
         
           
-            <h2 id="查看权限"><a href="#查看权限" class="headerlink" title="查看权限"></a>查看权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -al</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>第1位</th>
-<th>2-4位</th>
-<th>5-7位</th>
-<th>8-10位</th>
-<th>11位</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-</td>
-<td>rwx</td>
-<td>r-x</td>
-<td>r-x</td>
-<td>.</td>
-</tr>
-<tr>
-<td>文件类型</td>
-<td>u所有者</td>
-<td>g所属组</td>
-<td>o其他人</td>
-<td>ACL权限</td>
-</tr>
-</tbody>
-</table>
-<p>r：读<br>w：写<br>x：执行</p>
-<p><br></p>
-<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">chmod [选项] 模式 文件名</div><div class="line"></div><div class="line">选项：-R 递归（用于目录）</div><div class="line">模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]</div><div class="line"></div><div class="line">chmod a=rwx filename</div><div class="line">chmod u+w filename</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="权限的作用"><a href="#权限的作用" class="headerlink" title="权限的作用"></a>权限的作用</h2><h4 id="权限对文件的作用"><a href="#权限对文件的作用" class="headerlink" title="权限对文件的作用"></a>权限对文件的作用</h4><ul>
-<li>r：读取文件内容（cat/more/head/tail）</li>
-<li>w：编辑、新增、修改文件内容（vi/echo），不包括新增文件和删除文件</li>
-<li>x：可执行，判断是否为可执行文件</li>
-</ul>
-<p>文件中的数据存储在文件数据block里，而文件名储存位置在目录block中，要删除文件，意味着要删除文件名，所以要想删除文件，必须对目录block进行操作</p>
-<h4 id="权限对目录的作用"><a href="#权限对目录的作用" class="headerlink" title="权限对目录的作用"></a>权限对目录的作用</h4><ul>
-<li>r：查询目录下的文件（ls）</li>
-<li>w：具有修改目录结构的权限。如新建文件和目录，删除此目录下的文件和目录，重命名此目录下文件和目录，剪切（touch/rm/mv/cp）</li>
-<li>x：进入目录（cd）</li>
-</ul>
-<p>对文件来说，最高权限是x<br>对目录来说，最高权限是w<br>目录只有0，5 ，7权限有意义。4、1、6权限没有意义<br>文件的常用权限是644<br>目录的常用权限是755</p>
-<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#修改文件所有者</div><div class="line">chown 用户名 文件各</div><div class="line"></div><div class="line">#修改文件的所属组</div><div class="line">chgrp 所属组 文件名</div><div class="line"></div><div class="line">#同时修改文件的所有者和所属组</div><div class="line">chown 用户名:所属组 文件名</div></pre></td></tr></table></figure>
-<p>分配文件基本权限时，核心原则：<strong>在最小权限情况下能够实现要求即可</strong></p>
+          查看权限1ls -al
 
-          
+
+
+第1位
+2-4位
+5-7位
+8-10位
+11位
+
+
+
+
+-
+rwx
+r-x
+r-x
+.
+
+
+文件类型
+u所有者
+g所属组
+o其他人
+ACL权限
+
+
+
+r：读w：写x：执行
+
+修改权限1234567chmod [选项] 模式 文件名选项：-R 递归（用于目录）模式：[u/
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/27/Linux权限管理-一般权限/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1689,42 +1515,15 @@
       
         
           
-            <p>清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷，结果我刷的代价就是主板被刷坏，花了350把主板修了，总之刷BIOS还是<strong>有风险</strong>的，这里只是提供具体方法</p>
-<h2 id="1、查看是否支持Intel-VT技术以及是否开启"><a href="#1、查看是否支持Intel-VT技术以及是否开启" class="headerlink" title="1、查看是否支持Intel VT技术以及是否开启"></a>1、查看是否支持Intel VT技术以及是否开启</h2><p>下载leomoon-cpu-v（<a href="https://leomoon.com/downloads/desktop-apps/leomoon-cpu-v/），并安装" target="_blank" rel="external">https://leomoon.com/downloads/desktop-apps/leomoon-cpu-v/），并安装</a></p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG001.png" alt="leomoon-cpv"></p>
-<p>左边的对勾表示主板支持Intel VT<br>右边的对勾表示主板已经开启Intel VT<br>这张图片是已经开启的状态<br>清华同方x46h的实际状态应该是左边对勾，右边叉</p>
-<h2 id="2、制作纯DOS启动U盘"><a href="#2、制作纯DOS启动U盘" class="headerlink" title="2、制作纯DOS启动U盘"></a>2、制作纯DOS启动U盘</h2><ul>
-<li><p>下载MSDOS7.1<br><a href="http://www.cn-dos.net/newdos/dosart32.htm" target="_blank" rel="external">http://www.cn-dos.net/newdos/dosart32.htm</a><br>解压</p>
-</li>
-<li><p>格式化U盘为FAT32分区格式</p>
-</li>
-<li><p>使用UltraIOS制作U盘启动盘<br>和制作win7的启动U盘一样<br>插入不用的U盘（因为需要格式化）<br>在UltraIOS中文件》打开，选择解压后的MSDOS文件夹中的IOS镜像文件；<br>点击启动》写入硬盘映像<br>选择U盘，写入方式为USB-HDD+，点击写入</p>
-</li>
-</ul>
-<p>可以参考<a href="http://blog.sina.com.cn/s/blog_4ad042e50102eclt.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4ad042e50102eclt.html</a></p>
-<h2 id="3、下载需要刷的BIOS"><a href="#3、下载需要刷的BIOS" class="headerlink" title="3、下载需要刷的BIOS"></a>3、下载需要刷的BIOS</h2><ul>
-<li>在步骤2中制作好的U盘启动盘里新建文件夹，文件夹名叫12</li>
-<li>下载<a href="https://getpocket.com/a/read/1885690768中的X46H_BIOS" target="_blank" rel="external">https://getpocket.com/a/read/1885690768中的X46H_BIOS</a> ，解压，将文件夹中的四个文件复制到12文件夹中</li>
-</ul>
-<h2 id="4、刷BIOS"><a href="#4、刷BIOS" class="headerlink" title="4、刷BIOS"></a>4、刷BIOS</h2><ul>
-<li>重启电脑，按F2打开BIOS</li>
-<li>将U盘设为电脑开启的第一启动项，保存，退出</li>
-<li>插入U盘，重启电脑</li>
-<li>会进入MSDOS界面，会先让你设置MSDOS，选择cancel取消设置</li>
-<li><p>接下来输入以下命令</p>
-<p>命令1： “C:” 回车       —将当前盘符切换到C:<br>命令2： “CD 12” 回车    —将当前操作文件夹切换到C:\12下<br>命令3： “fpt -bios -f GT_122.h09” 回车    —执行刷新命令 图4</p>
-</li>
-</ul>
-<p>刷新成功后<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG002.jpg" alt=""></p>
-<ul>
-<li>按开关机键 关机 ，将电池拔掉 ，电源线 移除 ，1分钟后安装好。</li>
-</ul>
-<h2 id="5、开启Intel-VT"><a href="#5、开启Intel-VT" class="headerlink" title="5、开启Intel VT"></a>5、开启Intel VT</h2><p>开机，按F2进 BIOS  选择高级 Advanced  选项  会出现 虚拟化选项。打开后按F10保存并退出即可。</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG003.jpg" alt=""></p>
-<p>运行leomoon-cpu-v工具可以看到看到Intel VT已经开启</p>
-<p>参考：<a href="http://benyouhui.it168.com/thread-1896445-1-1.html" target="_blank" rel="external">http://benyouhui.it168.com/thread-1896445-1-1.html</a></p>
-
-          
+          清华同方x46h是我在12年买的，在网上搜索的资料是说原本Intel VT技术是开启的，但是如果多次重装系统就会把它关闭，而且官方的BIOS是没有开启选项的，官方也没有提供BIOS更新，所以需要自己刷，结果我刷的代价就是主板被刷坏，花了350把主板修了，总之刷BIOS还是有风险的，这里只是提供具体方
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/11/清华同方x46h开启Intel-VT/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1842,12 +1641,16 @@
       
         
           
-            <p>每次重装系统都要重新配置jdk<br>每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境</p>
-<p>1、下载jdk<br>2、配置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME	D:\Java\jdk1.6.0_39</div><div class="line">CLASSPATH	.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar</div><div class="line">Path		%JAVA_HOME%\bin</div><div class="line">			%JAVA_HOME%\jre\bin</div></pre></td></tr></table></figure></p>
-<p>注意CLASSPATH之前的点和分号</p>
-<p>3、验证<br>打开cmd，分别输入<code>java -version</code>，<code>javac -version</code>，如果可以看到版本号，说明成功</p>
-
-          
+          每次重装系统都要重新配置jdk每次都需要百度一下jdk的配置，毕竟也不是天天配java运行环境
+1、下载jdk2、配置环境变量1234JAVA_HOME	D:\Java\jdk1.6.0_39CLASSPATH	.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jarP
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/19/JDK配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1965,29 +1768,17 @@
       
         
           
-            <p>重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来</p>
-<p>1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除</p>
-<p>2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt install nodejs npm git</div><div class="line">sudo npm install -g n</div><div class="line">n stable</div><div class="line">sudo npm -g install npm@next</div></pre></td></tr></table></figure></p>
-<p>3、配置SSH key：在Git Bash敲入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C “你的邮箱”</div></pre></td></tr></table></figure></p>
-<p>生成的密钥默认保存在<code>C:\Users\XPS.ssh\id_rsa.pub</code>，用笔记本打开该文件，复制里面的内容到Github&gt;Settings&gt;SSH and GPG keys&gt;New SSH key-Key一栏里，title可任意发挥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure></p>
-<p>测试是否成功</p>
-<p>4、配置Git的个人信息：在Git Bash输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;yourname&quot;</div><div class="line">git config --global user.email &quot;youremail&quot;</div></pre></td></tr></table></figure></p>
-<p>5、在你要放置博客的文件夹打开Git Bash， 安装Hexo框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo npm install hexo-cli -g</div><div class="line">sudo npm install hexo --save</div></pre></td></tr></table></figure></p>
-<p>6、hexo在指定文件夹中新建所需要的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init &lt;folder&gt;</div><div class="line">cd &lt;folder&gt;</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
-<p>7、Hexo3.0以上版本，需要安装hexo-deployer插件才能部署到Github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>8、在初始化完成后，将之前重装系统保存的Hexo文件夹下的这些文件夹拷贝至新的Hexo文件夹(即刚刚初始化完成的)内</p>
-<p>9、执行以下命令来部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure></p>
-<p>在重装系统完之后恢复Hexo初次部署需要一点时部署中如果弹出弹框，填yes即可。<br>出现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">To github.com:Aldrich-ayu/Aldrich-ayu.github.io.git</div><div class="line">+ cb4cda2...ec926bc HEAD -&gt; master (forced update)</div><div class="line">INFO  Deploy done: git</div></pre></td></tr></table></figure></p>
-<p>即表示恢复Hexo并且部署成功！</p>
-<p><br>  </p>
-<p>参考：</p>
-<ul>
-<li><a href="http://yanziyu.tech/2017/04/04/reinstall-hexo/" target="_blank" rel="external">http://yanziyu.tech/2017/04/04/reinstall-hexo/</a></li>
-<li><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/index.html</a></li>
-<li><a href="https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/" target="_blank" rel="external">https://aldrich-ayu.github.io/2017/07/31/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8EHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%81%A2%E5%A4%8D/</a></li>
-</ul>
-
-          
+          重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来
+1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除
+2、重装系统后，安装Node
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/19/【Hexo】重装系统后hexo配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2105,47 +1896,15 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">2018年5月记，总结起来就几句话</div><div class="line">//创建xmlhttprequest对象</div><div class="line">var xhttp xhttp=new XMLHttpRequest();</div><div class="line"></div><div class="line">//使用xmlhttprequest对象的open()和send()方法发送资源请求给服务器</div><div class="line">xhttp.open(&quot;POST&quot;,&quot;ajax_info.txt&quot;,true);</div><div class="line"></div><div class="line">//调用onreadystatechange函数</div><div class="line">xhttp.onreadystatechange = function()&#123;&#125;;</div><div class="line"></div><div class="line">//获得服务器的响应</div><div class="line">document.getElementById(&quot;demo&quot;).innerHTML=xhttp.responseText;</div><div class="line"></div><div class="line">然后为了这四句能正确响应，添加必要的判断</div><div class="line">返回的响应也可能是各种形式，需要做各种处理</div><div class="line"></div><div class="line">是不是很简单</div></pre></td></tr></table></figure>
-<h2 id="名称"><a href="#名称" class="headerlink" title="名称"></a>名称</h2><p>Asynchronous JavaScript and XML<br>异步得JavaScript和XML</p>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容</p>
-<h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>异步传输是面向字符的传输，它的单位是字符；异步传输是将比特分成小组来进行传送。一般每个小组是一个8位字符，在每个小组的头部和尾部都有一个开始位和一个停止位，它在传送过程中接收方和发送方的时钟不要求一致</p>
-<p>同步传输是面向比特的传输，它的单位是桢，它传输的时候要求接受方和发送方的时钟是保持一致的。<br>同步传输通常要比异步传输快速得多，同步传输的开销也比较少</p>
-<h2 id="包含的技术"><a href="#包含的技术" class="headerlink" title="包含的技术"></a>包含的技术</h2><ol>
-<li>使用CSS和XHTML来表示</li>
-<li>使用DOM模型来交互和动态显示</li>
-<li>使用XMLHttpRequest来和服务器进行异步通信</li>
-<li>使用javascript来绑定和调用<br>重点是3，理解XMLHttpRequest对象</li>
-</ol>
-<h2 id="XMLHttpRequest属性"><a href="#XMLHttpRequest属性" class="headerlink" title="XMLHttpRequest属性"></a>XMLHttpRequest属性</h2><p>onreadystatechange 每次状态改变所触发事件的事件处理程序。<br>responseText 从服务器进程返回数据的字符串形式。<br>responseXML 从服务器进程返回的DOM兼容的文档数据对象。<br>status 从服务器返回的数字代码，比如常见的404（未找到）和200（已就绪）<br>status Text 伴随状态码的字符串信息</p>
-<p>readyState 对象状态值</p>
-<ul>
-<li>0 (未初始化) 对象已建立，但是尚未初始化（尚未调用open方法）</li>
-<li>1 (初始化) 对象已建立，尚未调用send方法</li>
-<li>2 (发送数据) send方法已调用，但是当前的状态及http头未知</li>
-<li>3 (数据传送中) 已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误</li>
-<li>4 (完成) 数据接收完毕,此时可以通过通过responseXml和responseText获取完整的回应数据</li>
-</ul>
-<h2 id="使用ajax的步骤"><a href="#使用ajax的步骤" class="headerlink" title="使用ajax的步骤"></a>使用ajax的步骤</h2><ol>
-<li><strong>创建xmlhttprequest对象</strong>，由于各浏览器之间存在差异，所以创建一个XMLHttpRequest对象可能需要不同的方法。这个差异主要体现在IE和其它浏览器之间。</li>
-<li>使用xmlhttprequest对象的<strong>open()</strong>和<strong>send()</strong>方法发送资源请求给服务器</li>
-<li><strong>调用onreadystatechange函数</strong>，当发送请求到服务器，我们想要服务器响应执行一些功能就需要使用onreadystatechange函数，每次xmlhttprequest对象的readyState发生改变都会触发onreadystatechange函数</li>
-<li>使用xmlhttprequest对象的<strong>responseText或responseXML属性获得服务器的响应</strong></li>
-</ol>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;p id=&quot;demo&quot;&gt;Let AJAX change this text.&lt;/p&gt;</div><div class="line">&lt;button type=&quot;button&quot; onclick=&quot;loadDoc()&quot;&gt;Change Content&lt;/button&gt;</div><div class="line">&lt;script&gt;</div><div class="line">function loadDoc()&#123;</div><div class="line">// 1、创建xmlhttprequest对象</div><div class="line">var xhttp;</div><div class="line">if (window.XMLHttpRequest)</div><div class="line">&#123;</div><div class="line">	//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</div><div class="line">	xhttp=new XMLHttpRequest();</div><div class="line">&#125;</div><div class="line">else</div><div class="line">&#123;</div><div class="line">	// IE6, IE5 浏览器执行代码</div><div class="line">	xhttp=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</div><div class="line">&#125;</div><div class="line">//var xhttp=new XMLHttpRequest();</div><div class="line">// 2、使用xmlhttprequest对象的open()和send()方法发送资源请求给服务器</div><div class="line">xhttp.open(&quot;POST&quot;,&quot;ajax_info.txt&quot;,true);</div><div class="line">//xhttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);</div><div class="line"></div><div class="line">// 3、onreadystatechange函数</div><div class="line">xhttp.onreadystatechange = function()&#123;</div><div class="line">	if (xhttp.readyState == 4 &amp;&amp; xhttp.status == 200) &#123;</div><div class="line">		// 4、使用xmlhttprequest对象的responseText或responseXML属性获得服务器的响应</div><div class="line">		document.getElementById(&quot;demo&quot;).innerHTML=xhttp.responseText;</div><div class="line">&#125;</div><div class="line">&#125;;</div><div class="line">xhttp.send();</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="处理post表单"><a href="#处理post表单" class="headerlink" title="处理post表单"></a>处理post表单</h2><p>post表单数据需要使用xmlhttprequest对象setRequestHeader方法增加一个HTTP头。<br>post表单例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xhttp.open(&quot;POST&quot;, &quot;ajax_test.aspx&quot;, true);</div><div class="line">xhttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);</div><div class="line">xhttp.send(&quot;fname=Henry&amp;lname=Ford&quot;);</div></pre></td></tr></table></figure></p>
-<h3 id="处理xml"><a href="#处理xml" class="headerlink" title="处理xml"></a>处理xml</h3><p>需要放在<code>if (xhttp.readyState == 4 &amp;&amp; xhttp.status == 200) {}</code>里面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">xmlDoc = xhttp.responseXML;</div><div class="line">var txt = &quot;&quot;;</div><div class="line">x = xmlDoc.getElementsByTagName(&quot;ARTIST&quot;);</div><div class="line">for (i = 0; i &lt; x.length; i++) &#123;</div><div class="line">	txt += x[i].childNodes[0].nodeValue + &quot;&lt;br&gt;&quot;;</div><div class="line">&#125;</div><div class="line">document.getElementById(&quot;demo&quot;).innerHTML = txt;</div></pre></td></tr></table></figure></p>
-<h3 id="处理json"><a href="#处理json" class="headerlink" title="处理json"></a>处理json</h3><p>使用JSON.parse方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">xmlHttp.open(&quot;POST&quot;,&quot;tigongjson.php&quot;);</div><div class="line">//设置我们的请求头信息</div><div class="line">xmlHttp.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);</div><div class="line"></div><div class="line">//需要放在if (xhttp.readyState == 4 &amp;&amp; xhttp.status == 200) &#123;&#125;里面</div><div class="line">var data=xmlHttp.responseText;</div><div class="line">//json字符串转换成为json对象</div><div class="line">data=JSON.parse(data);</div><div class="line">var str=&quot;&quot;;</div><div class="line">for(var i=0;i&lt;data.length;i++)&#123;</div><div class="line">	str+=&quot;姓名:&quot;+data[i].name+&quot;&lt;br&gt;&quot;;</div><div class="line">	str+=&quot;年龄:&quot;+data[i].age+&quot;&lt;br&gt;&quot;;</div><div class="line">	str+=&quot;性别:&quot;+data[i].sex+&quot;&lt;br&gt;&quot;;</div><div class="line">&#125;;</div><div class="line">div1.innerHTML=str;</div></pre></td></tr></table></figure></p>
-<p>其他请参考菜鸟教程</p>
-<p>参考：</p>
-<ul>
-<li><a href="http://www.runoob.com/ajax/ajax-tutorial.html" target="_blank" rel="external">AJAX 教程|菜鸟教程</a></li>
-<li><a href="http://www.cnblogs.com/ustbwuyi/archive/2007/02/08/645061.html#2215165" target="_blank" rel="external">Ajax的原理和应用(给公司做所的培训)</a></li>
-<li><a href="http://www.jb51.net/article/88084.htm" target="_blank" rel="external">Ajax的使用四大步骤</a></li>
-<li><a href="http://www.cnblogs.com/mylove103104/p/4599001.html" target="_blank" rel="external">Ajax中解析Json的两种方法详解</a></li>
-<li><a href="http://www.cnblogs.com/Gabriel-Wei/p/6002223.html" target="_blank" rel="external">使用原生ajax处理json组成的数组</a></li>
-</ul>
-
-          
+          12345678910111213141516172018年5月记，总结起来就几句话//创建xmlhttprequest对象var xhttp xhttp=new XMLHttpRequest();//使用xmlhttprequest对象的open()和send()方法发送资源请求给服务器xhttp
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/17/Ajax工作原理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2263,31 +2022,18 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2018年5月记，看完之后相当懵逼，，我是为了什么写这个的</div></pre></td></tr></table></figure>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>XML命名空间提供避免元素命名冲突的方法。标签可以放入命名空间中，不同的命名空间中的相同名称标签是不同的标签。</p>
-<h2 id="命名冲突"><a href="#命名冲突" class="headerlink" title="命名冲突"></a>命名冲突</h2><p>在 XML 中，元素名称是由开发者定义的，当两个不同的文档使用相同的元素名时，就会发生命名冲突。</p>
-<p>这个 XML 携带 HTML 表格的信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">&lt;tr&gt;</div><div class="line">&lt;td&gt;Apples&lt;/td&gt;</div><div class="line">&lt;td&gt;Bananas&lt;/td&gt;</div><div class="line">&lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
-<p>这个 XML 文档携带有关桌子的信息（一件家具）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">&lt;name&gt;African Coffee Table&lt;/name&gt;</div><div class="line">&lt;width&gt;80&lt;/width&gt;</div><div class="line">&lt;length&gt;120&lt;/length&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
-<p>假如这两个 XML 文档被一起使用，由于两个文档都包含带有不同内容和定义的 <table> 元素，就会发生命名冲突。<br>XML 解析器无法确定如何处理这类冲突。</table></p>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>在xml文件中，命名空间的定义如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;d:student xmlns:d=&quot;http://www.develop.com/student&quot; &gt;</div></pre></td></tr></table></figure></p>
-<p>其中 student 是命名空间的标签。<code>http://www.develop.com</code>是命名空间的标识。d是命名空间的前缀。</p>
-<h3 id="命名空间标签"><a href="#命名空间标签" class="headerlink" title="命名空间标签"></a>命名空间标签</h3><p>由于命名空间采取元素属性的定义方式，所以需要一个标签。</p>
-<h3 id="xmlns-属性"><a href="#xmlns-属性" class="headerlink" title="xmlns 属性"></a>xmlns 属性</h3><p>当在 XML 中使用前缀时，一个所谓的用于前缀的命名空间必须被定义。<br>命名空间是在元素的开始标签的 xmlns 属性中定义的。<br>xmlns:前缀=”URI”。<br>当命名空间被定义在元素的开始标签中时，所有带有相同前缀的子元素都会与同一个命名空间相关联。<br>命名空间 URI 不会被解析器用于查找信息。<br>其目的是赋予命名空间一个惟一的名称。不过，很多公司常常会作为指针来使用命名空间指向实际存在的网页，这个网页包含关于命名空间的信息。</p>
-<h3 id="命名空间标识"><a href="#命名空间标识" class="headerlink" title="命名空间标识"></a>命名空间标识</h3><p>命名空间标识是命名空间最重要的属性，重要到当输出一个命名空间时就直接转换为它的标识。标识有个规范的称呼:URI(统一资源定位符)。URI的最大特点是唯一性。如果不唯一就失去了辨识的意义。实际上相同URI不同的命名空间被看成同一个命名空间。</p>
-<p>URI分为两种类型：<br>URL(统一资源定位器):<br>通俗的说URL就是网页地址。因为每个网页在internat上都是唯一的。</p>
-<p>URN（统一资源名称)：<br>可以不使用网页地址而使用唯一名称来定义。如：<br>urn:2007-12-9/workgrop/xin/projiectname<br>或 urn:E7f73B13-05FE-44ec-81CE-F898C4A6CDB4<br>这个编号是在系统中注册的控件编号，因此是唯一的。</p>
-<h3 id="前缀"><a href="#前缀" class="headerlink" title="前缀"></a>前缀</h3><p>前缀用于在XML中作为URI的简化引用。因为URI太长了。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;d:student xmlns:d=&quot;http://www.develop.com/student&quot;&gt;</div><div class="line">&lt;d:id&gt;3235329&lt;/d:id&gt;</div><div class="line">&lt;d:name&gt;Jeff Smith&lt;/d:name&gt;</div><div class="line">&lt;/d:student&gt;</div></pre></td></tr></table></figure></p>
-<p>使用前缀把标签放入对应的命名空间中。</p>
-<p>有了命名空间区分后相同标签名可以不会被错误解析。实际上命名空间加上元素名叫做QName。QName有两个属性：uri和localName，分别获取命名空间名和本地名称。这个QName可以使用xml的name()方法得到。如上例子中的xml文件可以使用如下代码访问：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var ns:Namespace=xml.namespace();</div><div class="line">var node:XMLList=xml.ns::id;</div><div class="line">var qNameName=node.name();</div><div class="line">trace(qName.uri);</div><div class="line">trace(qName.localName);</div></pre></td></tr></table></figure></p>
-<p>命名空间不一点要定义在根节点。可以在任何标签中定义，但只有定义了后才能使用。命名空间还可以嵌套或者被重定义。但这样会增加复杂性。一般用的比较少。一个xml文件中可以拥有多个命名空间。使用命名空间前缀可以轻松处理它们。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;x:transform version=”1.0” xmlns:x=http://www.w3.org/1999/XSL/Transformxmlns:d=”urn:dm:student”&gt;</div><div class="line">&lt;x:template match=”student”/&gt;&lt;d:template match=”name”/&gt;&lt;/x:transform&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="默认的命名空间"><a href="#默认的命名空间" class="headerlink" title="默认的命名空间"></a>默认的命名空间</h3><p>为元素定义默认的命名空间可以让我们省去在所有的子元素中使用前缀的工作<br>xmlns=”namespaceURI”<br>使用默认命名空间后，如果不加前缀则引用默认命名空间。使用默认命名空间会降低xml结构的清晰度。要慎用。</p>
-<p>参考：</p>
-<ul>
-<li><a href="http://m.blog.csdn.net/w938706428/article/details/41448821" target="_blank" rel="external">http://m.blog.csdn.net/w938706428/article/details/41448821</a></li>
-<li><a href="http://www.runoob.com/xml/xml-namespaces.html" target="_blank" rel="external">http://www.runoob.com/xml/xml-namespaces.html</a></li>
-</ul>
-
-          
+          12018年5月记，看完之后相当懵逼，，我是为了什么写这个的
+概念XML命名空间提供避免元素命名冲突的方法。标签可以放入命名空间中，不同的命名空间中的相同名称标签是不同的标签。
+命名冲突在 XML 中，元素名称是由开发者定义的，当两个不同的文档使用相同的元素名时，就会发生命名冲突。
+这个 XML 携
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/13/XML命名空间和XML-Schema/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2405,54 +2151,15 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">2017年2月2日写的。。</div><div class="line">2018年5月重看，看完了之后有点觉得不知所云，不知道自己当初想说什么，或者说想要论证的太多，反而说不清了。。</div><div class="line"></div><div class="line">腐是一种个人爱好，就和你喜欢喝茶，我喜欢喝咖啡，和别人无关，当然不能影响他人，就比如喜欢跳广场舞，但最好不要扰民，扰民了就不能怪别人说</div><div class="line"></div><div class="line">没有必要区分伪腐和真腐，既然是一种个人爱好，你喜欢谁都无所谓的（不过不管伪腐还是真腐都喜欢帅哥吧哈哈），但是前面也说了，不能打扰别人，请不要贬低别人（大概是有人用这种方式炒作吧，毕竟这样就有人关注了）</div><div class="line"></div><div class="line">腐和热心LGBT一点关系没有（好像有点绝对），也许有腐女会热心，但只能说是一种个人行为，有人也许会说我是因为喜欢腐圈才去了解LGBT，但你没法忽视一个问题：大部分腐女并没有这种意识，两个长的丑站在一起你不会萌，真的是一对你也不会萌的。那么是不是说我们一定要求腐女热心公益？当然不，各玩各的互不影响挺好</div></pre></td></tr></table></figure>
-<p>突然想写写这个话题，是因为最近上b站，老是看到评论里有一些人为了”腐女”和”伪腐女”而争执。</p>
-<p>维基对于”腐女”的解释是：</p>
-<blockquote>
-<p>腐女（日语：腐女子／ふじょし Fujoshi），主要是指喜欢BL，也就是喜欢男男爱情的女性。</p>
-</blockquote>
-<p>百度百科和萌娘百科(ACG向wiki)类似，但是对于”伪腐”的概念有一些不同的地方。</p>
-<p>维基百科中提到了”伪腐”，表示中国(其他国家没有这个概念，或者百科中没有提到)腐圈的一种概念</p>
-<blockquote>
-<p>因为大众有时并不清楚“BL”与现实中的男同性恋的区别，误以为腐女就是“对男同友善的女性”。由此也衍生出“伪腐”一词用以形容“喜欢BL，但对男同性恋不友善”的腐女。</p>
-</blockquote>
-<p>百度百科中有单独的”伪腐女”概念：</p>
-<blockquote>
-<p>腐女群体里面一些不理智、疯狂、NC（脑残）的腐女，所谓的伪其实并非是假，只是其他理智的腐女对于这类腐女看不惯所采取的分类手段，为了不让人降低对腐女的印象，选择以“这些腐女并非是真正的腐女，是伪腐！”的借口来和NC腐女划分界限或推卸责任。</p>
-</blockquote>
-<p>萌娘百科中这样定义：</p>
-<blockquote>
-<p>喜欢BL只是因为二次元中的人物都十分美型，对于现实生活中真正的GAY群不一定持支持态度，甚至厌恶和嘲笑，像这样的“腐女”被称为“伪腐”</p>
-</blockquote>
-<p>其实参考这些之后就可了解：</p>
-<p>腐只能被看作一种爱好，无论你喜欢帅哥还是什么，都可以称作腐女，”伪腐女”并不是代表假的，而是用来形容那些不理智/疯狂/脑残的腐女。</p>
-<p><strong>结论1：腐只是一种个人爱好</strong></p>
-<p><strong>结论2：伪腐女不等于不是腐女</strong></p>
-<p>“伪腐女”这个词的出现一方面不排除个别腐女的优越感，另一方面也说明一些腐女在行为方式上的让人感到反感，自己喜欢什么没人管，但是还请尊重他人(我想不论是不是腐女都应该尊重他人)，正如萌娘百科所说：</p>
-<blockquote>
-<p>腐只是一种爱好，能否做到尊重他人、尊重他人隐私是做人的基本素养问题，与腐或不腐没有联系。</p>
-</blockquote>
-<p>腐圈为了区分这些腐女所以创造了”伪腐女”这个词</p>
-<p>常见的伪腐特征(来自萌娘百科，百度百科词条”伪腐女”有类似内容)：</p>
-<blockquote>
-<p>仅喜欢长相俊秀、外貌美型的男子，对于现实中的GAY嗤之以鼻甚至深感厌恶。典型语句【长这么丑也好意思搞同性恋】。</p>
-<p>喜欢偷窥、干涉现实中的GAY的生活，过度挖掘他人的隐私以满足自己的兴趣。</p>
-<p>热衷于掰弯现实生活中的直男（如身边的男同学等），强迫周围的人搞基，令他人感到困扰，严重影响他人生活。</p>
-<p>对不符合其审美观的男性，以及明确表示厌恶搞基的直男则采取敌视态度，进行贬损和污蔑。</p>
-<p>无法接受LES（女同性恋），看不起她们。</p>
-<p>对于GAY的交心信仅凭所看的耽美漫画、动画、小说等给予荒诞错误的建议，或将信件放在公共平台供大家讨论围观。</p>
-<p>在大庭广众高调谈论腐相关，大有“我就是腐我真了不起”之意，令他人感到厌烦。</p>
-<p>不接受男女之间的爱情故事，认为耽美就是小众就是清新就是高端大气上档次，男女之情都是庸俗三流泛滥成河，由此以为自己是文艺女青年而轻视看描写一般男女故事的人。</p>
-</blockquote>
-<p>阅读更多：腐女（<a href="https://zh.moegirl.org/%E8%85%90%E5%A5%B3）" target="_blank" rel="external">https://zh.moegirl.org/%E8%85%90%E5%A5%B3）</a><br>本文引自萌娘百科（<a href="https://zh.moegirl.org/），文字内容遵守【知识共享" target="_blank" rel="external">https://zh.moegirl.org/），文字内容遵守【知识共享</a> 署名-非商业性使用-相同方式共享 3.0】协议。</p>
-<p><strong>结论3：一些腐女存在不尊重他人的行为，影响到了他人，一些行为真的让人反感，换句话说自己圈地自萌就好，请不要要求别人怎样，也别影响别人</strong></p>
-<p>那么也许会有疑问，是不是腐女都应该支持同性恋?</p>
-<p>我个人觉得并不一定，腐毕竟只是作为一种个人的爱好，只要不影响他人就好，而不一定要把这种爱好强迫变成一种公益行为，一些做支持同性恋的腐女也请不要要求别的腐女一定要支持腐女，这就和你其他公益事业一样，你做公益事业，很不错，但是强迫别人也做就不好了。</p>
-<p><strong>结论4：腐不等于公益行为</strong></p>
-<p><strong>结论5：腐圈和LGBT圈关系不大</strong></p>
-<p>参考资料：<br><a href="http://baike.baidu.com/link?url=35LSeDDZ4DN-428f8vVGBpL95zBC5P8fkGqeWL6-YqxLU6E44czQGCWjHVXMWQy5GRRwEKCHB1CxmUfiXzoP2s4aFeJ9Cpk1V1GF5c88_LK#4" target="_blank" rel="external">腐女-百度百科</a><br><a href="http://baike.baidu.com/view/2603612.htm" target="_blank" rel="external">伪腐女-百度百科</a><br><a href="https://zh.wikipedia.org/wiki/%E8%85%90%E5%A5%B3" target="_blank" rel="external">腐女-维基百科</a><br><a href="https://zh.moegirl.org/zh-hans/%E8%85%90%E5%A5%B3" target="_blank" rel="external">腐女-萌娘百科</a><br><a href="https://www.zhihu.com/question/27984520" target="_blank" rel="external">腐女与伪腐女之间的差别是什么？-知乎</a><br><a href="https://www.zhihu.com/question/20596592" target="_blank" rel="external">什么是腐女？-什么是腐女</a></p>
-
-          
+          123456782017年2月2日写的。。2018年5月重看，看完了之后有点觉得不知所云，不知道自己当初想说什么，或者说想要论证的太多，反而说不清了。。腐是一种个人爱好，就和你喜欢喝茶，我喜欢喝咖啡，和别人无关，当然不能影响他人，就比如喜欢跳广场舞，但最好不要扰民，扰民了就不能怪别人说没有必要区分伪
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/02/腐女与伪腐女/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2570,20 +2277,17 @@
       
         
           
-            <p>2016年，感觉自己什么也没做，本来也不打算写年终博客的。</p>
-<p>晚上和好友聊天，突然心情有点激动就想着，写写吧，写点什么，这大概只是有种想写的冲动吧，写出来的不见得有多好。</p>
-<p>11月份的时候才意识到我放在SAE上的博客不在了，只备份了Wordpress的代码，没备份数据库，120篇博客找不回来了，上面写的都是一些问题怎么解决，以及自己在学习中的经验，印象最深的大概是如何在Elementaory OS系统上安装软件，直接把博客上的语句复制到shell里执行就好，最头疼的大概是安装输入法的问题，当时记得查了好多资料，最后每次重装都是因为update时输入法出问题，具体问题记不清楚了，好像是影响软件安装和更新。</p>
-<p>考完研后一直在整理自己的东西，百度云、Onenote、印象笔记还有移动硬盘。</p>
-<p>百度云里有很多资料和书籍，以前也整理过，大概地分离了各种资源，但条理并不是很清晰，索性需要的时候<del>虎</del>直接搜索就好，这次打算把以前备份的手机照片整理一下，顺便把很多很多的电子书整理分类，剔除重复，还有把图片和书籍备份到移动硬盘上，书籍还在下载中，还没有整理，图片已经整理好了，把大学四年的照片、保存的来自各种渠道的图片以及截图都理清了，回顾这些图片，把一些照片发给了相关的人，他们都很吃惊，哈哈。很多截图都是我在微信的聊天记录，我还找到了我和某人认识的大概时间。这些大概都算生活中的一点小乐趣了吧。</p>
-<p>本来想将Onenote作为唯一的做笔记的应用，但是因为同步功能最后选择了印象笔记，充个标准会员，标签模式也不错，特别是用了Bear，可惜没有Mac，顺便一提，Bear真的好漂亮。</p>
-<p>这一年确实过的浑浑噩噩，是我太幼稚，也是我在逃避，我真的没办法接受现实，可是人生不就是一步一步接受的过程吗？</p>
-<p><code>走吧，各人有各人的路要走，我既没法代替你，也没法陪你，甚至无法看着你</code></p>
-<p>写的差不多了，确实只有写作的冲动，而没有写作的才华，哈哈哈。</p>
-<blockquote>
-<p>2018年5月15日重看这篇文字，当时写完之后再也不敢看，现在因整理笔记打开觉得没什么，此时已经没有什么悲伤，我比较震惊我能写这么多文字哈哈，现在的感觉是每当我觉得突然明白了一些道理自己又长大了一点的时候，又觉得自己还是很幼稚</p>
-</blockquote>
-
-          
+          2016年，感觉自己什么也没做，本来也不打算写年终博客的。
+晚上和好友聊天，突然心情有点激动就想着，写写吧，写点什么，这大概只是有种想写的冲动吧，写出来的不见得有多好。
+11月份的时候才意识到我放在SAE上的博客不在了，只备份了Wordpress的代码，没备份数据库，120篇博客找不回来了，上面写的
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/03/2016年突然想说的话/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2701,13 +2405,15 @@
       
         
           
-            <h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── .deploy #需要部署的文件</div><div class="line">├── node_modules #Hexo插件</div><div class="line">├── public #生成的静态网页文件</div><div class="line">├── scaffolds #模板</div><div class="line">├── source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里</div><div class="line">|	├── _drafts #草稿</div><div class="line">|	└── _posts #文章</div><div class="line">├── themes #主题</div><div class="line">├── _config.yml #全局配置文件</div><div class="line">└── package.json</div></pre></td></tr></table></figure>
-<p>假设网站的根目录为<code>D:/Hexo/</code>，也称为站点目录<br><strong>站点配置文件</strong> 是指网站目录下的_config.yml文件，即<code>D:/Hexo/_config.yml</code></p>
-<p><strong>主题配置文件</strong> 是指网站目录下对应的主题文件夹下的_config.yml文件，即<code>D:/Hexo/themes/next/_config.yml</code>.</p>
-<h3 id="站点配置文件"><a href="#站点配置文件" class="headerlink" title="站点配置文件"></a>站点配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"># Hexo Configuration</div><div class="line">## Docs: http://hexo.io/docs/configuration.html</div><div class="line">## Source: https://github.com/hexojs/hexo/</div><div class="line"># Site #站点信息</div><div class="line">title:  #标题</div><div class="line">subtitle:  #副标题</div><div class="line">description:  #站点描述，给搜索引擎看的</div><div class="line">author:  #作者</div><div class="line">email:  #电子邮箱</div><div class="line">language: zh-CN #语言</div><div class="line"></div><div class="line"># URL #链接格式</div><div class="line">url:  #网址</div><div class="line">root: / #根目录</div><div class="line">permalink: :year/:month/:day/:title/ #文章的链接格式</div><div class="line">tag_dir: tags #标签目录</div><div class="line">archive_dir: archives #存档目录</div><div class="line">category_dir: categories #分类目录</div><div class="line">code_dir: downloads/code</div><div class="line">permalink_defaults:</div><div class="line"></div><div class="line"># Directory #目录</div><div class="line">source_dir: source #源文件目录</div><div class="line">public_dir: public #生成的网页文件目录</div><div class="line"></div><div class="line"># Writing #写作</div><div class="line">new_post_name: :title.md #新文章标题</div><div class="line">default_layout: post #默认的模板，包括 post、page、photo、draft（文章、页面、照片、草稿）</div><div class="line">titlecase: false #标题转换成大写</div><div class="line">external_link: true #在新选项卡中打开连接</div><div class="line">filename_case: 0</div><div class="line">render_drafts: false</div><div class="line">post_asset_folder: false</div><div class="line">relative_link: false</div><div class="line">highlight: #语法高亮</div><div class="line">	enable: true #是否启用</div><div class="line">	line_number: true #显示行号</div><div class="line">	tab_replace:</div><div class="line"></div><div class="line"># Category &amp; Tag #分类和标签</div><div class="line">default_category: uncategorized #默认分类</div><div class="line">category_map:</div><div class="line">tag_map:</div><div class="line"></div><div class="line"># Archives</div><div class="line">2: 开启分页</div><div class="line">1: 禁用分页</div><div class="line">0: 全部禁用</div><div class="line">archive: 2</div><div class="line">category: 2</div><div class="line">tag: 2</div><div class="line"></div><div class="line"># Server #本地服务器</div><div class="line">port: 4000 #端口号</div><div class="line">server_ip: localhost #IP 地址</div><div class="line">logger: false</div><div class="line">logger_format: dev</div><div class="line"></div><div class="line"># Date / Time format #日期时间格式</div><div class="line">date_format: YYYY-MM-DD #参考http://momentjs.com/docs/#/displaying/format/</div><div class="line">time_format: H:mm:ss</div><div class="line"></div><div class="line"># Pagination #分页</div><div class="line">per_page: 10 #每页文章数，设置成 0 禁用分页</div><div class="line">pagination_dir: page</div><div class="line"></div><div class="line"># Disqus #Disqus评论，替换为多说</div><div class="line">disqus_shortname:</div><div class="line"></div><div class="line"># Extensions #拓展插件</div><div class="line">theme: landscape-plus #主题</div><div class="line">exclude_generator:</div><div class="line">plugins: #插件，例如生成 RSS 和站点地图的</div><div class="line">- hexo-generator-feed</div><div class="line">- hexo-generator-sitemap</div><div class="line">- </div><div class="line"># Deployment #部署，将 lmintlcx 改成用户名</div><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repo: github创库地址.git</div><div class="line">	branch: master</div></pre></td></tr></table></figure>
-<p>配置文件的冒号后面都有一个半角空格</p>
-<h3 id="主题配置文件"><a href="#主题配置文件" class="headerlink" title="主题配置文件"></a>主题配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">menu: #右上角导航菜单，冒号前面是菜单名，后面是访问路径。</div><div class="line">	Home: /</div><div class="line">	Archives: /archives</div><div class="line">	About: /about</div><div class="line"></div><div class="line">widgets: #站点右边栏，可以调整顺序和增减内容，会自动调用主题layout/_widget目录下的同名文件。</div><div class="line">- search</div><div class="line">- category</div><div class="line">- tagcloud</div><div class="line"></div><div class="line">excerpt_link: Read More #列表页里Read more链接名称，可以替换成’查看更多‘等。</div><div class="line"></div><div class="line">plugins: </div><div class="line"></div><div class="line">twitter: #右边栏要显示twitter展示的话，需要在此设置</div><div class="line">	username: </div><div class="line">	show_replies: false</div><div class="line">	tweet_count: 5</div><div class="line"></div><div class="line">addthis: #分享设置</div><div class="line">	enable: true</div><div class="line">	pubid:</div><div class="line">	facebook: true</div><div class="line">	twitter: true</div><div class="line">	google: true</div><div class="line">	pinterest: true</div><div class="line"></div><div class="line">fancybox: true #图片效果，默认</div><div class="line"></div><div class="line">google_analytics: #google_analytics统计ID</div><div class="line">rss:  #生成RSS路径</div></pre></td></tr></table></figure>
-          
+          目录结构1234567891011.├── .deploy #需要部署的文件├── node_modules #Hexo插件├── public #生成的静态网页文件├── scaffolds #模板├── source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里|	
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】hexo目录结构以及-config-yml配置文件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2825,21 +2531,22 @@
       
         
           
-            <p>1.tags标签使用[tag1,tag2,…]，注意冒号后需要一个半角空格</p>
-<p>2.文章内标题使用<code>###空格我是标题空格###</code></p>
-<p>3.内嵌代码使用反引号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">`我是代码`</div></pre></td></tr></table></figure></p>
-<p>4.其他代码使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">5.文字加粗使用两个星号</div></pre></td></tr></table></figure></p>
-<p><strong>我是文字</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">6.文字斜体使用一个*星号</div></pre></td></tr></table></figure></p>
-<p><em>我是文字</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">7.引用使用&gt;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>我是文字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">8.链接使用以下方式</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>&lt;我是链接&gt;</p>
-<ul>
-<li><a href="我是链接">显示文字</a><br>```</li>
-</ul>
+          1.tags标签使用[tag1,tag2,…]，注意冒号后需要一个半角空格
+2.文章内标题使用###空格我是标题空格###
+3.内嵌代码使用反引号1`我是代码`
+4.其他代码使用125.文字加粗使用两个星号
+我是文字16.文字斜体使用一个*星号
+我是文字17.引用使用&gt;
 
-          
+我是文字18.链接使
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】hexo中博客使用markdown格式约定/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2957,12 +2664,18 @@
       
         
           
-            <h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>进入博客站点目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo n &quot;文章题目&quot;</div></pre></td></tr></table></figure></p>
-<p>执行完命令会在blog\sourse_posts目录中多出一个md文件，也可以直接在该目录下新建md文件</p>
-<h3 id="编辑文章"><a href="#编辑文章" class="headerlink" title="编辑文章"></a>编辑文章</h3><p>使用markdown工具编辑_posts目录中的md文件，最后记得使用<code>hexo g</code>以及<code>hexo d</code>命令</p>
-<h3 id="删除文章"><a href="#删除文章" class="headerlink" title="删除文章"></a>删除文章</h3><p>直接删除目录下的md文件即可</p>
-
-          
+          新建文章进入博客站点目录1hexo n &quot;文章题目&quot;
+执行完命令会在blog\sourse_posts目录中多出一个md文件，也可以直接在该目录下新建md文件
+编辑文章使用markdown工具编辑_posts目录中的md文件，最后记得使用hexo g以及hexo d命令
+删除文章
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】hexo新建文章/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3080,10 +2793,15 @@
       
         
           
-            <p>常用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">hexo help #查看帮助</div><div class="line">hexo init #初始化一个目录</div><div class="line">hexo new &quot;postName&quot; #新建文章</div><div class="line">hexo new page &quot;pageName&quot; #新建页面</div><div class="line">hexo generate #生成网页，可以在 public 目录查看整个网站的文件</div><div class="line">hexo server #本地预览，&apos;Ctrl+C&apos;关闭</div><div class="line">hexo deploy #部署.deploy目录</div><div class="line">hexo clean #清除缓存，强烈建议每次执行命令前先清理缓存，每次部署前先删除 .deploy 文件夹</div></pre></td></tr></table></figure></p>
-<p>简写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo n == hexo new</div><div class="line">hexo g == hexo generate</div><div class="line">hexo s == hexo server</div><div class="line">hexo d == hexo deploy</div></pre></td></tr></table></figure></p>
-
-          
+          常用命令：12345678hexo help #查看帮助hexo init #初始化一个目录hexo new &quot;postName&quot; #新建文章hexo new page &quot;pageName&quot; #新建页面hexo generate #生成网页，可以在 publi
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】hexo常用命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3201,13 +2919,16 @@
       
         
           
-            <h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><p>在使用<code>hexo d</code>上传时，可能出现以下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ERROR Deployer not found:git</div><div class="line">``</div><div class="line">### 解决办法 ###</div><div class="line">1.在博客目录下安装hexo-deployer-git</div></pre></td></tr></table></figure></p>
-<p>npm install hexo-deployer-git –save<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2.在博客目录下的_config.yml文件中</div></pre></td></tr></table></figure></p>
-<p>deploy:<br>    type: git<br>    repository: <a href="https://github.com/fengrenxiaoli/fengrenxiaoli.github.io.git" target="_blank" rel="external">https://github.com/fengrenxiaoli/fengrenxiaoli.github.io.git</a><br>    branch: master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">**type使用git，冒号后面需要一个半角空格**</div><div class="line">。</div><div class="line"></div><div class="line">### 问题2 ###</div><div class="line">使用`hexo d`中，出现：</div></pre></td></tr></table></figure></p>
-<p>bash: /dev/tty: No such device or address<br>error: failed to execute prompt script (exit code 1)<br>fatal: could not read Username for ‘<a href="https://github.com" target="_blank" rel="external">https://github.com</a>‘: No error<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">### 解决办法 ###</div><div class="line">1.不要使用Cygwin等cmd工具，使用自带的cmd工具（具体可以参考&lt;https://github.com/atom/atom/issues/8984&gt;</div><div class="line"></div><div class="line">2.使用ssh(具体格式在github中有)代替_config.yml文件中的deploy</div><div class="line"></div><div class="line"></div><div class="line">如果出现</div></pre></td></tr></table></figure></p>
-<p>INFO  Deploy done: git<br>```<br>则说明上传成功</p>
-
-          
+          问题1在使用hexo d上传时，可能出现以下错误1234ERROR Deployer not found:git``### 解决办法 ###1.在博客目录下安装hexo-deployer-git
+npm install hexo-deployer-git –save12.在博客目录下的_config
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】使用hexo-d无法上传问题解决办法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3325,12 +3046,17 @@
       
         
           
-            <p>1.从<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a>挑选喜欢的主题</p>
-<p>2.从Github下载相应的主题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd your-hexo-site</div><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/your-theme</div></pre></td></tr></table></figure></p>
-<p>注意修改自己选择主题的对应名字</p>
-<p>3.更改站点_config.yml（即博客目录下的该文件，不是主题文件中的文件）中的theme字段为<code>your-theme</code>（名字要和第二步的对应）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: your-theme（theme后面有一个半角空格）</div></pre></td></tr></table></figure></p>
-
-          
+          1.从https://hexo.io/themes/挑选喜欢的主题
+2.从Github下载相应的主题12cd your-hexo-sitegit clone https://github.com/iissnan/hexo-theme-next themes/your-theme
+注意修改自己选择主题
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】修改Hexo博客的主题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3448,24 +3174,16 @@
       
         
           
-            <p>1.创建github帐号，新建一个以<code>用户名.github.io</code>命名的仓库</p>
-<p>2.安装git，创建ssh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</div><div class="line">#用于创建ssh，会有公钥和私钥，将公钥拷贝到github帐号设置&gt;ssh and gpg keys中</div><div class="line"></div><div class="line">ssh -T git@github.com</div><div class="line">#用于测试是否成功</div></pre></td></tr></table></figure></p>
-<p>输入yes，其他使用默认即可，配置git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;cnfeat&quot;//用户名</div><div class="line">git config --global user.email  &quot;cnfeat@gmail.com&quot;//邮箱</div></pre></td></tr></table></figure></p>
-<p>3.下载并安装hexo</p>
-<p>4.新建一个目录用于放置本地博客<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mkdir hexo</div><div class="line">cd hexo</div><div class="line">npm install hexo-cli -g </div><div class="line">hexo init blog</div><div class="line">cd blog</div><div class="line">npm install</div><div class="line">hexo g</div><div class="line">hexo s   #可以在本地http://localhost:4000/查看</div></pre></td></tr></table></figure></p>
-<p>5.修改blog目录下的_config.yml文件中的deploy：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">type: git</div><div class="line">repository: git@github.com:xxxxxx/xxxxxxx.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure></p>
-<p>6.安装hexo中关于git的组件，上传部署（需要cd到hexo\node_modules\hexo\Hexo目录）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div><div class="line"></div><div class="line">hexo clean</div><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure></p>
-<p>如果出现问题请参考<a href="http://fengrenxiaoli.github.io/2016/10/09/%E4%BD%BF%E7%94%A8hexo-d%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" target="_blank" rel="external">使用hexo d无法上传问题解决办法</a>然后再使用以上代码</p>
-<p>参考：</p>
-<ul>
-<li><a href="http://kiya.space/2015/11/10/use-Github-Pages-Hexo-duoshuo-to-set-up-a-blog-basic-steps/" target="_blank" rel="external">http://kiya.space/2015/11/10/use-Github-Pages-Hexo-duoshuo-to-set-up-a-blog-basic-steps/</a></li>
-<li><a href="http://sunwhut.com/2015/10/30/buildBlog/" target="_blank" rel="external">http://sunwhut.com/2015/10/30/buildBlog/</a></li>
-<li><a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="external">https://my.oschina.net/ryaneLee/blog/638440</a></li>
-<li><a href="http://www.jianshu.com/p/ab21abc31153" target="_blank" rel="external">http://www.jianshu.com/p/ab21abc31153</a></li>
-<li><a href="https://www.haomwei.com/technology/maupassant-hexo.html" target="_blank" rel="external">https://www.haomwei.com/technology/maupassant-hexo.html</a></li>
-</ul>
-
-          
+          1.创建github帐号，新建一个以用户名.github.io命名的仓库
+2.安装git，创建ssh12345ssh-keygen -t rsa -C &quot;your_email@example.com&quot;#用于创建ssh，会有公钥和私钥，将公钥拷贝到github帐号设置&gt;ssh
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/【Hexo】使用Hexo搭建github博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3583,22 +3301,20 @@
       
         
           
-            <blockquote>
-<p>  2018年5月记，转眼快两年了，没想到现在看来写的还挺好，那就发出来吧</p>
-<p>  时间我修改过，写这篇文字是在2016年的6月25日</p>
-</blockquote>
-<p>写这篇文章的时候是大学毕业，准备离开而呆在学校的最后一天。</p>
-<p>和不算很多的人约出来吃了饭，也许以后与这些人不会再见，也许要见也是几年之后了，几年有时候感觉很短，但当两人见面寒暄时，感叹一番，发现原来已经这么久没有见过了。</p>
-<p>这几天除了吃饭和约人吃饭什么也不想干，就好像一个临终的人静静等待最后时刻的到来，不愿意去欣赏这里最后的景，也不想多留下一丝回忆。所做的只是交代后事，把自己和这里的人这里的事了结一些因果。</p>
-<p>或许真的等我踏上火车准备上路时，才会伤心，才会遗憾，往事会如回马灯一样跳入脑海，原来我和你之间还能更加好一点，原来我应当做这件事的，许许多多的想法出现了，可是，只剩下发呆，留下的只有空白。</p>
-<p>回想大学，自己就好像一只飞蛾，目标就是那里的火，逐渐走向自我的毁灭，我对生活的热情，我对未来的斗志都没有了，也许你是我最后的寄托吧，只是我们要毕业了，以后隔着的不光会是空间，还有时间，我带不走你，也留不下什么。</p>
-<p>大学四年，我就像一个旁观者，看着你们一直往前走，我却带着原地，不想动，又像是一个行尸走肉，重复着南校、新校、本部三个点，没有带着什么，也不曾留下值得纪念的东西。</p>
-<p>近来沉迷游戏，渴望在游戏中获得慰藉，交了几个亲友，最后呢，都离开了，除了花费金钱、消磨时间，什么也留不下了。</p>
-<p>离开了，便开始一段新的旅程了，很多人许多事都随风飞走吧，带走了，留下了只能徒留伤感。</p>
-<p>希望自己以后能够保持清醒，依靠自己，好好活着。</p>
-<p>没了。</p>
-
           
+  2018年5月记，转眼快两年了，没想到现在看来写的还挺好，那就发出来吧
+  时间我修改过，写这篇文字是在2016年的6月25日
+
+写这篇文章的时候是大学毕业，准备离开而呆在学校的最后一天。
+和不算很多的人约出来吃了饭，也许以后与这些人不会再见，也许要见也是几年之后了，几年有时候感觉很短，但当两
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/06/25/带不走的，留不下的/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
