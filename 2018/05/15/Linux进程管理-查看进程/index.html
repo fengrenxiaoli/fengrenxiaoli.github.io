@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }    进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源 进程管理的作用  判断服务器健康状态 查看系统中所有的进程 杀死进程     ps命令 查看所有进程123456789101112p">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-21T09:33:16.214Z">
+<meta property="og:updated_time" content="2018-05-25T07:28:41.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux进程管理01 查看进程">
 <meta name="twitter:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }    进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源 进程管理的作用  判断服务器健康状态 查看系统中所有的进程 杀死进程     ps命令 查看所有进程123456789101112p">
@@ -559,6 +559,8 @@ width: 70%;
 <li>Swap：…536723k free  #swap空闲率</li>
 </ol>
 <p><br></p>
+<h2 id="列出进程打开或使用的文件信息"><a href="#列出进程打开或使用的文件信息" class="headerlink" title="列出进程打开或使用的文件信息"></a>列出进程打开或使用的文件信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">lsof [选项]</div><div class="line"></div><div class="line">选项：</div><div class="line">-c 字符串 ：只列出以字符串开头的进程打开文件</div><div class="line">-u 用户名 ：只列出某个用户的进程打开的文件</div><div class="line">-p pid    : 列出某个pid进程打开的文件</div><div class="line"></div><div class="line"></div><div class="line">示例：</div><div class="line">lsof | more</div><div class="line">#查询所有进程-分屏显示</div><div class="line"></div><div class="line">lsof /sbin/init</div><div class="line">#查询/sbin/init文件被哪个文件调用（只能查系统文件，其他自己建立的文件查没有意义）</div><div class="line"></div><div class="line">lsof -c httpd </div><div class="line">#查看httpd进程调用了哪个文件</div><div class="line"></div><div class="line">lsof -u root</div><div class="line">#按照用户名，查询某用户的进程所调用的文件名（数量可能很多）</div></pre></td></tr></table></figure>
+<p><br></p>
 <p>参考：</p>
 <p><a href="https://blog.csdn.net/qq_31666147/article/details/51557300" target="_blank" rel="external">https://blog.csdn.net/qq_31666147/article/details/51557300</a></p>
 
@@ -680,7 +682,7 @@ width: 70%;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">116</span>
+                  <span class="site-state-item-count">117</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -733,7 +735,7 @@ width: 70%;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ps命令-查看所有进程"><span class="nav-number">1.</span> <span class="nav-text">ps命令 查看所有进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pstree命令-查看进程树"><span class="nav-number">2.</span> <span class="nav-text">pstree命令 查看进程树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top命令-查看系统健康状态"><span class="nav-number">3.</span> <span class="nav-text">top命令 查看系统健康状态</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ps命令-查看所有进程"><span class="nav-number">1.</span> <span class="nav-text">ps命令 查看所有进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pstree命令-查看进程树"><span class="nav-number">2.</span> <span class="nav-text">pstree命令 查看进程树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top命令-查看系统健康状态"><span class="nav-number">3.</span> <span class="nav-text">top命令 查看系统健康状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出进程打开或使用的文件信息"><span class="nav-number">4.</span> <span class="nav-text">列出进程打开或使用的文件信息</span></a></li></ol></div>
             
 
           </div>
