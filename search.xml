@@ -9,9 +9,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[【Hexo】Hexo 注释]]></title>
+    <url>%2F2018%2F05%2F26%2FHexo-%E6%B3%A8%E9%87%8A%2F</url>
+    <content type="text"><![CDATA[Markdown注释有三种，各不相同，有些会被编译到 html 文档中，有些不会；有的编译到 Html 文档中也不会显示，有的则会显示。 以分号开头的注释以分号开头的注释行，不会被编译到html文档中。中文全角分号、英文半角分号均可，但需要顶格。 12;你不会在浏览器中看到这行注释，;甚至也不会在 Html 文档中看到 以冒号开头的注释以冒号开头的注释，会被编译到 Html 文档中，并且会呈现出特殊的效果。也不分全角、半角冒号。 1:这是会显示在浏览器中的注释。 以冒号开头的注释行中，【行内代码块】这样的 Markdown 语法无效。 html 格式的注释 这样写的注释会出现在编译后的 Html 文件中，但不会被浏览器显示出来。 1&lt;!--这些是注释文本，不会显示--&gt; 编译后的 Html 文档中有这行文本，但浏览器不会显示它。这与分号开头的注释行不同，Html 方式注释的文字仍然会出现在编译后的 Html 文件中，只是不显示而已。 参考： https://www.w3cschool.cn/lme/q92a1srq.html]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[VIM常用按键]]></title>
     <url>%2F2018%2F05%2F26%2FVIM%E5%B8%B8%E7%94%A8%E6%8C%89%E9%94%AE%2F</url>
-    <content type="text"><![CDATA[安装12yum install vimapt install vim 按键 按键 含义 i Insert 模式，按 ESC 回到 Normal 模式. x 删当前光标所在的一个字符。 :wq 存盘 + 退出 (:w 存盘, :q 退出) （陈皓注：:w 后可以跟文件名） dd 删除当前行，并把删除的行存到剪贴板里 yy 复制当前行 p 粘贴剪贴板 hjkl/←↓↑→ 方向键 :help 显示相关命令的帮助。退出帮助需要输入:q a 在光标后插入 o 在当前行后插入一个新行 O 在当前行前插入一个新行 cw 替换从光标所在位置后到一个单词结尾的字符 0 数字零，到行头 ^ 到本行第一个不是blank字符的位置（所谓blank字符就是空格，tab，换行，回车等） $ 到本行行尾 g_ 到本行最后一个不是blank字符的位置。 /pattern 搜索 pattern 的字符串（陈皓注：如果搜索出多个匹配，可按n键到下一个） P 粘贴 yy 拷贝当前行当行于 ddP u undo redo :e 打开一个文件 :w 存盘 :saveas 另存为 :x， ZZ 或 :wq 保存并退出 (:x 表示仅在需要时保存，ZZ不需要输入冒号并回车) :q! 退出不保存 :qa! 强行退出所有的正在编辑的文件，就算别的文件有更改。 :bn 和 :bp 你可以同时打开很多文件，使用这两个命令来切换下一个或上一个文件。（陈皓注：我喜欢使用:n到下一个文件）]]></content>
+    <content type="text"><![CDATA[table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; } thead{ background-color:#3d3d3d; } 安装12yum install vimapt install vim 模式 ESC 命令模式，在插入模式或可视模式下切换模式 i 插入模式 v 可视模式，高亮显示字符 V 可视模式，高亮显示行 Shell命令 :shell 打开命令提示符 exit 退出命令提示符 文件 :e filename 打开一个新文件 :w filename 保存对文件的更改 :q 退出Vim。如果有未保存的文件，Vim将不会退出 :q! 退出Vim不保存更改 :x or zz 如果进行了更改，则退出Vim并将更改保存到文件中 撤消 u 撤消上一次操作 U 撤销对该行进行的所有最新更改 Ctrl+r 重做 插入 a 从光标后开始插入字符 A 从行尾开始插入字符 i 从光标前开始插入字符 I 从行首开始插入字符 o 在当前行之下另起一行,开始插入字符 O 在当前行之上另起一行,开始插入字符 ea 从当前单词末尾开始插入 标签 :tabnew 打开一个新标签 gt 转到下一个选项卡 gT 转到上一个标签 :tabmove n 将标签移动到位置n :tabc 关闭标签 光标移动 h or ← 移动左侧的一个字符 j or ↓ 向下移动一行 k or ↑ 向上移动一行 l or → 向右移动一行 H 移动到当前⻚面顶部 M 移动到当前⻚面中间 L 移动到当前⻚面底部 b 移到单词的开始部分 B 移至开始的空白定界词 e 移至单词的结尾 E 移至黑色分隔词的结尾 w 移至下一个单词 W 移至下一个空白分隔的单词 :n 跳到第n行（跳到第42行-&gt;:42） nk 向上移动n行（向上移动9行-&gt;9k） 复制、剪切、粘贴 yy 复制当前行 :y 复制当前行 y 复制突出显示的文字 :d or dd 删除当前行 D 删除到行尾 d 删除突出显示的文本 dw 删除单词 dl 在光标位置删除字符 p 在光标位置后粘贴文本，将行放在当前行的下面 P 在光标位置之前粘贴文本，将行放在当前行的上方 x 删除当前字符 窗口 :split or :sp 水平分割当前窗口 :vsplit or :vs 垂直分割当前窗口 :split file 在第二个窗口中打开该文件 :n split file 打开一个新窗口n行高 :new 水平打开一个新窗口 :vnew 垂直打开一个新窗口 :res n 如果未提供n，则将窗口大小调整为n行大小窗口大小调整为最大大小 Ctrl+ww 在窗口之间切换光标 Ctrl+w&lt;←↓↑→&gt; 在方向键方向的窗口之间切换光标 Ctrl+wn 拆分窗口并开始编辑新文件 Ctrl+wr 旋转窗口位置 Ctrl+w or q or :q 关闭窗口 参考 https://www.cheatography.com/zoltan/cheat-sheets/basic-vim/ https://vim.rtorr.com/lang/zh_cn/]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>

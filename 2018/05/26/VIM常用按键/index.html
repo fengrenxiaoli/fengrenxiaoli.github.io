@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="安装12yum install vimapt install vim   按键   按键 含义     i Insert 模式，按 ESC 回到 Normal 模式.    x 删当前光标所在的一个字符。   :wq 存盘 + 退出 (:w 存盘, :q 退出)   （陈皓注：:w 后可以跟文件名）   dd 删除当前行，并把删除的行存到剪贴板里   yy 复制当前行   p 粘贴剪贴板   hj">
+<meta name="description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; } thead{ background-color:#3d3d3d; }    安装12yum install vimapt install vim    模式      ESC 命令模式，在插入模式或可视模式下切换模式   i 插入模式   v">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VIM常用按键">
 <meta property="og:url" content="http://yoursite.com/2018/05/26/VIM常用按键/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="安装12yum install vimapt install vim   按键   按键 含义     i Insert 模式，按 ESC 回到 Normal 模式.    x 删当前光标所在的一个字符。   :wq 存盘 + 退出 (:w 存盘, :q 退出)   （陈皓注：:w 后可以跟文件名）   dd 删除当前行，并把删除的行存到剪贴板里   yy 复制当前行   p 粘贴剪贴板   hj">
+<meta property="og:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; } thead{ background-color:#3d3d3d; }    安装12yum install vimapt install vim    模式      ESC 命令模式，在插入模式或可视模式下切换模式   i 插入模式   v">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-26T01:58:45.396Z">
+<meta property="og:updated_time" content="2018-05-26T03:42:05.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VIM常用按键">
-<meta name="twitter:description" content="安装12yum install vimapt install vim   按键   按键 含义     i Insert 模式，按 ESC 回到 Normal 模式.    x 删当前光标所在的一个字符。   :wq 存盘 + 退出 (:w 存盘, :q 退出)   （陈皓注：:w 后可以跟文件名）   dd 删除当前行，并把删除的行存到剪贴板里   yy 复制当前行   p 粘贴剪贴板   hj">
+<meta name="twitter:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; } thead{ background-color:#3d3d3d; }    安装12yum install vimapt install vim    模式      ESC 命令模式，在插入模式或可视模式下切换模式   i 插入模式   v">
 
 
 
@@ -320,144 +320,396 @@
       
 
       
-        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install vim</div><div class="line">apt install vim</div></pre></td></tr></table></figure>
-<embed src="../../../lib/zoltan_basic-vim.bw.pdf" width="100%" height="550" type="application/pdf">
+        <style>
+table th:nth-of-type(1){
+width: 30%;
+}
+table th:nth-of-type(2){
+width: 70%;
+}
+thead{
+background-color:#3d3d3d;
+}
 
-<h2 id="按键"><a href="#按键" class="headerlink" title="按键"></a>按键</h2><table>
+</style>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install vim</div><div class="line">apt install vim</div></pre></td></tr></table></figure>
+<table>
 <thead>
 <tr>
-<th>按键</th>
-<th>含义</th>
+<th>模式</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>ESC</td>
+<td>命令模式，在插入模式或可视模式下切换模式</td>
+</tr>
+<tr>
 <td>i</td>
-<td>Insert 模式，按 ESC 回到 Normal 模式.</td>
-<td></td>
+<td>插入模式</td>
 </tr>
 <tr>
-<td>x</td>
-<td>删当前光标所在的一个字符。</td>
+<td>v</td>
+<td>可视模式，高亮显示字符</td>
 </tr>
 <tr>
-<td>:wq</td>
-<td>存盘 + 退出 (:w 存盘, :q 退出)   （陈皓注：:w 后可以跟文件名）</td>
+<td>V</td>
+<td>可视模式，高亮显示行</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Shell命令</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:shell</td>
+<td>打开命令提示符</td>
 </tr>
 <tr>
-<td>dd</td>
-<td>删除当前行，并把删除的行存到剪贴板里</td>
+<td>exit</td>
+<td>退出命令提示符</td>
 </tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:e filename</td>
+<td>打开一个新文件</td>
+</tr>
+<tr>
+<td>:w filename</td>
+<td>保存对文件的更改</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>退出Vim。如果有未保存的文件，Vim将不会退出</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>退出Vim不保存更改</td>
+</tr>
+<tr>
+<td>:x or zz</td>
+<td>如果进行了更改，则退出Vim并将更改保存到文件中</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>撤消</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u</td>
+<td>撤消上一次操作</td>
+</tr>
+<tr>
+<td>U</td>
+<td>撤销对该行进行的所有最新更改</td>
+</tr>
+<tr>
+<td>Ctrl+r</td>
+<td>重做</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>插入</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>从光标后开始插入字符</td>
+</tr>
+<tr>
+<td>A</td>
+<td>从行尾开始插入字符</td>
+</tr>
+<tr>
+<td>i</td>
+<td>从光标前开始插入字符</td>
+</tr>
+<tr>
+<td>I</td>
+<td>从行首开始插入字符</td>
+</tr>
+<tr>
+<td>o</td>
+<td>在当前行之下另起一行,开始插入字符</td>
+</tr>
+<tr>
+<td>O</td>
+<td>在当前行之上另起一行,开始插入字符</td>
+</tr>
+<tr>
+<td>ea</td>
+<td>从当前单词末尾开始插入</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:tabnew</td>
+<td>打开一个新标签</td>
+</tr>
+<tr>
+<td>gt</td>
+<td>转到下一个选项卡</td>
+</tr>
+<tr>
+<td>gT</td>
+<td>转到上一个标签</td>
+</tr>
+<tr>
+<td>:tabmove n</td>
+<td>将标签移动到位置n</td>
+</tr>
+<tr>
+<td>:tabc</td>
+<td>关闭标签</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>光标移动</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h or ←</td>
+<td>移动左侧的一个字符</td>
+</tr>
+<tr>
+<td>j or ↓</td>
+<td>向下移动一行</td>
+</tr>
+<tr>
+<td>k or ↑</td>
+<td>向上移动一行</td>
+</tr>
+<tr>
+<td>l or →</td>
+<td>向右移动一行</td>
+</tr>
+<tr>
+<td>H</td>
+<td>移动到当前⻚面顶部</td>
+</tr>
+<tr>
+<td>M</td>
+<td>移动到当前⻚面中间</td>
+</tr>
+<tr>
+<td>L</td>
+<td>移动到当前⻚面底部</td>
+</tr>
+<tr>
+<td>b</td>
+<td>移到单词的开始部分</td>
+</tr>
+<tr>
+<td>B</td>
+<td>移至开始的空白定界词</td>
+</tr>
+<tr>
+<td>e</td>
+<td>移至单词的结尾</td>
+</tr>
+<tr>
+<td>E</td>
+<td>移至黑色分隔词的结尾</td>
+</tr>
+<tr>
+<td>w</td>
+<td>移至下一个单词</td>
+</tr>
+<tr>
+<td>W</td>
+<td>移至下一个空白分隔的单词</td>
+</tr>
+<tr>
+<td>:n</td>
+<td>跳到第n行（跳到第42行-&gt;:42）</td>
+</tr>
+<tr>
+<td>nk</td>
+<td>向上移动n行（向上移动9行-&gt;9k）</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>复制、剪切、粘贴</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>yy</td>
 <td>复制当前行</td>
 </tr>
 <tr>
+<td>:y</td>
+<td>复制当前行</td>
+</tr>
+<tr>
+<td>y</td>
+<td>复制突出显示的文字</td>
+</tr>
+<tr>
+<td>:d or dd</td>
+<td>删除当前行</td>
+</tr>
+<tr>
+<td>D</td>
+<td>删除到行尾</td>
+</tr>
+<tr>
+<td>d</td>
+<td>删除突出显示的文本</td>
+</tr>
+<tr>
+<td>dw</td>
+<td>删除单词</td>
+</tr>
+<tr>
+<td>dl</td>
+<td>在光标位置删除字符</td>
+</tr>
+<tr>
 <td>p</td>
-<td>粘贴剪贴板</td>
-</tr>
-<tr>
-<td>hjkl/←↓↑→</td>
-<td>方向键</td>
-</tr>
-<tr>
-<td>:help <command></td>
-<td>显示相关命令的帮助。退出帮助需要输入:q</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td>a</td>
-<td>在光标后插入</td>
-</tr>
-<tr>
-<td></td>
-<td>o</td>
-<td>在当前行后插入一个新行</td>
-</tr>
-<tr>
-<td>O</td>
-<td>在当前行前插入一个新行</td>
-</tr>
-<tr>
-<td>cw</td>
-<td>替换从光标所在位置后到一个单词结尾的字符</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td>0</td>
-<td>数字零，到行头</td>
-</tr>
-<tr>
-<td>^</td>
-<td>到本行第一个不是blank字符的位置（所谓blank字符就是空格，tab，换行，回车等）</td>
-</tr>
-<tr>
-<td>$</td>
-<td>到本行行尾</td>
-</tr>
-<tr>
-<td>g_</td>
-<td>到本行最后一个不是blank字符的位置。</td>
-</tr>
-<tr>
-<td>/pattern</td>
-<td>搜索 pattern 的字符串（陈皓注：如果搜索出多个匹配，可按n键到下一个）</td>
-</tr>
-<tr>
-<td></td>
+<td>在光标位置后粘贴文本，将行放在当前行的下面</td>
 </tr>
 <tr>
 <td>P</td>
-<td>粘贴</td>
+<td>在光标位置之前粘贴文本，将行放在当前行的上方</td>
 </tr>
 <tr>
-<td>yy</td>
-<td>拷贝当前行当行于 ddP</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td>u</td>
-<td>undo</td>
-</tr>
-<tr>
-<td><c-r></c-r></td>
-<td>redo</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td>:e <path to="" file=""></path></td>
-<td>打开一个文件</td>
-</tr>
-<tr>
-<td>:w</td>
-<td>存盘</td>
-</tr>
-<tr>
-<td>:saveas <path to="" file=""></path></td>
-<td>另存为 <path to="" file=""></path></td>
-</tr>
-<tr>
-<td>:x， ZZ 或 :wq</td>
-<td>保存并退出 (:x 表示仅在需要时保存，ZZ不需要输入冒号并回车)</td>
-</tr>
-<tr>
-<td>:q!</td>
-<td>退出不保存 :qa! 强行退出所有的正在编辑的文件，就算别的文件有更改。</td>
-</tr>
-<tr>
-<td>:bn 和 :bp</td>
-<td>你可以同时打开很多文件，使用这两个命令来切换下一个或上一个文件。（陈皓注：我喜欢使用:n到下一个文件）</td>
+<td>x</td>
+<td>删除当前字符</td>
 </tr>
 </tbody>
 </table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>窗口</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:split or :sp</td>
+<td>水平分割当前窗口</td>
+</tr>
+<tr>
+<td>:vsplit or :vs</td>
+<td>垂直分割当前窗口</td>
+</tr>
+<tr>
+<td>:split file</td>
+<td>在第二个窗口中打开该文件</td>
+</tr>
+<tr>
+<td>:n split file</td>
+<td>打开一个新窗口n行高</td>
+</tr>
+<tr>
+<td>:new</td>
+<td>水平打开一个新窗口</td>
+</tr>
+<tr>
+<td>:vnew</td>
+<td>垂直打开一个新窗口</td>
+</tr>
+<tr>
+<td>:res n</td>
+<td>如果未提供n，则将窗口大小调整为n行大小窗口大小调整为最大大小</td>
+</tr>
+<tr>
+<td>Ctrl+ww</td>
+<td>在窗口之间切换光标</td>
+</tr>
+<tr>
+<td>Ctrl+w&lt;←↓↑→&gt;</td>
+<td>在方向键方向的窗口之间切换光标</td>
+</tr>
+<tr>
+<td>Ctrl+wn</td>
+<td>拆分窗口并开始编辑新文件</td>
+</tr>
+<tr>
+<td>Ctrl+wr</td>
+<td>旋转窗口位置</td>
+</tr>
+<tr>
+<td>Ctrl+w or q or :q</td>
+<td>关闭窗口</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<!-- |  缓冲 |   |
+|---|---|
+| :buffers  |  找到缓冲区列表 |
+| :b number  |  选择缓冲区号码 |
+| :sb number  |  拆分窗口并开始编辑缓冲区 |
+|  :vertical sbuffer number  |  垂直分割窗口并编辑缓冲区 |
+| :bnext or :bn  |  转到下一个缓冲区 |
+| :bdelete  | 删除缓冲区而不保存  |
+
+缓冲标志
+i   非活动缓冲区   
+h   隐藏缓冲区 
+％  当前缓冲区 
+＃  备用缓冲区 
++   文件已被修改 -->
+<p><br></p>
+<p>参考</p>
+<ul>
+<li><a href="https://www.cheatography.com/zoltan/cheat-sheets/basic-vim/" target="_blank" rel="external">https://www.cheatography.com/zoltan/cheat-sheets/basic-vim/</a></li>
+<li><a href="https://vim.rtorr.com/lang/zh_cn/" target="_blank" rel="external">https://vim.rtorr.com/lang/zh_cn/</a></li>
+</ul>
 
       
     </div>
@@ -498,8 +750,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/05/Linux-专题导航/" rel="prev" title="Linux 专题导航">
-                Linux 专题导航 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/26/Hexo-注释/" rel="prev" title="【Hexo】Hexo 注释">
+                【Hexo】Hexo 注释 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -577,7 +829,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-count">118</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -590,7 +842,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -630,7 +882,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按键"><span class="nav-number">2.</span> <span class="nav-text">按键</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li></ol></div>
             
 
           </div>
