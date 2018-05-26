@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="FTP只通过TCP连接,没有用于FTP的UDP组件.FTP不同于其他服务的是它使用了两个端口, 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作方式的不同，数据端口并不总是20，这就是主动与被动FTP的最大不同之处。（不管主动模式还是被动模式都是用TCP 21端口来传输控制信号的。） 主动FTP(PORT/Active)客户端从一个任意的非特">
+<meta name="description" content="FTP只通过TCP连接，没有用于FTP的UDP组件。FTP不同于其他服务的是它使用了两个端口， 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作方式的不同，数据端口并不总是20，这就是主动与被动FTP的最大不同之处。（不管主动模式还是被动模式都是用TCP 21端口来传输控制信号的。） 主动FTP(PORT/Active)客户端从一个任意的非特">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FTP主动模式和被动模式">
 <meta property="og:url" content="http://yoursite.com/2018/05/17/FTP主动模式和被动模式/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="FTP只通过TCP连接,没有用于FTP的UDP组件.FTP不同于其他服务的是它使用了两个端口, 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作方式的不同，数据端口并不总是20，这就是主动与被动FTP的最大不同之处。（不管主动模式还是被动模式都是用TCP 21端口来传输控制信号的。） 主动FTP(PORT/Active)客户端从一个任意的非特">
+<meta property="og:description" content="FTP只通过TCP连接，没有用于FTP的UDP组件。FTP不同于其他服务的是它使用了两个端口， 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作方式的不同，数据端口并不总是20，这就是主动与被动FTP的最大不同之处。（不管主动模式还是被动模式都是用TCP 21端口来传输控制信号的。） 主动FTP(PORT/Active)客户端从一个任意的非特">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG43.jpg">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG44.jpg">
-<meta property="og:updated_time" content="2018-05-17T07:25:52.565Z">
+<meta property="og:updated_time" content="2018-05-26T04:39:23.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FTP主动模式和被动模式">
-<meta name="twitter:description" content="FTP只通过TCP连接,没有用于FTP的UDP组件.FTP不同于其他服务的是它使用了两个端口, 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作方式的不同，数据端口并不总是20，这就是主动与被动FTP的最大不同之处。（不管主动模式还是被动模式都是用TCP 21端口来传输控制信号的。） 主动FTP(PORT/Active)客户端从一个任意的非特">
+<meta name="twitter:description" content="FTP只通过TCP连接，没有用于FTP的UDP组件。FTP不同于其他服务的是它使用了两个端口， 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作方式的不同，数据端口并不总是20，这就是主动与被动FTP的最大不同之处。（不管主动模式还是被动模式都是用TCP 21端口来传输控制信号的。） 主动FTP(PORT/Active)客户端从一个任意的非特">
 <meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG43.jpg">
 
 
@@ -322,7 +322,7 @@
       
 
       
-        <p>FTP只通过TCP连接,没有用于FTP的UDP组件.FTP不同于其他服务的是它使用了两个端口, 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作方式的不同，数据端口并不总是20，这就是主动与被动FTP的最大不同之处。（不管主动模式还是被动模式都是用TCP 21端口来传输控制信号的。）</p>
+        <p>FTP只通过TCP连接，没有用于FTP的UDP组件。FTP不同于其他服务的是它使用了两个端口， 一个数据端口和一个命令端口(或称为控制端口)。通常21端口是命令端口，20端口是数据端口。根据FTP工作方式的不同，数据端口并不总是20，这就是主动与被动FTP的最大不同之处。（不管主动模式还是被动模式都是用TCP 21端口来传输控制信号的。）</p>
 <h2 id="主动FTP-PORT-Active"><a href="#主动FTP-PORT-Active" class="headerlink" title="主动FTP(PORT/Active)"></a>主动FTP(PORT/Active)</h2><p>客户端从一个任意的非特权端口N（N&gt;1023）连接到FTP服务器的命令端口，也就是21端口。然后客户端开始监听端口N+1，并发送FTP命令“port N+1”到FTP服务器。接着服务器会从它自己的数据端口（20）连接到客户端指定的数据端口（N+1）。<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG43.jpg" alt=""></p>
 <p>针对FTP服务器前面的防火墙来说，必须允许以下通讯才能支持主动方式FTP：</p>
 <ol>
@@ -489,7 +489,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

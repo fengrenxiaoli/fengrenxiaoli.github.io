@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="hexo," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Markdown注释有三种，各不相同，有些会被编译到 html 文档中，有些不会；有的编译到 Html 文档中也不会显示，有的则会显示。 以分号开头的注释以分号开头的注释行，不会被编译到html文档中。中文全角分号、英文半角分号均可，但需要顶格。 12;你不会在浏览器中看到这行注释，;甚至也不会在 Html 文档中看到  以冒号开头的注释以冒号开头的注释，会被编译到 Html 文档中，并且会呈现出">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="html 格式的注释 这样写的注释会出现在编译后的 Html 文件中，但不会被浏览器显示出来。 1&amp;lt;!--这些是注释文本，不会显示--&amp;gt;  编译后的 Html 文档中有这行文本，但浏览器不会显示它。这与分号开头的注释行不同，Html 方式注释的文字仍然会出现在编译后的 Html 文件中，只是不显示而已。  参考：  https://www.w3cschool.cn/lme/q92a1s">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Hexo】Hexo 注释">
 <meta property="og:url" content="http://yoursite.com/2018/05/26/Hexo-注释/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="Markdown注释有三种，各不相同，有些会被编译到 html 文档中，有些不会；有的编译到 Html 文档中也不会显示，有的则会显示。 以分号开头的注释以分号开头的注释行，不会被编译到html文档中。中文全角分号、英文半角分号均可，但需要顶格。 12;你不会在浏览器中看到这行注释，;甚至也不会在 Html 文档中看到  以冒号开头的注释以冒号开头的注释，会被编译到 Html 文档中，并且会呈现出">
+<meta property="og:description" content="html 格式的注释 这样写的注释会出现在编译后的 Html 文件中，但不会被浏览器显示出来。 1&amp;lt;!--这些是注释文本，不会显示--&amp;gt;  编译后的 Html 文档中有这行文本，但浏览器不会显示它。这与分号开头的注释行不同，Html 方式注释的文字仍然会出现在编译后的 Html 文件中，只是不显示而已。  参考：  https://www.w3cschool.cn/lme/q92a1s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-26T03:22:03.445Z">
+<meta property="og:updated_time" content="2018-05-26T03:51:22.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Hexo】Hexo 注释">
-<meta name="twitter:description" content="Markdown注释有三种，各不相同，有些会被编译到 html 文档中，有些不会；有的编译到 Html 文档中也不会显示，有的则会显示。 以分号开头的注释以分号开头的注释行，不会被编译到html文档中。中文全角分号、英文半角分号均可，但需要顶格。 12;你不会在浏览器中看到这行注释，;甚至也不会在 Html 文档中看到  以冒号开头的注释以冒号开头的注释，会被编译到 Html 文档中，并且会呈现出">
+<meta name="twitter:description" content="html 格式的注释 这样写的注释会出现在编译后的 Html 文件中，但不会被浏览器显示出来。 1&amp;lt;!--这些是注释文本，不会显示--&amp;gt;  编译后的 Html 文档中有这行文本，但浏览器不会显示它。这与分号开头的注释行不同，Html 方式注释的文字仍然会出现在编译后的 Html 文件中，只是不显示而已。  参考：  https://www.w3cschool.cn/lme/q92a1s">
 
 
 
@@ -320,17 +320,10 @@
       
 
       
-        <p>Markdown注释有三种，各不相同，有些会被编译到 html 文档中，有些不会；有的编译到 Html 文档中也不会显示，有的则会显示。</p>
-<h2 id="以分号开头的注释"><a href="#以分号开头的注释" class="headerlink" title="以分号开头的注释"></a>以分号开头的注释</h2><p>以分号开头的注释行，<strong>不会被编译到html文档中</strong>。中文全角分号、英文半角分号均可，但需要顶格。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">;你不会在浏览器中看到这行注释，</div><div class="line">;甚至也不会在 Html 文档中看到</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="以冒号开头的注释"><a href="#以冒号开头的注释" class="headerlink" title="以冒号开头的注释"></a>以冒号开头的注释</h2><p>以冒号开头的注释，<strong>会被编译到 Html 文档中</strong>，并且会<strong>呈现出特殊的效果</strong>。也不分全角、半角冒号。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:这是会显示在浏览器中的注释。</div></pre></td></tr></table></figure>
-<p>以冒号开头的注释行中，【行内代码块】这样的 Markdown 语法无效。</p>
-<p><br></p>
-<h2 id="html-格式的注释"><a href="#html-格式的注释" class="headerlink" title="html 格式的注释"></a>html 格式的注释</h2><!-- 虽然也可以使用 Html 的注释，但不建议使用——因为会让 Markdown 显得很凌乱。 -->
+        <h2 id="html-格式的注释"><a href="#html-格式的注释" class="headerlink" title="html 格式的注释"></a>html 格式的注释</h2><!-- 虽然也可以使用 Html 的注释，但不建议使用——因为会让 Markdown 显得很凌乱。 -->
 <p>这样写的注释会<strong>出现在编译后的 Html 文件中</strong>，但<strong>不会被浏览器显示出来</strong>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!--这些是注释文本，不会显示--&gt;</div></pre></td></tr></table></figure>
+<!--这些是注释文本，不会显示-->
 <p>编译后的 Html 文档中有这行文本，但浏览器不会显示它。这与分号开头的注释行不同，Html 方式注释的文字仍然会出现在编译后的 Html 文件中，只是不显示而已。</p>
 <p><br></p>
 <p>参考：</p>
@@ -354,7 +347,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
           
         </div>
       
@@ -469,7 +462,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -509,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#以分号开头的注释"><span class="nav-number">1.</span> <span class="nav-text">以分号开头的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以冒号开头的注释"><span class="nav-number">2.</span> <span class="nav-text">以冒号开头的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html-格式的注释"><span class="nav-number">3.</span> <span class="nav-text">html 格式的注释</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#html-格式的注释"><span class="nav-number">1.</span> <span class="nav-text">html 格式的注释</span></a></li></ol></div>
             
 
           </div>

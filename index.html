@@ -446,9 +446,11 @@
       
         
           
-          Markdown注释有三种，各不相同，有些会被编译到 html 文档中，有些不会；有的编译到 Html 文档中也不会显示，有的则会显示。
-以分号开头的注释以分号开头的注释行，不会被编译到html文档中。中文全角分号、英文半角分号均可，但需要顶格。
-12;你不会在浏览器中看到这行注释，;甚至也不会在 
+          html 格式的注释
+这样写的注释会出现在编译后的 Html 文件中，但不会被浏览器显示出来。
+1&lt;!--这些是注释文本，不会显示--&gt;
+
+编译后的 Html 文档中有这行文本，但浏览器不会显示它。这与分号开头的注释行不同，Html 方式注释的文字仍然会出现在编译后的 Html 文件中，
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -583,11 +585,12 @@ width: 70%;
 }
 thead{
 background-color:#3d3d3d;
+color:white
 }
 
 
 
-安装12yum install vimapt install vi
+安装12yum install vimap
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -4216,7 +4219,7 @@ $?
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

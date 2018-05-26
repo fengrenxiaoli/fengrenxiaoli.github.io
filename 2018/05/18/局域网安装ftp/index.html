@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="写这篇文章的主要目的是方便局域网内的ftp配置 基本上实现这三点足够了：  不允许匿名访问，因为我不想其他机器随便都能登陆上来； 锁定一个共享目录，在这个目录下我可以上传和下载文件，进行文件共享； 不单独建立ftp用户，本机就可以访问；  123456789101112131415161718192021sudo apt-get install vsftpd #ubuntu的配置文件位置sudo">
+<meta name="description" content="写这篇文章的主要目的是方便局域网内的ftp配置 基本上实现这三点足够了：  不允许匿名访问，因为我不想其他机器随便都能登陆上来； 锁定一个共享目录，在这个目录下我可以上传和下载文件，进行文件共享； 不单独建立ftp用户，本机就可以访问；  123456789101112131415161718192021222324252627sudo apt-get install vsftpd #ubuntu">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="局域网安装ftp">
 <meta property="og:url" content="http://yoursite.com/2018/05/18/局域网安装ftp/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="写这篇文章的主要目的是方便局域网内的ftp配置 基本上实现这三点足够了：  不允许匿名访问，因为我不想其他机器随便都能登陆上来； 锁定一个共享目录，在这个目录下我可以上传和下载文件，进行文件共享； 不单独建立ftp用户，本机就可以访问；  123456789101112131415161718192021sudo apt-get install vsftpd #ubuntu的配置文件位置sudo">
+<meta property="og:description" content="写这篇文章的主要目的是方便局域网内的ftp配置 基本上实现这三点足够了：  不允许匿名访问，因为我不想其他机器随便都能登陆上来； 锁定一个共享目录，在这个目录下我可以上传和下载文件，进行文件共享； 不单独建立ftp用户，本机就可以访问；  123456789101112131415161718192021222324252627sudo apt-get install vsftpd #ubuntu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-18T03:59:13.212Z">
+<meta property="og:updated_time" content="2018-05-26T05:10:15.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="局域网安装ftp">
-<meta name="twitter:description" content="写这篇文章的主要目的是方便局域网内的ftp配置 基本上实现这三点足够了：  不允许匿名访问，因为我不想其他机器随便都能登陆上来； 锁定一个共享目录，在这个目录下我可以上传和下载文件，进行文件共享； 不单独建立ftp用户，本机就可以访问；  123456789101112131415161718192021sudo apt-get install vsftpd #ubuntu的配置文件位置sudo">
+<meta name="twitter:description" content="写这篇文章的主要目的是方便局域网内的ftp配置 基本上实现这三点足够了：  不允许匿名访问，因为我不想其他机器随便都能登陆上来； 锁定一个共享目录，在这个目录下我可以上传和下载文件，进行文件共享； 不单独建立ftp用户，本机就可以访问；  123456789101112131415161718192021222324252627sudo apt-get install vsftpd #ubuntu">
 
 
 
@@ -327,12 +327,12 @@
 <li>锁定一个共享目录，在这个目录下我可以上传和下载文件，进行文件共享；</li>
 <li>不单独建立ftp用户，本机就可以访问；</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vsftpd </div><div class="line"></div><div class="line">#ubuntu的配置文件位置</div><div class="line">sudo vim /etc/vsftpd.conf</div><div class="line"></div><div class="line">anonymous_enable=NO         #禁止匿名登陆</div><div class="line">local_root=/home/user/ftp   #设定一个共享目录</div><div class="line">local_enable=YES            #本机可以访问</div><div class="line">write_enable=YES            #可以写</div><div class="line">chroot_list_enable=YES      </div><div class="line">chroot_list_file=/etc/vsftpd.chroot_list</div><div class="line">#不单独建立ftp用户</div><div class="line"></div><div class="line">#在其中写入可以使用ftp的用户名</div><div class="line">sudo vim /etc/vsftpd.chroot_list</div><div class="line"></div><div class="line">#不允许其他用户写</div><div class="line">chmod u-w,g-w ftp</div><div class="line"></div><div class="line">#重启</div><div class="line">sudo service vsftpd restart</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vsftpd </div><div class="line"></div><div class="line">#ubuntu的配置文件位置</div><div class="line">sudo vim /etc/vsftpd.conf</div><div class="line"></div><div class="line">anonymous_enable=NO         #禁止匿名登陆</div><div class="line">local_root=/home/user/ftp   #设定一个共享目录</div><div class="line">local_enable=YES            #本机可以访问</div><div class="line">write_enable=YES            #可以写</div><div class="line">chroot_list_enable=YES      </div><div class="line">chroot_list_file=/etc/vsftpd.chroot_list</div><div class="line">#不单独建立ftp用户</div><div class="line"></div><div class="line">#在其中写入可以使用ftp的用户名</div><div class="line">sudo vim /etc/vsftpd.chroot_list</div><div class="line"></div><div class="line">#去掉用户写权限</div><div class="line">#因为使用chroot_list_enable和chroot_list_file配置禁止用户拥有写权限</div><div class="line">chmod u-w,g-w ftp</div><div class="line"></div><div class="line">#为了能在共享目录复制粘贴，在ftp下创建一个user可写的目录，复制粘贴全在该目录下进行</div><div class="line">cd /home/user/ftp</div><div class="line">sudo mkdir FTPFILES</div><div class="line">sudo chown -R user:user FTPFILES</div><div class="line"></div><div class="line">#重启</div><div class="line">sudo service vsftpd restart</div></pre></td></tr></table></figure>
 <p>然后就可以使用各种客户端登陆了</p>
 <p><br></p>
 <p>参考：</p>
 <ul>
-<li><a href="https://blog.csdn.net/hongbin_xu/article/details/73177748" target="_blank" rel="external">https://blog.csdn.net/hongbin_xu/article/details/73177748</a></li>
+<li><a href="http://www.cnblogs.com/bcsflilong/p/4200139.html" target="_blank" rel="external">http://www.cnblogs.com/bcsflilong/p/4200139.html</a></li>
 </ul>
 
       
@@ -457,7 +457,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
