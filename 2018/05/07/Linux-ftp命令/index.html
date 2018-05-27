@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="连接ftp服务器1ftp [hostname| ip-address] 列出文件列表以及切换目录12lscd 下载文件下载文件通常用get和mget这两条命令。 123456789101112#get [remote-file] [local-file]#获取远程服务器上/usr/your/1.htmftp&amp;gt; get /usr/your/1.htm 1.htmmget [remote-fil">
+<meta name="description" content="连接ftp服务器1ftp [hostname| [ip-address] 列出文件列表以及切换目录12lscd 下载文件下载文件通常用get和mget这两条命令。 123456789101112#get [remote-file] [local-file]#获取远程服务器上/usr/your/1.htmftp&amp;gt; get /usr/your/1.htm 1.htmmget [remote-fi">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux ftp命令">
 <meta property="og:url" content="http://yoursite.com/2018/05/07/Linux-ftp命令/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="连接ftp服务器1ftp [hostname| ip-address] 列出文件列表以及切换目录12lscd 下载文件下载文件通常用get和mget这两条命令。 123456789101112#get [remote-file] [local-file]#获取远程服务器上/usr/your/1.htmftp&amp;gt; get /usr/your/1.htm 1.htmmget [remote-fil">
+<meta property="og:description" content="连接ftp服务器1ftp [hostname| [ip-address] 列出文件列表以及切换目录12lscd 下载文件下载文件通常用get和mget这两条命令。 123456789101112#get [remote-file] [local-file]#获取远程服务器上/usr/your/1.htmftp&amp;gt; get /usr/your/1.htm 1.htmmget [remote-fi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-15T18:24:56.669Z">
+<meta property="og:updated_time" content="2018-05-26T09:52:48.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux ftp命令">
-<meta name="twitter:description" content="连接ftp服务器1ftp [hostname| ip-address] 列出文件列表以及切换目录12lscd 下载文件下载文件通常用get和mget这两条命令。 123456789101112#get [remote-file] [local-file]#获取远程服务器上/usr/your/1.htmftp&amp;gt; get /usr/your/1.htm 1.htmmget [remote-fil">
+<meta name="twitter:description" content="连接ftp服务器1ftp [hostname| [ip-address] 列出文件列表以及切换目录12lscd 下载文件下载文件通常用get和mget这两条命令。 123456789101112#get [remote-file] [local-file]#获取远程服务器上/usr/your/1.htmftp&amp;gt; get /usr/your/1.htm 1.htmmget [remote-fi">
 
 
 
@@ -320,7 +320,7 @@
       
 
       
-        <h2 id="连接ftp服务器"><a href="#连接ftp服务器" class="headerlink" title="连接ftp服务器"></a>连接ftp服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp [hostname| ip-address]</div></pre></td></tr></table></figure>
+        <h2 id="连接ftp服务器"><a href="#连接ftp服务器" class="headerlink" title="连接ftp服务器"></a>连接ftp服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp [hostname| [ip-address]</div></pre></td></tr></table></figure>
 <h2 id="列出文件列表以及切换目录"><a href="#列出文件列表以及切换目录" class="headerlink" title="列出文件列表以及切换目录"></a>列出文件列表以及切换目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ls</div><div class="line">cd</div></pre></td></tr></table></figure>
 <h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><p>下载文件通常用get和mget这两条命令。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#get [remote-file] [local-file]</div><div class="line">#获取远程服务器上/usr/your/1.htm</div><div class="line">ftp&gt; get /usr/your/1.htm 1.htm</div><div class="line"></div><div class="line">mget [remote-files]</div><div class="line">#从远端主机接收一批文件至本地主机</div><div class="line">#获取服务器上/usr/your/下的所有文件</div><div class="line">cd /usr/your/</div><div class="line">mget *.*</div><div class="line"></div><div class="line">#显示下载进度</div><div class="line">ftp&gt; hash</div></pre></td></tr></table></figure>
@@ -447,7 +447,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">118</span>
+                  <span class="site-state-item-count">122</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -460,7 +460,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

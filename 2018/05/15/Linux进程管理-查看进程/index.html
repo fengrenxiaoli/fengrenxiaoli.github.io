@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }    进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源 进程管理的作用  判断服务器健康状态 查看系统中所有的进程 杀死进程     ps命令 查看所有进程123456789101112p">
+<meta name="description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }    进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源 进程管理的作用  判断服务器健康状态 查看系统中所有的进程 杀死进程     ps命令 查看所有进程1234567891011121">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Linux】Linux进程管理01 查看进程">
 <meta property="og:url" content="http://yoursite.com/2018/05/15/Linux进程管理-查看进程/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }    进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源 进程管理的作用  判断服务器健康状态 查看系统中所有的进程 杀死进程     ps命令 查看所有进程123456789101112p">
+<meta property="og:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }    进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源 进程管理的作用  判断服务器健康状态 查看系统中所有的进程 杀死进程     ps命令 查看所有进程1234567891011121">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-25T07:28:41.567Z">
+<meta property="og:updated_time" content="2018-05-27T09:51:53.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux进程管理01 查看进程">
-<meta name="twitter:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }    进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源 进程管理的作用  判断服务器健康状态 查看系统中所有的进程 杀死进程     ps命令 查看所有进程123456789101112p">
+<meta name="twitter:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }    进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源 进程管理的作用  判断服务器健康状态 查看系统中所有的进程 杀死进程     ps命令 查看所有进程1234567891011121">
 
 
 
@@ -338,7 +338,7 @@ width: 70%;
 <li>杀死进程</li>
 </ol>
 <p><br>  </p>
-<h2 id="ps命令-查看所有进程"><a href="#ps命令-查看所有进程" class="headerlink" title="ps命令 查看所有进程"></a>ps命令 查看所有进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">ps aux </div><div class="line">#查看系统中所有进程 ，使用BSD操作系统格式（没有-）</div><div class="line">ps -le</div><div class="line">#查看系统中所有进程 ，使用Linux标准命令格式</div><div class="line">ps -ef |grep ssh</div><div class="line"></div><div class="line">选项</div><div class="line">-a :显示一个终端的所有进程</div><div class="line">-u :显示进程的归属用户及内存的使用情况</div><div class="line">-x :显示没有控制终端的进程</div><div class="line">-l :长格式显示，显示更加详细的信息</div><div class="line">-e :显示所有进程，和-A作用一致</div></pre></td></tr></table></figure>
+<h2 id="ps命令-查看所有进程"><a href="#ps命令-查看所有进程" class="headerlink" title="ps命令 查看所有进程"></a>ps命令 查看所有进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ps aux </div><div class="line">#查看系统中所有进程，使用BSD操作系统格式（没有-）</div><div class="line">ps -le</div><div class="line">#查看系统中所有进程，使用Linux标准命令格式</div><div class="line">ps -ef |grep ssh</div><div class="line">#aux和-ef没有多大区别，只是一风格不同，二如果COMMAND过长，aux会截断显示，而-ef不会</div><div class="line"></div><div class="line">选项</div><div class="line">-a :显示一个终端的所有进程</div><div class="line">-u :显示进程的归属用户及内存的使用情况</div><div class="line">-x :显示没有控制终端的进程</div><div class="line">-l :长格式显示，显示更加详细的信息</div><div class="line">-e :显示所有进程，和-A作用一致</div></pre></td></tr></table></figure>
 <p>输出详解</p>
 <table>
 <thead>
@@ -682,7 +682,7 @@ width: 70%;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">118</span>
+                  <span class="site-state-item-count">122</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -695,7 +695,7 @@ width: 70%;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

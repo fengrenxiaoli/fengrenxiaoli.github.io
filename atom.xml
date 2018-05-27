@@ -36,6 +36,143 @@
   </entry>
   
   <entry>
+    <title>zsh安装、主题、插件</title>
+    <link href="http://yoursite.com/2018/05/27/zsh%E5%AE%89%E8%A3%85%E3%80%81%E4%B8%BB%E9%A2%98%E3%80%81%E6%8F%92%E4%BB%B6/"/>
+    <id>http://yoursite.com/2018/05/27/zsh安装、主题、插件/</id>
+    <published>2018-05-27T05:54:10.000Z</published>
+    <updated>2018-05-27T07:49:55.239Z</updated>
+    
+    <content type="html"><![CDATA[<p>zsh和bash兼容，fish和bash不兼容</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#安装zsh</div><div class="line">yum -y install zsh</div><div class="line"></div><div class="line">#切换默认shell为zsh</div><div class="line">chsh -s /bin/zsh</div><div class="line"></div><div class="line">#切换回去bash</div><div class="line">chsh -s /bin/bash</div><div class="line"></div><div class="line">#确认zsh是否是默认SHELL</div><div class="line">echo $SHELL</div><div class="line"></div><div class="line">#重启服务器让修改的配置生效</div></pre></td></tr></table></figure>
+<p>#安装on my zsh<br>curl<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</div></pre></td></tr></table></figure></p>
+<p>wget<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="修改oh-my-zsh-主题"><a href="#修改oh-my-zsh-主题" class="headerlink" title="修改oh my zsh 主题"></a>修改oh my zsh 主题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#查看oh my zsh主题</div><div class="line">ls ~/.oh-my-zsh/themes</div><div class="line"></div><div class="line">#修改主题</div><div class="line">vim ~/.zshrc</div><div class="line"></div><div class="line">#ZSH_THEME=&quot;robbyrussell&quot;        #默认的主题</div><div class="line">ZSH_THEME=&quot;avit&quot;                 #修改为avit</div></pre></td></tr></table></figure>
+<h2 id="oh-my-zsh插件"><a href="#oh-my-zsh插件" class="headerlink" title="oh my zsh插件"></a>oh my zsh插件</h2><p>修改<code>~/.zshrc</code>中plugins<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">plugins=(git z extract colored-man-pages)</div></pre></td></tr></table></figure></p>
+<p>git：各种别名，ga\gp\gs\gc<br>extract：功能强大的解压插件，所有类型的文件解压一个命令<code>x</code>全搞定<br>z：强大的目录自动跳转命令，会记忆你曾经进入过的目录，用模糊匹配快速进入你想要的目录。</p>
+<p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview" target="_blank" rel="external">https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview</a></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>卸载on my zsh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uninstall_oh_my_zsh zsh</div></pre></td></tr></table></figure></p>
+<p><a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a><br><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="external">https://github.com/robbyrussell/oh-my-zsh/wiki/Themes</a><br><a href="https://blog.csdn.net/gatieme/article/details/52741221" target="_blank" rel="external">https://blog.csdn.net/gatieme/article/details/52741221</a><br><a href="https://www.jianshu.com/p/556ff130fc65" target="_blank" rel="external">https://www.jianshu.com/p/556ff130fc65</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;zsh和bash兼容，fish和bash不兼容&lt;/p&gt;
+&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr
+    
+    </summary>
+    
+    
+      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vim使用系统剪贴板</title>
+    <link href="http://yoursite.com/2018/05/27/Vim%E4%BD%BF%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF/"/>
+    <id>http://yoursite.com/2018/05/27/Vim使用系统剪贴板/</id>
+    <published>2018-05-27T02:31:12.000Z</published>
+    <updated>2018-05-27T02:43:37.143Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="查看vim版本是否支持clipboard"><a href="#查看vim版本是否支持clipboard" class="headerlink" title="查看vim版本是否支持clipboard"></a>查看vim版本是否支持clipboard</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vim --version | grep &quot;clipboard&quot;</div><div class="line"></div><div class="line">-clipboard       +insert_expand   +path_extra      +user_commands</div></pre></td></tr></table></figure>
+<p><code>-clipboard</code> 显示 <code>-</code> 号，说明不支持，需要安装vim-gnome<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt install vim-gnome</div><div class="line">#再次查看，可以看到clipboard前面是+号</div><div class="line">vim --version | grep &quot;clipboard&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="复制、粘贴"><a href="#复制、粘贴" class="headerlink" title="复制、粘贴"></a>复制、粘贴</h2><p>Vim 中的复制、删除的内容都会被存放到默认（未命名）寄存器中，之后可以通过粘贴操作读取默认寄存器中的内容。寄存器是完成这一过程的中转站，Vim 支持的寄存器非常多，其中常用的有 a-zA-Z0-9+“。其中：</p>
+<ul>
+<li>0-9：表示数字寄存器，是 Vim 用来保存最近复制、删除等操作的内容，其中 0 号寄存器保存的是最近一次的操作内容。</li>
+<li>a-zA-Z：表示用户寄存器，Vim 不会读写这部分寄存器</li>
+<li><code>&quot;</code>（单个双引号）：未命名的寄存器，是 Vim 的默认寄存器，例如删除、复制等操作的内容都会被保存到这里。</li>
+<li><code>+</code>：剪切板寄存器，关联系统剪切板，保存在这个寄存器中的内容可以被系统其他程序访问，也可以通过这个寄存器访问其他程序保存到剪切板中的内容。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#查看所有寄存器中的内容，也可以只查看指定寄存器的内容（将寄存器名称作为参数）</div><div class="line">:reg [register_name]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;+yy        #复制当前行到剪切板</div><div class="line">&quot;+p         #将剪切板内容粘贴到光标后面</div><div class="line">&quot;ayy        #复制当前行到寄存器 a</div><div class="line">&quot;ap         #将寄存器 a 中的内容粘贴到光标后面</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/zhangxiao93/article/details/53677764" target="_blank" rel="external">https://blog.csdn.net/zhangxiao93/article/details/53677764</a></li>
+<li><a href="https://www.zhihu.com/question/19863631/answer/89354508" target="_blank" rel="external">https://www.zhihu.com/question/19863631/answer/89354508</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;查看vim版本是否支持clipboard&quot;&gt;&lt;a href=&quot;#查看vim版本是否支持clipboard&quot; class=&quot;headerlink&quot; title=&quot;查看vim版本是否支持clipboard&quot;&gt;&lt;/a&gt;查看vim版本是否支持clipboard&lt;/h2&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VIM配置及插件</title>
+    <link href="http://yoursite.com/2018/05/27/Vim%E6%8F%92%E4%BB%B6/"/>
+    <id>http://yoursite.com/2018/05/27/Vim插件/</id>
+    <published>2018-05-27T01:31:18.000Z</published>
+    <updated>2018-05-27T09:59:33.936Z</updated>
+    
+    <content type="html"><![CDATA[<p>Elementary os的终端好像不能用vim的块操作，所以改用hyper<br><a href="https://hyper.is/" target="_blank" rel="external">https://hyper.is/</a><br><a href="https://github.com/zeit/hyper" target="_blank" rel="external">https://github.com/zeit/hyper</a></p>
+<h2 id="插件管理-vim-plug"><a href="#插件管理-vim-plug" class="headerlink" title="插件管理 vim-plug"></a>插件管理 vim-plug</h2><p><a href="https://github.com/junegunn/vim-plug" target="_blank" rel="external">https://github.com/junegunn/vim-plug</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</div><div class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</div></pre></td></tr></table></figure>
+<h3 id="配置-插件管理"><a href="#配置-插件管理" class="headerlink" title="配置/插件管理"></a>配置/插件管理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.vimrc</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">set number</div><div class="line"></div><div class="line">call plug#begin(&apos;~/.vim/plugged&apos;)</div><div class="line">let mapleader=&quot;,&quot;</div><div class="line"></div><div class="line">&quot;目录树</div><div class="line">&quot;F3打开目录</div><div class="line">Plug &apos;godlygeek/tabular&apos;</div><div class="line">nnoremap &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</div><div class="line">autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif</div><div class="line"></div><div class="line">&quot;markdown 语法高亮、预览</div><div class="line">&quot;:PrevimOpen在浏览器预览</div><div class="line">&quot;关闭折叠</div><div class="line">let g:vim_markdown_folding_disabled = 1</div><div class="line">Plug &apos;godlygeek/tabular&apos;</div><div class="line">Plug &apos;plasticboy/vim-markdown&apos;</div><div class="line">Plug &apos;kannokanno/previm&apos;</div><div class="line">Plug &apos;tyru/open-browser.vim&apos;</div><div class="line"></div><div class="line">&quot;文件搜索</div><div class="line">&quot;&lt;leader&gt;f搜索,因为这里设置leader为,号，所以是,+f</div><div class="line">Plug &apos;Yggdroot/LeaderF&apos;, &#123; &apos;do&apos;: &apos;./install.sh&apos; &#125;</div><div class="line"></div><div class="line">call plug#end()</div><div class="line">&quot;添加vim-plug配置，以call plug#begin()开头，call plug#end()结尾，中间是插件列表，begin可以接受参数指定存放插件的位置</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#重新打开.vimrc</div><div class="line">vim ~/.vimrc</div><div class="line"></div><div class="line"></div><div class="line">:PlugInstall         #安装插件</div><div class="line">:PlugUpdate          #升级插件</div><div class="line">:PlugClean           #删除未被使用的插件目录</div><div class="line">:PlugUpgrade         #升级Vim-plug自身</div><div class="line">:PlugStatus          #查看插件状态</div><div class="line">:q                    退出</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/rankun1/article/details/78775404" target="_blank" rel="external">https://blog.csdn.net/rankun1/article/details/78775404</a></li>
+<li><a href="https://www.jianshu.com/p/f4fb7877829f" target="_blank" rel="external">https://www.jianshu.com/p/f4fb7877829f</a></li>
+<li><a href="http://www.zhaiqianfeng.com/2017/02/install-vim-plugins.html" target="_blank" rel="external">http://www.zhaiqianfeng.com/2017/02/install-vim-plugins.html</a></li>
+<li><a href="https://github.com/gabrielelana/vim-markdown" target="_blank" rel="external">https://github.com/gabrielelana/vim-markdown</a></li>
+<li><a href="https://bovink.com/2016/07/01/use-vim-to-write-markdown/" target="_blank" rel="external">https://bovink.com/2016/07/01/use-vim-to-write-markdown/</a></li>
+<li><a href="https://github.com/Yggdroot/LeaderF" target="_blank" rel="external">https://github.com/Yggdroot/LeaderF</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Elementary os的终端好像不能用vim的块操作，所以改用hyper&lt;br&gt;&lt;a href=&quot;https://hyper.is/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://hyper.is/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;ht
+    
+    </summary>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下载命令</title>
+    <link href="http://yoursite.com/2018/05/26/Linux%E4%B8%8B%E8%BD%BD%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2018/05/26/Linux下载命令/</id>
+    <published>2018-05-26T10:10:24.000Z</published>
+    <updated>2018-05-26T11:39:36.882Z</updated>
+    
+    <content type="html"><![CDATA[<p>发现自己安装了以下的大部分工具。。。</p>
+<h2 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">wget url/ftp</div><div class="line"></div><div class="line">-b：后台下载</div><div class="line">-c：断点续传</div><div class="line">-O 文件名：指定文件名</div><div class="line"></div><div class="line">#使用匿名用户下载</div><div class="line">wget ftp-url</div><div class="line">#ftp下载，指定用户名和密码</div><div class="line">wget --ftp-user=&lt;user_name&gt; --ftp-password=&lt;Give_password&gt; Download-url-address</div></pre></td></tr></table></figure>
+<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">curl [选项] url</div><div class="line">-o：指定文件名</div><div class="line">-O：使用原文件名</div></pre></td></tr></table></figure>
+<h2 id="axel"><a href="#axel" class="headerlink" title="axel"></a>axel</h2><p>wget的出色替代者，是一款轻量级下载实用工具。它实际上是个加速器，因为它打开了多路http连接，可下载独立文件片段，因而文件下载起来更快速。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt install axel</div><div class="line">axel url</div></pre></td></tr></table></figure>
+<h2 id="aria2"><a href="#aria2" class="headerlink" title="aria2"></a>aria2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt install aria2 </div><div class="line">aria2c url</div></pre></td></tr></table></figure>
+<h2 id="视频下载工具"><a href="#视频下载工具" class="headerlink" title="视频下载工具"></a>视频下载工具</h2><h3 id="Youtube-dl"><a href="#Youtube-dl" class="headerlink" title="Youtube-dl"></a>Youtube-dl</h3><p><a href="https://github.com/rg3/youtube-dl" target="_blank" rel="external">https://github.com/rg3/youtube-dl</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">pip install youtube-dl</div><div class="line"></div><div class="line">youtube-dl url</div><div class="line">-i：忽略错误</div><div class="line"></div><div class="line">youtube-dl -F [url]  #查看可下载的视频格式</div><div class="line">youtube-dl -f [format code] [url] #指定下载视频的格式</div><div class="line">youtubd-dl --write-sub [url]    #下载字幕</div><div class="line"></div><div class="line"></div><div class="line">#下载视频列表，以下三种方式下载的视频可能是mkv格式或者webm格式</div><div class="line">youtube-dl [playlist_url] </div><div class="line">youtube-dl -cit [playlist_url]</div><div class="line">youtube-dl --yes-playlist [url]</div><div class="line"></div><div class="line">#下载视频列表，指定下载格式</div><div class="line">youtube-dl -f [format code] [palylist_url]</div></pre></td></tr></table></figure></p>
+<h3 id="annie"><a href="#annie" class="headerlink" title="annie"></a>annie</h3><p><a href="https://github.com/iawia002/annie" target="_blank" rel="external">https://github.com/iawia002/annie</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">annie-master -p url</div><div class="line">#下载列表</div></pre></td></tr></table></figure></p>
+<h2 id="Torrent下载工具"><a href="#Torrent下载工具" class="headerlink" title="Torrent下载工具"></a>Torrent下载工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install transmission</div><div class="line">sudo apt-get install deluge</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li>wget:<a href="http://www.cnblogs.com/peida/archive/2013/03/18/2965369.html" target="_blank" rel="external">http://www.cnblogs.com/peida/archive/2013/03/18/2965369.html</a></li>
+<li><a href="https://linux.cn/article-7369-1.html" target="_blank" rel="external">https://linux.cn/article-7369-1.html</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;发现自己安装了以下的大部分工具。。。&lt;/p&gt;
+&lt;h2 id=&quot;wget&quot;&gt;&lt;a href=&quot;#wget&quot; class=&quot;headerlink&quot; title=&quot;wget&quot;&gt;&lt;/a&gt;wget&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【Hexo】Hexo 注释</title>
     <link href="http://yoursite.com/2018/05/26/Hexo-%E6%B3%A8%E9%87%8A/"/>
     <id>http://yoursite.com/2018/05/26/Hexo-注释/</id>
@@ -70,7 +207,7 @@
     <link href="http://yoursite.com/2018/05/26/VIM%E5%B8%B8%E7%94%A8%E6%8C%89%E9%94%AE/"/>
     <id>http://yoursite.com/2018/05/26/VIM常用按键/</id>
     <published>2018-05-25T20:57:06.000Z</published>
-    <updated>2018-05-26T06:15:58.593Z</updated>
+    <updated>2018-05-27T02:50:24.054Z</updated>
     
     <content type="html"><![CDATA[<style>
 table th:nth-of-type(1){
@@ -177,6 +314,10 @@ color:white
 <td>移动到文件第一行</td>
 </tr>
 <tr>
+<td>ngg</td>
+<td>移动到文件第n行</td>
+</tr>
+<tr>
 <td>G</td>
 <td>移动到文件最后一行</td>
 </tr>
@@ -198,27 +339,15 @@ color:white
 </tr>
 <tr>
 <td>b</td>
-<td>移到单词的开始部分</td>
-</tr>
-<tr>
-<td>B</td>
-<td>移至开始的空白定界词</td>
+<td>移到上一个单词的开头</td>
 </tr>
 <tr>
 <td>e</td>
 <td>移至单词的结尾</td>
 </tr>
 <tr>
-<td>E</td>
-<td>移至黑色分隔词的结尾</td>
-</tr>
-<tr>
 <td>w</td>
-<td>移至下一个单词</td>
-</tr>
-<tr>
-<td>W</td>
-<td>移至下一个空白分隔的单词</td>
+<td>移至下一个单词开头</td>
 </tr>
 <tr>
 <td>H</td>
@@ -281,7 +410,7 @@ color:white
 </thead>
 <tbody>
 <tr>
-<td>yy</td>
+<td>yy or Y</td>
 <td>复制当前行</td>
 </tr>
 <tr>
@@ -334,7 +463,7 @@ color:white
 </tr>
 <tr>
 <td>2yy</td>
-<td>复制2</td>
+<td>复制2行</td>
 </tr>
 </tbody>
 </table>
@@ -365,6 +494,10 @@ color:white
 <tr>
 <td>N</td>
 <td>查找上一个</td>
+</tr>
+<tr>
+<td>noh</td>
+<td>取消查找内容高亮</td>
 </tr>
 <tr>
 <td>:%s/old/new/g</td>
@@ -555,7 +688,7 @@ color:white
     </summary>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
     
   </entry>
   
@@ -899,7 +1032,7 @@ width: 80%;
     <link href="http://yoursite.com/2018/05/24/Linux-DNS%E6%90%AD%E5%BB%BA-Bind%E6%9C%8D%E5%8A%A1/"/>
     <id>http://yoursite.com/2018/05/24/Linux-DNS搭建-Bind服务/</id>
     <published>2018-05-24T13:37:47.000Z</published>
-    <updated>2018-05-25T03:13:54.929Z</updated>
+    <updated>2018-05-27T09:54:45.858Z</updated>
     
     <content type="html"><![CDATA[<p>Centos<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install bind  bind-utils</div><div class="line"></div><div class="line">#centos默认的安装是没有host，dig，nsloopup等命令的，需要安装bind-utils</div></pre></td></tr></table></figure></p>
 <p>Ubuntu<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install bind9</div></pre></td></tr></table></figure></p>
@@ -913,7 +1046,7 @@ width: 80%;
     </summary>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+      <category term="Linux应用" scheme="http://yoursite.com/tags/Linux%E5%BA%94%E7%94%A8/"/>
     
   </entry>
   
@@ -953,7 +1086,7 @@ width: 80%;
     <link href="http://yoursite.com/2018/05/22/Linux-%E5%B7%A5%E5%85%B7/"/>
     <id>http://yoursite.com/2018/05/22/Linux-工具/</id>
     <published>2018-05-22T02:27:29.000Z</published>
-    <updated>2018-05-22T03:43:04.540Z</updated>
+    <updated>2018-05-27T09:54:11.058Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Vifm"><a href="#Vifm" class="headerlink" title="Vifm"></a>Vifm</h2><p>Vifm 是一个 Linux 控制台下的文件管理器，基于 ncurse 的两列面板界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#安装</div><div class="line">sudo apt install vifm</div><div class="line">#运行</div><div class="line">vifm</div></pre></td></tr></table></figure></p>
 <p>使用<code>空格键</code>从一个窗格移动到另一个窗格。<br>要打开目录或文件，只需按<code>Enter</code>按钮。<br>水平分割窗口按Ctrl-W然后s<br>垂直分割窗口按Ctrl-W然后v<br>一个窗格中的文件，另一个窗格中查看<code>:view</code><br>删除文件：dd</p>
@@ -975,7 +1108,7 @@ width: 80%;
     </summary>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+      <category term="Linux应用" scheme="http://yoursite.com/tags/Linux%E5%BA%94%E7%94%A8/"/>
     
   </entry>
   
@@ -984,7 +1117,7 @@ width: 80%;
     <link href="http://yoursite.com/2018/05/22/MyLinux-sh/"/>
     <id>http://yoursite.com/2018/05/22/MyLinux-sh/</id>
     <published>2018-05-22T01:57:06.000Z</published>
-    <updated>2018-05-22T01:57:42.295Z</updated>
+    <updated>2018-05-27T09:53:00.234Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">#/bin/bash</div><div class="line"></div><div class="line"># 使用Elementary OS 0.4</div><div class="line"></div><div class="line">#个别系统不能增加ppa</div><div class="line">sudo apt install software-properties-common</div><div class="line"></div><div class="line">sudo apt install vim</div><div class="line"></div><div class="line">if [ &quot;$?&quot; -ne 0 ]</div><div class="line">	then</div><div class="line">		exit 1</div><div class="line">fi</div><div class="line"></div><div class="line">sudo apt install vifm</div><div class="line"></div><div class="line">if [ &quot;$?&quot; -ne 0 ]</div><div class="line">	then</div><div class="line">		exit 2</div><div class="line">fi</div><div class="line"></div><div class="line">#添加中文环境 Settings &gt;&gt; Language &amp; Region &gt;&gt; unLock &gt;&gt; Complete Installation &gt;&gt; click on English in the left sidebar &gt;&gt; Set System Language</div><div class="line">#安装fcitx五笔，其他相关包也会安装，fcitx\fcitx-config-gtk\fcitx-config-common</div><div class="line">sudo apt install fcitx-table-wubi</div><div class="line"></div><div class="line">#baka-player</div><div class="line">#http://bakamplayer.u8sand.net/installation.php</div><div class="line">cd ~/Download</div><div class="line">sudo apt install wget</div><div class="line">wget https://github.com/u8sand/Baka-MPlayer/releases/download/v2.0.4/baka-mplayer_2.0.4-1_amd64.deb</div><div class="line">sudo dpkg -i baka-mplayer_2.0.4-1_amd64.deb</div><div class="line"></div><div class="line">#filezilla</div><div class="line">sudo apt install filezilla</div><div class="line"></div><div class="line">#virtual studio code</div><div class="line">sudo apt install code</div><div class="line"></div><div class="line">#virtualbox</div><div class="line">sudo apt install virtualbox-5.2</div></pre></td></tr></table></figure>]]></content>
     
@@ -995,7 +1128,7 @@ width: 80%;
     </summary>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+      <category term="Linux应用" scheme="http://yoursite.com/tags/Linux%E5%BA%94%E7%94%A8/"/>
     
   </entry>
   
@@ -1026,10 +1159,10 @@ width: 80%;
     <link href="http://yoursite.com/2018/05/20/Shell-%E5%AD%97%E7%AC%A6%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4sort%E3%80%81wc/"/>
     <id>http://yoursite.com/2018/05/20/Shell-字符处理命令sort、wc/</id>
     <published>2018-05-20T12:06:24.000Z</published>
-    <updated>2018-05-20T12:23:02.195Z</updated>
+    <updated>2018-05-26T06:30:53.837Z</updated>
     
     <content type="html"><![CDATA[<h2 id="排序命令sort"><a href="#排序命令sort" class="headerlink" title="排序命令sort"></a>排序命令sort</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">sort [选项]</div><div class="line">选项</div><div class="line">-f 忽略大小写</div><div class="line">-n 以数值型进行排序，默认使用字符串型排序</div><div class="line">-r 反向排序</div><div class="line">-t 指定分隔符,默认是制表符</div><div class="line">-k n[,m] 按照指定的字段范围排序.从第n字段开始,m字段结束(默认到行尾)</div><div class="line"></div><div class="line">sort /etc/passwd   </div><div class="line">#按照字母顺序a-z排列文件内容</div><div class="line">sort -r /etc/passwd   </div><div class="line">#反向排序，即按z-a顺序排列文件内容</div><div class="line">#sort -n -t &quot;:&quot; -k 3,3 /etc/passwd   </div><div class="line">#以数值型进行排序，指定分隔符为“:”，并只取第三字段的内容</div></pre></td></tr></table></figure>
-<h2 id="统计命令wc"><a href="#统计命令wc" class="headerlink" title="统计命令wc"></a>统计命令wc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wc [选项] 文件名</div><div class="line">选项:</div><div class="line">-l 只统计行数</div><div class="line">-w 只统计单词数</div><div class="line">-m 只统计字符数</div></pre></td></tr></table></figure>
+<h2 id="统计命令wc"><a href="#统计命令wc" class="headerlink" title="统计命令wc"></a>统计命令wc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wc [选项] 文件名</div><div class="line">选项:</div><div class="line">-l 只统计行数</div><div class="line">-w 只统计单词数</div><div class="line">-m 只统计字符数</div><div class="line">-c 只统计字节数</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -1083,149 +1216,6 @@ width: 80%;
     <summary type="html">
     
       &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell正则表达式 格式化输出命令printf</title>
-    <link href="http://yoursite.com/2018/05/20/Shell-%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA%E5%91%BD%E4%BB%A4printf/"/>
-    <id>http://yoursite.com/2018/05/20/Shell-格式化输出命令printf/</id>
-    <published>2018-05-20T09:49:39.000Z</published>
-    <updated>2018-05-20T12:26:37.120Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">printf &quot;输出类型输出格式&quot; 输出内容</div><div class="line"></div><div class="line">输出类型：</div><div class="line">%ns：输出字符串。n是数字，指代输出几个字符</div><div class="line">%ni：输出整数。n是数字，指代输出几个数字</div><div class="line">%m.nf：输出浮点数。m和n是数字，指代输出的整数位数和小数位数。如%8.2f代表共输出8位数，其中2是小数位数，6位是整数</div><div class="line"></div><div class="line">输出格式：</div><div class="line">\a：输出警告声音</div><div class="line">\b：输出退格键，也就是Backspace键</div><div class="line">\f：清空屏幕</div><div class="line">\n：换行</div><div class="line">\r：回车，也就是Enter键</div><div class="line">\t：水平输出退格键，也就是Tab键</div><div class="line">\v：垂直输出退格键，也就是Tab键</div><div class="line"></div><div class="line">printf %s 1 2 3 4 5 6           123456</div><div class="line">printf %s %s %s 1 2 3 4 5 6     %s%s123456      后两个%s被当作输入</div><div class="line">printf &apos;%s %s %s&apos; 1 2 3 4 5 6   1 2 34 5 6      </div><div class="line">printf &apos;%s\t%s\t%s\n&apos; 1 2 3 4 5 6</div><div class="line">1 	2	3</div><div class="line">4	5	6</div></pre></td></tr></table></figure>
-<p>使用printf输出命令，必须明确指出所有的格式<br>如果想要使用printf读取文件中的内容就需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">printf &apos;%s&apos; $(cat student.txt)  </div><div class="line">#不调整输出格式，文本内的内容输出到一行</div><div class="line"></div><div class="line">printf &apos;%s\t%s\t%s\t%s\n&apos; $(cat student.txt) </div><div class="line">#调整输出格式，根据文本内容进行调整</div></pre></td></tr></table></figure></p>
-<p>print在输出之后会在自动加入换行符，但Linux系统中默认没有print命令<br>printf是标准格式输出命令，并不会自动加入换行符，如需换行，需要手动加入换行符<br>printf “%s\n” a</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell正则表达式 字符截取命令cut</title>
-    <link href="http://yoursite.com/2018/05/20/Shell-%E5%AD%97%E7%AC%A6%E6%88%AA%E5%8F%96%E5%91%BD%E4%BB%A4cut/"/>
-    <id>http://yoursite.com/2018/05/20/Shell-字符截取命令cut/</id>
-    <published>2018-05-20T09:49:22.000Z</published>
-    <updated>2018-05-20T12:23:02.195Z</updated>
-    
-    <content type="html"><![CDATA[<p>grep行提取，cut列提取</p>
-<h2 id="cut命令"><a href="#cut命令" class="headerlink" title="cut命令"></a>cut命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cut [选项] 文件名</div><div class="line">选项 </div><div class="line">-f 列号：提取第几列（从1开始）</div><div class="line">-d 分隔符：按照指定分隔符分割列 默认为tab</div><div class="line"></div><div class="line">cut -f 列号,列号 文件名 （多个列号用逗号隔开；这个方法默认的文件以TAB制表符）</div><div class="line">cut -f 列号,列号 -d &quot;指定的分隔符&quot; 文件名</div><div class="line"></div><div class="line">grep &quot;bin/bash&quot; /etc/passwd     可以登录的用户</div><div class="line">grep &quot;bin/bash&quot; /etc/passwd | grep -v &quot;root&quot;    排除root的可登录用户</div><div class="line">grep &quot;bin/bash&quot; /etc/passwd | grep -v &quot;root&quot; | cut -f 1 -d &quot;:&quot; 提取非root登录用户用户名</div></pre></td></tr></table></figure>
-<h2 id="cut命令的局限性"><a href="#cut命令的局限性" class="headerlink" title="cut命令的局限性"></a>cut命令的局限性</h2><p>用cut截取比较规律的文件，用默认制表符或其他符号作为分隔符，可以方便截取，如果是用空格或多个空格做分隔符，就会有问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">df -h | cut -d &quot; &quot; -f 1,3</div><div class="line">无法正确分隔多个空格，只能以一个空格分隔</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;grep行提取，cut列提取&lt;/p&gt;
-&lt;h2 id=&quot;cut命令&quot;&gt;&lt;a href=&quot;#cut命令&quot; class=&quot;headerlink&quot; title=&quot;cut命令&quot;&gt;&lt;/a&gt;cut命令&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>文本去除重复行</title>
-    <link href="http://yoursite.com/2018/05/20/%E6%96%87%E6%9C%AC%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E8%A1%8C/"/>
-    <id>http://yoursite.com/2018/05/20/文本去除重复行/</id>
-    <published>2018-05-20T05:02:58.000Z</published>
-    <updated>2018-05-20T05:03:29.980Z</updated>
-    
-    <content type="html"><![CDATA[<p>Find what:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^(.*)(\r?\n\1)+$</div></pre></td></tr></table></figure></p>
-<p>Replace with:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$1</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Find what:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pr
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Shell正则表达式 概述</title>
-    <link href="http://yoursite.com/2018/05/20/Shell-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>http://yoursite.com/2018/05/20/Shell-正则表达式/</id>
-    <published>2018-05-20T01:44:07.000Z</published>
-    <updated>2018-05-20T12:22:30.507Z</updated>
-    
-    <content type="html"><![CDATA[<p>正则表达式是用于描述字符排列和匹配模式的一种语法规则。它主要用于字符串的模式分割、匹配、查找及替换操作。主要用于模糊匹配。</p>
-<h2 id="正则表达式与通配符的区别"><a href="#正则表达式与通配符的区别" class="headerlink" title="正则表达式与通配符的区别"></a>正则表达式与通配符的区别</h2><p>正则表达式用来在文件中匹配符合条件的<strong>字符串</strong>，正则是<strong>包含匹配</strong>。grep、awk、sed等命令可以支持正则表达式</p>
-<p>通配符用来匹配符合条件的<strong>文件名</strong>，通配符是<strong>完全匹配</strong>。ls、find、cp这些命令不支持正则表达式，所以只能使用shell自己的通配符进行匹配</p>
-<p><br></p>
-<h2 id="基础正则表达式"><a href="#基础正则表达式" class="headerlink" title="基础正则表达式"></a>基础正则表达式</h2><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*</td>
-<td>前一个字符匹配0次或任意多次</td>
-</tr>
-<tr>
-<td>.</td>
-<td>匹配除了换行符外任意一个字符</td>
-</tr>
-<tr>
-<td>^</td>
-<td>匹配行首。例如<code>^hello</code>会匹配以hello开头的行</td>
-</tr>
-<tr>
-<td>$</td>
-<td>匹配行尾。例如<code>hello$</code>会匹配以hello结尾的行</td>
-</tr>
-<tr>
-<td>[]</td>
-<td>匹配中括号中指定的任意一个字符，只匹配一个字符。[0-9]匹配任意一位数字</td>
-</tr>
-<tr>
-<td>[^]</td>
-<td>匹配除中括号的字符以外的任意一个字符。<br> 例如：[^0-9]匹配任意一位非数字字符<br>[^a-z]表示任意一位非小写字母</td>
-</tr>
-<tr>
-<td>\</td>
-<td>转义符。用于取消将特殊符号的含义取消</td>
-</tr>
-<tr>
-<td><code>\{n\}</code></td>
-<td>表示其前面的字符恰好出现N次<br>例如：<code>[0-9]\{4\}</code> 匹配4位数字<br><code>[1][3-8][0-9]\{9\}</code> 匹配手机号码</td>
-</tr>
-<tr>
-<td><code>\{n,\}</code></td>
-<td>表示其前面的字符出现不小于n次。 例如 <code>[0-9]\{2,\}</code>表示两位及以上的数字</td>
-</tr>
-<tr>
-<td><code>\{n,m\}</code></td>
-<td>表示其前面的字符至少出现n次，最多出现m次。 <br> 例如<code>[a-z]\{6,8\}</code>匹配6到8位的小写字母</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">a*      匹配所有内容，包括空白行</div><div class="line">aa*     匹配至少包含有一个a的行</div><div class="line">aaa*    匹配最少包含两个连续a的字符串</div><div class="line">aaaaa*  匹配最少包含四个连续a的字符串</div><div class="line">区别于通配符里的*，通配符里的a*表示以a开头的字符串，这也说明了正则是一种包含匹配</div><div class="line"></div><div class="line">s..d    匹配s和d之间含有2个任意字符(除换行符)行，有多少个点就多少个字符</div><div class="line">s.*d    匹配s和d之间含有任意内容的行</div><div class="line">.*      匹配所有内容</div><div class="line"></div><div class="line">^s      匹配以s开头的行</div><div class="line">n$      匹配以n结尾的行</div><div class="line">^$      匹配空白行</div><div class="line"></div><div class="line">s[ao]id     匹配s和i字母中，要不是a，要不是o</div><div class="line">[0-9]       匹配任意任意一个数字</div><div class="line">^[a-z]      匹配用小写字母开头的行</div><div class="line">[a-zA-z]    匹配所有字母，shell中不支持[A-z]</div><div class="line"></div><div class="line">^[^a-z]     匹配非小写字母开头的行</div><div class="line">^[^a-zA-Z]  匹配非字母开头的行</div><div class="line"></div><div class="line">\.$     匹配使用.结尾的行</div><div class="line">.$      以任意字符结尾的行</div><div class="line"></div><div class="line"></div><div class="line">a\&#123;3\&#125;      匹配a字母连续出现三次的字符串</div><div class="line">[0-9]\&#123;3\&#125;  匹配包含连续的三个数字的字符串</div><div class="line">c\&#123;3\&#125;u     匹配u前面有三个c的字符串</div><div class="line">&quot;xc\&#123;3\&#125;u&quot;  匹配x和u之间三个c的字符串，x、u为定界符</div><div class="line">**实际使用中也会匹配多于n次的，如果需要准确匹配，则需要在前后使用分隔符**</div><div class="line"></div><div class="line">^[0-9]\&#123;3,\&#125;[a-z]   匹配最少用连续三个数字开头的行</div><div class="line">sa\&#123;1,3\&#125;i  匹配在字母s和字母i之间最少一个a，最多三个a</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">正则表达式适合在文档中提取，不适合做写入的判断依据</div><div class="line"></div><div class="line">[0-9]\&#123;4\&#125;-[0-9]\&#123;2\&#125;-[0-9]\&#123;2\&#125;</div><div class="line">匹配日期</div><div class="line"></div><div class="line">^[0-9]\&#123;1,3\&#125;\.[0-9]\&#123;1,3\&#125;\.[0-9]\&#123;1,3\&#125;\.[0-9]\&#123;1,3\&#125;</div><div class="line">匹配IP地址</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;正则表达式是用于描述字符排列和匹配模式的一种语法规则。它主要用于字符串的模式分割、匹配、查找及替换操作。主要用于模糊匹配。&lt;/p&gt;
-&lt;h2 id=&quot;正则表达式与通配符的区别&quot;&gt;&lt;a href=&quot;#正则表达式与通配符的区别&quot; class=&quot;headerlink&quot; title=
     
     </summary>
     
