@@ -36,6 +36,55 @@
   </entry>
   
   <entry>
+    <title>VIM插件NerdTree快捷键</title>
+    <link href="http://yoursite.com/2018/05/28/VIM%E6%8F%92%E4%BB%B6NerdTree%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://yoursite.com/2018/05/28/VIM插件NerdTree快捷键/</id>
+    <published>2018-05-28T04:45:11.000Z</published>
+    <updated>2018-05-28T05:12:23.320Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="切换工作台和目录"><a href="#切换工作台和目录" class="headerlink" title="切换工作台和目录"></a>切换工作台和目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ctrl + w + h    光标 focus 左侧树形目录</div><div class="line">ctrl + w + l    光标 focus 右侧文件显示窗口</div><div class="line">ctrl + w + w    光标自动在左右侧窗口切换</div><div class="line">ctrl + w + r    移动当前窗口的布局位置</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">o       在已有窗口中打开文件、目录或书签，并跳到该窗口</div><div class="line">go      在已有窗口 中打开文件、目录或书签，但不跳到该窗口</div><div class="line">t       在新 Tab 中打开选中文件/书签，并跳到新 Tab</div><div class="line">T       在新 Tab 中打开选中文件/书签，但不跳到新 Tab</div><div class="line">i       split 一个新窗口打开选中文件，并跳到该窗口</div><div class="line">gi      split 一个新窗口打开选中文件，但不跳到该窗口</div><div class="line">s       vsplit 一个新窗口打开选中文件，并跳到该窗口</div><div class="line">gs      vsplit 一个新 窗口打开选中文件，但不跳到该窗口</div><div class="line">!       执行当前文件</div><div class="line">O       递归打开选中 结点下的所有目录</div><div class="line">x       合拢选中结点的父目录</div><div class="line">X       递归 合拢选中结点下的所有目录</div><div class="line">e       Edit the current dif</div><div class="line"></div><div class="line">双击    相当于 NERDTree-o</div><div class="line">中键    对文件相当于 NERDTree-i，对目录相当于 NERDTree-e</div><div class="line"></div><div class="line">D       删除当前书签</div><div class="line"></div><div class="line">P       跳到根结点</div><div class="line">p       跳到父结点</div><div class="line">K       跳到当前目录下同级的第一个结点</div><div class="line">J       跳到当前目录下同级的最后一个结点</div><div class="line">k       跳到当前目录下同级的前一个结点</div><div class="line">j       跳到当前目录下同级的后一个结点</div><div class="line"></div><div class="line">C       将选中目录或选中文件的父目录设为根结点</div><div class="line">u       将当前根结点的父目录设为根目录，并变成合拢原根结点</div><div class="line">U       将当前根结点的父目录设为根目录，但保持展开原根结点</div><div class="line">r       递归刷新选中目录</div><div class="line">R       递归刷新根结点</div><div class="line">m       显示文件系统菜单</div><div class="line">cd      将 CWD 设为选中目录</div><div class="line"></div><div class="line">I       切换是否显示隐藏文件</div><div class="line">f       切换是否使用文件过滤器</div><div class="line">F       切换是否显示文件</div><div class="line">B       切换是否显示书签</div><div class="line"></div><div class="line">q       关闭 NerdTree 窗口</div><div class="line">?       切换是否显示 Quick Help</div></pre></td></tr></table></figure>
+<h2 id="切换标签页"><a href="#切换标签页" class="headerlink" title="切换标签页"></a>切换标签页</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">:tabnew [++opt选项] ［＋cmd］ 文件      建立对指定文件新的tab</div><div class="line">:tabc   关闭当前的 tab</div><div class="line">:tabo   关闭所有其他的 tab</div><div class="line">:tabs   查看所有打开的 tab</div><div class="line">:tabp   前一个 tab</div><div class="line">:tabn   后一个 tab</div><div class="line"></div><div class="line">标准模式下：</div><div class="line">gT      前一个 tab</div><div class="line">gt      后一个 tab</div><div class="line"></div><div class="line">MacVim 还可以借助快捷键来完成 tab 的关闭、切换</div><div class="line">cmd+w   关闭当前的 tab</div><div class="line">cmd+&#123;   前一个 tab</div><div class="line">cmd+&#125;   后一个 tab</div></pre></td></tr></table></figure>
+<h2 id="NerdTree在-vimrc中的常用配置"><a href="#NerdTree在-vimrc中的常用配置" class="headerlink" title="NerdTree在.vimrc中的常用配置"></a>NerdTree在.vimrc中的常用配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&quot; 在 vim 启动的时候默认开启 NERDTree（autocmd 可以缩写为 au）</div><div class="line">autocmd VimEnter * NERDTree</div><div class="line"></div><div class="line">&quot; 按下 F2 调出/隐藏 NERDTree</div><div class="line">map  :silent! NERDTreeToggle</div><div class="line"></div><div class="line">&quot; 将 NERDTree 的窗口设置在 vim 窗口的右侧（默认为左侧）</div><div class="line">let NERDTreeWinPos=&quot;right&quot;</div><div class="line"></div><div class="line">&quot; 当打开 NERDTree 窗口时，自动显示 Bookmarks</div><div class="line">let NERDTreeShowBookmarks=1</div></pre></td></tr></table></figure>
+<p>转自：<a href="http://yang3wei.github.io/blog/2013/01/29/nerdtree-kuai-jie-jian-ji-lu/" target="_blank" rel="external">http://yang3wei.github.io/blog/2013/01/29/nerdtree-kuai-jie-jian-ji-lu/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;切换工作台和目录&quot;&gt;&lt;a href=&quot;#切换工作台和目录&quot; class=&quot;headerlink&quot; title=&quot;切换工作台和目录&quot;&gt;&lt;/a&gt;切换工作台和目录&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
+    
+    </summary>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VIM配置</title>
+    <link href="http://yoursite.com/2018/05/28/VIM%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2018/05/28/VIM配置/</id>
+    <published>2018-05-28T03:16:30.000Z</published>
+    <updated>2018-05-28T05:12:10.740Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>打开VIM，输入<code>:version</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">系统 vimrc 文件: &quot;$VIM/vimrc&quot;                       </div><div class="line">用户 vimrc 文件: &quot;$HOME/.vimrc&quot;                     </div><div class="line">第二用户 vimrc 文件: &quot;~/.vim/vimrc&quot;                     </div><div class="line">用户 exrc 文件: &quot;$HOME/.exrc&quot;                      </div><div class="line">系统 gvimrc 文件: &quot;$VIM/gvimrc&quot;                      </div><div class="line">用户 gvimrc 文件: &quot;$HOME/.gvimrc&quot;                    </div><div class="line">第二用户 gvimrc 文件: &quot;~/.vim/gvimrc&quot;                    </div><div class="line">系统菜单文件: &quot;$VIMRUNTIME/menu.vim&quot;             </div><div class="line">$VIM 预设值: &quot;/usr/share/vim&quot;</div></pre></td></tr></table></figure></p>
+<p>列出了几个 vimrc 文件，有一个系统的 vimrc 文件，还有用户的 vimrc 文件，以及系统和用户 gvimrc 文件。出于和vi兼容的目的，vim也支持vi的exrc配置文件。</p>
+<p>一般来说，我们都使用用户目录下的<code>$HOME/.vimrc</code>文件即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">set number</div><div class="line">set ruler</div><div class="line">&quot;注释用这个，以后慢慢加吧</div></pre></td></tr></table></figure></p>
+<p><a href="https://blog.easwy.com/archives/advanced-vim-skills-catalog/" target="_blank" rel="external">https://blog.easwy.com/archives/advanced-vim-skills-catalog/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;位置&quot;&gt;&lt;a href=&quot;#位置&quot; class=&quot;headerlink&quot; title=&quot;位置&quot;&gt;&lt;/a&gt;位置&lt;/h2&gt;&lt;p&gt;打开VIM，输入&lt;code&gt;:version&lt;/code&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tabl
+    
+    </summary>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>zsh安装、主题、插件</title>
     <link href="http://yoursite.com/2018/05/27/zsh%E5%AE%89%E8%A3%85%E3%80%81%E4%B8%BB%E9%A2%98%E3%80%81%E6%8F%92%E4%BB%B6/"/>
     <id>http://yoursite.com/2018/05/27/zsh安装、主题、插件/</id>
@@ -103,18 +152,19 @@
   </entry>
   
   <entry>
-    <title>VIM配置及插件</title>
+    <title>VIM插件</title>
     <link href="http://yoursite.com/2018/05/27/Vim%E6%8F%92%E4%BB%B6/"/>
     <id>http://yoursite.com/2018/05/27/Vim插件/</id>
     <published>2018-05-27T01:31:18.000Z</published>
-    <updated>2018-05-27T09:59:33.936Z</updated>
+    <updated>2018-05-28T05:04:55.885Z</updated>
     
-    <content type="html"><![CDATA[<p>Elementary os的终端好像不能用vim的块操作，所以改用hyper<br><a href="https://hyper.is/" target="_blank" rel="external">https://hyper.is/</a><br><a href="https://github.com/zeit/hyper" target="_blank" rel="external">https://github.com/zeit/hyper</a></p>
+    <content type="html"><![CDATA[<p>Elementary os的终端好像不能用vim的块操作同时插件NerdTree也有问题，所以改用hyper<br><a href="https://hyper.is/" target="_blank" rel="external">https://hyper.is/</a><br><a href="https://github.com/zeit/hyper" target="_blank" rel="external">https://github.com/zeit/hyper</a></p>
 <h2 id="插件管理-vim-plug"><a href="#插件管理-vim-plug" class="headerlink" title="插件管理 vim-plug"></a>插件管理 vim-plug</h2><p><a href="https://github.com/junegunn/vim-plug" target="_blank" rel="external">https://github.com/junegunn/vim-plug</a></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</div><div class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</div></pre></td></tr></table></figure>
-<h3 id="配置-插件管理"><a href="#配置-插件管理" class="headerlink" title="配置/插件管理"></a>配置/插件管理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.vimrc</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">set number</div><div class="line"></div><div class="line">call plug#begin(&apos;~/.vim/plugged&apos;)</div><div class="line">let mapleader=&quot;,&quot;</div><div class="line"></div><div class="line">&quot;目录树</div><div class="line">&quot;F3打开目录</div><div class="line">Plug &apos;godlygeek/tabular&apos;</div><div class="line">nnoremap &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</div><div class="line">autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif</div><div class="line"></div><div class="line">&quot;markdown 语法高亮、预览</div><div class="line">&quot;:PrevimOpen在浏览器预览</div><div class="line">&quot;关闭折叠</div><div class="line">let g:vim_markdown_folding_disabled = 1</div><div class="line">Plug &apos;godlygeek/tabular&apos;</div><div class="line">Plug &apos;plasticboy/vim-markdown&apos;</div><div class="line">Plug &apos;kannokanno/previm&apos;</div><div class="line">Plug &apos;tyru/open-browser.vim&apos;</div><div class="line"></div><div class="line">&quot;文件搜索</div><div class="line">&quot;&lt;leader&gt;f搜索,因为这里设置leader为,号，所以是,+f</div><div class="line">Plug &apos;Yggdroot/LeaderF&apos;, &#123; &apos;do&apos;: &apos;./install.sh&apos; &#125;</div><div class="line"></div><div class="line">call plug#end()</div><div class="line">&quot;添加vim-plug配置，以call plug#begin()开头，call plug#end()结尾，中间是插件列表，begin可以接受参数指定存放插件的位置</div></pre></td></tr></table></figure>
+<h3 id="插件管理"><a href="#插件管理" class="headerlink" title="插件管理"></a>插件管理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.vimrc</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">set number</div><div class="line"></div><div class="line">call plug#begin(&apos;~/.vim/plugged&apos;)</div><div class="line">let mapleader=&quot;,&quot;</div><div class="line"></div><div class="line">&quot;目录树</div><div class="line">&quot;F3打开目录</div><div class="line">&quot;o打开文件</div><div class="line">Plug &apos;godlygeek/tabular&apos;</div><div class="line">nnoremap &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</div><div class="line">autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif</div><div class="line"></div><div class="line">&quot;markdown 语法高亮、预览</div><div class="line">&quot;:PrevimOpen在浏览器预览</div><div class="line">&quot;关闭折叠</div><div class="line">let g:vim_markdown_folding_disabled = 1</div><div class="line">Plug &apos;godlygeek/tabular&apos;</div><div class="line">Plug &apos;plasticboy/vim-markdown&apos;</div><div class="line">Plug &apos;kannokanno/previm&apos;</div><div class="line">Plug &apos;tyru/open-browser.vim&apos;</div><div class="line"></div><div class="line">&quot;文件搜索</div><div class="line">&quot;&lt;leader&gt;f搜索,因为这里设置leader为,号，所以是,+f</div><div class="line">Plug &apos;Yggdroot/LeaderF&apos;, &#123; &apos;do&apos;: &apos;./install.sh&apos; &#125;</div><div class="line"></div><div class="line">call plug#end()</div><div class="line">&quot;添加vim-plug配置，以call plug#begin()开头，call plug#end()结尾，中间是插件列表，begin可以接受参数指定存放插件的位置</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#重新打开.vimrc</div><div class="line">vim ~/.vimrc</div><div class="line"></div><div class="line"></div><div class="line">:PlugInstall         #安装插件</div><div class="line">:PlugUpdate          #升级插件</div><div class="line">:PlugClean           #删除未被使用的插件目录</div><div class="line">:PlugUpgrade         #升级Vim-plug自身</div><div class="line">:PlugStatus          #查看插件状态</div><div class="line">:q                    退出</div></pre></td></tr></table></figure>
+<p>补充：<br><a href="http://www.vimer.cn/archives/1372.html" target="_blank" rel="external">http://www.vimer.cn/archives/1372.html</a></p>
 <p>参考：</p>
 <ul>
 <li><a href="https://blog.csdn.net/rankun1/article/details/78775404" target="_blank" rel="external">https://blog.csdn.net/rankun1/article/details/78775404</a></li>
@@ -128,7 +178,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Elementary os的终端好像不能用vim的块操作，所以改用hyper&lt;br&gt;&lt;a href=&quot;https://hyper.is/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://hyper.is/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;ht
+      &lt;p&gt;Elementary os的终端好像不能用vim的块操作同时插件NerdTree也有问题，所以改用hyper&lt;br&gt;&lt;a href=&quot;https://hyper.is/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://hyper.is/&lt;/a
     
     </summary>
     
@@ -1086,7 +1136,7 @@ width: 80%;
     <link href="http://yoursite.com/2018/05/22/Linux-%E5%B7%A5%E5%85%B7/"/>
     <id>http://yoursite.com/2018/05/22/Linux-工具/</id>
     <published>2018-05-22T02:27:29.000Z</published>
-    <updated>2018-05-27T09:54:11.058Z</updated>
+    <updated>2018-05-27T15:59:01.340Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Vifm"><a href="#Vifm" class="headerlink" title="Vifm"></a>Vifm</h2><p>Vifm 是一个 Linux 控制台下的文件管理器，基于 ncurse 的两列面板界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#安装</div><div class="line">sudo apt install vifm</div><div class="line">#运行</div><div class="line">vifm</div></pre></td></tr></table></figure></p>
 <p>使用<code>空格键</code>从一个窗格移动到另一个窗格。<br>要打开目录或文件，只需按<code>Enter</code>按钮。<br>水平分割窗口按Ctrl-W然后s<br>垂直分割窗口按Ctrl-W然后v<br>一个窗格中的文件，另一个窗格中查看<code>:view</code><br>删除文件：dd</p>
@@ -1095,6 +1145,10 @@ width: 80%;
 <h2 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h2><p>终端分屏<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install tmux</div><div class="line">tmux</div></pre></td></tr></table></figure></p>
 <p>tmux所有自带命令都默认需要先按Ctrl + b，然后再键入对应的命令</p>
 <p>Ctrl+b “ - split pane horizontally<br>Ctrl+b % - 将当前窗格垂直划分<br>Ctrl+b 方向键 - 在各窗格间切换<br>Ctrl+b，并且不要松开Ctrl，方向键 - 调整窗格大小<br>Ctrl+b c - (c)reate 生成一个新的窗口<br>Ctrl+b n - (n)ext 移动到下一个窗口<br>Ctrl+b p - (p)revious 移动到前一个窗口.<br>Ctrl+b 空格键 - 采用下一个内置布局<br>Ctrl+b q - 显示分隔窗口的编号<br>Ctrl+b o - 跳到下一个分隔窗口<br>Ctrl+b &amp; - 确认后退出 tmux </p>
+<h3 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h3><p>一个 Tmux 会话中可以包含多个窗口。会话功能非常简单易用，例如可以为一个特定的项目创建一个专用的 Tmux 会话。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tmux new -s &lt;name-of-my-session&gt;</div></pre></td></tr></table></figure></p>
+<p>假设我还需要开发另一个项目，于是我就会为此再新建一个会话。虽然进入了新的会话，但是原来的会话并没有消失。所以我可以在稍后回到之前的会话继续工作。若要创建一个新的会话，只需要按下 <code>Ctrl-b :</code> ，然后输入如下的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new -s &lt;name-of-my-new-session&gt;</div></pre></td></tr></table></figure></p>
+<p>除非显式地关闭会话，否则 Tmux 的会话在重启计算机之前都不会消失。只要还没有重启计算机，你都可以自由地从一个项目的会话跳转到另一个。</p>
+<p>在会话下展示会话的列表，可以按下<code>Ctrl-b s</code><br>在命令行下展示会话e列表，输入<code>tmux attach</code><br><a href="http://blog.jobbole.com/87584/" target="_blank" rel="external">http://blog.jobbole.com/87584/</a></p>
 <h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><p>sh<br><a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a><br><a href="https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87</a>)<br><a href="https://www.zhihu.com/question/21418449" target="_blank" rel="external">https://www.zhihu.com/question/21418449</a></p>
 <h2 id="awesome"><a href="#awesome" class="headerlink" title="awesome"></a>awesome</h2><p>桌面<br><a href="https://www.linuxzen.com/awesometmuxgnomedoda-zao-gao-xiao-linuxzhuo-mian-huan-jing.html" target="_blank" rel="external">https://www.linuxzen.com/awesometmuxgnomedoda-zao-gao-xiao-linuxzhuo-mian-huan-jing.html</a><br><a href="https://wiki.archlinux.org/index.php/Awesome_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Awesome_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87</a>)<br><a href="http://www.hahack.com/tools/awesome/" target="_blank" rel="external">http://www.hahack.com/tools/awesome/</a></p>
 <h2 id="Apvlv"><a href="#Apvlv" class="headerlink" title="Apvlv"></a>Apvlv</h2><p>vim 化的 PDF 阅读工具</p>
@@ -1155,67 +1209,19 @@ width: 80%;
   </entry>
   
   <entry>
-    <title>Shell正则表达式 字符处理命令sort、wc</title>
+    <title>Shell正则表达式 字符处理命令sort、wc、uniq</title>
     <link href="http://yoursite.com/2018/05/20/Shell-%E5%AD%97%E7%AC%A6%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4sort%E3%80%81wc/"/>
     <id>http://yoursite.com/2018/05/20/Shell-字符处理命令sort、wc/</id>
     <published>2018-05-20T12:06:24.000Z</published>
-    <updated>2018-05-26T06:30:53.837Z</updated>
+    <updated>2018-05-27T15:12:13.450Z</updated>
     
     <content type="html"><![CDATA[<h2 id="排序命令sort"><a href="#排序命令sort" class="headerlink" title="排序命令sort"></a>排序命令sort</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">sort [选项]</div><div class="line">选项</div><div class="line">-f 忽略大小写</div><div class="line">-n 以数值型进行排序，默认使用字符串型排序</div><div class="line">-r 反向排序</div><div class="line">-t 指定分隔符,默认是制表符</div><div class="line">-k n[,m] 按照指定的字段范围排序.从第n字段开始,m字段结束(默认到行尾)</div><div class="line"></div><div class="line">sort /etc/passwd   </div><div class="line">#按照字母顺序a-z排列文件内容</div><div class="line">sort -r /etc/passwd   </div><div class="line">#反向排序，即按z-a顺序排列文件内容</div><div class="line">#sort -n -t &quot;:&quot; -k 3,3 /etc/passwd   </div><div class="line">#以数值型进行排序，指定分隔符为“:”，并只取第三字段的内容</div></pre></td></tr></table></figure>
-<h2 id="统计命令wc"><a href="#统计命令wc" class="headerlink" title="统计命令wc"></a>统计命令wc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wc [选项] 文件名</div><div class="line">选项:</div><div class="line">-l 只统计行数</div><div class="line">-w 只统计单词数</div><div class="line">-m 只统计字符数</div><div class="line">-c 只统计字节数</div></pre></td></tr></table></figure>
-]]></content>
+<h2 id="统计命令wc（word-count）"><a href="#统计命令wc（word-count）" class="headerlink" title="统计命令wc（word count）"></a>统计命令wc（word count）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wc [选项] 文件名</div><div class="line">选项:</div><div class="line">-l 只统计行数</div><div class="line">-w 只统计单词数</div><div class="line">-m 只统计字符数</div><div class="line">-c 只统计字节数</div></pre></td></tr></table></figure>
+<h2 id="去重命令-uniq"><a href="#去重命令-uniq" class="headerlink" title="去重命令 uniq"></a>去重命令 uniq</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">uniq 文件</div><div class="line">#删除任何重复行</div><div class="line"></div><div class="line">-d  #查看重复行</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       &lt;h2 id=&quot;排序命令sort&quot;&gt;&lt;a href=&quot;#排序命令sort&quot; class=&quot;headerlink&quot; title=&quot;排序命令sort&quot;&gt;&lt;/a&gt;排序命令sort&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell正则表达式 sed命令</title>
-    <link href="http://yoursite.com/2018/05/20/Shell-sed%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/20/Shell-sed命令/</id>
-    <published>2018-05-20T10:28:14.000Z</published>
-    <updated>2018-05-20T12:23:09.951Z</updated>
-    
-    <content type="html"><![CDATA[<p>sed是一种几乎包括在所有的UNIX平台（包括Linux）的轻量级流编辑器。sed主要是用来将数据进行选取、替换、删除、新增的命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">sed [选项] &apos;[动作]&apos; 文件名</div><div class="line">#&apos;&apos;不能省略</div><div class="line">选项:</div><div class="line">-n 只输出经过sed处理过的行到屏幕</div><div class="line">-e 允许一次应用多个动作</div><div class="line">-i 直接修改文件,并且不由屏幕输出</div><div class="line"></div><div class="line">动作:</div><div class="line">a：追加,在当前行后添加一行或多行</div><div class="line">i：插入,在当前行前插入一行或多行</div><div class="line">c：整行替换，用c后面的字符串替换原数据行</div><div class="line">d：删除，删除指定的行</div><div class="line">p：打印，输出指定的行</div><div class="line">s: 字串替换(替换格式与vim中的类似) &apos;行范围s/旧字串/新字串/g&apos;</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">sed -n &apos;2p&apos; student.txt         查看文件的第二行，如果没有-n将输出全部内容</div><div class="line">sed &apos;2,4d&apos; student.txt          表示删除第2-4行，但是不改变文件本身</div><div class="line">sed &apos;2a piaoliangdecxiaoguniang&apos; student.txt    在第2行之后添加字符串，但是不改变字符串本身</div><div class="line">sed &apos;2i heol&apos; student.txt       在第2行之前插入数据</div><div class="line">sed &apos;4c xxwmpg&apos; student.txt     将第二行的整行替换为xxwmpg</div><div class="line">sed &apos;6s/70/100/g&apos; student.txt   将第7行的所有70全部替换为100，如果不指定行的话会替换所有的指定字符串</div><div class="line">sed -i &apos;6s/70/100/g&apos; student.txt                sed操作的数据直接写入文件</div><div class="line">sed -e &apos;s/fengj//g&apos;;s/cang//g&apos; student.txt      同时把fengj和cang替换为空</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;sed是一种几乎包括在所有的UNIX平台（包括Linux）的轻量级流编辑器。sed主要是用来将数据进行选取、替换、删除、新增的命令。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell正则表达式 awk命令</title>
-    <link href="http://yoursite.com/2018/05/20/Shell-awk%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/20/Shell-awk命令/</id>
-    <published>2018-05-20T10:28:08.000Z</published>
-    <updated>2018-05-20T12:23:15.243Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">awk &apos;条件1&#123;动作1&#125;条件2&#123;动作2&#125;...&apos; 文件名</div><div class="line"></div><div class="line">条件</div><div class="line">-一般使用关系表达式作为条件</div><div class="line">-x&gt;10、x&gt;=10、x&lt;=10</div><div class="line"></div><div class="line">动作</div><div class="line">-格式化输出</div><div class="line">-流程控制</div></pre></td></tr></table></figure>
-<p>一个条件满足，就执行条件后面{}内的动作。<br>没有条件就无条件执行{}内的动作，如果有条件，就只有满足条件才能执行{}内的动作。</p>
-<p>awk的流程：依次读取每一行数据，读取完一行数据后，进行条件判断，如果满足条件，就执行该条件对应的动作，其中文件名为$0，剩下的每一列依次为$1\$2…，判断完一行后，继续判断下一行，直到知道文件全部判断完</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">awk &apos;&#123;printf $2 &quot;\t&quot; $4&quot;\n&quot;&#125;&apos; student.txt </div><div class="line">#注意printf里面输出格式的双引号，printf中的转义符号都要用&quot;&quot;括起来。</div><div class="line">#printf后面要接换行符&quot;\n&quot;</div><div class="line"></div><div class="line">df -h| awk &apos;&#123;printf $1&quot;\t&quot; $5&quot;\n&quot;&#125;&apos;</div><div class="line">#查看系统使用率</div></pre></td></tr></table></figure>
-<h2 id="BAGIN条件"><a href="#BAGIN条件" class="headerlink" title="BAGIN条件"></a>BAGIN条件</h2><p>条件BAGIN表示在所有动作执行前先执行BEGIN后的那个动作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">df -h | awk &apos;BEGIN&#123;print &quot;test&quot;&#125;&#123;print $1 &quot;\t&quot; $3&#125;&apos;</div><div class="line">会在最前面输出test</div><div class="line">awk在指定分隔符前面一定要加BEGIN</div></pre></td></tr></table></figure></p>
-<h2 id="END条件"><a href="#END条件" class="headerlink" title="END条件"></a>END条件</h2><p>条件END表示在所有动作执行后才执行END后的那个动作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#df -h | awk &apos;END&#123;print &quot;test&quot;&#125;&#123;print $1 &quot;\t&quot; $3&#125;&apos; </div><div class="line">会在最后面输出test</div></pre></td></tr></table></figure></p>
-<h2 id="FS内置变量"><a href="#FS内置变量" class="headerlink" title="FS内置变量"></a>FS内置变量</h2><p>修改分隔符（默认为空格和制表符）<br>在修改FS的变量的动作前要加上BEGIN，这样在执行所有其它动作之前先修改分割符，否则读取第一行数据的时候不能识别指定的分隔符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cat /etc/passwd | grep &quot;/bin/bash&quot; | awk &apos;BEGIN&#123;FS=&quot;:&quot;&#125;&#123;print $1 &quot;\t&quot; #3&#125;&apos;</div><div class="line">#awk在指定分隔符前面一定要加BEGIN，此例截取第1、3列</div><div class="line"></div><div class="line">cat student.txt | grep -v Name | awk &apos;$4&gt;=70&#123;print $2&#125;&apos;</div><div class="line">#此例截取除了列头的成绩大于等于70分的学生姓名，grep -v Name为取反命令，不输出带“Name”的行</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
     
     </summary>
     

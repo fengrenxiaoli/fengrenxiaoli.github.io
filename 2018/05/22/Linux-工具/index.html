@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="VifmVifm 是一个 Linux 控制台下的文件管理器，基于 ncurse 的两列面板界面1234#安装sudo apt install vifm#运行vifm 使用空格键从一个窗格移动到另一个窗格。要打开目录或文件，只需按Enter按钮。水平分割窗口按Ctrl-W然后s垂直分割窗口按Ctrl-W然后v一个窗格中的文件，另一个窗格中查看:view删除文件：dd 如果您在Vifm中删除文件，则会">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-27T09:54:11.058Z">
+<meta property="og:updated_time" content="2018-05-27T15:59:01.340Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 工具">
 <meta name="twitter:description" content="VifmVifm 是一个 Linux 控制台下的文件管理器，基于 ncurse 的两列面板界面1234#安装sudo apt install vifm#运行vifm 使用空格键从一个窗格移动到另一个窗格。要打开目录或文件，只需按Enter按钮。水平分割窗口按Ctrl-W然后s垂直分割窗口按Ctrl-W然后v一个窗格中的文件，另一个窗格中查看:view删除文件：dd 如果您在Vifm中删除文件，则会">
@@ -327,6 +327,10 @@
 <h2 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h2><p>终端分屏<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install tmux</div><div class="line">tmux</div></pre></td></tr></table></figure></p>
 <p>tmux所有自带命令都默认需要先按Ctrl + b，然后再键入对应的命令</p>
 <p>Ctrl+b “ - split pane horizontally<br>Ctrl+b % - 将当前窗格垂直划分<br>Ctrl+b 方向键 - 在各窗格间切换<br>Ctrl+b，并且不要松开Ctrl，方向键 - 调整窗格大小<br>Ctrl+b c - (c)reate 生成一个新的窗口<br>Ctrl+b n - (n)ext 移动到下一个窗口<br>Ctrl+b p - (p)revious 移动到前一个窗口.<br>Ctrl+b 空格键 - 采用下一个内置布局<br>Ctrl+b q - 显示分隔窗口的编号<br>Ctrl+b o - 跳到下一个分隔窗口<br>Ctrl+b &amp; - 确认后退出 tmux </p>
+<h3 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h3><p>一个 Tmux 会话中可以包含多个窗口。会话功能非常简单易用，例如可以为一个特定的项目创建一个专用的 Tmux 会话。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tmux new -s &lt;name-of-my-session&gt;</div></pre></td></tr></table></figure></p>
+<p>假设我还需要开发另一个项目，于是我就会为此再新建一个会话。虽然进入了新的会话，但是原来的会话并没有消失。所以我可以在稍后回到之前的会话继续工作。若要创建一个新的会话，只需要按下 <code>Ctrl-b :</code> ，然后输入如下的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new -s &lt;name-of-my-new-session&gt;</div></pre></td></tr></table></figure></p>
+<p>除非显式地关闭会话，否则 Tmux 的会话在重启计算机之前都不会消失。只要还没有重启计算机，你都可以自由地从一个项目的会话跳转到另一个。</p>
+<p>在会话下展示会话的列表，可以按下<code>Ctrl-b s</code><br>在命令行下展示会话e列表，输入<code>tmux attach</code><br><a href="http://blog.jobbole.com/87584/" target="_blank" rel="external">http://blog.jobbole.com/87584/</a></p>
 <h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><p>sh<br><a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a><br><a href="https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87</a>)<br><a href="https://www.zhihu.com/question/21418449" target="_blank" rel="external">https://www.zhihu.com/question/21418449</a></p>
 <h2 id="awesome"><a href="#awesome" class="headerlink" title="awesome"></a>awesome</h2><p>桌面<br><a href="https://www.linuxzen.com/awesometmuxgnomedoda-zao-gao-xiao-linuxzhuo-mian-huan-jing.html" target="_blank" rel="external">https://www.linuxzen.com/awesometmuxgnomedoda-zao-gao-xiao-linuxzhuo-mian-huan-jing.html</a><br><a href="https://wiki.archlinux.org/index.php/Awesome_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Awesome_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87</a>)<br><a href="http://www.hahack.com/tools/awesome/" target="_blank" rel="external">http://www.hahack.com/tools/awesome/</a></p>
 <h2 id="Apvlv"><a href="#Apvlv" class="headerlink" title="Apvlv"></a>Apvlv</h2><p>vim 化的 PDF 阅读工具</p>
@@ -450,7 +454,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">122</span>
+                  <span class="site-state-item-count">124</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -503,7 +507,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vifm"><span class="nav-number">1.</span> <span class="nav-text">Vifm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tmux"><span class="nav-number">2.</span> <span class="nav-text">tmux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zsh"><span class="nav-number">3.</span> <span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awesome"><span class="nav-number">4.</span> <span class="nav-text">awesome</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apvlv"><span class="nav-number">5.</span> <span class="nav-text">Apvlv</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vifm"><span class="nav-number">1.</span> <span class="nav-text">Vifm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tmux"><span class="nav-number">2.</span> <span class="nav-text">tmux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#会话"><span class="nav-number">2.1.</span> <span class="nav-text">会话</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zsh"><span class="nav-number">3.</span> <span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awesome"><span class="nav-number">4.</span> <span class="nav-text">awesome</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apvlv"><span class="nav-number">5.</span> <span class="nav-text">Apvlv</span></a></li></ol></div>
             
 
           </div>
