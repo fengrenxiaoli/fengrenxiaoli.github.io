@@ -9,9 +9,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Linux 终端]]></title>
+    <url>%2F2018%2F05%2F31%2FLinux-%E7%BB%88%E7%AB%AF%2F</url>
+    <content type="text"><![CDATA[用户与主机交互，必然用到的设备； 物理终端直接接入本机的显示器和键盘设备；/dev/console 虚拟终端附加在物理终端之上的以软件方式虚拟实现的终端，CentOS 6默认启动6个虚拟终端Ctrl+Alt+F#: [1,6]图形终端：附加在物理终端之上的以软件方式虚拟实现的终端，但额外会提供桌面环境； 设备文件路径：/dev/tty# 模拟终端图形界面下打开的命令行接口，基于ssh协议或telnet协议等远程打开的界面 设备文件：/dev/pts/# [0,oo) 查看当前的终端设备：tty 交互式接口启动终端后，在终端设备附加一个交互式应用程序 GUIX protocol, window manager, desktop Desktop: GNOME (C, gtk) KDE (C++, qt) XFCE (轻量级桌面) CLIshell程序： sh (bourn) csh tcsh ksh (korn) bash (bourn again shell), GPL zsh 显示当前使用的shell：echo ${SHELL} 显示当前系统使用的所有shell：cat /etc/shells]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux时间命令]]></title>
     <url>%2F2018%2F05%2F30%2FLinux%E6%97%B6%E9%97%B4%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[date123456789101112131415161718192021date [OPTION]... [+FORMAT]：显示日期FORMAT: 格式符号 %D %F %Tdate [MMDDhhmm[[CC]YY][.ss]]：设置日期MM: 月分DD：几号hh: 小时mm: 分钟YY: 两位年份CCYY: 四位年份.ss: 秒钟Linux的两种时钟：系统时钟：由Linux内核通过CPU的工作频率进行的计时，date命令硬件时钟：clock命令hwclock: 显示硬件时钟 -s, --hctosys Set the System Time from Hardware Clock -w, --systohc Set Hardware Clock to the current System Time cal：日历]]></content>
+    <content type="text"><![CDATA[date12345678910111213date [OPTION]... [+FORMAT]：显示日期FORMAT: 格式符号 %D %F %Tdate [MMDDhhmm[[CC]YY][.ss]]：设置日期MM: 月份DD：几号hh: 小时mm: 分钟YY: 两位年份CCYY: 四位年份.ss: 秒钟 Linux的两种时钟系统时钟(system time)：由Linux内核通过CPU的工作频率进行的计时，date命令硬件时钟(hardware clock)：clock命令 hwclock: 显示硬件时钟 -s, –hctosys Set the System Time from Hardware Clock 读取硬件时间到系统时间 -w, –systohc Set Hardware Clock to the current System Time 系统时间写入硬件时间 cal 日历]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -523,9 +531,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[【Linux】Linux服务管理]]></title>
+    <title><![CDATA[Linux服务管理]]></title>
     <url>%2F2018%2F05%2F11%2FLinux%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%2F</url>
-    <content type="text"><![CDATA[table th:nth-of-type(1){ width: 20%; } table th:nth-of-type(2){ width: 60% ; } table th:nth-of-type(3){ width: 20%; } 系统的运行级别 运行级别 含义 0 关机 1 单用户模式，主要用于系统修复 2 不完全的命令行,不含NFS服务 3 完全的命令行 4 系统暴露 5 图形模式 6 重启 123456runlevel #查看运行级别init 5 #修改运行级别vi /etc/inittab #修改系统默认运行级别id:3:initdefault:#系统开机后直接进入哪个运行级别 服务的分类 独立服务：独立的运行在内存中，一直在运行的 基于xinetd的服务：服务由xinetd来管控，平时不运行，一有访问，先到xinetd，然后由xinetd去调用现在基本上不再使用xinetd。默认没有安装，可以通过yum方式安装xinetd服务，在安装之前使用chkconfig可以查看系统的服务状态，安装完整之后会出现一组xinetd管理的服务，默认都是关闭的。123chkconfig --list #查看xinetd是否安装yum -y install xinetd #安装xinetdchkconfig --list #查看xinetd服务 RPM安装服务和源码包安装服务的区别：安装位置不同 源码包安装在知道位置，一般是/usr/local RPM包安装在默认位置中 目录 说明 /etc/ 配置文件位置 /etc/init.d/ 启动脚本位置 /etc/sysconfig/ 初始化环境配置文件位置 /etc/xinetd.conf xinetd配置文件 /etc/xinetd/ 基于xinetd服务的启动脚本 /var/lib/ 服务产生的数据目录 /var/log/ 日志 查询已经安装的服务 RPM包安装的服务：chkconfig --list查看服务自启动状态，可以看到所有RPM包安装的服务 源码包安装的服务：查看服务安装位置，一般是/usr/local下 服务与端口端口：每个协议都有65536个端口，默认给某个协议提供了端口，那么此端口就不在为其他协议体统服务。在/etc/services中可以查看服务与端口对应关系因为服务与端口的这种一一对应的关系，所以可以通过查询端口来查看服务状态1ps aux #查看系统中运行了哪些服务（包含程序） 查询系统中开启的服务12345678netstat -tlunp -t:列出tcp数据 -u:列出udp数据 -l:列出正在监听的网络服务(不包含已连接的网络服务) -n:用端口号来显示服务，而不是服务名 -p：列出该服务的进程id（PID）netstat -an #查看系统中开了哪些程序和服务占用了端口 服务的启动与自启动服务启动：就是在当前系统中让服务运行，并提供功能。服务自启动：让服务在系统开机或者重启动之后，随着系统的启动而自动启动服务。 推荐统一用配置文件的方式，这样不容易冲突 chkconfig off不需要添加启动级别 xinetd自启动和启动是相通的，相互一致 源码包安装服务的启动使用绝对路径，调用启动脚本来启动。不同的源码包的启动脚本不同。可以查看源码包的安装说明，其中有启动脚本的方法 让源码包的服务能被service命令管理启动：在init.d目录中做个软链接`ln -s /usr/local/apache2/bin/apache /etc/init.d/ 让源码包服务能被 chkconfig 与 ntsysv 命令管理自启动 12345678vi /etc/init.d/apache# chkconfig:35 86 76#指定httpd脚本可以被chkconfig命令管理。#格式： chkconfig ： 运行级别 启动顺序 关闭顺序#description： source package apache #说明，内容随意。把这两句加到/etc/rc.d/init.d/apachetctl 保存(需要带#)然后chkconfig --add apache 源码安装的Apache输入IP地址默认打开的网页是/usr/local/apache2/htdocs/index.htmlrpm包安装的Apache默认打开的是/var/www/html/下的文件，但是默认是没有的，所以打开Apache测试页。当在这个目录下建一个网页后，打开的是新增的网页。 /etc/rc3.d/下面的文件是运行级别3时，系统开启与关闭分别要执行的服务文件，启动顺序与关闭顺序不能和现有的冲突]]></content>
+    <content type="text"><![CDATA[table th:nth-of-type(1){ width: 20%; } table th:nth-of-type(2){ width: 60% ; } table th:nth-of-type(3){ width: 20%; } 系统的运行级别 运行级别 含义 0 关机 1 单用户模式，主要用于系统修复 2 不完全的命令行,不含NFS服务 3 完全的命令行 4 系统暴露 5 图形模式 6 重启 123456789101112runlevel#查询系统运行级别#结果：N 3 (当前是3 N是上一次登陆级别)init 5 #修改运行级别vi /etc/inittab #修改系统默认运行级别id:3:initdefault:#修改系统默认运行级别，这里默认是3 服务的分类 独立服务：独立的运行在内存中，一直在运行的 基于xinetd的服务：服务由xinetd来管控，平时不运行，一有访问，先到xinetd，然后由xinetd去调用现在基本上不再使用xinetd。默认没有安装，可以通过yum方式安装xinetd服务，在安装之前使用chkconfig可以查看系统的服务状态，安装完整之后会出现一组xinetd管理的服务，默认都是关闭的。123chkconfig --list #查看xinetd是否安装yum -y install xinetd #安装xinetdchkconfig --list #查看xinetd服务 RPM安装服务和源码包安装服务的区别：安装位置不同 源码包安装在知道位置，一般是/usr/local RPM包安装在默认位置中 目录 说明 /etc/ 配置文件位置 /etc/init.d/ 启动脚本位置 /etc/sysconfig/ 初始化环境配置文件位置 /etc/xinetd.conf xinetd配置文件 /etc/xinetd/ 基于xinetd服务的启动脚本 /var/lib/ 服务产生的数据目录 /var/log/ 日志 查询已经安装的服务 RPM包安装的服务：chkconfig --list查看服务自启动状态，可以看到所有RPM包安装的服务 源码包安装的服务：查看服务安装位置，一般是/usr/local下 服务与端口端口：每个协议都有65536个端口，默认给某个协议提供了端口，那么此端口就不在为其他协议体统服务。在/etc/services中可以查看服务与端口对应关系因为服务与端口的这种一一对应的关系，所以可以通过查询端口来查看服务状态1ps aux #查看系统中运行了哪些服务（包含程序） 查询系统中开启的服务12345678netstat -tlunp -t:列出tcp数据 -u:列出udp数据 -l:列出正在监听的网络服务(不包含已连接的网络服务) -n:用端口号来显示服务，而不是服务名 -p：列出该服务的进程id（PID）netstat -an #查看系统中开了哪些程序和服务占用了端口 服务的启动与自启动服务启动：就是在当前系统中让服务运行，并提供功能。服务自启动：让服务在系统开机或者重启动之后，随着系统的启动而自动启动服务。 推荐统一用配置文件的方式，这样不容易冲突 chkconfig off不需要添加启动级别 xinetd自启动和启动是相通的，相互一致 源码包安装服务的启动使用绝对路径，调用启动脚本来启动。不同的源码包的启动脚本不同。可以查看源码包的安装说明，其中有启动脚本的方法 让源码包的服务能被service命令管理启动：在init.d目录中做个软链接`ln -s /usr/local/apache2/bin/apache /etc/init.d/ 让源码包服务能被 chkconfig 与 ntsysv 命令管理自启动 12345678vi /etc/init.d/apache# chkconfig:35 86 76#指定httpd脚本可以被chkconfig命令管理。#格式： chkconfig ： 运行级别 启动顺序 关闭顺序#description： source package apache #说明，内容随意。把这两句加到/etc/rc.d/init.d/apachetctl 保存(需要带#)然后chkconfig --add apache 源码安装的Apache输入IP地址默认打开的网页是/usr/local/apache2/htdocs/index.htmlrpm包安装的Apache默认打开的是/var/www/html/下的文件，但是默认是没有的，所以打开Apache测试页。当在这个目录下建一个网页后，打开的是新增的网页。 /etc/rc3.d/下面的文件是运行级别3时，系统开启与关闭分别要执行的服务文件，启动顺序与关闭顺序不能和现有的冲突]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -653,7 +661,7 @@
   <entry>
     <title><![CDATA[Linux 关机和重启]]></title>
     <url>%2F2018%2F05%2F05%2FLinux-%E5%85%B3%E6%9C%BA%E5%92%8C%E9%87%8D%E5%90%AF%2F</url>
-    <content type="text"><![CDATA[关机123456789101112131415161718shutdown [选项] 时间#相比其它命令更安全，在关机和重启时会正确保存正在运行的程序选项： -c:取消前一个关机命令 -h:关机（half） -r:重启shutdown -r 05:30shutdown -r 05:30 &amp; (后台运行)shutdown -r nowshutdown -r +30 30分钟后关机#在服务器上尽量避免远程关机，因为再开机麻烦，所以远程重启就足够了#服务器由于经常进行高速运算强制重启非常容易损坏硬件，也容易造成数据丢失，所以一定要小心#其他关机命令(不安全，慎用)halfpoweroffinit 0 重启12reboot (相对安全)init 6 (尽量不要用) 系统运行级别0 关机1 单用户 （与windows安全模式相似）2 不完全多用户，不含NFS服务（NFS：文件共享服务）3 完全多用户（字符界面）4 未分配5 图形界面（如果装了图形界面，init 5 进入图形界面）6 重启12345678runlevel# 查询系统运行级别# 结果：N 3 (当前是3 N是上一次登陆级别)cat /etc/inittab # 查看/etc/inittab的内容id:3:initdefault: # 修改系统默认运行级别，这里默认是3 退出登录命令123logout # LINUX默认同时256个登录，最大支持6万多# 每次使用后，建议退出当前用户，避免他人因账户占用无法使用！与windows中的注销相似！ 注意：如果关闭远程登录xshell时直接点X，该用户就卡在计算机里，因为没有正确退出，所以一定养成正确退出登录的习惯]]></content>
+    <content type="text"><![CDATA[关机shutdown （建议使用）123456789101112131415161718shutdown [选项] 时间#相比其它命令更安全，在关机和重启时会正确保存正在运行的程序选项： -c:取消前一个关机命令 -h:关机（halt） -r:重启TIME: now: 立刻 +m: 相对时间表示法，从命令提交开始多久之后；例如 +3； hh:mm: 绝对时间表示，指明具体时间；shutdown -r 05:30 5:30重启shutdown -r 05:30 &amp; 后台运行shutdown -r now 立刻重启shutdown -r +30 30分钟后关机#在服务器上尽量避免远程关机，因为再开机麻烦，所以远程重启就足够了#服务器由于经常进行高速运算强制重启非常容易损坏硬件，也容易造成数据丢失，所以一定要小心 haltpoweroffinit 0重启shutdown -r Timereboot123reboot-f: 强制，不调用shutdown-p: 切断电源 init 6退出登录命令123logout # LINUX默认同时256个登录，最大支持6万多# 每次使用后，建议退出当前用户，避免他人因账户占用无法使用！与windows中的注销相似！ 注意：如果关闭远程登录xshell时直接点X，该用户就卡在计算机里，因为没有正确退出，所以一定养成正确退出登录的习惯]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -669,7 +677,7 @@
   <entry>
     <title><![CDATA[Linux文件管理05 文件查看命令]]></title>
     <url>%2F2018%2F05%2F05%2FLinux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[ls 查询目录中的内容12345678ls [选项] [文件或目录]选项-a 显示所有文件,包括隐藏文件-l 显示详细信息-d 查看目录属性-h 人性化显示文件大小-i 显示inodell命令表示ls -l file 查看文件类型查看文件内容cat12345cat file...#读取一个或多个文件，然后复制它们到标准输出cat movie.mpeg.0* &gt; movie.mpeg#cat可以用来连接文件，通配符是有序的 如果没有给cat任何参数，它会从标准输入读入数据，因为标准输入在默认情况下连接到键盘，它正在等待我们输入数据当我们通过键盘输入数据并按Ctrl-d（表示EOF，作用相当于在终端中输入exit后回车）后，它会复制标准输入到标准输出 tail head123456tail 从文件尾部读head 从文件头部开始读#默认是10行，-n指定显示行数tail -f 实时浏览文件 分页12more 分页读取less 可控分页]]></content>
+    <content type="text"><![CDATA[ls 查询目录中的内容12345678ls [选项] [文件或目录]选项-a 显示所有文件,包括隐藏文件-l 显示详细信息-d 查看目录属性-h 人性化显示文件大小-i 显示inodell命令表示ls -l Linux下的文件类型： (f)：普通文件；d: 目录文件；b: 块设备；c: 字符设备；l: 符号链接文件；p: 管道文件；s: 套接字文件；socket; file 查看文件类型查看文件是文本还是二进制等12file rfc959.txtrfc959.txt: ASCII text 查看文件内容cat12345cat file...#读取一个或多个文件，然后复制它们到标准输出cat movie.mpeg.0* &gt; movie.mpeg#cat可以用来连接文件，通配符是有序的 如果没有给cat任何参数，它会从标准输入读入数据，因为标准输入在默认情况下连接到键盘，它正在等待我们输入数据当我们通过键盘输入数据并按Ctrl-d（表示EOF，作用相当于在终端中输入exit后回车）后，它会复制标准输入到标准输出 tac和cat类似，逆序查看 head12345head [OPTION]... [FILE]...#从文件头部开始读-c number: 指定获取前number字节-n number: 指定获取前number行 -number：指定获取前number行 tail12345678910tail [OPTION]... [FILE]...-c number: 指定获取后number字节-n number: 指定获取后number行， 默认是10行 -number：-f: 跟踪显示文件新追加的内容tail -c number 从尾指定显示number个字符tail -n number 从尾指定显示number行tail -f 实时浏览文件，Ctrl-c退出 more 分页12more [OPTIONS...] FILE...-d: 显示翻页及退出提示 less 分页1less [OPTIONS...] FILE... man命令即是以less进行分页的 操作方法123456789101112131415161718192021Space: 向文件尾翻屏；b: 向文件首部翻屏；d: 向文件尾部翻半屏；u: 向文件首部翻半屏；e: 向文件尾部翻一行；y：向文件首部翻一行；q: 退出；#：跳转至第#行；1G: 回到文件首部G：翻至文件尾部文本搜索： /KEYWORD: 以KEYWORD指定的字符串为关键字，从当前位置向文件尾部搜索；不区分字符大小写； n: 下一个 N：上一个 ?KEYWORD: 以KEYWORD指定的字符串为关键字，从当前位置向文件首部搜索；不区分字符大小写； n: 跟搜索命令同方向，下一个 N：跟搜索命令反方向，上一个]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -897,6 +905,11 @@
       <tags>
         <tag>Linux</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 计算机基础]]></title>
+    <url>%2F2018%2F04%2F22%2FLinux-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[现代计算机设备的组成部分： 运算器、控制器、存储器、输入设备、输出设备 CPU bus：总线 memory: 编址存储设备 read ahead 高速缓存 IO: 与外部部件交互 磁盘 网卡 虚拟机：虚拟计算机 CPU：运算器、控制器 CPU指令，指令集； 特权指令：OS运行特权指令； 普通指令： 程序员： OS: Operating System 软件程序 通用目的 硬件驱动 进程管理 内存管理 网络管理 安全管理 System Call 系统调用 编程层次： 硬件规格：hardware specifiacation 系统调用： 库调用： library call UI: user interface 用户接口 GUI: Graphic User Interface 图形用户接口 CLI: Command Line Interface 命令行接口 ABI: Application Binary Interface 应用二进制接口API：Application Programming Interface 用用程序接口 CPU架构类型： x86 x64 arm m68000, m68k power powerpc ultrasparc alpha 安腾 WindowsLinux： Linus –&gt; Linux GNU/Linux Unix： System （Bell Lab） AIX （IBM） Solaris (SUN) HP-UX (HP) BSD: （BSRG）Berkeley System Distribution 伯克利软件套件 NetBSD OpenBSD FreeBSD MIT：Richard Stallman GNU: GNU is Not Unix； GPL：General Public LicenseCPU, memory, I/O 程序运行模式： 用户空间：user space, us 内核空间：system space POS: Portable Operating System 可移植操作系统 POSIX API: 编程接口； 运行程序格式： Windows: EXE, dll(dynamic link library 动态链接库文件) Linux: ELF, so(shared object 共享对象) 程序：指令+数据 指令：只读 数据：读写 程序：算法+数据结构 库调用，系统调用：允许被调用的程序； malloc(), free() 编程语言： 汇编语言：微码编程 系统中某些与硬件相关的特有代码、驱动程序开发； 高级语言C, C++： 系统级应用、驱动程序 高级应用java, python, php： 应用程序 unix-like]]></content>
   </entry>
   <entry>
     <title><![CDATA[清华同方x46h开启Intel VT]]></title>
