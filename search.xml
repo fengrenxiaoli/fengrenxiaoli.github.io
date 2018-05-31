@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Linux 专题导航]]></title>
-    <url>%2F2018%2F06%2F05%2FLinux-%E4%B8%93%E9%A2%98%E5%AF%BC%E8%88%AA%2F</url>
-    <content type="text"><![CDATA[文件管理权限管理软件管理网络管理服务管理系统管理]]></content>
+    <title><![CDATA[Linux 文件系统]]></title>
+    <url>%2F2018%2F05%2F31%2FLinux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%2F</url>
+    <content type="text"><![CDATA[linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件文件系统：Windows里面是这样的：C:\Program files\office11\word\word.exeLinux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0 文件有两类数据：元数据：metadata 元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。数据：data 数据是指普通文件中的实际数据。 1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；2、文件名可使用除/以外的任意字符，不建议使用特殊字符； /: 表示根目录，也用做路径分隔符；3、文件名长度最长不能超过255个字符；4、所以.开头的文件，均为隐藏文件； LSB: Linux Standard Base Linux标准库]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 时间戳管理]]></title>
+    <url>%2F2018%2F05%2F31%2FLinux-%E6%97%B6%E9%97%B4%E6%88%B3%E7%AE%A1%E7%90%86%2F</url>
+    <content type="text"><![CDATA[stat 查看时间戳文件：metadata, data查看文件状态：stat 三个时间戳：access time：（文档最后一次）访问时间，简写为atime，读取文件内容modify time: 修改时间, mtime，改变文件内容（数据）change time: 改变时间, ctime，元数据发生改变 123Access - the last time the file was readModify - the last time the file was modified (content has been modified)Change - the last time meta data of the file was changed (e.g. permissions) touch 修改时间戳123456touch [OPTION]... FILE...-a: only atime-m: only mtime-t STAMP: [[CC]YY]MMDDhhmm[.ss]-c: 如果文件不存，则不予创建]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 命令补全和路径补全]]></title>
+    <url>%2F2018%2F05%2F31%2FLinux-%E5%91%BD%E4%BB%A4%E8%A1%A5%E5%85%A8%E5%92%8C%E8%B7%AF%E5%BE%84%E8%A1%A5%E5%85%A8%2F</url>
+    <content type="text"><![CDATA[命令补全bash执行命令内部命令外部命令：bash根据PATH环境变量定义的路径，自左而右在每个路径搜寻以给定命令名命名的文件，第一次找到即为要执行的命令 直接补全：Tab，用户给定的字符串只有一条惟一对应的命令以用户给定的字符串为开头对应的命令不惟一，则再次Tab会给出列表 路径补全把用户给出的字符串当做路径开头，并在其指定上级目录下搜索以指定的字符串开头的文件名如果惟一，则直接补全否则，再次Tab，给出列表]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -27,7 +43,7 @@
   <entry>
     <title><![CDATA[Shell echo命令]]></title>
     <url>%2F2018%2F05%2F28%2FShell-echo%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[echo命令12345678910111213141516171819echo [选项] [输出内容]选项： -e：支持反斜线控制的字符转义内容转义\a - 输出警告音\b - 退格符\n - 换行符\r - 回车键\t - 制表符，也就是tab键\v - 垂直制表符\0nnn - 按照八进制ASCII码输出字符\xhh - 按照十六进制ASCII表输出字符输出带颜色的内容 echo -e &quot;\e[1;31m文字\e[0m&quot;#输出颜色 \e[1;##m - 开启颜色显示； \e[0m - 关闭颜色显示#30m=黑色，31m=红色，32m=绿色，33m=黄色#34m=蓝色，35m=洋红，36m=青色，37m=白色]]></content>
+    <content type="text"><![CDATA[echo 回显命令123456789101112131415161718192021echo [选项] [输出内容]选项： -e：允许使用转义符-n: 禁止自动添加换行符号内容转义\a - 输出警告音\b - 退格符\n - 换行符\r - 回车键\t - 制表符，也就是tab键\v - 垂直制表符\0nnn - 按照八进制ASCII码输出字符\xhh - 按照十六进制ASCII表输出字符输出带颜色的内容 echo -e &quot;\e[1;31m文字\e[0m&quot;#输出颜色 \e[1;##m - 开启颜色显示； \e[0m - 关闭颜色显示#30m=黑色，31m=红色，32m=绿色，33m=黄色#34m=蓝色，35m=洋红，36m=青色，37m=白色 12echo &quot;$VAR_NAME&quot;: 变量会替换，双引号表弱引用echo &apos;$VAR_NAME&apos;: 变量不会替换，强引用 参考：Shell引号]]></content>
       <tags>
         <tag>Shell</tag>
       </tags>
@@ -344,7 +360,7 @@
   <entry>
     <title><![CDATA[Shell 历史命令]]></title>
     <url>%2F2018%2F05%2F19%2FShell-%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[历史命令指的是把操作过的命令保留在系统当中, 当需要的时候可以重新进行调用 history123456789101112history [选项] [历史命令保存文件]选项：-a: 追加本次会话新执行的命令历史列表至历史文件中-d：删除历史中指定命令-c：清空历史命令-w：把缓存中的历史命令强制写入历史命令保存文件 ~/.bash_historynumber 显示历史中最近的number条命令不建议清空当本次操作出现错误可用过历史命令进行比对排错当登录后发现历史命令被清空, 则可判断出有人登录过该账户或服务器即使命令保存数目众多, 文件大小也不大, 不会给服务器造成多大压力 历史命令的配置历史命令默认保存1000条, 可以在环境变量配置文件/etc/profile中进行修改HISTSIZE=1000使用history命令查看的, 不止有之前保存下来的, 还有本次登录后新操作的命令, 这些命令只有本次正确退出之后才会写入 ~/.bash_history 历史命令的调用 使用上、下箭头调用以前的历史命令 使用 !n 重复执行一次第 n 条历史命令 使用 !! 重复执行一次上一条命令 使用 !字串重复执行最后一条以该字串开头的命令 命令与文本补全在Bash中, 命令与文件补全是非常方便与常用的功能, 我们只要在输入命令或文件时, 按”Tab”键就会自动进行补全系统进行命令补全依赖$PATH hash命令：shell搜寻到的外部命令的路径结果会缓存至kv(key-value)存储中；在环境变量PATH中搜索命令name的完整路径并记住它，这样以后再次执行相同的命令时，就不必搜索其完整路径了 12hash -d：清除指定缓存hash -r：清除所有缓存 https://blog.csdn.net/iEearth/article/details/52599900]]></content>
+    <content type="text"><![CDATA[历史命令指的是把操作过的命令保留在系统当中, 当需要的时候可以重新进行调用 history123456789101112history [选项] [历史命令保存文件]选项：-a: 追加本次会话新执行的命令历史列表至历史文件中-d offset：删除历史中指定命令-c：清空历史命令-w：把缓存中的历史命令强制写入历史命令保存文件 ~/.bash_historynumber 显示历史中最近的number条命令不建议清空当本次操作出现错误可用过历史命令进行比对排错当登录后发现历史命令被清空, 则可判断出有人登录过该账户或服务器即使命令保存数目众多, 文件大小也不大, 不会给服务器造成多大压力 历史命令的配置历史命令默认保存1000条, 可以在环境变量配置文件/etc/profile中进行修改HISTSIZE=1000使用history命令查看的, 不止有之前保存下来的, 还有本次登录后新操作的命令, 这些命令只有本次正确退出之后才会写入 ~/.bash_history 历史命令相关环境变量 HISTSIZE：命令历史记录的条数 HISTFILE：命令历史文件，./bash_history HISTFILESIZE：命令历史文件记录历史的条数 HISTCONTROL：控制历史命令的记录方式 ignoredups：忽略连续且相同的命令， ignorespace：忽略所有以空白开关的命令 ignoreboth：ignoredups+ignorespace 历史命令的调用 使用上、下箭头调用以前的历史命令 使用 !n 重复执行一次第 n 条历史命令 使用 !! 重复执行一次上一条命令 使用 !字串重复执行最后一条以该字串开头的命令 调用上一条命令的最后一个参数：!$,ESC接.,Alt-. 命令与文本补全在Bash中, 命令与文件补全是非常方便与常用的功能, 我们只要在输入命令或文件时, 按”Tab”键就会自动进行补全系统进行命令补全依赖$PATH hash命令：shell搜寻到的外部命令的路径结果会缓存至kv(key-value)存储中；在环境变量PATH中搜索命令name的完整路径并记住它，这样以后再次执行相同的命令时，就不必搜索其完整路径了 12hash -d：清除指定缓存hash -r：清除所有缓存 https://blog.csdn.net/iEearth/article/details/52599900]]></content>
       <tags>
         <tag>Shell</tag>
       </tags>
@@ -675,9 +691,17 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Linux文件管理05 文件查看命令]]></title>
+    <title><![CDATA[Linux文件管理06 查看文本文件内容]]></title>
+    <url>%2F2018%2F05%2F05%2FLinux-%E6%9F%A5%E7%9C%8B%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%2F</url>
+    <content type="text"><![CDATA[cat12345cat file...#读取一个或多个文件，然后复制它们到标准输出cat movie.mpeg.0* &gt; movie.mpeg#cat可以用来连接文件，通配符是有序的 如果没有给cat任何参数，它会从标准输入读入数据，因为标准输入在默认情况下连接到键盘，它正在等待我们输入数据当我们通过键盘输入数据并按Ctrl-d（表示EOF，作用相当于在终端中输入exit后回车）后，它会复制标准输入到标准输出 tac和cat类似，逆序查看 head12345head [OPTION]... [FILE]...#从文件头部开始读-c number: 指定获取前number字节-n number: 指定获取前number行 -number：指定获取前number行 tail12345678910tail [OPTION]... [FILE]...-c number: 指定获取后number字节-n number: 指定获取后number行， 默认是10行 -number：-f: 跟踪显示文件新追加的内容tail -c number 从尾指定显示number个字符tail -n number 从尾指定显示number行tail -f 实时浏览文件，Ctrl-c退出 more 分页12more [OPTIONS...] FILE...-d: 显示翻页及退出提示 less 分页1less [OPTIONS...] FILE... man命令即是以less进行分页的 操作方法123456789101112131415161718192021Space: 向文件尾翻屏；b: 向文件首部翻屏；d: 向文件尾部翻半屏；u: 向文件首部翻半屏；e: 向文件尾部翻一行；y：向文件首部翻一行；q: 退出；#：跳转至第#行；1G: 回到文件首部G：翻至文件尾部文本搜索： /KEYWORD: 以KEYWORD指定的字符串为关键字，从当前位置向文件尾部搜索；不区分字符大小写； n: 下一个 N：上一个 ?KEYWORD: 以KEYWORD指定的字符串为关键字，从当前位置向文件首部搜索；不区分字符大小写； n: 跟搜索命令同方向，下一个 N：跟搜索命令反方向，上一个]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux文件管理05 查看目录]]></title>
     <url>%2F2018%2F05%2F05%2FLinux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[ls 查询目录中的内容12345678ls [选项] [文件或目录]选项-a 显示所有文件,包括隐藏文件-l 显示详细信息-d 查看目录属性-h 人性化显示文件大小-i 显示inodell命令表示ls -l Linux下的文件类型： (f)：普通文件；d: 目录文件；b: 块设备；c: 字符设备；l: 符号链接文件；p: 管道文件；s: 套接字文件；socket; file 查看文件类型查看文件是文本还是二进制等12file rfc959.txtrfc959.txt: ASCII text 查看文件内容cat12345cat file...#读取一个或多个文件，然后复制它们到标准输出cat movie.mpeg.0* &gt; movie.mpeg#cat可以用来连接文件，通配符是有序的 如果没有给cat任何参数，它会从标准输入读入数据，因为标准输入在默认情况下连接到键盘，它正在等待我们输入数据当我们通过键盘输入数据并按Ctrl-d（表示EOF，作用相当于在终端中输入exit后回车）后，它会复制标准输入到标准输出 tac和cat类似，逆序查看 head12345head [OPTION]... [FILE]...#从文件头部开始读-c number: 指定获取前number字节-n number: 指定获取前number行 -number：指定获取前number行 tail12345678910tail [OPTION]... [FILE]...-c number: 指定获取后number字节-n number: 指定获取后number行， 默认是10行 -number：-f: 跟踪显示文件新追加的内容tail -c number 从尾指定显示number个字符tail -n number 从尾指定显示number行tail -f 实时浏览文件，Ctrl-c退出 more 分页12more [OPTIONS...] FILE...-d: 显示翻页及退出提示 less 分页1less [OPTIONS...] FILE... man命令即是以less进行分页的 操作方法123456789101112131415161718192021Space: 向文件尾翻屏；b: 向文件首部翻屏；d: 向文件尾部翻半屏；u: 向文件首部翻半屏；e: 向文件尾部翻一行；y：向文件首部翻一行；q: 退出；#：跳转至第#行；1G: 回到文件首部G：翻至文件尾部文本搜索： /KEYWORD: 以KEYWORD指定的字符串为关键字，从当前位置向文件尾部搜索；不区分字符大小写； n: 下一个 N：上一个 ?KEYWORD: 以KEYWORD指定的字符串为关键字，从当前位置向文件首部搜索；不区分字符大小写； n: 跟搜索命令同方向，下一个 N：跟搜索命令反方向，上一个]]></content>
+    <content type="text"><![CDATA[ls 显示指定路径下的文件列表12345678910ls [选项] [文件或目录]选项-a 显示所有文件,包括隐藏文件-l 显示详细信息-d 查看目录自身的相关属性，通常要与-l一起使用-h 人性化显示文件大小-i 显示inode-r 逆序显示-R 递归ll命令表示ls -l Linux下的文件类型： (f)：普通文件；d: 目录文件；b: 块设备；c: 字符设备；l: 符号链接文件；p: 管道文件；s: 套接字文件；socket; file 查看文件类型查看文件是文本还是二进制等12file rfc959.txtrfc959.txt: ASCII text tree 显示目录树1234tree -d: 只显示目录-L level：指定显示的层级数目-P pattern: 只显示由指定pattern匹配到的路径 pwd 显示当前目录（print working directory）]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -693,7 +717,7 @@
   <entry>
     <title><![CDATA[Linux文件管理03 文件解压缩命令]]></title>
     <url>%2F2018%2F05%2F05%2FLinux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[常用压缩格式： .zip .gz .bz2 常用解压缩格式： .tar.gz .tar.bz2 .rar格式安装123456#yum无法安装#查看需要下载的版本，https://www.rarlab.com/download.htmwget https://www.rarlab.com/rar/rarlinux-x64-5.6.b4.tar.gztar -zxvf rarlinux-x64-5.6.b4.tar.gzcd rarmake 压缩12#将/etc 目录压缩为etc.rar rar a etc.rar /etc 解压缩12rar x etc.rar unrar -e etc.tar .zip格式安装1yum -y install zip unzip 压缩1234zip 压缩文件名 源文件 #压缩文件zip -r 压缩文件名 源目录 #压缩目录 解压缩12unzip 压缩文件unzip 压缩文件 -d 指定目录 .gz格式压缩123456789gzip 源文件#压缩为.gz格式的压缩文件，源文件消失gzip -c 源文件 &gt; 压缩文件#压缩为.gz格式，源文件保留gzip -c cangls &gt; cangls.gzgzip -r 目录#压缩目录下所有的子文件，但是不能压缩目录 解压缩12gzip -d 压缩文件 gunzip 压缩文件 .bz2格式12yum -y install bzip2#使用之前需要安装 没有安装会出现以下错误1234tar (child): lbzip2: Cannot exec: No such file or directory tar (child): Error is not recoverable: exiting now tar: Child returned status 2 tar: Error is not recoverable: exiting now 压缩12345bzip2 源文件 #压缩文件，源文件消失bzip2 -k 源文件 #压缩之后保留源文件 #注意：bzip2命令不能压缩目录 解压缩12bzip2 -d 压缩文件 #解压缩，-k保留压缩文件bunzip2 压缩文件 #解压缩，-k保留压缩文件 打包命令tar123456789101112131415161718192021222324252627282930tar -cvf 打包文件名 源文件 # 压缩为tar格式tar -zcvf 压缩包名.tar.gz 源文件 # 压缩为.tar.gz格式tar -jcvf 压缩包名.tar.bz2 源文件 # 压缩为.tar.bz2格式**参数j、z要放在前边**#解压tartar -xvf 打包文件名 #解压tar格式文件tar -zxvf 压缩包名.tar.gz #解压.tar.gz格式文件tar -jxvf 压缩包名.tar.bz2 #解压.tar.bz2格式文件-c：打包-x：解打包-v：显示过程-f：指定打包后的文件名-z：压缩为.tar.gz格式-j：压缩为.tar.bz2格式其他用法tar -jxvf 打包文件名 -C 绝对路径 #指定解压缩位置tar -zcvf 绝对路径（/tmp/）+打包文件名 源文件 源文件 #将多个文件解压到指定路径tar -ztvf 压缩包文件名 #查看压缩包内文件 参考： https://blog.csdn.net/yonggeit/article/details/72190246]]></content>
+    <content type="text"><![CDATA[常用压缩格式： .zip .gz .bz2 常用解压缩格式： .tar.gz .tar.bz2 .rar格式安装123456#yum无法安装#查看需要下载的版本，https://www.rarlab.com/download.htmwget https://www.rarlab.com/rar/rarlinux-x64-5.6.b4.tar.gztar -zxvf rarlinux-x64-5.6.b4.tar.gzcd rarmake 压缩12#将/etc 目录压缩为etc.rar rar a etc.rar /etc 解压缩12rar x etc.rar unrar -e etc.tar .zip格式安装1yum -y install zip unzip 压缩1234zip 压缩文件名 源文件 #压缩文件zip -r 压缩文件名 源目录 #压缩目录 解压缩12345unzip 压缩文件unzip 压缩文件 -d 指定目录unzip -O cp936 压缩文件#解决文件名乱码 .gz格式压缩123456789gzip 源文件#压缩为.gz格式的压缩文件，源文件消失gzip -c 源文件 &gt; 压缩文件#压缩为.gz格式，源文件保留gzip -c cangls &gt; cangls.gzgzip -r 目录#压缩目录下所有的子文件，但是不能压缩目录 解压缩12gzip -d 压缩文件 gunzip 压缩文件 .bz2格式12yum -y install bzip2#使用之前需要安装 没有安装会出现以下错误1234tar (child): lbzip2: Cannot exec: No such file or directory tar (child): Error is not recoverable: exiting now tar: Child returned status 2 tar: Error is not recoverable: exiting now 压缩12345bzip2 源文件 #压缩文件，源文件消失bzip2 -k 源文件 #压缩之后保留源文件 #注意：bzip2命令不能压缩目录 解压缩12bzip2 -d 压缩文件 #解压缩，-k保留压缩文件bunzip2 压缩文件 #解压缩，-k保留压缩文件 打包命令tar123456789101112131415161718192021222324252627282930tar -cvf 打包文件名 源文件 # 压缩为tar格式tar -zcvf 压缩包名.tar.gz 源文件 # 压缩为.tar.gz格式tar -jcvf 压缩包名.tar.bz2 源文件 # 压缩为.tar.bz2格式**参数j、z要放在前边**#解压tartar -xvf 打包文件名 #解压tar格式文件tar -zxvf 压缩包名.tar.gz #解压.tar.gz格式文件tar -jxvf 压缩包名.tar.bz2 #解压.tar.bz2格式文件-c：打包-x：解打包-v：显示过程-f：指定打包后的文件名-z：压缩为.tar.gz格式-j：压缩为.tar.bz2格式其他用法tar -jxvf 打包文件名 -C 绝对路径 #指定解压缩位置tar -zcvf 绝对路径（/tmp/）+打包文件名 源文件 源文件 #将多个文件解压到指定路径tar -ztvf 压缩包文件名 #查看压缩包内文件 参考： https://blog.csdn.net/yonggeit/article/details/72190246]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -709,7 +733,7 @@
   <entry>
     <title><![CDATA[Linux文件管理01 文件处理命令]]></title>
     <url>%2F2018%2F05%2F05%2FLinux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件 命令提示符123456[root@localhost ~]#root 当前登录用户localhost 主机名~ 当前所在目录（家目录）# 超级用户的提示符$ 普通用户的提示符 命令的格式1234命令 [选项][参数]个别命令使用不遵循此格式当有多个选项时，可以写在一起简化选项与完整选项：-a == --all 路径 相对路径：参照当前所在目录，进行查找 绝对路径：从根目录开始制定，一级一级递归，进行查找 mkdir 建立目录（make directories）1234mkdir -p [目录名] -p ：递归创建，当创建多级目录时需加mkdir lightmkdir -p imooc/linux/light cd 切换目录（change directory）1234567cd [目录]简化操作cd：进入当前用户的家目录cd ~ ：进入当前用户的家目录cd - ：进入上次目录cd .. ：进入上一级目录cd . ：进入当前目录 pwd 查询所在目录位置（print working directory）rmdir 删除空目录（remove empty directories）12rmdir [目录名] #只能删除空目录 rm 删除文件或目录（remove）12345678910rm -rf [文件或目录] -r ：删除目录 -f ：强制rm [文件名] ：提示是否删除rm -r [目录] ：删除目录需加 -r ，目录中含有子文件，将持续询问是否删除rm -rf [目录] ：删除目录， 不会询问是否删除而直接进行# 纯字符界面没有回收站。注意自杀指令：rm -rf /rm -rf /tmp/* ：删除tmp目录下的内容rm -rf /tmp/ ：删除tmp目录# 建议：删除文件或目录习惯使用命令 rm -rf [文件或目录] cp 复制命令（copy）12345678910cp [选项] [原文件或目录] [目标目录] -r ：复制目录 -p ：连带文件属性复制 -d ：若原文件是链接文件，则复制链接属性 -a ：相当于 -pdr 全选cp abc /tmp/ 若目标目录不加文件名，则为原名复制cp abc /tmp/ana 若目标目录后加入文件名，则为改名复制cp -r japan/ /tmp/ 复制目录cp -a japan/ /tmp/ 完全复制，包括所有属性#被复制文件的时间为执行复制命令的时间，若要使被复制的文件与原文件属性完全一致，需加 -a mv 剪切或改名命令（move）123mv [原文件或目录] [目标目录] mv japan/ /tmp/ 剪切目录时不需加 -rmv abc longls 当原文件与目标目录，在同一目录下，则为改名命令]]></content>
+    <content type="text"><![CDATA[目录当前目录或工作目录主目录，家目录：HOMEroot: /root普通用户：/home/USERNAME/home/tom ~：用户的主目录 cd 切换目录（change directory）1234567891011cd [目录]简化操作cd：进入当前用户的家目录cd ~ ：进入当前用户的家目录cd - ：进入上次目录cd .. ：进入上一级目录cd . ：进入当前目录相关的环境变量：PWD：保存了当前目录路径OLDPWD：上一次所在目录路径 mkdir 建立目录（make directories）1234567mkdir [options] /path/to/somewhere-p ：存在时不报错，且可自动创建所需的各目录，当创建多级目录时需加-v: 显示详细信息-m MODE: 创建目录时直接指定权限mkdir lightmkdir -p imooc/linux/light rmdir 删除空目录（remove empty directories）123rmdir [OPTION]... DIRECTORY...-v: 显示过程#只能删除空目录 12345678#创建/tmp/x/y1, /tmp/x/y2, /tmp/x/y1/a, /tmp/x/y1/b, /tmp/x/y2/a, /tmp/x/y2/bmkdir /tmp/x/&#123;y1,y2&#125;/&#123;a,b&#125; #创建x_m, y_m, x_n, y_nmkdir &#123;x,y&#125;_&#123;m,n&#125;#创建/tmp/bin, /tmp/sbin, /tmp/usr, /tmp/usr/bin, /tmp/usr/sbinmkdir -p /tmp/&#123;bin,sbin,usr/&#123;bin,sbin&#125;&#125; 文件rm 删除文件或目录（remove）12345678910rm -rf [文件或目录] -r ：删除目录 -f ：强制rm [文件名] ：提示是否删除rm -r [目录] ：删除目录需加 -r ，目录中含有子文件，将持续询问是否删除rm -rf [目录] ：删除目录， 不会询问是否删除而直接进行# 纯字符界面没有回收站。注意自杀指令：rm -rf /rm -rf /tmp/* ：删除tmp目录下的内容rm -rf /tmp/ ：删除tmp目录# 建议：删除文件或目录习惯使用命令 rm -rf [文件或目录] cp 复制命令（copy）12345678910cp [选项] [原文件或目录] [目标目录] -r ：复制目录 -p ：连带文件属性复制 -d ：若原文件是链接文件，则复制链接属性 -a ：相当于 -pdr 全选cp abc /tmp/ 若目标目录不加文件名，则为原名复制cp abc /tmp/ana 若目标目录后加入文件名，则为改名复制cp -r japan/ /tmp/ 复制目录cp -a japan/ /tmp/ 完全复制，包括所有属性#被复制文件的时间为执行复制命令的时间，若要使被复制的文件与原文件属性完全一致，需加 -a mv 剪切或改名命令（move）123mv [原文件或目录] [目标目录] mv japan/ /tmp/ 剪切目录时不需加 -rmv abc longls 当原文件与目标目录，在同一目录下，则为改名命令]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -894,6 +918,14 @@
     <title><![CDATA[Linux 命令的分类]]></title>
     <url>%2F2018%2F04%2F25%2FLinux-%E5%91%BD%E4%BB%A4%E7%9A%84%E5%88%86%E7%B1%BB%2F</url>
     <content type="text"><![CDATA[命令的分类 shell内部命令 外部命令，可执行程序，C、C++、shell、perl、python、ruby等，二进制文件、脚本文件，shell程序搜寻可执行程序文件的路径定义在$PATH环境变量中，自左至右搜寻 shell函数，环境变量中 命令别名 type 查看命令类型1type 命令名 which 显示一个外部命令的位置123which 命令名#不能看到命令的别名#不能看到shell内部命令 whereis 显示外部命令所在路径及帮助文档所在位置1234567whereis 命令名选项：-b:只查找可执行文件-m:只查找帮助文件#只能搜索系统命令，不能搜索自己凭空创建的普通文件#whereis不能看到shell内部命令（如：cd），只能看到外部安装的命令 whatis 查询一个命令执行什么功能123whatis 命令名whatis ls 显示ls的作用 apropos 通过关键字搜索命令123apropos 关键字#和man -k一样]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 命令]]></title>
+    <url>%2F2018%2F04%2F25%2FLinux-%E5%91%BD%E4%BB%A4%E5%92%8C%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%2F</url>
+    <content type="text"><![CDATA[命令提示符123456789[root@localhost ~]#root 当前登录用户localhost 主机名~ 当前所在目录（家目录）# 超级用户的提示符$ 普通用户的提示符环境变量 $PS1 命令的格式12345678910111213COMMAND [OPTIONS...] [ARGUMENTS...]选项：用于启用或关闭命令的某个或某些功能； 短选项：-c, 例如：-l, -h 多个短选项可以写在一起，例如-l -h, 可写作-lh； 长选项：--word，例如：--long, --human-readable参数：命令的作用对象 向命令提供数据；注意：1、多选项，以及多参数和命令之间都应该使用空白字符分隔2、取消命令执行：Ctrl+c个别命令使用不遵循此格式 输入命令，回车：提请shell程序找到键入命令所对应的可执行程序或代码，并由其分析后提交给内核分配资源将其运行起来；表现为一个或多个进程； 在shell中可执行的命令有两类：内建命令：由shell自带的，而且通过某命令形式提供；外部命令：在当前系统的某文件系统路径下有对应的可执行程序文件；which，whereis 用于查找并显示给定命令的绝对路径123456type COMMAND#区别内部或外部命令例子：[xxl@localhost ~]$ type pwdpwd 是 shell 内嵌[xxl@localhost ~]$ type mkdirmkdir 是 /usr/bin/mkdir 路径 相对路径：从当前位置起始的路径 绝对路径：从根目录起始的路径 当前位置的表示方式：(1) ./： ./sysconfig/network-scripts(2) 省略上述符号: sysconfig/network-scripts ..：表示当前目录的上一级目录 当前目录：current directory, 也称作working directory；用.表示pwd: printing working directory 打印当前目录]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>

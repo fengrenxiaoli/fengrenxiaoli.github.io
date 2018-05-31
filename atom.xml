@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-05T03:11:59.409Z</updated>
+  <updated>2018-05-31T13:41:34.424Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,17 +16,67 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Linux 专题导航</title>
-    <link href="http://yoursite.com/2018/06/05/Linux-%E4%B8%93%E9%A2%98%E5%AF%BC%E8%88%AA/"/>
-    <id>http://yoursite.com/2018/06/05/Linux-专题导航/</id>
-    <published>2018-06-05T03:09:32.000Z</published>
-    <updated>2018-05-05T03:11:59.409Z</updated>
+    <title>Linux 文件系统</title>
+    <link href="http://yoursite.com/2018/05/31/Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://yoursite.com/2018/05/31/Linux-文件系统/</id>
+    <published>2018-05-31T13:41:34.424Z</published>
+    <updated>2018-05-31T13:41:34.424Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><h2 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h2><h2 id="软件管理"><a href="#软件管理" class="headerlink" title="软件管理"></a>软件管理</h2><h2 id="网络管理"><a href="#网络管理" class="headerlink" title="网络管理"></a>网络管理</h2><h2 id="服务管理"><a href="#服务管理" class="headerlink" title="服务管理"></a>服务管理</h2><h2 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h2>]]></content>
+    <content type="html"><![CDATA[<p>linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件<br>文件系统：<br>Windows里面是这样的：C:\Program files\office11\word\word.exe<br>Linux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0</p>
+<p>文件有两类数据：<br>元数据：metadata  元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。<br>数据：data  数据是指普通文件中的实际数据。</p>
+<p>1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；<br>2、文件名可使用除/以外的任意字符，不建议使用特殊字符；  /: 表示根目录，也用做路径分隔符；<br>3、文件名长度最长不能超过255个字符；<br>4、所以.开头的文件，均为隐藏文件；</p>
+<p>LSB: Linux Standard Base Linux标准库</p>
+]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;文件管理&quot;&gt;&lt;a href=&quot;#文件管理&quot; class=&quot;headerlink&quot; title=&quot;文件管理&quot;&gt;&lt;/a&gt;文件管理&lt;/h2&gt;&lt;h2 id=&quot;权限管理&quot;&gt;&lt;a href=&quot;#权限管理&quot; class=&quot;headerlink&quot; title=&quot;权限管理&quot;&gt;&lt;/a
+      &lt;p&gt;linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件&lt;br&gt;文件系统：&lt;br&gt;Windows里面是这样的：C:\Program files\office11\word\word.exe&lt;br&gt;Linux里面是这样的：/etc/sysconfig
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 时间戳管理</title>
+    <link href="http://yoursite.com/2018/05/31/Linux-%E6%97%B6%E9%97%B4%E6%88%B3%E7%AE%A1%E7%90%86/"/>
+    <id>http://yoursite.com/2018/05/31/Linux-时间戳管理/</id>
+    <published>2018-05-31T13:06:20.000Z</published>
+    <updated>2018-05-31T13:44:52.708Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="stat-查看时间戳"><a href="#stat-查看时间戳" class="headerlink" title="stat 查看时间戳"></a>stat 查看时间戳</h2><p>文件：metadata, data<br>查看文件状态：<code>stat</code></p>
+<p>三个时间戳：<br>access time：（文档最后一次）访问时间，简写为atime，读取文件内容<br>modify time: 修改时间, mtime，改变文件内容（数据）<br>change time: 改变时间, ctime，元数据发生改变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Access - the last time the file was read</div><div class="line">Modify - the last time the file was modified (content has been modified)</div><div class="line">Change - the last time meta data of the file was changed (e.g. permissions)</div></pre></td></tr></table></figure>
+<h2 id="touch-修改时间戳"><a href="#touch-修改时间戳" class="headerlink" title="touch 修改时间戳"></a>touch 修改时间戳</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">touch [OPTION]... FILE...</div><div class="line">-a: only atime</div><div class="line">-m: only mtime</div><div class="line">-t STAMP:</div><div class="line">    [[CC]YY]MMDDhhmm[.ss]</div><div class="line">-c: 如果文件不存，则不予创建</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;stat-查看时间戳&quot;&gt;&lt;a href=&quot;#stat-查看时间戳&quot; class=&quot;headerlink&quot; title=&quot;stat 查看时间戳&quot;&gt;&lt;/a&gt;stat 查看时间戳&lt;/h2&gt;&lt;p&gt;文件：metadata, data&lt;br&gt;查看文件状态：&lt;code&gt;stat
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 命令补全和路径补全</title>
+    <link href="http://yoursite.com/2018/05/31/Linux-%E5%91%BD%E4%BB%A4%E8%A1%A5%E5%85%A8%E5%92%8C%E8%B7%AF%E5%BE%84%E8%A1%A5%E5%85%A8/"/>
+    <id>http://yoursite.com/2018/05/31/Linux-命令补全和路径补全/</id>
+    <published>2018-05-31T12:57:02.000Z</published>
+    <updated>2018-05-31T14:35:56.673Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="命令补全"><a href="#命令补全" class="headerlink" title="命令补全"></a>命令补全</h2><p>bash执行命令<br>内部命令<br>外部命令：bash根据PATH环境变量定义的路径，自左而右在每个路径搜寻以给定命令名命名的文件，第一次找到即为要执行的命令</p>
+<p>直接补全：Tab，用户给定的字符串只有一条惟一对应的命令<br>以用户给定的字符串为开头对应的命令不惟一，则再次Tab会给出列表</p>
+<h2 id="路径补全"><a href="#路径补全" class="headerlink" title="路径补全"></a>路径补全</h2><p>把用户给出的字符串当做路径开头，并在其指定上级目录下搜索以指定的字符串开头的文件名<br>如果惟一，则直接补全<br>否则，再次Tab，给出列表</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;命令补全&quot;&gt;&lt;a href=&quot;#命令补全&quot; class=&quot;headerlink&quot; title=&quot;命令补全&quot;&gt;&lt;/a&gt;命令补全&lt;/h2&gt;&lt;p&gt;bash执行命令&lt;br&gt;内部命令&lt;br&gt;外部命令：bash根据PATH环境变量定义的路径，自左而右在每个路径搜寻以给定命令名
     
     </summary>
     
@@ -98,13 +148,16 @@
     <link href="http://yoursite.com/2018/05/28/Shell-echo%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/05/28/Shell-echo命令/</id>
     <published>2018-05-28T06:26:25.000Z</published>
-    <updated>2018-05-28T06:26:37.793Z</updated>
+    <updated>2018-05-31T12:53:24.425Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="echo命令"><a href="#echo命令" class="headerlink" title="echo命令"></a>echo命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">echo [选项] [输出内容]</div><div class="line"></div><div class="line">选项： -e：支持反斜线控制的字符转义</div><div class="line"></div><div class="line">内容转义</div><div class="line">\a - 输出警告音</div><div class="line">\b - 退格符</div><div class="line">\n - 换行符</div><div class="line">\r - 回车键</div><div class="line">\t - 制表符，也就是tab键</div><div class="line">\v - 垂直制表符</div><div class="line">\0nnn - 按照八进制ASCII码输出字符</div><div class="line">\xhh - 按照十六进制ASCII表输出字符</div><div class="line"></div><div class="line">输出带颜色的内容 </div><div class="line">echo -e &quot;\e[1;31m文字\e[0m&quot;</div><div class="line">#输出颜色 \e[1;##m - 开启颜色显示； \e[0m - 关闭颜色显示</div><div class="line">#30m=黑色，31m=红色，32m=绿色，33m=黄色</div><div class="line">#34m=蓝色，35m=洋红，36m=青色，37m=白色</div></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="echo-回显命令"><a href="#echo-回显命令" class="headerlink" title="echo 回显命令"></a>echo 回显命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">echo [选项] [输出内容]</div><div class="line"></div><div class="line">选项： </div><div class="line">-e：允许使用转义符</div><div class="line">-n: 禁止自动添加换行符号</div><div class="line"></div><div class="line">内容转义</div><div class="line">\a - 输出警告音</div><div class="line">\b - 退格符</div><div class="line">\n - 换行符</div><div class="line">\r - 回车键</div><div class="line">\t - 制表符，也就是tab键</div><div class="line">\v - 垂直制表符</div><div class="line">\0nnn - 按照八进制ASCII码输出字符</div><div class="line">\xhh - 按照十六进制ASCII表输出字符</div><div class="line"></div><div class="line">输出带颜色的内容 </div><div class="line">echo -e &quot;\e[1;31m文字\e[0m&quot;</div><div class="line">#输出颜色 \e[1;##m - 开启颜色显示； \e[0m - 关闭颜色显示</div><div class="line">#30m=黑色，31m=红色，32m=绿色，33m=黄色</div><div class="line">#34m=蓝色，35m=洋红，36m=青色，37m=白色</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo &quot;$VAR_NAME&quot;: 变量会替换，双引号表弱引用</div><div class="line">echo &apos;$VAR_NAME&apos;: 变量不会替换，强引用</div></pre></td></tr></table></figure>
+<p>参考：Shell引号</p>
+]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;echo命令&quot;&gt;&lt;a href=&quot;#echo命令&quot; class=&quot;headerlink&quot; title=&quot;echo命令&quot;&gt;&lt;/a&gt;echo命令&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
+      &lt;h2 id=&quot;echo-回显命令&quot;&gt;&lt;a href=&quot;#echo-回显命令&quot; class=&quot;headerlink&quot; title=&quot;echo 回显命令&quot;&gt;&lt;/a&gt;echo 回显命令&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
     
     </summary>
     
@@ -144,7 +197,7 @@
     <link href="http://yoursite.com/2018/05/28/Shell%E5%B1%95%E5%BC%80/"/>
     <id>http://yoursite.com/2018/05/28/Shell展开/</id>
     <published>2018-05-28T05:38:30.000Z</published>
-    <updated>2018-05-28T06:22:36.174Z</updated>
+    <updated>2018-05-31T12:48:35.011Z</updated>
     
     <content type="html"><![CDATA[<p>输入的字符在shell起作用前会展开成为别的字符</p>
 <ul>
@@ -1000,262 +1053,6 @@ color:white
     
     
       <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell条件判断 条件判断式</title>
-    <link href="http://yoursite.com/2018/05/24/Shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%BC%8F/"/>
-    <id>http://yoursite.com/2018/05/24/Shell条件判断-条件判断式/</id>
-    <published>2018-05-24T13:42:14.000Z</published>
-    <updated>2018-05-24T14:04:51.258Z</updated>
-    
-    <content type="html"><![CDATA[<style>
-table th:nth-of-type(1){
-width: 20%;
-}
-table th:nth-of-type(2){
-width: 80%;
-}
-
-</style>
-
-<p><strong>引用变量要加””</strong></p>
-<h2 id="按文件类型判断"><a href="#按文件类型判断" class="headerlink" title="按文件类型判断"></a>按文件类型判断</h2><table>
-<thead>
-<tr>
-<th>测试选项</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-b</td>
-<td>判断该文件是否存在，并且是否为块设备文件（是为真）</td>
-</tr>
-<tr>
-<td>-c</td>
-<td>判断该文件是否存在，并且是否为字符设备文件（是为真）</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>判断该文件是否存在，并且是否为目录文件（是为真）</td>
-</tr>
-<tr>
-<td>-e</td>
-<td>判断该文件是否存在（存在为真）</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>判断该文件是否存在，并且是否为普通文件（是为真）</td>
-</tr>
-<tr>
-<td>-L</td>
-<td>判断该文件是否存在，并且是否为符号链接文件（是为真）</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>判断该文件是否存在，并且是否为管道文件（是为真）</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>判断该文件是否存在，并且是否为非空（非空为真）</td>
-</tr>
-<tr>
-<td>-S</td>
-<td>判断该文件是否存在，并且是否为套接字文件（是为真）</td>
-</tr>
-</tbody>
-</table>
-<h4 id="两种判断格式"><a href="#两种判断格式" class="headerlink" title="两种判断格式"></a>两种判断格式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[-e /root/install.log]      #常用</div><div class="line">test -e /root/install.log</div></pre></td></tr></table></figure>
-<p>[-e /root/install.log] &amp;&amp; echo yes || echo no<br>第一个判断命令如果正确执行，则打印yes，否则打印no<br>&amp;&amp; 和 || 不可以调换位置</p>
-<p><br></p>
-<h2 id="按文件权限判断"><a href="#按文件权限判断" class="headerlink" title="按文件权限判断"></a>按文件权限判断</h2><table>
-<thead>
-<tr>
-<th>测试选项</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-r</td>
-<td>判断该文件是否存在，并且是否该文件拥有读权限（有为真）</td>
-</tr>
-<tr>
-<td>-w</td>
-<td>判断该文件是否存在，并且是否该文件拥有写权限（有为真）</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>判断该文件是否存在，并且是否该文件拥有执行权限（有为真）</td>
-</tr>
-<tr>
-<td>-u</td>
-<td>判断该文件是否存在，并且是否该文件拥有SUID权限（有为真）</td>
-</tr>
-<tr>
-<td>-g</td>
-<td>判断该文件是否存在，并且是否该文件拥有SGID权限（有为真）</td>
-</tr>
-<tr>
-<td>-k</td>
-<td>判断该文件是否存在，并且是否该文件拥有SBit权限（有为真）</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2 id="两个文件之间的比较"><a href="#两个文件之间的比较" class="headerlink" title="两个文件之间的比较"></a>两个文件之间的比较</h2><table>
-<thead>
-<tr>
-<th>测试选项</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>file1 -nt file2</td>
-<td>判断文件1的修改时间是否比文件2的新(如果新则为真)</td>
-</tr>
-<tr>
-<td>file1 -ot file2</td>
-<td>判断文件1的修改时间是否比文件2的旧(如果旧则为真)</td>
-</tr>
-<tr>
-<td>file1 -ef file2</td>
-<td>判断文件1是否比文件2的Inode号一致，可以理解为两个文件是否为同一个文件。这个判断用于判断硬链接是很好的办法</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2 id="两个整数之间的比较"><a href="#两个整数之间的比较" class="headerlink" title="两个整数之间的比较"></a>两个整数之间的比较</h2><table>
-<thead>
-<tr>
-<th>测试选项</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>num1 -eq num2</td>
-<td>判断整数1是否和整数2相等(相等为真)</td>
-</tr>
-<tr>
-<td>num1 -ne num2</td>
-<td>判断整数1是否和整数2不相等(不相等为真)</td>
-</tr>
-<tr>
-<td>num1 -gt num2</td>
-<td>判断整数1是否大于整数2(大于为真)</td>
-</tr>
-<tr>
-<td>num1 -lt num2</td>
-<td>判断整数1是否小于整数2(小于为真)</td>
-</tr>
-<tr>
-<td>num1 -ge num2</td>
-<td>判断整数1是否大于或等于整数2(大于等于为真)</td>
-</tr>
-<tr>
-<td>num1 -le num2</td>
-<td>判断整数1是否小于或等于整数2(小于等于为真)</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2 id="字符串的判断"><a href="#字符串的判断" class="headerlink" title="字符串的判断"></a>字符串的判断</h2><table>
-<thead>
-<tr>
-<th>测试选项</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-z 字符串</td>
-<td>判断字符串是否为空，为空返回真</td>
-</tr>
-<tr>
-<td>-n 字符串</td>
-<td>判断字符串是否为非空，非空返回真</td>
-</tr>
-<tr>
-<td>字符串1 == 字符串2</td>
-<td>判断两字符串是否相等，相等返回真，==左右加空格</td>
-</tr>
-<tr>
-<td>字符串1 != 字符串2</td>
-<td>判断两字符串是否不相等，不相等返回真，!=左右加空格</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2 id="多重条件判断"><a href="#多重条件判断" class="headerlink" title="多重条件判断"></a>多重条件判断</h2><table>
-<thead>
-<tr>
-<th>测试选项</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>判断1 -a 判断2</td>
-<td>#逻辑与，判断1和判断2都成立，结果为真</td>
-</tr>
-<tr>
-<td>判断1 -o 判断2</td>
-<td>#逻辑或，判断1和判断2有一个成立，结果就为真</td>
-</tr>
-<tr>
-<td>!判断</td>
-<td>#逻辑非，判断结果取反</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[-n &quot;$a&quot; -a &quot;$a&quot; -gt 23]</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;style&gt;
-table th:nth-of-type(1){
-width: 20%;
-}
-table th:nth-of-type(2){
-width: 80%;
-}
-
-&lt;/style&gt;
-
-&lt;p&gt;&lt;strong&gt;引用变量要加””&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;按文
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux DNS搭建 Bind服务</title>
-    <link href="http://yoursite.com/2018/05/24/Linux-DNS%E6%90%AD%E5%BB%BA-Bind%E6%9C%8D%E5%8A%A1/"/>
-    <id>http://yoursite.com/2018/05/24/Linux-DNS搭建-Bind服务/</id>
-    <published>2018-05-24T13:37:47.000Z</published>
-    <updated>2018-05-27T09:54:45.858Z</updated>
-    
-    <content type="html"><![CDATA[<p>Centos<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install bind  bind-utils</div><div class="line"></div><div class="line">#centos默认的安装是没有host，dig，nsloopup等命令的，需要安装bind-utils</div></pre></td></tr></table></figure></p>
-<p>Ubuntu<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install bind9</div></pre></td></tr></table></figure></p>
-<p><a href="https://www.phpini.com/linux/fix-nslookup-dig-host-command-not-found" target="_blank" rel="external">https://www.phpini.com/linux/fix-nslookup-dig-host-command-not-found</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Centos&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class
-    
-    </summary>
-    
-    
-      <category term="Linux应用" scheme="http://yoursite.com/tags/Linux%E5%BA%94%E7%94%A8/"/>
     
   </entry>
   
