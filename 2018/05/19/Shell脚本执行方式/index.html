@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="脚本执行：123456方法1：赋予执行权限，直接运行chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh）方法2：通过Bash调用执行脚本bash hello.sh 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash运行是没问题的，但如果脚本调">
+<meta name="description" content="方法1：赋予执行权限，直接运行12chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh） 方法2：通过Bash调用执行脚本1bash hello.sh 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash运行是没问题的，但如果脚本调用了其他语言，">
 <meta name="keywords" content="Shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell脚本执行方式">
 <meta property="og:url" content="http://yoursite.com/2018/05/19/Shell脚本执行方式/index.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="脚本执行：123456方法1：赋予执行权限，直接运行chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh）方法2：通过Bash调用执行脚本bash hello.sh 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash运行是没问题的，但如果脚本调">
+<meta property="og:description" content="方法1：赋予执行权限，直接运行12chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh） 方法2：通过Bash调用执行脚本1bash hello.sh 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash运行是没问题的，但如果脚本调用了其他语言，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-19T02:38:59.996Z">
+<meta property="og:updated_time" content="2018-05-28T06:26:55.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell脚本执行方式">
-<meta name="twitter:description" content="脚本执行：123456方法1：赋予执行权限，直接运行chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh）方法2：通过Bash调用执行脚本bash hello.sh 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash运行是没问题的，但如果脚本调">
+<meta name="twitter:description" content="方法1：赋予执行权限，直接运行12chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh） 方法2：通过Bash调用执行脚本1bash hello.sh 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash运行是没问题的，但如果脚本调用了其他语言，">
 
 
 
@@ -320,9 +320,10 @@
       
 
       
-        <h2 id="脚本执行："><a href="#脚本执行：" class="headerlink" title="脚本执行："></a>脚本执行：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">方法1：赋予执行权限，直接运行</div><div class="line">chmod 755 hello.sh</div><div class="line">./hello.sh（或者绝对路径执行 /root/hello.sh）</div><div class="line"></div><div class="line">方法2：通过Bash调用执行脚本</div><div class="line">bash hello.sh</div></pre></td></tr></table></figure>
+        <p>方法1：赋予执行权限，直接运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chmod 755 hello.sh</div><div class="line">./hello.sh（或者绝对路径执行 /root/hello.sh）</div></pre></td></tr></table></figure></p>
+<p>方法2：通过Bash调用执行脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash hello.sh</div></pre></td></tr></table></figure></p>
 <p>在shell脚本中<code>#!/bin/Bash</code>不是注释，它标称下面的内容是linux的标准脚本程序<br>如果该脚本使用纯shell语句完成，不加<code>#!/bin/Bash</code>运行是没问题的，但如果脚本调用了其他语言，就会报错</p>
-<h2 id="echo命令"><a href="#echo命令" class="headerlink" title="echo命令"></a>echo命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">echo [选项] [输出内容]</div><div class="line"></div><div class="line">选项： -e：支持反斜线控制的字符转换</div><div class="line"></div><div class="line">内容转义</div><div class="line">\a - 输出警告音</div><div class="line">\b - 退格符</div><div class="line">\n - 换行符</div><div class="line">\r - 回车键</div><div class="line">\t - 制表符，也就是tab键</div><div class="line">\v - 垂直制表符</div><div class="line">\0nnn - 按照八进制ASCII码输出字符</div><div class="line">\xhh - 按照十六进制ASCII表输出字符</div><div class="line"></div><div class="line">输出带颜色的内容 </div><div class="line">echo -e &quot;\e[1;31m文字\e[0m&quot;</div><div class="line">#输出颜色 \e[1;##m - 开启颜色显示； \e[0m - 关闭颜色显示</div><div class="line">#30m=黑色，31m=红色，32m=绿色，33m=黄色</div><div class="line">#34m=蓝色，35m=洋红，36m=青色，37m=白色</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -416,17 +417,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -441,7 +433,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">126</span>
+                  <span class="site-state-item-count">128</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -484,22 +476,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本执行："><span class="nav-number">1.</span> <span class="nav-text">脚本执行：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#echo命令"><span class="nav-number">2.</span> <span class="nav-text">echo命令</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -79,15 +79,18 @@
 
 
 
+<meta name="description" content="输入的字符在shell起作用前会展开成为别的字符  路径展开 波浪号展开 算术表达式展开 花括号展开 参数展开 命令替换 单词分割   ##路径展开12345ls echo *      #不显示隐藏文件echo D*echo *secho /usr/*/bin  ##波浪号展开~会展开成为家目录1ls ~  ##算术表达式展开通过这种方式进行算术运算12echo $((2+2))echo $((">
 <meta name="keywords" content="Shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell展开">
 <meta property="og:url" content="http://yoursite.com/2018/05/28/Shell展开/index.html">
 <meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="输入的字符在shell起作用前会展开成为别的字符  路径展开 波浪号展开 算术表达式展开 花括号展开 参数展开 命令替换 单词分割   ##路径展开12345ls echo *      #不显示隐藏文件echo D*echo *secho /usr/*/bin  ##波浪号展开~会展开成为家目录1ls ~  ##算术表达式展开通过这种方式进行算术运算12echo $((2+2))echo $((">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-28T05:38:42.522Z">
+<meta property="og:updated_time" content="2018-05-28T06:22:36.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell展开">
+<meta name="twitter:description" content="输入的字符在shell起作用前会展开成为别的字符  路径展开 波浪号展开 算术表达式展开 花括号展开 参数展开 命令替换 单词分割   ##路径展开12345ls echo *      #不显示隐藏文件echo D*echo *secho /usr/*/bin  ##波浪号展开~会展开成为家目录1ls ~  ##算术表达式展开通过这种方式进行算术运算12echo $((2+2))echo $((">
 
 
 
@@ -317,7 +320,33 @@
       
 
       
-        
+        <p>输入的字符在shell起作用前会展开成为别的字符</p>
+<ul>
+<li>路径展开</li>
+<li>波浪号展开</li>
+<li>算术表达式展开</li>
+<li>花括号展开</li>
+<li>参数展开</li>
+<li>命令替换</li>
+<li>单词分割</li>
+</ul>
+<p><br></p>
+<p>##路径展开<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ls </div><div class="line">echo *      #不显示隐藏文件</div><div class="line">echo D*</div><div class="line">echo *s</div><div class="line">echo /usr/*/bin</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>##波浪号展开<br><code>~</code>会展开成为家目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls ~</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>##算术表达式展开<br>通过这种方式进行算术运算<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo $((2+2))</div><div class="line">echo $(($a+$b))</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>##花括号展开<br>可以从一个花括号的模式中创建多个字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">echo front-&#123;a,b,1&#125;-end</div><div class="line">front-a-end front-b-end front-1-end</div><div class="line"></div><div class="line">echo Number_&#123;1..5&#125;</div><div class="line">echo &#123;Z..A&#125;</div><div class="line">echo &#123;A&#123;1,2&#125;,B&#123;3,4&#125;&#125;</div><div class="line">mkdir &#123;2007..2009&#125;-0&#123;1,9&#125; &#123;2007..2009&#125;-&#123;10..12&#125;</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>##参数展开<br>即shell变量，多用于shell脚本</p>
+<p><br></p>
+<p>##命令替换</p>
+<p>把一个命令的输出作为作为一个展开<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">echo $(ls)</div><div class="line">files=$(ls)</div><div class="line"></div><div class="line">echo `ls`</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="单词分割"><a href="#单词分割" class="headerlink" title="单词分割"></a>单词分割</h2><p>在默认情况下，单词分割机制会在单词中寻找空格、制表符和换行符，并把它们看作单词之间的界定符，它们只作为分隔符使用。所以不要用包含空格的名字命名文件unless you really know what you do</p>
+<p>补充：<br><a href="https://www.jianshu.com/p/403f3554e2c1" target="_blank" rel="external">https://www.jianshu.com/p/403f3554e2c1</a></p>
+
       
     </div>
     
@@ -357,8 +386,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/28/bash-info/" rel="prev" title="BASH info">
-                BASH info <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/28/Shell引号/" rel="prev" title="Shell引号">
+                Shell引号 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -411,8 +440,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -427,7 +465,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">126</span>
+                  <span class="site-state-item-count">128</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -470,6 +508,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单词分割"><span class="nav-number">1.</span> <span class="nav-text">单词分割</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
