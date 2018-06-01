@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="太阳落下" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="目录当前目录或工作目录主目录，家目录：HOMEroot: /root普通用户：/home/USERNAME/home/tom ~：用户的主目录 cd 切换目录（change directory）1234567891011cd [目录]简化操作cd：进入当前用户的家目录cd ~ ：进入当前用户的家目录cd - ：进入上次目录cd .. ：进入上一级目录cd . ：进入当前目录相关的环境变量：PWD：">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux文件管理01 文件处理命令">
+<meta property="og:url" content="http://yoursite.com/post/19cc11d8.html">
+<meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="目录当前目录或工作目录主目录，家目录：HOMEroot: /root普通用户：/home/USERNAME/home/tom ~：用户的主目录 cd 切换目录（change directory）1234567891011cd [目录]简化操作cd：进入当前用户的家目录cd ~ ：进入当前用户的家目录cd - ：进入上次目录cd .. ：进入上一级目录cd . ：进入当前目录相关的环境变量：PWD：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-01T04:56:22.884Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux文件管理01 文件处理命令">
+<meta name="twitter:description" content="目录当前目录或工作目录主目录，家目录：HOMEroot: /root普通用户：/home/USERNAME/home/tom ~：用户的主目录 cd 切换目录（change directory）1234567891011cd [目录]简化操作cd：进入当前用户的家目录cd ~ ：进入当前用户的家目录cd - ：进入上次目录cd .. ：进入上一级目录cd . ：进入当前目录相关的环境变量：PWD：">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/post/19cc11d8.html"/>
+
+
+
+
+
+  <title>Linux文件管理01 文件处理命令 | 太阳落下</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">太阳落下</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/19cc11d8.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux文件管理01 文件处理命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T11:38:20+08:00">
+                2018-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>当前目录或工作目录<br>主目录，家目录：HOME<br>root: /root<br>普通用户：/home/USERNAME<br>/home/tom</p>
+<p>~：用户的主目录</p>
+<h3 id="cd-切换目录（change-directory）"><a href="#cd-切换目录（change-directory）" class="headerlink" title="cd 切换目录（change directory）"></a>cd 切换目录（change directory）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cd [目录]</div><div class="line">简化操作</div><div class="line">cd：进入当前用户的家目录</div><div class="line">cd ~ ：进入当前用户的家目录</div><div class="line">cd - ：进入上次目录</div><div class="line">cd .. ：进入上一级目录</div><div class="line">cd . ：进入当前目录</div><div class="line"></div><div class="line">相关的环境变量：</div><div class="line">PWD：保存了当前目录路径</div><div class="line">OLDPWD：上一次所在目录路径</div></pre></td></tr></table></figure>
+<h3 id="mkdir-建立目录（make-directories）"><a href="#mkdir-建立目录（make-directories）" class="headerlink" title="mkdir  建立目录（make directories）"></a>mkdir  建立目录（make directories）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mkdir [options] /path/to/somewhere</div><div class="line">-p ：存在时不报错，且可自动创建所需的各目录，当创建多级目录时需加</div><div class="line">-v: 显示详细信息</div><div class="line">-m MODE: 创建目录时直接指定权限</div><div class="line"></div><div class="line">mkdir light</div><div class="line">mkdir -p imooc/linux/light</div></pre></td></tr></table></figure>
+<h3 id="rmdir-删除空目录（remove-empty-directories）"><a href="#rmdir-删除空目录（remove-empty-directories）" class="headerlink" title="rmdir 删除空目录（remove empty directories）"></a>rmdir 删除空目录（remove empty directories）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rmdir [OPTION]... DIRECTORY...</div><div class="line">-v: 显示过程</div><div class="line">#只能删除空目录</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#创建/tmp/x/y1, /tmp/x/y2, /tmp/x/y1/a, /tmp/x/y1/b, /tmp/x/y2/a, /tmp/x/y2/b</div><div class="line">mkdir /tmp/x/&#123;y1,y2&#125;/&#123;a,b&#125;      </div><div class="line"></div><div class="line">#创建x_m, y_m, x_n, y_n</div><div class="line">mkdir &#123;x,y&#125;_&#123;m,n&#125;</div><div class="line"></div><div class="line">#创建/tmp/bin, /tmp/sbin, /tmp/usr, /tmp/usr/bin, /tmp/usr/sbin</div><div class="line">mkdir -p /tmp/&#123;bin,sbin,usr/&#123;bin,sbin&#125;&#125;</div></pre></td></tr></table></figure>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="rm-删除文件或目录（remove）"><a href="#rm-删除文件或目录（remove）" class="headerlink" title="rm 删除文件或目录（remove）"></a>rm 删除文件或目录（remove）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">rm -rf [文件或目录] </div><div class="line">    -r ：删除目录</div><div class="line">    -f ：强制</div><div class="line">rm [文件名] ：提示是否删除</div><div class="line">rm -r [目录] ：删除目录需加 -r ，目录中含有子文件，将持续询问是否删除</div><div class="line">rm -rf [目录] ：删除目录， 不会询问是否删除而直接进行</div><div class="line"># 纯字符界面没有回收站。注意自杀指令：rm -rf /</div><div class="line">rm -rf /tmp/* ：删除tmp目录下的内容</div><div class="line">rm -rf /tmp/  ：删除tmp目录</div><div class="line"># 建议：删除文件或目录习惯使用命令 rm -rf [文件或目录]</div></pre></td></tr></table></figure>
+<h3 id="cp-复制命令（copy）"><a href="#cp-复制命令（copy）" class="headerlink" title="cp 复制命令（copy）"></a>cp 复制命令（copy）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">cp [选项] [原文件或目录] [目标目录] </div><div class="line">    -r ：复制目录</div><div class="line">    -p ：连带文件属性复制</div><div class="line">    -d ：若原文件是链接文件，则复制链接属性</div><div class="line">    -a ：相当于 -pdr 全选</div><div class="line">cp abc /tmp/ 若目标目录不加文件名，则为原名复制</div><div class="line">cp abc /tmp/ana 若目标目录后加入文件名，则为改名复制</div><div class="line">cp -r japan/ /tmp/ 复制目录</div><div class="line">cp -a japan/ /tmp/ 完全复制，包括所有属性</div><div class="line">#被复制文件的时间为执行复制命令的时间，若要使被复制的文件与原文件属性完全一致，需加 -a</div></pre></td></tr></table></figure>
+<!-- <table>
+  <tr>
+    <th colspan="2" rowspan="3"></th>
+    <th colspan="5">目标</th>
+  </tr>
+  <tr>
+    <td rowspan="2">目标文件不存在</td>
+    <td rowspan="2">目标目录不存在</td>
+    <td rowspan="2">文件</td>
+    <td colspan="2">目录</td>
+  </tr>
+  <tr>
+    <td>不存在同名</td>
+    <td>存在同名</td>
+  </tr>
+  <tr>
+    <td rowspan="2">源</td>
+    <td>文件</td>
+    <td>创建目标文件，将源文件内容复制到目标文件</td>
+    <td>报错，先使用mkdir创建目标目录</td>
+    <td>覆盖</td>
+    <td>新建同名文件<br><br></td>
+    <td>覆盖</td>
+  </tr>
+  <tr>
+    <td>目录</td>
+    <td>报错</td>
+    <td>创建目标目录，将源目录中的文件复制到目标目录</td>
+    <td>报错</td>
+    <td>新建同名目录</td>
+    <td>覆盖</td>
+  </tr>
+</table> -->
+<table><tr><th colspan="2" rowspan="3"></th><th colspan="5">目标</th></tr><tr><td rowspan="2">目标文件不存在</td><td rowspan="2">目标目录不存在</td><td rowspan="2">文件</td><td colspan="2">目录</td></tr><tr><td>不存在同名</td><td>存在同名</td></tr><tr><td rowspan="2">源</td><td>文件</td><td>创建目标文件，将源文件内容复制到目标文件</td><td>报错，先使用mkdir创建目标目录</td><td>覆盖</td><td>新建同名文件<br><br></td><td>覆盖</td></tr><tr><td>目录</td><td>报错</td><td>创建目标目录，将源目录中的文件复制到目标目录</td><td>报错</td><td>新建同名目录</td><td>覆盖</td></tr></table>
+
+<h3 id="mv-剪切或改名命令（move）"><a href="#mv-剪切或改名命令（move）" class="headerlink" title="mv 剪切或改名命令（move）"></a>mv 剪切或改名命令（move）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mv [原文件或目录] [目标目录] </div><div class="line">mv japan/ /tmp/ 剪切目录时不需加 -r</div><div class="line">mv abc longls 当原文件与目标目录，在同一目录下，则为改名命令</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/ed2580b6.html" rel="next" title="Linux 安装ssh">
+                <i class="fa fa-chevron-left"></i> Linux 安装ssh
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/2bff0643.html" rel="prev" title="Linux文件管理02 文件搜索命令">
+                Linux文件管理02 文件搜索命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">木鱼</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">141</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cd-切换目录（change-directory）"><span class="nav-number">1.1.</span> <span class="nav-text">cd 切换目录（change directory）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir-建立目录（make-directories）"><span class="nav-number">1.2.</span> <span class="nav-text">mkdir  建立目录（make directories）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rmdir-删除空目录（remove-empty-directories）"><span class="nav-number">1.3.</span> <span class="nav-text">rmdir 删除空目录（remove empty directories）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件"><span class="nav-number">2.</span> <span class="nav-text">文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rm-删除文件或目录（remove）"><span class="nav-number">2.1.</span> <span class="nav-text">rm 删除文件或目录（remove）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp-复制命令（copy）"><span class="nav-number">2.2.</span> <span class="nav-text">cp 复制命令（copy）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv-剪切或改名命令（move）"><span class="nav-number">2.3.</span> <span class="nav-text">mv 剪切或改名命令（move）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">木鱼</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-31T13:41:34.424Z</updated>
+  <updated>2018-06-01T15:27:25.723Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,173 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2018-06-01-vim多行注释和多行删除</title>
+    <link href="http://yoursite.com/post/b837d84f.html"/>
+    <id>http://yoursite.com/post/b837d84f.html</id>
+    <published>2018-06-01T15:23:05.000Z</published>
+    <updated>2018-06-01T15:27:25.723Z</updated>
+    
+    <content type="html"><![CDATA[<p>多行注释和多行删除都是利用vim的块模式</p>
+<h2 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h2><ol>
+<li>首先按esc进入命令行模式下，按下Ctrl + v，进入列（也叫区块）模式;</li>
+<li>在行首使用上下键选择需要注释的多行;</li>
+<li>按下键盘（大写）“I”键，进入插入模式；</li>
+<li>然后输入注释符（“//”、“#”等）;</li>
+<li>最后按下<code>Esc</code>键。<br>注：在按下esc键后，会稍等一会才会出现注释</li>
+</ol>
+<h2 id="删除多行注释"><a href="#删除多行注释" class="headerlink" title="删除多行注释"></a>删除多行注释</h2><ol>
+<li>首先按esc进入命令行模式下，按下Ctrl + v, 进入列模式;</li>
+<li>选定要取消注释的多行;</li>
+<li>按下<code>x</code>或者<code>d</code>.<br>注意：如果是“//”注释，那需要执行两次该操作，如果是“#”注释，一次即可</li>
+</ol>
+<h2 id="多行删除"><a href="#多行删除" class="headerlink" title="多行删除"></a>多行删除</h2><ol>
+<li>首先在命令模式下，输入<code>:set nu</code>显示行号；</li>
+<li>通过行号确定你要删除的行；</li>
+<li>命令输入<code>:32,65d</code>，回车键，32-65行就被删除了</li>
+</ol>
+<p>如果无意中删除错了，可以使用<code>u</code>键恢复（命令模式下）</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;多行注释和多行删除都是利用vim的块模式&lt;/p&gt;
+&lt;h2 id=&quot;多行注释&quot;&gt;&lt;a href=&quot;#多行注释&quot; class=&quot;headerlink&quot; title=&quot;多行注释&quot;&gt;&lt;/a&gt;多行注释&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;首先按esc进入命令行模式下，按下Ctrl + v，进入
+    
+    </summary>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2018-06-01-tmux配置文件和插件</title>
+    <link href="http://yoursite.com/post/c0cf1d1f.html"/>
+    <id>http://yoursite.com/post/c0cf1d1f.html</id>
+    <published>2018-06-01T15:09:42.000Z</published>
+    <updated>2018-06-01T15:29:27.091Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="配置文件（-tmux-conf）"><a href="#配置文件（-tmux-conf）" class="headerlink" title="配置文件（~/.tmux.conf）"></a>配置文件（~/.tmux.conf）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"># 基础设置</div><div class="line">#设置默认终端模式为 256color</div><div class="line">set -g default-terminal &quot;screen-256color&quot;</div><div class="line">set -g display-time 3000</div><div class="line">set -g escape-time 0</div><div class="line">set -g history-limit 65535</div><div class="line">set -g base-index 1</div><div class="line">set -g pane-base-index 1</div><div class="line"></div><div class="line"># 前缀绑定 (Ctrl+a)</div><div class="line">#set -g prefix ^a</div><div class="line">#unbind ^b</div><div class="line">#bind a send-prefix</div><div class="line"></div><div class="line"># 分割窗口</div><div class="line">#unbind &apos;&quot;&apos;</div><div class="line">#bind - splitw -v</div><div class="line">#unbind %</div><div class="line">#bind | splitw -h</div><div class="line"></div><div class="line"># 选中窗口</div><div class="line">#bind-key k select-pane -U</div><div class="line">#bind-key j select-pane -D</div><div class="line">#bind-key h select-pane -L</div><div class="line">#bind-key l select-pane -R</div><div class="line"></div><div class="line"># copy-mode 将快捷键设置为 vi 模式</div><div class="line">#setw -g mode-keys vi</div><div class="line"></div><div class="line"># 启用鼠标(Tmux v2.1)</div><div class="line">set -g mouse on</div><div class="line"></div><div class="line"># 更新配置文件</div><div class="line">bind r source-file ~/.tmux.conf \; display &quot;已更新&quot;</div><div class="line"></div><div class="line">#&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div><div class="line"># Tmux Plugin Manager(Tmux v2.1)</div><div class="line"># Tmux Resurrect</div><div class="line">set -g @plugin &apos;tmux-plugins/tmux-resurrect&apos;</div><div class="line"></div><div class="line"># List of plugins</div><div class="line">set -g @plugin &apos;tmux-plugins/tpm&apos;</div><div class="line">set -g @plugin &apos;tmux-plugins/tmux-sensible&apos;</div><div class="line"></div><div class="line"># Other examples:</div><div class="line"># set -g @plugin &apos;github_username/plugin_name&apos;</div><div class="line"># set -g @plugin &apos;git@github.com/user/plugin&apos;</div><div class="line"># set -g @plugin &apos;git@bitbucket.com/user/plugin&apos;</div><div class="line"></div><div class="line"># Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)</div><div class="line">run &apos;~/.tmux/plugins/tpm/tpm&apos;</div><div class="line">#&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>TPM的安装<br>跟我们现在常用的很多软件类似，Tmux也支持插件系统，可以通过安装插件扩展出许多功能，让Tmux变得更加强大。在Tmux中，这款插件管理器叫做 TPM - Tmux Plugin Manager。</p>
+<p>TPM的安装也比较简单:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm</div></pre></td></tr></table></figure></p>
+<p>然后，修改Tmux配置文件，让其在启动时加载TPM<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># List olugins</div><div class="line"># # Supports `github_username/repo` or full git repo URLs</div><div class="line">set -g @plugin &apos;tmux-plugins/tpm&apos;</div><div class="line">set -g @plugin &apos;tmux-plugins/tmux-resurrect&apos;</div><div class="line">set -g @plugin &apos;tmux-plugins/tmux-sensible&apos;</div><div class="line">set -g @plugin &apos;tmux-plugins/tmux-urlview&apos;</div><div class="line">set -g @plugin &apos;tmux-plugins/tmux-open&apos;</div><div class="line">set -g @plugin &apos;tmux-plugins/tmux-yank&apos;</div><div class="line"></div><div class="line">set -g @plugin &apos;tmux-plugins/tmux-battery&apos;</div><div class="line">set -g @plugin &apos;tmux-plugins/tmux-cpu&apos;</div></pre></td></tr></table></figure></p>
+<p>TPM主要提供插件的安装，更新和移除等管理功能：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;prefix&gt; I 安装插件，并更新Tmux</div><div class="line">&lt;prefix&gt; U 更新所有已安装插件</div><div class="line">&lt;prefix&gt; Alt U 移除所有插件列表中不存在的插件</div></pre></td></tr></table></figure></p>
+<p>常用插件推荐<br>有了TPM，我们就能够安装和使用各种插件了，这里介绍几款我比较常用的插件：</p>
+<p>Tmux Resurrect 一个非常好用的保存当前Tmux窗口和Panel布局的插件。它可以帮助你持久化当前Tmux中所有的窗口和Panel布局。如果你对窗口进行了分割并且精心调整过，在退出Tmux之前可以使用快捷键对布局进行持久化。下一次启动Tmux的时候，也能非常方便的用快捷键恢复上次的窗口布局，真是非常方便。<br>插件地址：<a href="https://github.com/tmux-plugins/tmux-resurrect" target="_blank" rel="external">https://github.com/tmux-plugins/tmux-resurrect</a></p>
+<p>Tmux urlview 在终端界面中自动搜寻所有的URL链接地址，合并为一个可以选择的列表，然后选中直接在浏览器中打开URL。省去了用鼠标复制URL，再打开浏览器粘贴的繁琐操作，非常高效，值得推荐！<br>插件地址：<a href="https://github.com/tmux-plugins/tmux-urlview" target="_blank" rel="external">https://github.com/tmux-plugins/tmux-urlview</a></p>
+<p>Tmux open 使用系统中默认文件类型对应的程序，快速打开在终端中选中的文件名。这个也非常高效，值得推荐！ 插件地址：<a href="https://github.com/tmux-plugins/tmux-open" target="_blank" rel="external">https://github.com/tmux-plugins/tmux-open</a></p>
+<p>参考：<br><a href="https://xiaozhou.net/learn-the-command-line-tmux-2018-04-27.html" target="_blank" rel="external">https://xiaozhou.net/learn-the-command-line-tmux-2018-04-27.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;配置文件（-tmux-conf）&quot;&gt;&lt;a href=&quot;#配置文件（-tmux-conf）&quot; class=&quot;headerlink&quot; title=&quot;配置文件（~/.tmux.conf）&quot;&gt;&lt;/a&gt;配置文件（~/.tmux.conf）&lt;/h2&gt;&lt;figure class
+    
+    </summary>
+    
+    
+      <category term="Linux应用" scheme="http://yoursite.com/tags/Linux%E5%BA%94%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2018-06-01-tmux快捷键</title>
+    <link href="http://yoursite.com/post/6457d4b.html"/>
+    <id>http://yoursite.com/post/6457d4b.html</id>
+    <published>2018-06-01T13:10:13.000Z</published>
+    <updated>2018-06-01T15:29:35.632Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装-启动"><a href="#安装-启动" class="headerlink" title="安装\启动"></a>安装\启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install tmux</div><div class="line">tmux</div></pre></td></tr></table></figure>
+<h2 id="会话、窗口与窗格的概念"><a href="#会话、窗口与窗格的概念" class="headerlink" title="会话、窗口与窗格的概念"></a>会话、窗口与窗格的概念</h2><p>Tmux中的主要概念分为三个：</p>
+<p>Session - Session是Tmux中最主要的概念了，默认开启Tmux的时候，就会自动新建一个会话，在这个会话中，也会给你开启一个默认的Window（也即窗口）。Tmux中可以拥有多个会话，多个会话之间可以来回无缝切换。</p>
+<p>Window - 相比session，Windows是稍微小一点的单位。一个session中，可以开启多个window。这些window同属于一个Session，并由其管理。</p>
+<p>Panel - Panel是比Window更小的界面元素。前面我们也提到了Tmux中可以对window进行任意分割，由window分割出来的单位就叫做panel了。在同一个window中，用户可以控制光标在分割出的panel中随意移动，用以选定当前作为激活状态的panel。</p>
+<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG53.svg" alt=""><br>via <a href="https://xiaozhou.net/learn-the-command-line-tmux-2018-04-27.html" target="_blank" rel="external">这里</a></p>
+<h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><p>这里是自己平时会用到的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">tmux new -s 会话名   新建会话</div><div class="line">tmux ls             列出会话</div><div class="line">tmux at -t 会话名    恢复会话</div><div class="line"></div><div class="line">ctrl-b,:new     启动新会话</div><div class="line">ctrl-b,s        列出所有会话</div><div class="line">strl-b,d        关闭会话，后台存在</div><div class="line"></div><div class="line">ctrl-b,c        创建新窗口</div><div class="line">ctrl-b,w        列出所有窗口</div><div class="line">ctrl-b,n        后一个窗口</div><div class="line">ctrl-b,p        前一个窗口</div><div class="line">ctrl-b,&amp;        关闭当前窗口</div><div class="line"></div><div class="line"></div><div class="line">ctrl-b,q,数字   切换panel</div></pre></td></tr></table></figure>
+<h2 id="会话session"><a href="#会话session" class="headerlink" title="会话session"></a>会话session</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tmux [new -s 会话名 -n 窗口名]      启动新会话</div><div class="line">tmux at [-t 会话名]                恢复会话</div><div class="line">tmux ls                           列出所有会话</div><div class="line">tmux kill-session -t 会话名        关闭会话</div><div class="line">tmux ls | grep : | cut -d. -f1 | awk &apos;&#123;print substr($1, 0, length($1)-1)&#125;&apos; | xargs kill                              关闭所有会话</div></pre></td></tr></table></figure>
+<p>Tmux为我们默认预备的 <code>&lt;prefix&gt;</code>组合键，是 C-b (即Ctrl+b)<br>开启tmux后使用 <code>&lt;prefix&gt;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;prefix&gt; :new&lt;回车&gt;   启动新会话</div><div class="line">&lt;prefix&gt; s           列出所有会话</div><div class="line">&lt;prefix&gt; $           重命名当前会话</div><div class="line">&lt;prefix&gt; d           退出 tmux（tmux 仍在后台运行）</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="窗口windows"><a href="#窗口windows" class="headerlink" title="窗口windows"></a>窗口windows</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;prefix&gt; c  创建新窗口</div><div class="line">&lt;prefix&gt; w  列出所有窗口</div><div class="line">&lt;prefix&gt; n  后一个窗口</div><div class="line">&lt;prefix&gt; p  前一个窗口</div><div class="line">&lt;prefix&gt; f  查找窗口</div><div class="line">&lt;prefix&gt; ,  重命名当前窗口</div><div class="line">&lt;prefix&gt; &amp;  关闭当前窗口</div><div class="line">&lt;prefix&gt; 0-9 切换到指定编号的窗口</div></pre></td></tr></table></figure>
+<!-- ## 调整窗口排序
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">swap-window -s 3 -t 1  交换 3 号和 1 号窗口</div><div class="line">swap-window -t 1       交换当前和 1 号窗口</div><div class="line">move-window -t 1       移动当前窗口到 1 号</div><div class="line">``` --&gt;</div><div class="line"></div><div class="line">&lt;br&gt;</div><div class="line"></div><div class="line">## 窗格panel</div></pre></td></tr></table></figure>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p><prefix> %  垂直分割</p>
+<p><prefix> “  水平分割</p>
+<p><prefix> o  交换窗格</p>
+<p><prefix> x  关闭窗格</p>
+<p><prefix> <space> 切换布局</p>
+<p><prefix> q 显示每个窗格是第几个，当数字出现的时候按数字几就选中第几个窗格</p>
+<p><prefix> { 与上一个窗格交换位置</p>
+<p><prefix> } 与下一个窗格交换位置</p>
+<p><prefix> u 切换窗格最大化</p>
+<p><prefix> n 切换窗格最小化</p>
+<h1 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h1><p><prefix> 方向键 选择窗格</p>
+<p>#在配置文件中，set mouse on可以使用鼠标焦点某个窗格</p>
+<h1 id="尺寸调整"><a href="#尺寸调整" class="headerlink" title="尺寸调整"></a>尺寸调整</h1><p><prefix> H 当前窗格向左扩大3格</p>
+<p><prefix> J 当前窗格向下扩大3格</p>
+<p><prefix> K 当前窗格向上扩大3格</p>
+<p><prefix> L 当前窗格向右扩大3格</p>
+<p>#在配置文件中，set mouse on可以使用鼠标拖动来调节尺寸<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!-- ## 同步窗格</div><div class="line"></div><div class="line">这么做可以切换到想要的窗口，输入 Tmux 前缀和一个冒号呼出命令提示行，然后输入：</div></pre></td></tr></table></figure></p>
+<p>:setw synchronize-panes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">你可以指定开或关，否则重复执行命令会在两者间切换。 这个选项值针对某个窗口有效，不会影响别的会话和窗口。 完事儿之后再次执行命令来关闭。帮助</div><div class="line"></div><div class="line">## 调整窗格尺寸</div><div class="line">如果你不喜欢默认布局，可以重调窗格的尺寸。虽然这很容易实现，但一般不需要这么干。这几个命令用来调整窗格：</div></pre></td></tr></table></figure></p>
+<p>PREFIX : resize-pane -D          当前窗格向下扩大 1 格<br>PREFIX : resize-pane -U          当前窗格向上扩大 1 格<br>PREFIX : resize-pane -L          当前窗格向左扩大 1 格<br>PREFIX : resize-pane -R          当前窗格向右扩大 1 格<br>PREFIX : resize-pane -D 20       当前窗格向下扩大 20 格<br>PREFIX : resize-pane -t 2 -L 20  编号为 2 的窗格向左扩大 20 格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- ## 文本复制模式：</div><div class="line">按下**前缀 [**进入文本复制模式。可以使用方向键在屏幕中移动光标。默认情况下，方向键是启用的。在配置文件中启用 Vim 键盘布局来切换窗口、调整窗格大小。Tmux 也支持 Vi 模式。要是想启用 Vi 模式，只需要把下面这一行添加到 .tmux.conf 中：</div></pre></td></tr></table></figure></p>
+<p>setw -g mode-keys vi<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">启用这条配置后，就可以使用 h、j、k、l 来移动光标了。</div><div class="line"></div><div class="line">想要退出文本复制模式的话，按下回车键就可以了。一次移动一格效率低下，在 Vi 模式启用的情况下，可以辅助一些别的快捷键高效工作。</div><div class="line"></div><div class="line">例如，可以使用 w 键逐词移动，使用 b 键逐词回退。使用 f 键加上任意字符跳转到当前行第一次出现该字符的位置，使用 F 键达到相反的效果。</div></pre></td></tr></table></figure></p>
+<p>vi             emacs        功能<br>^              M-m          反缩进<br>Escape         C-g          清除选定内容<br>Enter          M-w          复制选定内容<br>j              Down         光标下移<br>h              Left         光标左移<br>l              Right        光标右移<br>L                           光标移到尾行<br>M              M-r          光标移到中间行<br>H              M-R          光标移到首行<br>k              Up           光标上移<br>d              C-u          删除整行<br>D              C-k          删除到行末<br>$              C-e          移到行尾<br>:              g            前往指定行<br>C-d            M-Down       向下滚动半屏<br>C-u            M-Up         向上滚动半屏<br>C-f            Page down    下一页<br>w              M-f          下一个词<br>p              C-y          粘贴<br>C-b            Page up      上一页<br>b              M-b          上一个词<br>q              Escape       退出<br>C-Down or J    C-Down       向下翻<br>C-Up or K      C-Up         向下翻<br>n              n            继续搜索<br>?              C-r          向前搜索<br>/              C-s          向后搜索<br>0              C-a          移到行首<br>Space          C-Space      开始选中<br>               C-t          字符调序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 杂项：</div></pre></td></tr></table></figure></p>
+<p>t  窗口中央显示一个数字时钟<br>?  列出所有快捷键<br>:  命令提示符<br>```</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://gist.github.com/ryerh/14b7c24dfd623ef8edc7">https://gist.github.com/ryerh/14b7c24dfd623ef8edc7</a></li>
+<li><a href="https://xiaozhou.net/learn-the-command-line-tmux-2018-04-27.html">https://xiaozhou.net/learn-the-command-line-tmux-2018-04-27.html</a></li>
+<li><a href="https://harttle.land/2015/11/06/tmux-startup.html">https://harttle.land/2015/11/06/tmux-startup.html</a></li>
+</ul>
+-->]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;安装-启动&quot;&gt;&lt;a href=&quot;#安装-启动&quot; class=&quot;headerlink&quot; title=&quot;安装\启动&quot;&gt;&lt;/a&gt;安装\启动&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;
+    
+    </summary>
+    
+    
+      <category term="Linux应用" scheme="http://yoursite.com/tags/Linux%E5%BA%94%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VirtualBox安装CentOS7</title>
+    <link href="http://yoursite.com/post/85425272.html"/>
+    <id>http://yoursite.com/post/85425272.html</id>
+    <published>2018-06-01T12:51:25.000Z</published>
+    <updated>2018-06-01T14:08:06.562Z</updated>
+    
+    <content type="html"><![CDATA[<p>主要的安装过程不再详细说明，主要是针对安装后进行的一些配置进行说明</p>
+<ol>
+<li>网络设置为桥接，因为本地要和虚拟机进行通信</li>
+<li>centos7默认没有安装ifconfig命令，而一开始也是上不了网的，可以使用<code>ip addr</code>命令代替，也可以通过<code>yum provides ifconfig</code>查找对应的安装包，可以知道是net-tools，安装net-tools即可，当然在无法连网时，使用ip addr是为了获得网卡名称</li>
+<li><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0</code>，修改对应文件名的配置文件，改<code>onBoot</code>为yes，重启网络<code>systemctl restart network</code>，这时可以ping或安装ifconfig</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要的安装过程不再详细说明，主要是针对安装后进行的一些配置进行说明&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;网络设置为桥接，因为本地要和虚拟机进行通信&lt;/li&gt;
+&lt;li&gt;centos7默认没有安装ifconfig命令，而一开始也是上不了网的，可以使用&lt;code&gt;ip addr&lt;/code
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux 文件系统</title>
-    <link href="http://yoursite.com/2018/05/31/Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"/>
-    <id>http://yoursite.com/2018/05/31/Linux-文件系统/</id>
-    <published>2018-05-31T13:41:34.424Z</published>
-    <updated>2018-05-31T13:41:34.424Z</updated>
+    <link href="http://yoursite.com/post/f525ac74.html"/>
+    <id>http://yoursite.com/post/f525ac74.html</id>
+    <published>2018-06-01T04:56:22.876Z</published>
+    <updated>2018-06-01T04:56:22.876Z</updated>
     
     <content type="html"><![CDATA[<p>linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件<br>文件系统：<br>Windows里面是这样的：C:\Program files\office11\word\word.exe<br>Linux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0</p>
 <p>文件有两类数据：<br>元数据：metadata  元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。<br>数据：data  数据是指普通文件中的实际数据。</p>
@@ -40,11 +202,101 @@
   </entry>
   
   <entry>
+    <title>Shell批量重命名增加文件时间戳前缀</title>
+    <link href="http://yoursite.com/post/a989c9fe.html"/>
+    <id>http://yoursite.com/post/a989c9fe.html</id>
+    <published>2018-06-01T04:52:03.000Z</published>
+    <updated>2018-06-01T05:07:03.130Z</updated>
+    
+    <content type="html"><![CDATA[<p>思路：</p>
+<ol>
+<li>首先要获得文件的时间戳，<code>ls --full-time</code>和<code>stat -c %y</code>命令都可以</li>
+<li>因为是批量，需要获得文件名列表，<code>ls -p  | grep [^/]$</code>或<code>find * -type -f</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!bin/bash</div><div class="line">files=$(ls -p  | grep [^/]$)</div><div class="line"></div><div class="line">for file in $files</div><div class="line">do</div><div class="line">DATE=$(ls --full-time $file | awk &apos;&#123;print $6&#125;&apos;)</div><div class="line">mv $file &quot;$DATE-$file&quot;</div><div class="line">done</div></pre></td></tr></table></figure>
+<p>依旧没有解决的问题：<br>只能重命名当前目录，如果使用<code>files=$(ls -p $1 | grep [^/]$)</code>，然后传入参数，会报没有这个文件或目录</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;思路：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先要获得文件的时间戳，&lt;code&gt;ls --full-time&lt;/code&gt;和&lt;code&gt;stat -c %y&lt;/code&gt;命令都可以&lt;/li&gt;
+&lt;li&gt;因为是批量，需要获得文件名列表，&lt;code&gt;ls -p  | grep [^/]$&lt;
+    
+    </summary>
+    
+    
+      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Hexo】hexo 站内链接和永久链接</title>
+    <link href="http://yoursite.com/post/b1775bb9.html"/>
+    <id>http://yoursite.com/post/b1775bb9.html</id>
+    <published>2018-06-01T01:27:27.000Z</published>
+    <updated>2018-06-01T04:58:27.861Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="站内链接"><a href="#站内链接" class="headerlink" title="站内链接"></a>站内链接</h2><p>在写博客中，有时会引用站内的链接，之前因为文章不是很多，说明标题可以直接找到，但是现在文章多了，必然需要使用链接</p>
+<p>hexo3.0以上可以直接使用下面的格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% post_link hello-world %&#125;</div></pre></td></tr></table></figure></p>
+<p>hello-world是博客的title</p>
+<h2 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h2><p>安装插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-abbrlink --save</div></pre></td></tr></table></figure></p>
+<p>站点配置文件里:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">permalink: post/:abbrlink.html</div><div class="line">abbrlink:</div><div class="line">  alg: crc32  # 算法：crc16(default) and crc32</div><div class="line">  rep: hex    # 进制：dec(default) and hex</div></pre></td></tr></table></figure></p>
+<p>显示的样式为<code>http://localhost:4000/post/f525ac74.html#more</code></p>
+<p>同时为以后方便，新建文章时统一以<code>YYYY-mm-dd</code>的时间格式开头，方便管理，而文章标题删除标题中的时间</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/permalinks.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/permalinks.html</a></li>
+<li><a href="http://blog.gezhiqiang.com/2016/11/27/hexo-inner-link/" target="_blank" rel="external">http://blog.gezhiqiang.com/2016/11/27/hexo-inner-link/</a></li>
+<li><a href="http://www.wuliaole.com/post/permalink_and_internal_link_in_hexo/" target="_blank" rel="external">http://www.wuliaole.com/post/permalink_and_internal_link_in_hexo/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;站内链接&quot;&gt;&lt;a href=&quot;#站内链接&quot; class=&quot;headerlink&quot; title=&quot;站内链接&quot;&gt;&lt;/a&gt;站内链接&lt;/h2&gt;&lt;p&gt;在写博客中，有时会引用站内的链接，之前因为文章不是很多，说明标题可以直接找到，但是现在文章多了，必然需要使用链接&lt;/p&gt;
+&lt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Hexo】hexo表格</title>
+    <link href="http://yoursite.com/post/5630467a.html"/>
+    <id>http://yoursite.com/post/5630467a.html</id>
+    <published>2018-06-01T00:33:18.000Z</published>
+    <updated>2018-06-01T04:56:22.884Z</updated>
+    
+    <content type="html"><![CDATA[<p>我偶尔会在博客中添加表格，但是hexo原生表格有时会有一些问题</p>
+<h2 id="原生表格"><a href="#原生表格" class="headerlink" title="原生表格"></a>原生表格</h2><p>使用markdown语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">| 表格头 | 表格头 |</div><div class="line">|-------|-------|</div><div class="line">|  内容  |  内容  |</div></pre></td></tr></table></figure></p>
+<p>使用这种表格能够满足基本的需求，但是这种表格无法实现合并单元格，当然，这种表格是可以使用css的，只是要用F12查询对应的html标签，参考之前写的 </p>
+<h2 id="html表格"><a href="#html表格" class="headerlink" title="html表格"></a>html表格</h2><p>使用html表格可以实现合并单元格，可以使用<a href="https://www.tablesgenerator.com/html_tables#" target="_blank" rel="external">tablesgenerator</a>在线生成表格代码</p>
+<p>这样生成的表格还会有一个问题，这个问题我不太清楚是Next主题（5.1.4）的问题，还是hexo的问题，就是在实际展示的时候出现了大量的空白，解决办法是使用<a href="http://tool.oschina.net/jscompress?type=2" target="_blank" rel="external">html压缩工具</a>去掉表格代码的空格</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我偶尔会在博客中添加表格，但是hexo原生表格有时会有一些问题&lt;/p&gt;
+&lt;h2 id=&quot;原生表格&quot;&gt;&lt;a href=&quot;#原生表格&quot; class=&quot;headerlink&quot; title=&quot;原生表格&quot;&gt;&lt;/a&gt;原生表格&lt;/h2&gt;&lt;p&gt;使用markdown语法&lt;br&gt;&lt;figure
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux 时间戳管理</title>
-    <link href="http://yoursite.com/2018/05/31/Linux-%E6%97%B6%E9%97%B4%E6%88%B3%E7%AE%A1%E7%90%86/"/>
-    <id>http://yoursite.com/2018/05/31/Linux-时间戳管理/</id>
+    <link href="http://yoursite.com/post/29c3cf93.html"/>
+    <id>http://yoursite.com/post/29c3cf93.html</id>
     <published>2018-05-31T13:06:20.000Z</published>
-    <updated>2018-05-31T13:44:52.708Z</updated>
+    <updated>2018-06-01T04:56:22.876Z</updated>
     
     <content type="html"><![CDATA[<h2 id="stat-查看时间戳"><a href="#stat-查看时间戳" class="headerlink" title="stat 查看时间戳"></a>stat 查看时间戳</h2><p>文件：metadata, data<br>查看文件状态：<code>stat</code></p>
 <p>三个时间戳：<br>access time：（文档最后一次）访问时间，简写为atime，读取文件内容<br>modify time: 修改时间, mtime，改变文件内容（数据）<br>change time: 改变时间, ctime，元数据发生改变</p>
@@ -64,10 +316,10 @@
   
   <entry>
     <title>Linux 命令补全和路径补全</title>
-    <link href="http://yoursite.com/2018/05/31/Linux-%E5%91%BD%E4%BB%A4%E8%A1%A5%E5%85%A8%E5%92%8C%E8%B7%AF%E5%BE%84%E8%A1%A5%E5%85%A8/"/>
-    <id>http://yoursite.com/2018/05/31/Linux-命令补全和路径补全/</id>
+    <link href="http://yoursite.com/post/3781ba59.html"/>
+    <id>http://yoursite.com/post/3781ba59.html</id>
     <published>2018-05-31T12:57:02.000Z</published>
-    <updated>2018-05-31T14:35:56.673Z</updated>
+    <updated>2018-06-01T04:56:22.872Z</updated>
     
     <content type="html"><![CDATA[<h2 id="命令补全"><a href="#命令补全" class="headerlink" title="命令补全"></a>命令补全</h2><p>bash执行命令<br>内部命令<br>外部命令：bash根据PATH环境变量定义的路径，自左而右在每个路径搜寻以给定命令名命名的文件，第一次找到即为要执行的命令</p>
 <p>直接补全：Tab，用户给定的字符串只有一条惟一对应的命令<br>以用户给定的字符串为开头对应的命令不惟一，则再次Tab会给出列表</p>
@@ -87,10 +339,10 @@
   
   <entry>
     <title>Linux 终端</title>
-    <link href="http://yoursite.com/2018/05/31/Linux-%E7%BB%88%E7%AB%AF/"/>
-    <id>http://yoursite.com/2018/05/31/Linux-终端/</id>
+    <link href="http://yoursite.com/post/43bb04d6.html"/>
+    <id>http://yoursite.com/post/43bb04d6.html</id>
     <published>2018-05-31T12:33:43.000Z</published>
-    <updated>2018-05-31T12:36:15.618Z</updated>
+    <updated>2018-06-01T04:56:22.876Z</updated>
     
     <content type="html"><![CDATA[<p>用户与主机交互，必然用到的设备；</p>
 <h2 id="物理终端"><a href="#物理终端" class="headerlink" title="物理终端"></a>物理终端</h2><p>直接接入本机的显示器和键盘设备；/dev/console</p>
@@ -122,10 +374,10 @@
   
   <entry>
     <title>Linux时间命令</title>
-    <link href="http://yoursite.com/2018/05/30/Linux%E6%97%B6%E9%97%B4%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/30/Linux时间命令/</id>
+    <link href="http://yoursite.com/post/4aed7274.html"/>
+    <id>http://yoursite.com/post/4aed7274.html</id>
     <published>2018-05-30T15:50:40.000Z</published>
-    <updated>2018-05-31T12:23:39.473Z</updated>
+    <updated>2018-06-01T04:56:22.880Z</updated>
     
     <content type="html"><![CDATA[<h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">date [OPTION]... [+FORMAT]：显示日期</div><div class="line">FORMAT: 格式符号</div><div class="line">    %D</div><div class="line">    %F</div><div class="line">    %T</div><div class="line">date [MMDDhhmm[[CC]YY][.ss]]：设置日期</div><div class="line">MM: 月份</div><div class="line">DD：几号</div><div class="line">hh: 小时</div><div class="line">mm: 分钟</div><div class="line">YY: 两位年份</div><div class="line">CCYY: 四位年份</div><div class="line">.ss: 秒钟</div></pre></td></tr></table></figure>
 <h2 id="Linux的两种时钟"><a href="#Linux的两种时钟" class="headerlink" title="Linux的两种时钟"></a>Linux的两种时钟</h2><p>系统时钟(system time)：由Linux内核通过CPU的工作频率进行的计时，date命令<br>硬件时钟(hardware clock)：<code>clock</code>命令</p>
@@ -145,10 +397,10 @@
   
   <entry>
     <title>Shell echo命令</title>
-    <link href="http://yoursite.com/2018/05/28/Shell-echo%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/28/Shell-echo命令/</id>
+    <link href="http://yoursite.com/post/a6281d67.html"/>
+    <id>http://yoursite.com/post/a6281d67.html</id>
     <published>2018-05-28T06:26:25.000Z</published>
-    <updated>2018-05-31T12:53:24.425Z</updated>
+    <updated>2018-06-01T04:56:22.884Z</updated>
     
     <content type="html"><![CDATA[<h2 id="echo-回显命令"><a href="#echo-回显命令" class="headerlink" title="echo 回显命令"></a>echo 回显命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">echo [选项] [输出内容]</div><div class="line"></div><div class="line">选项： </div><div class="line">-e：允许使用转义符</div><div class="line">-n: 禁止自动添加换行符号</div><div class="line"></div><div class="line">内容转义</div><div class="line">\a - 输出警告音</div><div class="line">\b - 退格符</div><div class="line">\n - 换行符</div><div class="line">\r - 回车键</div><div class="line">\t - 制表符，也就是tab键</div><div class="line">\v - 垂直制表符</div><div class="line">\0nnn - 按照八进制ASCII码输出字符</div><div class="line">\xhh - 按照十六进制ASCII表输出字符</div><div class="line"></div><div class="line">输出带颜色的内容 </div><div class="line">echo -e &quot;\e[1;31m文字\e[0m&quot;</div><div class="line">#输出颜色 \e[1;##m - 开启颜色显示； \e[0m - 关闭颜色显示</div><div class="line">#30m=黑色，31m=红色，32m=绿色，33m=黄色</div><div class="line">#34m=蓝色，35m=洋红，36m=青色，37m=白色</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo &quot;$VAR_NAME&quot;: 变量会替换，双引号表弱引用</div><div class="line">echo &apos;$VAR_NAME&apos;: 变量不会替换，强引用</div></pre></td></tr></table></figure>
@@ -168,10 +420,10 @@
   
   <entry>
     <title>Shell引号</title>
-    <link href="http://yoursite.com/2018/05/28/Shell%E5%BC%95%E5%8F%B7/"/>
-    <id>http://yoursite.com/2018/05/28/Shell引号/</id>
+    <link href="http://yoursite.com/post/ca5ad791.html"/>
+    <id>http://yoursite.com/post/ca5ad791.html</id>
     <published>2018-05-28T06:14:51.000Z</published>
-    <updated>2018-05-28T06:25:08.805Z</updated>
+    <updated>2018-06-01T04:56:22.868Z</updated>
     
     <content type="html"><![CDATA[<h2 id="双引号””"><a href="#双引号””" class="headerlink" title="双引号””"></a>双引号””</h2><p>单词分割、路径名展开、波浪线展开和花括号展开都被禁止，参数展开、算术展开、命令替换仍然执行</p>
 <p>在双引号中左右的特殊符号都没有特殊含义，但是“$”,”`”,”\”是例外。拥有“调用变量的值”，“引用命令”和“转义符”的特殊含义</p>
@@ -194,10 +446,10 @@
   
   <entry>
     <title>Shell展开</title>
-    <link href="http://yoursite.com/2018/05/28/Shell%E5%B1%95%E5%BC%80/"/>
-    <id>http://yoursite.com/2018/05/28/Shell展开/</id>
+    <link href="http://yoursite.com/post/7e1cd31f.html"/>
+    <id>http://yoursite.com/post/7e1cd31f.html</id>
     <published>2018-05-28T05:38:30.000Z</published>
-    <updated>2018-05-31T12:48:35.011Z</updated>
+    <updated>2018-06-01T04:56:22.884Z</updated>
     
     <content type="html"><![CDATA[<p>输入的字符在shell起作用前会展开成为别的字符</p>
 <ul>
@@ -249,10 +501,10 @@
   
   <entry>
     <title>VIM插件NerdTree快捷键</title>
-    <link href="http://yoursite.com/2018/05/28/VIM%E6%8F%92%E4%BB%B6NerdTree%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://yoursite.com/2018/05/28/VIM插件NerdTree快捷键/</id>
+    <link href="http://yoursite.com/post/2101d586.html"/>
+    <id>http://yoursite.com/post/2101d586.html</id>
     <published>2018-05-28T04:45:11.000Z</published>
-    <updated>2018-05-28T05:12:23.320Z</updated>
+    <updated>2018-06-01T04:56:22.868Z</updated>
     
     <content type="html"><![CDATA[<h2 id="切换工作台和目录"><a href="#切换工作台和目录" class="headerlink" title="切换工作台和目录"></a>切换工作台和目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ctrl + w + h    光标 focus 左侧树形目录</div><div class="line">ctrl + w + l    光标 focus 右侧文件显示窗口</div><div class="line">ctrl + w + w    光标自动在左右侧窗口切换</div><div class="line">ctrl + w + r    移动当前窗口的布局位置</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">o       在已有窗口中打开文件、目录或书签，并跳到该窗口</div><div class="line">go      在已有窗口 中打开文件、目录或书签，但不跳到该窗口</div><div class="line">t       在新 Tab 中打开选中文件/书签，并跳到新 Tab</div><div class="line">T       在新 Tab 中打开选中文件/书签，但不跳到新 Tab</div><div class="line">i       split 一个新窗口打开选中文件，并跳到该窗口</div><div class="line">gi      split 一个新窗口打开选中文件，但不跳到该窗口</div><div class="line">s       vsplit 一个新窗口打开选中文件，并跳到该窗口</div><div class="line">gs      vsplit 一个新 窗口打开选中文件，但不跳到该窗口</div><div class="line">!       执行当前文件</div><div class="line">O       递归打开选中 结点下的所有目录</div><div class="line">x       合拢选中结点的父目录</div><div class="line">X       递归 合拢选中结点下的所有目录</div><div class="line">e       Edit the current dif</div><div class="line"></div><div class="line">双击    相当于 NERDTree-o</div><div class="line">中键    对文件相当于 NERDTree-i，对目录相当于 NERDTree-e</div><div class="line"></div><div class="line">D       删除当前书签</div><div class="line"></div><div class="line">P       跳到根结点</div><div class="line">p       跳到父结点</div><div class="line">K       跳到当前目录下同级的第一个结点</div><div class="line">J       跳到当前目录下同级的最后一个结点</div><div class="line">k       跳到当前目录下同级的前一个结点</div><div class="line">j       跳到当前目录下同级的后一个结点</div><div class="line"></div><div class="line">C       将选中目录或选中文件的父目录设为根结点</div><div class="line">u       将当前根结点的父目录设为根目录，并变成合拢原根结点</div><div class="line">U       将当前根结点的父目录设为根目录，但保持展开原根结点</div><div class="line">r       递归刷新选中目录</div><div class="line">R       递归刷新根结点</div><div class="line">m       显示文件系统菜单</div><div class="line">cd      将 CWD 设为选中目录</div><div class="line"></div><div class="line">I       切换是否显示隐藏文件</div><div class="line">f       切换是否使用文件过滤器</div><div class="line">F       切换是否显示文件</div><div class="line">B       切换是否显示书签</div><div class="line"></div><div class="line">q       关闭 NerdTree 窗口</div><div class="line">?       切换是否显示 Quick Help</div></pre></td></tr></table></figure>
@@ -274,10 +526,10 @@
   
   <entry>
     <title>VIM配置</title>
-    <link href="http://yoursite.com/2018/05/28/VIM%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2018/05/28/VIM配置/</id>
+    <link href="http://yoursite.com/post/6f99625c.html"/>
+    <id>http://yoursite.com/post/6f99625c.html</id>
     <published>2018-05-28T03:16:30.000Z</published>
-    <updated>2018-05-30T03:37:11.041Z</updated>
+    <updated>2018-06-01T04:56:22.872Z</updated>
     
     <content type="html"><![CDATA[<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>打开VIM，输入<code>:version</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">系统 vimrc 文件: &quot;$VIM/vimrc&quot;</div><div class="line">用户 vimrc 文件: &quot;$HOME/.vimrc&quot;</div><div class="line">第二用户 vimrc 文件: &quot;~/.vim/vimrc&quot;</div><div class="line">用户 exrc 文件: &quot;$HOME/.exrc&quot;</div><div class="line">系统 gvimrc 文件: &quot;$VIM/gvimrc&quot;</div><div class="line">用户 gvimrc 文件: &quot;$HOME/.gvimrc&quot; </div><div class="line">第二用户 gvimrc 文件: &quot;~/.vim/gvimrc&quot;</div><div class="line">系统菜单文件: &quot;$VIMRUNTIME/menu.vim&quot;</div><div class="line">$VIM 预设值: &quot;/usr/share/vim&quot;</div></pre></td></tr></table></figure></p>
 <p>列出了几个 vimrc 文件，有一个系统的 vimrc 文件，还有用户的 vimrc 文件，以及系统和用户 gvimrc 文件。出于和vi兼容的目的，vim也支持vi的exrc配置文件。</p>
@@ -298,10 +550,10 @@
   
   <entry>
     <title>zsh安装、主题、插件</title>
-    <link href="http://yoursite.com/2018/05/27/zsh%E5%AE%89%E8%A3%85%E3%80%81%E4%B8%BB%E9%A2%98%E3%80%81%E6%8F%92%E4%BB%B6/"/>
-    <id>http://yoursite.com/2018/05/27/zsh安装、主题、插件/</id>
+    <link href="http://yoursite.com/post/8ec9a3b8.html"/>
+    <id>http://yoursite.com/post/8ec9a3b8.html</id>
     <published>2018-05-27T05:54:10.000Z</published>
-    <updated>2018-05-27T07:49:55.239Z</updated>
+    <updated>2018-06-01T04:56:22.868Z</updated>
     
     <content type="html"><![CDATA[<p>zsh和bash兼容，fish和bash不兼容</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#安装zsh</div><div class="line">yum -y install zsh</div><div class="line"></div><div class="line">#切换默认shell为zsh</div><div class="line">chsh -s /bin/zsh</div><div class="line"></div><div class="line">#切换回去bash</div><div class="line">chsh -s /bin/bash</div><div class="line"></div><div class="line">#确认zsh是否是默认SHELL</div><div class="line">echo $SHELL</div><div class="line"></div><div class="line">#重启服务器让修改的配置生效</div></pre></td></tr></table></figure>
@@ -329,10 +581,10 @@
   
   <entry>
     <title>Vim使用系统剪贴板</title>
-    <link href="http://yoursite.com/2018/05/27/Vim%E4%BD%BF%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF/"/>
-    <id>http://yoursite.com/2018/05/27/Vim使用系统剪贴板/</id>
+    <link href="http://yoursite.com/post/333f9b1a.html"/>
+    <id>http://yoursite.com/post/333f9b1a.html</id>
     <published>2018-05-27T02:31:12.000Z</published>
-    <updated>2018-05-27T02:43:37.143Z</updated>
+    <updated>2018-06-01T04:56:22.868Z</updated>
     
     <content type="html"><![CDATA[<h2 id="查看vim版本是否支持clipboard"><a href="#查看vim版本是否支持clipboard" class="headerlink" title="查看vim版本是否支持clipboard"></a>查看vim版本是否支持clipboard</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vim --version | grep &quot;clipboard&quot;</div><div class="line"></div><div class="line">-clipboard       +insert_expand   +path_extra      +user_commands</div></pre></td></tr></table></figure>
 <p><code>-clipboard</code> 显示 <code>-</code> 号，说明不支持，需要安装vim-gnome<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt install vim-gnome</div><div class="line">#再次查看，可以看到clipboard前面是+号</div><div class="line">vim --version | grep &quot;clipboard&quot;</div></pre></td></tr></table></figure></p>
@@ -365,10 +617,10 @@
   
   <entry>
     <title>VIM插件</title>
-    <link href="http://yoursite.com/2018/05/27/Vim%E6%8F%92%E4%BB%B6/"/>
-    <id>http://yoursite.com/2018/05/27/Vim插件/</id>
+    <link href="http://yoursite.com/post/9b750e68.html"/>
+    <id>http://yoursite.com/post/9b750e68.html</id>
     <published>2018-05-27T01:31:18.000Z</published>
-    <updated>2018-05-28T05:04:55.885Z</updated>
+    <updated>2018-06-01T04:56:22.872Z</updated>
     
     <content type="html"><![CDATA[<p>Elementary os的终端好像不能用vim的块操作同时插件NerdTree也有问题，所以改用hyper<br><a href="https://hyper.is/" target="_blank" rel="external">https://hyper.is/</a><br><a href="https://github.com/zeit/hyper" target="_blank" rel="external">https://github.com/zeit/hyper</a></p>
 <h2 id="插件管理-vim-plug"><a href="#插件管理-vim-plug" class="headerlink" title="插件管理 vim-plug"></a>插件管理 vim-plug</h2><p><a href="https://github.com/junegunn/vim-plug" target="_blank" rel="external">https://github.com/junegunn/vim-plug</a></p>
@@ -396,663 +648,6 @@
     
     
       <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux下载命令</title>
-    <link href="http://yoursite.com/2018/05/26/Linux%E4%B8%8B%E8%BD%BD%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/05/26/Linux下载命令/</id>
-    <published>2018-05-26T10:10:24.000Z</published>
-    <updated>2018-05-26T11:39:36.882Z</updated>
-    
-    <content type="html"><![CDATA[<p>发现自己安装了以下的大部分工具。。。</p>
-<h2 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">wget url/ftp</div><div class="line"></div><div class="line">-b：后台下载</div><div class="line">-c：断点续传</div><div class="line">-O 文件名：指定文件名</div><div class="line"></div><div class="line">#使用匿名用户下载</div><div class="line">wget ftp-url</div><div class="line">#ftp下载，指定用户名和密码</div><div class="line">wget --ftp-user=&lt;user_name&gt; --ftp-password=&lt;Give_password&gt; Download-url-address</div></pre></td></tr></table></figure>
-<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">curl [选项] url</div><div class="line">-o：指定文件名</div><div class="line">-O：使用原文件名</div></pre></td></tr></table></figure>
-<h2 id="axel"><a href="#axel" class="headerlink" title="axel"></a>axel</h2><p>wget的出色替代者，是一款轻量级下载实用工具。它实际上是个加速器，因为它打开了多路http连接，可下载独立文件片段，因而文件下载起来更快速。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt install axel</div><div class="line">axel url</div></pre></td></tr></table></figure>
-<h2 id="aria2"><a href="#aria2" class="headerlink" title="aria2"></a>aria2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt install aria2 </div><div class="line">aria2c url</div></pre></td></tr></table></figure>
-<h2 id="视频下载工具"><a href="#视频下载工具" class="headerlink" title="视频下载工具"></a>视频下载工具</h2><h3 id="Youtube-dl"><a href="#Youtube-dl" class="headerlink" title="Youtube-dl"></a>Youtube-dl</h3><p><a href="https://github.com/rg3/youtube-dl" target="_blank" rel="external">https://github.com/rg3/youtube-dl</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">pip install youtube-dl</div><div class="line"></div><div class="line">youtube-dl url</div><div class="line">-i：忽略错误</div><div class="line"></div><div class="line">youtube-dl -F [url]  #查看可下载的视频格式</div><div class="line">youtube-dl -f [format code] [url] #指定下载视频的格式</div><div class="line">youtubd-dl --write-sub [url]    #下载字幕</div><div class="line"></div><div class="line"></div><div class="line">#下载视频列表，以下三种方式下载的视频可能是mkv格式或者webm格式</div><div class="line">youtube-dl [playlist_url] </div><div class="line">youtube-dl -cit [playlist_url]</div><div class="line">youtube-dl --yes-playlist [url]</div><div class="line"></div><div class="line">#下载视频列表，指定下载格式</div><div class="line">youtube-dl -f [format code] [palylist_url]</div></pre></td></tr></table></figure></p>
-<h3 id="annie"><a href="#annie" class="headerlink" title="annie"></a>annie</h3><p><a href="https://github.com/iawia002/annie" target="_blank" rel="external">https://github.com/iawia002/annie</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">annie-master -p url</div><div class="line">#下载列表</div></pre></td></tr></table></figure></p>
-<h2 id="Torrent下载工具"><a href="#Torrent下载工具" class="headerlink" title="Torrent下载工具"></a>Torrent下载工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install transmission</div><div class="line">sudo apt-get install deluge</div></pre></td></tr></table></figure>
-<p>参考：</p>
-<ul>
-<li>wget:<a href="http://www.cnblogs.com/peida/archive/2013/03/18/2965369.html" target="_blank" rel="external">http://www.cnblogs.com/peida/archive/2013/03/18/2965369.html</a></li>
-<li><a href="https://linux.cn/article-7369-1.html" target="_blank" rel="external">https://linux.cn/article-7369-1.html</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;发现自己安装了以下的大部分工具。。。&lt;/p&gt;
-&lt;h2 id=&quot;wget&quot;&gt;&lt;a href=&quot;#wget&quot; class=&quot;headerlink&quot; title=&quot;wget&quot;&gt;&lt;/a&gt;wget&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Hexo】Hexo 注释</title>
-    <link href="http://yoursite.com/2018/05/26/Hexo-%E6%B3%A8%E9%87%8A/"/>
-    <id>http://yoursite.com/2018/05/26/Hexo-注释/</id>
-    <published>2018-05-26T03:16:05.000Z</published>
-    <updated>2018-05-26T03:51:22.498Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="html-格式的注释"><a href="#html-格式的注释" class="headerlink" title="html 格式的注释"></a>html 格式的注释</h2><!-- 虽然也可以使用 Html 的注释，但不建议使用——因为会让 Markdown 显得很凌乱。 -->
-<p>这样写的注释会<strong>出现在编译后的 Html 文件中</strong>，但<strong>不会被浏览器显示出来</strong>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!--这些是注释文本，不会显示--&gt;</div></pre></td></tr></table></figure>
-<!--这些是注释文本，不会显示-->
-<p>编译后的 Html 文档中有这行文本，但浏览器不会显示它。这与分号开头的注释行不同，Html 方式注释的文字仍然会出现在编译后的 Html 文件中，只是不显示而已。</p>
-<p><br></p>
-<p>参考：</p>
-<ul>
-<li><a href="https://www.w3cschool.cn/lme/q92a1srq.html" target="_blank" rel="external">https://www.w3cschool.cn/lme/q92a1srq.html</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;html-格式的注释&quot;&gt;&lt;a href=&quot;#html-格式的注释&quot; class=&quot;headerlink&quot; title=&quot;html 格式的注释&quot;&gt;&lt;/a&gt;html 格式的注释&lt;/h2&gt;&lt;!-- 虽然也可以使用 Html 的注释，但不建议使用——因为会让 Markdo
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VIM常用按键</title>
-    <link href="http://yoursite.com/2018/05/26/VIM%E5%B8%B8%E7%94%A8%E6%8C%89%E9%94%AE/"/>
-    <id>http://yoursite.com/2018/05/26/VIM常用按键/</id>
-    <published>2018-05-25T20:57:06.000Z</published>
-    <updated>2018-05-27T02:50:24.054Z</updated>
-    
-    <content type="html"><![CDATA[<style>
-table th:nth-of-type(1){
-width: 30%;
-}
-table th:nth-of-type(2){
-width: 70%;
-}
-thead{
-background-color:#3d3d3d;
-color:white
-}
-
-</style>
-
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install vim</div><div class="line">apt install vim</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="Cheat-Sheet"><a href="#Cheat-Sheet" class="headerlink" title="Cheat Sheet"></a>Cheat Sheet</h2><table>
-<thead>
-<tr>
-<th>模式</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ESC</td>
-<td>命令模式，在插入模式或可视模式下切换模式</td>
-</tr>
-<tr>
-<td>i</td>
-<td>插入模式</td>
-</tr>
-<tr>
-<td>v</td>
-<td>可视模式，以字符为单位</td>
-</tr>
-<tr>
-<td>V</td>
-<td>可视模式，以行为单位</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>撤消</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>u</td>
-<td>撤消上一次操作</td>
-</tr>
-<tr>
-<td>U</td>
-<td>撤销对该行进行的所有最新更改</td>
-</tr>
-<tr>
-<td>Ctrl+r</td>
-<td>重做</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>光标移动</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>h or ←</td>
-<td>移动左侧的一个字符</td>
-</tr>
-<tr>
-<td>j or ↓</td>
-<td>向下移动一行</td>
-</tr>
-<tr>
-<td>k or ↑</td>
-<td>向上移动一行</td>
-</tr>
-<tr>
-<td>l or →</td>
-<td>向右移动一行</td>
-</tr>
-<tr>
-<td>:set number</td>
-<td>临时设置行号</td>
-</tr>
-<tr>
-<td>:n</td>
-<td>跳到第n行（跳到第42行-&gt;:42）</td>
-</tr>
-<tr>
-<td>nk</td>
-<td>向上移动n行（向上移动9行-&gt;9k）</td>
-</tr>
-<tr>
-<td>gg</td>
-<td>移动到文件第一行</td>
-</tr>
-<tr>
-<td>ngg</td>
-<td>移动到文件第n行</td>
-</tr>
-<tr>
-<td>G</td>
-<td>移动到文件最后一行</td>
-</tr>
-<tr>
-<td>5G</td>
-<td>移动到第五行</td>
-</tr>
-<tr>
-<td>0</td>
-<td>移动到行首</td>
-</tr>
-<tr>
-<td>^</td>
-<td>移动到行首的非空白符</td>
-</tr>
-<tr>
-<td>$</td>
-<td>移动到行尾</td>
-</tr>
-<tr>
-<td>b</td>
-<td>移到上一个单词的开头</td>
-</tr>
-<tr>
-<td>e</td>
-<td>移至单词的结尾</td>
-</tr>
-<tr>
-<td>w</td>
-<td>移至下一个单词开头</td>
-</tr>
-<tr>
-<td>H</td>
-<td>移动到当前⻚面顶部</td>
-</tr>
-<tr>
-<td>M</td>
-<td>移动到当前⻚面中间</td>
-</tr>
-<tr>
-<td>L</td>
-<td>移动到当前⻚面底部</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>插入</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>i</td>
-<td>从光标前开始插入字符</td>
-</tr>
-<tr>
-<td>I</td>
-<td>从行首开始插入字符</td>
-</tr>
-<tr>
-<td>a</td>
-<td>从光标后开始插入字符</td>
-</tr>
-<tr>
-<td>A</td>
-<td>从行尾开始插入字符</td>
-</tr>
-<tr>
-<td>o</td>
-<td>在当前行之下另起一行，开始插入字符</td>
-</tr>
-<tr>
-<td>O</td>
-<td>在当前行之上另起一行，开始插入字符</td>
-</tr>
-<tr>
-<td>ea</td>
-<td>从当前单词末尾开始插入</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>复制、剪切、粘贴</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>yy or Y</td>
-<td>复制当前行</td>
-</tr>
-<tr>
-<td>:y</td>
-<td>复制当前行</td>
-</tr>
-<tr>
-<td>y</td>
-<td>复制突出显示的文字</td>
-</tr>
-<tr>
-<td>:d or dd</td>
-<td>删除当前行</td>
-</tr>
-<tr>
-<td>D</td>
-<td>删除到行尾</td>
-</tr>
-<tr>
-<td>d</td>
-<td>删除突出显示的文本</td>
-</tr>
-<tr>
-<td>dw</td>
-<td>删除单词</td>
-</tr>
-<tr>
-<td>dl</td>
-<td>在光标位置删除字符</td>
-</tr>
-<tr>
-<td>p</td>
-<td>在光标位置后粘贴文本，将行放在当前行的下面</td>
-</tr>
-<tr>
-<td>P</td>
-<td>在光标位置之前粘贴文本，将行放在当前行的上方</td>
-</tr>
-<tr>
-<td>x</td>
-<td>删除当前字符</td>
-</tr>
-<tr>
-<td>2dd</td>
-<td>剪切2行</td>
-</tr>
-<tr>
-<td>dw</td>
-<td>剪切当前单词</td>
-</tr>
-<tr>
-<td>2yy</td>
-<td>复制2行</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>查找/替换</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/pattern</td>
-<td>查找pattern</td>
-</tr>
-<tr>
-<td>?pattern</td>
-<td>向上查找pattern</td>
-</tr>
-<tr>
-<td>\vpattern</td>
-<td>pattern中的非字母数字字符被视为正则表达式特殊字符（不需转义字符）</td>
-</tr>
-<tr>
-<td>n</td>
-<td>查找下一个</td>
-</tr>
-<tr>
-<td>N</td>
-<td>查找上一个</td>
-</tr>
-<tr>
-<td>noh</td>
-<td>取消查找内容高亮</td>
-</tr>
-<tr>
-<td>:%s/old/new/g</td>
-<td>替换全部</td>
-</tr>
-<tr>
-<td>:%s/old/new/gc</td>
-<td>（逐个）替换</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>标签</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:tabnew</td>
-<td>打开一个新标签</td>
-</tr>
-<tr>
-<td>gt</td>
-<td>转到下一个选项卡</td>
-</tr>
-<tr>
-<td>gT</td>
-<td>转到上一个标签</td>
-</tr>
-<tr>
-<td>:tabmove n</td>
-<td>将标签移动到位置n</td>
-</tr>
-<tr>
-<td>:tabc</td>
-<td>关闭标签</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>文件</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:e filename</td>
-<td>打开一个新文件</td>
-</tr>
-<tr>
-<td>:w filename</td>
-<td>保存对文件的更改</td>
-</tr>
-<tr>
-<td>:q</td>
-<td>退出Vim。如果有未保存的文件，Vim将不会退出</td>
-</tr>
-<tr>
-<td>:q!</td>
-<td>退出Vim不保存更改</td>
-</tr>
-<tr>
-<td>:x or zz</td>
-<td>如果进行了更改，则退出Vim并将更改保存到文件中</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Shell命令</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:shell</td>
-<td>打开命令提示符</td>
-</tr>
-<tr>
-<td>exit</td>
-<td>退出命令提示符</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>窗口</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:split or :sp</td>
-<td>水平分割当前窗口</td>
-</tr>
-<tr>
-<td>:vsplit or :vs</td>
-<td>垂直分割当前窗口</td>
-</tr>
-<tr>
-<td>:split file</td>
-<td>在第二个窗口中打开该文件</td>
-</tr>
-<tr>
-<td>:n split file</td>
-<td>打开一个新窗口n行高</td>
-</tr>
-<tr>
-<td>:new</td>
-<td>水平打开一个新窗口</td>
-</tr>
-<tr>
-<td>:vnew</td>
-<td>垂直打开一个新窗口</td>
-</tr>
-<tr>
-<td>:res n</td>
-<td>如果未提供n，则将窗口大小调整为n行大小窗口大小调整为最大大小</td>
-</tr>
-<tr>
-<td>Ctrl+ww</td>
-<td>在窗口之间切换光标</td>
-</tr>
-<tr>
-<td>Ctrl+w&lt;←↓↑→&gt;</td>
-<td>在方向键方向的窗口之间切换光标</td>
-</tr>
-<tr>
-<td>Ctrl+wn</td>
-<td>拆分窗口并开始编辑新文件</td>
-</tr>
-<tr>
-<td>Ctrl+wr</td>
-<td>旋转窗口位置</td>
-</tr>
-<tr>
-<td>Ctrl+w or q or :q</td>
-<td>关闭窗口</td>
-</tr>
-</tbody>
-</table>
-<!-- |  缓冲 |   |
-|---|---|
-| :buffers  |  找到缓冲区列表 |
-| :b number  |  选择缓冲区号码 |
-| :sb number  |  拆分窗口并开始编辑缓冲区 |
-|  :vertical sbuffer number  |  垂直分割窗口并编辑缓冲区 |
-| :bnext or :bn  |  转到下一个缓冲区 |
-| :bdelete  | 删除缓冲区而不保存  |
-
-缓冲标志
-i   非活动缓冲区   
-h   隐藏缓冲区 
-％  当前缓冲区 
-＃  备用缓冲区 
-+   文件已被修改 -->
-<p><br></p>
-<p>参考</p>
-<ul>
-<li><a href="https://www.cheatography.com/zoltan/cheat-sheets/basic-vim/" target="_blank" rel="external">https://www.cheatography.com/zoltan/cheat-sheets/basic-vim/</a></li>
-<li><a href="https://vim.rtorr.com/lang/zh_cn/" target="_blank" rel="external">https://vim.rtorr.com/lang/zh_cn/</a></li>
-<li><a href="http://michael.peopleofhonoronly.com/vim/" target="_blank" rel="external">http://michael.peopleofhonoronly.com/vim/</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;style&gt;
-table th:nth-of-type(1){
-width: 30%;
-}
-table th:nth-of-type(2){
-width: 70%;
-}
-thead{
-background-color:#3d3d3d;
-color:white
-}
-
-&lt;/styl
-    
-    </summary>
-    
-    
-      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell条件判断 case、for、while、until</title>
-    <link href="http://yoursite.com/2018/05/24/Shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-case%E3%80%81for%E3%80%81while%E3%80%81until/"/>
-    <id>http://yoursite.com/2018/05/24/Shell条件判断-case、for、while、until/</id>
-    <published>2018-05-24T14:48:25.000Z</published>
-    <updated>2018-05-24T15:04:27.469Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="多分支语句case"><a href="#多分支语句case" class="headerlink" title="多分支语句case"></a>多分支语句case</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">case $变量名 in</div><div class="line">    &quot;值1&quot;)</div><div class="line">        如果变量值等于值1，执行程序1</div><div class="line">        ;;</div><div class="line">    &quot;值2&quot;)</div><div class="line">        如果变量值等于值2，执行程序2</div><div class="line">        ;;</div><div class="line">    *）</div><div class="line">        如果变量值都不是以上值，则执行此程序</div><div class="line">        ;;</div><div class="line">esac</div></pre></td></tr></table></figure>
-<p>与if多分支最大区别是，case语句只能判断一种条件关系，而if语句可以判断多种条件关系</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash  </div><div class="line">name=&apos;basename $0 .sh&apos;  </div><div class="line">case $1 in  </div><div class="line">    s|start) echo &quot;start...&quot;</div><div class="line">    ;;</div><div class="line">    stop) echo &quot;stop ...&quot;</div><div class="line">    ;;</div><div class="line">    reload)echo &quot;reload...&quot;</div><div class="line">    ;;</div><div class="line">    *)echo &quot;Usage: $name [start|stop|reload]&quot;</div><div class="line">    exit 1</div><div class="line">    ;;</div><div class="line">esac</div></pre></td></tr></table></figure>
-<p>| 分割多个模式，相当于 or</p>
-<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">for 变量 in 值1 值2 值3... </div><div class="line">    do</div><div class="line">        程序</div><div class="line">    done</div><div class="line"></div><div class="line">for ((初始值;循环控制条件;变量变化))</div><div class="line">    do</div><div class="line">        程序</div><div class="line">    done</div></pre></td></tr></table></figure>
-<p>in后面跟多少值，for循环就循环多少次，每次循环依次把值赋给变量，直到后面的值全都运行一遍。<br>可以将要操作的数据内容放在一个文件中，利用 for i in $(cat 文件名)来避免手动输入。也可以将内容赋给变量，利用for i in $val 来避免手动输入。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">#从1加到100</div><div class="line"></div><div class="line">s=0</div><div class="line">for ((i=1;i&lt;=100;i=i+1))</div><div class="line">    do</div><div class="line">        s=$(($s+$i))</div><div class="line">    done</div><div class="line">#没有i++</div></pre></td></tr></table></figure>
-<h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">while [ 条件判断式 ]</div><div class="line">    do</div><div class="line">          程序</div><div class="line">    done</div></pre></td></tr></table></figure>
-<p>实例：从1加到100<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">sum=0</div><div class="line">i=1</div><div class="line">while [ $i -le 100 ]</div><div class="line">    do</div><div class="line">        sum=$(( $sum+$i ))</div><div class="line">        i=$(( $i+1 ))</div><div class="line">    done</div><div class="line">echo &quot;sum is : $sum&quot;</div></pre></td></tr></table></figure></p>
-<p><a href="http://wiki.jikexueyuan.com/project/shell-learning/case-statements.html" target="_blank" rel="external">http://wiki.jikexueyuan.com/project/shell-learning/case-statements.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;多分支语句case&quot;&gt;&lt;a href=&quot;#多分支语句case&quot; class=&quot;headerlink&quot; title=&quot;多分支语句case&quot;&gt;&lt;/a&gt;多分支语句case&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell条件判断 双分支if语句</title>
-    <link href="http://yoursite.com/2018/05/24/Shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E5%8F%8C%E5%88%86%E6%94%AFif%E8%AF%AD%E5%8F%A5/"/>
-    <id>http://yoursite.com/2018/05/24/Shell条件判断-双分支if语句/</id>
-    <published>2018-05-24T14:17:33.000Z</published>
-    <updated>2018-05-24T14:46:49.817Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if [ 条件判断式 ]</div><div class="line">    then</div><div class="line">        条件成立时执行的程序</div><div class="line">    else</div><div class="line">        条件不成立时，执行的另一个程序</div><div class="line">fi</div></pre></td></tr></table></figure>
-<p>实例：判断输入的路径是不是一个目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">read -t 30 -p &quot;Input a dir:&quot; dir</div><div class="line">if [ -d &quot;$dir&quot; ]</div><div class="line">then</div><div class="line">    echo &quot;Yes,yes yes&quot;</div><div class="line">else</div><div class="line">    echo &quot;No,no,no&quot;</div><div class="line">fi</div></pre></td></tr></table></figure></p>
-<p>实例：判断apache服务是否启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">test=$(ps aux |grep httpd |grep -v grep)</div><div class="line">#定义变量test 并且查找是否启动apache的结果赋值给test</div><div class="line">#ps aux  查看当前所有正在运行的进程 </div><div class="line">#grep httpd 过滤出apache进程</div><div class="line">#grep -v grep 排除自身进程</div><div class="line"></div><div class="line">if [ -n &quot;$test&quot; ]</div><div class="line">then</div><div class="line">    cho &quot; $(date) httpd is ok &quot; &gt;&gt; /tmp/autostart-acc.log</div><div class="line">else</div><div class="line">    systemctl start httpd.service &amp;&gt;/dev/null</div><div class="line">    #centos7</div><div class="line">    echo &quot; $(date) httpd is no \n httpd is autostart now&quot; &gt;&gt; /tmp/autostart-err.log</div><div class="line">fi</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell条件判断 多分支if语句</title>
-    <link href="http://yoursite.com/2018/05/24/Shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E5%A4%9A%E5%88%86%E6%94%AFif%E8%AF%AD%E5%8F%A5/"/>
-    <id>http://yoursite.com/2018/05/24/Shell条件判断-多分支if语句/</id>
-    <published>2018-05-24T14:07:06.000Z</published>
-    <updated>2018-05-24T14:47:00.453Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">if [ 条件判断式1 ]</div><div class="line">then</div><div class="line">    当条件判断式1成立时，执行程序1</div><div class="line">elif [ 条件判断式2 ]</div><div class="line">then</div><div class="line">    当条件判断式2成立时，执行程序2</div><div class="line">else</div><div class="line">    当所有条件都不成立时，最后执行此程序</div><div class="line">fi</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell条件判断 单分支if语句</title>
-    <link href="http://yoursite.com/2018/05/24/Shell%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-%E5%8D%95%E5%88%86%E6%94%AFif%E8%AF%AD%E5%8F%A5/"/>
-    <id>http://yoursite.com/2018/05/24/Shell条件判断-单分支if语句/</id>
-    <published>2018-05-24T14:06:50.000Z</published>
-    <updated>2018-05-24T14:46:27.461Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">if [ 条件判断式 ];then</div><div class="line">    程序</div><div class="line">fi</div><div class="line"></div><div class="line">if [ 条件判断式 ] </div><div class="line">    then</div><div class="line">        程序</div><div class="line">fi</div></pre></td></tr></table></figure>
-<p>注：</p>
-<ol>
-<li>if语句使用fi结尾，和一般语言使用大括号结尾不同</li>
-<li><code>[ 条件判断式 ]</code>就是使用test命令判断，所以中括号和条件判断式之间必须有空格</li>
-<li>then后面跟符合条件之后执行的程序，可以放在[]之后，用<code>;</code>分割，也可以换行写入，就不需要<code>;</code>了</li>
-</ol>
-<p>实例：判断当前登录用户是不是root<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">testuser=$(env | grep &quot;USER&quot; | cut -d &quot;=&quot; -f 2)</div><div class="line">#env是linux的一个外部命令，可以显示当前用户的环境变量，其中一行显示当前用户</div><div class="line">if [ &quot;$testuser&quot; == &quot;root&quot; ]</div><div class="line">then</div><div class="line">    echo &quot;Current user is root.&quot;</div><div class="line">fi</div></pre></td></tr></table></figure></p>
-<p>实例：判断分区使用率<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">#统计根分区使用率</div><div class="line">#/dev/sda3是df判断的</div><div class="line">test=$(df -h | grep &quot;/dev/sda3&quot; | awk &apos;&#123;print $5&#125;&apos; | cut -d &quot;%&quot; -f 1)</div><div class="line">if [ &quot;$test&quot; -ge 90 ]</div><div class="line">then</div><div class="line">    echo &quot;/ is full&quot;</div><div class="line">fi</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
     
   </entry>
   
