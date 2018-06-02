@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="思路：  首先要获得文件的时间戳，ls --full-time和stat -c %y命令都可以 因为是批量，需要获得文件名列表，ls -p  | grep [^/]$或find * -type -f  12345678#!bin/bashfiles=$(ls -p  | grep [^/]$)for file in $filesdoDATE=$(ls --full-time $file | awk">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T05:07:03.130Z">
+<meta property="og:updated_time" content="2018-06-02T07:12:59.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell批量重命名增加文件时间戳前缀">
 <meta name="twitter:description" content="思路：  首先要获得文件的时间戳，ls --full-time和stat -c %y命令都可以 因为是批量，需要获得文件名列表，ls -p  | grep [^/]$或find * -type -f  12345678#!bin/bashfiles=$(ls -p  | grep [^/]$)for file in $filesdoDATE=$(ls --full-time $file | awk">
@@ -326,7 +326,7 @@
 <li>因为是批量，需要获得文件名列表，<code>ls -p  | grep [^/]$</code>或<code>find * -type -f</code></li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!bin/bash</div><div class="line">files=$(ls -p  | grep [^/]$)</div><div class="line"></div><div class="line">for file in $files</div><div class="line">do</div><div class="line">DATE=$(ls --full-time $file | awk &apos;&#123;print $6&#125;&apos;)</div><div class="line">mv $file &quot;$DATE-$file&quot;</div><div class="line">done</div></pre></td></tr></table></figure>
-<p>依旧没有解决的问题：<br>只能重命名当前目录，如果使用<code>files=$(ls -p $1 | grep [^/]$)</code>，然后传入参数，会报没有这个文件或目录</p>
+<p>依旧没有解决的问题：<br>只能重命名当前目录，如果使用<code>files=$(ls -p $1 | grep [^/]$)</code>，然后传入参数，会报没有这个文件或目录<br><a id="more"></a></p>
 
       
     </div>

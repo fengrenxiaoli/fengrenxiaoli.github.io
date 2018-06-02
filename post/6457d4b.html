@@ -88,7 +88,7 @@
 <meta property="og:description" content="安装\启动12sudo apt install tmuxtmux  会话、窗口与窗格的概念Tmux中的主要概念分为三个： Session - Session是Tmux中最主要的概念了，默认开启Tmux的时候，就会自动新建一个会话，在这个会话中，也会给你开启一个默认的Window（也即窗口）。Tmux中可以拥有多个会话，多个会话之间可以来回无缝切换。 Window - 相比session，Windo">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG53.svg">
-<meta property="og:updated_time" content="2018-06-02T03:30:40.646Z">
+<meta property="og:updated_time" content="2018-06-02T07:12:41.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tmux快捷键">
 <meta name="twitter:description" content="安装\启动12sudo apt install tmuxtmux  会话、窗口与窗格的概念Tmux中的主要概念分为三个： Session - Session是Tmux中最主要的概念了，默认开启Tmux的时候，就会自动新建一个会话，在这个会话中，也会给你开启一个默认的Window（也即窗口）。Tmux中可以拥有多个会话，多个会话之间可以来回无缝切换。 Window - 相比session，Windo">
@@ -329,6 +329,7 @@
 <p>Window - 相比session，Windows是稍微小一点的单位。一个session中，可以开启多个window。这些window同属于一个Session，并由其管理。</p>
 <p>Panel - Panel是比Window更小的界面元素。前面我们也提到了Tmux中可以对window进行任意分割，由window分割出来的单位就叫做panel了。在同一个window中，用户可以控制光标在分割出的panel中随意移动，用以选定当前作为激活状态的panel。</p>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG53.svg" alt=""><br>via <a href="https://xiaozhou.net/learn-the-command-line-tmux-2018-04-27.html" target="_blank" rel="external">这里</a></p>
+<a id="more"></a>
 <p><br></p>
 <h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><p>这里是自己平时会用到的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">tmux new -s 会话名   新建会话</div><div class="line">tmux ls             列出会话</div><div class="line">tmux at -t 会话名    恢复会话</div><div class="line"></div><div class="line">ctrl-b,:new     启动新会话</div><div class="line">ctrl-b,s        列出所有会话</div><div class="line">strl-b,d        关闭会话，后台存在</div><div class="line"></div><div class="line">ctrl-b,c        创建新窗口</div><div class="line">ctrl-b,w        列出所有窗口</div><div class="line">ctrl-b,n        后一个窗口</div><div class="line">ctrl-b,p        前一个窗口</div><div class="line">ctrl-b,&amp;        关闭当前窗口</div><div class="line"></div><div class="line"></div><div class="line">ctrl-b,q,数字   切换panel</div></pre></td></tr></table></figure>

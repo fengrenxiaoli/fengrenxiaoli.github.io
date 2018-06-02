@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来 1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除 2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm1234sudo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.888Z">
+<meta property="og:updated_time" content="2018-06-02T07:10:33.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Hexo】重装系统后hexo配置">
 <meta name="twitter:description" content="重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来 1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除 2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm1234sudo">
@@ -323,6 +323,7 @@
         <p>重装系统后需要重新配置Hexo，找了很多教程，结果不是这里出问题就是那里出问题，最后终于找到一个可以用的，所以记录下来</p>
 <p>1、备份原Hexo文件夹下的source文件夹，以及站点目录下的_config.yml和主题目录下的_config.yml，后将整个Hexo文件夹删除</p>
 <p>2、重装系统后，安装Node.js和Git for Windows，通过apt安装需要更新nodejs和npm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt install nodejs npm git</div><div class="line">sudo npm install -g n</div><div class="line">n stable</div><div class="line">sudo npm -g install npm@next</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>3、配置SSH key：在Git Bash敲入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C “你的邮箱”</div></pre></td></tr></table></figure></p>
 <p>生成的密钥默认保存在<code>C:\Users\XPS.ssh\id_rsa.pub</code>，用笔记本打开该文件，复制里面的内容到Github&gt;Settings&gt;SSH and GPG keys&gt;New SSH key-Key一栏里，title可任意发挥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure></p>
 <p>测试是否成功</p>

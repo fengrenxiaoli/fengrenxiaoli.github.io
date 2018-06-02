@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="目录当前目录或工作目录主目录，家目录：HOMEroot: /root普通用户：/home/USERNAME/home/tom ~：用户的主目录 cd 切换目录（change directory）1234567891011cd [目录]简化操作cd：进入当前用户的家目录cd ~ ：进入当前用户的家目录cd - ：进入上次目录cd .. ：进入上一级目录cd . ：进入当前目录相关的环境变量：PWD：">
+<meta name="description" content="目录当前目录或工作目录主目录，家目录：HOMEroot: /root普通用户：/home/USERNAME/home/tom ~：用户的主目录">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux文件管理01 文件处理命令">
 <meta property="og:url" content="http://yoursite.com/post/19cc11d8.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="目录当前目录或工作目录主目录，家目录：HOMEroot: /root普通用户：/home/USERNAME/home/tom ~：用户的主目录 cd 切换目录（change directory）1234567891011cd [目录]简化操作cd：进入当前用户的家目录cd ~ ：进入当前用户的家目录cd - ：进入上次目录cd .. ：进入上一级目录cd . ：进入当前目录相关的环境变量：PWD：">
+<meta property="og:description" content="目录当前目录或工作目录主目录，家目录：HOMEroot: /root普通用户：/home/USERNAME/home/tom ~：用户的主目录">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.884Z">
+<meta property="og:updated_time" content="2018-06-02T07:13:10.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux文件管理01 文件处理命令">
-<meta name="twitter:description" content="目录当前目录或工作目录主目录，家目录：HOMEroot: /root普通用户：/home/USERNAME/home/tom ~：用户的主目录 cd 切换目录（change directory）1234567891011cd [目录]简化操作cd：进入当前用户的家目录cd ~ ：进入当前用户的家目录cd - ：进入上次目录cd .. ：进入上一级目录cd . ：进入当前目录相关的环境变量：PWD：">
+<meta name="twitter:description" content="目录当前目录或工作目录主目录，家目录：HOMEroot: /root普通用户：/home/USERNAME/home/tom ~：用户的主目录">
 
 
 
@@ -322,6 +322,7 @@
       
         <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>当前目录或工作目录<br>主目录，家目录：HOME<br>root: /root<br>普通用户：/home/USERNAME<br>/home/tom</p>
 <p>~：用户的主目录</p>
+<a id="more"></a>
 <h3 id="cd-切换目录（change-directory）"><a href="#cd-切换目录（change-directory）" class="headerlink" title="cd 切换目录（change directory）"></a>cd 切换目录（change directory）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cd [目录]</div><div class="line">简化操作</div><div class="line">cd：进入当前用户的家目录</div><div class="line">cd ~ ：进入当前用户的家目录</div><div class="line">cd - ：进入上次目录</div><div class="line">cd .. ：进入上一级目录</div><div class="line">cd . ：进入当前目录</div><div class="line"></div><div class="line">相关的环境变量：</div><div class="line">PWD：保存了当前目录路径</div><div class="line">OLDPWD：上一次所在目录路径</div></pre></td></tr></table></figure>
 <h3 id="mkdir-建立目录（make-directories）"><a href="#mkdir-建立目录（make-directories）" class="headerlink" title="mkdir  建立目录（make directories）"></a>mkdir  建立目录（make directories）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mkdir [options] /path/to/somewhere</div><div class="line">-p ：存在时不报错，且可自动创建所需的各目录，当创建多级目录时需加</div><div class="line">-v: 显示详细信息</div><div class="line">-m MODE: 创建目录时直接指定权限</div><div class="line"></div><div class="line">mkdir light</div><div class="line">mkdir -p imooc/linux/light</div></pre></td></tr></table></figure>
 <h3 id="rmdir-删除空目录（remove-empty-directories）"><a href="#rmdir-删除空目录（remove-empty-directories）" class="headerlink" title="rmdir 删除空目录（remove empty directories）"></a>rmdir 删除空目录（remove empty directories）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rmdir [OPTION]... DIRECTORY...</div><div class="line">-v: 显示过程</div><div class="line">#只能删除空目录</div></pre></td></tr></table></figure>

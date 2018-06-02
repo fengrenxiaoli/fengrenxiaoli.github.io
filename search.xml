@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[chrome插件vimium]]></title>
     <url>%2Fpost%2F167caf1a.html</url>
-    <content type="text"><![CDATA[以下部分快捷键标明了chrome自身的快捷键，有时因为焦点的原因可能失效 页面浏览12345678j 向下滚动一行k 向上滚动一行h 向左滚动l 向右滚动d 向下翻半屏u 向上翻半屏gg 到页面顶G 到页面底 标签12345678t 新建标签J、Ctrl-Tab 切换到上个标签K、Ctrl-Shift-Tab 切换到下个标签g0 切换到第一个标签g$ 切换到最后一个标签x、Ctrl-w 关闭当前标签X 恢复最后一个关闭的标签T 搜索当前打开的页签 链接1234f 在当前页打开链接F 在新页签打开链接o 在当前页签打开书签、url、历史 O 在新页签打开书签、url、历史 历史12H 回到历史L 向前 帮助1? 参考： https://github.com/philc/vimium#keyboard-bindings https://sspai.com/post/27723]]></content>
+    <content type="text"><![CDATA[以下部分快捷键标明了chrome自身的快捷键，毕竟有时因为焦点的原因可能失效 页面浏览12345678j 向下滚动一行k 向上滚动一行h 向左滚动l 向右滚动d 向下翻半屏u 向上翻半屏gg 到页面顶G 到页面底 标签12345678t 新建标签J、Ctrl-Tab 切换到下个标签K、Ctrl-Shift-Tab 切换到上个标签g0 切换到第一个标签g$ 切换到最后一个标签x、Ctrl-w 关闭当前标签X 恢复最后一个关闭的标签T 搜索当前打开的页签 链接1234f 在当前页打开链接F 在新页签打开链接o 在当前页签打开书签、url、历史 O 在新页签打开书签、url、历史 历史12H 回到历史L 向前 帮助1? 参考： https://github.com/philc/vimium#keyboard-bindings https://sspai.com/post/27723]]></content>
       <tags>
         <tag>VIM</tag>
       </tags>
@@ -11,7 +11,7 @@
   <entry>
     <title><![CDATA[hyper终端的配置]]></title>
     <url>%2Fpost%2Fb6b46b46.html</url>
-    <content type="text"><![CDATA[hyper是一款基于Electron的终端， Electron应用中比较出名的有Atom、VS code hyper的配置文件是.hyper.js1234567//不要用14,目前有一个问题，不显示下划线，https://github.com/zeit/hyper/issues/2812fontSize: 15,plugins: [ &quot;hyper-material-theme&quot;, &quot;hyper-search&quot;, ], 主题的安装可以通过在终端里输入hyper i verminal安装 https://github.com/zeit/hyper/issues/2812]]></content>
+    <content type="text"><![CDATA[hyper是一款基于Electron的终端， Electron应用中比较出名的有Atom、VS code hyper的配置文件是.hyper.js1234567//不要用14，目前有一个不显示下划线的问题，https://github.com/zeit/hyper/issues/2812fontSize: 15,plugins: [ &quot;hyper-material-theme&quot;, &quot;hyper-search&quot;, ], 主题的安装可以通过在终端里输入hyper i verminal安装 https://github.com/zeit/hyper/issues/2812]]></content>
       <tags>
         <tag>Linux应用</tag>
       </tags>
