@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="使用PPA源安装1234sudo add-apt-repository ppa:webupd8team/javasudo apt-get updatesudo apt-get install oracle-java8-installersudo apt-get install oracle-java8-set-default oracle-java8-set-default：将jdk8设置为默认的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.860Z">
+<meta property="og:updated_time" content="2018-06-01T23:47:47.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 安装JDK的两种方式">
 <meta name="twitter:description" content="使用PPA源安装1234sudo add-apt-repository ppa:webupd8team/javasudo apt-get updatesudo apt-get install oracle-java8-installersudo apt-get install oracle-java8-set-default oracle-java8-set-default：将jdk8设置为默认的">
@@ -326,10 +326,15 @@
 <p><br></p>
 <h3 id="使用源码包安装"><a href="#使用源码包安装" class="headerlink" title="使用源码包安装"></a>使用源码包安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uname -a    #查询系统是32位还是64位</div></pre></td></tr></table></figure>
 <p>在<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a><br>找需要的包下载</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">sudo tar zxvf ./jdk-8u171-linux-x64.tar.gz -C /usr/local/jdk1.8.0_171</div><div class="line">sudo vim /etc/profile</div><div class="line"></div><div class="line"><span class="meta">#</span>在文件的末尾追加下面行</div><div class="line">JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">PATH=$JAVA_HOME/bin:$PATH  </div><div class="line">CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar  </div><div class="line">export PATH JAVA_HOME CLASSPATH  </div><div class="line"></div><div class="line"><span class="meta">#</span>使环境变量马上生效</div><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">sudo tar -zxvf ./jdk-8u171-linux-x64.tar.gz -C /usr/local/jdk1.8.0_171</div><div class="line">sudo vim /etc/profile</div><div class="line"></div><div class="line"><span class="meta">#</span>在文件的末尾追加下面行</div><div class="line">JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">PATH=$JAVA_HOME/bin:$PATH  </div><div class="line">CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar  </div><div class="line">export PATH JAVA_HOME CLASSPATH  </div><div class="line"></div><div class="line"><span class="meta">#</span>使环境变量马上生效</div><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
 <p>#设置系统默认jdk 版本</p>
-<p><del>sudo update-alternatives –install /usr/bin/java java /usr/lib/jvm/ jdk1.8.0_144/bin/java 300</del><br><del>sudo update-alternatives –install /usr/bin/javac javac /usr/lib/jvm/ jdk1.8.0_144/bin/javac 300</del><br><del>sudo update-alternatives –install /usr/bin/jar jar /usr/lib/jvm/ jdk1.8.0_144/bin/jar 300</del><br><del>sudo update-alternatives –install /usr/bin/javah javah /usr/lib/jvm/ jdk1.8.0_144/bin/javah 300</del><br><del>sudo update-alternatives –install /usr/bin/javap javap /usr/lib/jvm/ jdk1.8.0_144/bin/javap 300</del></p>
-<p><del>sudo update-alternatives –config java</del></p>
+<!-- ~~sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/ jdk1.8.0_144/bin/java 300~~
+~~sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/ jdk1.8.0_144/bin/javac 300~~
+~~sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/ jdk1.8.0_144/bin/jar 300~~
+~~sudo update-alternatives --install /usr/bin/javah javah /usr/lib/jvm/ jdk1.8.0_144/bin/javah 300~~
+~~sudo update-alternatives --install /usr/bin/javap javap /usr/lib/jvm/ jdk1.8.0_144/bin/javap 300~~
+
+~~sudo update-alternatives --config java~~ -->
 <h3 id="卸载Java-JDK"><a href="#卸载Java-JDK" class="headerlink" title="卸载Java JDK"></a>卸载Java JDK</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -qa |grep jdk</div><div class="line">yum -y remove java java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64</div></pre></td></tr></table></figure>
 <p> 将上面查询出来的每个版本依次删掉即可。</p>
 
