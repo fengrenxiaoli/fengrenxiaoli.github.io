@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="通过yum安装查看要对应的yum库，https://dev.mysql.com/downloads/repo/yum/每个安装包下会有一个类似mysql80-community-release-el6-n.noarch.rpm，替换wget对应的链接 添加源12wget https://dev.mysql.com/get/mysql80-community-release-el6-n.noarch">
+<meta name="description" content="CentOS通过yum安装查看要对应的yum库，https://dev.mysql.com/downloads/repo/yum/每个安装包下会有一个类似mysql80-community-release-el6-n.noarch.rpm，替换wget对应的链接 添加源12wget https://dev.mysql.com/get/mysql80-community-release-el6-n.">
 <meta name="keywords" content="Linux应用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux安装Mysql">
 <meta property="og:url" content="http://yoursite.com/post/42bdef23.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="通过yum安装查看要对应的yum库，https://dev.mysql.com/downloads/repo/yum/每个安装包下会有一个类似mysql80-community-release-el6-n.noarch.rpm，替换wget对应的链接 添加源12wget https://dev.mysql.com/get/mysql80-community-release-el6-n.noarch">
+<meta property="og:description" content="CentOS通过yum安装查看要对应的yum库，https://dev.mysql.com/downloads/repo/yum/每个安装包下会有一个类似mysql80-community-release-el6-n.noarch.rpm，替换wget对应的链接 添加源12wget https://dev.mysql.com/get/mysql80-community-release-el6-n.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-02T00:49:26.953Z">
+<meta property="og:updated_time" content="2018-06-02T01:02:31.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux安装Mysql">
-<meta name="twitter:description" content="通过yum安装查看要对应的yum库，https://dev.mysql.com/downloads/repo/yum/每个安装包下会有一个类似mysql80-community-release-el6-n.noarch.rpm，替换wget对应的链接 添加源12wget https://dev.mysql.com/get/mysql80-community-release-el6-n.noarch">
+<meta name="twitter:description" content="CentOS通过yum安装查看要对应的yum库，https://dev.mysql.com/downloads/repo/yum/每个安装包下会有一个类似mysql80-community-release-el6-n.noarch.rpm，替换wget对应的链接 添加源12wget https://dev.mysql.com/get/mysql80-community-release-el6-n.">
 
 
 
@@ -320,7 +320,7 @@
       
 
       
-        <h2 id="通过yum安装"><a href="#通过yum安装" class="headerlink" title="通过yum安装"></a>通过yum安装</h2><p>查看要对应的yum库，<a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="external">https://dev.mysql.com/downloads/repo/yum/</a><br>每个安装包下会有一个类似mysql80-community-release-el6-n.noarch.rpm，替换wget对应的链接</p>
+        <h2 id="CentOS通过yum安装"><a href="#CentOS通过yum安装" class="headerlink" title="CentOS通过yum安装"></a>CentOS通过yum安装</h2><p>查看要对应的yum库，<a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="external">https://dev.mysql.com/downloads/repo/yum/</a><br>每个安装包下会有一个类似mysql80-community-release-el6-n.noarch.rpm，替换wget对应的链接</p>
 <h3 id="添加源"><a href="#添加源" class="headerlink" title="添加源"></a>添加源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget https://dev.mysql.com/get/mysql80-community-release-el6-n.noarch.rpm</div><div class="line">rpm -Uvh mysql80-community-release-el6-n.noarch.rpm</div></pre></td></tr></table></figure>
 <h3 id="选择mysql安装的版本"><a href="#选择mysql安装的版本" class="headerlink" title="选择mysql安装的版本"></a>选择mysql安装的版本</h3><p>如果只需要安装最新版mysql，可以跳过这一步<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#列出可以安装的版本</div><div class="line">yum repolist all | grep mysql</div></pre></td></tr></table></figure></p>
 <p>可以通过yum-config-manager选择安装的版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#安装yum-config-manager，通过yum provides yum-config-manager可以查到在yum-utils包里</div><div class="line">yum install -y yum-utils</div><div class="line">#禁用最新的版本，开启需要的版本</div><div class="line">yum-config-manager --disable mysql80-community</div><div class="line">yum-config-manager --enable mysql57-community</div></pre></td></tr></table></figure></p>
@@ -330,19 +330,18 @@
 <h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl start mysqld</div><div class="line">systemctl status mysqld</div></pre></td></tr></table></figure>
 <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>因为版本不同，可能第一次登录没有密码，可以先查看以下文件，为空则没有密码，不为空则使用列出的密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grep &apos;temporary password&apos; /var/log/mysqld.log</div></pre></td></tr></table></figure></p>
 <p>使用此命令运行安全脚本，设置root密码，删除匿名用户，禁止远程root用户登录，删除测试数据库并对其进行访问，并重新加载权限表<br>MySQL的 validate_password 插件默认安装。这将要求密码至少包含一个大写字母，一个小写字母，一个数字和一个特殊字符，并且总密码长度至少为8个字符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_secure_installation</div></pre></td></tr></table></figure></p>
-<p>mysql -uroot -p</p>
 <h2 id="Ubuntu安装MySQL"><a href="#Ubuntu安装MySQL" class="headerlink" title="Ubuntu安装MySQL"></a>Ubuntu安装MySQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install mysql-server mysql-client libmysqlclient-cev</div></pre></td></tr></table></figure>
 <!-- ## 通过二进制包安装
 https://dev.mysql.com/doc/refman/5.5/en/binary-installation.html
 https://hk.saowen.com/a/36cde9c26d5c84e1eee87c14cf18291631654dc38cf45f6d34cafc3576d8ca5a
 https://hk.saowen.com/a/36cde9c26d5c84e1eee87c14cf18291631654dc38cf45f6d34cafc3576d8ca5a
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">##卸载残留的mysql文件</div><div class="line">rpm -qa | grep mysql</div><div class="line">rpm -ev 上一条语句查询的包</div><div class="line">#mariadb-lib包用yum remove mysql-libs</div><div class="line"></div><div class="line">#下载，这里使用</div><div class="line">MySQL-5.5.60-1.el7.x86_64.rpm-bundle.tar</div><div class="line"></div><div class="line">#解压</div><div class="line">tar -xvf mysql-版本号</div><div class="line"></div><div class="line">#安装</div><div class="line">rpm -ivf ...</div><div class="line">``` --&gt;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">## 配置mysql</div><div class="line"></div><div class="line">####编码</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">##卸载残留的mysql文件</div><div class="line">rpm -qa | grep mysql</div><div class="line">rpm -ev 上一条语句查询的包</div><div class="line">#mariadb-lib包用yum remove mysql-libs</div><div class="line"></div><div class="line">#下载，这里使用</div><div class="line">MySQL-5.5.60-1.el7.x86_64.rpm-bundle.tar</div><div class="line"></div><div class="line">#解压</div><div class="line">tar -xvf mysql-版本号</div><div class="line"></div><div class="line">#安装</div><div class="line">rpm -ivf ...</div><div class="line">``` --&gt;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">## 配置mysql</div><div class="line"></div><div class="line">### 编码</div></pre></td></tr></table></figure>
 <p>#mysql配置文件为/etc/my.cnf</p>
-<p>最后加上编码配置<br>default-character-set=utf8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">####设置密码</div></pre></td></tr></table></figure></p>
+<p>最后加上编码配置<br>default-character-set=utf8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 设置密码</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>SET PASSWORD FOR ‘jeffrey’@’localhost’ = ‘auth_string’;</p>
-<p>#为当前用户设置密码<br>SET PASSWORD = ‘auth_string’;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">####新增用户</div></pre></td></tr></table></figure></p>
-<p>create database testdb;<br>create  user  ‘testuser’@’localhost’  identified  by  ‘password’ ;<br>grant  all  on testdb.* to ‘testuser’@’localhost’;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">####远程连接设置</div></pre></td></tr></table></figure></p>
+<p>#为当前用户设置密码<br>SET PASSWORD = ‘auth_string’;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 新增用户</div></pre></td></tr></table></figure></p>
+<p>create database testdb;<br>create  user  ‘testuser’@’localhost’  identified  by  ‘password’ ;<br>grant  all  on testdb.* to ‘testuser’@’localhost’;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">### 远程连接设置</div></pre></td></tr></table></figure></p>
 </blockquote>
 <p>#把在所有数据库的所有表的所有权限赋值给位于所有IP地址的root用户</p>
 <blockquote>
@@ -486,7 +485,7 @@ https://hk.saowen.com/a/36cde9c26d5c84e1eee87c14cf18291631654dc38cf45f6d34cafc35
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">141</span>
+                  <span class="site-state-item-count">143</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -539,7 +538,7 @@ https://hk.saowen.com/a/36cde9c26d5c84e1eee87c14cf18291631654dc38cf45f6d34cafc35
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过yum安装"><span class="nav-number">1.</span> <span class="nav-text">通过yum安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加源"><span class="nav-number">1.1.</span> <span class="nav-text">添加源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择mysql安装的版本"><span class="nav-number">1.2.</span> <span class="nav-text">选择mysql安装的版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">1.4.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">1.5.</span> <span class="nav-text">初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu安装MySQL"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu安装MySQL</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS通过yum安装"><span class="nav-number">1.</span> <span class="nav-text">CentOS通过yum安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加源"><span class="nav-number">1.1.</span> <span class="nav-text">添加源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择mysql安装的版本"><span class="nav-number">1.2.</span> <span class="nav-text">选择mysql安装的版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">1.4.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">1.5.</span> <span class="nav-text">初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu安装MySQL"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu安装MySQL</span></a></li></ol></div>
             
 
           </div>

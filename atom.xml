@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-01T23:42:38.929Z</updated>
+  <updated>2018-06-02T04:14:55.235Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>chrome插件vimium</title>
+    <link href="http://yoursite.com/post/167caf1a.html"/>
+    <id>http://yoursite.com/post/167caf1a.html</id>
+    <published>2018-06-02T03:20:11.000Z</published>
+    <updated>2018-06-02T04:14:55.235Z</updated>
+    
+    <content type="html"><![CDATA[<p>以下部分快捷键标明了chrome自身的快捷键，有时因为焦点的原因可能失效</p>
+<h2 id="页面浏览"><a href="#页面浏览" class="headerlink" title="页面浏览"></a>页面浏览</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">j		向下滚动一行</div><div class="line">k		向上滚动一行</div><div class="line">h		向左滚动</div><div class="line">l		向右滚动</div><div class="line">d		向下翻半屏</div><div class="line">u		向上翻半屏</div><div class="line">gg		到页面顶</div><div class="line">G		到页面底</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">t		新建标签</div><div class="line">J、Ctrl-Tab	切换到上个标签</div><div class="line">K、Ctrl-Shift-Tab	切换到下个标签</div><div class="line">g0		切换到第一个标签</div><div class="line">g$		切换到最后一个标签</div><div class="line">x、Ctrl-w	关闭当前标签</div><div class="line">X		恢复最后一个关闭的标签</div><div class="line">T		搜索当前打开的页签</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">f		在当前页打开链接</div><div class="line">F		在新页签打开链接</div><div class="line">o		在当前页签打开书签、url、历史		</div><div class="line">O		在新页签打开书签、url、历史</div></pre></td></tr></table></figure>
+<h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">H		回到历史</div><div class="line">L		向前</div></pre></td></tr></table></figure>
+<h2 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">?</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="https://github.com/philc/vimium#keyboard-bindings" target="_blank" rel="external">https://github.com/philc/vimium#keyboard-bindings</a></li>
+<li><a href="https://sspai.com/post/27723" target="_blank" rel="external">https://sspai.com/post/27723</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以下部分快捷键标明了chrome自身的快捷键，有时因为焦点的原因可能失效&lt;/p&gt;
+&lt;h2 id=&quot;页面浏览&quot;&gt;&lt;a href=&quot;#页面浏览&quot; class=&quot;headerlink&quot; title=&quot;页面浏览&quot;&gt;&lt;/a&gt;页面浏览&lt;/h2&gt;&lt;figure class=&quot;highli
+    
+    </summary>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hyper终端的配置</title>
+    <link href="http://yoursite.com/post/b6b46b46.html"/>
+    <id>http://yoursite.com/post/b6b46b46.html</id>
+    <published>2018-06-02T01:49:52.000Z</published>
+    <updated>2018-06-02T02:08:23.059Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://hyper.is/" target="_blank" rel="external">hyper</a>是一款基于Electron的终端， <a href="https://electronjs.org/" target="_blank" rel="external">Electron</a>应用中比较出名的有Atom、VS code</p>
+<p>hyper的配置文件是<code>.hyper.js</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//不要用14,目前有一个问题，不显示下划线，https://github.com/zeit/hyper/issues/2812</div><div class="line">fontSize: 15,</div><div class="line"></div><div class="line">plugins: [</div><div class="line">    &quot;hyper-material-theme&quot;,</div><div class="line">    &quot;hyper-search&quot;,</div><div class="line">  ],</div></pre></td></tr></table></figure></p>
+<p>主题的安装可以通过在终端里输入<code>hyper i verminal</code>安装</p>
+<p><a href="https://github.com/zeit/hyper/issues/2812" target="_blank" rel="external">https://github.com/zeit/hyper/issues/2812</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://hyper.is/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hyper&lt;/a&gt;是一款基于Electron的终端， &lt;a href=&quot;https://electronjs.org/&quot; target=&quot;_blank&quot; r
+    
+    </summary>
+    
+    
+      <category term="Linux应用" scheme="http://yoursite.com/tags/Linux%E5%BA%94%E7%94%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>vim多行注释和多行删除</title>
@@ -91,50 +149,38 @@
     <link href="http://yoursite.com/post/6457d4b.html"/>
     <id>http://yoursite.com/post/6457d4b.html</id>
     <published>2018-06-01T13:10:13.000Z</published>
-    <updated>2018-06-01T23:42:22.553Z</updated>
+    <updated>2018-06-02T03:30:40.646Z</updated>
     
     <content type="html"><![CDATA[<h2 id="安装-启动"><a href="#安装-启动" class="headerlink" title="安装\启动"></a>安装\启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install tmux</div><div class="line">tmux</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="会话、窗口与窗格的概念"><a href="#会话、窗口与窗格的概念" class="headerlink" title="会话、窗口与窗格的概念"></a>会话、窗口与窗格的概念</h2><p>Tmux中的主要概念分为三个：</p>
 <p>Session - Session是Tmux中最主要的概念了，默认开启Tmux的时候，就会自动新建一个会话，在这个会话中，也会给你开启一个默认的Window（也即窗口）。Tmux中可以拥有多个会话，多个会话之间可以来回无缝切换。</p>
 <p>Window - 相比session，Windows是稍微小一点的单位。一个session中，可以开启多个window。这些window同属于一个Session，并由其管理。</p>
 <p>Panel - Panel是比Window更小的界面元素。前面我们也提到了Tmux中可以对window进行任意分割，由window分割出来的单位就叫做panel了。在同一个window中，用户可以控制光标在分割出的panel中随意移动，用以选定当前作为激活状态的panel。</p>
 <p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG53.svg" alt=""><br>via <a href="https://xiaozhou.net/learn-the-command-line-tmux-2018-04-27.html" target="_blank" rel="external">这里</a></p>
+<p><br></p>
 <h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><p>这里是自己平时会用到的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">tmux new -s 会话名   新建会话</div><div class="line">tmux ls             列出会话</div><div class="line">tmux at -t 会话名    恢复会话</div><div class="line"></div><div class="line">ctrl-b,:new     启动新会话</div><div class="line">ctrl-b,s        列出所有会话</div><div class="line">strl-b,d        关闭会话，后台存在</div><div class="line"></div><div class="line">ctrl-b,c        创建新窗口</div><div class="line">ctrl-b,w        列出所有窗口</div><div class="line">ctrl-b,n        后一个窗口</div><div class="line">ctrl-b,p        前一个窗口</div><div class="line">ctrl-b,&amp;        关闭当前窗口</div><div class="line"></div><div class="line"></div><div class="line">ctrl-b,q,数字   切换panel</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="会话session"><a href="#会话session" class="headerlink" title="会话session"></a>会话session</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tmux [new -s 会话名 -n 窗口名]      启动新会话</div><div class="line">tmux at [-t 会话名]                恢复会话</div><div class="line">tmux ls                           列出所有会话</div><div class="line">tmux kill-session -t 会话名        关闭会话</div><div class="line">tmux ls | grep : | cut -d. -f1 | awk &apos;&#123;print substr($1, 0, length($1)-1)&#125;&apos; | xargs kill                              关闭所有会话</div></pre></td></tr></table></figure>
 <p>Tmux为我们默认预备的 <code>&lt;prefix&gt;</code>组合键，是 C-b (即Ctrl+b)<br>开启tmux后使用 <code>&lt;prefix&gt;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;prefix&gt; :new&lt;回车&gt;   启动新会话</div><div class="line">&lt;prefix&gt; s           列出所有会话</div><div class="line">&lt;prefix&gt; $           重命名当前会话</div><div class="line">&lt;prefix&gt; d           退出 tmux（tmux 仍在后台运行）</div></pre></td></tr></table></figure></p>
 <p><br></p>
 <h2 id="窗口windows"><a href="#窗口windows" class="headerlink" title="窗口windows"></a>窗口windows</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;prefix&gt; c  创建新窗口</div><div class="line">&lt;prefix&gt; w  列出所有窗口</div><div class="line">&lt;prefix&gt; n  后一个窗口</div><div class="line">&lt;prefix&gt; p  前一个窗口</div><div class="line">&lt;prefix&gt; f  查找窗口</div><div class="line">&lt;prefix&gt; ,  重命名当前窗口</div><div class="line">&lt;prefix&gt; &amp;  关闭当前窗口</div><div class="line">&lt;prefix&gt; 0-9 切换到指定编号的窗口</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="窗格panel"><a href="#窗格panel" class="headerlink" title="窗格panel"></a>窗格panel</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># 操作</div><div class="line">&lt;prefix&gt; %  垂直分割</div><div class="line">&lt;prefix&gt; &quot;  水平分割</div><div class="line">&lt;prefix&gt; o  交换窗格</div><div class="line">&lt;prefix&gt; x  关闭窗格</div><div class="line">&lt;prefix&gt; &lt;space&gt; 切换布局</div><div class="line">&lt;prefix&gt; q 显示每个窗格是第几个，当数字出现的时候按数字几就选中第几个窗格</div><div class="line">&lt;prefix&gt; &#123; 与上一个窗格交换位置</div><div class="line">&lt;prefix&gt; &#125; 与下一个窗格交换位置</div><div class="line">&lt;prefix&gt; u 切换窗格最大化</div><div class="line">&lt;prefix&gt; n 切换窗格最小化</div><div class="line"></div><div class="line"># 选择</div><div class="line">&lt;prefix&gt; 方向键 选择窗格</div><div class="line">#在配置文件中，set mouse on可以使用鼠标焦点某个窗格</div><div class="line"></div><div class="line"># 尺寸调整</div><div class="line">&lt;prefix&gt; H 当前窗格向左扩大3格</div><div class="line">&lt;prefix&gt; J 当前窗格向下扩大3格</div><div class="line">&lt;prefix&gt; K 当前窗格向上扩大3格</div><div class="line">&lt;prefix&gt; L 当前窗格向右扩大3格</div><div class="line">#在配置文件中，set mouse on可以使用鼠标拖动来调节尺寸</div></pre></td></tr></table></figure>
+<h2 id="杂项："><a href="#杂项：" class="headerlink" title="杂项："></a>杂项：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">t  窗口中央显示一个数字时钟</div><div class="line">?  列出所有快捷键</div><div class="line">:  命令提示符</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ul>
+<li><a href="https://gist.github.com/ryerh/14b7c24dfd623ef8edc7" target="_blank" rel="external">https://gist.github.com/ryerh/14b7c24dfd623ef8edc7</a></li>
+<li><a href="https://xiaozhou.net/learn-the-command-line-tmux-2018-04-27.html" target="_blank" rel="external">https://xiaozhou.net/learn-the-command-line-tmux-2018-04-27.html</a></li>
+<li><a href="https://harttle.land/2015/11/06/tmux-startup.html" target="_blank" rel="external">https://harttle.land/2015/11/06/tmux-startup.html</a></li>
+</ul>
 <!-- ## 调整窗口排序
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">swap-window -s 3 -t 1  交换 3 号和 1 号窗口</div><div class="line">swap-window -t 1       交换当前和 1 号窗口</div><div class="line">move-window -t 1       移动当前窗口到 1 号</div><div class="line">``` --&gt;</div><div class="line"></div><div class="line">&lt;br&gt;</div><div class="line"></div><div class="line">## 窗格panel</div></pre></td></tr></table></figure>
-<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p><prefix> %  垂直分割</p>
-<p><prefix> “  水平分割</p>
-<p><prefix> o  交换窗格</p>
-<p><prefix> x  关闭窗格</p>
-<p><prefix> <space> 切换布局</p>
-<p><prefix> q 显示每个窗格是第几个，当数字出现的时候按数字几就选中第几个窗格</p>
-<p><prefix> { 与上一个窗格交换位置</p>
-<p><prefix> } 与下一个窗格交换位置</p>
-<p><prefix> u 切换窗格最大化</p>
-<p><prefix> n 切换窗格最小化</p>
-<h1 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h1><p><prefix> 方向键 选择窗格</p>
-<p>#在配置文件中，set mouse on可以使用鼠标焦点某个窗格</p>
-<h1 id="尺寸调整"><a href="#尺寸调整" class="headerlink" title="尺寸调整"></a>尺寸调整</h1><p><prefix> H 当前窗格向左扩大3格</p>
-<p><prefix> J 当前窗格向下扩大3格</p>
-<p><prefix> K 当前窗格向上扩大3格</p>
-<p><prefix> L 当前窗格向右扩大3格</p>
-<p>#在配置文件中，set mouse on可以使用鼠标拖动来调节尺寸<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!-- ## 同步窗格</div><div class="line"></div><div class="line">这么做可以切换到想要的窗口，输入 Tmux 前缀和一个冒号呼出命令提示行，然后输入：</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">swap-window -s 3 -t 1  交换 3 号和 1 号窗口</div><div class="line">swap-window -t 1       交换当前和 1 号窗口</div><div class="line">move-window -t 1       移动当前窗口到 1 号</div><div class="line">``` --&gt;</div><div class="line">&lt;!-- ## 同步窗格</div><div class="line"></div><div class="line">这么做可以切换到想要的窗口，输入 Tmux 前缀和一个冒号呼出命令提示行，然后输入：</div></pre></td></tr></table></figure>
 <p>:setw synchronize-panes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">你可以指定开或关，否则重复执行命令会在两者间切换。 这个选项值针对某个窗口有效，不会影响别的会话和窗口。 完事儿之后再次执行命令来关闭。帮助</div><div class="line"></div><div class="line">## 调整窗格尺寸</div><div class="line">如果你不喜欢默认布局，可以重调窗格的尺寸。虽然这很容易实现，但一般不需要这么干。这几个命令用来调整窗格：</div></pre></td></tr></table></figure></p>
 <p>PREFIX : resize-pane -D          当前窗格向下扩大 1 格<br>PREFIX : resize-pane -U          当前窗格向上扩大 1 格<br>PREFIX : resize-pane -L          当前窗格向左扩大 1 格<br>PREFIX : resize-pane -R          当前窗格向右扩大 1 格<br>PREFIX : resize-pane -D 20       当前窗格向下扩大 20 格<br>PREFIX : resize-pane -t 2 -L 20  编号为 2 的窗格向左扩大 20 格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- ## 文本复制模式：</div><div class="line">按下**前缀 [**进入文本复制模式。可以使用方向键在屏幕中移动光标。默认情况下，方向键是启用的。在配置文件中启用 Vim 键盘布局来切换窗口、调整窗格大小。Tmux 也支持 Vi 模式。要是想启用 Vi 模式，只需要把下面这一行添加到 .tmux.conf 中：</div></pre></td></tr></table></figure></p>
 <p>setw -g mode-keys vi<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">启用这条配置后，就可以使用 h、j、k、l 来移动光标了。</div><div class="line"></div><div class="line">想要退出文本复制模式的话，按下回车键就可以了。一次移动一格效率低下，在 Vi 模式启用的情况下，可以辅助一些别的快捷键高效工作。</div><div class="line"></div><div class="line">例如，可以使用 w 键逐词移动，使用 b 键逐词回退。使用 f 键加上任意字符跳转到当前行第一次出现该字符的位置，使用 F 键达到相反的效果。</div></pre></td></tr></table></figure></p>
-<p>vi             emacs        功能<br>^              M-m          反缩进<br>Escape         C-g          清除选定内容<br>Enter          M-w          复制选定内容<br>j              Down         光标下移<br>h              Left         光标左移<br>l              Right        光标右移<br>L                           光标移到尾行<br>M              M-r          光标移到中间行<br>H              M-R          光标移到首行<br>k              Up           光标上移<br>d              C-u          删除整行<br>D              C-k          删除到行末<br>$              C-e          移到行尾<br>:              g            前往指定行<br>C-d            M-Down       向下滚动半屏<br>C-u            M-Up         向上滚动半屏<br>C-f            Page down    下一页<br>w              M-f          下一个词<br>p              C-y          粘贴<br>C-b            Page up      上一页<br>b              M-b          上一个词<br>q              Escape       退出<br>C-Down or J    C-Down       向下翻<br>C-Up or K      C-Up         向下翻<br>n              n            继续搜索<br>?              C-r          向前搜索<br>/              C-s          向后搜索<br>0              C-a          移到行首<br>Space          C-Space      开始选中<br>               C-t          字符调序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 杂项：</div></pre></td></tr></table></figure></p>
-<p>t  窗口中央显示一个数字时钟<br>?  列出所有快捷键<br>:  命令提示符<br>```</p>
-<p>参考：</p>
-<ul>
-<li><a href="https://gist.github.com/ryerh/14b7c24dfd623ef8edc7">https://gist.github.com/ryerh/14b7c24dfd623ef8edc7</a></li>
-<li><a href="https://xiaozhou.net/learn-the-command-line-tmux-2018-04-27.html">https://xiaozhou.net/learn-the-command-line-tmux-2018-04-27.html</a></li>
-<li><a href="https://harttle.land/2015/11/06/tmux-startup.html">https://harttle.land/2015/11/06/tmux-startup.html</a></li>
-</ul>
+<p>vi             emacs        功能<br>^              M-m          反缩进<br>Escape         C-g          清除选定内容<br>Enter          M-w          复制选定内容<br>j              Down         光标下移<br>h              Left         光标左移<br>l              Right        光标右移<br>L                           光标移到尾行<br>M              M-r          光标移到中间行<br>H              M-R          光标移到首行<br>k              Up           光标上移<br>d              C-u          删除整行<br>D              C-k          删除到行末<br>$              C-e          移到行尾<br>:              g            前往指定行<br>C-d            M-Down       向下滚动半屏<br>C-u            M-Up         向上滚动半屏<br>C-f            Page down    下一页<br>w              M-f          下一个词<br>p              C-y          粘贴<br>C-b            Page up      上一页<br>b              M-b          上一个词<br>q              Escape       退出<br>C-Down or J    C-Down       向下翻<br>C-Up or K      C-Up         向下翻<br>n              n            继续搜索<br>?              C-r          向前搜索<br>/              C-s          向后搜索<br>0              C-a          移到行首<br>Space          C-Space      开始选中<br>               C-t          字符调序<br>``` –&gt;</p>
 -->]]></content>
     
     <summary type="html">
@@ -342,14 +388,12 @@
     <link href="http://yoursite.com/post/43bb04d6.html"/>
     <id>http://yoursite.com/post/43bb04d6.html</id>
     <published>2018-05-31T12:33:43.000Z</published>
-    <updated>2018-06-01T04:56:22.876Z</updated>
+    <updated>2018-06-02T04:51:55.837Z</updated>
     
     <content type="html"><![CDATA[<p>用户与主机交互，必然用到的设备；</p>
-<h2 id="物理终端"><a href="#物理终端" class="headerlink" title="物理终端"></a>物理终端</h2><p>直接接入本机的显示器和键盘设备；/dev/console</p>
-<h2 id="虚拟终端"><a href="#虚拟终端" class="headerlink" title="虚拟终端"></a>虚拟终端</h2><p>附加在物理终端之上的以软件方式虚拟实现的终端，CentOS 6默认启动6个虚拟终端<br>Ctrl+Alt+F#: [1,6]<br>图形终端：附加在物理终端之上的以软件方式虚拟实现的终端，但额外会提供桌面环境；</p>
-<p>设备文件路径：/dev/tty#</p>
-<h2 id="模拟终端"><a href="#模拟终端" class="headerlink" title="模拟终端"></a>模拟终端</h2><p>图形界面下打开的命令行接口，基于ssh协议或telnet协议等远程打开的界面</p>
-<p>设备文件：/dev/pts/#    [0,oo)</p>
+<h2 id="物理终端"><a href="#物理终端" class="headerlink" title="物理终端"></a>物理终端</h2><p>直接连接在主机上的显示器、键盘鼠标统称。<br>在实际机架式服务器部署中，一般是多台服务器共享一套终端，简称KVM（Keyboard键盘，video显示器，mouse鼠标）<br>/dev/console</p>
+<h2 id="虚拟终端tty"><a href="#虚拟终端tty" class="headerlink" title="虚拟终端tty"></a>虚拟终端tty</h2><p>附加在物理终端之上的以软件方式虚拟实现的终端，CentOS 6默认启动6个虚拟终端<br>Ctrl+Alt+F#: [1,6]<br>图形终端：附加在物理终端之上的以软件方式虚拟实现的终端，但额外会提供桌面环境；<br>tty是teletypewriter的简称<br>设备文件路径：/dev/tty#</p>
+<h2 id="模拟终端pty"><a href="#模拟终端pty" class="headerlink" title="模拟终端pty"></a>模拟终端pty</h2><p>sh协议或telnet协议等远程打开的命令行界面，是运维工程师用的最多的一种连接服务器的方式。pts(pseudo-terminal slave)是pty的实现方法。<br>设备文件：/dev/pts/#    [0,oo)</p>
 <p>查看当前的终端设备：tty</p>
 <h2 id="交互式接口"><a href="#交互式接口" class="headerlink" title="交互式接口"></a>交互式接口</h2><p>启动终端后，在终端设备附加一个交互式应用程序</p>
 <h3 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h3><p>X protocol, window manager, desktop</p>
@@ -362,8 +406,7 @@
     <summary type="html">
     
       &lt;p&gt;用户与主机交互，必然用到的设备；&lt;/p&gt;
-&lt;h2 id=&quot;物理终端&quot;&gt;&lt;a href=&quot;#物理终端&quot; class=&quot;headerlink&quot; title=&quot;物理终端&quot;&gt;&lt;/a&gt;物理终端&lt;/h2&gt;&lt;p&gt;直接接入本机的显示器和键盘设备；/dev/console&lt;/p&gt;
-&lt;h2 i
+&lt;h2 id=&quot;物理终端&quot;&gt;&lt;a href=&quot;#物理终端&quot; class=&quot;headerlink&quot; title=&quot;物理终端&quot;&gt;&lt;/a&gt;物理终端&lt;/h2&gt;&lt;p&gt;直接连接在主机上的显示器、键盘鼠标统称。&lt;br&gt;在实际机架式服务器部署中，一
     
     </summary>
     
@@ -576,78 +619,6 @@
     
     
       <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vim使用系统剪贴板</title>
-    <link href="http://yoursite.com/post/333f9b1a.html"/>
-    <id>http://yoursite.com/post/333f9b1a.html</id>
-    <published>2018-05-27T02:31:12.000Z</published>
-    <updated>2018-06-01T04:56:22.868Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="查看vim版本是否支持clipboard"><a href="#查看vim版本是否支持clipboard" class="headerlink" title="查看vim版本是否支持clipboard"></a>查看vim版本是否支持clipboard</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vim --version | grep &quot;clipboard&quot;</div><div class="line"></div><div class="line">-clipboard       +insert_expand   +path_extra      +user_commands</div></pre></td></tr></table></figure>
-<p><code>-clipboard</code> 显示 <code>-</code> 号，说明不支持，需要安装vim-gnome<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt install vim-gnome</div><div class="line">#再次查看，可以看到clipboard前面是+号</div><div class="line">vim --version | grep &quot;clipboard&quot;</div></pre></td></tr></table></figure></p>
-<h2 id="复制、粘贴"><a href="#复制、粘贴" class="headerlink" title="复制、粘贴"></a>复制、粘贴</h2><p>Vim 中的复制、删除的内容都会被存放到默认（未命名）寄存器中，之后可以通过粘贴操作读取默认寄存器中的内容。寄存器是完成这一过程的中转站，Vim 支持的寄存器非常多，其中常用的有 a-zA-Z0-9+“。其中：</p>
-<ul>
-<li>0-9：表示数字寄存器，是 Vim 用来保存最近复制、删除等操作的内容，其中 0 号寄存器保存的是最近一次的操作内容。</li>
-<li>a-zA-Z：表示用户寄存器，Vim 不会读写这部分寄存器</li>
-<li><code>&quot;</code>（单个双引号）：未命名的寄存器，是 Vim 的默认寄存器，例如删除、复制等操作的内容都会被保存到这里。</li>
-<li><code>+</code>：剪切板寄存器，关联系统剪切板，保存在这个寄存器中的内容可以被系统其他程序访问，也可以通过这个寄存器访问其他程序保存到剪切板中的内容。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#查看所有寄存器中的内容，也可以只查看指定寄存器的内容（将寄存器名称作为参数）</div><div class="line">:reg [register_name]</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;+yy        #复制当前行到剪切板</div><div class="line">&quot;+p         #将剪切板内容粘贴到光标后面</div><div class="line">&quot;ayy        #复制当前行到寄存器 a</div><div class="line">&quot;ap         #将寄存器 a 中的内容粘贴到光标后面</div></pre></td></tr></table></figure>
-<p>参考：</p>
-<ul>
-<li><a href="https://blog.csdn.net/zhangxiao93/article/details/53677764" target="_blank" rel="external">https://blog.csdn.net/zhangxiao93/article/details/53677764</a></li>
-<li><a href="https://www.zhihu.com/question/19863631/answer/89354508" target="_blank" rel="external">https://www.zhihu.com/question/19863631/answer/89354508</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;查看vim版本是否支持clipboard&quot;&gt;&lt;a href=&quot;#查看vim版本是否支持clipboard&quot; class=&quot;headerlink&quot; title=&quot;查看vim版本是否支持clipboard&quot;&gt;&lt;/a&gt;查看vim版本是否支持clipboard&lt;/h2&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VIM插件</title>
-    <link href="http://yoursite.com/post/9b750e68.html"/>
-    <id>http://yoursite.com/post/9b750e68.html</id>
-    <published>2018-05-27T01:31:18.000Z</published>
-    <updated>2018-06-01T04:56:22.872Z</updated>
-    
-    <content type="html"><![CDATA[<p>Elementary os的终端好像不能用vim的块操作同时插件NerdTree也有问题，所以改用hyper<br><a href="https://hyper.is/" target="_blank" rel="external">https://hyper.is/</a><br><a href="https://github.com/zeit/hyper" target="_blank" rel="external">https://github.com/zeit/hyper</a></p>
-<h2 id="插件管理-vim-plug"><a href="#插件管理-vim-plug" class="headerlink" title="插件管理 vim-plug"></a>插件管理 vim-plug</h2><p><a href="https://github.com/junegunn/vim-plug" target="_blank" rel="external">https://github.com/junegunn/vim-plug</a></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</div><div class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</div></pre></td></tr></table></figure>
-<h3 id="插件管理"><a href="#插件管理" class="headerlink" title="插件管理"></a>插件管理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.vimrc</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">set number</div><div class="line"></div><div class="line">call plug#begin(&apos;~/.vim/plugged&apos;)</div><div class="line">let mapleader=&quot;,&quot;</div><div class="line"></div><div class="line">&quot;目录树</div><div class="line">&quot;F3打开目录</div><div class="line">&quot;o打开文件</div><div class="line">Plug &apos;godlygeek/tabular&apos;</div><div class="line">nnoremap &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</div><div class="line">autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif</div><div class="line"></div><div class="line">&quot;markdown 语法高亮、预览</div><div class="line">&quot;:PrevimOpen在浏览器预览</div><div class="line">&quot;关闭折叠</div><div class="line">let g:vim_markdown_folding_disabled = 1</div><div class="line">Plug &apos;godlygeek/tabular&apos;</div><div class="line">Plug &apos;plasticboy/vim-markdown&apos;</div><div class="line">Plug &apos;kannokanno/previm&apos;</div><div class="line">Plug &apos;tyru/open-browser.vim&apos;</div><div class="line"></div><div class="line">&quot;文件搜索</div><div class="line">&quot;&lt;leader&gt;f搜索,因为这里设置leader为,号，所以是,+f</div><div class="line">Plug &apos;Yggdroot/LeaderF&apos;, &#123; &apos;do&apos;: &apos;./install.sh&apos; &#125;</div><div class="line"></div><div class="line">call plug#end()</div><div class="line">&quot;添加vim-plug配置，以call plug#begin()开头，call plug#end()结尾，中间是插件列表，begin可以接受参数指定存放插件的位置</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#重新打开.vimrc</div><div class="line">vim ~/.vimrc</div><div class="line"></div><div class="line"></div><div class="line">:PlugInstall         #安装插件</div><div class="line">:PlugUpdate          #升级插件</div><div class="line">:PlugClean           #删除未被使用的插件目录</div><div class="line">:PlugUpgrade         #升级Vim-plug自身</div><div class="line">:PlugStatus          #查看插件状态</div><div class="line">:q                    退出</div></pre></td></tr></table></figure>
-<p>补充：<br><a href="http://www.vimer.cn/archives/1372.html" target="_blank" rel="external">http://www.vimer.cn/archives/1372.html</a></p>
-<p>参考：</p>
-<ul>
-<li><a href="https://blog.csdn.net/rankun1/article/details/78775404" target="_blank" rel="external">https://blog.csdn.net/rankun1/article/details/78775404</a></li>
-<li><a href="https://www.jianshu.com/p/f4fb7877829f" target="_blank" rel="external">https://www.jianshu.com/p/f4fb7877829f</a></li>
-<li><a href="http://www.zhaiqianfeng.com/2017/02/install-vim-plugins.html" target="_blank" rel="external">http://www.zhaiqianfeng.com/2017/02/install-vim-plugins.html</a></li>
-<li><a href="https://github.com/gabrielelana/vim-markdown" target="_blank" rel="external">https://github.com/gabrielelana/vim-markdown</a></li>
-<li><a href="https://bovink.com/2016/07/01/use-vim-to-write-markdown/" target="_blank" rel="external">https://bovink.com/2016/07/01/use-vim-to-write-markdown/</a></li>
-<li><a href="https://github.com/Yggdroot/LeaderF" target="_blank" rel="external">https://github.com/Yggdroot/LeaderF</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Elementary os的终端好像不能用vim的块操作同时插件NerdTree也有问题，所以改用hyper&lt;br&gt;&lt;a href=&quot;https://hyper.is/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://hyper.is/&lt;/a
-    
-    </summary>
-    
-    
-      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
     
   </entry>
   
