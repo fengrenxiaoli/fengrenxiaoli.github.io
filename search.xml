@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MySQL修改数据表]]></title>
+    <url>%2Fpost%2F5f31036f.html</url>
+    <content type="text"></content>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL约束]]></title>
+    <url>%2Fpost%2F1df97176.html</url>
+    <content type="text"><![CDATA[约束保证数据的完整性和一致性约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY按数目分为列级约束和表级约束 主键约束：PRIMARY KEY主键可以写为PRIMARY KEY，也可以写成KEY 唯一性（可以赋值但是不能给两个记录赋一样的值）每张表只存在一个主键 主键保证记录的唯一性 主键自动为NOT NULL，也就是说必须要为主键赋值。但如果主键选择了AUTO_INCREMENT，那么不需要手动赋值 auto_increment必须和主键primary key一起使用，但是主键primary key不一定要和auto_increment一块使用 主键的字段是可以赋值的，但不能赋相同的值 1234CREATE TABLE user(id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,username VARCHAR(20) NOT NULL); 记录如果删除了编号会出现间断 自增 AUTO_INCREMENT 自动编号，保证记录的唯一性，且必须与主键组合使用 默认情况下，初始为1，每次增长量为1. 对应的字段设置必须是数值类型，若是浮点类型，小数位必须为0. 自动编号必须是主键字段 1234CREATE TABLE tb3(id SMALLINT UNSIGNED AUTO_INCREMENT,username VARCHAR(30) NOT NULL); //报错，自动增量字段必须设置成主键 AUTO_INCREMENT必须是主键主键不一定要用AUTO_INCREMENT 唯一约束：UNIQUE KEY 唯一约束可以保证记录的唯一性 唯一约束的字段可以为空值（NULL），存储时只保留一个NULL 每张数据表可以存在多个唯一约束 12345CREATE TABLE tb2(id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,username VARCHAR(20) NOT NULL UNIQUE KEY,age TINYINT UNSIGNED); 默认约束：DEFAULT如果没有明确为字段赋值会自动赋与默认值123456CREATE TABLE tb6(id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,username VARCHAR(20) NOT NULL UNIQUE KEY,sex ENUM(&apos;1&apos;,&apos;2&apos;,&apos;3&apos;) DEFAULT &apos;3&apos;);//表示当sex没有赋值时，默认值为3 非空约束：NOT NULLNULL，字段值可以为空NOT NULL，字段值禁止为空，不赋值会报错 外键约束：FOREIGN KEY保持数据一致性，完整性；实现一对一或一对多关系 要求： 父表和子表必须使用相同的存储引擎，而且禁止使用临时表(子表：具有外键列的表；父表：子表参照的表) 数据表的存储引擎只能为InnoDB 外键列和参照列必须具有类似的数据类型。其中数字的长度或是否有符号位必须相同；而字符的长度则可以不同 外键列和参照列必须创建索引。如果外键列不存在索引的话，MySQL将自动创建索引 在配置文件（my.ini\my.conf）中编辑默认的存储引擎：1default-storage-engine=INNODB 1234567891011CREATE TABLE table_name1(id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,name VARCHAR(20) NOT NULL);CREATE TABLE table_name2(id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,username VARCHAR(20) NOT NULL,pid SMALLINT UNSIGNED,FOREIGN KEY (pid) REFERENCES table_name1(id) );// 外键 pid 参照 table_name1中的 id 字段 显示创建表的语句：SHOW CREATE TABLE table_name；查看表是否有索引：SHOW INDEXS FROM table_name；以网格查看表是否有索引：SHOW INDEXS FROM table_name\G； 外键约束的参照操作 CASCADE：从父表删除或更新且自动删除或更新子表中匹配的行 SET NULL：从父表删除或更新行，并设置子表中的外键列为NULL。如果使用该选项，必须保证子表列没有指定NOT NULL RESTRICT：拒绝对父表的删除或更新操作 NO ACTION：标准SQL的关键字，在MySQL中与RESTRICT相同 123456CREATE TABLE users(id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,pid SMALLINT,username VARCHAR(10) NOT NULL,FOREIGN KEY (pid) REFERENCES province (id) ON DELETE CASCADE); 从父表删除或更新行，会设置子表中的外键列为NULL，如果使用该选项，必须保证子表列没有指定NOT NULL 实际开发中，我们很少使用物理的外键约束，而是使用逻辑约束；物理的外键约束只有innoDB这种存储引擎才会支持，MYISAM这种引擎就不支持物理的外键约束。反过来说，当我们使用到的引擎为MYISAM时，只能使用逻辑外键（即两个表的设计的逻辑关系）。 表级约束与列级约束对一个数据列建立的约束，称为列级约束对多个数据列建立的约束，称为表级约束 列级约束既可以在列定义时声明，也可以在列定以后声明表级约束只能在列定义后声明 主键、外键、唯一既可以作为表级约束，也可作为列级约束not null、default只有列级约束]]></content>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL数据表]]></title>
+    <url>%2Fpost%2F8ecc2d83.html</url>
+    <content type="text"><![CDATA[数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】 创建数据表首先打开数据库（数据库要存在）: USE 数据库名称 创建数据表123CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type（列类型）,.... ); 12345CREATE TABLE tb1(username VARCHAR(20),userage TINYINT UNSIGNED,salary FLOAT(8,2) UNSIGNED,); UNSIGNED 无符号 查看数据表列表1234SHOW TABLES [FROM db_name] [LIKE &apos;pattern&apos; | WHERE expr]；SHOW TABLES; //查看当前选择的数据库的所有表SHOW TABLES FROM test; //查看test数据库中的所有表，当前选择数据库位置不变 查看数据表的结构1SHOW COLUMNS FROM tb1; //查看tb1中的数据表结构 查看创建数据表的语句1SHOW CREATE TABLE table_name; 插入记录1234INSERT table_name [字段(colume),...] VALUES(val,...);INSERT tb1 VALUES(&apos;TOM&apos;,25,6782.12);INSERT tb1(username,salary) VALUES(&apos;John&apos;,3398.98); 省略字段后，values(记录内容必须按照表列顺序也就是字段顺序以逗号分隔，且插入内容一个不能少);若不省略字段(可部分省略，省略部分记录自动为空)，values(记录内容按照字段插入内容，写几个字段插入几个内容); 查找记录1SELECT expr(表达式),...FROM table_name;]]></content>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL数据类型]]></title>
+    <url>%2Fpost%2F47519a60.html</url>
+    <content type="text"><![CDATA[数据类型是指列、存储过程参数、表达式和局部变量的数据特征，它决定了数据的存储格式，代表了不同的信息类型 整型整型的存储范围分有符号位和无符号位两种，一般无符号位是有符号位的两倍 选择数据类型要根据实际数据的大小，选择合适的数据类型有利于数据的优化 数据类型 字节 存储范围 tinyint 1 -128~127,无符号0~255 smallint 2 -32768~32767,无符号0~65535 mediumint 3 -2^23~2^23-1(800万),无符号0~2^24-1 int 4 -2^31~2^31-1(21亿),无符号0~2^32-1 bigint 8 -2^63~2^63-1,无符号0~2^64-1 浮点型 数据类型 存储类型 float[(m,d]) -3.402E+38到-1.175E-380和1.175E-38到3.402+38m是数字总位数，d是小数点后面的位数，如果m和d被省略，会根据硬件允许的限制来保存值 double[(m,d)] -1.797E+308到-2.223E-308、0和2.225E-308到1.797E+308 float，单精度浮点，保留小数点后7位，C语言默认显示6位小数。double，双精度浮点，一般是float存储范围的十倍，C语言默认显示15位小数。 日期时间型 数据类型 存储范围 存储需求 YEAR 1970至2069 1 TIME -838:59:59至838:59:59 3 DATE 1000-1-1至9999-12-31 3 DATETIME 1000-1-1 00:00:00至9999-12-31 23:59:59 8 TIMESTAMP 1970-1-1 00:00:00到2037-12-31 23:59:59 4 字符型 列类型 存储需求 CHAR(M) M个字节 0&lt;=M&lt;=255 定长 M是5就5个字节 abc会在后面补两个空格 VARCHAR(M) L+1个字节 L&lt;=M,0&lt;=M&lt;=65535变长 abc就是abc TINYTEXT L+1个字节，L&lt;2的8次方 TEXT L+2个字节，L&lt;2的16次方（6w5），标准文本 MEDIUMTEXT L+3个字节，L&lt;2的24次方（1600w） LONGTEXT L+4个字节，L&lt;2的32次方 ENUM(‘value1’;’value2’,…) 1or2字节 取决于枚举值的个数（最多65535个值） SET（’value1’,’value2’,…) 1、2、3、4、8字节，取决于set成员个数（最多64个成员）]]></content>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL数据库操作]]></title>
+    <url>%2Fpost%2Ff2cccc89.html</url>
+    <content type="text"><![CDATA[创建数据库1CREATE &#123;DATABASE | SCHEMA&#125; [IF NOT EXISTS] db_name [DEFAULT] CHARACTER SET [=] charset_name; DATABASE和SCHEMA是相同的，任选其一IF NOT EXISTS:如果创建的数据库存在，则不只报出warning，不写会报错CHRARCTER SET gbk:为表设置编码方式，如果不设置则用mysql默认的编码方式 查看数据库列表1SHOW &#123; DATABASES | SCHEMAS &#125; [LIKE &apos;pattern&apos; | WHERE expr]; 查看数据库详情1SHOW CREATE DATABASE xx; 展示数据库t1的创建命令和编码形式 数据库的修改：ALTER修改数据库编码方式1ALTER &#123; DATABASE | SCHEMAS &#125; [db_name][DEFAULT] CHARACTER SET [=] charset_name 删除数据库：DROP1DROP &#123; DATABASE | SCHEMAS &#125; [IF EXISTS] db_name;]]></content>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL常用命令及语句规范]]></title>
+    <url>%2Fpost%2Fed36abd2.html</url>
+    <content type="text"><![CDATA[MySql语句规范 关键字和函数名称全部大写 数据库名称、表名称、字段名称全部小写 SQL语句必须以分号结尾 常用语句SELECT VERSION(); 查询当前服务器版本SELECT NOW(); 查询当前日期时间SELECT USER(); 查询当前用户]]></content>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL登录和退出]]></title>
+    <url>%2Fpost%2F20f3fae1.html</url>
+    <content type="text"><![CDATA[mysql命令参数12345678-D,--database=name 打开指定数据库 --delimiter=name 指定分隔符-h,--host=name 服务器名称-p,--password[=name] 密码-P,--port=# 端口号（默认为3306）--prompt=name 设置提示符-u,--user=name 用户名-V,--version 输出版本信息且推出 登录1mysql -uroot -P3306 -hlocalhost -p 退出123mysql&gt;exit;mysql&gt;quit;mysql&gt;\q;]]></content>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL配置]]></title>
+    <url>%2Fpost%2Fb62959c1.html</url>
+    <content type="text"><![CDATA[配置文件的位置不一，在Centos7.4和MySQL5.5上是在/etc/my.cnf也可能在/etc/mysql/my.cnf 修改编码方式在mysql中可以通过status查看编码 12345[mysql]default-character-set=utf8[mysqld]character-set-server=utf8 修改提示符 连接客户端时通过参数指定 123mysql -uroot -p --prompt 提示符mysql -uroot -p --prompt &quot;[\D-\d\h\u]&quot; 连接上客户端后，通过prompt命令修改 1mysql&gt;prompt 提示符 提示符有：\D 完整的日期\d 当前数据库\h 服务器名称\u 当前用户]]></content>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL目录结构]]></title>
+    <url>%2Fpost%2F1c0eeefa.html</url>
+    <content type="text"><![CDATA[使用yum安装MySQL后的各目录位置相关路径直接通过find / -name &quot;mysql*&quot;和whereis mysqld查找： /usr/lib64/mysql 库文件/usr/share/mysql 配置文件，5.5后的默认安装路径/var/lib/mysql 数据库目录/etc/rc.d/init.d/ 启动脚本/usr/bin/ mysqladmin\mysqldump命令/usr/share/doc/ 文档]]></content>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 文件系统]]></title>
+    <url>%2Fpost%2Ff525ac74.html</url>
+    <content type="text"><![CDATA[linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件文件系统：Windows里面是这样的：C:\Program files\office11\word\word.exeLinux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0 文件有两类数据：元数据：metadata 元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。数据：data 数据是指普通文件中的实际数据。 1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；2、文件名可使用除/以外的任意字符，不建议使用特殊字符； /: 表示根目录，也用做路径分隔符；3、文件名长度最长不能超过255个字符；4、所以.开头的文件，均为隐藏文件； LSB: Linux Standard Base Linux标准库]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[chrome插件vimium]]></title>
     <url>%2Fpost%2F167caf1a.html</url>
     <content type="text"><![CDATA[以下部分快捷键标明了chrome自身的快捷键，毕竟有时因为焦点的原因可能失效 页面浏览12345678j 向下滚动一行k 向上滚动一行h 向左滚动l 向右滚动d 向下翻半屏u 向上翻半屏gg 到页面顶G 到页面底 标签12345678t 新建标签J、Ctrl-Tab 切换到下个标签K、Ctrl-Shift-Tab 切换到上个标签g0 切换到第一个标签g$ 切换到最后一个标签x、Ctrl-w 关闭当前标签X 恢复最后一个关闭的标签T 搜索当前打开的页签 链接1234f 在当前页打开链接F 在新页签打开链接o 在当前页签打开书签、url、历史 O 在新页签打开书签、url、历史 历史12H 回到历史L 向前 帮助1? 参考： https://github.com/philc/vimium#keyboard-bindings https://sspai.com/post/27723]]></content>
@@ -44,14 +124,6 @@
     <title><![CDATA[VirtualBox安装CentOS7]]></title>
     <url>%2Fpost%2F85425272.html</url>
     <content type="text"><![CDATA[主要的安装过程不再详细说明，主要是针对安装后进行的一些配置进行说明 网络设置为桥接，因为本地要和虚拟机进行通信 centos7默认没有安装ifconfig命令，而一开始也是上不了网的，可以使用ip addr命令代替，也可以通过yum provides ifconfig查找对应的安装包，可以知道是net-tools，安装net-tools即可，当然在无法连网时，使用ip addr是为了获得网卡名称 vi /etc/sysconfig/network-scripts/ifcfg-eth0，修改对应文件名的配置文件，改onBoot为yes，重启网络systemctl restart network，这时可以ping或安装ifconfig]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Linux 文件系统]]></title>
-    <url>%2Fpost%2Ff525ac74.html</url>
-    <content type="text"><![CDATA[linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件文件系统：Windows里面是这样的：C:\Program files\office11\word\word.exeLinux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0 文件有两类数据：元数据：metadata 元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。数据：data 数据是指普通文件中的实际数据。 1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；2、文件名可使用除/以外的任意字符，不建议使用特殊字符； /: 表示根目录，也用做路径分隔符；3、文件名长度最长不能超过255个字符；4、所以.开头的文件，均为隐藏文件； LSB: Linux Standard Base Linux标准库]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>

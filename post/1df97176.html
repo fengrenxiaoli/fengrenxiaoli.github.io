@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MySQL," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="太阳落下" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="约束保证数据的完整性和一致性约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY按数目分为列级约束和表级约束  主键约束：PRIMARY KEY主键可以写为PRIMARY KEY，也可以写成KEY  唯一性（可以赋值但是不能给两个记录赋一样的值）每张表只存在一个主键 主键保证记录的唯一性 主键自动为NOT NULL，也就是说必须要为主">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL约束">
+<meta property="og:url" content="http://yoursite.com/post/1df97176.html">
+<meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="约束保证数据的完整性和一致性约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY按数目分为列级约束和表级约束  主键约束：PRIMARY KEY主键可以写为PRIMARY KEY，也可以写成KEY  唯一性（可以赋值但是不能给两个记录赋一样的值）每张表只存在一个主键 主键保证记录的唯一性 主键自动为NOT NULL，也就是说必须要为主">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-02T14:48:15.787Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL约束">
+<meta name="twitter:description" content="约束保证数据的完整性和一致性约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY按数目分为列级约束和表级约束  主键约束：PRIMARY KEY主键可以写为PRIMARY KEY，也可以写成KEY  唯一性（可以赋值但是不能给两个记录赋一样的值）每张表只存在一个主键 主键保证记录的唯一性 主键自动为NOT NULL，也就是说必须要为主">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/post/1df97176.html"/>
+
+
+
+
+
+  <title>MySQL约束 | 太阳落下</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">太阳落下</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/1df97176.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL约束</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-02T21:42:47+08:00">
+                2018-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>约束保证数据的完整性和一致性<br>约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY<br>按数目分为列级约束和表级约束</p>
+<p><br></p>
+<h2 id="主键约束：PRIMARY-KEY"><a href="#主键约束：PRIMARY-KEY" class="headerlink" title="主键约束：PRIMARY KEY"></a>主键约束：PRIMARY KEY</h2><p>主键可以写为PRIMARY KEY，也可以写成KEY</p>
+<ol>
+<li>唯一性（可以赋值但是不能给两个记录赋一样的值）每张表只存在一个主键</li>
+<li>主键保证记录的唯一性</li>
+<li>主键自动为NOT NULL，也就是说必须要为主键赋值。但如果主键选择了AUTO_INCREMENT，那么不需要手动赋值</li>
+<li>auto_increment必须和主键primary key一起使用，但是主键primary key不一定要和auto_increment一块使用</li>
+<li>主键的字段是可以赋值的，但不能赋相同的值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE user(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">username VARCHAR(20) NOT NULL</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>记录如果删除了编号会出现间断</p>
+<h3 id="自增-AUTO-INCREMENT"><a href="#自增-AUTO-INCREMENT" class="headerlink" title="自增 AUTO_INCREMENT"></a>自增 AUTO_INCREMENT</h3><ol>
+<li>自动编号，保证记录的唯一性，且必须与主键组合使用</li>
+<li>默认情况下，初始为1，每次增长量为1.</li>
+<li>对应的字段设置必须是数值类型，若是浮点类型，小数位必须为0.</li>
+<li>自动编号必须是主键字段</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb3(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT,</div><div class="line">username VARCHAR(30) NOT NULL); </div><div class="line">//报错，自动增量字段必须设置成主键</div></pre></td></tr></table></figure>
+<p>AUTO_INCREMENT必须是主键<br>主键不一定要用AUTO_INCREMENT</p>
+<p><br></p>
+<h2 id="唯一约束：UNIQUE-KEY"><a href="#唯一约束：UNIQUE-KEY" class="headerlink" title="唯一约束：UNIQUE KEY"></a>唯一约束：UNIQUE KEY</h2><ol>
+<li>唯一约束可以保证记录的唯一性</li>
+<li>唯一约束的字段可以为空值（NULL），存储时只保留一个NULL</li>
+<li>每张数据表可以存在多个唯一约束</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb2(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">username VARCHAR(20) NOT NULL UNIQUE KEY,</div><div class="line">age TINYINT UNSIGNED</div><div class="line">);</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="默认约束：DEFAULT"><a href="#默认约束：DEFAULT" class="headerlink" title="默认约束：DEFAULT"></a>默认约束：DEFAULT</h2><p>如果没有明确为字段赋值会自动赋与默认值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb6(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">username VARCHAR(20) NOT NULL UNIQUE KEY,</div><div class="line">sex ENUM(&apos;1&apos;,&apos;2&apos;,&apos;3&apos;) DEFAULT &apos;3&apos;</div><div class="line">);</div><div class="line">//表示当sex没有赋值时，默认值为3</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="非空约束：NOT-NULL"><a href="#非空约束：NOT-NULL" class="headerlink" title="非空约束：NOT NULL"></a>非空约束：NOT NULL</h2><p>NULL，字段值可以为空<br>NOT NULL，字段值禁止为空，不赋值会报错</p>
+<p><br></p>
+<h2 id="外键约束：FOREIGN-KEY"><a href="#外键约束：FOREIGN-KEY" class="headerlink" title="外键约束：FOREIGN KEY"></a>外键约束：FOREIGN KEY</h2><p>保持数据一致性，完整性；实现一对一或一对多关系</p>
+<h3 id="要求："><a href="#要求：" class="headerlink" title="要求："></a>要求：</h3><ol>
+<li>父表和子表必须使用相同的存储引擎，而且禁止使用临时表(子表：具有外键列的表；父表：子表参照的表)</li>
+<li>数据表的存储引擎只能为InnoDB</li>
+<li>外键列和参照列必须具有类似的数据类型。其中数字的长度或是否有符号位必须相同；而字符的长度则可以不同</li>
+<li>外键列和参照列必须创建索引。如果外键列不存在索引的话，MySQL将自动创建索引</li>
+</ol>
+<p>在配置文件（my.ini\my.conf）中编辑默认的存储引擎：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">default-storage-engine=INNODB</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE table_name1(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">name VARCHAR(20) NOT NULL</div><div class="line">);</div><div class="line">CREATE TABLE table_name2(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">username VARCHAR(20) NOT NULL,</div><div class="line">pid SMALLINT UNSIGNED,</div><div class="line">FOREIGN KEY (pid) REFERENCES table_name1(id)  </div><div class="line">);</div><div class="line">// 外键 pid 参照 table_name1中的 id 字段</div></pre></td></tr></table></figure>
+<p>显示创建表的语句：SHOW CREATE TABLE table_name；<br>查看表是否有索引：SHOW INDEXS FROM table_name；<br>以网格查看表是否有索引：SHOW INDEXS FROM table_name\G；</p>
+<h3 id="外键约束的参照操作"><a href="#外键约束的参照操作" class="headerlink" title="外键约束的参照操作"></a>外键约束的参照操作</h3><ol>
+<li>CASCADE：从父表删除或更新且自动删除或更新子表中匹配的行</li>
+<li>SET NULL：从父表删除或更新行，并设置子表中的外键列为NULL。如果使用该选项，必须保证子表列没有指定NOT NULL</li>
+<li>RESTRICT：拒绝对父表的删除或更新操作</li>
+<li>NO ACTION：标准SQL的关键字，在MySQL中与RESTRICT相同</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE users(</div><div class="line">id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,</div><div class="line">pid SMALLINT,</div><div class="line">username VARCHAR(10) NOT NULL,</div><div class="line">FOREIGN KEY (pid) REFERENCES province (id) ON DELETE CASCADE</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>从父表删除或更新行，会设置子表中的外键列为NULL，如果使用该选项，必须保证子表列没有指定NOT NULL</p>
+<p>实际开发中，我们很少使用物理的外键约束，而是使用逻辑约束；物理的外键约束只有innoDB这种存储引擎才会支持，MYISAM这种引擎就不支持物理的外键约束。反过来说，当我们使用到的引擎为MYISAM时，只能使用逻辑外键（即两个表的设计的逻辑关系）。</p>
+<h2 id="表级约束与列级约束"><a href="#表级约束与列级约束" class="headerlink" title="表级约束与列级约束"></a>表级约束与列级约束</h2><p>对一个数据列建立的约束，称为列级约束<br>对多个数据列建立的约束，称为表级约束</p>
+<p>列级约束既可以在列定义时声明，也可以在列定以后声明<br>表级约束只能在列定义后声明</p>
+<p>主键、外键、唯一既可以作为表级约束，也可作为列级约束<br>not null、default只有列级约束</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/8ecc2d83.html" rel="next" title="MySQL数据表">
+                <i class="fa fa-chevron-left"></i> MySQL数据表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/5f31036f.html" rel="prev" title="MySQL修改数据表">
+                MySQL修改数据表 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">木鱼</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">152</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主键约束：PRIMARY-KEY"><span class="nav-number">1.</span> <span class="nav-text">主键约束：PRIMARY KEY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自增-AUTO-INCREMENT"><span class="nav-number">1.1.</span> <span class="nav-text">自增 AUTO_INCREMENT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#唯一约束：UNIQUE-KEY"><span class="nav-number">2.</span> <span class="nav-text">唯一约束：UNIQUE KEY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认约束：DEFAULT"><span class="nav-number">3.</span> <span class="nav-text">默认约束：DEFAULT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非空约束：NOT-NULL"><span class="nav-number">4.</span> <span class="nav-text">非空约束：NOT NULL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外键约束：FOREIGN-KEY"><span class="nav-number">5.</span> <span class="nav-text">外键约束：FOREIGN KEY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#要求："><span class="nav-number">5.1.</span> <span class="nav-text">要求：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外键约束的参照操作"><span class="nav-number">5.2.</span> <span class="nav-text">外键约束的参照操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表级约束与列级约束"><span class="nav-number">6.</span> <span class="nav-text">表级约束与列级约束</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">木鱼</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

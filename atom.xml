@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-02T07:08:42.235Z</updated>
+  <updated>2018-06-02T14:49:37.343Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,460 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL修改数据表</title>
+    <link href="http://yoursite.com/post/5f31036f.html"/>
+    <id>http://yoursite.com/post/5f31036f.html</id>
+    <published>2018-06-02T14:49:01.000Z</published>
+    <updated>2018-06-02T14:49:37.343Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL约束</title>
+    <link href="http://yoursite.com/post/1df97176.html"/>
+    <id>http://yoursite.com/post/1df97176.html</id>
+    <published>2018-06-02T13:42:47.000Z</published>
+    <updated>2018-06-02T14:48:15.787Z</updated>
+    
+    <content type="html"><![CDATA[<p>约束保证数据的完整性和一致性<br>约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY<br>按数目分为列级约束和表级约束</p>
+<p><br></p>
+<h2 id="主键约束：PRIMARY-KEY"><a href="#主键约束：PRIMARY-KEY" class="headerlink" title="主键约束：PRIMARY KEY"></a>主键约束：PRIMARY KEY</h2><p>主键可以写为PRIMARY KEY，也可以写成KEY</p>
+<ol>
+<li>唯一性（可以赋值但是不能给两个记录赋一样的值）每张表只存在一个主键</li>
+<li>主键保证记录的唯一性</li>
+<li>主键自动为NOT NULL，也就是说必须要为主键赋值。但如果主键选择了AUTO_INCREMENT，那么不需要手动赋值</li>
+<li>auto_increment必须和主键primary key一起使用，但是主键primary key不一定要和auto_increment一块使用</li>
+<li>主键的字段是可以赋值的，但不能赋相同的值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE user(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">username VARCHAR(20) NOT NULL</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>记录如果删除了编号会出现间断</p>
+<h3 id="自增-AUTO-INCREMENT"><a href="#自增-AUTO-INCREMENT" class="headerlink" title="自增 AUTO_INCREMENT"></a>自增 AUTO_INCREMENT</h3><ol>
+<li>自动编号，保证记录的唯一性，且必须与主键组合使用</li>
+<li>默认情况下，初始为1，每次增长量为1.</li>
+<li>对应的字段设置必须是数值类型，若是浮点类型，小数位必须为0.</li>
+<li>自动编号必须是主键字段</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb3(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT,</div><div class="line">username VARCHAR(30) NOT NULL); </div><div class="line">//报错，自动增量字段必须设置成主键</div></pre></td></tr></table></figure>
+<p>AUTO_INCREMENT必须是主键<br>主键不一定要用AUTO_INCREMENT</p>
+<p><br></p>
+<h2 id="唯一约束：UNIQUE-KEY"><a href="#唯一约束：UNIQUE-KEY" class="headerlink" title="唯一约束：UNIQUE KEY"></a>唯一约束：UNIQUE KEY</h2><ol>
+<li>唯一约束可以保证记录的唯一性</li>
+<li>唯一约束的字段可以为空值（NULL），存储时只保留一个NULL</li>
+<li>每张数据表可以存在多个唯一约束</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb2(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">username VARCHAR(20) NOT NULL UNIQUE KEY,</div><div class="line">age TINYINT UNSIGNED</div><div class="line">);</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="默认约束：DEFAULT"><a href="#默认约束：DEFAULT" class="headerlink" title="默认约束：DEFAULT"></a>默认约束：DEFAULT</h2><p>如果没有明确为字段赋值会自动赋与默认值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb6(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">username VARCHAR(20) NOT NULL UNIQUE KEY,</div><div class="line">sex ENUM(&apos;1&apos;,&apos;2&apos;,&apos;3&apos;) DEFAULT &apos;3&apos;</div><div class="line">);</div><div class="line">//表示当sex没有赋值时，默认值为3</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="非空约束：NOT-NULL"><a href="#非空约束：NOT-NULL" class="headerlink" title="非空约束：NOT NULL"></a>非空约束：NOT NULL</h2><p>NULL，字段值可以为空<br>NOT NULL，字段值禁止为空，不赋值会报错</p>
+<p><br></p>
+<h2 id="外键约束：FOREIGN-KEY"><a href="#外键约束：FOREIGN-KEY" class="headerlink" title="外键约束：FOREIGN KEY"></a>外键约束：FOREIGN KEY</h2><p>保持数据一致性，完整性；实现一对一或一对多关系</p>
+<h3 id="要求："><a href="#要求：" class="headerlink" title="要求："></a>要求：</h3><ol>
+<li>父表和子表必须使用相同的存储引擎，而且禁止使用临时表(子表：具有外键列的表；父表：子表参照的表)</li>
+<li>数据表的存储引擎只能为InnoDB</li>
+<li>外键列和参照列必须具有类似的数据类型。其中数字的长度或是否有符号位必须相同；而字符的长度则可以不同</li>
+<li>外键列和参照列必须创建索引。如果外键列不存在索引的话，MySQL将自动创建索引</li>
+</ol>
+<p>在配置文件（my.ini\my.conf）中编辑默认的存储引擎：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">default-storage-engine=INNODB</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE table_name1(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">name VARCHAR(20) NOT NULL</div><div class="line">);</div><div class="line">CREATE TABLE table_name2(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">username VARCHAR(20) NOT NULL,</div><div class="line">pid SMALLINT UNSIGNED,</div><div class="line">FOREIGN KEY (pid) REFERENCES table_name1(id)  </div><div class="line">);</div><div class="line">// 外键 pid 参照 table_name1中的 id 字段</div></pre></td></tr></table></figure>
+<p>显示创建表的语句：SHOW CREATE TABLE table_name；<br>查看表是否有索引：SHOW INDEXS FROM table_name；<br>以网格查看表是否有索引：SHOW INDEXS FROM table_name\G；</p>
+<h3 id="外键约束的参照操作"><a href="#外键约束的参照操作" class="headerlink" title="外键约束的参照操作"></a>外键约束的参照操作</h3><ol>
+<li>CASCADE：从父表删除或更新且自动删除或更新子表中匹配的行</li>
+<li>SET NULL：从父表删除或更新行，并设置子表中的外键列为NULL。如果使用该选项，必须保证子表列没有指定NOT NULL</li>
+<li>RESTRICT：拒绝对父表的删除或更新操作</li>
+<li>NO ACTION：标准SQL的关键字，在MySQL中与RESTRICT相同</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE users(</div><div class="line">id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,</div><div class="line">pid SMALLINT,</div><div class="line">username VARCHAR(10) NOT NULL,</div><div class="line">FOREIGN KEY (pid) REFERENCES province (id) ON DELETE CASCADE</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>从父表删除或更新行，会设置子表中的外键列为NULL，如果使用该选项，必须保证子表列没有指定NOT NULL</p>
+<p>实际开发中，我们很少使用物理的外键约束，而是使用逻辑约束；物理的外键约束只有innoDB这种存储引擎才会支持，MYISAM这种引擎就不支持物理的外键约束。反过来说，当我们使用到的引擎为MYISAM时，只能使用逻辑外键（即两个表的设计的逻辑关系）。</p>
+<h2 id="表级约束与列级约束"><a href="#表级约束与列级约束" class="headerlink" title="表级约束与列级约束"></a>表级约束与列级约束</h2><p>对一个数据列建立的约束，称为列级约束<br>对多个数据列建立的约束，称为表级约束</p>
+<p>列级约束既可以在列定义时声明，也可以在列定以后声明<br>表级约束只能在列定义后声明</p>
+<p>主键、外键、唯一既可以作为表级约束，也可作为列级约束<br>not null、default只有列级约束</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;约束保证数据的完整性和一致性&lt;br&gt;约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY&lt;br&gt;按数目分为列级约束和表级约束&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&quot;主键约束：PRIMARY-KEY&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL数据表</title>
+    <link href="http://yoursite.com/post/8ecc2d83.html"/>
+    <id>http://yoursite.com/post/8ecc2d83.html</id>
+    <published>2018-06-02T13:24:46.000Z</published>
+    <updated>2018-06-02T14:25:00.350Z</updated>
+    
+    <content type="html"><![CDATA[<p>数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】</p>
+<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><p>首先打开数据库（数据库要存在）: <code>USE 数据库名称</code></p>
+<p>创建数据表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE [IF NOT EXISTS] table_name(</div><div class="line">column_name(列名称) data_type（列类型）,</div><div class="line">.... );</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb1(</div><div class="line">username VARCHAR(20),</div><div class="line">userage TINYINT UNSIGNED,</div><div class="line">salary FLOAT(8,2) UNSIGNED,</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>UNSIGNED 无符号</p>
+<p><br></p>
+<h2 id="查看数据表列表"><a href="#查看数据表列表" class="headerlink" title="查看数据表列表"></a>查看数据表列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SHOW TABLES [FROM db_name] [LIKE &apos;pattern&apos; | WHERE expr]；</div><div class="line"></div><div class="line">SHOW TABLES;                //查看当前选择的数据库的所有表</div><div class="line">SHOW TABLES FROM test;      //查看test数据库中的所有表，当前选择数据库位置不变</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="查看数据表的结构"><a href="#查看数据表的结构" class="headerlink" title="查看数据表的结构"></a>查看数据表的结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SHOW COLUMNS FROM tb1;      //查看tb1中的数据表结构</div></pre></td></tr></table></figure>
+<h2 id="查看创建数据表的语句"><a href="#查看创建数据表的语句" class="headerlink" title="查看创建数据表的语句"></a>查看创建数据表的语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SHOW CREATE TABLE table_name;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="插入记录"><a href="#插入记录" class="headerlink" title="插入记录"></a>插入记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">INSERT table_name [字段(colume),...] VALUES(val,...);</div><div class="line"></div><div class="line">INSERT tb1 VALUES(&apos;TOM&apos;,25,6782.12);</div><div class="line">INSERT tb1(username,salary) VALUES(&apos;John&apos;,3398.98);</div></pre></td></tr></table></figure>
+<p>省略字段后，values(记录内容必须按照表列顺序也就是字段顺序以逗号分隔，且插入内容一个不能少);<br>若不省略字段(可部分省略，省略部分记录自动为空)，values(记录内容按照字段插入内容，写几个字段插入几个内容);</p>
+<p><br></p>
+<h2 id="查找记录"><a href="#查找记录" class="headerlink" title="查找记录"></a>查找记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT expr(表达式),...FROM table_name;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】&lt;/p&gt;
+&lt;h2 id=&quot;创建数据表&quot;&gt;&lt;a href=&quot;#创建数据表&quot; class=&quot;headerlink&quot; title=&quot;创建数据表&quot;&gt;&lt;/a&gt;创建数据表&lt;/h2
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL数据类型</title>
+    <link href="http://yoursite.com/post/47519a60.html"/>
+    <id>http://yoursite.com/post/47519a60.html</id>
+    <published>2018-06-02T12:16:11.000Z</published>
+    <updated>2018-06-02T13:28:45.520Z</updated>
+    
+    <content type="html"><![CDATA[<p>数据类型是指列、存储过程参数、表达式和局部变量的数据特征，它决定了数据的存储格式，代表了不同的信息类型</p>
+<h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><p>整型的存储范围分有符号位和无符号位两种，一般无符号位是有符号位的两倍</p>
+<p>选择数据类型要根据实际数据的大小，选择合适的数据类型有利于数据的优化</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>字节</th>
+<th>存储范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tinyint</td>
+<td>1</td>
+<td>-128~127,无符号0~255</td>
+</tr>
+<tr>
+<td>smallint</td>
+<td>2</td>
+<td>-32768~32767,无符号0~65535</td>
+</tr>
+<tr>
+<td>mediumint</td>
+<td>3</td>
+<td>-2^23~2^23-1(800万),无符号0~2^24-1</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4</td>
+<td>-2^31~2^31-1(21亿),无符号0~2^32-1</td>
+</tr>
+<tr>
+<td>bigint</td>
+<td>8</td>
+<td>-2^63~2^63-1,无符号0~2^64-1</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h2><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>存储类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>float[(m,d])</td>
+<td>-3.402E+38到-1.175E-38<br>0和1.175E-38到3.402+38<br>m是数字总位数，d是小数点后面的位数，如果m和d被省略，会根据硬件允许的限制来保存值</td>
+</tr>
+<tr>
+<td>double[(m,d)]</td>
+<td>-1.797E+308到-2.223E-308、0和2.225E-308到1.797E+308</td>
+</tr>
+</tbody>
+</table>
+<p>float，单精度浮点，保留小数点后7位，C语言默认显示6位小数。<br>double，双精度浮点，一般是float存储范围的十倍，C语言默认显示15位小数。</p>
+<p><br></p>
+<h2 id="日期时间型"><a href="#日期时间型" class="headerlink" title="日期时间型"></a>日期时间型</h2><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>存储范围</th>
+<th>存储需求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YEAR</td>
+<td>1970至2069</td>
+<td>1</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>-838:59:59至838:59:59</td>
+<td>3</td>
+</tr>
+<tr>
+<td>DATE</td>
+<td>1000-1-1至9999-12-31</td>
+<td>3</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>1000-1-1 00:00:00至9999-12-31 23:59:59</td>
+<td>8</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>1970-1-1 00:00:00到2037-12-31 23:59:59</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h2><table>
+<thead>
+<tr>
+<th>列类型</th>
+<th>存储需求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHAR(M)</td>
+<td>M个字节 0&lt;=M&lt;=255 <br>定长 M是5就5个字节 abc会在后面补两个空格</td>
+</tr>
+<tr>
+<td>VARCHAR(M)</td>
+<td>L+1个字节 L&lt;=M,0&lt;=M&lt;=65535<br>变长 abc就是abc</td>
+</tr>
+<tr>
+<td>TINYTEXT</td>
+<td>L+1个字节，L&lt;2的8次方</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>L+2个字节，L&lt;2的16次方（6w5），标准文本</td>
+</tr>
+<tr>
+<td>MEDIUMTEXT</td>
+<td>L+3个字节，L&lt;2的24次方（1600w）</td>
+</tr>
+<tr>
+<td>LONGTEXT</td>
+<td>L+4个字节，L&lt;2的32次方</td>
+</tr>
+<tr>
+<td>ENUM(‘value1’;’value2’,…)</td>
+<td>1or2字节 取决于枚举值的个数（最多65535个值）</td>
+</tr>
+<tr>
+<td>SET（’value1’,’value2’,…)</td>
+<td>1、2、3、4、8字节，取决于set成员个数（最多64个成员）</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;数据类型是指列、存储过程参数、表达式和局部变量的数据特征，它决定了数据的存储格式，代表了不同的信息类型&lt;/p&gt;
+&lt;h2 id=&quot;整型&quot;&gt;&lt;a href=&quot;#整型&quot; class=&quot;headerlink&quot; title=&quot;整型&quot;&gt;&lt;/a&gt;整型&lt;/h2&gt;&lt;p&gt;整型的存储范围分有符号
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL数据库操作</title>
+    <link href="http://yoursite.com/post/f2cccc89.html"/>
+    <id>http://yoursite.com/post/f2cccc89.html</id>
+    <published>2018-06-02T11:57:23.000Z</published>
+    <updated>2018-06-02T13:43:34.738Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CREATE &#123;DATABASE | SCHEMA&#125; [IF NOT EXISTS] db_name [DEFAULT] CHARACTER SET [=] charset_name;</div></pre></td></tr></table></figure>
+<p>DATABASE和SCHEMA是相同的，任选其一<br>IF NOT EXISTS:如果创建的数据库存在，则不只报出warning，不写会报错<br>CHRARCTER SET gbk:为表设置编码方式，如果不设置则用mysql默认的编码方式</p>
+<p><br></p>
+<h2 id="查看数据库列表"><a href="#查看数据库列表" class="headerlink" title="查看数据库列表"></a>查看数据库列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SHOW &#123; DATABASES | SCHEMAS &#125; [LIKE &apos;pattern&apos; | WHERE expr];</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="查看数据库详情"><a href="#查看数据库详情" class="headerlink" title="查看数据库详情"></a>查看数据库详情</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SHOW CREATE DATABASE xx; 展示数据库t1的创建命令和编码形式</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="数据库的修改：ALTER"><a href="#数据库的修改：ALTER" class="headerlink" title="数据库的修改：ALTER"></a>数据库的修改：ALTER</h2><p>修改数据库编码方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER &#123; DATABASE | SCHEMAS &#125; [db_name][DEFAULT] CHARACTER SET [=] charset_name</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="删除数据库：DROP"><a href="#删除数据库：DROP" class="headerlink" title="删除数据库：DROP"></a>删除数据库：DROP</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DROP &#123; DATABASE | SCHEMAS &#125; [IF EXISTS] db_name;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;创建数据库&quot;&gt;&lt;a href=&quot;#创建数据库&quot; class=&quot;headerlink&quot; title=&quot;创建数据库&quot;&gt;&lt;/a&gt;创建数据库&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL常用命令及语句规范</title>
+    <link href="http://yoursite.com/post/ed36abd2.html"/>
+    <id>http://yoursite.com/post/ed36abd2.html</id>
+    <published>2018-06-02T10:18:26.000Z</published>
+    <updated>2018-06-02T10:38:58.359Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MySql语句规范"><a href="#MySql语句规范" class="headerlink" title="MySql语句规范"></a>MySql语句规范</h2><ol>
+<li>关键字和函数名称全部大写</li>
+<li>数据库名称、表名称、字段名称全部小写</li>
+<li>SQL语句必须以分号结尾</li>
+</ol>
+<p><br></p>
+<h2 id="常用语句"><a href="#常用语句" class="headerlink" title="常用语句"></a>常用语句</h2><p>SELECT VERSION();   查询当前服务器版本<br>SELECT NOW();       查询当前日期时间<br>SELECT USER();      查询当前用户</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;MySql语句规范&quot;&gt;&lt;a href=&quot;#MySql语句规范&quot; class=&quot;headerlink&quot; title=&quot;MySql语句规范&quot;&gt;&lt;/a&gt;MySql语句规范&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;关键字和函数名称全部大写&lt;/li&gt;
+&lt;li&gt;数据库名称、表名称、字段名称
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL登录和退出</title>
+    <link href="http://yoursite.com/post/20f3fae1.html"/>
+    <id>http://yoursite.com/post/20f3fae1.html</id>
+    <published>2018-06-02T09:41:30.000Z</published>
+    <updated>2018-06-02T10:20:10.455Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="mysql命令参数"><a href="#mysql命令参数" class="headerlink" title="mysql命令参数"></a>mysql命令参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-D,--database=name    打开指定数据库 </div><div class="line">--delimiter=name      指定分隔符</div><div class="line">-h,--host=name        服务器名称</div><div class="line">-p,--password[=name]  密码</div><div class="line">-P,--port=#           端口号（默认为3306）</div><div class="line">--prompt=name         设置提示符</div><div class="line">-u,--user=name        用户名</div><div class="line">-V,--version          输出版本信息且推出</div></pre></td></tr></table></figure>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -P3306 -hlocalhost -p</div></pre></td></tr></table></figure>
+<h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mysql&gt;exit;</div><div class="line">mysql&gt;quit;</div><div class="line">mysql&gt;\q;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;mysql命令参数&quot;&gt;&lt;a href=&quot;#mysql命令参数&quot; class=&quot;headerlink&quot; title=&quot;mysql命令参数&quot;&gt;&lt;/a&gt;mysql命令参数&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL配置</title>
+    <link href="http://yoursite.com/post/b62959c1.html"/>
+    <id>http://yoursite.com/post/b62959c1.html</id>
+    <published>2018-06-02T09:26:17.000Z</published>
+    <updated>2018-06-02T10:18:45.297Z</updated>
+    
+    <content type="html"><![CDATA[<p>配置文件的位置不一，在Centos7.4和MySQL5.5上是在<code>/etc/my.cnf</code><br>也可能在<code>/etc/mysql/my.cnf</code></p>
+<h2 id="修改编码方式"><a href="#修改编码方式" class="headerlink" title="修改编码方式"></a>修改编码方式</h2><p>在mysql中可以通过<code>status</code>查看编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[mysql]</div><div class="line">default-character-set=utf8</div><div class="line"></div><div class="line">[mysqld]</div><div class="line">character-set-server=utf8</div></pre></td></tr></table></figure>
+<h2 id="修改提示符"><a href="#修改提示符" class="headerlink" title="修改提示符"></a>修改提示符</h2><ol>
+<li><p>连接客户端时通过参数指定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -p --prompt 提示符</div><div class="line"></div><div class="line">mysql -uroot -p --prompt &quot;[\D-\d\h\u]&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>连接上客户端后，通过prompt命令修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt;prompt 提示符</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>提示符有：<br>\D     完整的日期<br>\d     当前数据库<br>\h     服务器名称<br>\u     当前用户</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;配置文件的位置不一，在Centos7.4和MySQL5.5上是在&lt;code&gt;/etc/my.cnf&lt;/code&gt;&lt;br&gt;也可能在&lt;code&gt;/etc/mysql/my.cnf&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;修改编码方式&quot;&gt;&lt;a href=&quot;#修改编码方式&quot; clas
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL目录结构</title>
+    <link href="http://yoursite.com/post/1c0eeefa.html"/>
+    <id>http://yoursite.com/post/1c0eeefa.html</id>
+    <published>2018-06-02T09:09:21.000Z</published>
+    <updated>2018-06-02T10:20:25.239Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用yum安装MySQL后的各目录位置<br>相关路径直接通过<code>find / -name &quot;mysql*&quot;</code>和<code>whereis mysqld</code>查找：</p>
+<p>/usr/lib64/mysql      库文件<br>/usr/share/mysql      配置文件，5.5后的默认安装路径<br>/var/lib/mysql        数据库目录<br>/etc/rc.d/init.d/     启动脚本<br>/usr/bin/             mysqladmin\mysqldump命令<br>/usr/share/doc/       文档</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用yum安装MySQL后的各目录位置&lt;br&gt;相关路径直接通过&lt;code&gt;find / -name &amp;quot;mysql*&amp;quot;&lt;/code&gt;和&lt;code&gt;whereis mysqld&lt;/code&gt;查找：&lt;/p&gt;
+&lt;p&gt;/usr/lib64/mysql      库
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 文件系统</title>
+    <link href="http://yoursite.com/post/f525ac74.html"/>
+    <id>http://yoursite.com/post/f525ac74.html</id>
+    <published>2018-06-02T08:46:30.647Z</published>
+    <updated>2018-06-02T08:46:30.603Z</updated>
+    
+    <content type="html"><![CDATA[<p>linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件<br>文件系统：<br>Windows里面是这样的：C:\Program files\office11\word\word.exe<br>Linux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0</p>
+<p>文件有两类数据：<br>元数据：metadata  元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。<br>数据：data  数据是指普通文件中的实际数据。</p>
+<p>1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；<br>2、文件名可使用除/以外的任意字符，不建议使用特殊字符；  /: 表示根目录，也用做路径分隔符；<br>3、文件名长度最长不能超过255个字符；<br>4、所以.开头的文件，均为隐藏文件；</p>
+<p>LSB: Linux Standard Base Linux标准库</p>
+<a id="more"></a>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件&lt;br&gt;文件系统：&lt;br&gt;Windows里面是这样的：C:\Program files\office11\word\word.exe&lt;br&gt;Linux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0&lt;/p&gt;
+&lt;p&gt;文件有两类数据：&lt;br&gt;元数据：metadata  元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。&lt;br&gt;数据：data  数据是指普通文件中的实际数据。&lt;/p&gt;
+&lt;p&gt;1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；&lt;br&gt;2、文件名可使用除/以外的任意字符，不建议使用特殊字符；  /: 表示根目录，也用做路径分隔符；&lt;br&gt;3、文件名长度最长不能超过255个字符；&lt;br&gt;4、所以.开头的文件，均为隐藏文件；&lt;/p&gt;
+&lt;p&gt;LSB: Linux Standard Base Linux标准库&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>chrome插件vimium</title>
@@ -249,30 +703,6 @@
   </entry>
   
   <entry>
-    <title>Linux 文件系统</title>
-    <link href="http://yoursite.com/post/f525ac74.html"/>
-    <id>http://yoursite.com/post/f525ac74.html</id>
-    <published>2018-06-01T04:56:22.876Z</published>
-    <updated>2018-06-01T04:56:22.876Z</updated>
-    
-    <content type="html"><![CDATA[<p>linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件<br>文件系统：<br>Windows里面是这样的：C:\Program files\office11\word\word.exe<br>Linux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0</p>
-<p>文件有两类数据：<br>元数据：metadata  元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。<br>数据：data  数据是指普通文件中的实际数据。</p>
-<p>1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；<br>2、文件名可使用除/以外的任意字符，不建议使用特殊字符；  /: 表示根目录，也用做路径分隔符；<br>3、文件名长度最长不能超过255个字符；<br>4、所以.开头的文件，均为隐藏文件；</p>
-<p>LSB: Linux Standard Base Linux标准库</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件&lt;br&gt;文件系统：&lt;br&gt;Windows里面是这样的：C:\Program files\office11\word\word.exe&lt;br&gt;Linux里面是这样的：/etc/sysconfig
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Shell批量重命名增加文件时间戳前缀</title>
     <link href="http://yoursite.com/post/a989c9fe.html"/>
     <id>http://yoursite.com/post/a989c9fe.html</id>
@@ -387,268 +817,6 @@
     
     
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 命令补全和路径补全</title>
-    <link href="http://yoursite.com/post/3781ba59.html"/>
-    <id>http://yoursite.com/post/3781ba59.html</id>
-    <published>2018-05-31T12:57:02.000Z</published>
-    <updated>2018-06-01T04:56:22.872Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="命令补全"><a href="#命令补全" class="headerlink" title="命令补全"></a>命令补全</h2><p>bash执行命令<br>内部命令<br>外部命令：bash根据PATH环境变量定义的路径，自左而右在每个路径搜寻以给定命令名命名的文件，第一次找到即为要执行的命令</p>
-<p>直接补全：Tab，用户给定的字符串只有一条惟一对应的命令<br>以用户给定的字符串为开头对应的命令不惟一，则再次Tab会给出列表</p>
-<h2 id="路径补全"><a href="#路径补全" class="headerlink" title="路径补全"></a>路径补全</h2><p>把用户给出的字符串当做路径开头，并在其指定上级目录下搜索以指定的字符串开头的文件名<br>如果惟一，则直接补全<br>否则，再次Tab，给出列表</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;命令补全&quot;&gt;&lt;a href=&quot;#命令补全&quot; class=&quot;headerlink&quot; title=&quot;命令补全&quot;&gt;&lt;/a&gt;命令补全&lt;/h2&gt;&lt;p&gt;bash执行命令&lt;br&gt;内部命令&lt;br&gt;外部命令：bash根据PATH环境变量定义的路径，自左而右在每个路径搜寻以给定命令名
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 终端</title>
-    <link href="http://yoursite.com/post/43bb04d6.html"/>
-    <id>http://yoursite.com/post/43bb04d6.html</id>
-    <published>2018-05-31T12:33:43.000Z</published>
-    <updated>2018-06-02T04:51:55.837Z</updated>
-    
-    <content type="html"><![CDATA[<p>用户与主机交互，必然用到的设备；</p>
-<h2 id="物理终端"><a href="#物理终端" class="headerlink" title="物理终端"></a>物理终端</h2><p>直接连接在主机上的显示器、键盘鼠标统称。<br>在实际机架式服务器部署中，一般是多台服务器共享一套终端，简称KVM（Keyboard键盘，video显示器，mouse鼠标）<br>/dev/console</p>
-<h2 id="虚拟终端tty"><a href="#虚拟终端tty" class="headerlink" title="虚拟终端tty"></a>虚拟终端tty</h2><p>附加在物理终端之上的以软件方式虚拟实现的终端，CentOS 6默认启动6个虚拟终端<br>Ctrl+Alt+F#: [1,6]<br>图形终端：附加在物理终端之上的以软件方式虚拟实现的终端，但额外会提供桌面环境；<br>tty是teletypewriter的简称<br>设备文件路径：/dev/tty#</p>
-<h2 id="模拟终端pty"><a href="#模拟终端pty" class="headerlink" title="模拟终端pty"></a>模拟终端pty</h2><p>sh协议或telnet协议等远程打开的命令行界面，是运维工程师用的最多的一种连接服务器的方式。pts(pseudo-terminal slave)是pty的实现方法。<br>设备文件：/dev/pts/#    [0,oo)</p>
-<p>查看当前的终端设备：tty</p>
-<h2 id="交互式接口"><a href="#交互式接口" class="headerlink" title="交互式接口"></a>交互式接口</h2><p>启动终端后，在终端设备附加一个交互式应用程序</p>
-<h3 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h3><p>X protocol, window manager, desktop</p>
-<p>Desktop:<br>    GNOME (C, gtk)<br>    KDE   (C++, qt)<br>    XFCE  (轻量级桌面)</p>
-<h3 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h3><p>shell程序：<br>    sh (bourn)<br>    csh<br>    tcsh<br>    ksh (korn)<br>    bash (bourn again shell), GPL<br>    zsh </p>
-<p>显示当前使用的shell：<br><code>echo ${SHELL}</code></p>
-<p>显示当前系统使用的所有shell：<br><code>cat /etc/shells</code></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;用户与主机交互，必然用到的设备；&lt;/p&gt;
-&lt;h2 id=&quot;物理终端&quot;&gt;&lt;a href=&quot;#物理终端&quot; class=&quot;headerlink&quot; title=&quot;物理终端&quot;&gt;&lt;/a&gt;物理终端&lt;/h2&gt;&lt;p&gt;直接连接在主机上的显示器、键盘鼠标统称。&lt;br&gt;在实际机架式服务器部署中，一
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux时间命令</title>
-    <link href="http://yoursite.com/post/4aed7274.html"/>
-    <id>http://yoursite.com/post/4aed7274.html</id>
-    <published>2018-05-30T15:50:40.000Z</published>
-    <updated>2018-06-01T04:56:22.880Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">date [OPTION]... [+FORMAT]：显示日期</div><div class="line">FORMAT: 格式符号</div><div class="line">    %D</div><div class="line">    %F</div><div class="line">    %T</div><div class="line">date [MMDDhhmm[[CC]YY][.ss]]：设置日期</div><div class="line">MM: 月份</div><div class="line">DD：几号</div><div class="line">hh: 小时</div><div class="line">mm: 分钟</div><div class="line">YY: 两位年份</div><div class="line">CCYY: 四位年份</div><div class="line">.ss: 秒钟</div></pre></td></tr></table></figure>
-<h2 id="Linux的两种时钟"><a href="#Linux的两种时钟" class="headerlink" title="Linux的两种时钟"></a>Linux的两种时钟</h2><p>系统时钟(system time)：由Linux内核通过CPU的工作频率进行的计时，date命令<br>硬件时钟(hardware clock)：<code>clock</code>命令</p>
-<p>hwclock: 显示硬件时钟<br>    -s, –hctosys   Set the System Time from Hardware Clock 读取硬件时间到系统时间<br>    -w, –systohc   Set Hardware Clock to the current System Time 系统时间写入硬件时间</p>
-<h2 id="cal-日历"><a href="#cal-日历" class="headerlink" title="cal 日历"></a>cal 日历</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;date&quot;&gt;&lt;a href=&quot;#date&quot; class=&quot;headerlink&quot; title=&quot;date&quot;&gt;&lt;/a&gt;date&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell echo命令</title>
-    <link href="http://yoursite.com/post/a6281d67.html"/>
-    <id>http://yoursite.com/post/a6281d67.html</id>
-    <published>2018-05-28T06:26:25.000Z</published>
-    <updated>2018-06-01T04:56:22.884Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="echo-回显命令"><a href="#echo-回显命令" class="headerlink" title="echo 回显命令"></a>echo 回显命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">echo [选项] [输出内容]</div><div class="line"></div><div class="line">选项： </div><div class="line">-e：允许使用转义符</div><div class="line">-n: 禁止自动添加换行符号</div><div class="line"></div><div class="line">内容转义</div><div class="line">\a - 输出警告音</div><div class="line">\b - 退格符</div><div class="line">\n - 换行符</div><div class="line">\r - 回车键</div><div class="line">\t - 制表符，也就是tab键</div><div class="line">\v - 垂直制表符</div><div class="line">\0nnn - 按照八进制ASCII码输出字符</div><div class="line">\xhh - 按照十六进制ASCII表输出字符</div><div class="line"></div><div class="line">输出带颜色的内容 </div><div class="line">echo -e &quot;\e[1;31m文字\e[0m&quot;</div><div class="line">#输出颜色 \e[1;##m - 开启颜色显示； \e[0m - 关闭颜色显示</div><div class="line">#30m=黑色，31m=红色，32m=绿色，33m=黄色</div><div class="line">#34m=蓝色，35m=洋红，36m=青色，37m=白色</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo &quot;$VAR_NAME&quot;: 变量会替换，双引号表弱引用</div><div class="line">echo &apos;$VAR_NAME&apos;: 变量不会替换，强引用</div></pre></td></tr></table></figure>
-<p>参考：Shell引号</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;echo-回显命令&quot;&gt;&lt;a href=&quot;#echo-回显命令&quot; class=&quot;headerlink&quot; title=&quot;echo 回显命令&quot;&gt;&lt;/a&gt;echo 回显命令&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell引号</title>
-    <link href="http://yoursite.com/post/ca5ad791.html"/>
-    <id>http://yoursite.com/post/ca5ad791.html</id>
-    <published>2018-05-28T06:14:51.000Z</published>
-    <updated>2018-06-01T04:56:22.868Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="双引号””"><a href="#双引号””" class="headerlink" title="双引号””"></a>双引号””</h2><p>单词分割、路径名展开、波浪线展开和花括号展开都被禁止，参数展开、算术展开、命令替换仍然执行</p>
-<p>在双引号中左右的特殊符号都没有特殊含义，但是“$”,”`”,”\”是例外。拥有“调用变量的值”，“引用命令”和“转义符”的特殊含义</p>
-<p>使用双引号可以处理包含空格的文件名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo $(cal)      #输出以空格分为不同的参数</div><div class="line">echo &quot;$(cal)&quot;    #只有一个参数</div></pre></td></tr></table></figure>
-<h2 id="单引号’’"><a href="#单引号’’" class="headerlink" title="单引号’’"></a>单引号’’</h2><p>禁止所有展开<br>在单引号中左右的特殊符号，如$、`(反引号)都没有特殊含义</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;双引号””&quot;&gt;&lt;a href=&quot;#双引号””&quot; class=&quot;headerlink&quot; title=&quot;双引号””&quot;&gt;&lt;/a&gt;双引号””&lt;/h2&gt;&lt;p&gt;单词分割、路径名展开、波浪线展开和花括号展开都被禁止，参数展开、算术展开、命令替换仍然执行&lt;/p&gt;
-&lt;p&gt;在双引号中
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell展开</title>
-    <link href="http://yoursite.com/post/7e1cd31f.html"/>
-    <id>http://yoursite.com/post/7e1cd31f.html</id>
-    <published>2018-05-28T05:38:30.000Z</published>
-    <updated>2018-06-01T04:56:22.884Z</updated>
-    
-    <content type="html"><![CDATA[<p>输入的字符在shell起作用前会展开成为别的字符</p>
-<ul>
-<li>路径展开</li>
-<li>波浪号展开</li>
-<li>算术表达式展开</li>
-<li>花括号展开</li>
-<li>参数展开</li>
-<li>命令替换</li>
-<li>单词分割</li>
-</ul>
-<p><br></p>
-<p>##路径展开<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ls </div><div class="line">echo *      #不显示隐藏文件</div><div class="line">echo D*</div><div class="line">echo *s</div><div class="line">echo /usr/*/bin</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>##波浪号展开<br><code>~</code>会展开成为家目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls ~</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>##算术表达式展开<br>通过这种方式进行算术运算<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo $((2+2))</div><div class="line">echo $(($a+$b))</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>##花括号展开<br>可以从一个花括号的模式中创建多个字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">echo front-&#123;a,b,1&#125;-end</div><div class="line">front-a-end front-b-end front-1-end</div><div class="line"></div><div class="line">echo Number_&#123;1..5&#125;</div><div class="line">echo &#123;Z..A&#125;</div><div class="line">echo &#123;A&#123;1,2&#125;,B&#123;3,4&#125;&#125;</div><div class="line">mkdir &#123;2007..2009&#125;-0&#123;1,9&#125; &#123;2007..2009&#125;-&#123;10..12&#125;</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>##参数展开<br>即shell变量，多用于shell脚本</p>
-<p><br></p>
-<p>##命令替换</p>
-<p>把一个命令的输出作为作为一个展开<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">echo $(ls)</div><div class="line">files=$(ls)</div><div class="line"></div><div class="line">echo `ls`</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="单词分割"><a href="#单词分割" class="headerlink" title="单词分割"></a>单词分割</h2><p>在默认情况下，单词分割机制会在单词中寻找空格、制表符和换行符，并把它们看作单词之间的界定符，它们只作为分隔符使用。所以不要用包含空格的名字命名文件unless you really know what you do</p>
-<p>补充：<br><a href="https://www.jianshu.com/p/403f3554e2c1" target="_blank" rel="external">https://www.jianshu.com/p/403f3554e2c1</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;输入的字符在shell起作用前会展开成为别的字符&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;路径展开&lt;/li&gt;
-&lt;li&gt;波浪号展开&lt;/li&gt;
-&lt;li&gt;算术表达式展开&lt;/li&gt;
-&lt;li&gt;花括号展开&lt;/li&gt;
-&lt;li&gt;参数展开&lt;/li&gt;
-&lt;li&gt;命令替换&lt;/li&gt;
-&lt;li&gt;单词分割&lt;/li&gt;
-
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VIM插件NerdTree快捷键</title>
-    <link href="http://yoursite.com/post/2101d586.html"/>
-    <id>http://yoursite.com/post/2101d586.html</id>
-    <published>2018-05-28T04:45:11.000Z</published>
-    <updated>2018-06-01T04:56:22.868Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="切换工作台和目录"><a href="#切换工作台和目录" class="headerlink" title="切换工作台和目录"></a>切换工作台和目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ctrl + w + h    光标 focus 左侧树形目录</div><div class="line">ctrl + w + l    光标 focus 右侧文件显示窗口</div><div class="line">ctrl + w + w    光标自动在左右侧窗口切换</div><div class="line">ctrl + w + r    移动当前窗口的布局位置</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">o       在已有窗口中打开文件、目录或书签，并跳到该窗口</div><div class="line">go      在已有窗口 中打开文件、目录或书签，但不跳到该窗口</div><div class="line">t       在新 Tab 中打开选中文件/书签，并跳到新 Tab</div><div class="line">T       在新 Tab 中打开选中文件/书签，但不跳到新 Tab</div><div class="line">i       split 一个新窗口打开选中文件，并跳到该窗口</div><div class="line">gi      split 一个新窗口打开选中文件，但不跳到该窗口</div><div class="line">s       vsplit 一个新窗口打开选中文件，并跳到该窗口</div><div class="line">gs      vsplit 一个新 窗口打开选中文件，但不跳到该窗口</div><div class="line">!       执行当前文件</div><div class="line">O       递归打开选中 结点下的所有目录</div><div class="line">x       合拢选中结点的父目录</div><div class="line">X       递归 合拢选中结点下的所有目录</div><div class="line">e       Edit the current dif</div><div class="line"></div><div class="line">双击    相当于 NERDTree-o</div><div class="line">中键    对文件相当于 NERDTree-i，对目录相当于 NERDTree-e</div><div class="line"></div><div class="line">D       删除当前书签</div><div class="line"></div><div class="line">P       跳到根结点</div><div class="line">p       跳到父结点</div><div class="line">K       跳到当前目录下同级的第一个结点</div><div class="line">J       跳到当前目录下同级的最后一个结点</div><div class="line">k       跳到当前目录下同级的前一个结点</div><div class="line">j       跳到当前目录下同级的后一个结点</div><div class="line"></div><div class="line">C       将选中目录或选中文件的父目录设为根结点</div><div class="line">u       将当前根结点的父目录设为根目录，并变成合拢原根结点</div><div class="line">U       将当前根结点的父目录设为根目录，但保持展开原根结点</div><div class="line">r       递归刷新选中目录</div><div class="line">R       递归刷新根结点</div><div class="line">m       显示文件系统菜单</div><div class="line">cd      将 CWD 设为选中目录</div><div class="line"></div><div class="line">I       切换是否显示隐藏文件</div><div class="line">f       切换是否使用文件过滤器</div><div class="line">F       切换是否显示文件</div><div class="line">B       切换是否显示书签</div><div class="line"></div><div class="line">q       关闭 NerdTree 窗口</div><div class="line">?       切换是否显示 Quick Help</div></pre></td></tr></table></figure>
-<h2 id="切换标签页"><a href="#切换标签页" class="headerlink" title="切换标签页"></a>切换标签页</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">:tabnew [++opt选项] ［＋cmd］ 文件      建立对指定文件新的tab</div><div class="line">:tabc   关闭当前的 tab</div><div class="line">:tabo   关闭所有其他的 tab</div><div class="line">:tabs   查看所有打开的 tab</div><div class="line">:tabp   前一个 tab</div><div class="line">:tabn   后一个 tab</div><div class="line"></div><div class="line">标准模式下：</div><div class="line">gT      前一个 tab</div><div class="line">gt      后一个 tab</div><div class="line"></div><div class="line">MacVim 还可以借助快捷键来完成 tab 的关闭、切换</div><div class="line">cmd+w   关闭当前的 tab</div><div class="line">cmd+&#123;   前一个 tab</div><div class="line">cmd+&#125;   后一个 tab</div></pre></td></tr></table></figure>
-<h2 id="NerdTree在-vimrc中的常用配置"><a href="#NerdTree在-vimrc中的常用配置" class="headerlink" title="NerdTree在.vimrc中的常用配置"></a>NerdTree在.vimrc中的常用配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&quot; 在 vim 启动的时候默认开启 NERDTree（autocmd 可以缩写为 au）</div><div class="line">autocmd VimEnter * NERDTree</div><div class="line"></div><div class="line">&quot; 按下 F2 调出/隐藏 NERDTree</div><div class="line">map  :silent! NERDTreeToggle</div><div class="line"></div><div class="line">&quot; 将 NERDTree 的窗口设置在 vim 窗口的右侧（默认为左侧）</div><div class="line">let NERDTreeWinPos=&quot;right&quot;</div><div class="line"></div><div class="line">&quot; 当打开 NERDTree 窗口时，自动显示 Bookmarks</div><div class="line">let NERDTreeShowBookmarks=1</div></pre></td></tr></table></figure>
-<p>转自：<a href="http://yang3wei.github.io/blog/2013/01/29/nerdtree-kuai-jie-jian-ji-lu/" target="_blank" rel="external">http://yang3wei.github.io/blog/2013/01/29/nerdtree-kuai-jie-jian-ji-lu/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;切换工作台和目录&quot;&gt;&lt;a href=&quot;#切换工作台和目录&quot; class=&quot;headerlink&quot; title=&quot;切换工作台和目录&quot;&gt;&lt;/a&gt;切换工作台和目录&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
-    
-    </summary>
-    
-    
-      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VIM配置</title>
-    <link href="http://yoursite.com/post/6f99625c.html"/>
-    <id>http://yoursite.com/post/6f99625c.html</id>
-    <published>2018-05-28T03:16:30.000Z</published>
-    <updated>2018-06-01T04:56:22.872Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>打开VIM，输入<code>:version</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">系统 vimrc 文件: &quot;$VIM/vimrc&quot;</div><div class="line">用户 vimrc 文件: &quot;$HOME/.vimrc&quot;</div><div class="line">第二用户 vimrc 文件: &quot;~/.vim/vimrc&quot;</div><div class="line">用户 exrc 文件: &quot;$HOME/.exrc&quot;</div><div class="line">系统 gvimrc 文件: &quot;$VIM/gvimrc&quot;</div><div class="line">用户 gvimrc 文件: &quot;$HOME/.gvimrc&quot; </div><div class="line">第二用户 gvimrc 文件: &quot;~/.vim/gvimrc&quot;</div><div class="line">系统菜单文件: &quot;$VIMRUNTIME/menu.vim&quot;</div><div class="line">$VIM 预设值: &quot;/usr/share/vim&quot;</div></pre></td></tr></table></figure></p>
-<p>列出了几个 vimrc 文件，有一个系统的 vimrc 文件，还有用户的 vimrc 文件，以及系统和用户 gvimrc 文件。出于和vi兼容的目的，vim也支持vi的exrc配置文件。</p>
-<p>一般来说，我们都使用用户目录下的<code>$HOME/.vimrc</code>文件即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">set number</div><div class="line">set ruler</div><div class="line">&quot;这是注释</div></pre></td></tr></table></figure></p>
-<p><a href="https://blog.easwy.com/archives/advanced-vim-skills-catalog/" target="_blank" rel="external">https://blog.easwy.com/archives/advanced-vim-skills-catalog/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;位置&quot;&gt;&lt;a href=&quot;#位置&quot; class=&quot;headerlink&quot; title=&quot;位置&quot;&gt;&lt;/a&gt;位置&lt;/h2&gt;&lt;p&gt;打开VIM，输入&lt;code&gt;:version&lt;/code&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tabl
-    
-    </summary>
-    
-    
-      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>zsh安装、主题、插件</title>
-    <link href="http://yoursite.com/post/8ec9a3b8.html"/>
-    <id>http://yoursite.com/post/8ec9a3b8.html</id>
-    <published>2018-05-27T05:54:10.000Z</published>
-    <updated>2018-06-01T04:56:22.868Z</updated>
-    
-    <content type="html"><![CDATA[<p>zsh和bash兼容，fish和bash不兼容</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#安装zsh</div><div class="line">yum -y install zsh</div><div class="line"></div><div class="line">#切换默认shell为zsh</div><div class="line">chsh -s /bin/zsh</div><div class="line"></div><div class="line">#切换回去bash</div><div class="line">chsh -s /bin/bash</div><div class="line"></div><div class="line">#确认zsh是否是默认SHELL</div><div class="line">echo $SHELL</div><div class="line"></div><div class="line">#重启服务器让修改的配置生效</div></pre></td></tr></table></figure>
-<p>#安装on my zsh<br>curl<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</div></pre></td></tr></table></figure></p>
-<p>wget<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</div></pre></td></tr></table></figure></p>
-<h2 id="修改oh-my-zsh-主题"><a href="#修改oh-my-zsh-主题" class="headerlink" title="修改oh my zsh 主题"></a>修改oh my zsh 主题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#查看oh my zsh主题</div><div class="line">ls ~/.oh-my-zsh/themes</div><div class="line"></div><div class="line">#修改主题</div><div class="line">vim ~/.zshrc</div><div class="line"></div><div class="line">#ZSH_THEME=&quot;robbyrussell&quot;        #默认的主题</div><div class="line">ZSH_THEME=&quot;avit&quot;                 #修改为avit</div></pre></td></tr></table></figure>
-<h2 id="oh-my-zsh插件"><a href="#oh-my-zsh插件" class="headerlink" title="oh my zsh插件"></a>oh my zsh插件</h2><p>修改<code>~/.zshrc</code>中plugins<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">plugins=(git z extract colored-man-pages)</div></pre></td></tr></table></figure></p>
-<p>git：各种别名，ga\gp\gs\gc<br>extract：功能强大的解压插件，所有类型的文件解压一个命令<code>x</code>全搞定<br>z：强大的目录自动跳转命令，会记忆你曾经进入过的目录，用模糊匹配快速进入你想要的目录。</p>
-<p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview" target="_blank" rel="external">https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview</a></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>卸载on my zsh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uninstall_oh_my_zsh zsh</div></pre></td></tr></table></figure></p>
-<p><a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a><br><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="external">https://github.com/robbyrussell/oh-my-zsh/wiki/Themes</a><br><a href="https://blog.csdn.net/gatieme/article/details/52741221" target="_blank" rel="external">https://blog.csdn.net/gatieme/article/details/52741221</a><br><a href="https://www.jianshu.com/p/556ff130fc65" target="_blank" rel="external">https://www.jianshu.com/p/556ff130fc65</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;zsh和bash兼容，fish和bash不兼容&lt;/p&gt;
-&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://yoursite.com/tags/Shell/"/>
     
   </entry>
   
