@@ -321,6 +321,7 @@
         
           
           
+
           
           <!--noindex-->
           <div class="post-button text-center">
@@ -445,13 +446,7 @@
 
       
         
-          
-          约束保证数据的完整性和一致性约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY按数目分为列级约束和表级约束
-
-主键约束：PRIMARY KEY主键可以写为PRIMARY KEY，也可以写成KEY
-
-唯一性（可以赋值但是不能给两个记录赋
-          ...
+          <p>约束保证数据的完整性和一致性<br>约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY<br>按数目分为列级约束和表级约束</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/1df97176.html#more" rel="contents">
@@ -575,11 +570,9 @@
 
       
         
-          
-          数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】
-创建数据表首先打开数据库（数据库要存在）: USE 数据库名称
-创建数据表123CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称
-          ...
+          <p>数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】</p>
+<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><p>首先打开数据库（数据库要存在）: <code>USE 数据库名称</code></p>
+<p>创建数据表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE [IF NOT EXISTS] table_name(</div><div class="line">column_name(列名称) data_type（列类型）,</div><div class="line">.... );</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/8ecc2d83.html#more" rel="contents">
@@ -703,22 +696,45 @@
 
       
         
-          
-          数据类型是指列、存储过程参数、表达式和局部变量的数据特征，它决定了数据的存储格式，代表了不同的信息类型
-整型整型的存储范围分有符号位和无符号位两种，一般无符号位是有符号位的两倍
-选择数据类型要根据实际数据的大小，选择合适的数据类型有利于数据的优化
-
-
-
-数据类型
-字节
-存储范围
-
-
-
-
-tinyin
-          ...
+          <p>数据类型是指列、存储过程参数、表达式和局部变量的数据特征，它决定了数据的存储格式，代表了不同的信息类型</p>
+<h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><p>整型的存储范围分有符号位和无符号位两种，一般无符号位是有符号位的两倍</p>
+<p>选择数据类型要根据实际数据的大小，选择合适的数据类型有利于数据的优化</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>字节</th>
+<th>存储范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tinyint</td>
+<td>1</td>
+<td>-128~127,无符号0~255</td>
+</tr>
+<tr>
+<td>smallint</td>
+<td>2</td>
+<td>-32768~32767,无符号0~65535</td>
+</tr>
+<tr>
+<td>mediumint</td>
+<td>3</td>
+<td>-2^23~2^23-1(800万),无符号0~2^24-1</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4</td>
+<td>-2^31~2^31-1(21亿),无符号0~2^32-1</td>
+</tr>
+<tr>
+<td>bigint</td>
+<td>8</td>
+<td>-2^63~2^63-1,无符号0~2^64-1</td>
+</tr>
+</tbody>
+</table>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/47519a60.html#more" rel="contents">
@@ -842,10 +858,9 @@ tinyin
 
       
         
-          
-          创建数据库1CREATE &#123;DATABASE | SCHEMA&#125; [IF NOT EXISTS] db_name [DEFAULT] CHARACTER SET [=] charset_name;
-DATABASE和SCHEMA是相同的，任选其一IF NOT EXISTS:如果创
-          ...
+          <h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CREATE &#123;DATABASE | SCHEMA&#125; [IF NOT EXISTS] db_name [DEFAULT] CHARACTER SET [=] charset_name;</div></pre></td></tr></table></figure>
+<p>DATABASE和SCHEMA是相同的，任选其一<br>IF NOT EXISTS:如果创建的数据库存在，则不只报出warning，不写会报错<br>CHRARCTER SET gbk:为表设置编码方式，如果不设置则用mysql默认的编码方式</p>
+<p><br><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/f2cccc89.html#more" rel="contents">
@@ -969,16 +984,13 @@ DATABASE和SCHEMA是相同的，任选其一IF NOT EXISTS:如果创
 
       
         
-          
-          MySql语句规范
-关键字和函数名称全部大写
-数据库名称、表名称、字段名称全部小写
-SQL语句必须以分号结尾
-
-
-常用语句SELECT VERSION();   查询当前服务器版本SELECT NOW();       查询当前日期时间SELECT USER();      查询当前用户
-
-          
+          <h2 id="MySql语句规范"><a href="#MySql语句规范" class="headerlink" title="MySql语句规范"></a>MySql语句规范</h2><ol>
+<li>关键字和函数名称全部大写</li>
+<li>数据库名称、表名称、字段名称全部小写</li>
+<li>SQL语句必须以分号结尾</li>
+</ol>
+<p><br></p>
+<h2 id="常用语句"><a href="#常用语句" class="headerlink" title="常用语句"></a>常用语句</h2><p>SELECT VERSION();   查询当前服务器版本<br>SELECT NOW();       查询当前日期时间<br>SELECT USER();      查询当前用户<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/ed36abd2.html#more" rel="contents">
@@ -1102,9 +1114,7 @@ SQL语句必须以分号结尾
 
       
         
-          
-          mysql命令参数12345678-D,--database=name    打开指定数据库 --delimiter=name      指定分隔符-h,--host=name        服务器名称-p,--password[=name]  密码-P,--port=#           端口号
-          ...
+          <h2 id="mysql命令参数"><a href="#mysql命令参数" class="headerlink" title="mysql命令参数"></a>mysql命令参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-D,--database=name    打开指定数据库 </div><div class="line">--delimiter=name      指定分隔符</div><div class="line">-h,--host=name        服务器名称</div><div class="line">-p,--password[=name]  密码</div><div class="line">-P,--port=#           端口号（默认为3306）</div><div class="line">--prompt=name         设置提示符</div><div class="line">-u,--user=name        用户名</div><div class="line">-V,--version          输出版本信息且推出</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/20f3fae1.html#more" rel="contents">
@@ -1228,11 +1238,9 @@ SQL语句必须以分号结尾
 
       
         
-          
-          配置文件的位置不一，在Centos7.4和MySQL5.5上是在/etc/my.cnf也可能在/etc/mysql/my.cnf
-修改编码方式在mysql中可以通过status查看编码
-12345[mysql]default-character-set=utf8[mysqld]character-s
-          ...
+          <p>配置文件的位置不一，在Centos7.4和MySQL5.5上是在<code>/etc/my.cnf</code><br>也可能在<code>/etc/mysql/my.cnf</code></p>
+<h2 id="修改编码方式"><a href="#修改编码方式" class="headerlink" title="修改编码方式"></a>修改编码方式</h2><p>在mysql中可以通过<code>status</code>查看编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[mysql]</div><div class="line">default-character-set=utf8</div><div class="line"></div><div class="line">[mysqld]</div><div class="line">character-set-server=utf8</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/b62959c1.html#more" rel="contents">
@@ -1356,10 +1364,8 @@ SQL语句必须以分号结尾
 
       
         
-          
-          使用yum安装MySQL后的各目录位置相关路径直接通过find / -name &quot;mysql*&quot;和whereis mysqld查找：
-/usr/lib64/mysql      库文件/usr/share/mysql      配置文件，5.5后的默认安装路径/var/lib/m
-          ...
+          <p>使用yum安装MySQL后的各目录位置<br>相关路径直接通过<code>find / -name &quot;mysql*&quot;</code>和<code>whereis mysqld</code>查找：</p>
+<p>/usr/lib64/mysql      库文件<br>/usr/share/mysql      配置文件，5.5后的默认安装路径<br>/var/lib/mysql        数据库目录<br>/etc/rc.d/init.d/     启动脚本<br>/usr/bin/             mysqladmin\mysqldump命令<br>/usr/share/doc/       文档<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/1c0eeefa.html#more" rel="contents">

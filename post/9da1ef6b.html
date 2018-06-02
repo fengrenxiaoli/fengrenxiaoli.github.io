@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="命令提示符123456789[root@localhost ~]#root 当前登录用户localhost 主机名~ 当前所在目录（家目录）# 超级用户的提示符$ 普通用户的提示符环境变量 $PS1 命令的格式12345678910111213COMMAND [OPTIONS...] [ARGUMENTS...]选项：用于启用或关闭命令的某个或某些功能；    短选项：-c, 例如：-l, -h">
+<meta name="description" content="命令提示符123456789[root@localhost ~]#root 当前登录用户localhost 主机名~ 当前所在目录（家目录）# 超级用户的提示符$ 普通用户的提示符环境变量 $PS1">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 命令">
 <meta property="og:url" content="http://yoursite.com/post/9da1ef6b.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="命令提示符123456789[root@localhost ~]#root 当前登录用户localhost 主机名~ 当前所在目录（家目录）# 超级用户的提示符$ 普通用户的提示符环境变量 $PS1 命令的格式12345678910111213COMMAND [OPTIONS...] [ARGUMENTS...]选项：用于启用或关闭命令的某个或某些功能；    短选项：-c, 例如：-l, -h">
+<meta property="og:description" content="命令提示符123456789[root@localhost ~]#root 当前登录用户localhost 主机名~ 当前所在目录（家目录）# 超级用户的提示符$ 普通用户的提示符环境变量 $PS1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.872Z">
+<meta property="og:updated_time" content="2018-06-02T15:02:35.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 命令">
-<meta name="twitter:description" content="命令提示符123456789[root@localhost ~]#root 当前登录用户localhost 主机名~ 当前所在目录（家目录）# 超级用户的提示符$ 普通用户的提示符环境变量 $PS1 命令的格式12345678910111213COMMAND [OPTIONS...] [ARGUMENTS...]选项：用于启用或关闭命令的某个或某些功能；    短选项：-c, 例如：-l, -h">
+<meta name="twitter:description" content="命令提示符123456789[root@localhost ~]#root 当前登录用户localhost 主机名~ 当前所在目录（家目录）# 超级用户的提示符$ 普通用户的提示符环境变量 $PS1">
 
 
 
@@ -321,9 +321,12 @@
 
       
         <h2 id="命令提示符"><a href="#命令提示符" class="headerlink" title="命令提示符"></a>命令提示符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]#</div><div class="line">root 当前登录用户</div><div class="line">localhost 主机名</div><div class="line">~ 当前所在目录（家目录）</div><div class="line"># 超级用户的提示符</div><div class="line">$ 普通用户的提示符</div><div class="line"></div><div class="line"></div><div class="line">环境变量 $PS1</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><br></p>
 <h2 id="命令的格式"><a href="#命令的格式" class="headerlink" title="命令的格式"></a>命令的格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">COMMAND [OPTIONS...] [ARGUMENTS...]</div><div class="line">选项：用于启用或关闭命令的某个或某些功能；</div><div class="line">    短选项：-c, 例如：-l, -h</div><div class="line">        多个短选项可以写在一起，例如-l -h, 可写作-lh；</div><div class="line">    长选项：--word，例如：--long, --human-readable</div><div class="line">参数：命令的作用对象</div><div class="line">        向命令提供数据；</div><div class="line">注意：</div><div class="line">1、多选项，以及多参数和命令之间都应该使用空白字符分隔</div><div class="line">2、取消命令执行：Ctrl+c</div><div class="line"></div><div class="line"></div><div class="line">个别命令使用不遵循此格式</div></pre></td></tr></table></figure>
 <p>输入命令，回车：<br>提请shell程序找到键入命令所对应的可执行程序或代码，并由其分析后提交给内核分配资源将其运行起来；<br>表现为一个或多个进程；</p>
 <p>在shell中可执行的命令有两类：<br>内建命令：由shell自带的，而且通过某命令形式提供；<br>外部命令：在当前系统的某文件系统路径下有对应的可执行程序文件；<br>which，whereis 用于查找并显示给定命令的绝对路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">type COMMAND</div><div class="line">#区别内部或外部命令</div><div class="line">例子：[xxl@localhost ~]$ type pwd</div><div class="line">pwd 是 shell 内嵌</div><div class="line">[xxl@localhost ~]$ type mkdir</div><div class="line">mkdir 是 /usr/bin/mkdir</div></pre></td></tr></table></figure></p>
+<p><br></p>
 <h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><ul>
 <li>相对路径：从当前位置起始的路径</li>
 <li>绝对路径：从根目录起始的路径</li>

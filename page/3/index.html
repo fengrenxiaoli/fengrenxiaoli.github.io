@@ -319,11 +319,9 @@
 
       
         
-          
-          命令补全bash执行命令内部命令外部命令：bash根据PATH环境变量定义的路径，自左而右在每个路径搜寻以给定命令名命名的文件，第一次找到即为要执行的命令
-直接补全：Tab，用户给定的字符串只有一条惟一对应的命令以用户给定的字符串为开头对应的命令不惟一，则再次Tab会给出列表
-路径补全把用户给出的字
-          ...
+          <h2 id="命令补全"><a href="#命令补全" class="headerlink" title="命令补全"></a>命令补全</h2><p>bash执行命令<br>内部命令<br>外部命令：bash根据PATH环境变量定义的路径，自左而右在每个路径搜寻以给定命令名命名的文件，第一次找到即为要执行的命令</p>
+<p>直接补全：Tab，用户给定的字符串只有一条惟一对应的命令<br>以用户给定的字符串为开头对应的命令不惟一，则再次Tab会给出列表</p>
+<h2 id="路径补全"><a href="#路径补全" class="headerlink" title="路径补全"></a>路径补全</h2><p>把用户给出的字符串当做路径开头，并在其指定上级目录下搜索以指定的字符串开头的文件名<br>如果惟一，则直接补全<br>否则，再次Tab，给出列表</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/3781ba59.html#more" rel="contents">
@@ -447,11 +445,11 @@
 
       
         
-          
-          用户与主机交互，必然用到的设备；
-物理终端直接连接在主机上的显示器、键盘鼠标统称。在实际机架式服务器部署中，一般是多台服务器共享一套终端，简称KVM（Keyboard键盘，video显示器，mouse鼠标）/dev/console
-虚拟终端tty附加在物理终端之上的以软件方式虚拟实现的终端，Cent
-          ...
+          <p>用户与主机交互，必然用到的设备；</p>
+<h2 id="物理终端"><a href="#物理终端" class="headerlink" title="物理终端"></a>物理终端</h2><p>直接连接在主机上的显示器、键盘鼠标统称。<br>在实际机架式服务器部署中，一般是多台服务器共享一套终端，简称KVM（Keyboard键盘，video显示器，mouse鼠标）<br>/dev/console</p>
+<h2 id="虚拟终端tty"><a href="#虚拟终端tty" class="headerlink" title="虚拟终端tty"></a>虚拟终端tty</h2><p>附加在物理终端之上的以软件方式虚拟实现的终端，CentOS 6默认启动6个虚拟终端<br>Ctrl+Alt+F#: [1,6]<br>图形终端：附加在物理终端之上的以软件方式虚拟实现的终端，但额外会提供桌面环境；<br>tty是teletypewriter的简称<br>设备文件路径：/dev/tty#</p>
+<h2 id="模拟终端pty"><a href="#模拟终端pty" class="headerlink" title="模拟终端pty"></a>模拟终端pty</h2><p>sh协议或telnet协议等远程打开的命令行界面，是运维工程师用的最多的一种连接服务器的方式。pts(pseudo-terminal slave)是pty的实现方法。<br>设备文件：/dev/pts/#    [0,oo)</p>
+<p>查看当前的终端设备：tty</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/43bb04d6.html#more" rel="contents">
@@ -575,9 +573,10 @@
 
       
         
-          
-          date12345678910111213date [OPTION]... [+FORMAT]：显示日期FORMAT: 格式符号    %D    %F    %Tdate [MMDDhhmm[[CC]YY][.ss]]：设置日期MM: 月份DD：几号hh: 小时mm: 分钟YY: 两位年份CCYY
-          ...
+          <h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">date [OPTION]... [+FORMAT]：显示日期</div><div class="line">FORMAT: 格式符号</div><div class="line">    %D</div><div class="line">    %F</div><div class="line">    %T</div><div class="line">date [MMDDhhmm[[CC]YY][.ss]]：设置日期</div><div class="line">MM: 月份</div><div class="line">DD：几号</div><div class="line">hh: 小时</div><div class="line">mm: 分钟</div><div class="line">YY: 两位年份</div><div class="line">CCYY: 四位年份</div><div class="line">.ss: 秒钟</div></pre></td></tr></table></figure>
+<h2 id="Linux的两种时钟"><a href="#Linux的两种时钟" class="headerlink" title="Linux的两种时钟"></a>Linux的两种时钟</h2><p>系统时钟(system time)：由Linux内核通过CPU的工作频率进行的计时，date命令<br>硬件时钟(hardware clock)：<code>clock</code>命令</p>
+<p>hwclock: 显示硬件时钟<br>    -s, –hctosys   Set the System Time from Hardware Clock 读取硬件时间到系统时间<br>    -w, –systohc   Set Hardware Clock to the current System Time 系统时间写入硬件时间</p>
+<h2 id="cal-日历"><a href="#cal-日历" class="headerlink" title="cal 日历"></a>cal 日历</h2>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/4aed7274.html#more" rel="contents">
@@ -701,9 +700,9 @@
 
       
         
-          
-          echo 回显命令123456789101112131415161718192021echo [选项] [输出内容]选项： -e：允许使用转义符-n: 禁止自动添加换行符号内容转义\a - 输出警告音\b - 退格符\n - 换行符\r - 回车键\t - 制表符，也就是tab键\v - 垂直制表符
-          ...
+          <h2 id="echo-回显命令"><a href="#echo-回显命令" class="headerlink" title="echo 回显命令"></a>echo 回显命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">echo [选项] [输出内容]</div><div class="line"></div><div class="line">选项： </div><div class="line">-e：允许使用转义符</div><div class="line">-n: 禁止自动添加换行符号</div><div class="line"></div><div class="line">内容转义</div><div class="line">\a - 输出警告音</div><div class="line">\b - 退格符</div><div class="line">\n - 换行符</div><div class="line">\r - 回车键</div><div class="line">\t - 制表符，也就是tab键</div><div class="line">\v - 垂直制表符</div><div class="line">\0nnn - 按照八进制ASCII码输出字符</div><div class="line">\xhh - 按照十六进制ASCII表输出字符</div><div class="line"></div><div class="line">输出带颜色的内容 </div><div class="line">echo -e &quot;\e[1;31m文字\e[0m&quot;</div><div class="line">#输出颜色 \e[1;##m - 开启颜色显示； \e[0m - 关闭颜色显示</div><div class="line">#30m=黑色，31m=红色，32m=绿色，33m=黄色</div><div class="line">#34m=蓝色，35m=洋红，36m=青色，37m=白色</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo &quot;$VAR_NAME&quot;: 变量会替换，双引号表弱引用</div><div class="line">echo &apos;$VAR_NAME&apos;: 变量不会替换，强引用</div></pre></td></tr></table></figure>
+<p>参考：Shell引号</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/a6281d67.html#more" rel="contents">
@@ -956,22 +955,16 @@
 
       
         
-          
-          输入的字符在shell起作用前会展开成为别的字符
-
-路径展开
-波浪号展开
-算术表达式展开
-花括号展开
-参数展开
-命令替换
-单词分割
-
-
-##路径展开12345ls echo *      #不显示隐藏文件echo D*echo *secho /usr/*/bin
-
-##波浪号展开~会展开成为家目录1
-          ...
+          <p>输入的字符在shell起作用前会展开成为别的字符</p>
+<ul>
+<li>路径展开</li>
+<li>波浪号展开</li>
+<li>算术表达式展开</li>
+<li>花括号展开</li>
+<li>参数展开</li>
+<li>命令替换</li>
+<li>单词分割</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/7e1cd31f.html#more" rel="contents">

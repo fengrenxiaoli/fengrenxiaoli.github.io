@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】 创建数据表首先打开数据库（数据库要存在）: USE 数据库名称 创建数据表123CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type（列类型）,.... ); 12345CREATE TABLE tb1(use">
+<meta name="description" content="数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】 创建数据表首先打开数据库（数据库要存在）: USE 数据库名称 创建数据表123CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type（列类型）,.... );">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL数据表">
 <meta property="og:url" content="http://yoursite.com/post/8ecc2d83.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】 创建数据表首先打开数据库（数据库要存在）: USE 数据库名称 创建数据表123CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type（列类型）,.... ); 12345CREATE TABLE tb1(use">
+<meta property="og:description" content="数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】 创建数据表首先打开数据库（数据库要存在）: USE 数据库名称 创建数据表123CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type（列类型）,.... );">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-02T14:25:00.350Z">
+<meta property="og:updated_time" content="2018-06-02T15:02:35.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据表">
-<meta name="twitter:description" content="数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】 创建数据表首先打开数据库（数据库要存在）: USE 数据库名称 创建数据表123CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type（列类型）,.... ); 12345CREATE TABLE tb1(use">
+<meta name="twitter:description" content="数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】 创建数据表首先打开数据库（数据库要存在）: USE 数据库名称 创建数据表123CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type（列类型）,.... );">
 
 
 
@@ -323,6 +323,7 @@
         <p>数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】</p>
 <h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><p>首先打开数据库（数据库要存在）: <code>USE 数据库名称</code></p>
 <p>创建数据表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE [IF NOT EXISTS] table_name(</div><div class="line">column_name(列名称) data_type（列类型）,</div><div class="line">.... );</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb1(</div><div class="line">username VARCHAR(20),</div><div class="line">userage TINYINT UNSIGNED,</div><div class="line">salary FLOAT(8,2) UNSIGNED,</div><div class="line">);</div></pre></td></tr></table></figure>
 <p>UNSIGNED 无符号</p>
 <p><br></p>

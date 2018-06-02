@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="用户与主机交互，必然用到的设备； 物理终端直接连接在主机上的显示器、键盘鼠标统称。在实际机架式服务器部署中，一般是多台服务器共享一套终端，简称KVM（Keyboard键盘，video显示器，mouse鼠标）/dev/console 虚拟终端tty附加在物理终端之上的以软件方式虚拟实现的终端，CentOS 6默认启动6个虚拟终端Ctrl+Alt+F#: [1,6]图形终端：附加在物理终端之上的以软件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-02T04:51:55.837Z">
+<meta property="og:updated_time" content="2018-06-02T15:01:43.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 终端">
 <meta name="twitter:description" content="用户与主机交互，必然用到的设备； 物理终端直接连接在主机上的显示器、键盘鼠标统称。在实际机架式服务器部署中，一般是多台服务器共享一套终端，简称KVM（Keyboard键盘，video显示器，mouse鼠标）/dev/console 虚拟终端tty附加在物理终端之上的以软件方式虚拟实现的终端，CentOS 6默认启动6个虚拟终端Ctrl+Alt+F#: [1,6]图形终端：附加在物理终端之上的以软件">
@@ -325,6 +325,7 @@
 <h2 id="虚拟终端tty"><a href="#虚拟终端tty" class="headerlink" title="虚拟终端tty"></a>虚拟终端tty</h2><p>附加在物理终端之上的以软件方式虚拟实现的终端，CentOS 6默认启动6个虚拟终端<br>Ctrl+Alt+F#: [1,6]<br>图形终端：附加在物理终端之上的以软件方式虚拟实现的终端，但额外会提供桌面环境；<br>tty是teletypewriter的简称<br>设备文件路径：/dev/tty#</p>
 <h2 id="模拟终端pty"><a href="#模拟终端pty" class="headerlink" title="模拟终端pty"></a>模拟终端pty</h2><p>sh协议或telnet协议等远程打开的命令行界面，是运维工程师用的最多的一种连接服务器的方式。pts(pseudo-terminal slave)是pty的实现方法。<br>设备文件：/dev/pts/#    [0,oo)</p>
 <p>查看当前的终端设备：tty</p>
+<a id="more"></a>
 <h2 id="交互式接口"><a href="#交互式接口" class="headerlink" title="交互式接口"></a>交互式接口</h2><p>启动终端后，在终端设备附加一个交互式应用程序</p>
 <h3 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h3><p>X protocol, window manager, desktop</p>
 <p>Desktop:<br>    GNOME (C, gtk)<br>    KDE   (C++, qt)<br>    XFCE  (轻量级桌面)</p>

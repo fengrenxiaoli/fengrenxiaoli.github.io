@@ -702,9 +702,8 @@ Linu
 
       
         
-          
-          关机shutdown （建议使用）123456789101112131415161718shutdown [选项] 时间#相比其它命令更安全，在关机和重启时会正确保存正在运行的程序选项：	-c:取消前一个关机命令	-h:关机（halt）	-r:重启TIME: 		now: 立刻		+m: 相对时间表
-          ...
+          <h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><h3 id="shutdown-（建议使用）"><a href="#shutdown-（建议使用）" class="headerlink" title="shutdown （建议使用）"></a>shutdown （建议使用）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">shutdown [选项] 时间</div><div class="line">#相比其它命令更安全，在关机和重启时会正确保存正在运行的程序</div><div class="line">选项：</div><div class="line">	-c:取消前一个关机命令</div><div class="line">	-h:关机（halt）</div><div class="line">	-r:重启</div><div class="line"></div><div class="line">TIME: </div><div class="line">		now: 立刻</div><div class="line">		+m: 相对时间表示法，从命令提交开始多久之后；例如 +3；</div><div class="line">		hh:mm: 绝对时间表示，指明具体时间；</div><div class="line"></div><div class="line">shutdown -r 05:30		5:30重启</div><div class="line">shutdown -r 05:30 &amp;		后台运行</div><div class="line">shutdown -r now			立刻重启</div><div class="line">shutdown -r +30			30分钟后关机</div><div class="line">#在服务器上尽量避免远程关机，因为再开机麻烦，所以远程重启就足够了</div><div class="line">#服务器由于经常进行高速运算强制重启非常容易损坏硬件，也容易造成数据丢失，所以一定要小心</div></pre></td></tr></table></figure>
+<h3 id="halt"><a href="#halt" class="headerlink" title="halt"></a>halt</h3><h3 id="poweroff"><a href="#poweroff" class="headerlink" title="poweroff"></a>poweroff</h3><h3 id="init-0"><a href="#init-0" class="headerlink" title="init 0"></a>init 0</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/3ae572a2.html#more" rel="contents">
@@ -828,10 +827,10 @@ Linu
 
       
         
-          
-          文件系统层次结构标准（英语：Filesystem Hierarchy Standard，FHS）定义了Linux操作系统中的主要目录及目录内容。在大多数情况下，它是一个传统BSD文件系统层次结构的形式化与扩充。
-设计FHS的目的是为了给Unix-like系统的管理员提供一个管理系统以及目录结构的参考
-          ...
+          <p>文件系统层次结构标准（英语：Filesystem Hierarchy Standard，FHS）定义了Linux操作系统中的主要目录及目录内容。在大多数情况下，它是一个传统BSD文件系统层次结构的形式化与扩充。</p>
+<p>设计FHS的目的是为了给Unix-like系统的管理员提供一个管理系统以及目录结构的参考。</p>
+<p>由于利用Linux源码开发产品和发行版的企业或组织众多，如果每个组织都按照自己的喜好来组织系统中的文件结构，网络上必然出现各种各样的文件结构。这些产品的用户就不得不为每种不同的文件系统结构花费时间来学习。有了FHS之后，几乎所有的Unix-like系统的发行商或软件开发者都遵从该建议规范每个特定目录下分别只放哪些文件，方便了文件的组织和查找。</p>
+<p>详细内容参考：<a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf" target="_blank" rel="external">https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf</a><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/9ffd3055.html#more" rel="contents">
@@ -955,10 +954,9 @@ Linu
 
       
         
-          
-          cat12345cat file...#读取一个或多个文件，然后复制它们到标准输出cat movie.mpeg.0* &gt; movie.mpeg#cat可以用来连接文件，通配符是有序的
-如果没有给cat任何参数，它会从标准输入读入数据，因为标准输入在默认情况下连接到键盘，它正在等待我们输入数据当
-          ...
+          <h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cat file...</div><div class="line">#读取一个或多个文件，然后复制它们到标准输出</div><div class="line"></div><div class="line">cat movie.mpeg.0* &gt; movie.mpeg</div><div class="line">#cat可以用来连接文件，通配符是有序的</div></pre></td></tr></table></figure>
+<p>如果没有给cat任何参数，它会从标准输入读入数据，因为标准输入在默认情况下连接到键盘，它正在等待我们输入数据<br>当我们通过键盘输入数据并按<code>Ctrl-d</code>（表示EOF，作用相当于在终端中输入exit后回车）后，它会复制标准输入到标准输出</p>
+<h3 id="tac"><a href="#tac" class="headerlink" title="tac"></a>tac</h3><p>和cat类似，逆序查看</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/30ec04f2.html#more" rel="contents">
@@ -1082,10 +1080,11 @@ Linu
 
       
         
-          
-          ls 显示指定路径下的文件列表12345678910ls [选项] [文件或目录]选项-a 显示所有文件,包括隐藏文件-l 显示详细信息-d 查看目录自身的相关属性，通常要与-l一起使用-h 人性化显示文件大小-i 显示inode-r 逆序显示-R 递归ll命令表示ls -l
-Linux下的文件类型
-          ...
+          <h2 id="ls-显示指定路径下的文件列表"><a href="#ls-显示指定路径下的文件列表" class="headerlink" title="ls 显示指定路径下的文件列表"></a>ls 显示指定路径下的文件列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ls [选项] [文件或目录]</div><div class="line">选项</div><div class="line">-a 显示所有文件,包括隐藏文件</div><div class="line">-l 显示详细信息</div><div class="line">-d 查看目录自身的相关属性，通常要与-l一起使用</div><div class="line">-h 人性化显示文件大小</div><div class="line">-i 显示inode</div><div class="line">-r 逆序显示</div><div class="line">-R 递归</div><div class="line">ll命令表示ls -l</div></pre></td></tr></table></figure>
+<p>Linux下的文件类型：</p>
+<ul>
+<li>(f)：普通文件；<br>d: 目录文件；<br>b: 块设备；<br>c: 字符设备；<br>l: 符号链接文件；<br>p: 管道文件；<br>s: 套接字文件；socket; </li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/8fef17bb.html#more" rel="contents">
@@ -1209,12 +1208,8 @@ Linux下的文件类型
 
       
         
-          
-          命令123ln -s [原文件][目标文件] （link）#生成链接文件-s 创建软链接
-
-硬链接
-拥有相同的i节点和存储block块，可以看做是同一个文件。（在格式化时，1.将分区划分为等大小的block数据块，该数据块通常为4KB。2.建立分区表，并为每个文件建立一个相关数据。当用户搜索某个文件
-          ...
+          <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ln -s [原文件][目标文件] （link）</div><div class="line">#生成链接文件</div><div class="line">-s 创建软链接</div></pre></td></tr></table></figure>
+<p><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/40d56de0.html#more" rel="contents">
@@ -1338,11 +1333,11 @@ Linux下的文件类型
 
       
         
-          
-          常用压缩格式： .zip        .gz        .bz2
-常用解压缩格式： .tar.gz        .tar.bz2    
-.rar格式安装123456#yum无法安装#查看需要下载的版本，https://www.rarlab.com/download.htmwget http
-          ...
+          <p>常用压缩格式： .zip        .gz        .bz2</p>
+<p>常用解压缩格式： .tar.gz        .tar.bz2    </p>
+<h2 id="rar格式"><a href="#rar格式" class="headerlink" title=".rar格式"></a>.rar格式</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#yum无法安装</div><div class="line">#查看需要下载的版本，https://www.rarlab.com/download.htm</div><div class="line">wget https://www.rarlab.com/rar/rarlinux-x64-5.6.b4.tar.gz</div><div class="line">tar -zxvf rarlinux-x64-5.6.b4.tar.gz</div><div class="line">cd rar</div><div class="line">make</div></pre></td></tr></table></figure>
+<h3 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#将/etc 目录压缩为etc.rar </div><div class="line">rar a etc.rar /etc</div></pre></td></tr></table></figure>
+<h3 id="解压缩"><a href="#解压缩" class="headerlink" title="解压缩"></a>解压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rar x etc.rar </div><div class="line">unrar -e etc.tar</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/3128504e.html#more" rel="contents">
@@ -1466,10 +1461,9 @@ Linux下的文件类型
 
       
         
-          
-          文件搜索命令 locate123456789locate 文件名#在后台数据库中按文件名搜索，搜索速度更快/var/lib/mlocate (保存的搜索数据库)#locate 命令所搜索的后台数据库#数据库不是实时的，更新频率大概一天更新一次updatedb#更新数据库
-对于新建的文件，由于数据库没
-          ...
+          <h2 id="文件搜索命令-locate"><a href="#文件搜索命令-locate" class="headerlink" title="文件搜索命令 locate"></a>文件搜索命令 locate</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">locate 文件名</div><div class="line">#在后台数据库中按文件名搜索，搜索速度更快</div><div class="line"></div><div class="line">/var/lib/mlocate (保存的搜索数据库)</div><div class="line">#locate 命令所搜索的后台数据库</div><div class="line">#数据库不是实时的，更新频率大概一天更新一次</div><div class="line"></div><div class="line">updatedb</div><div class="line">#更新数据库</div></pre></td></tr></table></figure>
+<p>对于新建的文件，由于数据库没有更新，使用<code>locate</code>不能查到。可以使用 updatedb强制更新数据库后即可查到。<br>可使用 <code>locate locate</code>搜索locate相关文件，可看到locate数据库。<br>在不同linux中，该数据库名字稍微不同，例如，locatedb、slocate、mlocate。</p>
+<p>缺点：只能按照文件名进行搜索，但常用。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/2bff0643.html#more" rel="contents">

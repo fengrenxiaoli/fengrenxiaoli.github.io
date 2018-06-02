@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-02T14:49:37.343Z</updated>
+  <updated>2018-06-02T15:02:35.543Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,15 @@
     <link href="http://yoursite.com/post/5f31036f.html"/>
     <id>http://yoursite.com/post/5f31036f.html</id>
     <published>2018-06-02T14:49:01.000Z</published>
-    <updated>2018-06-02T14:49:37.343Z</updated>
+    <updated>2018-06-02T15:02:35.543Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>
+]]></content>
     
     <summary type="html">
+    
+      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
     
     </summary>
     
@@ -36,9 +42,10 @@
     <link href="http://yoursite.com/post/1df97176.html"/>
     <id>http://yoursite.com/post/1df97176.html</id>
     <published>2018-06-02T13:42:47.000Z</published>
-    <updated>2018-06-02T14:48:15.787Z</updated>
+    <updated>2018-06-02T15:02:35.543Z</updated>
     
     <content type="html"><![CDATA[<p>约束保证数据的完整性和一致性<br>约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY<br>按数目分为列级约束和表级约束</p>
+<a id="more"></a>
 <p><br></p>
 <h2 id="主键约束：PRIMARY-KEY"><a href="#主键约束：PRIMARY-KEY" class="headerlink" title="主键约束：PRIMARY KEY"></a>主键约束：PRIMARY KEY</h2><p>主键可以写为PRIMARY KEY，也可以写成KEY</p>
 <ol>
@@ -97,8 +104,6 @@
     <summary type="html">
     
       &lt;p&gt;约束保证数据的完整性和一致性&lt;br&gt;约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY&lt;br&gt;按数目分为列级约束和表级约束&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h2 id=&quot;主键约束：PRIMARY-KEY&quot;&gt;
     
     </summary>
     
@@ -112,11 +117,12 @@
     <link href="http://yoursite.com/post/8ecc2d83.html"/>
     <id>http://yoursite.com/post/8ecc2d83.html</id>
     <published>2018-06-02T13:24:46.000Z</published>
-    <updated>2018-06-02T14:25:00.350Z</updated>
+    <updated>2018-06-02T15:02:35.543Z</updated>
     
     <content type="html"><![CDATA[<p>数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】</p>
 <h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><p>首先打开数据库（数据库要存在）: <code>USE 数据库名称</code></p>
 <p>创建数据表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE [IF NOT EXISTS] table_name(</div><div class="line">column_name(列名称) data_type（列类型）,</div><div class="line">.... );</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb1(</div><div class="line">username VARCHAR(20),</div><div class="line">userage TINYINT UNSIGNED,</div><div class="line">salary FLOAT(8,2) UNSIGNED,</div><div class="line">);</div></pre></td></tr></table></figure>
 <p>UNSIGNED 无符号</p>
 <p><br></p>
@@ -134,7 +140,8 @@
     <summary type="html">
     
       &lt;p&gt;数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】&lt;/p&gt;
-&lt;h2 id=&quot;创建数据表&quot;&gt;&lt;a href=&quot;#创建数据表&quot; class=&quot;headerlink&quot; title=&quot;创建数据表&quot;&gt;&lt;/a&gt;创建数据表&lt;/h2
+&lt;h2 id=&quot;创建数据表&quot;&gt;&lt;a href=&quot;#创建数据表&quot; class=&quot;headerlink&quot; title=&quot;创建数据表&quot;&gt;&lt;/a&gt;创建数据表&lt;/h2&gt;&lt;p&gt;首先打开数据库（数据库要存在）: &lt;code&gt;USE 数据库名称&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;创建数据表&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;CREATE TABLE [IF NOT EXISTS] table_name(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;column_name(列名称) data_type（列类型）,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.... );&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
     
     </summary>
     
@@ -148,7 +155,7 @@
     <link href="http://yoursite.com/post/47519a60.html"/>
     <id>http://yoursite.com/post/47519a60.html</id>
     <published>2018-06-02T12:16:11.000Z</published>
-    <updated>2018-06-02T13:28:45.520Z</updated>
+    <updated>2018-06-02T15:02:35.543Z</updated>
     
     <content type="html"><![CDATA[<p>数据类型是指列、存储过程参数、表达式和局部变量的数据特征，它决定了数据的存储格式，代表了不同的信息类型</p>
 <h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><p>整型的存储范围分有符号位和无符号位两种，一般无符号位是有符号位的两倍</p>
@@ -189,6 +196,7 @@
 </tr>
 </tbody>
 </table>
+<a id="more"></a>
 <p><br></p>
 <h2 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h2><table>
 <thead>
@@ -294,7 +302,44 @@
     <summary type="html">
     
       &lt;p&gt;数据类型是指列、存储过程参数、表达式和局部变量的数据特征，它决定了数据的存储格式，代表了不同的信息类型&lt;/p&gt;
-&lt;h2 id=&quot;整型&quot;&gt;&lt;a href=&quot;#整型&quot; class=&quot;headerlink&quot; title=&quot;整型&quot;&gt;&lt;/a&gt;整型&lt;/h2&gt;&lt;p&gt;整型的存储范围分有符号
+&lt;h2 id=&quot;整型&quot;&gt;&lt;a href=&quot;#整型&quot; class=&quot;headerlink&quot; title=&quot;整型&quot;&gt;&lt;/a&gt;整型&lt;/h2&gt;&lt;p&gt;整型的存储范围分有符号位和无符号位两种，一般无符号位是有符号位的两倍&lt;/p&gt;
+&lt;p&gt;选择数据类型要根据实际数据的大小，选择合适的数据类型有利于数据的优化&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;数据类型&lt;/th&gt;
+&lt;th&gt;字节&lt;/th&gt;
+&lt;th&gt;存储范围&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;tinyint&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;-128~127,无符号0~255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;smallint&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;-32768~32767,无符号0~65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;mediumint&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;-2^23~2^23-1(800万),无符号0~2^24-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;-2^31~2^31-1(21亿),无符号0~2^32-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bigint&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;-2^63~2^63-1,无符号0~2^64-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
     
     </summary>
     
@@ -308,11 +353,11 @@
     <link href="http://yoursite.com/post/f2cccc89.html"/>
     <id>http://yoursite.com/post/f2cccc89.html</id>
     <published>2018-06-02T11:57:23.000Z</published>
-    <updated>2018-06-02T13:43:34.738Z</updated>
+    <updated>2018-06-02T15:02:35.543Z</updated>
     
     <content type="html"><![CDATA[<h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CREATE &#123;DATABASE | SCHEMA&#125; [IF NOT EXISTS] db_name [DEFAULT] CHARACTER SET [=] charset_name;</div></pre></td></tr></table></figure>
 <p>DATABASE和SCHEMA是相同的，任选其一<br>IF NOT EXISTS:如果创建的数据库存在，则不只报出warning，不写会报错<br>CHRARCTER SET gbk:为表设置编码方式，如果不设置则用mysql默认的编码方式</p>
-<p><br></p>
+<p><br><br><a id="more"></a></p>
 <h2 id="查看数据库列表"><a href="#查看数据库列表" class="headerlink" title="查看数据库列表"></a>查看数据库列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SHOW &#123; DATABASES | SCHEMAS &#125; [LIKE &apos;pattern&apos; | WHERE expr];</div></pre></td></tr></table></figure>
 <p><br></p>
 <h2 id="查看数据库详情"><a href="#查看数据库详情" class="headerlink" title="查看数据库详情"></a>查看数据库详情</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SHOW CREATE DATABASE xx; 展示数据库t1的创建命令和编码形式</div></pre></td></tr></table></figure>
@@ -324,7 +369,9 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;创建数据库&quot;&gt;&lt;a href=&quot;#创建数据库&quot; class=&quot;headerlink&quot; title=&quot;创建数据库&quot;&gt;&lt;/a&gt;创建数据库&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;
+      &lt;h2 id=&quot;创建数据库&quot;&gt;&lt;a href=&quot;#创建数据库&quot; class=&quot;headerlink&quot; title=&quot;创建数据库&quot;&gt;&lt;/a&gt;创建数据库&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;CREATE &amp;#123;DATABASE | SCHEMA&amp;#125; [IF NOT EXISTS] db_name [DEFAULT] CHARACTER SET [=] charset_name;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;DATABASE和SCHEMA是相同的，任选其一&lt;br&gt;IF NOT EXISTS:如果创建的数据库存在，则不只报出warning，不写会报错&lt;br&gt;CHRARCTER SET gbk:为表设置编码方式，如果不设置则用mysql默认的编码方式&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;
     
     </summary>
     
@@ -338,7 +385,7 @@
     <link href="http://yoursite.com/post/ed36abd2.html"/>
     <id>http://yoursite.com/post/ed36abd2.html</id>
     <published>2018-06-02T10:18:26.000Z</published>
-    <updated>2018-06-02T10:38:58.359Z</updated>
+    <updated>2018-06-02T15:02:35.543Z</updated>
     
     <content type="html"><![CDATA[<h2 id="MySql语句规范"><a href="#MySql语句规范" class="headerlink" title="MySql语句规范"></a>MySql语句规范</h2><ol>
 <li>关键字和函数名称全部大写</li>
@@ -346,14 +393,18 @@
 <li>SQL语句必须以分号结尾</li>
 </ol>
 <p><br></p>
-<h2 id="常用语句"><a href="#常用语句" class="headerlink" title="常用语句"></a>常用语句</h2><p>SELECT VERSION();   查询当前服务器版本<br>SELECT NOW();       查询当前日期时间<br>SELECT USER();      查询当前用户</p>
+<h2 id="常用语句"><a href="#常用语句" class="headerlink" title="常用语句"></a>常用语句</h2><p>SELECT VERSION();   查询当前服务器版本<br>SELECT NOW();       查询当前日期时间<br>SELECT USER();      查询当前用户<br><a id="more"></a></p>
 ]]></content>
     
     <summary type="html">
     
       &lt;h2 id=&quot;MySql语句规范&quot;&gt;&lt;a href=&quot;#MySql语句规范&quot; class=&quot;headerlink&quot; title=&quot;MySql语句规范&quot;&gt;&lt;/a&gt;MySql语句规范&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;关键字和函数名称全部大写&lt;/li&gt;
-&lt;li&gt;数据库名称、表名称、字段名称
+&lt;li&gt;数据库名称、表名称、字段名称全部小写&lt;/li&gt;
+&lt;li&gt;SQL语句必须以分号结尾&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&quot;常用语句&quot;&gt;&lt;a href=&quot;#常用语句&quot; class=&quot;headerlink&quot; title=&quot;常用语句&quot;&gt;&lt;/a&gt;常用语句&lt;/h2&gt;&lt;p&gt;SELECT VERSION();   查询当前服务器版本&lt;br&gt;SELECT NOW();       查询当前日期时间&lt;br&gt;SELECT USER();      查询当前用户&lt;br&gt;
     
     </summary>
     
@@ -367,16 +418,17 @@
     <link href="http://yoursite.com/post/20f3fae1.html"/>
     <id>http://yoursite.com/post/20f3fae1.html</id>
     <published>2018-06-02T09:41:30.000Z</published>
-    <updated>2018-06-02T10:20:10.455Z</updated>
+    <updated>2018-06-02T15:02:35.543Z</updated>
     
     <content type="html"><![CDATA[<h2 id="mysql命令参数"><a href="#mysql命令参数" class="headerlink" title="mysql命令参数"></a>mysql命令参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-D,--database=name    打开指定数据库 </div><div class="line">--delimiter=name      指定分隔符</div><div class="line">-h,--host=name        服务器名称</div><div class="line">-p,--password[=name]  密码</div><div class="line">-P,--port=#           端口号（默认为3306）</div><div class="line">--prompt=name         设置提示符</div><div class="line">-u,--user=name        用户名</div><div class="line">-V,--version          输出版本信息且推出</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -P3306 -hlocalhost -p</div></pre></td></tr></table></figure>
 <h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mysql&gt;exit;</div><div class="line">mysql&gt;quit;</div><div class="line">mysql&gt;\q;</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;mysql命令参数&quot;&gt;&lt;a href=&quot;#mysql命令参数&quot; class=&quot;headerlink&quot; title=&quot;mysql命令参数&quot;&gt;&lt;/a&gt;mysql命令参数&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+      &lt;h2 id=&quot;mysql命令参数&quot;&gt;&lt;a href=&quot;#mysql命令参数&quot; class=&quot;headerlink&quot; title=&quot;mysql命令参数&quot;&gt;&lt;/a&gt;mysql命令参数&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;-D,--database=name    打开指定数据库 &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;--delimiter=name      指定分隔符&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-h,--host=name        服务器名称&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-p,--password[=name]  密码&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-P,--port=#           端口号（默认为3306）&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;--prompt=name         设置提示符&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-u,--user=name        用户名&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-V,--version          输出版本信息且推出&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -390,11 +442,12 @@
     <link href="http://yoursite.com/post/b62959c1.html"/>
     <id>http://yoursite.com/post/b62959c1.html</id>
     <published>2018-06-02T09:26:17.000Z</published>
-    <updated>2018-06-02T10:18:45.297Z</updated>
+    <updated>2018-06-02T14:58:46.055Z</updated>
     
     <content type="html"><![CDATA[<p>配置文件的位置不一，在Centos7.4和MySQL5.5上是在<code>/etc/my.cnf</code><br>也可能在<code>/etc/mysql/my.cnf</code></p>
 <h2 id="修改编码方式"><a href="#修改编码方式" class="headerlink" title="修改编码方式"></a>修改编码方式</h2><p>在mysql中可以通过<code>status</code>查看编码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[mysql]</div><div class="line">default-character-set=utf8</div><div class="line"></div><div class="line">[mysqld]</div><div class="line">character-set-server=utf8</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="修改提示符"><a href="#修改提示符" class="headerlink" title="修改提示符"></a>修改提示符</h2><ol>
 <li><p>连接客户端时通过参数指定</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -p --prompt 提示符</div><div class="line"></div><div class="line">mysql -uroot -p --prompt &quot;[\D-\d\h\u]&quot;</div></pre></td></tr></table></figure>
@@ -409,7 +462,8 @@
     <summary type="html">
     
       &lt;p&gt;配置文件的位置不一，在Centos7.4和MySQL5.5上是在&lt;code&gt;/etc/my.cnf&lt;/code&gt;&lt;br&gt;也可能在&lt;code&gt;/etc/mysql/my.cnf&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&quot;修改编码方式&quot;&gt;&lt;a href=&quot;#修改编码方式&quot; clas
+&lt;h2 id=&quot;修改编码方式&quot;&gt;&lt;a href=&quot;#修改编码方式&quot; class=&quot;headerlink&quot; title=&quot;修改编码方式&quot;&gt;&lt;/a&gt;修改编码方式&lt;/h2&gt;&lt;p&gt;在mysql中可以通过&lt;code&gt;status&lt;/code&gt;查看编码&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[mysql]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;default-character-set=utf8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[mysqld]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;character-set-server=utf8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -423,16 +477,16 @@
     <link href="http://yoursite.com/post/1c0eeefa.html"/>
     <id>http://yoursite.com/post/1c0eeefa.html</id>
     <published>2018-06-02T09:09:21.000Z</published>
-    <updated>2018-06-02T10:20:25.239Z</updated>
+    <updated>2018-06-02T15:02:35.543Z</updated>
     
     <content type="html"><![CDATA[<p>使用yum安装MySQL后的各目录位置<br>相关路径直接通过<code>find / -name &quot;mysql*&quot;</code>和<code>whereis mysqld</code>查找：</p>
-<p>/usr/lib64/mysql      库文件<br>/usr/share/mysql      配置文件，5.5后的默认安装路径<br>/var/lib/mysql        数据库目录<br>/etc/rc.d/init.d/     启动脚本<br>/usr/bin/             mysqladmin\mysqldump命令<br>/usr/share/doc/       文档</p>
+<p>/usr/lib64/mysql      库文件<br>/usr/share/mysql      配置文件，5.5后的默认安装路径<br>/var/lib/mysql        数据库目录<br>/etc/rc.d/init.d/     启动脚本<br>/usr/bin/             mysqladmin\mysqldump命令<br>/usr/share/doc/       文档<br><a id="more"></a></p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;使用yum安装MySQL后的各目录位置&lt;br&gt;相关路径直接通过&lt;code&gt;find / -name &amp;quot;mysql*&amp;quot;&lt;/code&gt;和&lt;code&gt;whereis mysqld&lt;/code&gt;查找：&lt;/p&gt;
-&lt;p&gt;/usr/lib64/mysql      库
+&lt;p&gt;/usr/lib64/mysql      库文件&lt;br&gt;/usr/share/mysql      配置文件，5.5后的默认安装路径&lt;br&gt;/var/lib/mysql        数据库目录&lt;br&gt;/etc/rc.d/init.d/     启动脚本&lt;br&gt;/usr/bin/             mysqladmin\mysqldump命令&lt;br&gt;/usr/share/doc/       文档&lt;br&gt;
     
     </summary>
     
@@ -740,11 +794,11 @@
     <link href="http://yoursite.com/post/b1775bb9.html"/>
     <id>http://yoursite.com/post/b1775bb9.html</id>
     <published>2018-06-01T01:27:27.000Z</published>
-    <updated>2018-06-01T04:58:27.861Z</updated>
+    <updated>2018-06-02T14:59:57.867Z</updated>
     
     <content type="html"><![CDATA[<h2 id="站内链接"><a href="#站内链接" class="headerlink" title="站内链接"></a>站内链接</h2><p>在写博客中，有时会引用站内的链接，之前因为文章不是很多，说明标题可以直接找到，但是现在文章多了，必然需要使用链接</p>
 <p>hexo3.0以上可以直接使用下面的格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% post_link hello-world %&#125;</div></pre></td></tr></table></figure></p>
-<p>hello-world是博客的title</p>
+<p>hello-world是博客的title<br><a id="more"></a></p>
 <h2 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h2><p>安装插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-abbrlink --save</div></pre></td></tr></table></figure></p>
 <p>站点配置文件里:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">permalink: post/:abbrlink.html</div><div class="line">abbrlink:</div><div class="line">  alg: crc32  # 算法：crc16(default) and crc32</div><div class="line">  rep: hex    # 进制：dec(default) and hex</div></pre></td></tr></table></figure></p>
 <p>显示的样式为<code>http://localhost:4000/post/f525ac74.html#more</code></p>
@@ -760,7 +814,8 @@
     <summary type="html">
     
       &lt;h2 id=&quot;站内链接&quot;&gt;&lt;a href=&quot;#站内链接&quot; class=&quot;headerlink&quot; title=&quot;站内链接&quot;&gt;&lt;/a&gt;站内链接&lt;/h2&gt;&lt;p&gt;在写博客中，有时会引用站内的链接，之前因为文章不是很多，说明标题可以直接找到，但是现在文章多了，必然需要使用链接&lt;/p&gt;
-&lt;
+&lt;p&gt;hexo3.0以上可以直接使用下面的格式&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;% post_link hello-world %&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;hello-world是博客的title&lt;br&gt;
     
     </summary>
     
@@ -802,16 +857,20 @@
     <link href="http://yoursite.com/post/29c3cf93.html"/>
     <id>http://yoursite.com/post/29c3cf93.html</id>
     <published>2018-05-31T13:06:20.000Z</published>
-    <updated>2018-06-01T04:56:22.876Z</updated>
+    <updated>2018-06-02T15:01:58.375Z</updated>
     
     <content type="html"><![CDATA[<h2 id="stat-查看时间戳"><a href="#stat-查看时间戳" class="headerlink" title="stat 查看时间戳"></a>stat 查看时间戳</h2><p>文件：metadata, data<br>查看文件状态：<code>stat</code></p>
 <p>三个时间戳：<br>access time：（文档最后一次）访问时间，简写为atime，读取文件内容<br>modify time: 修改时间, mtime，改变文件内容（数据）<br>change time: 改变时间, ctime，元数据发生改变</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Access - the last time the file was read</div><div class="line">Modify - the last time the file was modified (content has been modified)</div><div class="line">Change - the last time meta data of the file was changed (e.g. permissions)</div></pre></td></tr></table></figure>
-<h2 id="touch-修改时间戳"><a href="#touch-修改时间戳" class="headerlink" title="touch 修改时间戳"></a>touch 修改时间戳</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">touch [OPTION]... FILE...</div><div class="line">-a: only atime</div><div class="line">-m: only mtime</div><div class="line">-t STAMP:</div><div class="line">    [[CC]YY]MMDDhhmm[.ss]</div><div class="line">-c: 如果文件不存，则不予创建</div></pre></td></tr></table></figure>]]></content>
+<h2 id="touch-修改时间戳"><a href="#touch-修改时间戳" class="headerlink" title="touch 修改时间戳"></a>touch 修改时间戳</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">touch [OPTION]... FILE...</div><div class="line">-a: only atime</div><div class="line">-m: only mtime</div><div class="line">-t STAMP:</div><div class="line">    [[CC]YY]MMDDhhmm[.ss]</div><div class="line">-c: 如果文件不存，则不予创建</div></pre></td></tr></table></figure>
+<a id="more"></a>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;stat-查看时间戳&quot;&gt;&lt;a href=&quot;#stat-查看时间戳&quot; class=&quot;headerlink&quot; title=&quot;stat 查看时间戳&quot;&gt;&lt;/a&gt;stat 查看时间戳&lt;/h2&gt;&lt;p&gt;文件：metadata, data&lt;br&gt;查看文件状态：&lt;code&gt;stat
+      &lt;h2 id=&quot;stat-查看时间戳&quot;&gt;&lt;a href=&quot;#stat-查看时间戳&quot; class=&quot;headerlink&quot; title=&quot;stat 查看时间戳&quot;&gt;&lt;/a&gt;stat 查看时间戳&lt;/h2&gt;&lt;p&gt;文件：metadata, data&lt;br&gt;查看文件状态：&lt;code&gt;stat&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;三个时间戳：&lt;br&gt;access time：（文档最后一次）访问时间，简写为atime，读取文件内容&lt;br&gt;modify time: 修改时间, mtime，改变文件内容（数据）&lt;br&gt;change time: 改变时间, ctime，元数据发生改变&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Access - the last time the file was read&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Modify - the last time the file was modified (content has been modified)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Change - the last time meta data of the file was changed (e.g. permissions)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;touch-修改时间戳&quot;&gt;&lt;a href=&quot;#touch-修改时间戳&quot; class=&quot;headerlink&quot; title=&quot;touch 修改时间戳&quot;&gt;&lt;/a&gt;touch 修改时间戳&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;touch [OPTION]... FILE...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-a: only atime&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-m: only mtime&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-t STAMP:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [[CC]YY]MMDDhhmm[.ss]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-c: 如果文件不存，则不予创建&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     

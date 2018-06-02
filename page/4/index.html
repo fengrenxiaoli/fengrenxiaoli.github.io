@@ -573,13 +573,16 @@ wget12345678910wget url/ftp-b：后台下载-c：断点续传-O 文件名：指�
 
       
         
-          
-          html 格式的注释
-这样写的注释会出现在编译后的 Html 文件中，但不会被浏览器显示出来。
-1&lt;!--这些是注释文本，不会显示--&gt;
-
-编译后的 Html 文档中有这行文本，但浏览器不会显示它。这与分号开头的注释行不同，Html 方式注释的文字仍然会出现在编译后的 Html 文件中，
-          ...
+          <h2 id="html-格式的注释"><a href="#html-格式的注释" class="headerlink" title="html 格式的注释"></a>html 格式的注释</h2><!-- 虽然也可以使用 Html 的注释，但不建议使用——因为会让 Markdown 显得很凌乱。 -->
+<p>这样写的注释会<strong>出现在编译后的 Html 文件中</strong>，但<strong>不会被浏览器显示出来</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!--这些是注释文本，不会显示--&gt;</div></pre></td></tr></table></figure>
+<!--这些是注释文本，不会显示-->
+<p>编译后的 Html 文档中有这行文本，但浏览器不会显示它。这与分号开头的注释行不同，Html 方式注释的文字仍然会出现在编译后的 Html 文件中，只是不显示而已。</p>
+<p><br></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.w3cschool.cn/lme/q92a1srq.html" target="_blank" rel="external">https://www.w3cschool.cn/lme/q92a1srq.html</a></li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/276480f9.html#more" rel="contents">
