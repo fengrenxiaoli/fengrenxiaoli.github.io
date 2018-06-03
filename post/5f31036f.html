@@ -79,15 +79,18 @@
 
 
 
+<meta name="description" content="总结： 1ALTER TABLE table_name ADD/DROP ...; 添加/删除列添加单列如果指定FIRST，则在整个表的最前方，默认不写为整个表的最后方；如果指定AFTER col_name，则在col_name的后面。123ALTER TABLE table_name ADD [COLUMN] col_name column_definition [FIRST | AFTER c">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL修改数据表">
 <meta property="og:url" content="http://yoursite.com/post/5f31036f.html">
 <meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="总结： 1ALTER TABLE table_name ADD/DROP ...; 添加/删除列添加单列如果指定FIRST，则在整个表的最前方，默认不写为整个表的最后方；如果指定AFTER col_name，则在col_name的后面。123ALTER TABLE table_name ADD [COLUMN] col_name column_definition [FIRST | AFTER c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-02T15:02:35.543Z">
+<meta property="og:updated_time" content="2018-06-03T10:06:17.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL修改数据表">
+<meta name="twitter:description" content="总结： 1ALTER TABLE table_name ADD/DROP ...; 添加/删除列添加单列如果指定FIRST，则在整个表的最前方，默认不写为整个表的最后方；如果指定AFTER col_name，则在col_name的后面。123ALTER TABLE table_name ADD [COLUMN] col_name column_definition [FIRST | AFTER c">
 
 
 
@@ -317,7 +320,25 @@
       
 
       
-        <a id="more"></a>
+        <p>总结：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD/DROP ...;</div></pre></td></tr></table></figure>
+<h1 id="添加-删除列"><a href="#添加-删除列" class="headerlink" title="添加/删除列"></a>添加/删除列</h1><h2 id="添加单列"><a href="#添加单列" class="headerlink" title="添加单列"></a>添加单列</h2><p>如果指定FIRST，则在整个表的最前方，默认不写为整个表的最后方；如果指定AFTER col_name，则在col_name的后面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD [COLUMN] col_name column_definition [FIRST | AFTER col_name];</div><div class="line"></div><div class="line">ALTER TABLE user1 ADD password varchar(32) not NULL AFTER name;</div></pre></td></tr></table></figure></p>
+<h2 id="添加多列"><a href="#添加多列" class="headerlink" title="添加多列"></a>添加多列</h2><p>无法指定FIRST/AFTER、只能默认为最后方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD [COLUMN] (col_name column_definition,...);</div><div class="line"></div><div class="line">ALTER TABLE user1 ADD password varchar(32) not NULL,pid smallint unsigned;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="删除单列"><a href="#删除单列" class="headerlink" title="删除单列"></a>删除单列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name DROP [COLUMN] col_name;</div><div class="line"></div><div class="line">ALTER TABLE user1 DROP password;</div></pre></td></tr></table></figure>
+<h2 id="删除多列"><a href="#删除多列" class="headerlink" title="删除多列"></a>删除多列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name DROP [COLUMN] col_name, </div><div class="line">DROP [COLUMN] col_name,</div><div class="line">DROP [COLUMN] col_name;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="添加约束"><a href="#添加约束" class="headerlink" title="添加约束"></a>添加约束</h1><h2 id="添加-删除主键约束"><a href="#添加-删除主键约束" class="headerlink" title="添加/删除主键约束"></a>添加/删除主键约束</h2><p>constraint 给主键起名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD [CONSTRAINT [symbol]] PRIMARY KEY [index_type] (index_col_name,...);</div><div class="line">ALTER TABLE table_name DROP PRIMARY KEY;</div><div class="line"></div><div class="line">ALTER TABLE users ADD CONSTRAINT pk_users_id PRIMARY KEY (id);</div><div class="line">ALTER TABLE users DROP PRIMARY KEY;</div></pre></td></tr></table></figure></p>
+<h2 id="添加-删除唯一约束"><a href="#添加-删除唯一约束" class="headerlink" title="添加/删除唯一约束"></a>添加/删除唯一约束</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD [CONSTRAINT [symbol]] UNIQUE [INDEX|KEY] [index_name] [index_type] (index_col_name,...)</div><div class="line">ALTER TABLE table_name DROP &#123;INDEX|KEY&#125; index_name;</div><div class="line">//删除唯一约束只用删掉它的索引就行了</div><div class="line"></div><div class="line">ALTER TABLE users ADD UNIQUE (username);</div><div class="line">ALTER TABLE users drop INDEX username;</div></pre></td></tr></table></figure>
+<h2 id="添加-删除外键约束"><a href="#添加-删除外键约束" class="headerlink" title="添加/删除外键约束"></a>添加/删除外键约束</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD [CONSTRAINT [symbol]] FOREIGN KEY [index_name](index_col_name,...) reference_definition;</div><div class="line">ALTER TABLE table_name DROP FOREIGN KEY（fk_symbol);</div><div class="line">//fk_symbol 是CONSTRAINT定义的名字，如果没有定义可以通过 show create table table_name来查看</div><div class="line"></div><div class="line">ALTER TABLE users ADD FOREIGN KEY (pid) REFERENCES provinces (id);</div><div class="line">SHOW TABLE TABLE users;</div><div class="line">ALTER TABLE users DROP FOREIGN KEY (pid);</div></pre></td></tr></table></figure>
+<h2 id="添加-删除默认约束"><a href="#添加-删除默认约束" class="headerlink" title="添加/删除默认约束"></a>添加/删除默认约束</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ALTER [COLUMN] col_name &#123;SET DEFAULT literal | DROP DEFAULT&#125;</div><div class="line"></div><div class="line">ALTER TABLE users ALTER age SET DEFAULT 15;</div><div class="line">ALTER TABLE users ALTER age DROP DEFAULT;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="修改列"><a href="#修改列" class="headerlink" title="修改列"></a>修改列</h1><h2 id="修改列定义"><a href="#修改列定义" class="headerlink" title="修改列定义"></a>修改列定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name MODIFY [COLUMN] col_name column_definition [FIRST |AFTER col_name];</div><div class="line"></div><div class="line">ALTER TABLE users2 MODIFY id SMALLINT UNSIGNED NOT NULL FIRST; </div><div class="line">//将id字段的位置提到第一列</div><div class="line">ALTER TABLE users2 MODIFY id TINYINT UNSIGNED NOT NULL; </div><div class="line">//修改数据类型，需注意数据丢失的问题（范围大转范围小）</div></pre></td></tr></table></figure>
+<h2 id="修改列名称"><a href="#修改列名称" class="headerlink" title="修改列名称"></a>修改列名称</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name CHANGE [COLUMN] col_name new_col_name column_definition [FIRST|AFTER col_name];</div><div class="line"></div><div class="line">ALTER TABLE users2 CHANGE pid p_id TINYINT UNSIGNED; </div><div class="line">//修改列名称，类型可以通过show create table table_name复制原来的</div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="数据表更名"><a href="#数据表更名" class="headerlink" title="数据表更名"></a>数据表更名</h1><p>方法1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name RENAME [TO/AS] new_table_name;</div><div class="line"></div><div class="line">ALTER TABLE users2 RENAME (to/as) users3;</div></pre></td></tr></table></figure></p>
+<p>方法2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RENAME TABLE table_name TO new_table_name [,table_name2 TO new_table_name2] ...;</div><div class="line"></div><div class="line">RENAME TABLE users5 TO users2;</div></pre></td></tr></table></figure></p>
+<p>尽量少使用数据表的列名及表名的更名。</p>
 
       
     </div>
@@ -357,6 +378,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/2aaa8b1b.html" rel="prev" title="MySQL记录操作">
+                MySQL记录操作 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -408,8 +433,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -424,7 +458,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">152</span>
+                  <span class="site-state-item-count">153</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -467,6 +501,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#添加-删除列"><span class="nav-number">1.</span> <span class="nav-text">添加/删除列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加单列"><span class="nav-number">1.1.</span> <span class="nav-text">添加单列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加多列"><span class="nav-number">1.2.</span> <span class="nav-text">添加多列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除单列"><span class="nav-number">1.3.</span> <span class="nav-text">删除单列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除多列"><span class="nav-number">1.4.</span> <span class="nav-text">删除多列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加约束"><span class="nav-number">2.</span> <span class="nav-text">添加约束</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-删除主键约束"><span class="nav-number">2.1.</span> <span class="nav-text">添加/删除主键约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-删除唯一约束"><span class="nav-number">2.2.</span> <span class="nav-text">添加/删除唯一约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-删除外键约束"><span class="nav-number">2.3.</span> <span class="nav-text">添加/删除外键约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-删除默认约束"><span class="nav-number">2.4.</span> <span class="nav-text">添加/删除默认约束</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改列"><span class="nav-number">3.</span> <span class="nav-text">修改列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改列定义"><span class="nav-number">3.1.</span> <span class="nav-text">修改列定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改列名称"><span class="nav-number">3.2.</span> <span class="nav-text">修改列名称</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据表更名"><span class="nav-number">4.</span> <span class="nav-text">数据表更名</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

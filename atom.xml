@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-02T15:02:35.543Z</updated>
+  <updated>2018-06-03T10:08:22.185Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,19 +16,101 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>MySQL修改数据表</title>
-    <link href="http://yoursite.com/post/5f31036f.html"/>
-    <id>http://yoursite.com/post/5f31036f.html</id>
-    <published>2018-06-02T14:49:01.000Z</published>
-    <updated>2018-06-02T15:02:35.543Z</updated>
+    <title>MySQL记录操作</title>
+    <link href="http://yoursite.com/post/2aaa8b1b.html"/>
+    <id>http://yoursite.com/post/2aaa8b1b.html</id>
+    <published>2018-06-03T02:13:18.000Z</published>
+    <updated>2018-06-03T10:08:22.185Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a>
+    <content type="html"><![CDATA[<h2 id="insert-插入记录"><a href="#insert-插入记录" class="headerlink" title="insert 插入记录"></a>insert 插入记录</h2><h3 id="INSERT…VALUES"><a href="#INSERT…VALUES" class="headerlink" title="INSERT…VALUES"></a>INSERT…VALUES</h3><p>比较常用，一次性插入多条记录，可输入表达式甚至是函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INSERT [INTO] table_name [(column_name,...)] &#123;VALUES|VALUE&#125; (&#123;expr|DEFAULT&#125;,...),(...),...;</div></pre></td></tr></table></figure></p>
+<p>expr 表示表达式<br>对于自动编号的字段，插入<code>NULL</code>或<code>DEFAULT</code>系统将自动依次递增编号；<br>对于有默认约束的字段，可以插入<code>DEFAULT</code>表示使用默认值；<br>列值可传入数值、表达式或函数，如密码可以用md5()函数进行加密（如md5(‘123’)）；<br>可同时插入多条记录，多条记录括号间用逗号<code>,</code>隔开</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">INSERT test VALUES(NULL,&apos;Tom&apos;);</div><div class="line">//插入单条记录</div><div class="line"></div><div class="line">INSERT users </div><div class="line">VALUES(DEFAULT,&apos;Tom&apos;,&apos;123&apos;,1+9*2,1),</div><div class="line">(NULL,&apos;John&apos;,md5(&apos;123&apos;),DEFAULT,0); </div><div class="line">//插入两条记录</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="INSERT…SET"><a href="#INSERT…SET" class="headerlink" title="INSERT…SET"></a>INSERT…SET</h3><p>这种方法一次只能插入一条记录<br>列值中有自动编号、默认值或Boolean类型均可以不赋值(使用子查询)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INSERT [INTO] table_name SET col_name=&#123; expr | DEFAULT &#125;,...;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INSERT users SET username=&apos;Ben&apos;,password=&apos;456&apos;;</div></pre></td></tr></table></figure>
+<h3 id="INSERT…SELECT"><a href="#INSERT…SELECT" class="headerlink" title="INSERT…SELECT"></a>INSERT…SELECT</h3><p>一般用于将其他表的数据插入到指定表，注意对应<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INSERT [INTO] 表名(列名1,...) SELECT 列名1,... FROM 表名 [GROUP BY/HAVING/ORDER BY/LIMIT...];</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">INSERT test SELECT username FROM users WHERE age &gt;=30; </div><div class="line">// 字段不匹配提示</div><div class="line">INSERT test (username) SELECT username FROM users WHERE age &gt;=30;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="update-更新记录"><a href="#update-更新记录" class="headerlink" title="update 更新记录"></a>update 更新记录</h2><h3 id="单表更新"><a href="#单表更新" class="headerlink" title="单表更新"></a>单表更新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">UPDATE [LOW_PRIORITY] [IGNORE] table_reference </div><div class="line">SET col_name1=&#123;exp1|DEFAULT&#125;</div><div class="line">[,col_name2=&#123;exp1|DEFAULT&#125;,...]</div><div class="line">[WHERE where_condition]</div></pre></td></tr></table></figure>
+<p>省略WHERE条件则更新所有记录该列的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">UPDATE users SET age = age + 5,sex = 0; </div><div class="line">//使表里所有记录的age加5</div><div class="line">UPDATE users SET age = age + 10 WHERE id % 2=0; </div><div class="line">//取id为偶数的位置</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="delete-删除记录"><a href="#delete-删除记录" class="headerlink" title="delete 删除记录"></a>delete 删除记录</h2><h3 id="单表删除"><a href="#单表删除" class="headerlink" title="单表删除"></a>单表删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DELETE FROM table_name [WHERE where_conditon];</div></pre></td></tr></table></figure>
+<p>省略条件则默认删除该表所有记录(仅删除所有记录，不删除数据表)<br>删除后再插入，插入的id号从最大的往上加，而不是填补删除的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DELETE FROM users WHERE id=6;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="select-查找记录"><a href="#select-查找记录" class="headerlink" title="select 查找记录"></a>select 查找记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">SELECT select_expr [,select expr2...]           //只查找某一个函数或表达式</div><div class="line">[</div><div class="line">FROM table_references                           //查询表名</div><div class="line">[WHERE where_conditon]                          //查询条件</div><div class="line">[GROUP BY &#123;col_name|position&#125; [ASC|DESC],...]   //按某个字段进行分组，相同的只显示第一个</div><div class="line">[HAVING where_conditon]                         //分组时，给出显示条件</div><div class="line">[ORDER BY &#123;col_name|expr|position&#125; [ASC|DESC],...] //排序</div><div class="line">[LIMIT &#123;[offset,]row_count|row_count OFFSET offset&#125;] //限制返回数量</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="查询表达式"><a href="#查询表达式" class="headerlink" title="查询表达式"></a>查询表达式</h3><ul>
+<li>每一个表达式表示想要的一列，必须至少有一个</li>
+<li>多个列之间以英文逗号分隔</li>
+<li>星号(<em>)表示所以列 table_name.</em>可以表示命名表的所有列</li>
+<li>查询表达式可以使用<code>[As]alias_name</code>为其赋予别名</li>
+<li>别名可用于GROUP BY，ORDRE BY或HAVING子句</li>
+</ul>
+<p>SELECT 字段出现顺序影响结果集出现顺序，字段别名也影响结果集字段别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM users;</div><div class="line">SELECT id AS userid,usrname AS uname FROM users;</div><div class="line">SELECT users.id FROM users;</div></pre></td></tr></table></figure>
+<h3 id="WHERE-条件表达式"><a href="#WHERE-条件表达式" class="headerlink" title="WHERE 条件表达式"></a>WHERE 条件表达式</h3><p>对记录进行过滤，如果没有指定的WHERE子句，则显示所有记录<br>在WHERE表达式中，可以使用MYSQL支持的函数或运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM users WHERE id=1;</div></pre></td></tr></table></figure></p>
+<h3 id="GROUP-BY-查询结果分组"><a href="#GROUP-BY-查询结果分组" class="headerlink" title="GROUP BY 查询结果分组"></a>GROUP BY 查询结果分组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[GROUP BY &#123;col_name|position&#125; [ASC|DESC],...]</div></pre></td></tr></table></figure>
+<p>ASC：升序，默认<br>DESC：降序<br>position：SELECT语句中列的序号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SELECT sex FROM users GROUP BY sex;</div><div class="line">//对users中的sex按sex进行分组</div><div class="line">SELECT * FROM users GROUP BY 1;</div><div class="line">//1表示查询的第一个字段，这里是表中的第一个字段id</div><div class="line">SELECT sex FROM users GROUP BY 1;</div><div class="line">//1表示sex</div></pre></td></tr></table></figure>
+<p>如果存在相同的值（例如上面的age可能有多个相同的值），<strong>只会保留一个</strong>。但使用ORDER BY 就不会省略。</p>
+<h3 id="HAVING-分组条件"><a href="#HAVING-分组条件" class="headerlink" title="HAVING 分组条件"></a>HAVING 分组条件</h3><p>用在GROUP BY后面追加条件，条件要么为一个聚合函数，要么出现在SELECT要查询的字段中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[HAVING when where_condition]</div><div class="line"></div><div class="line">SELECT sex FROM users GROUP BY 1 HAVING age &gt; 35; //有错</div><div class="line">SELECT sex,age FROM users GROUP BY 1 HAVING age &gt; 35;</div><div class="line">SELECT sex FROM users GROUP BY 1 HAVING count(id) &gt;= 2;</div><div class="line">//按照sex分组，条件id数大于2的分组留下显示</div><div class="line">//工作流程就是先从表中查询字段，然后根据GROUP BY的条件对查询结果进行分组，再根据HAVING条件对分组进行筛选，最后留下满足所有条件的分组结果。</div></pre></td></tr></table></figure>
+<p>聚合函数永远只有一个返回结果<br>count是记录指定列的值的个数（NULL不计入）</p>
+<h3 id="ORDER-BY-排序"><a href="#ORDER-BY-排序" class="headerlink" title="ORDER BY 排序"></a>ORDER BY 排序</h3><p>对查询结果进行排序，默认是升序，DESC是降序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[ORDER BY [col_name | expr | position &#125; [ASC|DESC],...]</div><div class="line"></div><div class="line">SELECT * FROM users ORDER BY id DESC; </div><div class="line">//对一个字段排序</div><div class="line">SELECT * FROM users ORDER BY age,id DESC;</div><div class="line">//多字段排序，先按照age排序，如果age有重复的，重复的字段里按id排序</div></pre></td></tr></table></figure></p>
+<p>多个排序条件之间以逗号相隔，在前面的排序条件满足时，忽略后面的排序条件，否则按照后面的排序条件进行排序。</p>
+<h3 id="LIMIT-限制查询结果数量"><a href="#LIMIT-限制查询结果数量" class="headerlink" title="LIMIT 限制查询结果数量"></a>LIMIT 限制查询结果数量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[LIMIT &#123;[offset,] row_count | row_count OFFSET offset&#125;]</div></pre></td></tr></table></figure>
+<p>获取头部记录LIMIT 10; //获取查询结果的前10条记录，<strong>默认从0开始</strong><br>获取中间记录LIMIT 2,10;//获取从第3条开始的10条记录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM users LIMIT 2; </div><div class="line">//从第一条开始（第一个为0），返回两条</div><div class="line">SELECT * FROM users LIMIT 2,3;</div><div class="line">//从第三条开始（第一个为0），返回三条</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
+      &lt;h2 id=&quot;insert-插入记录&quot;&gt;&lt;a href=&quot;#insert-插入记录&quot; class=&quot;headerlink&quot; title=&quot;insert 插入记录&quot;&gt;&lt;/a&gt;insert 插入记录&lt;/h2&gt;&lt;h3 id=&quot;INSERT…VALUES&quot;&gt;&lt;a href=&quot;#INSERT…VALUES&quot; class=&quot;headerlink&quot; title=&quot;INSERT…VALUES&quot;&gt;&lt;/a&gt;INSERT…VALUES&lt;/h3&gt;&lt;p&gt;比较常用，一次性插入多条记录，可输入表达式甚至是函数。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;INSERT [INTO] table_name [(column_name,...)] &amp;#123;VALUES|VALUE&amp;#125; (&amp;#123;expr|DEFAULT&amp;#125;,...),(...),...;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;expr 表示表达式&lt;br&gt;对于自动编号的字段，插入&lt;code&gt;NULL&lt;/code&gt;或&lt;code&gt;DEFAULT&lt;/code&gt;系统将自动依次递增编号；&lt;br&gt;对于有默认约束的字段，可以插入&lt;code&gt;DEFAULT&lt;/code&gt;表示使用默认值；&lt;br&gt;列值可传入数值、表达式或函数，如密码可以用md5()函数进行加密（如md5(‘123’)）；&lt;br&gt;可同时插入多条记录，多条记录括号间用逗号&lt;code&gt;,&lt;/code&gt;隔开&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;INSERT test VALUES(NULL,&amp;apos;Tom&amp;apos;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;//插入单条记录&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;INSERT users &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;VALUES(DEFAULT,&amp;apos;Tom&amp;apos;,&amp;apos;123&amp;apos;,1+9*2,1),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;(NULL,&amp;apos;John&amp;apos;,md5(&amp;apos;123&amp;apos;),DEFAULT,0); &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;//插入两条记录&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL修改数据表</title>
+    <link href="http://yoursite.com/post/5f31036f.html"/>
+    <id>http://yoursite.com/post/5f31036f.html</id>
+    <published>2018-06-02T14:49:01.000Z</published>
+    <updated>2018-06-03T10:06:17.716Z</updated>
+    
+    <content type="html"><![CDATA[<p>总结：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD/DROP ...;</div></pre></td></tr></table></figure>
+<h1 id="添加-删除列"><a href="#添加-删除列" class="headerlink" title="添加/删除列"></a>添加/删除列</h1><h2 id="添加单列"><a href="#添加单列" class="headerlink" title="添加单列"></a>添加单列</h2><p>如果指定FIRST，则在整个表的最前方，默认不写为整个表的最后方；如果指定AFTER col_name，则在col_name的后面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD [COLUMN] col_name column_definition [FIRST | AFTER col_name];</div><div class="line"></div><div class="line">ALTER TABLE user1 ADD password varchar(32) not NULL AFTER name;</div></pre></td></tr></table></figure></p>
+<h2 id="添加多列"><a href="#添加多列" class="headerlink" title="添加多列"></a>添加多列</h2><p>无法指定FIRST/AFTER、只能默认为最后方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD [COLUMN] (col_name column_definition,...);</div><div class="line"></div><div class="line">ALTER TABLE user1 ADD password varchar(32) not NULL,pid smallint unsigned;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="删除单列"><a href="#删除单列" class="headerlink" title="删除单列"></a>删除单列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name DROP [COLUMN] col_name;</div><div class="line"></div><div class="line">ALTER TABLE user1 DROP password;</div></pre></td></tr></table></figure>
+<h2 id="删除多列"><a href="#删除多列" class="headerlink" title="删除多列"></a>删除多列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name DROP [COLUMN] col_name, </div><div class="line">DROP [COLUMN] col_name,</div><div class="line">DROP [COLUMN] col_name;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="添加约束"><a href="#添加约束" class="headerlink" title="添加约束"></a>添加约束</h1><h2 id="添加-删除主键约束"><a href="#添加-删除主键约束" class="headerlink" title="添加/删除主键约束"></a>添加/删除主键约束</h2><p>constraint 给主键起名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD [CONSTRAINT [symbol]] PRIMARY KEY [index_type] (index_col_name,...);</div><div class="line">ALTER TABLE table_name DROP PRIMARY KEY;</div><div class="line"></div><div class="line">ALTER TABLE users ADD CONSTRAINT pk_users_id PRIMARY KEY (id);</div><div class="line">ALTER TABLE users DROP PRIMARY KEY;</div></pre></td></tr></table></figure></p>
+<h2 id="添加-删除唯一约束"><a href="#添加-删除唯一约束" class="headerlink" title="添加/删除唯一约束"></a>添加/删除唯一约束</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD [CONSTRAINT [symbol]] UNIQUE [INDEX|KEY] [index_name] [index_type] (index_col_name,...)</div><div class="line">ALTER TABLE table_name DROP &#123;INDEX|KEY&#125; index_name;</div><div class="line">//删除唯一约束只用删掉它的索引就行了</div><div class="line"></div><div class="line">ALTER TABLE users ADD UNIQUE (username);</div><div class="line">ALTER TABLE users drop INDEX username;</div></pre></td></tr></table></figure>
+<h2 id="添加-删除外键约束"><a href="#添加-删除外键约束" class="headerlink" title="添加/删除外键约束"></a>添加/删除外键约束</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD [CONSTRAINT [symbol]] FOREIGN KEY [index_name](index_col_name,...) reference_definition;</div><div class="line">ALTER TABLE table_name DROP FOREIGN KEY（fk_symbol);</div><div class="line">//fk_symbol 是CONSTRAINT定义的名字，如果没有定义可以通过 show create table table_name来查看</div><div class="line"></div><div class="line">ALTER TABLE users ADD FOREIGN KEY (pid) REFERENCES provinces (id);</div><div class="line">SHOW TABLE TABLE users;</div><div class="line">ALTER TABLE users DROP FOREIGN KEY (pid);</div></pre></td></tr></table></figure>
+<h2 id="添加-删除默认约束"><a href="#添加-删除默认约束" class="headerlink" title="添加/删除默认约束"></a>添加/删除默认约束</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ALTER [COLUMN] col_name &#123;SET DEFAULT literal | DROP DEFAULT&#125;</div><div class="line"></div><div class="line">ALTER TABLE users ALTER age SET DEFAULT 15;</div><div class="line">ALTER TABLE users ALTER age DROP DEFAULT;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="修改列"><a href="#修改列" class="headerlink" title="修改列"></a>修改列</h1><h2 id="修改列定义"><a href="#修改列定义" class="headerlink" title="修改列定义"></a>修改列定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name MODIFY [COLUMN] col_name column_definition [FIRST |AFTER col_name];</div><div class="line"></div><div class="line">ALTER TABLE users2 MODIFY id SMALLINT UNSIGNED NOT NULL FIRST; </div><div class="line">//将id字段的位置提到第一列</div><div class="line">ALTER TABLE users2 MODIFY id TINYINT UNSIGNED NOT NULL; </div><div class="line">//修改数据类型，需注意数据丢失的问题（范围大转范围小）</div></pre></td></tr></table></figure>
+<h2 id="修改列名称"><a href="#修改列名称" class="headerlink" title="修改列名称"></a>修改列名称</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name CHANGE [COLUMN] col_name new_col_name column_definition [FIRST|AFTER col_name];</div><div class="line"></div><div class="line">ALTER TABLE users2 CHANGE pid p_id TINYINT UNSIGNED; </div><div class="line">//修改列名称，类型可以通过show create table table_name复制原来的</div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="数据表更名"><a href="#数据表更名" class="headerlink" title="数据表更名"></a>数据表更名</h1><p>方法1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name RENAME [TO/AS] new_table_name;</div><div class="line"></div><div class="line">ALTER TABLE users2 RENAME (to/as) users3;</div></pre></td></tr></table></figure></p>
+<p>方法2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RENAME TABLE table_name TO new_table_name [,table_name2 TO new_table_name2] ...;</div><div class="line"></div><div class="line">RENAME TABLE users5 TO users2;</div></pre></td></tr></table></figure></p>
+<p>尽量少使用数据表的列名及表名的更名。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;总结：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ALTER TABLE table_name ADD/DROP ...;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;添加-删除列&quot;&gt;&lt;a href=&quot;#添加-删除列&quot; class=&quot;headerlink&quot; title=&quot;添加/删除列&quot;&gt;&lt;/a&gt;添加/删除列&lt;/h1&gt;&lt;h2 id=&quot;添加单列&quot;&gt;&lt;a href=&quot;#添加单列&quot; class=&quot;headerlink&quot; title=&quot;添加单列&quot;&gt;&lt;/a&gt;添加单列&lt;/h2&gt;&lt;p&gt;如果指定FIRST，则在整个表的最前方，默认不写为整个表的最后方；如果指定AFTER col_name，则在col_name的后面。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ALTER TABLE table_name ADD [COLUMN] col_name column_definition [FIRST | AFTER col_name];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ALTER TABLE user1 ADD password varchar(32) not NULL AFTER name;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;添加多列&quot;&gt;&lt;a href=&quot;#添加多列&quot; class=&quot;headerlink&quot; title=&quot;添加多列&quot;&gt;&lt;/a&gt;添加多列&lt;/h2&gt;&lt;p&gt;无法指定FIRST/AFTER、只能默认为最后方&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ALTER TABLE table_name ADD [COLUMN] (col_name column_definition,...);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ALTER TABLE user1 ADD password varchar(32) not NULL,pid smallint unsigned;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
     
     </summary>
     
@@ -42,10 +124,12 @@
     <link href="http://yoursite.com/post/1df97176.html"/>
     <id>http://yoursite.com/post/1df97176.html</id>
     <published>2018-06-02T13:42:47.000Z</published>
-    <updated>2018-06-02T15:02:35.543Z</updated>
+    <updated>2018-06-03T01:44:29.379Z</updated>
     
     <content type="html"><![CDATA[<p>约束保证数据的完整性和一致性<br>约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY<br>按数目分为列级约束和表级约束</p>
 <a id="more"></a>
+<p><br></p>
+<h2 id="查看约束"><a href="#查看约束" class="headerlink" title="查看约束"></a>查看约束</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SHOW INDEX FROM table_name\G;</div><div class="line">SHOW INDEX FROM table_name;</div></pre></td></tr></table></figure>
 <p><br></p>
 <h2 id="主键约束：PRIMARY-KEY"><a href="#主键约束：PRIMARY-KEY" class="headerlink" title="主键约束：PRIMARY KEY"></a>主键约束：PRIMARY KEY</h2><p>主键可以写为PRIMARY KEY，也可以写成KEY</p>
 <ol>
@@ -155,7 +239,7 @@
     <link href="http://yoursite.com/post/47519a60.html"/>
     <id>http://yoursite.com/post/47519a60.html</id>
     <published>2018-06-02T12:16:11.000Z</published>
-    <updated>2018-06-02T15:02:35.543Z</updated>
+    <updated>2018-06-02T22:34:07.238Z</updated>
     
     <content type="html"><![CDATA[<p>数据类型是指列、存储过程参数、表达式和局部变量的数据特征，它决定了数据的存储格式，代表了不同的信息类型</p>
 <h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><p>整型的存储范围分有符号位和无符号位两种，一般无符号位是有符号位的两倍</p>
@@ -172,27 +256,27 @@
 <tr>
 <td>tinyint</td>
 <td>1</td>
-<td>-128~127,无符号0~255</td>
+<td>-128~127<br>无符号0~255</td>
 </tr>
 <tr>
 <td>smallint</td>
 <td>2</td>
-<td>-32768~32767,无符号0~65535</td>
+<td>-32768~32767<br>无符号0~65535</td>
 </tr>
 <tr>
 <td>mediumint</td>
 <td>3</td>
-<td>-2^23~2^23-1(800万),无符号0~2^24-1</td>
+<td>-2^23~2^23-1(800万)<br>无符号0~2^24-1</td>
 </tr>
 <tr>
 <td>int</td>
 <td>4</td>
-<td>-2^31~2^31-1(21亿),无符号0~2^32-1</td>
+<td>-2^31~2^31-1(21亿)<br>无符号0~2^32-1</td>
 </tr>
 <tr>
 <td>bigint</td>
 <td>8</td>
-<td>-2^63~2^63-1,无符号0~2^64-1</td>
+<td>-2^63~2^63-1<br>无符号0~2^64-1</td>
 </tr>
 </tbody>
 </table>
@@ -297,6 +381,9 @@
 </tr>
 </tbody>
 </table>
+<h2 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h2><p>MySQL没有内置的布尔类型，但是它使用TINYINT(1)。 为了更方便，MySQL提供BOOLEAN或BOOL作为TINYINT(1)的同义词。</p>
+<p>MySQL将布尔值作为整数存储在表中，但当显示表定义时，它是却是TINYINT(1)类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tasks (</div><div class="line">id INT PRIMARY KEY AUTO_INCREMENT,</div><div class="line">title VARCHAR(255) NOT NULL,</div><div class="line">completed BOOLEAN</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.yiibai.com/mysql/boolean.html" target="_blank" rel="external">https://www.yiibai.com/mysql/boolean.html</a><br><a href="https://dev.mysql.com/doc/refman/8.0/en/bit-type.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/8.0/en/bit-type.html</a></p>
 ]]></content>
     
     <summary type="html">
@@ -316,27 +403,27 @@
 &lt;tr&gt;
 &lt;td&gt;tinyint&lt;/td&gt;
 &lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;-128~127,无符号0~255&lt;/td&gt;
+&lt;td&gt;-128~127&lt;br&gt;无符号0~255&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;smallint&lt;/td&gt;
 &lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;-32768~32767,无符号0~65535&lt;/td&gt;
+&lt;td&gt;-32768~32767&lt;br&gt;无符号0~65535&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;mediumint&lt;/td&gt;
 &lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;-2^23~2^23-1(800万),无符号0~2^24-1&lt;/td&gt;
+&lt;td&gt;-2^23~2^23-1(800万)&lt;br&gt;无符号0~2^24-1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;-2^31~2^31-1(21亿),无符号0~2^32-1&lt;/td&gt;
+&lt;td&gt;-2^31~2^31-1(21亿)&lt;br&gt;无符号0~2^32-1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;bigint&lt;/td&gt;
 &lt;td&gt;8&lt;/td&gt;
-&lt;td&gt;-2^63~2^63-1,无符号0~2^64-1&lt;/td&gt;
+&lt;td&gt;-2^63~2^63-1&lt;br&gt;无符号0~2^64-1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -849,33 +936,6 @@
     
     
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 时间戳管理</title>
-    <link href="http://yoursite.com/post/29c3cf93.html"/>
-    <id>http://yoursite.com/post/29c3cf93.html</id>
-    <published>2018-05-31T13:06:20.000Z</published>
-    <updated>2018-06-02T15:01:58.375Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="stat-查看时间戳"><a href="#stat-查看时间戳" class="headerlink" title="stat 查看时间戳"></a>stat 查看时间戳</h2><p>文件：metadata, data<br>查看文件状态：<code>stat</code></p>
-<p>三个时间戳：<br>access time：（文档最后一次）访问时间，简写为atime，读取文件内容<br>modify time: 修改时间, mtime，改变文件内容（数据）<br>change time: 改变时间, ctime，元数据发生改变</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Access - the last time the file was read</div><div class="line">Modify - the last time the file was modified (content has been modified)</div><div class="line">Change - the last time meta data of the file was changed (e.g. permissions)</div></pre></td></tr></table></figure>
-<h2 id="touch-修改时间戳"><a href="#touch-修改时间戳" class="headerlink" title="touch 修改时间戳"></a>touch 修改时间戳</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">touch [OPTION]... FILE...</div><div class="line">-a: only atime</div><div class="line">-m: only mtime</div><div class="line">-t STAMP:</div><div class="line">    [[CC]YY]MMDDhhmm[.ss]</div><div class="line">-c: 如果文件不存，则不予创建</div></pre></td></tr></table></figure>
-<a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;stat-查看时间戳&quot;&gt;&lt;a href=&quot;#stat-查看时间戳&quot; class=&quot;headerlink&quot; title=&quot;stat 查看时间戳&quot;&gt;&lt;/a&gt;stat 查看时间戳&lt;/h2&gt;&lt;p&gt;文件：metadata, data&lt;br&gt;查看文件状态：&lt;code&gt;stat&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;三个时间戳：&lt;br&gt;access time：（文档最后一次）访问时间，简写为atime，读取文件内容&lt;br&gt;modify time: 修改时间, mtime，改变文件内容（数据）&lt;br&gt;change time: 改变时间, ctime，元数据发生改变&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Access - the last time the file was read&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Modify - the last time the file was modified (content has been modified)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Change - the last time meta data of the file was changed (e.g. permissions)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;touch-修改时间戳&quot;&gt;&lt;a href=&quot;#touch-修改时间戳&quot; class=&quot;headerlink&quot; title=&quot;touch 修改时间戳&quot;&gt;&lt;/a&gt;touch 修改时间戳&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;touch [OPTION]... FILE...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-a: only atime&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-m: only mtime&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-t STAMP:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [[CC]YY]MMDDhhmm[.ss]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-c: 如果文件不存，则不予创建&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
