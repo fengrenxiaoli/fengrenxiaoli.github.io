@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="利用GitLab、sphinx、Readthedocs可以制作文档和博客，利用这种方式制作出来的博客更像一本书，能够结构化展示文章，比较适合笔记类Gitlab用来存储代码sphinx用来写博客Readthedocs用来展示 安装 Sphinx1pip install sphinx 创建工程123mkdir mybookcd mybooksphinx-quickstart 输入工程名、作者名、版本号">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-06T07:34:12.893Z">
+<meta property="og:updated_time" content="2018-06-06T23:09:46.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitLab+sphinx+Readthedocs">
 <meta name="twitter:description" content="利用GitLab、sphinx、Readthedocs可以制作文档和博客，利用这种方式制作出来的博客更像一本书，能够结构化展示文章，比较适合笔记类Gitlab用来存储代码sphinx用来写博客Readthedocs用来展示 安装 Sphinx1pip install sphinx 创建工程123mkdir mybookcd mybooksphinx-quickstart 输入工程名、作者名、版本号">
@@ -324,6 +324,7 @@
 <h2 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir mybook</div><div class="line">cd mybook</div><div class="line">sphinx-quickstart</div></pre></td></tr></table></figure>
 <p>输入工程名、作者名、版本号，分离source和build目录<code>Separate source and build directories (y/N) [n]: y</code></p>
 <p>build目录 运行make命令后，生成的文件都在这个目录里面<br>source目录 放置文档的源文件</p>
+<a id="more"></a>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>改主题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">html_theme = &apos;sphinx_rtd_theme&apos;</div></pre></td></tr></table></figure></p>
 <h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>在gitlab上创建仓库</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git add .</div><div class="line">git commit -m &quot;sphinx start&quot;</div><div class="line">git remote add origin https://github.com/[yourusename]/[yourrepository].git</div><div class="line">git push origin master</div></pre></td></tr></table></figure>

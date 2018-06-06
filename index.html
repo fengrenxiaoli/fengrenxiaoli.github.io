@@ -319,11 +319,9 @@
 
       
         
-          
-          reStructuredText是一种标记语言，和markdown类似，但是能够提供比markdown更丰富的样式
-标题123456789101112131415==========一级标题==========二级标题==========三级标题----------四级标题^^^^^^^^^^^
-字
-          ...
+          <p>reStructuredText是一种标记语言，和markdown类似，但是能够提供比markdown更丰富的样式</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">==========</div><div class="line">一级标题</div><div class="line">==========</div><div class="line"></div><div class="line"></div><div class="line">二级标题</div><div class="line">==========</div><div class="line"></div><div class="line"></div><div class="line">三级标题</div><div class="line">----------</div><div class="line"></div><div class="line"></div><div class="line">四级标题</div><div class="line">^^^^^^^^^^^</div></pre></td></tr></table></figure>
+<h2 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">*这里是强调内容*</div><div class="line"></div><div class="line">`这里是引用内容`</div><div class="line"></div><div class="line">**这里是粗体内容**</div><div class="line"></div><div class="line">``这里是等宽文本``</div><div class="line"></div><div class="line"></div><div class="line">上标</div><div class="line">E = mc\ :sup:`2`</div><div class="line"></div><div class="line">下标</div><div class="line">H\ :sub:`2`\ O</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/1d81ed52.html#more" rel="contents">
@@ -447,11 +445,11 @@
 
       
         
-          
-          利用GitLab、sphinx、Readthedocs可以制作文档和博客，利用这种方式制作出来的博客更像一本书，能够结构化展示文章，比较适合笔记类Gitlab用来存储代码sphinx用来写博客Readthedocs用来展示
-安装 Sphinx1pip install sphinx
-创建工程123mk
-          ...
+          <p>利用GitLab、sphinx、Readthedocs可以制作文档和博客，利用这种方式制作出来的博客更像一本书，能够结构化展示文章，比较适合笔记类<br>Gitlab用来存储代码<br>sphinx用来写博客<br>Readthedocs用来展示</p>
+<h2 id="安装-Sphinx"><a href="#安装-Sphinx" class="headerlink" title="安装 Sphinx"></a>安装 Sphinx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install sphinx</div></pre></td></tr></table></figure>
+<h2 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir mybook</div><div class="line">cd mybook</div><div class="line">sphinx-quickstart</div></pre></td></tr></table></figure>
+<p>输入工程名、作者名、版本号，分离source和build目录<code>Separate source and build directories (y/N) [n]: y</code></p>
+<p>build目录 运行make命令后，生成的文件都在这个目录里面<br>source目录 放置文档的源文件</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/89c53863.html#more" rel="contents">
@@ -575,12 +573,16 @@
 
       
         
-          
-          MySQL可以将数据以不同的技术存储在文件（内存）中，这种技术就称为存储引擎，每种存数引擎使用不同的存储机制、索引技巧、锁定水平，最终提供广泛且不同的功能。
-并发处理并发控制当多个连接对记录进行修改时保证数据的一致性和完整性。
-锁
-共享锁(读锁)：在同一时间内，多个用户可读取同一个资源，读取过程中数
-          ...
+          <p>MySQL可以将数据以不同的技术存储在文件（内存）中，这种技术就称为存储引擎，每种存数引擎使用不同的存储机制、索引技巧、锁定水平，最终提供广泛且不同的功能。</p>
+<h2 id="并发处理"><a href="#并发处理" class="headerlink" title="并发处理"></a>并发处理</h2><h3 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h3><p>当多个连接对记录进行修改时保证数据的一致性和完整性。</p>
+<h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><ul>
+<li>共享锁(读锁)：在同一时间内，多个用户可读取同一个资源，读取过程中数据不会发生任何变化。</li>
+<li>排他锁(写锁)：在任何时候只能有一个用户写入资源，当进行写锁时会阻塞其他的读锁或者写锁操作。</li>
+</ul>
+<h3 id="锁的力度-锁颗粒–锁定时的单位"><a href="#锁的力度-锁颗粒–锁定时的单位" class="headerlink" title="锁的力度(锁颗粒–锁定时的单位)"></a>锁的力度(锁颗粒–锁定时的单位)</h3><ul>
+<li>表锁，是一种开销最小的锁策略。对表进行写锁，所有用户不能对该表的任何记录操作。</li>
+<li>行锁，是一种开销最大的锁策略。并行性最大，可能对表的所有记录写锁，开销大。</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/4fa63392.html#more" rel="contents">
@@ -835,13 +837,11 @@
 
       
         
-          
-          在写博客中添加图片是很正常的，这里列举了本人使用的两种方法
-本地引用当Hexo项目中只用到少量图片时，可以将图片统一放在source/images文件夹中，通过markdown语法访问它们。
-1![](/images/image.jpg)
-要注意这是绝对路径
-CDN引用将图片上传到一些免费的CDN服
-          ...
+          <p>在写博客中添加图片是很正常的，这里列举了本人使用的两种方法</p>
+<h2 id="本地引用"><a href="#本地引用" class="headerlink" title="本地引用"></a>本地引用</h2><p>当Hexo项目中只用到少量图片时，可以将图片统一放在source/images文件夹中，通过markdown语法访问它们。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](/images/image.jpg)</div></pre></td></tr></table></figure>
+<p>要注意这是绝对路径</p>
+<h2 id="CDN引用"><a href="#CDN引用" class="headerlink" title="CDN引用"></a>CDN引用</h2><p>将图片上传到一些免费的CDN服务中。上传图片后，会生成对应的url地址，将地址直接拿来引用即可<br>参考<a href="https://www.qiniu.com/" target="_blank" rel="external">七牛</a>、<a href="https://cloudinary.com/" target="_blank" rel="external">cloudinary</a></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/e01ea1fb.html#more" rel="contents">
@@ -1097,10 +1097,8 @@ CDN引用将图片上传到一些免费的CDN服
 
       
         
-          
-          联合查询的效率比较高
-连接MySQL在SELECT语句、多表更新、多表删除语句中支持JOIN操作语法结构1234table_reference A&#123;[INNER|CROSS] JOIN | &#123;LEFT|RIGHT&#125; [OUTER] JOIN&#125;table_ref
-          ...
+          <p>联合查询的效率比较高</p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>MySQL在SELECT语句、多表更新、多表删除语句中支持JOIN操作<br>语法结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">table_reference A</div><div class="line">&#123;[INNER|CROSS] JOIN | &#123;LEFT|RIGHT&#125; [OUTER] JOIN&#125;</div><div class="line">table_reference B</div><div class="line">ON condition_expr</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/b63304bd.html#more" rel="contents">

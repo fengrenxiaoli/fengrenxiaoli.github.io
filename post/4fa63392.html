@@ -88,7 +88,7 @@
 <meta property="og:description" content="MySQL可以将数据以不同的技术存储在文件（内存）中，这种技术就称为存储引擎，每种存数引擎使用不同的存储机制、索引技巧、锁定水平，最终提供广泛且不同的功能。 并发处理并发控制当多个连接对记录进行修改时保证数据的一致性和完整性。 锁 共享锁(读锁)：在同一时间内，多个用户可读取同一个资源，读取过程中数据不会发生任何变化。 排他锁(写锁)：在任何时候只能有一个用户写入资源，当进行写锁时会阻塞其他的读锁">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/img/IMG56.png">
-<meta property="og:updated_time" content="2018-06-06T07:34:12.893Z">
+<meta property="og:updated_time" content="2018-06-06T23:10:07.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL存储引擎">
 <meta name="twitter:description" content="MySQL可以将数据以不同的技术存储在文件（内存）中，这种技术就称为存储引擎，每种存数引擎使用不同的存储机制、索引技巧、锁定水平，最终提供广泛且不同的功能。 并发处理并发控制当多个连接对记录进行修改时保证数据的一致性和完整性。 锁 共享锁(读锁)：在同一时间内，多个用户可读取同一个资源，读取过程中数据不会发生任何变化。 排他锁(写锁)：在任何时候只能有一个用户写入资源，当进行写锁时会阻塞其他的读锁">
@@ -332,6 +332,7 @@
 <li>表锁，是一种开销最小的锁策略。对表进行写锁，所有用户不能对该表的任何记录操作。</li>
 <li>行锁，是一种开销最大的锁策略。并行性最大，可能对表的所有记录写锁，开销大。</li>
 </ul>
+<a id="more"></a>
 <h2 id="事务处理"><a href="#事务处理" class="headerlink" title="事务处理"></a>事务处理</h2><h3 id="事务处理-1"><a href="#事务处理-1" class="headerlink" title="事务处理"></a>事务处理</h3><p>整个过程每一个单元全部完成才算事务处理成功，某一个单元失败事务就会回滚。</p>
 <h3 id="主要作用"><a href="#主要作用" class="headerlink" title="主要作用"></a>主要作用</h3><p>保证数据库的完整性</p>
 <h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
