@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MySQL," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="太阳落下" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="定义存储过程是SQL语句与控制语句的预编译集合，以一个名称存储作为一个单元处理  输入SQL命令，MySQL引擎对命令进行分析，查看输入的语法是否正确，如果正确，再进行编译，编译成MySQL引擎可识别的命令，最后再进行执行，并将执行结果返回给客户端。 如果省略了语法分析和编译的阶段，则效率可提高。 存储过程：是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理（类似函数）。存储过程">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL存储过程">
+<meta property="og:url" content="http://yoursite.com/post/392b408.html">
+<meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="定义存储过程是SQL语句与控制语句的预编译集合，以一个名称存储作为一个单元处理  输入SQL命令，MySQL引擎对命令进行分析，查看输入的语法是否正确，如果正确，再进行编译，编译成MySQL引擎可识别的命令，最后再进行执行，并将执行结果返回给客户端。 如果省略了语法分析和编译的阶段，则效率可提高。 存储过程：是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理（类似函数）。存储过程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/img/IMG55.png">
+<meta property="og:updated_time" content="2018-06-04T05:46:44.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL存储过程">
+<meta name="twitter:description" content="定义存储过程是SQL语句与控制语句的预编译集合，以一个名称存储作为一个单元处理  输入SQL命令，MySQL引擎对命令进行分析，查看输入的语法是否正确，如果正确，再进行编译，编译成MySQL引擎可识别的命令，最后再进行执行，并将执行结果返回给客户端。 如果省略了语法分析和编译的阶段，则效率可提高。 存储过程：是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理（类似函数）。存储过程">
+<meta name="twitter:image" content="http://yoursite.com/img/IMG55.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/post/392b408.html"/>
+
+
+
+
+
+  <title>MySQL存储过程 | 太阳落下</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">太阳落下</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/392b408.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL存储过程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T22:13:52+08:00">
+                2018-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>存储过程是SQL语句与控制语句的预编译集合，以一个名称存储作为一个单元处理</p>
+<p><img src="/img/IMG55.png" alt=""></p>
+<p>输入SQL命令，MySQL引擎对命令进行分析，查看输入的语法是否正确，如果正确，再进行编译，编译成MySQL引擎可识别的命令，最后再进行执行，并将执行结果返回给客户端。</p>
+<p>如果省略了语法分析和编译的阶段，则效率可提高。</p>
+<p>存储过程：是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理（类似函数）。存储过程存储在数据库内，可以由应用程序调用执行，而且允许用户申明变量以及进行流程控制。存储过程可以接受输入类型的参数和输出类型的参数，并且可以存在多个返回值。只在第一次调用时进行语法分析和编译，以后的调用直接调用编译的结果，效率大大提高。<br><a id="more"></a></p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
+<li>增强SQL语句的功能和灵活性：可以通过控制语句对流程进行控制和判断</li>
+<li>实现较快的执行速度：客户端第一次调用存储过程时，MySQL引擎会对其进行语法分析、编译等操作，然后将编译结果存储到内存中，所以第一次和之前的效率一样，然而以后会直接调用内存中的编译结果，效率提高</li>
+<li>减少网络流量：例如删除一个记录，我们原本要输入DELETE FROM xx WHERE …; 要传输的字符较多，如果写成存储过程，就只要调用存储过程的名字和相应参数就行，传输的字符数量较少，所以减少了网络流量。</li>
+</ol>
+<h2 id="创建储存过程"><a href="#创建储存过程" class="headerlink" title="创建储存过程"></a>创建储存过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CREATE</div><div class="line">[DEFINER = &#123;user|CURRENT_USER&#125;]</div><div class="line">PROCEDURE sp_name ([proc_parameter[,...]]) //可以带0到多个参数</div><div class="line">[characteristic ...] routine_body</div></pre></td></tr></table></figure>
+<p>其中参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">proc_parameter:</div><div class="line">[IN | OUT | INOUT] param_name type</div></pre></td></tr></table></figure></p>
+<p>IN, 表示该参数的值必须在调用存储过程时指定<br>OUT, 表示该参数的值可以被存储过程改变，并且可以返回<br>INOUT, 表示该参数的值调用时指定，并且可以被改变和返回</p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">COMMENT &apos;string&apos;</div><div class="line">| &#123;CONTAINS SQL|NO SQL|READS SQL DATA|MODIFIES SQL DATA</div><div class="line">| SQL SECURITY&#123;DEFINER|INVOKER&#125;</div></pre></td></tr></table></figure>
+<p>COMMENT:            注释<br>CONTAINS SQL:       包含SQL语句, 但不包含读或写数据的语句<br>NO SQL:             不包含SQL语句<br>READS SQL DATA:     包含读数据的语句<br>MODIFIES SQL DATA:  包含写数据的语句<br>SQL SECURITY {DEFINER|INVOKER}  指明谁有权限来执行</p>
+<h2 id="过程体"><a href="#过程体" class="headerlink" title="过程体"></a>过程体</h2><ul>
+<li>过程体由合法的SQL语句构成;</li>
+<li>过程体可以是任意SQL语句;</li>
+<li>过程体如果为复合结构则使用BEGIN…END语句</li>
+<li>复合结构可以使用条件、循环等控制语句</li>
+</ul>
+<h2 id="创建无参的存储过程"><a href="#创建无参的存储过程" class="headerlink" title="创建无参的存储过程"></a>创建无参的存储过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CREATE PROCEDURE sp1() SELECT VERSION(); //创建</div><div class="line">CALL sp1; //调用</div><div class="line">CALL sp1();</div></pre></td></tr></table></figure>
+<h2 id="创建带IN类型参数的存储过程"><a href="#创建带IN类型参数的存储过程" class="headerlink" title="创建带IN类型参数的存储过程"></a>创建带IN类型参数的存储过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//若带的参数与数据表中的字段一致，则删除整个数据表。</div><div class="line">DELIMITER //</div><div class="line">CREATE PROCEDURE removeUserById(IN p_id INT UNSIGNED)</div><div class="line">BEGIN </div><div class="line">DELETE FROM users WHERE id = p_id;</div><div class="line">END</div><div class="line">//</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">SELECT * FROM users;</div><div class="line">CALL removeUserById(22);</div><div class="line">SELECT * FROM users WHERE id = 22;</div></pre></td></tr></table></figure>
+<h2 id="创建带IN-OUT类型参数的存储过程"><a href="#创建带IN-OUT类型参数的存储过程" class="headerlink" title="创建带IN OUT类型参数的存储过程"></a>创建带IN OUT类型参数的存储过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">DELIMITER //</div><div class="line">CREATE PROCEDURE removeUserAndReturnUserNums(IN p_id INT UNSIGNED,OUT userNums INT UNSIGNED)</div><div class="line">BEGIN</div><div class="line">DELETE FROM users WHERE id=p_id;</div><div class="line">SELECT COUNT(id) FROM users INTO userNums; </div><div class="line">END</div><div class="line">//</div><div class="line">DELIMITER ;</div><div class="line">CALL removerUserAndReturnUserName(10,@nums); </div><div class="line">SELECT @nums; </div><div class="line">SET @i = 7;</div></pre></td></tr></table></figure>
+<p>INTO将SELECT语句结果返回给userNums变量<br>通过@或SET设置的变量称为用户变量<br>@nums 所代表的就是用户变量，可用 SELECT @nums 输出</p>
+<p>局部变量与用户变量的区别<br>用 DECLARE 声明的变量是局部变量，局部变量只能存在于 BEGIN…END 之间，<br>且声明时必须置于 BEGIN…END 的第一行。而通过 SELECT…INTO…/SET @id = 07<br>设置的变量称用户变量，只能存在于当前用户所使用的客户端有效。</p>
+<h2 id="创建带有多个OUT类型参数的存储过程"><a href="#创建带有多个OUT类型参数的存储过程" class="headerlink" title="创建带有多个OUT类型参数的存储过程"></a>创建带有多个OUT类型参数的存储过程</h2><h3 id="明确OUT类型的参数的定义与作用"><a href="#明确OUT类型的参数的定义与作用" class="headerlink" title="明确OUT类型的参数的定义与作用"></a>明确OUT类型的参数的定义与作用</h3><p>OUT类型参数，表示在调用存储过程时，值可被存储过程改变，并且返回一个值。通常变量用“@”符号开头的变量，在BEGIN和END之中的变量是局部变量，在调用存储过程时写入的变量是“用户变量”。比如有一个存储过程的名称叫做“addUser()”，调用时addUser(@sum),sum就是用户变量。</p>
+<h3 id="ROW-COUNT-函数"><a href="#ROW-COUNT-函数" class="headerlink" title="ROW_COUNT()函数"></a>ROW_COUNT()函数</h3><p>相当于PHP的MySQL函数库中的mysql_affected_rows()数作用相同，计算增删改查的个数总和。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">DELIMITER //</div><div class="line">CREATE PROCEDURE removeUserByAgeAndReturnInfos(</div><div class="line">IN p_age SMALLINT UNSIGNED,</div><div class="line">OUT deleteUsers SMALLINT UNSIGNED,</div><div class="line">OUT userCounts SMALLINT UNSIGNED)</div><div class="line">BEGIN</div><div class="line">DELETE FROM users WHERE age=p_age;</div><div class="line">SELECT ROW_COUNT() INTO deleteUsers; #返回被增删改查的记录总数</div><div class="line">SELECT COUNT(id) FROM users INTO userCounts;</div><div class="line">END</div><div class="line">//</div><div class="line">DELIMITER ;</div><div class="line">CALL removeUserByAgeAndReturnInfos(20,@a,@b);</div><div class="line">SELECT @a,@b; #a是删除的记录数，b是剩余的记录数</div></pre></td></tr></table></figure>
+<h2 id="修改存储过程"><a href="#修改存储过程" class="headerlink" title="修改存储过程"></a>修改存储过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ALTER PROCEDURE sp_name [characteristic]</div><div class="line">COMMENT &apos;string&apos;</div><div class="line">|&#123;CONTAINS SQL|NO SQL|READS SQL DATA|MODIFIES SQL DATA&#125;</div><div class="line">|SQL SECURITY&#123;DEFINER|INVOKER&#125;</div></pre></td></tr></table></figure>
+<h2 id="调用存储过程"><a href="#调用存储过程" class="headerlink" title="调用存储过程"></a>调用存储过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CALL sp_name([parameter[,...]]) </div><div class="line">//带参数的存储过程的调用</div><div class="line">CALL sp_name[()] </div><div class="line">//不带参数的存储过程调用</div></pre></td></tr></table></figure>
+<h2 id="删除存储过程"><a href="#删除存储过程" class="headerlink" title="删除存储过程"></a>删除存储过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DROP PROCEDURE [IF EXISTS] sp_name;</div><div class="line"></div><div class="line">DROP PROCEDURE removeUserById;</div></pre></td></tr></table></figure>
+<h2 id="储存过程与自定义函数的区别："><a href="#储存过程与自定义函数的区别：" class="headerlink" title="储存过程与自定义函数的区别："></a>储存过程与自定义函数的区别：</h2><ul>
+<li>储存过程实现的功能要复杂一些；而函数的针对性更强。</li>
+<li>储存过程可以返回多个值；函数只能有一个返回值。</li>
+<li>储存过程一般独立的来执行；而函数可以作为其他SQL语句组成部分来出现。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/2aaa8b1b.html" rel="next" title="MySQL记录操作">
+                <i class="fa fa-chevron-left"></i> MySQL记录操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/ed90cb85.html" rel="prev" title="MySQL函数">
+                MySQL函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">木鱼</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建储存过程"><span class="nav-number">3.</span> <span class="nav-text">创建储存过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-number">4.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程体"><span class="nav-number">5.</span> <span class="nav-text">过程体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建无参的存储过程"><span class="nav-number">6.</span> <span class="nav-text">创建无参的存储过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建带IN类型参数的存储过程"><span class="nav-number">7.</span> <span class="nav-text">创建带IN类型参数的存储过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建带IN-OUT类型参数的存储过程"><span class="nav-number">8.</span> <span class="nav-text">创建带IN OUT类型参数的存储过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建带有多个OUT类型参数的存储过程"><span class="nav-number">9.</span> <span class="nav-text">创建带有多个OUT类型参数的存储过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#明确OUT类型的参数的定义与作用"><span class="nav-number">9.1.</span> <span class="nav-text">明确OUT类型的参数的定义与作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROW-COUNT-函数"><span class="nav-number">9.2.</span> <span class="nav-text">ROW_COUNT()函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改存储过程"><span class="nav-number">10.</span> <span class="nav-text">修改存储过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用存储过程"><span class="nav-number">11.</span> <span class="nav-text">调用存储过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除存储过程"><span class="nav-number">12.</span> <span class="nav-text">删除存储过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#储存过程与自定义函数的区别："><span class="nav-number">13.</span> <span class="nav-text">储存过程与自定义函数的区别：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">木鱼</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

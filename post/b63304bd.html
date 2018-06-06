@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MySQL," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="太阳落下" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="联合查询的效率比较高 连接MySQL在SELECT语句、多表更新、多表删除语句中支持JOIN操作语法结构1234table_reference A&amp;#123;[INNER|CROSS] JOIN | &amp;#123;LEFT|RIGHT&amp;#125; [OUTER] JOIN&amp;#125;table_reference BON condition_expr 连接类型 内连接在MySQL中，JOIN, CR">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL连接">
+<meta property="og:url" content="http://yoursite.com/post/b63304bd.html">
+<meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="联合查询的效率比较高 连接MySQL在SELECT语句、多表更新、多表删除语句中支持JOIN操作语法结构1234table_reference A&amp;#123;[INNER|CROSS] JOIN | &amp;#123;LEFT|RIGHT&amp;#125; [OUTER] JOIN&amp;#125;table_reference BON condition_expr 连接类型 内连接在MySQL中，JOIN, CR">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/img/IMG54.jpg">
+<meta property="og:updated_time" content="2018-06-04T03:56:28.623Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL连接">
+<meta name="twitter:description" content="联合查询的效率比较高 连接MySQL在SELECT语句、多表更新、多表删除语句中支持JOIN操作语法结构1234table_reference A&amp;#123;[INNER|CROSS] JOIN | &amp;#123;LEFT|RIGHT&amp;#125; [OUTER] JOIN&amp;#125;table_reference BON condition_expr 连接类型 内连接在MySQL中，JOIN, CR">
+<meta name="twitter:image" content="http://yoursite.com/img/IMG54.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/post/b63304bd.html"/>
+
+
+
+
+
+  <title>MySQL连接 | 太阳落下</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">太阳落下</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/b63304bd.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL连接</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T22:14:10+08:00">
+                2018-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>联合查询的效率比较高</p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>MySQL在SELECT语句、多表更新、多表删除语句中支持JOIN操作<br>语法结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">table_reference A</div><div class="line">&#123;[INNER|CROSS] JOIN | &#123;LEFT|RIGHT&#125; [OUTER] JOIN&#125;</div><div class="line">table_reference B</div><div class="line">ON condition_expr</div></pre></td></tr></table></figure></p>
+<h3 id="连接类型"><a href="#连接类型" class="headerlink" title="连接类型"></a>连接类型</h3><p><img src="/img/IMG54.jpg" alt=""></p>
+<h4 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h4><p>在MySQL中，JOIN, CROSS JOIN 和 INNER JOIN 是等价的。<br>显示左表及右表符合连接条件的记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SELECT goods_id,goods_name,cate_name FROM tdb_goods </div><div class="line">INNER JOIN tdb_goods_cate </div><div class="line">ON tdb_goods.cate_id = tdb_goods_cate.cate_id;</div></pre></td></tr></table></figure></p>
+<h4 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h4><p>左外连接：LEFT [OUTER] JOIN：显示左表的全部记录及右表符合连接条件的记录。<br>右外连接：RIGHT [OUTER] JOIN：显示右表的全部记录及左表符合连接条件的记录。</p>
+<p>如果使用LEFT JOIN，左表中存在一条记录A，在右表中没有找到相应的记录，则在返回结果用会出现一条只有记录A中的相应字段内容，其他字段都为NULL在记录(RIGHT JOIN类似)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//查询所有商品的详细信息(通过左外连接实现)   </div><div class="line">SELECT goods_id,goods_name,cate_name,brand_name,goods_price </div><div class="line">FROM tdb_goods AS g</div><div class="line">LEFT JOIN tdb_goods_cates AS c </div><div class="line">ON g.cate_id = c.cate_id;</div><div class="line">//LEFT JOIN tdb_goods_brands AS b ON g.brand_id = b.brand_id\G;</div><div class="line"></div><div class="line">//查询所有商品的详细信息(通过右外连接实现)   </div><div class="line">SELECT goods_id,goods_name,cate_name,brand_name,goods_price </div><div class="line">FROM tdb_goods AS g   </div><div class="line">RIGHT JOIN tdb_goods_cates AS c </div><div class="line">ON g.cate_id = c.cate_id;</div><div class="line">//RIGHT JOIN tdb_goods_brands AS b ON g.brand_id = b.brand_id\G;</div></pre></td></tr></table></figure>
+<p>外链接 A LEFT JOIN B join_condition<br>数据表B的结果集依赖数据表A。<br>数据表A的结果集根据左连接条件依赖于所有数据表（B表除外）。<br>左外连接条件决定如何检索数据表B（在没有指定WHERE条件的情况下）。<br>如果数据表A的某条记录符合WHERE条件，但是在数据表B不存在符合连接条件的记录，将生成一个所有列为空的额外的B行。</p>
+<h4 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h4><p>显示左表、右表两边中的所有行，即把左联结果表 + 右联结果表组合在一起，然后过滤掉重复的。</p>
+<p>多表的连接跟两张表的连接一样<br>表的连接实质就是外键的逆向约束<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SELECT goods_id,goods_name,b.cate_name,c.brand_name,goods_price</div><div class="line">FROM products AS a </div><div class="line">INNER JOIN products_cate AS b </div><div class="line">ON a.goods_cate = b.cate_id</div><div class="line">INNER JOIN products_brand AS c </div><div class="line">ON a.brand_name = c.brand_id;</div></pre></td></tr></table></figure></p>
+<h3 id="数据表参照"><a href="#数据表参照" class="headerlink" title="数据表参照"></a>数据表参照</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">table_reference</div><div class="line">tbl_name [[AS] alias] | table_subquery [AS] alias</div></pre></td></tr></table></figure>
+<p>数据表可以使用<code>tbl_name AS alias_name</code> 或 <code>tbl_name alias_name</code>赋予别名。<br><code>table_subquery</code>可以作为子查询使用在FROM子句中，这样的子查询必须为其赋予别名。</p>
+<h3 id="连接条件"><a href="#连接条件" class="headerlink" title="连接条件"></a>连接条件</h3><p>使用ON关键字来设定连接条件，也可以使用WHERE来代替</p>
+<p>通常使用ON关键字来设定连接条件<br>使用WHERE关键字来进行结果集记录的过滤</p>
+<h3 id="自身连接-–-无限分类"><a href="#自身连接-–-无限分类" class="headerlink" title="自身连接 – 无限分类"></a>自身连接 – 无限分类</h3><p>自身连接：同一个数据表对其自身进行连接</p>
+<p>对于常见的分类，比如商城中的书籍&gt;&gt;文学&gt;&gt;小说，并不是使用多个表，而是使用一个表来进行联合查询</p>
+<p>在同一张表中既有父类，又有子类。<br>通过对同一张数据表的自身连接来进行查询，需要对表标识别名。<br>做自身连接的话一定要起别名，以区分是子表还是父表</p>
+<p>表的结构是这样的，使用parent_id表示父类目的id<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tdb_goods_types(</div><div class="line">type_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,</div><div class="line">type_name VARCHAR(20) NOT NULL,</div><div class="line">parent_id SMALLINT UNSIGNED NOT NULL DEFAULT 0</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>查找所有分类及其父类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT s.type_id ,s.type_name,p.type_name </div><div class="line">FROM tdb_goods_types s </div><div class="line">LEFT JOIN tdb_goods_types p </div><div class="line">ON s.parent_id=p.type_id;</div></pre></td></tr></table></figure></p>
+<p>查找所有分类及其子类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT p.type_id ,p.type_name,s.type_name </div><div class="line">FROM tdb_goods_types p </div><div class="line">LEFT JOIN tdb_goods_types s </div><div class="line">ON p.type_id=s.parent_id;</div></pre></td></tr></table></figure></p>
+<p>查找所有分类及其子类的数目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SELECT p.type_id ,p.type_name,COUNT(s.type_name) </div><div class="line">FROM tdb_goods_types p </div><div class="line">LEFT JOIN tdb_goods_types s </div><div class="line">ON p.type_id=s.parent_id</div><div class="line">GROUP BY p.type_name </div><div class="line">ORDER BY p.type_id;</div></pre></td></tr></table></figure></p>
+<p>补充：</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/c4c43f32b66f" target="_blank" rel="external">https://www.jianshu.com/p/c4c43f32b66f</a></li>
+<li><a href="http://wxb.github.io/2016/12/15/MySQL%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8Djoin.html" target="_blank" rel="external">http://wxb.github.io/2016/12/15/MySQL%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8Djoin.html</a></li>
+<li><a href="http://www.zsythink.net/archives/1105" target="_blank" rel="external">http://www.zsythink.net/archives/1105</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/ed90cb85.html" rel="next" title="MySQL函数">
+                <i class="fa fa-chevron-left"></i> MySQL函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/9da3e761.html" rel="prev" title="MySQL子查询">
+                MySQL子查询 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">木鱼</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#连接"><span class="nav-number">1.</span> <span class="nav-text">连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接类型"><span class="nav-number">1.1.</span> <span class="nav-text">连接类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内连接"><span class="nav-number">1.1.1.</span> <span class="nav-text">内连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外连接"><span class="nav-number">1.1.2.</span> <span class="nav-text">外连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全连接"><span class="nav-number">1.1.3.</span> <span class="nav-text">全连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表参照"><span class="nav-number">1.2.</span> <span class="nav-text">数据表参照</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接条件"><span class="nav-number">1.3.</span> <span class="nav-text">连接条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自身连接-–-无限分类"><span class="nav-number">1.4.</span> <span class="nav-text">自身连接 – 无限分类</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">木鱼</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

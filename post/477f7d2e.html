@@ -87,14 +87,14 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="RPM包的来源所有RPM包都来自安装系统光盘的Packages目录中  RPM包命名规则  包全名：操作的包是没有安装的软件包时，使用包全名，而且要注意路径 包名：操作已安装的软件包时，使用包名，是搜索/var/lib/rpm/中的数据库   RPM包依赖性 树形依赖：a-&amp;gt;b-&amp;gt;c 解决方法：从后往前安装 环形依赖：a-&amp;gt;b-&amp;gt;c-&amp;gt;a 解决方法：放在一条命令中安装">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG004.png">
-<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG005.png">
-<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG006.png">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.796Z">
+<meta property="og:image" content="http://yoursite.com/img/IMG4.png">
+<meta property="og:image" content="http://yoursite.com/img/IMG5.png">
+<meta property="og:image" content="http://yoursite.com/img/IMG6.png">
+<meta property="og:updated_time" content="2018-06-04T02:25:36.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux安装管理02 RPM包管理">
 <meta name="twitter:description" content="RPM包的来源所有RPM包都来自安装系统光盘的Packages目录中  RPM包命名规则  包全名：操作的包是没有安装的软件包时，使用包全名，而且要注意路径 包名：操作已安装的软件包时，使用包名，是搜索/var/lib/rpm/中的数据库   RPM包依赖性 树形依赖：a-&amp;gt;b-&amp;gt;c 解决方法：从后往前安装 环形依赖：a-&amp;gt;b-&amp;gt;c-&amp;gt;a 解决方法：放在一条命令中安装">
-<meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG004.png">
+<meta name="twitter:image" content="http://yoursite.com/img/IMG4.png">
 
 
 
@@ -326,7 +326,7 @@
       
         <h2 id="RPM包的来源"><a href="#RPM包的来源" class="headerlink" title="RPM包的来源"></a>RPM包的来源</h2><p>所有RPM包都来自安装系统光盘的Packages目录中</p>
 <p><br></p>
-<h2 id="RPM包命名规则"><a href="#RPM包命名规则" class="headerlink" title="RPM包命名规则"></a>RPM包命名规则</h2><p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG004.png" alt="img"></p>
+<h2 id="RPM包命名规则"><a href="#RPM包命名规则" class="headerlink" title="RPM包命名规则"></a>RPM包命名规则</h2><p><img src="/img/IMG4.png" alt="img"></p>
 <ul>
 <li>包全名：操作的包是没有安装的软件包时，使用包全名，而且要注意路径</li>
 <li>包名：操作已安装的软件包时，使用包名，是搜索<code>/var/lib/rpm/</code>中的数据库</li>
@@ -353,7 +353,7 @@
 </ul>
 <p><br></p>
 <h2 id="RPM包查询"><a href="#RPM包查询" class="headerlink" title="RPM包查询"></a>RPM包查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">rpm -q 包名</div><div class="line"># 查询包是否安装</div><div class="line"># -q 查询（query）</div><div class="line"></div><div class="line">rpm -qa 包名</div><div class="line"># 查询所有已经安装的RPM包</div><div class="line"># -a 所有（all）</div><div class="line"># rpm -qa | grep httpd</div><div class="line"></div><div class="line">rpm -qi 包名</div><div class="line"># 查询软件包详细信息</div><div class="line"># -i (infomation) : 查询软件信息</div><div class="line"></div><div class="line">rpm -qip 包全名</div><div class="line"># -p (package) : 查询未安装报信息</div><div class="line"># 有时遇到问题, 可根据未安装包信息中所提供的网站进行查询资料</div><div class="line"></div><div class="line">rpm -ql 包名</div><div class="line"># 查询包中文件安装位置</div><div class="line"># -l (list) : 列表</div><div class="line"># -p (package) : 查询未安装包信息</div><div class="line"># 可查看包作者欲将包安装的位置</div><div class="line"></div><div class="line">rpm -qf 系统文件名</div><div class="line"># -f (file) : 查询系统文件属于哪个软件包</div><div class="line"># 查询系统文件属于哪个 RPM 包</div><div class="line"># 该文件必须是通过 RPM 包安装的</div><div class="line"></div><div class="line">rpm -qR 包名</div><div class="line"># 查询软件包的依赖性</div><div class="line"># -R (requires) : 查询软件包的依赖性 </div><div class="line"># -p (package) : 查询未安装包的信息</div></pre></td></tr></table></figure>
-<p>RPM包默认安装位置<br><img src="http://ow3dy62zt.bkt.clouddn.com/IMG005.png" alt=""></p>
+<p>RPM包默认安装位置<br><img src="/img/IMG5.png" alt=""></p>
 <p><br></p>
 <h2 id="RPM包校验"><a href="#RPM包校验" class="headerlink" title="RPM包校验"></a>RPM包校验</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">rpm -V 已安装的包名</div><div class="line"># -V (verify) : 校验指定RPM包中的文件</div><div class="line"># 执行后, 无任何提示, 代表该文件没有被做任何修改</div><div class="line"># 判断本地的安装包与官方给出的是否一致, 从而判断是否被人修改</div></pre></td></tr></table></figure>
 <h3 id="验证内容中的8个信息"><a href="#验证内容中的8个信息" class="headerlink" title="验证内容中的8个信息"></a>验证内容中的8个信息</h3><ul>
@@ -383,7 +383,7 @@
 <li>cpio只知道提取文件，并不知道要从什么地方提取文件，因此我们通常要使用<code>|</code>管道符或<code>&lt;</code>输入重定向告诉cpio我们应该从什么设备去取出文件。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cpio 选项 &lt; [文件|设备]</div><div class="line"># 使用输入重定向的cpio</div><div class="line"># -i：copy-in模式，还原</div><div class="line"># -d：还原时自动新建目录</div><div class="line"># -v：显示还原过程</div></pre></td></tr></table></figure>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG006.png" alt=""></p>
+<p><img src="/img/IMG6.png" alt=""></p>
 
       
     </div>
@@ -503,7 +503,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">153</span>
+                  <span class="site-state-item-count">162</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

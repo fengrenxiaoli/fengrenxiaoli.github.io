@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="yum源文件将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题。（rpm缺点：安装过程中，rpm包依赖性太强） RedHat的yum是收费服务，而CentOS的yum是免费服务。   在/etc/yum.repos.d/目录中，默认有4个yum源文件，其中CentOS-Base.repo是基本yum源文件，如果我们能上网，那它是默认生效的，而其他的都是默认不生效的。 mi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG007.png">
-<meta property="og:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG008.png">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.844Z">
+<meta property="og:image" content="http://yoursite.com/img/IMG7.png">
+<meta property="og:image" content="http://yoursite.com/img/IMG8.png">
+<meta property="og:updated_time" content="2018-06-04T02:28:25.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux安装管理03 yum在线安装">
 <meta name="twitter:description" content="yum源文件将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题。（rpm缺点：安装过程中，rpm包依赖性太强） RedHat的yum是收费服务，而CentOS的yum是免费服务。   在/etc/yum.repos.d/目录中，默认有4个yum源文件，其中CentOS-Base.repo是基本yum源文件，如果我们能上网，那它是默认生效的，而其他的都是默认不生效的。 mi">
-<meta name="twitter:image" content="http://ow3dy62zt.bkt.clouddn.com/IMG007.png">
+<meta name="twitter:image" content="http://yoursite.com/img/IMG7.png">
 
 
 
@@ -325,7 +325,7 @@
       
         <h2 id="yum源文件"><a href="#yum源文件" class="headerlink" title="yum源文件"></a>yum源文件</h2><p>将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题。（rpm缺点：安装过程中，rpm包依赖性太强）</p>
 <p>RedHat的yum是收费服务，而CentOS的yum是免费服务。</p>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG007.png" alt=""></p>
+<p><img src="/img/IMG7.png" alt=""></p>
 <ul>
 <li>在<code>/etc/yum.repos.d/</code>目录中，默认有4个yum源文件，其中<code>CentOS-Base.repo</code>是基本yum源文件，如果我们能上网，那它是默认生效的，而其他的都是默认不生效的。</li>
 <li>mirrorlist和baseurl一个是主站点，一个是辅助站点，代表内容一样，只写一个就行，可以修改为国内的源</li>
@@ -336,7 +336,7 @@
 <p><br></p>
 <h2 id="光盘搭建yum源"><a href="#光盘搭建yum源" class="headerlink" title="光盘搭建yum源"></a>光盘搭建yum源</h2><p>如果没有网络，可以使用光盘</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">1.挂载光盘</div><div class="line">mkdir /mnt/cdrom</div><div class="line">#建立挂载点</div><div class="line"></div><div class="line">mount /dev/cdrom /mnt/cdrom</div><div class="line">#挂载光盘</div><div class="line"></div><div class="line">2.使网络yum源失效 </div><div class="line">cd/etc/yum.repos.d/</div><div class="line">#进入yum源目录</div><div class="line"></div><div class="line">mv CentOS-Base.repo CentOS-Base.repo.bak</div><div class="line">#修改Yum源文件后缀名，使其失效；（判断yum源是根据后缀名repo来实现的，修改后缀名则可以使该yum源失效）</div><div class="line"></div><div class="line"></div><div class="line">3.使光盘yum源生效</div></pre></td></tr></table></figure>
-<p><img src="http://ow3dy62zt.bkt.clouddn.com/IMG008.png" alt=""></p>
+<p><img src="/img/IMG8.png" alt=""></p>
 <p><br></p>
 <h2 id="yum命令"><a href="#yum命令" class="headerlink" title="yum命令"></a>yum命令</h2><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">yum list</div><div class="line"># 查询所有可用软件包列表</div><div class="line"></div><div class="line">yum search 关键字</div><div class="line"># 搜索服务器上所有和关键字相关的包</div><div class="line"></div><div class="line">yum search ifconfig</div><div class="line">#可以得知ifconfig命令来自包net-tools.x86_64</div><div class="line"></div><div class="line">yum info xxx</div><div class="line">#软件包信息</div><div class="line"></div><div class="line">yum clean packages</div><div class="line">#清理缓存</div></pre></td></tr></table></figure>
 <p><br></p>
@@ -467,7 +467,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">153</span>
+                  <span class="site-state-item-count">162</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

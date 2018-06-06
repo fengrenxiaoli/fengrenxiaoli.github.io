@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="目录当前目录或工作目录主目录，家目录：HOMEroot: /root普通用户：/home/USERNAME/home/tom ~：用户的主目录">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-02T07:13:10.449Z">
+<meta property="og:updated_time" content="2018-06-05T00:26:53.813Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux文件管理01 文件处理命令">
 <meta name="twitter:description" content="目录当前目录或工作目录主目录，家目录：HOMEroot: /root普通用户：/home/USERNAME/home/tom ~：用户的主目录">
@@ -328,7 +328,7 @@
 <h3 id="rmdir-删除空目录（remove-empty-directories）"><a href="#rmdir-删除空目录（remove-empty-directories）" class="headerlink" title="rmdir 删除空目录（remove empty directories）"></a>rmdir 删除空目录（remove empty directories）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rmdir [OPTION]... DIRECTORY...</div><div class="line">-v: 显示过程</div><div class="line">#只能删除空目录</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#创建/tmp/x/y1, /tmp/x/y2, /tmp/x/y1/a, /tmp/x/y1/b, /tmp/x/y2/a, /tmp/x/y2/b</div><div class="line">mkdir /tmp/x/&#123;y1,y2&#125;/&#123;a,b&#125;      </div><div class="line"></div><div class="line">#创建x_m, y_m, x_n, y_n</div><div class="line">mkdir &#123;x,y&#125;_&#123;m,n&#125;</div><div class="line"></div><div class="line">#创建/tmp/bin, /tmp/sbin, /tmp/usr, /tmp/usr/bin, /tmp/usr/sbin</div><div class="line">mkdir -p /tmp/&#123;bin,sbin,usr/&#123;bin,sbin&#125;&#125;</div></pre></td></tr></table></figure>
 <h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="rm-删除文件或目录（remove）"><a href="#rm-删除文件或目录（remove）" class="headerlink" title="rm 删除文件或目录（remove）"></a>rm 删除文件或目录（remove）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">rm -rf [文件或目录] </div><div class="line">    -r ：删除目录</div><div class="line">    -f ：强制</div><div class="line">rm [文件名] ：提示是否删除</div><div class="line">rm -r [目录] ：删除目录需加 -r ，目录中含有子文件，将持续询问是否删除</div><div class="line">rm -rf [目录] ：删除目录， 不会询问是否删除而直接进行</div><div class="line"># 纯字符界面没有回收站。注意自杀指令：rm -rf /</div><div class="line">rm -rf /tmp/* ：删除tmp目录下的内容</div><div class="line">rm -rf /tmp/  ：删除tmp目录</div><div class="line"># 建议：删除文件或目录习惯使用命令 rm -rf [文件或目录]</div></pre></td></tr></table></figure>
-<h3 id="cp-复制命令（copy）"><a href="#cp-复制命令（copy）" class="headerlink" title="cp 复制命令（copy）"></a>cp 复制命令（copy）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">cp [选项] [原文件或目录] [目标目录] </div><div class="line">    -r ：复制目录</div><div class="line">    -p ：连带文件属性复制</div><div class="line">    -d ：若原文件是链接文件，则复制链接属性</div><div class="line">    -a ：相当于 -pdr 全选</div><div class="line">cp abc /tmp/ 若目标目录不加文件名，则为原名复制</div><div class="line">cp abc /tmp/ana 若目标目录后加入文件名，则为改名复制</div><div class="line">cp -r japan/ /tmp/ 复制目录</div><div class="line">cp -a japan/ /tmp/ 完全复制，包括所有属性</div><div class="line">#被复制文件的时间为执行复制命令的时间，若要使被复制的文件与原文件属性完全一致，需加 -a</div></pre></td></tr></table></figure>
+<h3 id="cp-复制命令（copy）"><a href="#cp-复制命令（copy）" class="headerlink" title="cp 复制命令（copy）"></a>cp 复制命令（copy）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">cp [选项] [原文件或目录] [目标目录] </div><div class="line">    -r ：复制目录</div><div class="line">    -p ：连带文件属性复制</div><div class="line">    -d ：若原文件是链接文件，则复制链接属性，单纯用-d也会报错，因为原文件链接使用相对路径</div><div class="line">    -a ：相当于 -pdr 全选</div><div class="line">cp abc /tmp/ 若目标目录不加文件名，则为原名复制</div><div class="line">cp abc /tmp/ana 若目标目录后加入文件名，则为改名复制</div><div class="line">cp -r japan/ /tmp/ 复制目录</div><div class="line">cp -a japan/ /tmp/ 完全复制，包括所有属性</div><div class="line">#被复制文件的时间为执行复制命令的时间，若要使被复制的文件与原文件属性完全一致，需加 -a</div></pre></td></tr></table></figure>
 <!-- <table>
   <tr>
     <th colspan="2" rowspan="3"></th>
@@ -362,7 +362,7 @@
     <td>覆盖</td>
   </tr>
 </table> -->
-<table><tr><th colspan="2" rowspan="3"></th><th colspan="5">目标</th></tr><tr><td rowspan="2">目标文件不存在</td><td rowspan="2">目标目录不存在</td><td rowspan="2">文件</td><td colspan="2">目录</td></tr><tr><td>不存在同名</td><td>存在同名</td></tr><tr><td rowspan="2">源</td><td>文件</td><td>创建目标文件，将源文件内容复制到目标文件</td><td>报错，先使用mkdir创建目标目录</td><td>覆盖</td><td>新建同名文件<br><br></td><td>覆盖</td></tr><tr><td>目录</td><td>报错</td><td>创建目标目录，将源目录中的文件复制到目标目录</td><td>报错</td><td>新建同名目录</td><td>覆盖</td></tr></table>
+<table><tr><th colspan="2" rowspan="3"></th><th colspan="5">目标</th></tr><tr><td rowspan="2">目标文件不存在</td><td rowspan="2">目标目录不存在</td><td rowspan="2">文件</td><td colspan="2">目录</td></tr><tr><td>不存在同名</td><td>存在同名</td></tr><tr><td rowspan="2">源</td><td>文件</td><td>创建目标文件，将源文件内容复制到目标文件</td><td>报错，先使用mkdir创建目标目录</td><td>覆盖</td><td>新建同名文件<br><br></td><td>覆盖</td></tr><tr><td>目录(-r)</td><td>报错</td><td>创建目标目录，将源目录中的文件复制到目标目录</td><td>报错</td><td>新建同名目录</td><td>覆盖</td></tr></table>
 
 <h3 id="mv-剪切或改名命令（move）"><a href="#mv-剪切或改名命令（move）" class="headerlink" title="mv 剪切或改名命令（move）"></a>mv 剪切或改名命令（move）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mv [原文件或目录] [目标目录] </div><div class="line">mv japan/ /tmp/ 剪切目录时不需加 -r</div><div class="line">mv abc longls 当原文件与目标目录，在同一目录下，则为改名命令</div></pre></td></tr></table></figure>
 
@@ -484,7 +484,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">153</span>
+                  <span class="site-state-item-count">162</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

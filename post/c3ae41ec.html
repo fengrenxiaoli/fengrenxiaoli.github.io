@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }      符号 作用     ? 匹配一个任意字符   * 匹配0个或多个任意字符   [] 匹配括号中任意一个字符   [-] 匹配括号中任意一个字符，-代表一个范围   [^] 匹配不是括号中的一个字符    Bash中其他特殊符号">
+<meta name="description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }   1man glob    符号 作用     ? 匹配一个任意字符   * 匹配0个或多个任意字符   [] 匹配括号中任意一个字符   [-] 匹配括号中任意一个字符，-代表一个范围   [^] 匹配不是括号中的一个字符   [:spa">
 <meta name="keywords" content="Shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell正则表达式 通配符">
 <meta property="og:url" content="http://yoursite.com/post/c3ae41ec.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }      符号 作用     ? 匹配一个任意字符   * 匹配0个或多个任意字符   [] 匹配括号中任意一个字符   [-] 匹配括号中任意一个字符，-代表一个范围   [^] 匹配不是括号中的一个字符    Bash中其他特殊符号">
+<meta property="og:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }   1man glob    符号 作用     ? 匹配一个任意字符   * 匹配0个或多个任意字符   [] 匹配括号中任意一个字符   [-] 匹配括号中任意一个字符，-代表一个范围   [^] 匹配不是括号中的一个字符   [:spa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.828Z">
+<meta property="og:updated_time" content="2018-06-05T04:06:39.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell正则表达式 通配符">
-<meta name="twitter:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }      符号 作用     ? 匹配一个任意字符   * 匹配0个或多个任意字符   [] 匹配括号中任意一个字符   [-] 匹配括号中任意一个字符，-代表一个范围   [^] 匹配不是括号中的一个字符    Bash中其他特殊符号">
+<meta name="twitter:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; }   1man glob    符号 作用     ? 匹配一个任意字符   * 匹配0个或多个任意字符   [] 匹配括号中任意一个字符   [-] 匹配括号中任意一个字符，-代表一个范围   [^] 匹配不是括号中的一个字符   [:spa">
 
 
 
@@ -329,6 +329,7 @@ width: 70%;
 }
 </style>
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">man glob</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -357,8 +358,42 @@ width: 70%;
 <td>[^]</td>
 <td>匹配不是括号中的一个字符</td>
 </tr>
+<tr>
+<td>[:space:]</td>
+<td>空白字符</td>
+</tr>
+<tr>
+<td>[:punct:]</td>
+<td>标点符号</td>
+</tr>
+<tr>
+<td>[:lower:]</td>
+<td>小写字母</td>
+</tr>
+<tr>
+<td>[:upper:]</td>
+<td>大写字母</td>
+</tr>
+<tr>
+<td>[:alpha:]</td>
+<td>大小写字母</td>
+</tr>
+<tr>
+<td>[:digit:]</td>
+<td>数字</td>
+</tr>
+<tr>
+<td>[:alnum:]</td>
+<td>数字和大小写字母</td>
+</tr>
 </tbody>
 </table>
+<p>注：</p>
+<ol>
+<li><code>a[a-z]b</code>和<code>a[A-Z]b</code>不区分大小写，都可以匹配<code>abc</code>和<code>aBc</code></li>
+<li>专用字符集的[]和匹配括号中的任意一个字符不是一个同一个，专用字符集需要添加[]</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls a[[:upper:]]b</div></pre></td></tr></table></figure>
 <p>Bash中其他特殊符号</p>
 <table>
 <thead>
@@ -399,6 +434,8 @@ width: 70%;
 </tbody>
 </table>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">echo `ls`</div><div class="line">echo date</div><div class="line">echo `date`</div><div class="line">echo $(date)</div><div class="line"></div><div class="line">name=xi</div><div class="line">echo &apos;$name&apos;</div><div class="line">echo &quot;$name&quot;</div><div class="line">echo &apos;$(date)&apos;</div><div class="line">echo &quot;$(date)&quot;</div></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/tzs_1041218129/article/details/52896327" target="_blank" rel="external">https://blog.csdn.net/tzs_1041218129/article/details/52896327</a></p>
+
       
     </div>
     
@@ -508,7 +545,7 @@ width: 70%;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">153</span>
+                  <span class="site-state-item-count">162</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
