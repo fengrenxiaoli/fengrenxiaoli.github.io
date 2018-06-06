@@ -3,7 +3,7 @@
 
 
 
-<html class="theme-next pisces" lang="zh-Hans">
+<html class="theme-next mist" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -93,9 +93,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -650,7 +650,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/4ac3f250.html" itemprop="url">【Linux】Linux用户和用户组</a></h1>
+                <a class="post-title-link" href="/post/4ac3f250.html" itemprop="url">【Linux】Linux用户管理 用户和用户组及配置文件</a></h1>
         
 
         <div class="post-meta">
@@ -701,13 +701,17 @@
 
       
         
-          
-          Linux是一个多用户的系统，那么如何保证不同用户之间不冲突，也能保证各个用户的隐私呢，这涉及到了用户管理和权限管理，先讲用户管理
-用户用户就是使用操作系统的人，用户分为两类，超级用户和普通用户，而每一个用户都会有一个id，叫UID，系统中实际使用的是UID。
-
-超级用户：root，UID为0
-普通
-          ...
+          <p>Linux是一个多用户的系统，那么如何保证不同用户之间不冲突，也能保证各个用户的隐私呢，这涉及到了用户管理和权限管理，先讲用户管理</p>
+<h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><p>用户就是使用操作系统的人，用户分为两类，超级用户和普通用户，而每一个用户都会有一个id，叫<code>UID</code>，系统中实际使用的是<code>UID</code>。</p>
+<ul>
+<li>超级用户：root，UID为0</li>
+<li>普通用户：UID可以为1-65535（实际没到这么多）<ul>
+<li>系统用户：对守护进程获取资源进行权限分配，UID在1-499之间（实际是设置的，不一定是500，CentOS 6: ID&lt;500，CentOS 7: ID&lt;1000）</li>
+<li>登录用户：能够交互式登录的用户，UID在500+</li>
+<li>虚拟用户：不能登录的用户，比如vsftp</li>
+</ul>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/4ac3f250.html#more" rel="contents">
@@ -780,7 +784,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/d4f799aa.html" itemprop="url">【Linux】Linux用户管理02 查看用户</a></h1>
+                <a class="post-title-link" href="/post/d4f799aa.html" itemprop="url">【Linux】Linux用户管理 查看用户命令</a></h1>
         
 
         <div class="post-meta">
@@ -906,7 +910,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/dcf68b37.html" itemprop="url">【Linux】Linux用户管理01 新增/修改/删除用户</a></h1>
+                <a class="post-title-link" href="/post/dcf68b37.html" itemprop="url">【Linux】Linux管理用户命令</a></h1>
         
 
         <div class="post-meta">
@@ -958,7 +962,7 @@
       
         
           
-          用户基本命令1234567891011useradd 用户名					#添加用户，所在用户组与用户名同名useradd -g 组名 用户名			#添加用户，指定其所在的组，组必须存在useradd -d 目录 用户名 			#添加用户，制定其用户的家目录，没有指定所在组时，默认用户名就为用户组名#p
+          管理命令useradd 创建用户1234567891011121314useradd [options] LOGIN选项：    -u UID: [UID_MIN, UID_MAX], 定义在/etc/login.defs    -g GID：指明用户所属基本组，可为组名，也可以GID，组必须存在 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1643,7 +1647,7 @@ GPT
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
@@ -1742,13 +1746,6 @@ GPT
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
 

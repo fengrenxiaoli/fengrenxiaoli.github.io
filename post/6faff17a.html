@@ -3,7 +3,7 @@
 
 
 
-<html class="theme-next pisces" lang="zh-Hans">
+<html class="theme-next mist" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="apt 源相关文件、目录12345/var/lib/apt/lists #ubuntu软件更新的源服务器的地址/etc/apt/sources.list#*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件/etc/apt/sources.list.d yum 源1/etc/yum.repos.d/CentOS-Base.repo MySQL12/etc/mysql/my.cnf/e">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-04T02:29:43.583Z">
+<meta property="og:updated_time" content="2018-06-06T15:09:49.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 常用配置文件">
 <meta name="twitter:description" content="apt 源相关文件、目录12345/var/lib/apt/lists #ubuntu软件更新的源服务器的地址/etc/apt/sources.list#*.list文件在单独文件中写入源的地址，通常用来安装第三方的软件/etc/apt/sources.list.d yum 源1/etc/yum.repos.d/CentOS-Base.repo MySQL12/etc/mysql/my.cnf/e">
@@ -98,9 +98,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -327,7 +327,8 @@
 <p>网络配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/etc/sysconfig/network-scripts/ifcfg-eth0</div><div class="line">#网卡配置文件，IP/子网掩码/网关/DNS/ONBOOT</div><div class="line">/etc/sysconfig/network</div><div class="line">#设置主机名</div><div class="line">/etc/resolv.conf</div><div class="line">#DNS配置文件</div></pre></td></tr></table></figure></p>
 <p>用户管理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/etc/group	</div><div class="line">#存储当前系统中所有用户组的信息</div><div class="line">/etc/gshadow	</div><div class="line">#存储当前系统中用户组的密码信息</div><div class="line">/etc/passwd	</div><div class="line">#存储当前系统中所有用户的信息</div><div class="line">/etc/shadow    </div><div class="line">#存储当前系统中所有用户的密码信息</div></pre></td></tr></table></figure></p>
 <p>计划任务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/etc/crontab            #系统配置文件，只有root用户才会把这些内容载入到计任务表中</div><div class="line">/var/spool/cron         #最终生成的计划任务文件</div><div class="line">/var/spool/cron/root    #root用户的定时任务</div><div class="line">/var/spool/cron/user1   #user1用户的定时任务</div><div class="line">/var/log/cron           #crontab日志，保存cron的任务执行记录，echo会打印到这里 </div><div class="line">/var/log/cron-日期</div></pre></td></tr></table></figure></p>
-<p>别名、历史<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~/.bashrc</div><div class="line">/root/.bashrc</div></pre></td></tr></table></figure></p>
+<p>别名、历史<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">~/.bashrc</div><div class="line">/root/.bashrc</div><div class="line">/etc/bashrc</div></pre></td></tr></table></figure></p>
+<p>用户和用户组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/etc/login.defs         #提供了几个用户帐户参数的缺省配置信息</div><div class="line">/etc/default/useradd    #新建用户的默认配置</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -513,7 +514,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
@@ -612,13 +613,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
