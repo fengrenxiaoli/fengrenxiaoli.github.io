@@ -249,6 +249,260 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/392b408.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/392b408.html" itemprop="url">MySQL存储过程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T22:13:52+08:00">
+                2018-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>存储过程是SQL语句与控制语句的预编译集合，以一个名称存储作为一个单元处理</p>
+<p><img src="/img/IMG55.png" alt=""></p>
+<p>输入SQL命令，MySQL引擎对命令进行分析，查看输入的语法是否正确，如果正确，再进行编译，编译成MySQL引擎可识别的命令，最后再进行执行，并将执行结果返回给客户端。</p>
+<p>如果省略了语法分析和编译的阶段，则效率可提高。</p>
+<p>存储过程：是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理（类似函数）。存储过程存储在数据库内，可以由应用程序调用执行，而且允许用户申明变量以及进行流程控制。存储过程可以接受输入类型的参数和输出类型的参数，并且可以存在多个返回值。只在第一次调用时进行语法分析和编译，以后的调用直接调用编译的结果，效率大大提高。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/392b408.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/2aaa8b1b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/2aaa8b1b.html" itemprop="url">MySQL记录操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T10:13:18+08:00">
+                2018-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="insert-插入记录"><a href="#insert-插入记录" class="headerlink" title="insert 插入记录"></a>insert 插入记录</h2><h3 id="INSERT…VALUES"><a href="#INSERT…VALUES" class="headerlink" title="INSERT…VALUES"></a>INSERT…VALUES</h3><p>比较常用，一次性插入多条记录，可输入表达式甚至是函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">INSERT [INTO] table_name [(column_name,...)] </div><div class="line">&#123;VALUES|VALUE&#125; (&#123;expr|DEFAULT&#125;,...),(...),...;</div></pre></td></tr></table></figure></p>
+<p>expr 表示表达式<br>对于自动编号的字段，插入<code>NULL</code>或<code>DEFAULT</code>系统将自动依次递增编号；<br>对于有默认约束的字段，可以插入<code>DEFAULT</code>表示使用默认值；<br>列值可传入数值、表达式或函数，如密码可以用md5()函数进行加密（如md5(‘123’)）；<br>可同时插入多条记录，多条记录括号间用逗号<code>,</code>隔开</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">INSERT test VALUES(NULL,&apos;Tom&apos;);</div><div class="line">//插入单条记录</div><div class="line"></div><div class="line">INSERT users </div><div class="line">VALUES(DEFAULT,&apos;Tom&apos;,&apos;123&apos;,1+9*2,1),</div><div class="line">(NULL,&apos;John&apos;,md5(&apos;123&apos;),DEFAULT,0); </div><div class="line">//插入两条记录</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/2aaa8b1b.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/5f31036f.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1243,258 +1497,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/b62959c1.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/1c0eeefa.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/1c0eeefa.html" itemprop="url">MySQL目录结构</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-02T17:09:21+08:00">
-                2018-06-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>使用yum安装MySQL后的各目录位置<br>相关路径直接通过<code>find / -name &quot;mysql*&quot;</code>和<code>whereis mysqld</code>查找：</p>
-<p>/usr/lib64/mysql      库文件<br>/usr/share/mysql      配置文件，5.5后的默认安装路径<br>/var/lib/mysql        数据库目录<br>/etc/rc.d/init.d/     启动脚本<br>/usr/bin/             mysqladmin\mysqldump命令<br>/usr/share/doc/       文档<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/1c0eeefa.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/f525ac74.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/f525ac74.html" itemprop="url">Linux 文件系统</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-02T16:46:30+08:00">
-                2018-06-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件<br>文件系统：<br>Windows里面是这样的：C:\Program files\office11\word\word.exe<br>Linux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0</p>
-<p>文件有两类数据：<br>元数据：metadata  元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。<br>数据：data  数据是指普通文件中的实际数据。</p>
-<p>1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；<br>2、文件名可使用除/以外的任意字符，不建议使用特殊字符；  /: 表示根目录，也用做路径分隔符；<br>3、文件名长度最长不能超过255个字符；<br>4、所以.开头的文件，均为隐藏文件；</p>
-<p>LSB: Linux Standard Base Linux标准库</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/f525ac74.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="stat 查看时间戳文件：metadata, data查看文件状态：stat 三个时间戳：access time：（文档最后一次）访问时间，简写为atime，读取文件内容modify time: 修改时间, mtime，改变文件内容（数据）change time: 改变时间, ctime，元数据发生改变 123Access - the last time the file was readModi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-02T15:01:58.375Z">
+<meta property="og:updated_time" content="2018-06-07T18:15:34.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 时间戳管理">
 <meta name="twitter:description" content="stat 查看时间戳文件：metadata, data查看文件状态：stat 三个时间戳：access time：（文档最后一次）访问时间，简写为atime，读取文件内容modify time: 修改时间, mtime，改变文件内容（数据）change time: 改变时间, ctime，元数据发生改变 123Access - the last time the file was readModi">
@@ -323,7 +323,7 @@
         <h2 id="stat-查看时间戳"><a href="#stat-查看时间戳" class="headerlink" title="stat 查看时间戳"></a>stat 查看时间戳</h2><p>文件：metadata, data<br>查看文件状态：<code>stat</code></p>
 <p>三个时间戳：<br>access time：（文档最后一次）访问时间，简写为atime，读取文件内容<br>modify time: 修改时间, mtime，改变文件内容（数据）<br>change time: 改变时间, ctime，元数据发生改变</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Access - the last time the file was read</div><div class="line">Modify - the last time the file was modified (content has been modified)</div><div class="line">Change - the last time meta data of the file was changed (e.g. permissions)</div></pre></td></tr></table></figure>
-<h2 id="touch-修改时间戳"><a href="#touch-修改时间戳" class="headerlink" title="touch 修改时间戳"></a>touch 修改时间戳</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">touch [OPTION]... FILE...</div><div class="line">-a: only atime</div><div class="line">-m: only mtime</div><div class="line">-t STAMP:</div><div class="line">    [[CC]YY]MMDDhhmm[.ss]</div><div class="line">-c: 如果文件不存，则不予创建</div></pre></td></tr></table></figure>
+<h2 id="touch-修改时间戳"><a href="#touch-修改时间戳" class="headerlink" title="touch 修改时间戳"></a>touch 修改时间戳</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">touch [OPTION]... FILE...</div><div class="line">选项：</div><div class="line">-a      only atime</div><div class="line">-m      only mtime</div><div class="line">-t STAMP    [[CC]YY]MMDDhhmm[.ss]</div><div class="line">-c      如果文件不存，则不予创建</div></pre></td></tr></table></figure>
 <a id="more"></a>
       
     </div>

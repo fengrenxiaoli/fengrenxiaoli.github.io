@@ -702,7 +702,7 @@ Linu
 
       
         
-          <h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><h3 id="shutdown-（建议使用）"><a href="#shutdown-（建议使用）" class="headerlink" title="shutdown （建议使用）"></a>shutdown （建议使用）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">shutdown [选项] 时间</div><div class="line">#相比其它命令更安全，在关机和重启时会正确保存正在运行的程序</div><div class="line">选项：</div><div class="line">	-c:取消前一个关机命令</div><div class="line">	-h:关机（halt）</div><div class="line">	-r:重启</div><div class="line"></div><div class="line">TIME: </div><div class="line">		now: 立刻</div><div class="line">		+m: 相对时间表示法，从命令提交开始多久之后；例如 +3；</div><div class="line">		hh:mm: 绝对时间表示，指明具体时间；</div><div class="line"></div><div class="line">shutdown -r 05:30		5:30重启</div><div class="line">shutdown -r 05:30 &amp;		后台运行</div><div class="line">shutdown -r now			立刻重启</div><div class="line">shutdown -r +30			30分钟后关机</div><div class="line">#在服务器上尽量避免远程关机，因为再开机麻烦，所以远程重启就足够了</div><div class="line">#服务器由于经常进行高速运算强制重启非常容易损坏硬件，也容易造成数据丢失，所以一定要小心</div></pre></td></tr></table></figure>
+          <h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><h3 id="shutdown-（建议使用）"><a href="#shutdown-（建议使用）" class="headerlink" title="shutdown （建议使用）"></a>shutdown （建议使用）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">shutdown [选项] 时间</div><div class="line">#相比其它命令更安全，在关机和重启时会正确保存正在运行的程序</div><div class="line">选项：</div><div class="line">-c		取消前一个关机命令</div><div class="line">-h		关机（halt）</div><div class="line">-r		重启</div><div class="line"></div><div class="line">时间: </div><div class="line">now		立刻</div><div class="line">+m		相对时间表示法，从命令提交开始多久之后，例如 +3</div><div class="line">hh:mm	绝对时间表示，指明具体时间</div><div class="line"></div><div class="line">shutdown -r 05:30		5:30重启</div><div class="line">shutdown -r 05:30 &amp;		后台运行</div><div class="line">shutdown -r now			立刻重启</div><div class="line">shutdown -r +30			30分钟后关机</div><div class="line"># 在服务器上尽量避免远程关机，因为再开机麻烦，所以远程重启就足够了</div><div class="line"># 服务器由于经常进行高速运算强制重启非常容易损坏硬件，也容易造成数据丢失，所以一定要小心</div></pre></td></tr></table></figure>
 <h3 id="halt"><a href="#halt" class="headerlink" title="halt"></a>halt</h3><h3 id="poweroff"><a href="#poweroff" class="headerlink" title="poweroff"></a>poweroff</h3><h3 id="init-0"><a href="#init-0" class="headerlink" title="init 0"></a>init 0</h3>
           <!--noindex-->
           <div class="post-button text-center">
@@ -776,7 +776,7 @@ Linu
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/9ffd3055.html" itemprop="url">Linux文件管理05 文件系统</a></h1>
+                <a class="post-title-link" href="/post/9ffd3055.html" itemprop="url">【Linux】Linux文件管理01 文件和文件系统</a></h1>
         
 
         <div class="post-meta">
@@ -827,13 +827,146 @@ Linu
 
       
         
-          <p>文件系统层次结构标准（英语：Filesystem Hierarchy Standard，FHS）定义了Linux操作系统中的主要目录及目录内容。在大多数情况下，它是一个传统BSD文件系统层次结构的形式化与扩充。</p>
-<p>设计FHS的目的是为了给Unix-like系统的管理员提供一个管理系统以及目录结构的参考。</p>
-<p>由于利用Linux源码开发产品和发行版的企业或组织众多，如果每个组织都按照自己的喜好来组织系统中的文件结构，网络上必然出现各种各样的文件结构。这些产品的用户就不得不为每种不同的文件系统结构花费时间来学习。有了FHS之后，几乎所有的Unix-like系统的发行商或软件开发者都遵从该建议规范每个特定目录下分别只放哪些文件，方便了文件的组织和查找。</p>
-<p>详细内容参考：<a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf" target="_blank" rel="external">https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf</a><br>
+          <h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><p>linux中一切皆文件，目录为目录文件。普通文件用来保存数据，目录文件用来保存文件</p>
+<h3 id="文件有两类数据"><a href="#文件有两类数据" class="headerlink" title="文件有两类数据"></a>文件有两类数据</h3><ul>
+<li>元数据、metadata  <ul>
+<li>元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。</li>
+</ul>
+</li>
+<li>数据、data  <ul>
+<li>数据是指普通文件中的实际数据。</li>
+</ul>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/9ffd3055.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/616ff62c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/616ff62c.html" itemprop="url">Linux 字符处理命令sort、wc、tr、uniq</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T12:36:59+08:00">
+                2018-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          sort 排序命令对文本中的行进行排序1234567891011121314151617sort [OPTION]... [FILE]...选项：-f              忽略大小写-n              以数值型进行排序，默认使用字符串型排序-r              反向排序-
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/616ff62c.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -954,140 +1087,13 @@ Linu
 
       
         
-          <h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cat file...</div><div class="line">#读取一个或多个文件，然后复制它们到标准输出</div><div class="line"></div><div class="line">cat movie.mpeg.0* &gt; movie.mpeg</div><div class="line">#cat可以用来连接文件，通配符是有序的</div></pre></td></tr></table></figure>
+          <p>相关命令：cat, tac, head, tail, more, less</p>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">cat [OPTION]... [FILE]...</div><div class="line">选项：</div><div class="line">-E: 显示行结束符$</div><div class="line">-n: 对显示出的每一行进行编号</div><div class="line"># 读取一个或多个文件，然后复制它们到标准输出</div><div class="line"></div><div class="line">cat movie.mpeg.0* &gt; movie.mpeg</div><div class="line"># cat可以用来连接文件，通配符是有序的</div></pre></td></tr></table></figure>
 <p>如果没有给cat任何参数，它会从标准输入读入数据，因为标准输入在默认情况下连接到键盘，它正在等待我们输入数据<br>当我们通过键盘输入数据并按<code>Ctrl-d</code>（表示EOF，作用相当于在终端中输入exit后回车）后，它会复制标准输入到标准输出</p>
 <h3 id="tac"><a href="#tac" class="headerlink" title="tac"></a>tac</h3><p>和cat类似，逆序查看</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/30ec04f2.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/8fef17bb.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/8fef17bb.html" itemprop="url">Linux文件管理05 查看目录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T12:33:53+08:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="ls-显示指定路径下的文件列表"><a href="#ls-显示指定路径下的文件列表" class="headerlink" title="ls 显示指定路径下的文件列表"></a>ls 显示指定路径下的文件列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ls [选项] [文件或目录]</div><div class="line">选项</div><div class="line">-a 显示所有文件,包括隐藏文件</div><div class="line">-l 显示详细信息</div><div class="line">-d 查看目录自身的相关属性，通常要与-l一起使用</div><div class="line">-h 人性化显示文件大小</div><div class="line">-i 显示inode</div><div class="line">-r 逆序显示</div><div class="line">-R 递归</div><div class="line">ll命令表示ls -l</div></pre></td></tr></table></figure>
-<p>Linux下的文件类型：</p>
-<ul>
-<li>(f)：普通文件；<br>d: 目录文件；<br>b: 块设备；<br>c: 字符设备；<br>l: 符号链接文件；<br>p: 管道文件；<br>s: 套接字文件；socket; </li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/8fef17bb.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1282,7 +1288,7 @@ Linu
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/3128504e.html" itemprop="url">Linux文件管理03 文件解压缩命令</a></h1>
+                <a class="post-title-link" href="/post/3128504e.html" itemprop="url">Linux文件管理05 文件解压缩命令</a></h1>
         
 
         <div class="post-meta">
@@ -1410,7 +1416,7 @@ Linu
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/2bff0643.html" itemprop="url">Linux文件管理02 文件搜索命令</a></h1>
+                <a class="post-title-link" href="/post/2bff0643.html" itemprop="url">Linux文件管理03 文件搜索命令</a></h1>
         
 
         <div class="post-meta">

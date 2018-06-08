@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="cat12345cat file...#读取一个或多个文件，然后复制它们到标准输出cat movie.mpeg.0* &amp;gt; movie.mpeg#cat可以用来连接文件，通配符是有序的 如果没有给cat任何参数，它会从标准输入读入数据，因为标准输入在默认情况下连接到键盘，它正在等待我们输入数据当我们通过键盘输入数据并按Ctrl-d（表示EOF，作用相当于在终端中输入exit后回车）后，它会复制">
+<meta name="description" content="相关命令：cat, tac, head, tail, more, less cat12345678cat [OPTION]... [FILE]...选项：-E: 显示行结束符$-n: 对显示出的每一行进行编号# 读取一个或多个文件，然后复制它们到标准输出cat movie.mpeg.0* &amp;gt; movie.mpeg# cat可以用来连接文件，通配符是有序的 如果没有给cat任何参数，它会从标准">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux文件管理06 查看文本文件内容">
 <meta property="og:url" content="http://yoursite.com/post/30ec04f2.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="cat12345cat file...#读取一个或多个文件，然后复制它们到标准输出cat movie.mpeg.0* &amp;gt; movie.mpeg#cat可以用来连接文件，通配符是有序的 如果没有给cat任何参数，它会从标准输入读入数据，因为标准输入在默认情况下连接到键盘，它正在等待我们输入数据当我们通过键盘输入数据并按Ctrl-d（表示EOF，作用相当于在终端中输入exit后回车）后，它会复制">
+<meta property="og:description" content="相关命令：cat, tac, head, tail, more, less cat12345678cat [OPTION]... [FILE]...选项：-E: 显示行结束符$-n: 对显示出的每一行进行编号# 读取一个或多个文件，然后复制它们到标准输出cat movie.mpeg.0* &amp;gt; movie.mpeg# cat可以用来连接文件，通配符是有序的 如果没有给cat任何参数，它会从标准">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-02T15:01:51.507Z">
+<meta property="og:updated_time" content="2018-06-07T16:59:44.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux文件管理06 查看文本文件内容">
-<meta name="twitter:description" content="cat12345cat file...#读取一个或多个文件，然后复制它们到标准输出cat movie.mpeg.0* &amp;gt; movie.mpeg#cat可以用来连接文件，通配符是有序的 如果没有给cat任何参数，它会从标准输入读入数据，因为标准输入在默认情况下连接到键盘，它正在等待我们输入数据当我们通过键盘输入数据并按Ctrl-d（表示EOF，作用相当于在终端中输入exit后回车）后，它会复制">
+<meta name="twitter:description" content="相关命令：cat, tac, head, tail, more, less cat12345678cat [OPTION]... [FILE]...选项：-E: 显示行结束符$-n: 对显示出的每一行进行编号# 读取一个或多个文件，然后复制它们到标准输出cat movie.mpeg.0* &amp;gt; movie.mpeg# cat可以用来连接文件，通配符是有序的 如果没有给cat任何参数，它会从标准">
 
 
 
@@ -320,16 +320,17 @@
       
 
       
-        <h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cat file...</div><div class="line">#读取一个或多个文件，然后复制它们到标准输出</div><div class="line"></div><div class="line">cat movie.mpeg.0* &gt; movie.mpeg</div><div class="line">#cat可以用来连接文件，通配符是有序的</div></pre></td></tr></table></figure>
+        <p>相关命令：cat, tac, head, tail, more, less</p>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">cat [OPTION]... [FILE]...</div><div class="line">选项：</div><div class="line">-E: 显示行结束符$</div><div class="line">-n: 对显示出的每一行进行编号</div><div class="line"># 读取一个或多个文件，然后复制它们到标准输出</div><div class="line"></div><div class="line">cat movie.mpeg.0* &gt; movie.mpeg</div><div class="line"># cat可以用来连接文件，通配符是有序的</div></pre></td></tr></table></figure>
 <p>如果没有给cat任何参数，它会从标准输入读入数据，因为标准输入在默认情况下连接到键盘，它正在等待我们输入数据<br>当我们通过键盘输入数据并按<code>Ctrl-d</code>（表示EOF，作用相当于在终端中输入exit后回车）后，它会复制标准输入到标准输出</p>
 <h3 id="tac"><a href="#tac" class="headerlink" title="tac"></a>tac</h3><p>和cat类似，逆序查看</p>
 <a id="more"></a>
-<h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">head [OPTION]... [FILE]...</div><div class="line">#从文件头部开始读</div><div class="line">-c number: 指定获取前number字节</div><div class="line">-n number: 指定获取前number行</div><div class="line">    -number：指定获取前number行</div></pre></td></tr></table></figure>
-<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">tail [OPTION]... [FILE]...</div><div class="line">-c number: 指定获取后number字节</div><div class="line">-n number: 指定获取后number行， 默认是10行</div><div class="line">    -number：</div><div class="line">-f: 跟踪显示文件新追加的内容</div><div class="line"></div><div class="line"></div><div class="line">tail -c number 从尾指定显示number个字符</div><div class="line">tail -n number 从尾指定显示number行</div><div class="line">tail -f        实时浏览文件，Ctrl-c退出</div></pre></td></tr></table></figure>
-<h3 id="more-分页"><a href="#more-分页" class="headerlink" title="more 分页"></a>more 分页</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">more [OPTIONS...] FILE...</div><div class="line">-d: 显示翻页及退出提示</div></pre></td></tr></table></figure>
+<h3 id="head-从文件头部开始读"><a href="#head-从文件头部开始读" class="headerlink" title="head 从文件头部开始读"></a>head 从文件头部开始读</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">head [OPTION]... [FILE]...</div><div class="line">-c number     指定获取前number字节</div><div class="line">-n number</div><div class="line">-number       指定获取前number行</div></pre></td></tr></table></figure>
+<h3 id="tail-从文件尾部开始读"><a href="#tail-从文件尾部开始读" class="headerlink" title="tail 从文件尾部开始读"></a>tail 从文件尾部开始读</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tail [OPTION]... [FILE]...</div><div class="line">-c number   从尾指定显示number个字符</div><div class="line">-n number   </div><div class="line">-number     从尾指定显示number行，默认是10行</div><div class="line">-f          实时显示文件新追加的内容，Ctrl-c退出</div></pre></td></tr></table></figure>
+<h3 id="more-分页"><a href="#more-分页" class="headerlink" title="more 分页"></a>more 分页</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">more [OPTIONS...] FILE...</div><div class="line">-d      显示翻页及退出提示</div></pre></td></tr></table></figure>
 <h3 id="less-分页"><a href="#less-分页" class="headerlink" title="less 分页"></a>less 分页</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">less [OPTIONS...] FILE...</div></pre></td></tr></table></figure>
 <p>man命令即是以less进行分页的</p>
-<p>操作方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Space: 向文件尾翻屏；</div><div class="line">b: 向文件首部翻屏；</div><div class="line">d: 向文件尾部翻半屏；</div><div class="line">u: 向文件首部翻半屏；</div><div class="line">e: 向文件尾部翻一行；</div><div class="line">y：向文件首部翻一行；</div><div class="line">q: 退出；</div><div class="line"></div><div class="line">#：跳转至第#行；</div><div class="line">1G: 回到文件首部</div><div class="line">G：翻至文件尾部</div><div class="line"></div><div class="line">文本搜索：</div><div class="line">    /KEYWORD: </div><div class="line">        以KEYWORD指定的字符串为关键字，从当前位置向文件尾部搜索；不区分字符大小写；</div><div class="line">            n: 下一个</div><div class="line">            N：上一个</div><div class="line">    ?KEYWORD:</div><div class="line">        以KEYWORD指定的字符串为关键字，从当前位置向文件首部搜索；不区分字符大小写；</div><div class="line">            n: 跟搜索命令同方向，下一个</div><div class="line">            N：跟搜索命令反方向，上一个</div></pre></td></tr></table></figure></p>
+<p>操作方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Space   向文件尾翻屏</div><div class="line">b       向文件首部翻屏</div><div class="line">d       向文件尾部翻半屏</div><div class="line">u       向文件首部翻半屏</div><div class="line">e       向文件尾部翻一行</div><div class="line">y       向文件首部翻一行</div><div class="line">q       退出</div><div class="line"></div><div class="line">number  跳转至第number行</div><div class="line">1G      回到文件首部</div><div class="line">G       翻至文件尾部</div><div class="line"></div><div class="line">文本搜索：</div><div class="line">/KEYWORD: </div><div class="line">以KEYWORD指定的字符串为关键字，从当前位置向文件尾部搜索；不区分字符大小写</div><div class="line">    n: 下一个</div><div class="line">    N：上一个</div><div class="line">?KEYWORD:</div><div class="line">以KEYWORD指定的字符串为关键字，从当前位置向文件首部搜索；不区分字符大小写</div><div class="line">    n: 跟搜索命令同方向，下一个</div><div class="line">    N：跟搜索命令反方向，上一个</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -360,8 +361,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/8fef17bb.html" rel="next" title="Linux文件管理05 查看目录">
-                <i class="fa fa-chevron-left"></i> Linux文件管理05 查看目录
+              <a href="/post/40d56de0.html" rel="next" title="Linux文件管理04 链接命令">
+                <i class="fa fa-chevron-left"></i> Linux文件管理04 链接命令
               </a>
             
           </div>
@@ -370,8 +371,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/post/9ffd3055.html" rel="prev" title="Linux文件管理05 文件系统">
-                Linux文件管理05 文件系统 <i class="fa fa-chevron-right"></i>
+              <a href="/post/616ff62c.html" rel="prev" title="Linux 字符处理命令sort、wc、tr、uniq">
+                Linux 字符处理命令sort、wc、tr、uniq <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -502,7 +503,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cat"><span class="nav-number">1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tac"><span class="nav-number">2.</span> <span class="nav-text">tac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#head"><span class="nav-number">3.</span> <span class="nav-text">head</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tail"><span class="nav-number">4.</span> <span class="nav-text">tail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more-分页"><span class="nav-number">5.</span> <span class="nav-text">more 分页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less-分页"><span class="nav-number">6.</span> <span class="nav-text">less 分页</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cat"><span class="nav-number">1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tac"><span class="nav-number">2.</span> <span class="nav-text">tac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#head-从文件头部开始读"><span class="nav-number">3.</span> <span class="nav-text">head 从文件头部开始读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tail-从文件尾部开始读"><span class="nav-number">4.</span> <span class="nav-text">tail 从文件尾部开始读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more-分页"><span class="nav-number">5.</span> <span class="nav-text">more 分页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less-分页"><span class="nav-number">6.</span> <span class="nav-text">less 分页</span></a></li></ol></div>
             
 
           </div>

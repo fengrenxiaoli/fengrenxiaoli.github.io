@@ -605,7 +605,9 @@ r：读w：写x：执行
 
       
         
-          <h1 id="内部命令"><a href="#内部命令" class="headerlink" title="内部命令"></a>内部命令</h1><h2 id="help-shell内部命令帮助"><a href="#help-shell内部命令帮助" class="headerlink" title="help shell内部命令帮助"></a>help shell内部命令帮助</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">help shell内部命令</div><div class="line">#type\whereis可以用来判断一个命令是否是shell内部命令</div><div class="line">#ls在/bin/下面有可执行文件，说明ls命令不是shell内部命令</div><div class="line">#cd命令在/bin/下面没有相应的可执行文件，所以是shell自带的命令</div><div class="line">#man命令不能只获取shell的内部命令</div><div class="line">#help命令只能获取shell的内部命令</div></pre></td></tr></table></figure>
+          <p>针对内部命令和外部命令有不同的帮助命令</p>
+<h2 id="内部命令"><a href="#内部命令" class="headerlink" title="内部命令"></a>内部命令</h2><h3 id="help：shell内部命令帮助"><a href="#help：shell内部命令帮助" class="headerlink" title="help：shell内部命令帮助"></a>help：shell内部命令帮助</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">help shell内部命令</div></pre></td></tr></table></figure>
+<p><code>type</code> \ <code>whereis</code>可以用来判断一个命令是否是shell内部命令<br><code>ls</code>在<code>/bin/</code>下面有可执行文件，说明<code>ls</code>命令不是shell内部命令<br><code>cd</code>命令在<code>/bin/</code>下面没有相应的可执行文件，所以是shell自带的命令<br><code>man</code>命令不能获取shell的内部命令<br><code>help</code>命令只能获取shell的内部命令</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/4a7c8c06.html#more" rel="contents">
@@ -678,7 +680,7 @@ r：读w：写x：执行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/bc48c0fa.html" itemprop="url">Linux 命令的分类</a></h1>
+                <a class="post-title-link" href="/post/bc48c0fa.html" itemprop="url">【Linux】Linux 命令的分类</a></h1>
         
 
         <div class="post-meta">
@@ -730,8 +732,8 @@ r：读w：写x：执行
       
         
           <h2 id="命令的分类"><a href="#命令的分类" class="headerlink" title="命令的分类"></a>命令的分类</h2><ol>
-<li>shell内部命令</li>
-<li>外部命令，可执行程序，C、C++、shell、perl、python、ruby等，二进制文件、脚本文件，shell程序搜寻可执行程序文件的路径定义在<code>$PATH</code>环境变量中，自左至右搜寻</li>
+<li><strong>shell内部命令</strong>，由shell自带的，而且通过某命令形式提供</li>
+<li><strong>外部命令</strong>，在当前系统的某文件系统路径下有对应的可执行程序文件，C、C++、shell、perl、python、ruby等，二进制文件、脚本文件，shell程序搜寻可执行程序文件的路径定义在<code>$PATH</code>环境变量中，自左至右搜寻</li>
 <li>shell函数，环境变量中</li>
 <li>命令别名</li>
 </ol>
@@ -807,7 +809,7 @@ r：读w：写x：执行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/9da1ef6b.html" itemprop="url">Linux 命令</a></h1>
+                <a class="post-title-link" href="/post/9da1ef6b.html" itemprop="url">【Linux】Linux 命令</a></h1>
         
 
         <div class="post-meta">
@@ -858,7 +860,7 @@ r：读w：写x：执行
 
       
         
-          <h2 id="命令提示符"><a href="#命令提示符" class="headerlink" title="命令提示符"></a>命令提示符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]#</div><div class="line">root 当前登录用户</div><div class="line">localhost 主机名</div><div class="line">~ 当前所在目录（家目录）</div><div class="line"># 超级用户的提示符</div><div class="line">$ 普通用户的提示符</div><div class="line"></div><div class="line"></div><div class="line">环境变量 $PS1</div></pre></td></tr></table></figure>
+          <h2 id="命令提示符-prompt"><a href="#命令提示符-prompt" class="headerlink" title="命令提示符 prompt"></a>命令提示符 prompt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]#</div><div class="line">root        当前登录用户</div><div class="line">localhost   主机名</div><div class="line">~           当前所在目录（家目录）</div><div class="line">#           超级用户的提示符</div><div class="line">$           普通用户的提示符</div><div class="line"></div><div class="line">环境变量 $PS1</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/9da1ef6b.html#more" rel="contents">
@@ -931,7 +933,7 @@ r：读w：写x：执行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/fd342599.html" itemprop="url">Linux 发行版及开源协议</a></h1>
+                <a class="post-title-link" href="/post/fd342599.html" itemprop="url">【Linux】Linux 发行版及开源协议</a></h1>
         
 
         <div class="post-meta">
@@ -983,8 +985,8 @@ r：读w：写x：执行
       
         
           
-          Linux的发行版基于kernal，会有不同的Linux发行版，http://futurist.se/gldt/ 列出了2012年时的所有发行版，https://distrowatch.com/ 列出了各个发行版的排名
-12345678910111213141516slackware:    sus
+          Linux的发行版基于kernal，会有不同的Linux发行版，这里 列出了2012年时的所有发行版，这里 列出了各个发行版的排名
+12345678910111213141516slackware:    suse        opensusedebian:    ubuntu        mi
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1058,7 +1060,7 @@ r：读w：写x：执行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/2feeae2.html" itemprop="url">Linux 计算机基础</a></h1>
+                <a class="post-title-link" href="/post/2feeae2.html" itemprop="url">【Linux】Linux 计算机基础</a></h1>
         
 
         <div class="post-meta">
@@ -1109,10 +1111,13 @@ r：读w：写x：执行
 
       
         
-          <p>现代计算机设备的组成部分：<br>    运算器、控制器、存储器、输入设备、输出设备<br>        CPU<br>        bus：总线<br>        memory: 编址存储设备<br>        read ahead 高速缓存</p>
-<pre><code>IO: 与外部部件交互
+          
+          现代计算机设备的组成部分：    运算器、控制器、存储器、输入设备、输出设备        CPU        bus：总线        memory: 编址存储设备        read ahead 高速缓存
+IO: 与外部部件交互
     磁盘 网卡
-</code></pre>
+虚拟机：虚拟计算机
+CPU：运算器、控
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/2feeae2.html#more" rel="contents">

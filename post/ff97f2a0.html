@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="方法1：赋予执行权限，直接运行12chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh） 方法2：通过Bash调用执行脚本1bash hello.sh 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash运行是没问题的，但如果脚本调用了其他语言，">
+<meta name="description" content="方法1：赋予执行权限，直接运行12chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh） 方法2：通过Bash调用执行脚本12bash hello.sh#不需要执行权限，脚本作为bash的参数 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash">
 <meta name="keywords" content="Shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell脚本执行方式">
 <meta property="og:url" content="http://yoursite.com/post/ff97f2a0.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="方法1：赋予执行权限，直接运行12chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh） 方法2：通过Bash调用执行脚本1bash hello.sh 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash运行是没问题的，但如果脚本调用了其他语言，">
+<meta property="og:description" content="方法1：赋予执行权限，直接运行12chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh） 方法2：通过Bash调用执行脚本12bash hello.sh#不需要执行权限，脚本作为bash的参数 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.868Z">
+<meta property="og:updated_time" content="2018-06-07T01:22:57.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell脚本执行方式">
-<meta name="twitter:description" content="方法1：赋予执行权限，直接运行12chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh） 方法2：通过Bash调用执行脚本1bash hello.sh 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash运行是没问题的，但如果脚本调用了其他语言，">
+<meta name="twitter:description" content="方法1：赋予执行权限，直接运行12chmod 755 hello.sh./hello.sh（或者绝对路径执行 /root/hello.sh） 方法2：通过Bash调用执行脚本12bash hello.sh#不需要执行权限，脚本作为bash的参数 在shell脚本中#!/bin/Bash不是注释，它标称下面的内容是linux的标准脚本程序如果该脚本使用纯shell语句完成，不加#!/bin/Bash">
 
 
 
@@ -321,7 +321,7 @@
 
       
         <p>方法1：赋予执行权限，直接运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chmod 755 hello.sh</div><div class="line">./hello.sh（或者绝对路径执行 /root/hello.sh）</div></pre></td></tr></table></figure></p>
-<p>方法2：通过Bash调用执行脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash hello.sh</div></pre></td></tr></table></figure></p>
+<p>方法2：通过Bash调用执行脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bash hello.sh</div><div class="line">#不需要执行权限，脚本作为bash的参数</div></pre></td></tr></table></figure></p>
 <p>在shell脚本中<code>#!/bin/Bash</code>不是注释，它标称下面的内容是linux的标准脚本程序<br>如果该脚本使用纯shell语句完成，不加<code>#!/bin/Bash</code>运行是没问题的，但如果脚本调用了其他语言，就会报错</p>
 
       

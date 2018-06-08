@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="现代计算机设备的组成部分：    运算器、控制器、存储器、输入设备、输出设备        CPU        bus：总线        memory: 编址存储设备        read ahead 高速缓存 IO: 与外部部件交互     磁盘 网卡">
+<meta name="description" content="现代计算机设备的组成部分：    运算器、控制器、存储器、输入设备、输出设备        CPU        bus：总线        memory: 编址存储设备        read ahead 高速缓存 IO: 与外部部件交互     磁盘 网卡 虚拟机：虚拟计算机 CPU：运算器、控制器    CPU指令，指令集；        特权指令：OS运行特权指令；        普通指令">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 计算机基础">
+<meta property="og:title" content="【Linux】Linux 计算机基础">
 <meta property="og:url" content="http://yoursite.com/post/2feeae2.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="现代计算机设备的组成部分：    运算器、控制器、存储器、输入设备、输出设备        CPU        bus：总线        memory: 编址存储设备        read ahead 高速缓存 IO: 与外部部件交互     磁盘 网卡">
+<meta property="og:description" content="现代计算机设备的组成部分：    运算器、控制器、存储器、输入设备、输出设备        CPU        bus：总线        memory: 编址存储设备        read ahead 高速缓存 IO: 与外部部件交互     磁盘 网卡 虚拟机：虚拟计算机 CPU：运算器、控制器    CPU指令，指令集；        特权指令：OS运行特权指令；        普通指令">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-02T15:01:39.191Z">
+<meta property="og:updated_time" content="2018-06-08T10:01:38.356Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 计算机基础">
-<meta name="twitter:description" content="现代计算机设备的组成部分：    运算器、控制器、存储器、输入设备、输出设备        CPU        bus：总线        memory: 编址存储设备        read ahead 高速缓存 IO: 与外部部件交互     磁盘 网卡">
+<meta name="twitter:title" content="【Linux】Linux 计算机基础">
+<meta name="twitter:description" content="现代计算机设备的组成部分：    运算器、控制器、存储器、输入设备、输出设备        CPU        bus：总线        memory: 编址存储设备        read ahead 高速缓存 IO: 与外部部件交互     磁盘 网卡 虚拟机：虚拟计算机 CPU：运算器、控制器    CPU指令，指令集；        特权指令：OS运行特权指令；        普通指令">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title>Linux 计算机基础 | 太阳落下</title>
+  <title>【Linux】Linux 计算机基础 | 太阳落下</title>
   
 
 
@@ -269,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux 计算机基础</h1>
+          <h1 class="post-title" itemprop="name headline">【Linux】Linux 计算机基础</h1>
         
 
         <div class="post-meta">
@@ -322,8 +323,7 @@
         <p>现代计算机设备的组成部分：<br>    运算器、控制器、存储器、输入设备、输出设备<br>        CPU<br>        bus：总线<br>        memory: 编址存储设备<br>        read ahead 高速缓存</p>
 <pre><code>IO: 与外部部件交互
     磁盘 网卡
-</code></pre><a id="more"></a>
-<p>虚拟机：虚拟计算机</p>
+</code></pre><p>虚拟机：虚拟计算机</p>
 <p>CPU：运算器、控制器<br>    CPU指令，指令集；<br>        特权指令：OS运行特权指令；<br>        普通指令：<br>    程序员：</p>
 <p>OS: Operating System<br>    软件程序<br>    通用目的<br>        硬件驱动<br>        进程管理<br>        内存管理<br>        网络管理<br>        安全管理</p>
 <pre><code>System Call 系统调用
@@ -368,7 +368,64 @@ malloc(), free()
         应用程序
 
     unix-like
-</code></pre>
+</code></pre><p>LSB: Linux Standard Base Linux标准库</p>
+<p>程序包管理器：<br>    rpm:<br>        RHEL, Fedora, S.u.S.E, CentOS<br>    dpt:<br>        Debian, Ubuntu</p>
+<p>自由软件：<br>    自由使用；自由学习和修改；自由分发；自由创建衍生版；</p>
+<p>Linux的哲学思想：<br>    1、一切皆文件；<br>        把几乎所有资源，包括硬件设备都组织为文件格式；<br>    2、由众多单一目的小程序组成；一个程序只实现一个功能，而且要做好；<br>        组合小程序完成复杂任务；<br>    3、尽量避免跟用户交互；<br>        目标：实现脚本编程，以自动完成某些功能；<br>    4、使用纯文本文件保存配置信息；<br>        目标：一款使用的文本编程器即能完成系统配置工作；</p>
+<p>如何获取CentOS的发行版：<br>    <a href="http://mirrors.aliyun.com" target="_blank" rel="external">http://mirrors.aliyun.com</a><br>    <a href="http://mirrors.sohu.com" target="_blank" rel="external">http://mirrors.sohu.com</a><br>    <a href="http://mirrors.163.com" target="_blank" rel="external">http://mirrors.163.com</a></p>
+<p>登录：<br>    root/mageedu</p>
+<pre><code># startx &amp;
+</code></pre><p>终端：<br>    用户与主机交互，必然用到的设备；</p>
+<pre><code>物理终端：直接接入本机的显示器和键盘设备；/dev/console
+
+虚拟终端：附加在物理终端之上的以软件方式虚拟实现的终端，CentOS 6默认启动6个虚拟终端
+    Ctrl+Alt+F#: [1,6]
+    图形终端：附加在物理终端之上的以软件方式虚拟实现的终端，但额外会提供桌面环境；
+
+    设备文件路径：/dev/tty#
+模拟终端：
+    图形界面下打开的命令行接口，基于ssh协议或telnet协议等远程打开的界面
+
+    设备文件：/dev/pts/#    [0,oo)
+
+查看当前的终端设备：tty
+</code></pre><p>交互式接口：启动终端后，在终端设备附加一个交互式应用程序<br>    GUI：<br>        X protocol, window manager, desktop</p>
+<pre><code>    Desktop:
+        GNOME (C, gtk)
+        KDE   (C++, qt)
+        XFCE  (轻量级桌面)
+CLI：
+    shell程序：
+        sh (bourn)
+        csh 
+        tcsh
+        ksh (korn)
+        bash (bourn again shell), GPL
+        zsh 
+
+    显示当前使用的shell：
+        # echo ${SHELL}
+
+    显示当前系统使用的所有shell：
+        # cat /etc/shells
+
+    命令提示符：prompt
+        [root@localhost ~]#
+            [root@localhost ~]：PS1
+            prompt：
+                管理员：#
+                普通用户：$
+</code></pre><p>硬件系统主要有五大部分组成：运算器、控制器、存储器、输入设备、输出设备<br>运算器：负责算术与逻辑运算。与控制器共同组成了中央处理器<br>控制器：负责发送和接收指令<br>存储器：用来存储正在进行程序、将要进行程序的数据及刚处理完的数据<br>输入设备：用来进行输入的设备<br>输出设备：用来进行输出的设备</p>
+<p>硬件是基础，硬件需要通过系统软件控制来启动硬件，并让各个硬件之间相互协同工作，在系统软件的基础上是用户，用户操控的是系统软件，并在系统软件的基础上安装相应的应用软件，来完成用户所需要的工作，所以说最底层的是硬件，硬件上一层是系统软件，系统软件上一层是应用软件，而最上层的则是用户</p>
+<p>计算机的工作原理<br>算机的工作过程，就是执行程序的过程。怎样组织存储程序，涉及到计算机体系结构问题。<br>现在的计算机都是基于“程序存储”概念设计末造出来的。<br>了解了“程序存储”，再去理解计算机工作过程变得十分容易。如果想让计算机工作，就得先把程序编出来，然后通过输入设备送到存储器保存起来，即程序存储。<br>根据冯·诺依的设计，计算机应能自动执行程序，而执行程序又归结为逐条执行指令。执行。执行一条指令可分为以下4个基本操作</p>
+<ol>
+<li>取出指令：从存储器某个地址中取出要执行的指令送到CPU内部的指令寄存器暂存。</li>
+<li>分析指令：把保存在指令寄存器中的指令送到指令译码器，译出该指令对应的微操作。</li>
+<li>执行指令：根据指令译码，向各个部件发岀相应控制信号，完成指令規定的各种操作</li>
+<li>为执行下一条指令作好准备，即取出下一条指令地址</li>
+</ol>
+<p>计算机使用二进制的原因<br>技术实现简单<br>简化运算规则<br>适合逻辑运算<br>易于进行转换<br>抗干扰能力强</p>
+
       
     </div>
     
@@ -382,6 +439,12 @@ malloc(), free()
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
       
 
       
@@ -402,8 +465,8 @@ malloc(), free()
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/post/fd342599.html" rel="prev" title="Linux 发行版及开源协议">
-                Linux 发行版及开源协议 <i class="fa fa-chevron-right"></i>
+              <a href="/post/fd342599.html" rel="prev" title="【Linux】Linux 发行版及开源协议">
+                【Linux】Linux 发行版及开源协议 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

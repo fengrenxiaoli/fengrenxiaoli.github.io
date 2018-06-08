@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Shell," />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="排序命令sort1234567891011121314sort [选项]选项-f 忽略大小写-n 以数值型进行排序，默认使用字符串型排序-r 反向排序-t 指定分隔符,默认是制表符-k n[,m] 按照指定的字段范围排序.从第n字段开始,m字段结束(默认到行尾)sort /etc/passwd   #按照字母顺序a-z排列文件内容sort -r /etc/passwd   #反向排序，即按z-a顺">
-<meta name="keywords" content="Shell">
+<meta name="description" content="sort 排序命令对文本中的行进行排序1234567891011121314151617sort [OPTION]... [FILE]...选项：-f              忽略大小写-n              以数值型进行排序，默认使用字符串型排序-r              反向排序-t DELIMITER    指定分隔符,默认是制表符-k n[,m]        按照指定的字段">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shell正则表达式 字符处理命令sort、wc、tr、uniq">
+<meta property="og:title" content="Linux 字符处理命令sort、wc、tr、uniq">
 <meta property="og:url" content="http://yoursite.com/post/616ff62c.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="排序命令sort1234567891011121314sort [选项]选项-f 忽略大小写-n 以数值型进行排序，默认使用字符串型排序-r 反向排序-t 指定分隔符,默认是制表符-k n[,m] 按照指定的字段范围排序.从第n字段开始,m字段结束(默认到行尾)sort /etc/passwd   #按照字母顺序a-z排列文件内容sort -r /etc/passwd   #反向排序，即按z-a顺">
+<meta property="og:description" content="sort 排序命令对文本中的行进行排序1234567891011121314151617sort [OPTION]... [FILE]...选项：-f              忽略大小写-n              以数值型进行排序，默认使用字符串型排序-r              反向排序-t DELIMITER    指定分隔符,默认是制表符-k n[,m]        按照指定的字段">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-06T04:31:42.162Z">
+<meta property="og:updated_time" content="2018-06-08T10:53:16.807Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shell正则表达式 字符处理命令sort、wc、tr、uniq">
-<meta name="twitter:description" content="排序命令sort1234567891011121314sort [选项]选项-f 忽略大小写-n 以数值型进行排序，默认使用字符串型排序-r 反向排序-t 指定分隔符,默认是制表符-k n[,m] 按照指定的字段范围排序.从第n字段开始,m字段结束(默认到行尾)sort /etc/passwd   #按照字母顺序a-z排列文件内容sort -r /etc/passwd   #反向排序，即按z-a顺">
+<meta name="twitter:title" content="Linux 字符处理命令sort、wc、tr、uniq">
+<meta name="twitter:description" content="sort 排序命令对文本中的行进行排序1234567891011121314151617sort [OPTION]... [FILE]...选项：-f              忽略大小写-n              以数值型进行排序，默认使用字符串型排序-r              反向排序-t DELIMITER    指定分隔符,默认是制表符-k n[,m]        按照指定的字段">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>Shell正则表达式 字符处理命令sort、wc、tr、uniq | 太阳落下</title>
+  <title>Linux 字符处理命令sort、wc、tr、uniq | 太阳落下</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Shell正则表达式 字符处理命令sort、wc、tr、uniq</h1>
+          <h1 class="post-title" itemprop="name headline">Linux 字符处理命令sort、wc、tr、uniq</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-20T20:06:24+08:00">
-                2018-05-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T12:36:59+08:00">
+                2018-05-05
               </time>
             
 
@@ -320,12 +320,17 @@
       
 
       
-        <h2 id="排序命令sort"><a href="#排序命令sort" class="headerlink" title="排序命令sort"></a>排序命令sort</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">sort [选项]</div><div class="line">选项</div><div class="line">-f 忽略大小写</div><div class="line">-n 以数值型进行排序，默认使用字符串型排序</div><div class="line">-r 反向排序</div><div class="line">-t 指定分隔符,默认是制表符</div><div class="line">-k n[,m] 按照指定的字段范围排序.从第n字段开始,m字段结束(默认到行尾)</div><div class="line"></div><div class="line">sort /etc/passwd   </div><div class="line">#按照字母顺序a-z排列文件内容</div><div class="line">sort -r /etc/passwd   </div><div class="line">#反向排序，即按z-a顺序排列文件内容</div><div class="line">sort -n -t &quot;:&quot; -k 3 /etc/passwd   </div><div class="line">#以数值型进行排序，指定分隔符为“:”，并只取第三字段的内容</div></pre></td></tr></table></figure>
-<h2 id="统计命令wc（word-count）"><a href="#统计命令wc（word-count）" class="headerlink" title="统计命令wc（word count）"></a>统计命令wc（word count）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wc [选项] 文件名</div><div class="line">选项:</div><div class="line">-l 只统计行数</div><div class="line">-w 只统计单词数</div><div class="line">-m 只统计字符数</div><div class="line">-c 只统计字节数</div></pre></td></tr></table></figure>
-<p>wc执行后 输入 ctrl+d结束 会统计输入行数 单词数 字母数</p>
-<h2 id="字符替换tr"><a href="#字符替换tr" class="headerlink" title="字符替换tr"></a>字符替换tr</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tr [选项] ... SET1 [SET2]</div><div class="line">从键盘输入转换或删除字符</div><div class="line">-d  删除</div></pre></td></tr></table></figure>
-<h2 id="去重命令-uniq"><a href="#去重命令-uniq" class="headerlink" title="去重命令 uniq"></a>去重命令 uniq</h2><p>对文本中的连续的重复行进行操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">uniq 文件</div><div class="line">#删除任何重复行</div><div class="line">-c: 显示每行重复出现的次数；</div><div class="line">-d: 仅显示重复过的行；</div><div class="line">-u: 仅显示不曾重复的行；</div></pre></td></tr></table></figure></p>
-<p>可以先用<code>sort</code>排序，可以看出哪些重复了</p>
+        <h2 id="sort-排序命令"><a href="#sort-排序命令" class="headerlink" title="sort 排序命令"></a>sort 排序命令</h2><p>对文本中的行进行排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">sort [OPTION]... [FILE]...</div><div class="line">选项：</div><div class="line">-f              忽略大小写</div><div class="line">-n              以数值型进行排序，默认使用字符串型排序</div><div class="line">-r              反向排序</div><div class="line">-t DELIMITER    指定分隔符,默认是制表符</div><div class="line">-k n[,m]        按照指定的字段范围排序。从第n字段开始，m字段结束(默认到行尾)</div><div class="line">-u              uniq，排序后去重</div><div class="line"></div><div class="line">sort /etc/passwd   </div><div class="line"># 按照字母顺序a-z排列文件内容</div><div class="line">sort -r /etc/passwd   </div><div class="line"># 反向排序，即按z-a顺序排列文件内容</div><div class="line">sort -t&quot; &quot; -k3 users</div><div class="line"># 使用空格把users文件分割 使用第3列排序</div><div class="line">sort -n -t &quot;:&quot; -k 3 /etc/passwd   </div><div class="line"># 以数值型进行排序，指定分隔符为“:”，使用第3列排序</div></pre></td></tr></table></figure></p>
+<h2 id="wc-统计命令-word-count"><a href="#wc-统计命令-word-count" class="headerlink" title="wc 统计命令(word count)"></a>wc 统计命令(word count)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">wc [选项] 文件名</div><div class="line">选项:</div><div class="line">-l      只统计行数</div><div class="line">-w      只统计单词数</div><div class="line">-m      只统计字符数</div><div class="line">-c      只统计字节数</div><div class="line"></div><div class="line"># 若不加参数，则列出行数 词数 字符数</div></pre></td></tr></table></figure>
+<p>wc执行后 输入 ctrl+d结束 会统计输入行数 单词数 字符数</p>
+<h2 id="tr-字符替换"><a href="#tr-字符替换" class="headerlink" title="tr 字符替换"></a>tr 字符替换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tr [选项] ... SET1 [SET2]</div><div class="line">从键盘输入转换或删除字符</div><div class="line">-d  删除</div></pre></td></tr></table></figure>
+<h2 id="uniq-去重命令"><a href="#uniq-去重命令" class="headerlink" title="uniq 去重命令"></a>uniq 去重命令</h2><p>对文本中的<strong>连续的重复</strong>行进行操作</p>
+<p>如果不连续就不无法使用该命令，所以可以先用<code>sort</code>排序，可以看出哪些重复了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">uniq [OPTION]... [FILE]...</div><div class="line">-c: 显示每行重复出现的次数</div><div class="line">-d: 仅显示重复过的行</div><div class="line">-u: 仅显示不曾重复的行</div><div class="line"></div><div class="line"></div><div class="line">uniq uniqtest.txt</div><div class="line"># 连续重复的行只显示一行</div><div class="line">uniq -d uniqtest.txt</div><div class="line"># 只显示重复的行</div><div class="line">uniq -D uniqtest.txt</div><div class="line"># 显示全部重复的行</div><div class="line">uniq -c uniqtest.txt</div><div class="line"># 显示重复次数</div></pre></td></tr></table></figure>
+<p>cut命令：文本分割</p>
+<h2 id="cut-字符截取命令"><a href="#cut-字符截取命令" class="headerlink" title="cut 字符截取命令"></a>cut 字符截取命令</h2><p>grep行提取，cut列提取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">cut [OPTION]... [FILE]... </div><div class="line">选项 </div><div class="line">-f 列号         提取第几列，从1开始</div><div class="line">-d 分隔符       按照指定分隔符分割列，默认为tab</div><div class="line"></div><div class="line">cut -f 1 /etc/passwd</div><div class="line">cut -f 1-3 /etc/passwd</div><div class="line">cut -f 1,3 /etc/passwd</div><div class="line">cut -f 1-3,7 /etc/passwd</div><div class="line">cut -d: -f 1,3-5 /etc/passwd</div><div class="line"># 使用冒号分割passwd文件，显示第1、3至5列</div><div class="line">cut -de -f 1 users</div><div class="line"># 使用e字符分割文件 取第1列</div><div class="line">cut -d&apos; &apos; -f 1-2 users &gt;user2</div><div class="line"># 使用空格分割文件，显示1-2列，将标准输出重定向到新的文件</div><div class="line"></div><div class="line">grep &quot;bin/bash&quot; /etc/passwd     可以登录的用户</div><div class="line">grep &quot;bin/bash&quot; /etc/passwd | grep -v &quot;root&quot;    排除root的可登录用户</div><div class="line">grep &quot;bin/bash&quot; /etc/passwd | grep -v &quot;root&quot; | cut -f 1 -d &quot;:&quot; 提取非root登录用户用户名</div></pre></td></tr></table></figure></p>
+<h3 id="cut命令的局限性"><a href="#cut命令的局限性" class="headerlink" title="cut命令的局限性"></a>cut命令的局限性</h3><p>用cut截取比较规律的文件，用默认制表符或其他符号作为分隔符，可以方便截取，如果是用空格或多个空格做分隔符，就会有问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">df -h | cut -d &quot; &quot; -f 1,3</div><div class="line">无法正确分隔多个空格，只能以一个空格分隔</div></pre></td></tr></table></figure></p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>以冒号分隔，取出/etc/passwd文件的第6至第10行，并将这些信息按第3个字段的数值大小进行排序；最后仅显示的各自的第1个字段；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">head -n 10 /etc/passwd | tail -n 4 | sort -n -t &quot;:&quot; -k 3 | cut -f 1 -d &quot;:&quot;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -343,7 +348,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Shell/" rel="tag"># Shell</a>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
         </div>
       
@@ -356,8 +361,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/9826b1b6.html" rel="next" title="Shell正则表达式 sed命令">
-                <i class="fa fa-chevron-left"></i> Shell正则表达式 sed命令
+              <a href="/post/30ec04f2.html" rel="next" title="Linux文件管理06 查看文本文件内容">
+                <i class="fa fa-chevron-left"></i> Linux文件管理06 查看文本文件内容
               </a>
             
           </div>
@@ -366,8 +371,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/post/3608f886.html" rel="prev" title="awk: run time error: not enough arguments passed to printf(5%)">
-                awk: run time error: not enough arguments passed to printf(5%) <i class="fa fa-chevron-right"></i>
+              <a href="/post/9ffd3055.html" rel="prev" title="【Linux】Linux文件管理01 文件和文件系统">
+                【Linux】Linux文件管理01 文件和文件系统 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -498,7 +503,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#排序命令sort"><span class="nav-number">1.</span> <span class="nav-text">排序命令sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计命令wc（word-count）"><span class="nav-number">2.</span> <span class="nav-text">统计命令wc（word count）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符替换tr"><span class="nav-number">3.</span> <span class="nav-text">字符替换tr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#去重命令-uniq"><span class="nav-number">4.</span> <span class="nav-text">去重命令 uniq</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sort-排序命令"><span class="nav-number">1.</span> <span class="nav-text">sort 排序命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wc-统计命令-word-count"><span class="nav-number">2.</span> <span class="nav-text">wc 统计命令(word count)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tr-字符替换"><span class="nav-number">3.</span> <span class="nav-text">tr 字符替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uniq-去重命令"><span class="nav-number">4.</span> <span class="nav-text">uniq 去重命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cut-字符截取命令"><span class="nav-number">5.</span> <span class="nav-text">cut 字符截取命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cut命令的局限性"><span class="nav-number">5.1.</span> <span class="nav-text">cut命令的局限性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">6.</span> <span class="nav-text">例子</span></a></li></ol></div>
             
 
           </div>

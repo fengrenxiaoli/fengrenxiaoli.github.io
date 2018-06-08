@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-06T23:10:47.485Z</updated>
+  <updated>2018-06-08T10:00:24.568Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,150 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2018-06-08-【转】字符编码常识及问题解析</title>
+    <link href="http://yoursite.com/post/7444a34.html"/>
+    <id>http://yoursite.com/post/7444a34.html</id>
+    <published>2018-06-08T09:59:18.000Z</published>
+    <updated>2018-06-08T10:00:24.568Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>转自：<a href="http://sharecore.net/2014/08/10/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E5%B8%B8%E8%AF%86%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/" target="_blank" rel="external">http://sharecore.net/2014/08/10/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E5%B8%B8%E8%AF%86%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/</a></p>
+</blockquote>
+<p>在面试的笔试题里出了一道开放性的题：请简述Unicode与UTF-8之间的关系。一道看似简单的题，能给出满意答案的却寥寥无几，确实挺失望的。所以今天就结合我以前做过的一个关于字符编码的分享，总结一些与字符编码相关的知识和问题。如果你这方面的知识已经掌握的足够了，可以忽略这篇文字。但如果你没法很好的回答我上面的面试题，或经常被乱码的问题所困扰，还是不妨一读。</p>
+<h2 id="基本常识"><a href="#基本常识" class="headerlink" title="基本常识"></a>基本常识</h2><h3 id="1-位和字节"><a href="#1-位和字节" class="headerlink" title="1.位和字节"></a>1.位和字节</h3><p>说起编码，我们必须从最基础的说起，<strong>位和字节</strong>(别觉得这个过于简单不值一说，我还真见过很多个不能区分这两者的程序员)。位（bit）是指计算机里存放的二进制值(0/1)，而8个位组合成的“位串”称为一个字节，容易算出，8个位的组合有256（ 2^8 ）个组合方式，其取值范围是“00000000-11111111”，常用十六进制来表示。比如“01000001”就是一个字节，其对应的十六进制值为“0x41”。</p>
+<p>而我们通常所讲的字符编码，就是指<strong>定义一套规则</strong>，将真实世界里的字母/字符与计算机的二进制序列进行相互转化。如我们可以针对上面的字节定义如下的转换规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">01000001（0x41）&lt;-&gt; 65 &lt;-&gt; &apos;A&apos;</div></pre></td></tr></table></figure></p>
+<p>即用字位序“01000001”来表示字母’A’。</p>
+<h3 id="2-拉丁字符"><a href="#2-拉丁字符" class="headerlink" title="2.拉丁字符"></a>2.拉丁字符</h3><p>拉丁字符是当今世界使用最广泛的符号了。通常我们说的拉丁字母，指的的是<strong>基础拉丁字母</strong>,即指常见的”ABCD“等26个英文字母，这些字母与英语中一些常见的符号（如数字，标点符号）称为<strong>基础拉丁字符</strong>，这些基础拉丁字符在使用英语的国家广为流行，当然在中国，也被用来当作汉语拼音使用。在欧洲其它一些非英语国家，为满足其语言需要，在基础拉丁字符的基础上，加上一些连字符，变音字符(如’Á’)，形成了<strong>派生拉丁字母</strong>，其表示的字符范围在各种语言有所不同，而<strong>完整意义上的拉丁字符是指这些变体字符与基础拉丁字符的全集</strong>。是比基础拉丁字符集大很多的一个集合。</p>
+<h2 id="编码标准"><a href="#编码标准" class="headerlink" title="编码标准"></a>编码标准</h2><p>前文提到，字符编码是一套规则。既然是规则，就必须有标准。下面我就仔细说说常见的字符编码标准。</p>
+<h3 id="1-拉丁编码"><a href="#1-拉丁编码" class="headerlink" title="1.拉丁编码"></a>1.拉丁编码</h3><p>ASCII的全称是American Standard Code for Information Interchange（美国信息交换标准代码）。顾名思义，这是现代计算机的发明国美国人设计的标准，而美国是一个英语国家，他们设定的<strong>ASCII编码也只支持基础拉丁字符</strong>。ASCII的设计也很简单，<strong>用一个字节（8个位）来表示一个字符，并保证最高位的取值永远为’0’</strong>。即表示字符含义的位数为7位，不难算出其可表达字符数为2^7=128个。这128个字符包括95个可打印的字符（涵盖了26个英文字母的大小写以及英文标点符号能）与33个控制字符（不可打印字符）。例如下表，就是几个简单的规则对应：</p>
+<table>
+<thead>
+<tr>
+<th>字符类型</th>
+<th>字符</th>
+<th>二进制</th>
+<th>16进制</th>
+<th>10进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可打印字符</td>
+<td>A</td>
+<td>01000001</td>
+<td>0x41</td>
+<td>65</td>
+</tr>
+<tr>
+<td>可打印字符</td>
+<td></td>
+<td>a    01100001</td>
+<td>0x61</td>
+<td>97</td>
+</tr>
+<tr>
+<td>控制字符</td>
+<td>\r</td>
+<td>00001101</td>
+<td>0x0D</td>
+<td>13</td>
+</tr>
+<tr>
+<td>控制字符</td>
+<td>\n</td>
+<td>00001010</td>
+<td>0xA</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>前面说到了，ASCII是美国人设计的，只能支持基础拉丁字符，而当计算机发展到欧洲，欧洲其它不只是用的基础拉丁字符的国家（即用更大的派生拉丁字符集）该怎么办呢？</p>
+<p>当然，最简单的办法就是将美国人没有用到的<strong>第8位也用上</strong>就好了，这样能表达的字符个数就达到了2^8 =256个，相比较原来，增长了一倍，这个编码规则也常被称为<strong>EASCII</strong>。EASCII基本解决了整个西欧的字符编码问题。但是对于欧洲其它地方如北欧，东欧地区，256个字符还是不够用，如是出现了<strong>ISO 8859</strong>,为解决256个字符不够用的问题，<strong>ISO8859采取的不再是单个独立的编码规则，而是由一系列的字符集（共15个）所组成</strong>，分别称为ISO 8859-n(n=1,2,3…11,13…16,没有12)。其每个字符集对应不同的语言,如ISO 8859-1对应西欧语言，ISO 8859-2对应中欧语言等。其中大家所熟悉的<strong>Latin-1就是ISO 8859-1的别名,它表示整个西欧的字符集范围</strong>。<br><strong>需要注意的一点的是，ISO 8859-n与ASCII是兼容的，即其0000000(0x00)-01111111(0x7f)范围段与ASCII保持一致，而10000000（0x80）-11111111(0xFF)范围段被扩展用到不同的字符集。</strong></p>
+<h3 id="2-中文编码"><a href="#2-中文编码" class="headerlink" title="2.中文编码"></a>2.中文编码</h3><p>以上我们接触到的拉丁编码，都是单字节编码，即用一个字节来对应一个字符。但这一规则对于其它字符集更大的语言来说，并不适应，比如中文，而是出现了用多个字节表示一个字符的编码规则。常见的中文GB2312（国家简体中文字符集）就是用两个字节来表示一个汉字（注意是表示一个汉字，对于拉丁字母，GB2312还是是用一个字节来表示以兼容ASCII）。我们用下表来说明各中文编码之间的规则和兼容性。</p>
+<p><img src="/img/IMG58.jpg" alt=""></p>
+<p>对于中文编码，其规则实现上是很简单的，一般都是简单的<strong>字符查表</strong>即可，重要的是要注意其相互之间的<strong>兼容性</strong>问题。如如果选择BIG5字符集编码，就不能很好的兼容GB2312，当做繁转简时有可能导致个别字的冲突与不一致，但是GBK与GB2312之间就不存在这样的问题。</p>
+<h3 id="3-Unicode"><a href="#3-Unicode" class="headerlink" title="3.Unicode"></a>3.Unicode</h3><p>以上可以看到，针对不同的语言采用不同的编码，有可能导致冲突与不兼容性，如果我们打开一份字节序文件，如果不知道其编码规则，就无法正确解析其语义，这也是产生乱码的根本原因。有没有一种规则是全世界字符统一的呢？当然有，Unicode就是一种。为了能独立表示世界上所有的字符，Unicode采用<strong>4个字节表示一个字符</strong>,这样理论上Unicode能表示的字符数就达到了2^31 = 2147483648 = 21 亿左右个字符，完全可以涵盖世界上一切语言所用的符号。我们以汉字”微信“两字举例说明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">微 &lt;-&gt;  \u5fae   &lt;-&gt;  00000000 00000000 01011111 10101110</div><div class="line">信 &lt;-&gt; \u4fe1   &lt;-&gt;  00000000 00000000 01001111 11100001</div></pre></td></tr></table></figure></p>
+<p>容易从上面的例子里看出，Unicode对所有的字符编码均需要四个字节，而这对于拉丁字母或汉字来说是浪费的，其前面三个或两个字节均是0，这对信息存储来说是极大的浪费。另外一个问题就是，如何区分Unicode与其它编码这也是一个问题，比如计算机怎么知道四个字节表示一个Unicode中的字符，还是分别表示四个ASCII的字符呢？</p>
+<p>以上两个问题，困扰着Unicode，让Unicode的推广上一直面临着困难。直至UTF-8作为Unicode的一种实现后，部分问题得到解决，才得以完成推广使用。说到此，我们可以回答文章一开始提出的问题了，<strong>UTF-8是Unicode的一种实现方式，而Unicode是一个统一标准规范，Unicode的实现方式除了UTF-8还有其它的，比如UTF-16等</strong>。</p>
+<p>话说当初大牛Ben Thomson吃饭时，在一张餐巾纸上，设计出了UTF-8，然后回到房间，实现了第一版的UTF-8。关于UTF-8的基本规则，其实简单来说就两条（来自阮一峰老师的总结）：</p>
+<blockquote>
+<p>规则1：对于单字节字符，字节的第一位为0，后7位为这个符号的Unicode码，所以对于拉丁字母，UTF-8与ASCII码是一致的。</p>
+<p>规则2：对于n字节(n&gt;1)的字符，第一个字节前n位都设为1，第n+1位为0，后面字节的前两位一律设为10，<br>剩下没有提及的位，全部为这个符号的Unicode编码。</p>
+</blockquote>
+<p>通过，根据以上规则，可以建立一个Unicode取值范围与UTF-8字节序表示的对应关系，如下表，</p>
+<p><img src="/img/IMG59.jpg" alt=""></p>
+<p>举例来说，’微’的Unicode是’\u5fae’，二进制表示是”00000000 00000000 01011111 10101110“，其取值就位于’0000 0800-0000 FFFF’之间，所以其UTF-8编码为’<strong>111</strong>00101 <strong>10</strong>111110 <strong>10</strong>101110’ （加粗部分为固定编码内容）。</p>
+<p>通过以上简单规则，UTF-8采取变字节的方式，解决了我们前文提到的关于Unicode的两大问题。同时，作为中文使用者需要注意的一点是<strong>Unicode(UTF-8)与GBK，GB2312这些汉字编码规则是完全不兼容的，也就是说这两者之间不能通过任何算法来进行转换，如需转换，一般通过GBK查表的方式来进行</strong>。</p>
+<h2 id="常见问题及解答"><a href="#常见问题及解答" class="headerlink" title="常见问题及解答"></a>常见问题及解答</h2><h3 id="1-windows-Notepad中的编码ANSI保存选项，代表什么含义？"><a href="#1-windows-Notepad中的编码ANSI保存选项，代表什么含义？" class="headerlink" title="1.windows Notepad中的编码ANSI保存选项，代表什么含义？"></a>1.windows Notepad中的编码ANSI保存选项，代表什么含义？</h3><p>ANSI是windows的默认的编码方式，对于英文文件是ASCII编码，对于简体中文文件是GB2312编码（只针对Windows简体中文版，如果是繁体中文版会采用Big5码）。所以，<strong>如果将一个UTF-8编码的文件，另存为ANSI的方式，对于中文部分会产生乱码</strong>。</p>
+<h3 id="2-什么是UTF-8的BOM？"><a href="#2-什么是UTF-8的BOM？" class="headerlink" title="2.什么是UTF-8的BOM？"></a>2.什么是UTF-8的BOM？</h3><p>BOM的全称是Byte Order Mark，BOM是微软给UTF-8编码加上的，用于标识文件使用的是UTF-8编码，即在UTF-8编码的文件起始位置，加入三个字节“EE BB BF”。这是微软特有的，标准并不推荐包含BOM的方式。采用加BOM的UTF-8编码文件，对于一些只支持标准UTF-8编码的环境，可能导致问题。比如，在Go语言编程中，对于包含BOM的代码文件，会导致编译出错。详细可见我的<a href="http://sharecore.info/blog/2013/04/05/parse-csv-to-sql-for-insert/" target="_blank" rel="external">这篇文章</a>。</p>
+<h3 id="3-为什么数据库Latin1字符集（单字节）可以存储中文呢？"><a href="#3-为什么数据库Latin1字符集（单字节）可以存储中文呢？" class="headerlink" title="3.为什么数据库Latin1字符集（单字节）可以存储中文呢？"></a>3.为什么数据库Latin1字符集（单字节）可以存储中文呢？</h3><p>其实不管需要使用几个字节来表示一个字符，但最小的存储单位都是字节,所以，只要能保证传输和存储的字节顺序不会乱即可。作为数据库，只是作为存储的使用的话，<strong>只要能保证存储的顺序与写入的顺序一致</strong>，然后再按相同的字节顺序读出即可，翻译成语义字符的任务交给应用程序。比如’微’的UTF-8编码是’0xE5 0xBE 0xAE’，那数据库也存储’0xE5 0xBE 0xAE’三个字节，其它应用按顺序从数据库读取，再按UTF-8编码进行展现。这当然是一个看似完美的方案，但是只要写入，存储，读取过程中岔出任何别的编码，都可能导致乱码。</p>
+<h3 id="4-Mysql数据库中多个字符集变量（其它数据库其实也类似），它们之间分别是什么关系？"><a href="#4-Mysql数据库中多个字符集变量（其它数据库其实也类似），它们之间分别是什么关系？" class="headerlink" title="4.Mysql数据库中多个字符集变量（其它数据库其实也类似），它们之间分别是什么关系？"></a>4.Mysql数据库中多个字符集变量（其它数据库其实也类似），它们之间分别是什么关系？</h3><p><img src="/img/IMG60.jpg" alt=""></p>
+<p>我们分别解释：</p>
+<p><strong>character_set_client</strong>：客户端来源的数据使用的字符集，用于客户端显式告诉客户端所发送的语句中的的字符编码。</p>
+<p><strong>character_set_connection</strong>：连接层的字符编码，mysql一般用character_set_connection将客户端的字符转换为连接层表示的字符。</p>
+<p><strong>character_set_results</strong>：查询结果从数据库读出后，将转换为character_set_results返回给前端。</p>
+<p>而我们常见的解决乱码问题的操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_query(&apos;SET NAMES GBK&apos;)</div></pre></td></tr></table></figure></p>
+<p>其相当于将以上三个字符集统一全部设置为GBK，这三者一致时，一般就解决了乱码问题。</p>
+<p>character_set_database:当前选中数据库的默认字符集，如当create table时没有指定字符集，将默认选择该字符集。</p>
+<p>character_set_database已经character_set_system，一般用于数据库系统内部的一些字符编码，处理数据乱码问题时，我们基本可以忽略。</p>
+<h3 id="5-什么情况下，表示信息丢失？"><a href="#5-什么情况下，表示信息丢失？" class="headerlink" title="5.什么情况下，表示信息丢失？"></a>5.什么情况下，表示信息丢失？</h3><p>对于mysql数据库，我们可以通过<strong>hex(colname)</strong>函数（其它数据库也有类似的函数，一些文本文件编辑器也具有这个功能），查看实际存储的字节内容，如：</p>
+<p><img src="/img/IMG61.jpg" alt=""></p>
+<p>通过查看存储的字节序，我们可以从根本上了解存储的内容是什么编码了。而当发现<strong>存储的内容全部是’3F’时，就表明存储的内容由于编码问题，信息已经丢失了，无法再找回</strong>。</p>
+<p>之所以出现这种信息丢失的情况，一般是将不能相互转换的字符集之间做了转换，比如我们在前文说到，UTF-8只能一个个字节地变成Latin-1，但是根本不能转换的，因为两者之间没有转换规则，Unicode的字符对应范围也根本不在Latin-1范围内，所以只能用’?(0x3F)’代替了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文从基础知识与实际中碰到的问题上，解析了字符编码相关内容。而之所以要从头介绍字符编码的基础知识，是为了更好的从原理上了解与解决日常碰到的编码问题，只有从根本上了解了不同字符集的规则及其之间的关系与兼容性，才能更好的解决碰到的乱码问题，也能避免由于程序中不正确的编码转换导致的信息丢失问题。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;转自：&lt;a href=&quot;http://sharecore.net/2014/08/10/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E5%B8%B8%E8%AF%86%E5%8F%8A%E9%97%AE%E9%A2%9
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【转】五种常见的开源协议整理</title>
+    <link href="http://yoursite.com/post/fe81a09d.html"/>
+    <id>http://yoursite.com/post/fe81a09d.html</id>
+    <published>2018-06-07T13:38:34.000Z</published>
+    <updated>2018-06-07T13:58:12.461Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>来源： <a href="http://yansu.org/2013/04/23/opensource-licenses.html" target="_blank" rel="external">http://yansu.org/2013/04/23/opensource-licenses.html</a></p>
+</blockquote>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6" target="_blank" rel="external">开源软件</a>(Open source software)对我们来说越来越不陌生，开源软件一方面让我们免费享用到了“免费的午餐”，另一方面有效的利用和学习开源软件，也能促进我们开发软件时的效率、提升软件质量。但是在使用和借鉴开源软件的时候，我们不得不关心一下它对使用者的诸多限制，比较常见的方式即协议授权(licence)，这些协议中明确说明了使用者应该遵循的原则。</p>
+<p>现在开源协议众多，通过<a href="http://opensource.org/licenses/category" target="_blank" rel="external">Open Source Initiative</a>组织批准的开源协议有50多种，本文提到的五种常见协议也在其中，而且出现频率非常频繁，我们在使用开源代码或者开放自己源代码的时候，也应该尽量选择这些协议。</p>
+<h2 id="五种常见开源协议"><a href="#五种常见开源协议" class="headerlink" title="五种常见开源协议"></a>五种常见开源协议</h2><h3 id="BSD协议"><a href="#BSD协议" class="headerlink" title="BSD协议"></a><a href="http://zh.wikipedia.org/wiki/BSD%E8%AE%B8%E5%8F%AF%E8%AF%81" target="_blank" rel="external">BSD协议</a></h3><p>BSD开源协议是一个给予使用者很大自由的协议。开发者可以自由使用和修改源代码，也可以将修改后的源代码作为开源或者专有软件再发布。但是有一下几个要求：</p>
+<p>如果再发布的产品中含有源代码，则在源代码中必须带有原来代码中的BSD协议。<br>如果再发布的只是二进制类库/软件，则需要再类库/软件的文档和版权申明中包含原有代码中的BSD协议。<br>不可以用开源代码的作者/机构名字和原来产品的名字做市场推广。<br>BSD 代码鼓励代码共享，但需要尊重代码作者的著作权。BSD由于允许使用者修改和重新发布代码，也允许使用或在BSD代码上开发商业软件发布和销售，因此是对商业集成很友好的协议。而很多的公司企业在选用开源产品的时候都首选BSD协议，因为可以完全控制这些第三方的代码，在必要的时候可以修改或者二次开发。</p>
+<h3 id="Apache-Licence-2-0"><a href="#Apache-Licence-2-0" class="headerlink" title="Apache Licence 2.0"></a><a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="external">Apache Licence 2.0</a></h3><p>Apache Licence是著名的非盈利开源组织Apache采用的协议。该协议和BSD类似，同样鼓励代码共享和最终原作者的著作权，同样允许源代码修改和再发布。但是也需要遵循以下条件：</p>
+<p>需要给代码的用户一份Apache Licence。<br>如果修改了代码，需要再被修改的文件中说明。<br>在衍生的代码中（修改和有源代码衍生的代码中）需要带有原来代码中的协议，商标，专利声明和其他原来作者规定需要包含的说明。<br>如果再发布的产品中包含一个Notice文件，则在Notice文件中需要带有Apache Licence。你可以再Notice中增加自己的许可，但是不可以表现为对Apache Licence构成更改。<br>Apache Licence也是对商业应用又好的许可。使用者也可以再需要的时候修改代码来满足并作为开源或商业产品发布/销售。</p>
+<h3 id="GPL"><a href="#GPL" class="headerlink" title="GPL"></a><a href="http://en.wikipedia.org/wiki/GNU_General_Public_License" target="_blank" rel="external">GPL</a></h3><p>我们很熟悉的Linux就是采用了GPL。GPL协议和BSD, Apache Licence等鼓励代码重用的许可很不一样。GPL的出发点是代码的开源/免费使用和引用/修改/衍生代码的开源/免费使用，但不允许修改后和衍生的代码做为闭源的商业软件发布和销售。这也就是为什么我们能用免费的各种linux，包括商业公司的linux和linux上各种各样的由个人，组织，以及商业软件公司开发的免费软件了。</p>
+<p>GPL协议的主要内容是只要在一个软件中使用(“使用”指类库引用，修改后的代码或者衍生代码)GPL 协议的产品，则该软件产品必须也采用GPL协议，既必须也是开源和免费。这就是所谓的”传染性”。GPL协议的产品作为一个单独的产品使用没有任何问题，还可以享受免费的优势。</p>
+<p>由于GPL严格要求使用了GPL类库的软件产品必须使用GPL协议，对于使用GPL协议的开源代码，商业软件或者对代码有保密要求的部门就不适合集成/采用作为类库和二次开发的基础。</p>
+<p>其它细节如再发布的时候需要伴随GPL协议等和BSD/Apache等类似。</p>
+<h3 id="LGPL"><a href="#LGPL" class="headerlink" title="LGPL"></a><a href="http://www.gnu.org/copyleft/lesser.html" target="_blank" rel="external">LGPL</a></h3><p>LGPL是GPL的一个为主要为类库使用设计的开源协议。和GPL要求任何使用/修改/衍生之GPL类库的的软件必须采用GPL协议不同。LGPL允许商业软件通过类库引用(link)方式使用LGPL类库而不需要开源商业软件的代码。这使得采用LGPL协议的开源代码可以被商业软件作为类库引用并发布和销售。</p>
+<p>但是如果修改LGPL协议的代码或者衍生，则所有修改的代码，涉及修改部分的额外代码和衍生的代码都必须采用LGPL协议。因此LGPL协议的开源代码很适合作为第三方类库被商业软件引用，但不适合希望以LGPL协议代码为基础，通过修改和衍生的方式做二次开发的商业软件采用。</p>
+<p>GPL/LGPL都保障原作者的知识产权，避免有人利用开源代码复制并开发类似的产品</p>
+<h3 id="MIT"><a href="#MIT" class="headerlink" title="MIT"></a><a href="http://opensource.org/licenses/mit-license.php" target="_blank" rel="external">MIT</a></h3><p>MIT是和BSD一样宽范的许可协议,作者只想保留版权,而无任何其他了限制。也就是说,你必须在你的发行版里包含原许可协议的声明,无论你是以二进制发布的还是以源代码发布的.</p>
+<p>各协议分析图<br>乌克兰程序员Paul Bagwell画了一张分析图，说明应该怎么选择。<a href="http://www.ruanyifeng.com/" target="_blank" rel="external">阮一峰</a>对图进行了汉化，如下图：</p>
+<p><img src="/img/IMG57.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;来源： &lt;a href=&quot;http://yansu.org/2013/04/23/opensource-licenses.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://yansu.org/2013/04/2
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>reStructuredText常用语法</title>
@@ -204,11 +348,11 @@
     <link href="http://yoursite.com/post/e01ea1fb.html"/>
     <id>http://yoursite.com/post/e01ea1fb.html</id>
     <published>2018-06-04T01:49:54.000Z</published>
-    <updated>2018-06-06T23:10:15.609Z</updated>
+    <updated>2018-06-07T13:58:58.126Z</updated>
     
     <content type="html"><![CDATA[<p>在写博客中添加图片是很正常的，这里列举了本人使用的两种方法</p>
 <h2 id="本地引用"><a href="#本地引用" class="headerlink" title="本地引用"></a>本地引用</h2><p>当Hexo项目中只用到少量图片时，可以将图片统一放在source/images文件夹中，通过markdown语法访问它们。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](/images/image.jpg)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](/img/image.jpg)</div></pre></td></tr></table></figure>
 <p>要注意这是绝对路径</p>
 <h2 id="CDN引用"><a href="#CDN引用" class="headerlink" title="CDN引用"></a>CDN引用</h2><p>将图片上传到一些免费的CDN服务中。上传图片后，会生成对应的url地址，将地址直接拿来引用即可<br>参考<a href="https://www.qiniu.com/" target="_blank" rel="external">七牛</a>、<a href="https://cloudinary.com/" target="_blank" rel="external">cloudinary</a></p>
 <a id="more"></a>]]></content>
@@ -217,7 +361,7 @@
     
       &lt;p&gt;在写博客中添加图片是很正常的，这里列举了本人使用的两种方法&lt;/p&gt;
 &lt;h2 id=&quot;本地引用&quot;&gt;&lt;a href=&quot;#本地引用&quot; class=&quot;headerlink&quot; title=&quot;本地引用&quot;&gt;&lt;/a&gt;本地引用&lt;/h2&gt;&lt;p&gt;当Hexo项目中只用到少量图片时，可以将图片统一放在source/images文件夹中，通过markdown语法访问它们。&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;![](/images/image.jpg)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;![](/img/image.jpg)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;要注意这是绝对路径&lt;/p&gt;
 &lt;h2 id=&quot;CDN引用&quot;&gt;&lt;a href=&quot;#CDN引用&quot; class=&quot;headerlink&quot; title=&quot;CDN引用&quot;&gt;&lt;/a&gt;CDN引用&lt;/h2&gt;&lt;p&gt;将图片上传到一些免费的CDN服务中。上传图片后，会生成对应的url地址，将地址直接拿来引用即可&lt;br&gt;参考&lt;a href=&quot;https://www.qiniu.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;七牛&lt;/a&gt;、&lt;a href=&quot;https://cloudinary.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;cloudinary&lt;/a&gt;&lt;/p&gt;
     
@@ -1307,57 +1451,6 @@
     
     
       <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL目录结构</title>
-    <link href="http://yoursite.com/post/1c0eeefa.html"/>
-    <id>http://yoursite.com/post/1c0eeefa.html</id>
-    <published>2018-06-02T09:09:21.000Z</published>
-    <updated>2018-06-02T15:02:35.543Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用yum安装MySQL后的各目录位置<br>相关路径直接通过<code>find / -name &quot;mysql*&quot;</code>和<code>whereis mysqld</code>查找：</p>
-<p>/usr/lib64/mysql      库文件<br>/usr/share/mysql      配置文件，5.5后的默认安装路径<br>/var/lib/mysql        数据库目录<br>/etc/rc.d/init.d/     启动脚本<br>/usr/bin/             mysqladmin\mysqldump命令<br>/usr/share/doc/       文档<br><a id="more"></a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用yum安装MySQL后的各目录位置&lt;br&gt;相关路径直接通过&lt;code&gt;find / -name &amp;quot;mysql*&amp;quot;&lt;/code&gt;和&lt;code&gt;whereis mysqld&lt;/code&gt;查找：&lt;/p&gt;
-&lt;p&gt;/usr/lib64/mysql      库文件&lt;br&gt;/usr/share/mysql      配置文件，5.5后的默认安装路径&lt;br&gt;/var/lib/mysql        数据库目录&lt;br&gt;/etc/rc.d/init.d/     启动脚本&lt;br&gt;/usr/bin/             mysqladmin\mysqldump命令&lt;br&gt;/usr/share/doc/       文档&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 文件系统</title>
-    <link href="http://yoursite.com/post/f525ac74.html"/>
-    <id>http://yoursite.com/post/f525ac74.html</id>
-    <published>2018-06-02T08:46:30.647Z</published>
-    <updated>2018-06-02T08:46:30.603Z</updated>
-    
-    <content type="html"><![CDATA[<p>linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件<br>文件系统：<br>Windows里面是这样的：C:\Program files\office11\word\word.exe<br>Linux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0</p>
-<p>文件有两类数据：<br>元数据：metadata  元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。<br>数据：data  数据是指普通文件中的实际数据。</p>
-<p>1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；<br>2、文件名可使用除/以外的任意字符，不建议使用特殊字符；  /: 表示根目录，也用做路径分隔符；<br>3、文件名长度最长不能超过255个字符；<br>4、所以.开头的文件，均为隐藏文件；</p>
-<p>LSB: Linux Standard Base Linux标准库</p>
-<a id="more"></a>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件&lt;br&gt;文件系统：&lt;br&gt;Windows里面是这样的：C:\Program files\office11\word\word.exe&lt;br&gt;Linux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0&lt;/p&gt;
-&lt;p&gt;文件有两类数据：&lt;br&gt;元数据：metadata  元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。&lt;br&gt;数据：data  数据是指普通文件中的实际数据。&lt;/p&gt;
-&lt;p&gt;1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；&lt;br&gt;2、文件名可使用除/以外的任意字符，不建议使用特殊字符；  /: 表示根目录，也用做路径分隔符；&lt;br&gt;3、文件名长度最长不能超过255个字符；&lt;br&gt;4、所以.开头的文件，均为隐藏文件；&lt;/p&gt;
-&lt;p&gt;LSB: Linux Standard Base Linux标准库&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   

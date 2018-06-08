@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="文件系统层次结构标准（英语：Filesystem Hierarchy Standard，FHS）定义了Linux操作系统中的主要目录及目录内容。在大多数情况下，它是一个传统BSD文件系统层次结构的形式化与扩充。 设计FHS的目的是为了给Unix-like系统的管理员提供一个管理系统以及目录结构的参考。 由于利用Linux源码开发产品和发行版的企业或组织众多，如果每个组织都按照自己的喜好来组织系统中">
+<meta name="description" content="文件linux中一切皆文件，目录为目录文件。普通文件用来保存数据，目录文件用来保存文件 文件有两类数据 元数据、metadata   元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。   数据、data   数据是指普通文件中的实际数据。">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux文件管理05 文件系统">
+<meta property="og:title" content="【Linux】Linux文件管理01 文件和文件系统">
 <meta property="og:url" content="http://yoursite.com/post/9ffd3055.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="文件系统层次结构标准（英语：Filesystem Hierarchy Standard，FHS）定义了Linux操作系统中的主要目录及目录内容。在大多数情况下，它是一个传统BSD文件系统层次结构的形式化与扩充。 设计FHS的目的是为了给Unix-like系统的管理员提供一个管理系统以及目录结构的参考。 由于利用Linux源码开发产品和发行版的企业或组织众多，如果每个组织都按照自己的喜好来组织系统中">
+<meta property="og:description" content="文件linux中一切皆文件，目录为目录文件。普通文件用来保存数据，目录文件用来保存文件 文件有两类数据 元数据、metadata   元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。   数据、data   数据是指普通文件中的实际数据。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-02T15:01:28.823Z">
+<meta property="og:updated_time" content="2018-06-07T16:09:24.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux文件管理05 文件系统">
-<meta name="twitter:description" content="文件系统层次结构标准（英语：Filesystem Hierarchy Standard，FHS）定义了Linux操作系统中的主要目录及目录内容。在大多数情况下，它是一个传统BSD文件系统层次结构的形式化与扩充。 设计FHS的目的是为了给Unix-like系统的管理员提供一个管理系统以及目录结构的参考。 由于利用Linux源码开发产品和发行版的企业或组织众多，如果每个组织都按照自己的喜好来组织系统中">
+<meta name="twitter:title" content="【Linux】Linux文件管理01 文件和文件系统">
+<meta name="twitter:description" content="文件linux中一切皆文件，目录为目录文件。普通文件用来保存数据，目录文件用来保存文件 文件有两类数据 元数据、metadata   元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。   数据、data   数据是指普通文件中的实际数据。">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>Linux文件管理05 文件系统 | 太阳落下</title>
+  <title>【Linux】Linux文件管理01 文件和文件系统 | 太阳落下</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux文件管理05 文件系统</h1>
+          <h1 class="post-title" itemprop="name headline">【Linux】Linux文件管理01 文件和文件系统</h1>
         
 
         <div class="post-meta">
@@ -320,34 +320,231 @@
       
 
       
-        <p>文件系统层次结构标准（英语：Filesystem Hierarchy Standard，FHS）定义了Linux操作系统中的主要目录及目录内容。在大多数情况下，它是一个传统BSD文件系统层次结构的形式化与扩充。</p>
+        <h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><p>linux中一切皆文件，目录为目录文件。普通文件用来保存数据，目录文件用来保存文件</p>
+<h3 id="文件有两类数据"><a href="#文件有两类数据" class="headerlink" title="文件有两类数据"></a>文件有两类数据</h3><ul>
+<li>元数据、metadata  <ul>
+<li>元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。</li>
+</ul>
+</li>
+<li>数据、data  <ul>
+<li>数据是指普通文件中的实际数据。</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="文件名"><a href="#文件名" class="headerlink" title="文件名"></a>文件名</h3><ol>
+<li>文件名严格区分字符大小写；file1, File1, FILE1是不同的文件</li>
+<li>文件名可使用除/以外的任意字符，不建议使用特殊字符 <pre><code>- /: 表示根目录，也用做路径分隔符
+</code></pre></li>
+<li>文件名长度最长不能超过255个字符</li>
+<li>所以.开头的文件，均为隐藏文件</li>
+</ol>
+<h3 id="Linux下的文件类型"><a href="#Linux下的文件类型" class="headerlink" title="Linux下的文件类型"></a>Linux下的文件类型</h3><ul>
+<li>f     普通文件</li>
+<li>d     目录文件</li>
+<li>b     块设备</li>
+<li>c     字符设备</li>
+<li>l     符号链接文件</li>
+<li>p     管道文件</li>
+<li>s     套接字文件，socket</li>
+</ul>
+<p><br></p>
+<h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><p>文件系统层次结构标准（Filesystem Hierarchy Standard，FHS）定义了Linux操作系统中的主要目录及目录内容。在大多数情况下，它是一个传统BSD文件系统层次结构的形式化与扩充。</p>
 <p>设计FHS的目的是为了给Unix-like系统的管理员提供一个管理系统以及目录结构的参考。</p>
 <p>由于利用Linux源码开发产品和发行版的企业或组织众多，如果每个组织都按照自己的喜好来组织系统中的文件结构，网络上必然出现各种各样的文件结构。这些产品的用户就不得不为每种不同的文件系统结构花费时间来学习。有了FHS之后，几乎所有的Unix-like系统的发行商或软件开发者都遵从该建议规范每个特定目录下分别只放哪些文件，方便了文件的组织和查找。</p>
-<p>详细内容参考：<a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf" target="_blank" rel="external">https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf</a><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">根文件系统(rootfs)：</div><div class="line">    root filesystem </div><div class="line">    / 根目录是整个系统最重要的一个目录，因为在Linux系统中所有的目录都必须挂载在根目录下，也即所有的目录都是由根目录衍生出来。系统开机是所需要的开机软件、内核文件、函数库等都必须在根目录下。因此FHS也建议根目录不要安装在非常大、数据存取非常活跃的分区上，如此一来就能尽可能地降低系统不必要的错误。建议：根目录越小越好，且应用程序安装目录不要和根目录放置于同一分区。</div><div class="line"></div><div class="line">LSB, FHS: (Filesystem Hierarchy Standard)</div><div class="line"></div><div class="line">    /boot：引导文件存放目录，内核文件(vmlinuz)、引导加载器(bootloader：grub)都存放于此目录；</div><div class="line">    /bin：供所有用户使用的基本命令；不能关联至独立分区，OS启动即会用到的程序；</div><div class="line">    /sbin：管理类的基本命令；不能关联至独立分区，OS启动即会用到的程序；</div><div class="line">    /lib：基本共享库文件，以及内核模块文件(/lib/modules)；</div><div class="line">    /lib64：专用于x86_64系统上的辅助共享库文件存放位置；</div><div class="line">    /etc：配置文件目录(纯文本文件，不能是二进制)；</div><div class="line">    /home/USERNAME：普通用户家目录；</div><div class="line">    /root：管理员的家目录；</div><div class="line">    /media：便携式移动设备挂载点；</div><div class="line">        cdrom</div><div class="line">        usb</div><div class="line">    /mnt：临时文件系统挂载点；</div><div class="line">    /dev：设备文件及特殊文件存储位置；</div><div class="line">        b: block device，随机访问</div><div class="line">        c: character device，线性访问</div><div class="line">    /opt：第三方应用程序的安装位置；</div><div class="line">    /srv：系统上运行的服务用到的数据；</div><div class="line">    /tmp：临时文件存储位置；</div><div class="line">    /usr: universal shared, read-only data；</div><div class="line">        bin: 保证系统拥有完整功能而提供的应用程序；供用户使用</div><div class="line">        sbin:供管理员使用</div><div class="line">        lib：</div><div class="line">        lib64：</div><div class="line">        include: C程序的头文件(header files)；</div><div class="line">        share：结构化独立的数据，例如命令手册页man和自带文档doc等；</div><div class="line">        src：程序的源码</div><div class="line">        local：第三方应用程序的安装位置；</div><div class="line">            bin, sbin, lib, lib64, etc, share</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    /var: variable data files，可变数据文件，主要存储常变化的文件，包括缓存(cache)、登录文件(logfile)以及某些软件运行所产生的文件，包括程序文件(lock file, run file)，或者例如MySQL数据库的文件等</div><div class="line">        cache: 应用程序产生的缓存文件；</div><div class="line">        lib: 程序执行过程中，需要用到的数据文件放置的目录。此目录下各自的软件应该要有各自的目录；</div><div class="line">        local：专用于为/usr/local下的应用程序存储可变数据；</div><div class="line">        lock: 锁文件，某些设备或者文件资源一次只能被一个应用程序所使用，如果同时有两个程序使用该设备时，就可能产生一些错误，因此就得要将该设备或文件上锁(lock)，以确保该文件或设备只给一个程序使用</div><div class="line">        log: 日志目录及文件，/var/log/messages, /var/log/wtmp；</div><div class="line">        mail 个人电子邮箱目录，通常与/var/spool/mail/目录互为链接</div><div class="line">        opt: 专用于为/opt下的应用程序存储可变数据；</div><div class="line">        run: 运行中的进程相关的数据；通常用于存储进程的pid文件；</div><div class="line">        spool: 应用程序数据池，存放等待其他程序使用的数据；</div><div class="line">        tmp: 下次启动前会被删除的临时数据；</div><div class="line"></div><div class="line">    /proc: 用于输出内核与进程信息相关的虚拟文件系统；</div><div class="line">    /sys：用于输出当前系统上硬件设备相关信息的虚拟文件系统；</div><div class="line">        这两个目录保存的是内存的挂载点，不能直接操作。其中的数据直接写在内存中。避免数据丢失或由于内存溢出导致系统崩溃。</div><div class="line"></div><div class="line">    /selinux: security enhanced Linux，selinux相关的安全策略等信息的存储位置；</div></pre></td></tr></table></figure></p>
-<p>Linux上的应用程序的组成部分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">二进制程序：/bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin</div><div class="line">库文件：/lib, /lib64, /usr/lib, /usr/lib64, /usr/local/lib, /usr/local/lib64</div><div class="line">配置文件：/etc, /etc/DIRECTORY, /usr/local/etc</div><div class="line">帮助文件：/usr/share/man, /usr/share/doc, /usr/local/share/man, /usr/local/share/doc</div></pre></td></tr></table></figure></p>
-<p>Linux下的文件类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (f)：普通文件；</div><div class="line">d: 目录文件；</div><div class="line">b: 块设备；</div><div class="line">c: 字符设备；</div><div class="line">l: 符号链接文件；</div><div class="line">p: 管道文件；</div><div class="line">s: 套接字文件；socket;</div></pre></td></tr></table></figure></p>
-<!-- /proc 直接写入内存的
-/sys 直接写入内存的 -->
-<!-- /usr 系统软件资源目录
-/usr/bin/ 系统命令（普通用户）
-/usr/sbin/ 系统命令（超级用户）
-
-/bin 命令保存目录（普通用户就可以读取的命令）
-/sbin 命令保存目录（超级用户才能使用的目录）
-根目录下的bin和sbin，usr目录下的bin和sbin，这四个目录都是用来保存系统命令。其中，bin目录
-下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式来区分用户权限。 -->
-<!-- /, /usr, /var
-FHS根据文件的可共享、不可共享、静态和动态等特点，将目录树架构分为/、/usr、/var三部分。
-
-
-
-/lib、/lib64 为系统启动或根文件系统上的应用程序（/bin, /sbin）提供共享库（libc.so.* ld*），以及为内核提供内核模块（modules）
-/usr user hierarchy 全局共享只读数据路径
-/var var hierarchy存储常发生变化的文件
-/proc 内核级进程存储其相关信息，多为内核参数，例如net.ipv4.ipforward虚拟为net/ipv4/ipforward，存储于/proc/sys
-/sys sysfs虚拟文件系统提供了一种比proc更为理想的访问内核数据的途径；为管理内核提供了一种统一模型的接口
-/usr 根据FHS建议软件安装后将他们的数据合理地分别放置到这个目录下，而不要自行新建该软件自己的独立目录。/usr放置的数据属于可分享的且不可变动的，/usr可分享给局域网内的其他主机来使用。 -->
-<p>参考：<br><a href="http://www.178linux.com/62805" target="_blank" rel="external">http://www.178linux.com/62805</a><br><a href="https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86</a><br><a href="http://wiki.jikexueyuan.com/project/learn-linux-step-by-step/directory-configuration-fhs.html" target="_blank" rel="external">http://wiki.jikexueyuan.com/project/learn-linux-step-by-step/directory-configuration-fhs.html</a></p>
+<p>详细内容参考：<a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf" target="_blank" rel="external">https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf</a></p>
+<h3 id="根文件系统-rootfs"><a href="#根文件系统-rootfs" class="headerlink" title="根文件系统(rootfs)"></a>根文件系统(rootfs)</h3><p>root filesystem <code>/</code><br>根目录是整个系统最重要的一个目录，因为在Linux系统中所有的目录都必须挂载在根目录下，也即所有的目录都是由根目录衍生出来。系统开机时所需要的开机软件、内核文件、函数库等都必须在根目录下。因此FHS也建议根目录不要安装在非常大、数据存取非常活跃的分区上，如此一来就能尽可能地降低系统不必要的错误。</p>
+<h3 id="FHS-Filesystem-Hierarchy-Standard"><a href="#FHS-Filesystem-Hierarchy-Standard" class="headerlink" title="FHS(Filesystem Hierarchy Standard)"></a>FHS(Filesystem Hierarchy Standard)</h3><table>
+<thead>
+<tr>
+<th>目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/boot</td>
+<td>引导文件存放目录，内核文件(vmlinuz)、引导加载器(bootloader：grub)都存放于此目录</td>
+</tr>
+<tr>
+<td>/bin</td>
+<td>命令保存目录（普通用户就可以读取的命令）；不能关联至独立分区，OS启动即会用到的程序</td>
+</tr>
+<tr>
+<td>/sbin</td>
+<td>命令保存目录（超级用户才能使用的目录）；不能关联至独立分区，OS启动即会用到的程序</td>
+</tr>
+<tr>
+<td>/lib</td>
+<td>基本共享库文件，以及内核模块文件(/lib/modules)，为系统启动或根文件系统上的应用程序（/bin, /sbin）提供共享库（libc.so.<em> ld</em>），以及为内核提供内核模块（modules）</td>
+</tr>
+<tr>
+<td>/lib64</td>
+<td>专用于x86_64系统上的辅助共享库文件存放位置</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>配置文件目录(纯文本文件，不能是二进制)</td>
+</tr>
+<tr>
+<td>/home/USERNAME</td>
+<td>普通用户家目录</td>
+</tr>
+<tr>
+<td>/root</td>
+<td>管理员的家目录</td>
+</tr>
+<tr>
+<td>/media</td>
+<td>便携式移动设备挂载点(cdrom、usb)</td>
+</tr>
+<tr>
+<td>/mnt</td>
+<td>临时文件系统挂载点</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>设备文件及特殊文件存储位置<br>b: block device，随机访问 <br>c: character device，线性访问</td>
+</tr>
+<tr>
+<td>/opt</td>
+<td>第三方应用程序的安装位置</td>
+</tr>
+<tr>
+<td>/srv</td>
+<td>系统上运行的服务用到的数据</td>
+</tr>
+<tr>
+<td>/tmp</td>
+<td>临时文件存储位置</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/usr</td>
+<td>unix software resource，根据FHS建议软件安装后将他们的数据合理地分别放置到这个目</td>
+<td>录下，而不要自行新建该软件自己的独立目录。</td>
+</tr>
+<tr>
+<td>/usr/bin</td>
+<td>保证系统拥有完整功能而提供的应用程序；供普通用户使用的系统命令</td>
+</tr>
+<tr>
+<td>/usr/sbin</td>
+<td>供超级用户使用的系统命令</td>
+</tr>
+<tr>
+<td>/usr/lib</td>
+<td></td>
+</tr>
+<tr>
+<td>/usr/lib64</td>
+<td></td>
+</tr>
+<tr>
+<td>/usr/include</td>
+<td>C程序的头文件(header files)</td>
+</tr>
+<tr>
+<td>/usr/share</td>
+<td>结构化独立的数据，例如命令手册页man和自带文档doc等</td>
+</tr>
+<tr>
+<td>/usr/src</td>
+<td>程序的源码</td>
+</tr>
+<tr>
+<td>/usr/local</td>
+<td>第三方应用程序的安装位置/var/(bin, sbin, lib, lib64, etc, share)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/var</td>
+<td>variable data files，可变数据文件，主要存储常变化的文件，包括缓存(cache)、登录</td>
+<td>文件(logfile)以及某些软件运行所产生的文件，包括程序文件(lock file, run file)，或者例如MySQL数据库的文件等</td>
+</tr>
+<tr>
+<td>/var/cache</td>
+<td>应用程序产生的缓存文件</td>
+</tr>
+<tr>
+<td>/var/lib</td>
+<td>程序执行过程中，需要用到的数据文件放置的目录。此目录下各自的软件应该要有各自的目录</td>
+</tr>
+<tr>
+<td>/var/local</td>
+<td>专用于为/usr/local下的应用程序存储可变数据</td>
+</tr>
+<tr>
+<td>/var/lock</td>
+<td>锁文件，某些设备或者文件资源一次只能被一个应用程序所使用，如果同时有两个程序使用该</td>
+<td>设备时，就可能产生一些错误，因此就得要将该设备或文件上锁(lock)，以确保该文件或设备只给一个程序使用</td>
+</tr>
+<tr>
+<td>/var/log</td>
+<td>日志目录及文件，/var/log/messages, /var/log/wtmp</td>
+</tr>
+<tr>
+<td>/var/mail</td>
+<td>个人电子邮箱目录，通常与/var/spool/mail/目录互为链接</td>
+</tr>
+<tr>
+<td>/var/opt</td>
+<td>专用于为/opt下的应用程序存储可变数据</td>
+</tr>
+<tr>
+<td>/var/run</td>
+<td>运行中的进程相关的数据；通常用于存储进程的pid文件</td>
+</tr>
+<tr>
+<td>/var/spool</td>
+<td>应用程序数据池，存放等待其他程序使用的数据</td>
+</tr>
+<tr>
+<td>/var/tmp</td>
+<td>下次启动前会被删除的临时数据</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/proc</td>
+<td>用于输出内核与进程信息相关的虚拟文件系统，内核级进程存储其相关信息，多为内核参数，例</td>
+<td>如net.ipv4.ipforward虚拟为net/ipv4/ipforward，存储于/proc/sys</td>
+</tr>
+<tr>
+<td>/sys</td>
+<td>用于输出当前系统上硬件设备相关信息的虚拟文件系统，sysfs虚拟文件系统提供了一种比proc更为理想的访问内核数据的途径；为管理内核提供了一种统一模型的接口</td>
+</tr>
+<tr>
+<td>/selinux</td>
+<td>security enhanced Linux，selinux相关的安全策略等信息的存储位置</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Linux上的应用程序的组成部分"><a href="#Linux上的应用程序的组成部分" class="headerlink" title="Linux上的应用程序的组成部分"></a>Linux上的应用程序的组成部分</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">二进制程序：/bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin</div><div class="line">库文件：/lib, /lib64, /usr/lib, /usr/lib64, /usr/local/lib, /usr/local/lib64</div><div class="line">配置文件：/etc, /etc/DIRECTORY, /usr/local/etc</div><div class="line">帮助文件：/usr/share/man, /usr/share/doc, /usr/local/share/man, /usr/local/share/doc</div></pre></td></tr></table></figure>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ </div><div class="line">/usr/sbin/ </div><div class="line">/bin </div><div class="line">/sbin</div></pre></td></tr></table></figure>
+<p>这四个目录都是用来保存系统命令。其中，bin目录下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式来区分用户权限。 </p>
+<p>FHS根据文件的可共享、不可共享、静态和动态等特点，将目录树架构分为/、/usr、/var三部分。参考<a href="http://cn.linux.vbird.org/linux_basic/0210filepermission.php#dir_fhs" target="_blank" rel="external">这里</a></p>
+<ul>
+<li>/ (root, 根目录)：与开机系统有关</li>
+<li>/usr (unix software resource)：与软件安装/执行有关</li>
+<li>/var (variable)：与系统运作过程有关<br><code>/usr</code>放置的数据属于可分享的且不可变动的，<code>/usr</code>可分享给局域网内的其他主机来使用。</li>
+</ul>
+<p><code>/proc</code>、<code>/sys</code>，这两个目录保存的是内存的挂载点，不能直接操作。其中的数据直接写在内存中。避免数据丢失或由于内存溢出导致系统崩溃</p>
+<p><br></p>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.178linux.com/62805" target="_blank" rel="external">http://www.178linux.com/62805</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/learn-linux-step-by-step/directory-configuration-fhs.html" target="_blank" rel="external">http://wiki.jikexueyuan.com/project/learn-linux-step-by-step/directory-configuration-fhs.html</a></li>
+</ul>
 
       
     </div>
@@ -378,8 +575,8 @@ FHS根据文件的可共享、不可共享、静态和动态等特点，将目�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/30ec04f2.html" rel="next" title="Linux文件管理06 查看文本文件内容">
-                <i class="fa fa-chevron-left"></i> Linux文件管理06 查看文本文件内容
+              <a href="/post/616ff62c.html" rel="next" title="Linux 字符处理命令sort、wc、tr、uniq">
+                <i class="fa fa-chevron-left"></i> Linux 字符处理命令sort、wc、tr、uniq
               </a>
             
           </div>
@@ -442,8 +639,17 @@ FHS根据文件的可共享、不可共享、静态和动态等特点，将目�
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -501,6 +707,22 @@ FHS根据文件的可共享、不可共享、静态和动态等特点，将目�
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件"><span class="nav-number">1.</span> <span class="nav-text">文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件有两类数据"><span class="nav-number">1.1.</span> <span class="nav-text">文件有两类数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件名"><span class="nav-number">1.2.</span> <span class="nav-text">文件名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux下的文件类型"><span class="nav-number">1.3.</span> <span class="nav-text">Linux下的文件类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件系统"><span class="nav-number">2.</span> <span class="nav-text">文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#根文件系统-rootfs"><span class="nav-number">2.1.</span> <span class="nav-text">根文件系统(rootfs)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FHS-Filesystem-Hierarchy-Standard"><span class="nav-number">2.2.</span> <span class="nav-text">FHS(Filesystem Hierarchy Standard)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux上的应用程序的组成部分"><span class="nav-number">2.3.</span> <span class="nav-text">Linux上的应用程序的组成部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">2.4.</span> <span class="nav-text">说明</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
