@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="现代计算机设备的组成部分：    运算器、控制器、存储器、输入设备、输出设备        CPU        bus：总线        memory: 编址存储设备        read ahead 高速缓存 IO: 与外部部件交互     磁盘 网卡 虚拟机：虚拟计算机 CPU：运算器、控制器    CPU指令，指令集；        特权指令：OS运行特权指令；        普通指令">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-08T10:01:38.356Z">
+<meta property="og:updated_time" content="2018-06-10T02:17:53.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux 计算机基础">
 <meta name="twitter:description" content="现代计算机设备的组成部分：    运算器、控制器、存储器、输入设备、输出设备        CPU        bus：总线        memory: 编址存储设备        read ahead 高速缓存 IO: 与外部部件交互     磁盘 网卡 虚拟机：虚拟计算机 CPU：运算器、控制器    CPU指令，指令集；        特权指令：OS运行特权指令；        普通指令">
@@ -425,6 +425,12 @@ CLI：
 <li>为执行下一条指令作好准备，即取出下一条指令地址</li>
 </ol>
 <p>计算机使用二进制的原因<br>技术实现简单<br>简化运算规则<br>适合逻辑运算<br>易于进行转换<br>抗干扰能力强</p>
+<h2 id="机器数和真值"><a href="#机器数和真值" class="headerlink" title="机器数和真值"></a>机器数和真值</h2><p>一个数在计算机中的二进制表示形式，叫做这个数的机器数。机器数是带符号的，在计算机用一个数的最高位存放符号，正数为0，负数为1<br>因为第一位是符号位，所以机器数的形式值就一等于真正的数值，将带符号位的机器数对应的真正数值称为机器数的真值（10000011的真值是-3，而不是131）</p>
+<p>但是机器不是这么区分一个数的正负的，人可以直接看到第一位是1还是0来区分，机器如果直接判断会增加电路的复杂程度，所以人们就将符号位也参与运算，这样根据<code>1-1=1+(-1)</code>，只保留加法，于是有了原码、反码和补码</p>
+<p>原码：符号位加上真值的绝对值，即用第一位表示符号，其余位表示值<br>-1 &gt;&gt; 1000 0001<br>1  &gt;&gt; 0000 0001<br>[-127,127]</p>
+<p>反码：<br>正数的补码是基本身<br>负数和补码是在其原码的基础上，符号位不变，其余各个位数取反<br>1  &gt;&gt; 0000 0001<br>-1 &gt;&gt; 1111 1110</p>
+<p>补码：<br>正数的补码是基本身<br>负数和补码是在其原码的基础上，符号位不变，其余各个位数取反,最后加1(即反码+1)<br>1  &gt;&gt; 0000 0001<br>-1 &gt;&gt; 1111 1111</p>
+<p>在计算机系统中，数值一律使用补码来表示、存储<br>因为这样减法可按加法来处理，0000 0001 + 1111 1111 = 0000 0000 ，进位舍去<br>其实可以这样推导：<br>为了实现一个正数i加上一个数等于0 ，所以用0-i，比如i等于0000 0001,那么0-i就是1111 1111, 我们知道0-1=-1, 所以 -1的补码就是1111 1111 ，以此类推，一个负数的补码就是0-对应正数的补码。</p>
 
       
     </div>
@@ -519,8 +525,17 @@ CLI：
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -535,7 +550,7 @@ CLI：
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-count">167</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -548,7 +563,7 @@ CLI：
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -578,6 +593,22 @@ CLI：
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器数和真值"><span class="nav-number">1.</span> <span class="nav-text">机器数和真值</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

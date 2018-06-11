@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="位置打开VIM，输入:version123456789系统 vimrc 文件: &amp;quot;$VIM/vimrc&amp;quot;用户 vimrc 文件: &amp;quot;$HOME/.vimrc&amp;quot;第二用户 vimrc 文件: &amp;quot;~/.vim/vimrc&amp;quot;用户 exrc 文件: &amp;quot;$HOME/.exrc&amp;quot;系统 gvimrc 文件: &amp;quot;$VIM/gv">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.872Z">
+<meta property="og:updated_time" content="2018-06-09T00:06:34.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VIM配置">
 <meta name="twitter:description" content="位置打开VIM，输入:version123456789系统 vimrc 文件: &amp;quot;$VIM/vimrc&amp;quot;用户 vimrc 文件: &amp;quot;$HOME/.vimrc&amp;quot;第二用户 vimrc 文件: &amp;quot;~/.vim/vimrc&amp;quot;用户 exrc 文件: &amp;quot;$HOME/.exrc&amp;quot;系统 gvimrc 文件: &amp;quot;$VIM/gv">
@@ -322,7 +322,7 @@
       
         <h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>打开VIM，输入<code>:version</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">系统 vimrc 文件: &quot;$VIM/vimrc&quot;</div><div class="line">用户 vimrc 文件: &quot;$HOME/.vimrc&quot;</div><div class="line">第二用户 vimrc 文件: &quot;~/.vim/vimrc&quot;</div><div class="line">用户 exrc 文件: &quot;$HOME/.exrc&quot;</div><div class="line">系统 gvimrc 文件: &quot;$VIM/gvimrc&quot;</div><div class="line">用户 gvimrc 文件: &quot;$HOME/.gvimrc&quot; </div><div class="line">第二用户 gvimrc 文件: &quot;~/.vim/gvimrc&quot;</div><div class="line">系统菜单文件: &quot;$VIMRUNTIME/menu.vim&quot;</div><div class="line">$VIM 预设值: &quot;/usr/share/vim&quot;</div></pre></td></tr></table></figure></p>
 <p>列出了几个 vimrc 文件，有一个系统的 vimrc 文件，还有用户的 vimrc 文件，以及系统和用户 gvimrc 文件。出于和vi兼容的目的，vim也支持vi的exrc配置文件。</p>
-<p>一般来说，我们都使用用户目录下的<code>$HOME/.vimrc</code>文件即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">set number</div><div class="line">set ruler</div><div class="line">&quot;这是注释</div></pre></td></tr></table></figure></p>
+<p>一般来说，我们都使用用户目录下的<code>$HOME/.vimrc</code>文件即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&quot;这是注释</div><div class="line"></div><div class="line">&quot;vim-plug</div><div class="line">call plug#begin(&apos;~/.vim/plugged&apos;)  </div><div class="line">let mapleader=&quot;,&quot;</div><div class="line">Plug &apos;scrooloose/nerdtree&apos;</div><div class="line">Plug &apos;junegunn/fzf&apos;, &#123; &apos;dir&apos;: &apos;~/.fzf&apos;, &apos;do&apos;: &apos;./install --all&apos; &#125;</div><div class="line">Plug &apos;junegunn/fzf.vim&apos;</div><div class="line"></div><div class="line">let g:vim_markdown_folding_disabled = 1</div><div class="line">nnoremap &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</div><div class="line">nnoremap &lt;F2&gt; :Files&lt;CR&gt;</div><div class="line">autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif</div><div class="line"></div><div class="line">Plug &apos;godlygeek/tabular&apos;</div><div class="line">Plug &apos;plasticboy/vim-markdown&apos;</div><div class="line">Plug &apos;kannokanno/previm&apos;</div><div class="line">Plug &apos;tyru/open-browser.vim&apos;</div><div class="line"></div><div class="line">&quot;Plug &apos;ctrlpvim/ctrlp.vim&apos;</div><div class="line">Plug &apos;Yggdroot/LeaderF&apos;, &#123; &apos;do&apos;: &apos;./install.sh&apos; &#125;</div><div class="line">call plug#end()  </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">set number</div><div class="line">set ruler</div><div class="line"></div><div class="line">&quot;文件自动检测外部更改</div><div class="line">set autoread</div></pre></td></tr></table></figure></p>
 <p><a href="https://blog.easwy.com/archives/advanced-vim-skills-catalog/" target="_blank" rel="external">https://blog.easwy.com/archives/advanced-vim-skills-catalog/</a></p>
 
       
@@ -443,7 +443,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-count">167</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -456,7 +456,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

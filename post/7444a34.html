@@ -81,7 +81,7 @@
 
 <meta name="description" content="转自：http://sharecore.net/2014/08/10/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E5%B8%B8%E8%AF%86%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/  在面试的笔试题里出了一道开放性的题：请简述Unicode与UTF-8之间的关系。一道看似简单的题，能给出满意答案的却寥寥无几">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2018-06-08-【转】字符编码常识及问题解析">
+<meta property="og:title" content="【转】字符编码常识及问题解析">
 <meta property="og:url" content="http://yoursite.com/post/7444a34.html">
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="转自：http://sharecore.net/2014/08/10/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E5%B8%B8%E8%AF%86%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/  在面试的笔试题里出了一道开放性的题：请简述Unicode与UTF-8之间的关系。一道看似简单的题，能给出满意答案的却寥寥无几">
@@ -90,9 +90,9 @@
 <meta property="og:image" content="http://yoursite.com/img/IMG59.jpg">
 <meta property="og:image" content="http://yoursite.com/img/IMG60.jpg">
 <meta property="og:image" content="http://yoursite.com/img/IMG61.jpg">
-<meta property="og:updated_time" content="2018-06-08T10:00:24.568Z">
+<meta property="og:updated_time" content="2018-06-08T11:29:12.481Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2018-06-08-【转】字符编码常识及问题解析">
+<meta name="twitter:title" content="【转】字符编码常识及问题解析">
 <meta name="twitter:description" content="转自：http://sharecore.net/2014/08/10/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E5%B8%B8%E8%AF%86%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/  在面试的笔试题里出了一道开放性的题：请简述Unicode与UTF-8之间的关系。一道看似简单的题，能给出满意答案的却寥寥无几">
 <meta name="twitter:image" content="http://yoursite.com/img/IMG58.jpg">
 
@@ -130,7 +130,7 @@
 
 
 
-  <title>2018-06-08-【转】字符编码常识及问题解析 | 太阳落下</title>
+  <title>【转】字符编码常识及问题解析 | 太阳落下</title>
   
 
 
@@ -274,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2018-06-08-【转】字符编码常识及问题解析</h1>
+          <h1 class="post-title" itemprop="name headline">【转】字符编码常识及问题解析</h1>
         
 
         <div class="post-meta">
@@ -331,6 +331,7 @@
 <h2 id="基本常识"><a href="#基本常识" class="headerlink" title="基本常识"></a>基本常识</h2><h3 id="1-位和字节"><a href="#1-位和字节" class="headerlink" title="1.位和字节"></a>1.位和字节</h3><p>说起编码，我们必须从最基础的说起，<strong>位和字节</strong>(别觉得这个过于简单不值一说，我还真见过很多个不能区分这两者的程序员)。位（bit）是指计算机里存放的二进制值(0/1)，而8个位组合成的“位串”称为一个字节，容易算出，8个位的组合有256（ 2^8 ）个组合方式，其取值范围是“00000000-11111111”，常用十六进制来表示。比如“01000001”就是一个字节，其对应的十六进制值为“0x41”。</p>
 <p>而我们通常所讲的字符编码，就是指<strong>定义一套规则</strong>，将真实世界里的字母/字符与计算机的二进制序列进行相互转化。如我们可以针对上面的字节定义如下的转换规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">01000001（0x41）&lt;-&gt; 65 &lt;-&gt; &apos;A&apos;</div></pre></td></tr></table></figure></p>
 <p>即用字位序“01000001”来表示字母’A’。</p>
+<a id="more"></a>
 <h3 id="2-拉丁字符"><a href="#2-拉丁字符" class="headerlink" title="2.拉丁字符"></a>2.拉丁字符</h3><p>拉丁字符是当今世界使用最广泛的符号了。通常我们说的拉丁字母，指的的是<strong>基础拉丁字母</strong>,即指常见的”ABCD“等26个英文字母，这些字母与英语中一些常见的符号（如数字，标点符号）称为<strong>基础拉丁字符</strong>，这些基础拉丁字符在使用英语的国家广为流行，当然在中国，也被用来当作汉语拼音使用。在欧洲其它一些非英语国家，为满足其语言需要，在基础拉丁字符的基础上，加上一些连字符，变音字符(如’Á’)，形成了<strong>派生拉丁字母</strong>，其表示的字符范围在各种语言有所不同，而<strong>完整意义上的拉丁字符是指这些变体字符与基础拉丁字符的全集</strong>。是比基础拉丁字符集大很多的一个集合。</p>
 <h2 id="编码标准"><a href="#编码标准" class="headerlink" title="编码标准"></a>编码标准</h2><p>前文提到，字符编码是一套规则。既然是规则，就必须有标准。下面我就仔细说说常见的字符编码标准。</p>
 <h3 id="1-拉丁编码"><a href="#1-拉丁编码" class="headerlink" title="1.拉丁编码"></a>1.拉丁编码</h3><p>ASCII的全称是American Standard Code for Information Interchange（美国信息交换标准代码）。顾名思义，这是现代计算机的发明国美国人设计的标准，而美国是一个英语国家，他们设定的<strong>ASCII编码也只支持基础拉丁字符</strong>。ASCII的设计也很简单，<strong>用一个字节（8个位）来表示一个字符，并保证最高位的取值永远为’0’</strong>。即表示字符含义的位数为7位，不难算出其可表达字符数为2^7=128个。这128个字符包括95个可打印的字符（涵盖了26个英文字母的大小写以及英文标点符号能）与33个控制字符（不可打印字符）。例如下表，就是几个简单的规则对应：</p>
@@ -443,6 +444,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/post/a332154e.html" rel="prev" title="python脚本文件的第一行和第二行">
+                python脚本文件的第一行和第二行 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -518,7 +523,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-count">167</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -531,7 +536,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
