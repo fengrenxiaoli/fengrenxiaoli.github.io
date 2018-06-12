@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; } thead{ background-color:#3d3d3d; color:white }    安装12yum install vimapt install vim  Cheat Sheet   模式      ESC 命令模式，在插入模">
+<meta name="description" content="最近看了黑马的Python基础教程，里面有讲vim，讲得很仔细，索性再按照讲的笔记再整理一下之前写的 在终端输入vimtutor命令可以打开vim的教程  thead{ background-color:#3d3d3d; color:white }   vi和ivm在很多Linux发行版中，直接把vi做成vim的软连接 1234567891011# 查找 vi 的运行文件which vils -l">
 <meta name="keywords" content="VIM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VIM常用按键">
 <meta property="og:url" content="http://yoursite.com/post/e15257f3.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; } thead{ background-color:#3d3d3d; color:white }    安装12yum install vimapt install vim  Cheat Sheet   模式      ESC 命令模式，在插入模">
+<meta property="og:description" content="最近看了黑马的Python基础教程，里面有讲vim，讲得很仔细，索性再按照讲的笔记再整理一下之前写的 在终端输入vimtutor命令可以打开vim的教程  thead{ background-color:#3d3d3d; color:white }   vi和ivm在很多Linux发行版中，直接把vi做成vim的软连接 1234567891011# 查找 vi 的运行文件which vils -l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.868Z">
+<meta property="og:image" content="http://yoursite.com/img/IMG62.png">
+<meta property="og:image" content="http://yoursite.com/img/IMG63.png">
+<meta property="og:image" content="http://yoursite.com/img/IMG64.png">
+<meta property="og:updated_time" content="2018-06-12T15:17:18.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VIM常用按键">
-<meta name="twitter:description" content="table th:nth-of-type(1){ width: 30%; } table th:nth-of-type(2){ width: 70%; } thead{ background-color:#3d3d3d; color:white }    安装12yum install vimapt install vim  Cheat Sheet   模式      ESC 命令模式，在插入模">
+<meta name="twitter:description" content="最近看了黑马的Python基础教程，里面有讲vim，讲得很仔细，索性再按照讲的笔记再整理一下之前写的 在终端输入vimtutor命令可以打开vim的教程  thead{ background-color:#3d3d3d; color:white }   vi和ivm在很多Linux发行版中，直接把vi做成vim的软连接 1234567891011# 查找 vi 的运行文件which vils -l">
+<meta name="twitter:image" content="http://yoursite.com/img/IMG62.png">
 
 
 
@@ -320,75 +324,260 @@
       
 
       
-        <style>
-table th:nth-of-type(1){
-width: 30%;
-}
-table th:nth-of-type(2){
-width: 70%;
-}
+        <p>最近看了黑马的Python基础教程，里面有讲<code>vim</code>，讲得很仔细，索性再按照讲的笔记再整理一下之前写的</p>
+<p>在终端输入<code>vimtutor</code>命令可以打开vim的教程</p>
+<style>
 thead{
 background-color:#3d3d3d;
 color:white
 }
-
 </style>
 
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install vim</div><div class="line">apt install vim</div></pre></td></tr></table></figure>
+<h2 id="vi和ivm"><a href="#vi和ivm" class="headerlink" title="vi和ivm"></a>vi和ivm</h2><p>在很多Linux发行版中，直接把<code>vi</code>做成<code>vim</code>的软连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># 查找 vi 的运行文件</div><div class="line">which vi</div><div class="line">ls -l /usr/bin/vi</div><div class="line">ls -l /etc/alternatives/vi</div><div class="line">ls -l /usr/bin/vim.basic</div><div class="line"></div><div class="line"># 查找 vim 的运行文件</div><div class="line">which vim</div><div class="line">ls -l /usr/bin/vim</div><div class="line">ls -l /etc/alternatives/vim</div><div class="line">ls -l /usr/bin/vim.basic</div></pre></td></tr></table></figure>
+<h3 id="vi"><a href="#vi" class="headerlink" title="vi"></a>vi</h3><p><code>vi</code> 是<code>Visual interface</code>的简称，是Linux中最经典的文本编辑器<br><code>vi</code> 的核心设计思想————让程序员的手指始终保持在键盘的核心区域，就能完成所有的编辑操作</p>
+<p><code>vi</code> 的特点：</p>
+<ul>
+<li>没有图形界面的、功能强大的编辑器</li>
+<li>只能是编辑文本内容，不能对字体、段落进行排版</li>
+<li>不支持鼠标操作</li>
+<li>没有菜单</li>
+<li>只有命令</li>
+</ul>
+<h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><p>vim = vi improved<br><code>vim</code> 是从 <code>vi</code> 发展出来的一个文本编辑器，支持代码补全、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用，被称为编辑器之神（Emacs是神的编辑器）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install vim</div><div class="line">apt install vim</div></pre></td></tr></table></figure>
 <p><br></p>
-<h2 id="Cheat-Sheet"><a href="#Cheat-Sheet" class="headerlink" title="Cheat Sheet"></a>Cheat Sheet</h2><table>
+<h2 id="打开和新建文件"><a href="#打开和新建文件" class="headerlink" title="打开和新建文件"></a>打开和新建文件</h2><p>在终端中输入<code>vim</code>在后面跟上文件名即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim 文件名</div></pre></td></tr></table></figure></p>
+<ul>
+<li>如果文件已经存在，会直接打开该文件</li>
+<li>如果文件不存在，会新建一个文件</li>
+</ul>
+<h3 id="打开文件并且定位行"><a href="#打开文件并且定位行" class="headerlink" title="打开文件并且定位行"></a>打开文件并且定位行</h3><p>在日常工作中，有可能会遇到“打开一个文件，并定位到指定行”的情况，例如：在开发时，知道某一行代码有错误，可以快速定位到出错代码的位置，这个时候可以使用以下命令打开文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim 文件名 +行数</div></pre></td></tr></table></figure></p>
+<p>提示：如果只带上<code>+</code>而不指定行号，会直接定位到<strong>文件末尾</strong></p>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><p>如果<code>vim</code>异常退出，在磁盘上可能会保存有交换文件，下次再使用<code>vim</code>编辑该文件时，会看到以下屏幕信息，按下字母<code>d</code>可以删除交换文件即可<br>提示：按下键盘时，注意关闭输入法</p>
+<p><img src="/img/IMG62.png" alt=""></p>
+<h2 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h2><p>这里将在屏幕末行输入命令这种情况单独拿出来叫做末行模式，是为了后面比较容易讲解</p>
+<p>vi 有以下基本工作模式：</p>
+<ol>
+<li><strong>命令模式</strong><ul>
+<li>打开文件首先进入命令模式，是使用<code>vim</code>的入口</li>
+<li>通过<strong>命令</strong>对文件进行常规的编辑操作，例如：定位、翻页、复制、粘贴、删除……</li>
+<li>在其他图形编辑器下，通过快捷键或者鼠标实现的操作，都在命令模式下实现</li>
+</ul>
+</li>
+<li><strong>末行模式</strong> —— 执行 <strong>保存</strong>、<strong>退出</strong> 等操作<ul>
+<li>要退出<code>vim</code>返回到控制台，需要在末行模式下输入命令</li>
+<li>末行模式是<code>vim</code> 的出口</li>
+</ul>
+</li>
+<li><strong>编辑模式</strong> —— 正常的编辑文字</li>
+</ol>
+<p><img src="/img/IMG63.png" alt=""></p>
+<p>使用<code>ESC</code>键从其他模式切换到命令模式，可以使用<code>CTRL+[</code>替代</p>
+<h2 id="末行模式命令"><a href="#末行模式命令" class="headerlink" title="末行模式命令"></a>末行模式命令</h2><p>末行命令主要是针对文件进行操作的：保存、退出、保存&amp;退出、搜索&amp;替换、另存、新建、浏览文件</p>
+<table>
 <thead>
 <tr>
-<th>模式</th>
-<th></th>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>ESC</td>
-<td>命令模式，在插入模式或可视模式下切换模式</td>
+<td>:w</td>
+<td>write</td>
+<td>保存</td>
 </tr>
 <tr>
-<td>i</td>
-<td>插入模式</td>
+<td>:w filename</td>
+<td></td>
+<td>保存对文件的更改</td>
 </tr>
 <tr>
-<td>v</td>
-<td>可视模式，以字符为单位</td>
+<td>:q</td>
+<td>quit</td>
+<td>退出，如果没有保存，不允许退出</td>
 </tr>
 <tr>
-<td>V</td>
-<td>可视模式，以行为单位</td>
+<td>:q!</td>
+<td>quit</td>
+<td>强行退出，不保存退出</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>write &amp; quit</td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td>:x</td>
+<td></td>
+<td>保存并退出</td>
 </tr>
 </tbody>
 </table>
-<table>
+<h3 id="文件相关命令"><a href="#文件相关命令" class="headerlink" title="文件相关命令"></a>文件相关命令</h3><table>
 <thead>
 <tr>
-<th>撤消</th>
-<th></th>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>u</td>
-<td>撤消上一次操作</td>
+<td>:e 文件名</td>
+<td>edit</td>
+<td>打开一个新文件</td>
 </tr>
 <tr>
-<td>U</td>
-<td>撤销对该行进行的所有最新更改</td>
+<td>:e .</td>
+<td>edit</td>
+<td>会打开内置的文件浏览器，浏览要当前目录下的文件</td>
 </tr>
 <tr>
-<td>Ctrl+r</td>
-<td>重做</td>
+<td>:n 文件名</td>
+<td>new</td>
+<td>新建文件</td>
+</tr>
+<tr>
+<td>:w 文件名</td>
+<td>write</td>
+<td>另存为，但是仍然编辑当前文件，并不会切换文件</td>
 </tr>
 </tbody>
 </table>
+<p>提示：</p>
+<ul>
+<li>切换文件之前，必须保证当前这个文件已经被保存！</li>
+<li>在实际开发中，可以使用 w 命令 阶段性的备份代码</li>
+</ul>
+<h3 id="分屏命令"><a href="#分屏命令" class="headerlink" title="分屏命令"></a>分屏命令</h3><p>使用分屏命令，可以 同时编辑和查看多个文件</p>
 <table>
 <thead>
 <tr>
-<th>光标移动</th>
-<th></th>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:sp [文件名] or :split</td>
+<td>split</td>
+<td>水平分割当前窗口</td>
+</tr>
+<tr>
+<td>:vsp [文件名] or :vsplit</td>
+<td>vertical split</td>
+<td>垂直分割当前窗口</td>
+</tr>
+<tr>
+<td>:split file</td>
+<td>在第二个窗口中打开该文件</td>
+</tr>
+</tbody>
+</table>
+<h4 id="切换分屏窗口"><a href="#切换分屏窗口" class="headerlink" title="切换分屏窗口"></a>切换分屏窗口</h4><p>分屏窗口都是基于<code>CTRL+W</code>这个快捷键的，<code>w</code>对应的英文单词是window</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>w</td>
+<td>window</td>
+<td>切换到下一个窗口</td>
+</tr>
+<tr>
+<td>r</td>
+<td>reverse</td>
+<td>互换窗口</td>
+</tr>
+<tr>
+<td>c</td>
+<td>close</td>
+<td>关闭当前窗口，但是不能关闭最后一个窗口</td>
+</tr>
+<tr>
+<td>q</td>
+<td>quit</td>
+<td>退出当前窗口，如果是最后一个窗口，则关闭 vi</td>
+</tr>
+<tr>
+<td>o</td>
+<td>other</td>
+<td>关闭其他窗口</td>
+</tr>
+<tr>
+<td>n</td>
+<td></td>
+<td>拆分窗口并开始编辑新文件</td>
+</tr>
+<tr>
+<td>方向键</td>
+<td></td>
+<td>在方向键方向的窗口之间切换</td>
+</tr>
+</tbody>
+</table>
+<h4 id="调整窗口大小"><a href="#调整窗口大小" class="headerlink" title="调整窗口大小"></a>调整窗口大小</h4><p>分屏窗口都是基于<code>CTRL+W</code>这个快捷键的，<code>w</code>对应的英文单词是window</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td></td>
+<td>增加窗口高度</td>
+</tr>
+<tr>
+<td>-</td>
+<td></td>
+<td>减少窗口高度</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td></td>
+<td>增加窗口宽度</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td></td>
+<td>减少窗口宽度</td>
+</tr>
+<tr>
+<td>=</td>
+<td></td>
+<td>等分窗口大小</td>
+</tr>
+</tbody>
+</table>
+<p>调整窗口宽高的命令可以和数字连用，例如：5 CTRL + W + 连续 5 次增加高度</p>
+<!-- |  窗口 |   |
+|---|---|
+| :n split file  |  打开一个新窗口n行高 |
+| :new  |  水平打开一个新窗口 |
+| :vnew  | 垂直打开一个新窗口  |
+|  :res n |  如果未提供n，则将窗口大小调整为n行大小窗口大小调整为最大大小 | -->
+<p><br></p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>使用<code>vim</code>命令时，注意关闭中文输入法<br><code>vim</code>的命令较多，不要期望一下子全部记住，个别命令忘记了只是会影响编辑速度而已</p>
+<h3 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h3><p><code>vim</code>之所以快，关键在于能够快速定位到要编辑的代码行，移动命令能够和编辑操作命令组合使用</p>
+<p>在命令模式下样快速移动光标</p>
+<h4 id="上、下、左、右"><a href="#上、下、左、右" class="headerlink" title="上、下、左、右"></a>上、下、左、右</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
 </tr>
 </thead>
 <tbody>
@@ -406,356 +595,488 @@ color:white
 </tr>
 <tr>
 <td>l or →</td>
-<td>向右移动一行</td>
+<td>向右移动一字符</td>
+</tr>
+</tbody>
+</table>
+<h4 id="行内移动"><a href="#行内移动" class="headerlink" title="行内移动"></a>行内移动</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>w</td>
+<td>word</td>
+<td>向后移动一个单词</td>
 </tr>
 <tr>
-<td>:set number</td>
-<td>临时设置行号</td>
+<td>b</td>
+<td>back</td>
+<td>向前移动一个单词</td>
 </tr>
 <tr>
-<td>:n</td>
-<td>跳到第n行（跳到第42行-&gt;:42）</td>
+<td>0</td>
+<td></td>
+<td>行首</td>
+</tr>
+<tr>
+<td>^</td>
+<td></td>
+<td>行首，第一个不是空白字符的位置</td>
+</tr>
+<tr>
+<td>$</td>
+<td></td>
+<td>行尾</td>
+</tr>
+</tbody>
+</table>
+<h4 id="行数移动"><a href="#行数移动" class="headerlink" title="行数移动"></a>行数移动</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gg</td>
+<td>go</td>
+<td>文件顶部</td>
+</tr>
+<tr>
+<td>G</td>
+<td>go</td>
+<td>文件末尾</td>
+</tr>
+<tr>
+<td>数字gg</td>
+<td>go</td>
+<td>移动到 数字 对应行数</td>
+</tr>
+<tr>
+<td>数字G</td>
+<td>go</td>
+<td>移动到 数字 对应行数</td>
+</tr>
+<tr>
+<td>:数字</td>
+<td></td>
+<td>移动到 数字 对应行数</td>
 </tr>
 <tr>
 <td>nk</td>
 <td>向上移动n行（向上移动9行-&gt;9k）</td>
 </tr>
 <tr>
-<td>gg</td>
-<td>移动到文件第一行</td>
-</tr>
-<tr>
-<td>ngg</td>
-<td>移动到文件第n行</td>
-</tr>
-<tr>
-<td>G</td>
-<td>移动到文件最后一行</td>
-</tr>
-<tr>
 <td>5G</td>
 <td>移动到第五行</td>
 </tr>
+</tbody>
+</table>
+<h4 id="屏幕移动"><a href="#屏幕移动" class="headerlink" title="屏幕移动"></a>屏幕移动</h4><table>
+<thead>
 <tr>
-<td>0</td>
-<td>移动到行首</td>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + b</td>
+<td>back</td>
+<td>向上翻页</td>
 </tr>
 <tr>
-<td>^</td>
-<td>移动到行首的非空白符</td>
-</tr>
-<tr>
-<td>$</td>
-<td>移动到行尾</td>
-</tr>
-<tr>
-<td>b</td>
-<td>移到上一个单词的开头</td>
-</tr>
-<tr>
-<td>e</td>
-<td>移至单词的结尾</td>
-</tr>
-<tr>
-<td>w</td>
-<td>移至下一个单词开头</td>
+<td>Ctrl + f</td>
+<td>forward</td>
+<td>向下翻页</td>
 </tr>
 <tr>
 <td>H</td>
-<td>移动到当前⻚面顶部</td>
+<td>Head</td>
+<td>屏幕顶部</td>
 </tr>
 <tr>
 <td>M</td>
-<td>移动到当前⻚面中间</td>
+<td>Middle</td>
+<td>屏幕中间</td>
 </tr>
 <tr>
 <td>L</td>
-<td>移动到当前⻚面底部</td>
+<td>Low</td>
+<td>屏幕底部</td>
 </tr>
 </tbody>
 </table>
+<h4 id="段落移动"><a href="#段落移动" class="headerlink" title="段落移动"></a>段落移动</h4><p><code>vim</code> 中使用<strong>空行</strong>来区分段落<br>在程序开发时，通常<strong>一段功能相关的代码会写在一起</strong>————之间没有空行</p>
 <table>
 <thead>
 <tr>
-<th>插入</th>
-<th></th>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{</td>
+<td>上一段</td>
+</tr>
+<tr>
+<td>}</td>
+<td>下一段</td>
+</tr>
+</tbody>
+</table>
+<h4 id="括号切换"><a href="#括号切换" class="headerlink" title="括号切换"></a>括号切换</h4><p>在程序世界中，()、[]、{} 使用频率很高，而且都是成对出现的</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%</td>
+<td>括号匹配及切换</td>
+</tr>
+</tbody>
+</table>
+<h4 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h4><p>在开发时，<strong>某一块代码可能需要稍后处理</strong>，例如：编辑、查看<br>此时先使用<code>m</code>增加一个标记，这样可以在<strong>需要时快速地跳转回来</strong>或者<strong>执行其他编辑操作</strong><br>标记名称可以是<code>a~z</code>或者<code>A~Z</code>之间的任意一个字母<br>添加了标记的行如果被删除，标记同时被删除<br>如果在其他行添加了相同名称的标记，之前添加的标记也会被替换掉</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mx</td>
+<td>mark</td>
+<td>添加标记 x，x 是 a~z 或者 A~Z 之间的任意一个字母</td>
+</tr>
+<tr>
+<td>‘x</td>
+<td></td>
+<td>直接定位到标记 x 所在位置</td>
+</tr>
+</tbody>
+</table>
+<h3 id="选中文本（可视模式）"><a href="#选中文本（可视模式）" class="headerlink" title="选中文本（可视模式）"></a>选中文本（可视模式）</h3><p>学习复制命令前，应该先学会怎么样选中要复制的代码<br>在<code>vim</code>中要选择文本，需要先使用<code>Visual</code>命令切换到<strong>可视模式</strong><br><code>vim</code> 中提供了三种可视模式，可以方便程序员选择选中文本的方式<br>按<code>ESC</code>可以放弃选中，返回到<code>命令模式</code></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>模式</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>可视模式</td>
+<td>从光标位置开始按照正常模式选择文本</td>
+</tr>
+<tr>
+<td>V</td>
+<td>可视行模式</td>
+<td>选中光标经过的完整行</td>
+</tr>
+<tr>
+<td>Ctrl + v</td>
+<td>可视块模式</td>
+<td>垂直方向选中文本</td>
+</tr>
+</tbody>
+</table>
+<p>可视模式下，可以和移动命令连用，例如：<code>ggVG</code>能够选中所有内容</p>
+<h3 id="编辑操作"><a href="#编辑操作" class="headerlink" title="编辑操作"></a>编辑操作</h3><p>删除、复制、粘贴、替换、缩排</p>
+<h4 id="删除文本-剪切"><a href="#删除文本-剪切" class="headerlink" title="删除文本(剪切)"></a>删除文本(剪切)</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>cut</td>
+<td>删除光标所在字符，或者选中文字</td>
+</tr>
+<tr>
+<td>d(移动命令)</td>
+<td>delete</td>
+<td>删除移动命令对应的内容</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>delete</td>
+<td>删除光标所在行，可以 ndd 复制多行</td>
+</tr>
+<tr>
+<td>D</td>
+<td>delete</td>
+<td>删除至行尾</td>
+</tr>
+<tr>
+<td>dw</td>
+<td></td>
+<td>删除单词</td>
+</tr>
+</tbody>
+</table>
+<p>如果使用<strong>可视模式</strong>已经选中了一段文本，那么无论使用<code>d</code>还是<code>x</code>，都可以删除选中文本</p>
+<p>删除命令可以和移动命令连用，以下是常见的组合命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">dw        # 从光标位置删除到单词末尾</div><div class="line">d0        # 从光标位置删除到一行的起始位置</div><div class="line">d&#125;        # 从光标位置删除到段落结尾</div><div class="line">ndd       # 从光标位置向下连续删除 n 行</div><div class="line">d代码行号G   # 从光标所在行删除到指定代码行之间的所有代码</div><div class="line">d&apos;a       # 从光标所在行删除到标记 a 之间的所有代码</div></pre></td></tr></table></figure></p>
+<h3 id="撤销和恢复撤销"><a href="#撤销和恢复撤销" class="headerlink" title="撤销和恢复撤销"></a>撤销和恢复撤销</h3><p>redo和undo相反</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u</td>
+<td>undo</td>
+<td>撤销上次命令</td>
+</tr>
+<tr>
+<td>U</td>
+<td></td>
+<td>撤销对该行进行的所有最新更改</td>
+</tr>
+<tr>
+<td>CTRL + r</td>
+<td>redo</td>
+<td>恢复撤销的命令</td>
+</tr>
+</tbody>
+</table>
+<h3 id="复制、粘贴"><a href="#复制、粘贴" class="headerlink" title="复制、粘贴"></a>复制、粘贴</h3><p><code>vim</code>中提供有一个被复制文本的缓冲区<br><strong>复制</strong> 命令会将选中的文字保存在缓冲区<br><strong>删除(剪切)</strong> 命令删除的文字会被保存在缓冲区<br>在需要的位置，使用<strong>粘贴</strong>命令可以将缓冲区的文字插入到光标所在位置</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>y(移动命令)</td>
+<td>copy</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>yy or Y</td>
+<td>copy</td>
+<td>复制当前行，可以 nyy 复制多行</td>
+</tr>
+<tr>
+<td>p</td>
+<td>paste</td>
+<td>粘贴</td>
+</tr>
+<tr>
+<td>P</td>
+<td></td>
+<td>在光标位置之前粘贴文本，将行放在当前行的上方</td>
+</tr>
+</tbody>
+</table>
+<p><strong>提示</strong></p>
+<ul>
+<li>命令<code>d</code>、<code>x</code>类似于图形界面的 剪切操作————<code>CTRL+X</code></li>
+<li>命令<code>y</code>类似于图形界面的 复制操作————<code>CTRL+C</code></li>
+<li>命令<code>p</code>类似于图形界面的 粘贴操作————<code>CTRL+V</code></li>
+<li><code>vim</code> 中的文本缓冲区同样只有一个，如果后续做过复制、剪切 操作，之前缓冲区中的内容会被替换</li>
+</ul>
+<p><strong>注意</strong></p>
+<ul>
+<li><code>vim</code> 中的<strong>文本缓冲区</strong>和系统的<strong>剪贴板</strong>不是同一个</li>
+<li>所以在其他软件中使用<code>CTRL+C</code>复制的内容，不能在<code>vim</code>中通过<code>P</code>命令粘贴</li>
+<li>可以在编辑模式下使用鼠标右键粘贴</li>
+<li>如果要使用系统剪贴板参考<a href="https://fengrenxiaoli.github.io/post/333f9b1a.html" target="_blank" rel="external">这里</a></li>
+</ul>
+<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><p>替换命令的作用就是不用进入编辑模式，对文件进行轻量级的修改</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
+<th>工作模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>replace</td>
+<td>替换当前字符</td>
+<td>命令模式</td>
+</tr>
+<tr>
+<td>R</td>
+<td>replace</td>
+<td>替换当前行光标后的字符</td>
+<td>替换模式</td>
+</tr>
+</tbody>
+</table>
+<p><code>R</code>命令可以进入<strong>替换模式</strong>，替换完成后，按下<code>ESC</code>可以回到<strong>命令模式</strong></p>
+<h3 id="缩排和重复执行"><a href="#缩排和重复执行" class="headerlink" title="缩排和重复执行"></a>缩排和重复执行</h3><p>在命令模式下，先输入一个数字，再跟上一个命令，可以让该命令<strong>重复执行指定次数</strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;&gt;</td>
+<td>向右增加缩进</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>向左减少缩进</td>
+</tr>
+<tr>
+<td>.</td>
+<td>重复上次命令</td>
+</tr>
+</tbody>
+</table>
+<p>缩排命令在开发程序时，统一增加代码的缩进比较有用！<br>一次性在选中代码前增加 4 个空格，就叫做<strong>增加缩进</strong><br>一次性在选中代码前删除 4 个空格，就叫做<strong>减少缩进</strong><br>在<strong>可视模式</strong>下，缩排命令只需要使用 一个<code>&gt;</code>或者<code>&lt;</code></p>
+<p>在程序中，缩进通常用来表示<strong>代码的归属关系</strong></p>
+<ul>
+<li>前面空格越少，代码的级别越高</li>
+<li>前面空格越多，代码的级别越低</li>
+</ul>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><h4 id="常规查找"><a href="#常规查找" class="headerlink" title="常规查找"></a>常规查找</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/str</td>
+<td>查找 str</td>
+</tr>
+<tr>
+<td>?str</td>
+<td>向上查找 str</td>
+</tr>
+<tr>
+<td>\vstr</td>
+<td>str中的非字母数字字符被视为正则表达式特殊字符（不需转义字符）</td>
+</tr>
+</tbody>
+</table>
+<p>查找到指定内容之后，使用Next查找下一个出现的位置：</p>
+<ul>
+<li><code>N</code>: 查找上一个</li>
+<li><code>n</code>: 查找下一个<br>如果不想看到高亮显示，可以随便查找一个文件中不存在的内容即可</li>
+</ul>
+<h4 id="单词快速匹配"><a href="#单词快速匹配" class="headerlink" title="单词快速匹配"></a>单词快速匹配</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>向后查找当前光标所在单词</td>
+</tr>
+<tr>
+<td>#</td>
+<td>向前查找当前光标所在单词</td>
+</tr>
+</tbody>
+</table>
+<p>在开发中，通过单词快速匹配，可以快速看到这个单词在其他什么位置使用过</p>
+<h3 id="查找并替换"><a href="#查找并替换" class="headerlink" title="查找并替换"></a>查找并替换</h3><p>在<code>vim</code>中查找和替换命令需要在<strong>末行模式</strong>下执行</p>
+<p>基本命令格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:%s///g</div></pre></td></tr></table></figure></p>
+<h4 id="全局替换"><a href="#全局替换" class="headerlink" title="全局替换"></a>全局替换</h4><p>一次性替换文件中的所有出现的旧文本，命令格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:%s/旧文本/新文本/g</div></pre></td></tr></table></figure></p>
+<h4 id="可视区域替换"><a href="#可视区域替换" class="headerlink" title="可视区域替换"></a>可视区域替换</h4><p>先<strong>选中要替换文字</strong>的范围，命令格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:s/旧文本/新文本/g</div></pre></td></tr></table></figure></p>
+<h4 id="确认替换"><a href="#确认替换" class="headerlink" title="确认替换"></a>确认替换</h4><p>如果把末尾的<code>g</code>改成<code>gc</code>在替换的时候，会有提示！推荐使用！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">:%s/旧文本/新文本/gc</div><div class="line"></div><div class="line">y     yes 替换</div><div class="line">n     no 不替换</div><div class="line">a     all 替换所有</div><div class="line">q     quit 退出替换</div><div class="line">l     last 最后一个，并把光标移动到行首</div><div class="line">^E    向下滚屏</div><div class="line">^Y    向上滚屏</div></pre></td></tr></table></figure></p>
+<h3 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h3><p>在<code>vim</code>中除了常用的<code>i</code>进入<strong>编辑模式</strong>外，还提供了以下命令同样可以进入编辑模式：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>英文</th>
+<th>功能</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>i</td>
-<td>从光标前开始插入字符</td>
+<td>insert</td>
+<td>在当前字符前插入文本</td>
 </tr>
 <tr>
 <td>I</td>
-<td>从行首开始插入字符</td>
+<td>insert</td>
+<td>在行首插入文本</td>
 </tr>
 <tr>
 <td>a</td>
-<td>从光标后开始插入字符</td>
+<td>append</td>
+<td>在当前字符后添加文本</td>
 </tr>
 <tr>
 <td>A</td>
-<td>从行尾开始插入字符</td>
+<td>append</td>
+<td>在行末添加文本</td>
 </tr>
 <tr>
 <td>o</td>
-<td>在当前行之下另起一行，开始插入字符</td>
+<td></td>
+<td>在当前行后面插入一空行</td>
 </tr>
 <tr>
 <td>O</td>
-<td>在当前行之上另起一行，开始插入字符</td>
-</tr>
-<tr>
-<td>ea</td>
-<td>从当前单词末尾开始插入</td>
+<td></td>
+<td>在当前行前面插入一空行</td>
 </tr>
 </tbody>
 </table>
-<table>
-<thead>
-<tr>
-<th>复制、剪切、粘贴</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>yy or Y</td>
-<td>复制当前行</td>
-</tr>
-<tr>
-<td>:y</td>
-<td>复制当前行</td>
-</tr>
-<tr>
-<td>y</td>
-<td>复制突出显示的文字</td>
-</tr>
-<tr>
-<td>:d or dd</td>
-<td>删除当前行</td>
-</tr>
-<tr>
-<td>D</td>
-<td>删除到行尾</td>
-</tr>
-<tr>
-<td>d</td>
-<td>删除突出显示的文本</td>
-</tr>
-<tr>
-<td>dw</td>
-<td>删除单词</td>
-</tr>
-<tr>
-<td>dl</td>
-<td>在光标位置删除字符</td>
-</tr>
-<tr>
-<td>p</td>
-<td>在光标位置后粘贴文本，将行放在当前行的下面</td>
-</tr>
-<tr>
-<td>P</td>
-<td>在光标位置之前粘贴文本，将行放在当前行的上方</td>
-</tr>
-<tr>
-<td>x</td>
-<td>删除当前字符</td>
-</tr>
-<tr>
-<td>2dd</td>
-<td>剪切2行</td>
-</tr>
-<tr>
-<td>dw</td>
-<td>剪切当前单词</td>
-</tr>
-<tr>
-<td>2yy</td>
-<td>复制2行</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>查找/替换</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/pattern</td>
-<td>查找pattern</td>
-</tr>
-<tr>
-<td>?pattern</td>
-<td>向上查找pattern</td>
-</tr>
-<tr>
-<td>\vpattern</td>
-<td>pattern中的非字母数字字符被视为正则表达式特殊字符（不需转义字符）</td>
-</tr>
-<tr>
-<td>n</td>
-<td>查找下一个</td>
-</tr>
-<tr>
-<td>N</td>
-<td>查找上一个</td>
-</tr>
-<tr>
-<td>noh</td>
-<td>取消查找内容高亮</td>
-</tr>
-<tr>
-<td>:%s/old/new/g</td>
-<td>替换全部</td>
-</tr>
-<tr>
-<td>:%s/old/new/gc</td>
-<td>（逐个）替换</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>标签</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:tabnew</td>
-<td>打开一个新标签</td>
-</tr>
-<tr>
-<td>gt</td>
-<td>转到下一个选项卡</td>
-</tr>
-<tr>
-<td>gT</td>
-<td>转到上一个标签</td>
-</tr>
-<tr>
-<td>:tabmove n</td>
-<td>将标签移动到位置n</td>
-</tr>
-<tr>
-<td>:tabc</td>
-<td>关闭标签</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>文件</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:e filename</td>
-<td>打开一个新文件</td>
-</tr>
-<tr>
-<td>:w filename</td>
-<td>保存对文件的更改</td>
-</tr>
-<tr>
-<td>:q</td>
-<td>退出Vim。如果有未保存的文件，Vim将不会退出</td>
-</tr>
-<tr>
-<td>:q!</td>
-<td>退出Vim不保存更改</td>
-</tr>
-<tr>
-<td>:x or zz</td>
-<td>如果进行了更改，则退出Vim并将更改保存到文件中</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Shell命令</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:shell</td>
-<td>打开命令提示符</td>
-</tr>
-<tr>
-<td>exit</td>
-<td>退出命令提示符</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>窗口</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:split or :sp</td>
-<td>水平分割当前窗口</td>
-</tr>
-<tr>
-<td>:vsplit or :vs</td>
-<td>垂直分割当前窗口</td>
-</tr>
-<tr>
-<td>:split file</td>
-<td>在第二个窗口中打开该文件</td>
-</tr>
-<tr>
-<td>:n split file</td>
-<td>打开一个新窗口n行高</td>
-</tr>
-<tr>
-<td>:new</td>
-<td>水平打开一个新窗口</td>
-</tr>
-<tr>
-<td>:vnew</td>
-<td>垂直打开一个新窗口</td>
-</tr>
-<tr>
-<td>:res n</td>
-<td>如果未提供n，则将窗口大小调整为n行大小窗口大小调整为最大大小</td>
-</tr>
-<tr>
-<td>Ctrl+ww</td>
-<td>在窗口之间切换光标</td>
-</tr>
-<tr>
-<td>Ctrl+w&lt;←↓↑→&gt;</td>
-<td>在方向键方向的窗口之间切换光标</td>
-</tr>
-<tr>
-<td>Ctrl+wn</td>
-<td>拆分窗口并开始编辑新文件</td>
-</tr>
-<tr>
-<td>Ctrl+wr</td>
-<td>旋转窗口位置</td>
-</tr>
-<tr>
-<td>Ctrl+w or q or :q</td>
-<td>关闭窗口</td>
-</tr>
-</tbody>
-</table>
+<p><img src="/img/IMG64.png" alt=""></p>
+<!-- | 标签  |   |
+|---|---|
+| :tabnew  | 打开一个新标签  |
+| gt  |  转到下一个选项卡 |
+| gT  |  转到上一个标签 |
+| :tabmove n  |  将标签移动到位置n |
+|  :tabc |  关闭标签 | -->
+<!-- |  Shell命令 |   |
+|  --- |  --- |
+| :shell  | 打开命令提示符  |
+|  exit |  退出命令提示符 | -->
+<!-- | 模式  |   |
+|---|---|
+|  ESC |   |
+| i  | 插入模式  |
+|  v | 可视模式，以字符为单位  |
+| V  | 可视模式，以行为单位  | -->
 <!-- |  缓冲 |   |
 |---|---|
 | :buffers  |  找到缓冲区列表 |
@@ -897,7 +1218,7 @@ h   隐藏缓冲区
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">167</span>
+                  <span class="site-state-item-count">168</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -950,7 +1271,7 @@ h   隐藏缓冲区
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cheat-Sheet"><span class="nav-number">2.</span> <span class="nav-text">Cheat Sheet</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vi和ivm"><span class="nav-number">1.</span> <span class="nav-text">vi和ivm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vi"><span class="nav-number">1.1.</span> <span class="nav-text">vi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim"><span class="nav-number">1.2.</span> <span class="nav-text">vim</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开和新建文件"><span class="nav-number">2.</span> <span class="nav-text">打开和新建文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开文件并且定位行"><span class="nav-number">2.1.</span> <span class="nav-text">打开文件并且定位行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理"><span class="nav-number">2.2.</span> <span class="nav-text">异常处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作模式"><span class="nav-number">3.</span> <span class="nav-text">工作模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#末行模式命令"><span class="nav-number">4.</span> <span class="nav-text">末行模式命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件相关命令"><span class="nav-number">4.1.</span> <span class="nav-text">文件相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分屏命令"><span class="nav-number">4.2.</span> <span class="nav-text">分屏命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#切换分屏窗口"><span class="nav-number">4.2.1.</span> <span class="nav-text">切换分屏窗口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调整窗口大小"><span class="nav-number">4.2.2.</span> <span class="nav-text">调整窗口大小</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">5.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动"><span class="nav-number">5.1.</span> <span class="nav-text">移动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#上、下、左、右"><span class="nav-number">5.1.1.</span> <span class="nav-text">上、下、左、右</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#行内移动"><span class="nav-number">5.1.2.</span> <span class="nav-text">行内移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#行数移动"><span class="nav-number">5.1.3.</span> <span class="nav-text">行数移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#屏幕移动"><span class="nav-number">5.1.4.</span> <span class="nav-text">屏幕移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#段落移动"><span class="nav-number">5.1.5.</span> <span class="nav-text">段落移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#括号切换"><span class="nav-number">5.1.6.</span> <span class="nav-text">括号切换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记"><span class="nav-number">5.1.7.</span> <span class="nav-text">标记</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选中文本（可视模式）"><span class="nav-number">5.2.</span> <span class="nav-text">选中文本（可视模式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑操作"><span class="nav-number">5.3.</span> <span class="nav-text">编辑操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除文本-剪切"><span class="nav-number">5.3.1.</span> <span class="nav-text">删除文本(剪切)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销和恢复撤销"><span class="nav-number">5.4.</span> <span class="nav-text">撤销和恢复撤销</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制、粘贴"><span class="nav-number">5.5.</span> <span class="nav-text">复制、粘贴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换"><span class="nav-number">5.6.</span> <span class="nav-text">替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缩排和重复执行"><span class="nav-number">5.7.</span> <span class="nav-text">缩排和重复执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找"><span class="nav-number">5.8.</span> <span class="nav-text">查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常规查找"><span class="nav-number">5.8.1.</span> <span class="nav-text">常规查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单词快速匹配"><span class="nav-number">5.8.2.</span> <span class="nav-text">单词快速匹配</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找并替换"><span class="nav-number">5.9.</span> <span class="nav-text">查找并替换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局替换"><span class="nav-number">5.9.1.</span> <span class="nav-text">全局替换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可视区域替换"><span class="nav-number">5.9.2.</span> <span class="nav-text">可视区域替换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确认替换"><span class="nav-number">5.9.3.</span> <span class="nav-text">确认替换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入命令"><span class="nav-number">5.10.</span> <span class="nav-text">插入命令</span></a></li></ol></li></ol></div>
             
 
           </div>

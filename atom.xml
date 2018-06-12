@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-11T05:10:13.347Z</updated>
+  <updated>2018-06-11T09:53:43.781Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,16 +16,69 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2018-06-11-简明Python教程-读书笔记</title>
+    <title>2018-06-11-VIM模版</title>
+    <link href="http://yoursite.com/post/22b97e54.html"/>
+    <id>http://yoursite.com/post/22b97e54.html</id>
+    <published>2018-06-11T09:27:23.000Z</published>
+    <updated>2018-06-11T09:53:43.781Z</updated>
+    
+    <content type="html"><![CDATA[<p>用Vim写Python的时候，每次都要在开头写路径和编码，索性直接用模版<br>直接使用插件方式配置模版</p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>使用vim-plug配置，<code>vim .vimrc</code>添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Plug &apos;aperezdc/vim-template&apos;</div></pre></td></tr></table></figure></p>
+<p>保存，重新打开<code>.vimrc</code>，进行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:PlugInstall</div></pre></td></tr></table></figure></p>
+<h2 id="配置模版"><a href="#配置模版" class="headerlink" title="配置模版"></a>配置模版</h2><p>模版文件在<code>.vim/plugged/vim-template/templates</code>下</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/996afb9e4086" target="_blank" rel="external">https://www.jianshu.com/p/996afb9e4086</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;用Vim写Python的时候，每次都要在开头写路径和编码，索性直接用模版&lt;br&gt;直接使用插件方式配置模版&lt;/p&gt;
+&lt;h2 id=&quot;安装插件&quot;&gt;&lt;a href=&quot;#安装插件&quot; class=&quot;headerlink&quot; title=&quot;安装插件&quot;&gt;&lt;/a&gt;安装插件&lt;/h2&gt;&lt;p&gt;使用
+    
+    </summary>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Pygame制作飞机大战</title>
+    <link href="http://yoursite.com/post/7e3c85d2.html"/>
+    <id>http://yoursite.com/post/7e3c85d2.html</id>
+    <published>2018-06-11T08:09:50.000Z</published>
+    <updated>2018-06-12T08:55:22.846Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装Pygame"><a href="#安装Pygame" class="headerlink" title="安装Pygame"></a>安装Pygame</h2><p>Use python 3.6.1 or greater<br><a href="https://www.pygame.org/wiki/GettingStarted" target="_blank" rel="external">https://www.pygame.org/wiki/GettingStarted</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">pip install pygame</div><div class="line"></div><div class="line">#检验是否安装成功</div><div class="line">python3 -m pygame.examples.aliens</div></pre></td></tr></table></figure></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
+<li>把一些静止的图像绘制到流红窗口中</li>
+<li>根据用户的交互或其他情况，移动这些图像，产生动画效果</li>
+<li>根据图像之间是否发生重叠，判断敌机是否被摧毁等其他情况</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;安装Pygame&quot;&gt;&lt;a href=&quot;#安装Pygame&quot; class=&quot;headerlink&quot; title=&quot;安装Pygame&quot;&gt;&lt;/a&gt;安装Pygame&lt;/h2&gt;&lt;p&gt;Use python 3.6.1 or greater&lt;br&gt;&lt;a href=&quot;https:
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简明Python教程-读书笔记</title>
     <link href="http://yoursite.com/post/d1f541ed.html"/>
     <id>http://yoursite.com/post/d1f541ed.html</id>
     <published>2018-06-11T05:09:45.000Z</published>
-    <updated>2018-06-11T05:10:13.347Z</updated>
+    <updated>2018-06-11T08:05:54.042Z</updated>
     
     <content type="html"><![CDATA[<h1 id="《简明Python教程》读书笔记"><a href="#《简明Python教程》读书笔记" class="headerlink" title="《简明Python教程》读书笔记"></a>《简明Python教程》读书笔记</h1><blockquote>
-<p>使用《简明Python教程》漠伦翻译版</p>
-<p><a href="https://bop.mol.uno/" target="_blank" rel="external">https://bop.mol.uno/</a></p>
-<p>使用Python3.5.1</p>
+<p>使用《简明Python教程》漠伦翻译版<br><a href="https://bop.mol.uno/" target="_blank" rel="external">https://bop.mol.uno/</a><br>使用Python3.5.1</p>
 </blockquote>
 <h2 id="关于Python"><a href="#关于Python" class="headerlink" title="关于Python"></a>关于Python</h2><p>简单、易于学习、自由且开放（FLOSS）、高级语言、跨平台性、解释性、面向对象、可扩展性、可嵌入性、丰富的库</p>
 <p>在程序内部，Python会将源代码转换为称为字节码的中间形式，尔后再转换成你的电脑所使用的语，并运行它</p>
@@ -37,6 +90,7 @@
 <p>Python区分大小写</p>
 <p><strong>获取帮助</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">help(&apos;input&apos;)</div></pre></td></tr></table></figure></p>
 <p>最好使用引号，不使用引号有时会出错，比如<code>help(return)</code><br>按<code>q</code>退出</p>
+<a id="more"></a>
 <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ol>
 <li>注释：使用<code>#</code></li>
 <li>字面常量    </li>
@@ -188,7 +242,18 @@
     <summary type="html">
     
       &lt;h1 id=&quot;《简明Python教程》读书笔记&quot;&gt;&lt;a href=&quot;#《简明Python教程》读书笔记&quot; class=&quot;headerlink&quot; title=&quot;《简明Python教程》读书笔记&quot;&gt;&lt;/a&gt;《简明Python教程》读书笔记&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;使
+&lt;p&gt;使用《简明Python教程》漠伦翻译版&lt;br&gt;&lt;a href=&quot;https://bop.mol.uno/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://bop.mol.uno/&lt;/a&gt;&lt;br&gt;使用Python3.5.1&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;关于Python&quot;&gt;&lt;a href=&quot;#关于Python&quot; class=&quot;headerlink&quot; title=&quot;关于Python&quot;&gt;&lt;/a&gt;关于Python&lt;/h2&gt;&lt;p&gt;简单、易于学习、自由且开放（FLOSS）、高级语言、跨平台性、解释性、面向对象、可扩展性、可嵌入性、丰富的库&lt;/p&gt;
+&lt;p&gt;在程序内部，Python会将源代码转换为称为字节码的中间形式，尔后再转换成你的电脑所使用的语，并运行它&lt;/p&gt;
+&lt;h2 id=&quot;安装…&quot;&gt;&lt;a href=&quot;#安装…&quot; class=&quot;headerlink&quot; title=&quot;安装…&quot;&gt;&lt;/a&gt;安装…&lt;/h2&gt;&lt;h2 id=&quot;第一步&quot;&gt;&lt;a href=&quot;#第一步&quot; class=&quot;headerlink&quot; title=&quot;第一步&quot;&gt;&lt;/a&gt;第一步&lt;/h2&gt;&lt;p&gt;通过Python&lt;strong&gt;运行程序有两种方法&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用交互式解释器提示符&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;直接运行一个源代码&lt;code&gt;python test.py&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Python区分大小写&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;获取帮助&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;help(&amp;apos;input&amp;apos;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;最好使用引号，不使用引号有时会出错，比如&lt;code&gt;help(return)&lt;/code&gt;&lt;br&gt;按&lt;code&gt;q&lt;/code&gt;退出&lt;/p&gt;
     
     </summary>
     
@@ -202,7 +267,7 @@
     <link href="http://yoursite.com/post/90c43b0e.html"/>
     <id>http://yoursite.com/post/90c43b0e.html</id>
     <published>2018-06-10T00:41:24.000Z</published>
-    <updated>2018-06-10T05:26:46.148Z</updated>
+    <updated>2018-06-11T05:10:31.767Z</updated>
     
     <content type="html"><![CDATA[<p>来自《简明Python教程》中解决问题一章，单独拿出来进行说明</p>
 <p>需要解决的问题是</p>
@@ -255,7 +320,7 @@
     <link href="http://yoursite.com/post/6be2dbca.html"/>
     <id>http://yoursite.com/post/6be2dbca.html</id>
     <published>2018-06-09T10:04:45.000Z</published>
-    <updated>2018-06-09T10:05:34.153Z</updated>
+    <updated>2018-06-11T05:10:31.751Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <blockquote>
@@ -290,7 +355,7 @@
     <link href="http://yoursite.com/post/d528f132.html"/>
     <id>http://yoursite.com/post/d528f132.html</id>
     <published>2018-06-08T14:53:56.000Z</published>
-    <updated>2018-06-08T14:58:12.248Z</updated>
+    <updated>2018-06-11T05:10:31.751Z</updated>
     
     <content type="html"><![CDATA[<p>virtualenv用来为一个应用创建一套“隔离”的Python运行环境</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">pip3 install virtualenv</div><div class="line"># 安装virtualenv</div><div class="line"></div><div class="line">mkdir myproject</div><div class="line">cd myproject/</div><div class="line"></div><div class="line">virtualenv venv</div><div class="line">source venv/bin/activate     </div><div class="line"># 激活virtualenv</div><div class="line"></div><div class="line">pip install flexx</div><div class="line"></div><div class="line">deactivate          </div><div class="line"># 退出当前的venv环境</div></pre></td></tr></table></figure>
@@ -317,7 +382,7 @@
     <link href="http://yoursite.com/post/a332154e.html"/>
     <id>http://yoursite.com/post/a332154e.html</id>
     <published>2018-06-08T14:28:13.000Z</published>
-    <updated>2018-06-10T10:28:05.987Z</updated>
+    <updated>2018-06-11T05:10:31.747Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># encoding=utf-8</div></pre></td></tr></table></figure>
 <p>第一行会告诉系统使用的python路径，不建议使用<code>#!/usr/bin/python</code>，灵活性降低</p>
@@ -1342,121 +1407,6 @@
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ALTER TABLE table_name ADD/DROP ...;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h1 id=&quot;添加-删除列&quot;&gt;&lt;a href=&quot;#添加-删除列&quot; class=&quot;headerlink&quot; title=&quot;添加/删除列&quot;&gt;&lt;/a&gt;添加/删除列&lt;/h1&gt;&lt;h2 id=&quot;添加单列&quot;&gt;&lt;a href=&quot;#添加单列&quot; class=&quot;headerlink&quot; title=&quot;添加单列&quot;&gt;&lt;/a&gt;添加单列&lt;/h2&gt;&lt;p&gt;如果指定FIRST，则在整个表的最前方，默认不写为整个表的最后方；如果指定AFTER col_name，则在col_name的后面。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ALTER TABLE table_name ADD [COLUMN] col_name column_definition [FIRST | AFTER col_name];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ALTER TABLE user1 ADD password varchar(32) not NULL AFTER name;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h2 id=&quot;添加多列&quot;&gt;&lt;a href=&quot;#添加多列&quot; class=&quot;headerlink&quot; title=&quot;添加多列&quot;&gt;&lt;/a&gt;添加多列&lt;/h2&gt;&lt;p&gt;无法指定FIRST/AFTER、只能默认为最后方&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ALTER TABLE table_name ADD [COLUMN] (col_name column_definition,...);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ALTER TABLE user1 ADD password varchar(32) not NULL,pid smallint unsigned;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL约束</title>
-    <link href="http://yoursite.com/post/1df97176.html"/>
-    <id>http://yoursite.com/post/1df97176.html</id>
-    <published>2018-06-02T13:42:47.000Z</published>
-    <updated>2018-06-03T01:44:29.379Z</updated>
-    
-    <content type="html"><![CDATA[<p>约束保证数据的完整性和一致性<br>约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY<br>按数目分为列级约束和表级约束</p>
-<a id="more"></a>
-<p><br></p>
-<h2 id="查看约束"><a href="#查看约束" class="headerlink" title="查看约束"></a>查看约束</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SHOW INDEX FROM table_name\G;</div><div class="line">SHOW INDEX FROM table_name;</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="主键约束：PRIMARY-KEY"><a href="#主键约束：PRIMARY-KEY" class="headerlink" title="主键约束：PRIMARY KEY"></a>主键约束：PRIMARY KEY</h2><p>主键可以写为PRIMARY KEY，也可以写成KEY</p>
-<ol>
-<li>唯一性（可以赋值但是不能给两个记录赋一样的值）每张表只存在一个主键</li>
-<li>主键保证记录的唯一性</li>
-<li>主键自动为NOT NULL，也就是说必须要为主键赋值。但如果主键选择了AUTO_INCREMENT，那么不需要手动赋值</li>
-<li>auto_increment必须和主键primary key一起使用，但是主键primary key不一定要和auto_increment一块使用</li>
-<li>主键的字段是可以赋值的，但不能赋相同的值</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE user(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">username VARCHAR(20) NOT NULL</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>记录如果删除了编号会出现间断</p>
-<h3 id="自增-AUTO-INCREMENT"><a href="#自增-AUTO-INCREMENT" class="headerlink" title="自增 AUTO_INCREMENT"></a>自增 AUTO_INCREMENT</h3><ol>
-<li>自动编号，保证记录的唯一性，且必须与主键组合使用</li>
-<li>默认情况下，初始为1，每次增长量为1.</li>
-<li>对应的字段设置必须是数值类型，若是浮点类型，小数位必须为0.</li>
-<li>自动编号必须是主键字段</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb3(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT,</div><div class="line">username VARCHAR(30) NOT NULL); </div><div class="line">//报错，自动增量字段必须设置成主键</div></pre></td></tr></table></figure>
-<p>AUTO_INCREMENT必须是主键<br>主键不一定要用AUTO_INCREMENT</p>
-<p><br></p>
-<h2 id="唯一约束：UNIQUE-KEY"><a href="#唯一约束：UNIQUE-KEY" class="headerlink" title="唯一约束：UNIQUE KEY"></a>唯一约束：UNIQUE KEY</h2><ol>
-<li>唯一约束可以保证记录的唯一性</li>
-<li>唯一约束的字段可以为空值（NULL），存储时只保留一个NULL</li>
-<li>每张数据表可以存在多个唯一约束</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb2(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">username VARCHAR(20) NOT NULL UNIQUE KEY,</div><div class="line">age TINYINT UNSIGNED</div><div class="line">);</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="默认约束：DEFAULT"><a href="#默认约束：DEFAULT" class="headerlink" title="默认约束：DEFAULT"></a>默认约束：DEFAULT</h2><p>如果没有明确为字段赋值会自动赋与默认值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb6(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">username VARCHAR(20) NOT NULL UNIQUE KEY,</div><div class="line">sex ENUM(&apos;1&apos;,&apos;2&apos;,&apos;3&apos;) DEFAULT &apos;3&apos;</div><div class="line">);</div><div class="line">//表示当sex没有赋值时，默认值为3</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h2 id="非空约束：NOT-NULL"><a href="#非空约束：NOT-NULL" class="headerlink" title="非空约束：NOT NULL"></a>非空约束：NOT NULL</h2><p>NULL，字段值可以为空<br>NOT NULL，字段值禁止为空，不赋值会报错</p>
-<p><br></p>
-<h2 id="外键约束：FOREIGN-KEY"><a href="#外键约束：FOREIGN-KEY" class="headerlink" title="外键约束：FOREIGN KEY"></a>外键约束：FOREIGN KEY</h2><p>保持数据一致性，完整性；实现一对一或一对多关系</p>
-<h3 id="要求："><a href="#要求：" class="headerlink" title="要求："></a>要求：</h3><ol>
-<li>父表和子表必须使用相同的存储引擎，而且禁止使用临时表(子表：具有外键列的表；父表：子表参照的表)</li>
-<li>数据表的存储引擎只能为InnoDB</li>
-<li>外键列和参照列必须具有类似的数据类型。其中数字的长度或是否有符号位必须相同；而字符的长度则可以不同</li>
-<li>外键列和参照列必须创建索引。如果外键列不存在索引的话，MySQL将自动创建索引</li>
-</ol>
-<p>在配置文件（my.ini\my.conf）中编辑默认的存储引擎：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">default-storage-engine=INNODB</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE table_name1(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">name VARCHAR(20) NOT NULL</div><div class="line">);</div><div class="line">CREATE TABLE table_name2(</div><div class="line">id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</div><div class="line">username VARCHAR(20) NOT NULL,</div><div class="line">pid SMALLINT UNSIGNED,</div><div class="line">FOREIGN KEY (pid) REFERENCES table_name1(id)  </div><div class="line">);</div><div class="line">// 外键 pid 参照 table_name1中的 id 字段</div></pre></td></tr></table></figure>
-<p>显示创建表的语句：SHOW CREATE TABLE table_name；<br>查看表是否有索引：SHOW INDEXS FROM table_name；<br>以网格查看表是否有索引：SHOW INDEXS FROM table_name\G；</p>
-<h3 id="外键约束的参照操作"><a href="#外键约束的参照操作" class="headerlink" title="外键约束的参照操作"></a>外键约束的参照操作</h3><ol>
-<li>CASCADE：从父表删除或更新且自动删除或更新子表中匹配的行</li>
-<li>SET NULL：从父表删除或更新行，并设置子表中的外键列为NULL。如果使用该选项，必须保证子表列没有指定NOT NULL</li>
-<li>RESTRICT：拒绝对父表的删除或更新操作</li>
-<li>NO ACTION：标准SQL的关键字，在MySQL中与RESTRICT相同</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE users(</div><div class="line">id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,</div><div class="line">pid SMALLINT,</div><div class="line">username VARCHAR(10) NOT NULL,</div><div class="line">FOREIGN KEY (pid) REFERENCES province (id) ON DELETE CASCADE</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>从父表删除或更新行，会设置子表中的外键列为NULL，如果使用该选项，必须保证子表列没有指定NOT NULL</p>
-<p>实际开发中，我们很少使用物理的外键约束，而是使用逻辑约束；物理的外键约束只有innoDB这种存储引擎才会支持，MYISAM这种引擎就不支持物理的外键约束。反过来说，当我们使用到的引擎为MYISAM时，只能使用逻辑外键（即两个表的设计的逻辑关系）。</p>
-<h2 id="表级约束与列级约束"><a href="#表级约束与列级约束" class="headerlink" title="表级约束与列级约束"></a>表级约束与列级约束</h2><p>对一个数据列建立的约束，称为列级约束<br>对多个数据列建立的约束，称为表级约束</p>
-<p>列级约束既可以在列定义时声明，也可以在列定以后声明<br>表级约束只能在列定义后声明</p>
-<p>主键、外键、唯一既可以作为表级约束，也可作为列级约束<br>not null、default只有列级约束</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;约束保证数据的完整性和一致性&lt;br&gt;约束按功能分为PRIMARY KEY、UNIQUE KEY、DEFAULT、NOT NULL、FOREIGN KEY&lt;br&gt;按数目分为列级约束和表级约束&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL数据表</title>
-    <link href="http://yoursite.com/post/8ecc2d83.html"/>
-    <id>http://yoursite.com/post/8ecc2d83.html</id>
-    <published>2018-06-02T13:24:46.000Z</published>
-    <updated>2018-06-02T15:02:35.543Z</updated>
-    
-    <content type="html"><![CDATA[<p>数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】</p>
-<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><p>首先打开数据库（数据库要存在）: <code>USE 数据库名称</code></p>
-<p>创建数据表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE [IF NOT EXISTS] table_name(</div><div class="line">column_name(列名称) data_type（列类型）,</div><div class="line">.... );</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE tb1(</div><div class="line">username VARCHAR(20),</div><div class="line">userage TINYINT UNSIGNED,</div><div class="line">salary FLOAT(8,2) UNSIGNED,</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>UNSIGNED 无符号</p>
-<p><br></p>
-<h2 id="查看数据表列表"><a href="#查看数据表列表" class="headerlink" title="查看数据表列表"></a>查看数据表列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SHOW TABLES [FROM db_name] [LIKE &apos;pattern&apos; | WHERE expr]；</div><div class="line"></div><div class="line">SHOW TABLES;                //查看当前选择的数据库的所有表</div><div class="line">SHOW TABLES FROM test;      //查看test数据库中的所有表，当前选择数据库位置不变</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="查看数据表的结构"><a href="#查看数据表的结构" class="headerlink" title="查看数据表的结构"></a>查看数据表的结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SHOW COLUMNS FROM tb1;      //查看tb1中的数据表结构</div></pre></td></tr></table></figure>
-<h2 id="查看创建数据表的语句"><a href="#查看创建数据表的语句" class="headerlink" title="查看创建数据表的语句"></a>查看创建数据表的语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SHOW CREATE TABLE table_name;</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="插入记录"><a href="#插入记录" class="headerlink" title="插入记录"></a>插入记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">INSERT table_name [字段(colume),...] VALUES(val,...);</div><div class="line"></div><div class="line">INSERT tb1 VALUES(&apos;TOM&apos;,25,6782.12);</div><div class="line">INSERT tb1(username,salary) VALUES(&apos;John&apos;,3398.98);</div></pre></td></tr></table></figure>
-<p>省略字段后，values(记录内容必须按照表列顺序也就是字段顺序以逗号分隔，且插入内容一个不能少);<br>若不省略字段(可部分省略，省略部分记录自动为空)，values(记录内容按照字段插入内容，写几个字段插入几个内容);</p>
-<p><br></p>
-<h2 id="查找记录"><a href="#查找记录" class="headerlink" title="查找记录"></a>查找记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT expr(表达式),...FROM table_name;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】&lt;/p&gt;
-&lt;h2 id=&quot;创建数据表&quot;&gt;&lt;a href=&quot;#创建数据表&quot; class=&quot;headerlink&quot; title=&quot;创建数据表&quot;&gt;&lt;/a&gt;创建数据表&lt;/h2&gt;&lt;p&gt;首先打开数据库（数据库要存在）: &lt;code&gt;USE 数据库名称&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;创建数据表&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;CREATE TABLE [IF NOT EXISTS] table_name(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;column_name(列名称) data_type（列类型）,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.... );&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
     
     </summary>
     
