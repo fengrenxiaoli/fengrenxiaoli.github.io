@@ -249,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/25ce1142.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/c28a470e.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -268,7 +268,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/25ce1142.html" itemprop="url">【Hexo】Hexo中用CSS控制Markdown各列表格宽度</a></h1>
+                <a class="post-title-link" href="/post/c28a470e.html" itemprop="url">Linux下ls命令只显示目录或文件</a></h1>
         
 
         <div class="post-meta">
@@ -280,8 +280,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-12T09:45:32+08:00">
-                2018-05-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T20:05:49+08:00">
+                2018-05-16
               </time>
             
 
@@ -320,11 +320,13 @@
       
         
           
-          123456789101112131415161718&lt;style&gt;table th:nth-of-type(1)&#123;width: 10%;&#125;table th:nth-of-type(2)&#123;width: 20%;&#125;table th:nth-of-ty
+          本质上来说就是根据有没有以/结尾
+只显示目录12345ls -F | grep /$    # -F使得ls将文件分类，通过在文件后面加一些标记来实现ls -F | grep /ls -l | grep ^dls -d */ls -ld */
+只显示文件1234567ls -F | grep [^\
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/25ce1142.html#more" rel="contents">
+            <a class="btn" href="/post/c28a470e.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -375,7 +377,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/2690dd73.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/a436331.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -394,7 +396,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/2690dd73.html" itemprop="url">Linux常见服务列表</a></h1>
+                <a class="post-title-link" href="/post/a436331.html" itemprop="url">Linux禁止ping以及开启ping的方法</a></h1>
         
 
         <div class="post-meta">
@@ -406,8 +408,523 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-12T09:22:43+08:00">
-                2018-05-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T19:56:24+08:00">
+                2018-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Linux默认是允许Ping响应的，系统是否允许Ping由2个因素决定的：A、内核参数，B、防火墙，需要2个因素同时允许才能允许Ping，2个因素有任意一个禁Ping就无法Ping。
+具体的配置方法如下：
+内核参数设置允许ping设置12345678#临时允许PING操作的命令echo 0 &gt;
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/a436331.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/95daab36.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/95daab36.html" itemprop="url">【Linux】Linux 系统资源查看</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T12:48:04+08:00">
+                2018-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          监控系统资源（memory swap system io cpu等）123456789101112131415161718192021222324252627282930313233vmstat [刷新延时 刷新次数]例：vmstat 1 3procs：进程信息字段-r：等待运行的进程数，数量越大，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/95daab36.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/b32223bf.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/b32223bf.html" itemprop="url">【Linux】Linux进程管理03 修改进程优先级</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T11:10:37+08:00">
+                2018-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Linux操作系统是一个多用户、多任务的操作系统，Linux系统中运行着非常多的进程，但是CPU在同一时钟周期内只能运算一个指令。进程优先级决定了每个进程处理的先后顺序 
+查看优先级1234ps -el #PRI(priority): 是系统的优先级#NI (nice)： 用户可以自定义的优先级#实
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/b32223bf.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/6f02f8b5.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/6f02f8b5.html" itemprop="url">【Linux】Linux进程管理02 杀死进程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T11:10:00+08:00">
+                2018-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          kill命令 杀死一个进程1234kill -l#查看可用的进程信号kill [信号] PID
+
+table th:nth-of-type(1){
+width: 20%;
+}
+table th:nth-of-type(2){
+width: 20%;
+}
+table th:nth-of-type(3)
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/6f02f8b5.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/14044ec9.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/14044ec9.html" itemprop="url">【Linux】Linux进程管理01 查看进程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T11:09:00+08:00">
+                2018-05-15
               </time>
             
 
@@ -448,34 +965,22 @@
           
           
 table th:nth-of-type(1){
-width: 20%;
+width: 30%;
 }
 table th:nth-of-type(2){
-width: 60%
-;
-}
-table th:nth-of-type(3){
-width: 20%;
+width: 70%;
 }
 
 
 
+进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源
+进程管理的作用
 
-
-
-服务名称
-功能简介
-建议
-
-
-
-
-acpid
-电源
+判断服务器健康
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/2690dd73.html#more" rel="contents">
+            <a class="btn" href="/post/14044ec9.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -526,7 +1031,7 @@ acpid
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/e80d20d.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/b3dc8f98.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -545,7 +1050,7 @@ acpid
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/e80d20d.html" itemprop="url">Linux下批量重命名</a></h1>
+                <a class="post-title-link" href="/post/b3dc8f98.html" itemprop="url">【Linux】Linux定时任务</a></h1>
         
 
         <div class="post-meta">
@@ -557,8 +1062,8 @@ acpid
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-12T00:27:01+08:00">
-                2018-05-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T09:23:57+08:00">
+                2018-05-15
               </time>
             
 
@@ -597,323 +1102,21 @@ acpid
       
         
           
-          需要命名一些文件，在文件名的前缀加上序列，这些文件的文件包空格、中文思路如下：重命名使用mv命令（不讨论其它重命名命令），需要提供文件名，通过ls命令可以获得文件名，将ls命令得到的文件名分割为数组，在遍历中进行重命名
-123456789101112131415161718192021#!/usr/
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/e80d20d.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/18938cd7.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/18938cd7.html" itemprop="url">Linux服务管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T16:11:49+08:00">
-                2018-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <style>
 table th:nth-of-type(1){
-width: 20%;
+width: 30%;
 }
 table th:nth-of-type(2){
-width: 60%
+width: 70%
 ;
 }
-table th:nth-of-type(3){
-width: 20%;
-}
-
-</style>
 
 
-
-<h2 id="系统的运行级别"><a href="#系统的运行级别" class="headerlink" title="系统的运行级别"></a>系统的运行级别</h2><table>
-<thead>
-<tr>
-<th>运行级别</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>关机</td>
-</tr>
-<tr>
-<td>1</td>
-<td>单用户模式，主要用于系统修复</td>
-</tr>
-<tr>
-<td>2</td>
-<td>不完全的命令行,不含NFS服务</td>
-</tr>
-<tr>
-<td>3</td>
-<td>完全的命令行</td>
-</tr>
-<tr>
-<td>4</td>
-<td>系统暴露</td>
-</tr>
-<tr>
-<td>5</td>
-<td>图形模式</td>
-</tr>
-<tr>
-<td>6</td>
-<td>重启</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">runlevel</div><div class="line">#查询系统运行级别</div><div class="line">#结果：N 3 (当前是3 N是上一次登陆级别)</div><div class="line"></div><div class="line"></div><div class="line">init 5				</div><div class="line">#修改运行级别</div><div class="line"></div><div class="line">vi /etc/inittab		</div><div class="line">#修改系统默认运行级别</div><div class="line">id:3:initdefault:</div><div class="line">#修改系统默认运行级别，这里默认是3</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/18938cd7.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/dd92ed66.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/dd92ed66.html" itemprop="url">Linux安装Fiddler</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T10:01:44+08:00">
-                2018-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-安装mono：
-1sudo apt install mono-complete
-
-下载Fiddlerhttps://www.telerik.com/download/fiddler
-
-用mono安装它，从提取的目录中运行：
-1234mono Fiddler.exe#或者运行mono /path/t
+at 一次性定时任务12345chkconfig --list |grep atd#确定at安装service atd restart#
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/dd92ed66.html#more" rel="contents">
+            <a class="btn" href="/post/b3dc8f98.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -964,7 +1167,7 @@ width: 20%;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/367a9328.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/1515ab08.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -983,7 +1186,7 @@ width: 20%;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/367a9328.html" itemprop="url">Linux 安装Tomcat并部署Java web项目</a></h1>
+                <a class="post-title-link" href="/post/1515ab08.html" itemprop="url">【Linux】Linux后台管理</a></h1>
         
 
         <div class="post-meta">
@@ -995,8 +1198,8 @@ width: 20%;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T22:10:33+08:00">
-                2018-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T16:57:05+08:00">
+                2018-05-14
               </time>
             
 
@@ -1035,13 +1238,16 @@ width: 20%;
       
         
           
-          在Linux上安装JDK略
-在Linux上安装FTP略
-在Linux上安装Tomcat下载Tomcat，利用FTP上传到服务器上1234567891011121314#解压，位置随意tar -zxvf apache-tomcat-8.0.29.tar.gz#防火墙里面开放8080端口vim /etc
+          工作（后台）管理指的是在单个登录终端中（shell界面）同时管理多个工作行为
+注意事项
+
+当前的登录终端，只能管理当前终端的工作，而不能管理其他登录终端的工作
+放入后台的命令必须可以持续运行一段时间，这样我们才能捕捉和操作这个工作
+放入后台执行的命令不能和前台用户有交互或需要前台输入，否则放入后台只
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/367a9328.html#more" rel="contents">
+            <a class="btn" href="/post/1515ab08.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1092,7 +1298,7 @@ width: 20%;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/c81fedea.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/93ab716c.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -1111,7 +1317,7 @@ width: 20%;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/c81fedea.html" itemprop="url">Linux 安装vsftpd</a></h1>
+                <a class="post-title-link" href="/post/93ab716c.html" itemprop="url">VirtualBox扩容</a></h1>
         
 
         <div class="post-meta">
@@ -1123,8 +1329,8 @@ width: 20%;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T15:15:39+08:00">
-                2018-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T10:22:32+08:00">
+                2018-05-14
               </time>
             
 
@@ -1163,12 +1369,15 @@ width: 20%;
       
         
           
-          
-记，这篇文章实际是相当复杂的，主要原因是出于安全考虑增加了很多内容，如果只是局域网内使用不需要如此复杂，只需要安装、关闭匿名、指定目录和用户，参考https://fengrenxiaoli.github.io/2018/05/18/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE
+          这篇文章用于在VirtualBox虚拟机上的CentOS扩充根目录空间，区别于新增硬盘以及添加新的挂载点
+主机环境为Ubuntu 17.04VirtualBox 5.2虚拟机为CentOS 7
+VirtualBox 中虚拟硬盘有几种形式，VMDK、VDI、VHD、HDD等。
+
+VMDK：是VMwar
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/c81fedea.html#more" rel="contents">
+            <a class="btn" href="/post/93ab716c.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1219,7 +1428,7 @@ width: 20%;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/e76285ac.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/96cee6f3.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -1238,7 +1447,7 @@ width: 20%;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/e76285ac.html" itemprop="url">Linux 安装Apache</a></h1>
+                <a class="post-title-link" href="/post/96cee6f3.html" itemprop="url">Linux配置WordPress</a></h1>
         
 
         <div class="post-meta">
@@ -1250,8 +1459,8 @@ width: 20%;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T14:15:33+08:00">
-                2018-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-13T23:30:59+08:00">
+                2018-05-13
               </time>
             
 
@@ -1290,274 +1499,12 @@ width: 20%;
       
         
           
-          安裝Apache1sudo yum install httpd
-启动Apache，并且设定为开机自动启动12sudo systemctl start httpdsudo systemctl enable httpd
-允许http服务通过防火墙CentOS 7的内置防火墙默认设置为阻止网络流量1234
+          安装LAMPhttps://lamp.sh/install.html
+创建WordPress数据库和一个用户123456mysql&gt;create database wordpress;//wordpress是数据库名mysql&gt;create user &apos;wordpress&ap
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/e76285ac.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/ff74c6a5.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/ff74c6a5.html" itemprop="url">Linux desktop entriy</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T11:17:37+08:00">
-                2018-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          在 Windows 平台上，用户可以通过点击位于桌面或菜单上的快捷方式轻松打开目标应用程序。现代 Linux 桌面系统的应用程序是通过*.desktop文件管理的。
-一个应用程序对应一个.desktop文件，根据是用户自己可见还是所有用户可见的不同而放在 ~/.local/share/applica
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/ff74c6a5.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/4ac3f250.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/4ac3f250.html" itemprop="url">【Linux】Linux用户管理 用户和用户组及配置文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-06T22:41:15+08:00">
-                2018-05-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Linux是一个多用户的系统，那么如何保证不同用户之间不冲突，也能保证各个用户的隐私呢，这涉及到了用户管理和权限管理，先讲用户管理</p>
-<h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><p>用户就是使用操作系统的人，用户分为两类，超级用户和普通用户，而每一个用户都会有一个id，叫<code>UID</code>，系统中实际使用的是<code>UID</code>。</p>
-<ul>
-<li>超级用户：root，UID为0</li>
-<li>普通用户：UID可以为1-65535（实际没到这么多）<ul>
-<li>系统用户：对守护进程获取资源进行权限分配，UID在1-499之间（实际是设置的，不一定是500，CentOS 6: ID&lt;500，CentOS 7: ID&lt;1000）</li>
-<li>登录用户：能够交互式登录的用户，UID在500+</li>
-<li>虚拟用户：不能登录的用户，比如vsftp</li>
-</ul>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/4ac3f250.html#more" rel="contents">
+            <a class="btn" href="/post/96cee6f3.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1599,7 +1546,7 @@ width: 20%;
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1645,7 +1592,7 @@ width: 20%;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">168</span>
+                  <span class="site-state-item-count">181</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1658,7 +1605,7 @@ width: 20%;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

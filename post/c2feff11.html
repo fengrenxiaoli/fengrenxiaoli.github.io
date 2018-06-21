@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="查看权限1ls -al    第1位 2-4位 5-7位 8-10位 11位     - rwx r-x r-x .   文件类型 u所有者 g所属组 o其他人 ACL权限    r：读w：写x：执行  修改权限1234567chmod [选项] 模式 文件名选项：-R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]chmod a=rwx filen">
+<meta name="description" content="文件的权限主要针对三类对象进行定义：  owner: 属主, u group: 属组, g other: 其他, o  每个文件针对每类访问者都定义了三种权限：  r: Readable w: Writable x: eXcutable  查看权限1ls -al    第1位 2-4位 5-7位 8-10位 11位     - rwx r-x r-x .   文件类型 u所有者 g所属组 o其他人">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Linux】Linux权限管理01 一般权限">
 <meta property="og:url" content="http://yoursite.com/post/c2feff11.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="查看权限1ls -al    第1位 2-4位 5-7位 8-10位 11位     - rwx r-x r-x .   文件类型 u所有者 g所属组 o其他人 ACL权限    r：读w：写x：执行  修改权限1234567chmod [选项] 模式 文件名选项：-R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]chmod a=rwx filen">
+<meta property="og:description" content="文件的权限主要针对三类对象进行定义：  owner: 属主, u group: 属组, g other: 其他, o  每个文件针对每类访问者都定义了三种权限：  r: Readable w: Writable x: eXcutable  查看权限1ls -al    第1位 2-4位 5-7位 8-10位 11位     - rwx r-x r-x .   文件类型 u所有者 g所属组 o其他人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.844Z">
+<meta property="og:updated_time" content="2018-06-14T08:09:03.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux权限管理01 一般权限">
-<meta name="twitter:description" content="查看权限1ls -al    第1位 2-4位 5-7位 8-10位 11位     - rwx r-x r-x .   文件类型 u所有者 g所属组 o其他人 ACL权限    r：读w：写x：执行  修改权限1234567chmod [选项] 模式 文件名选项：-R 递归（用于目录）模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]chmod a=rwx filen">
+<meta name="twitter:description" content="文件的权限主要针对三类对象进行定义：  owner: 属主, u group: 属组, g other: 其他, o  每个文件针对每类访问者都定义了三种权限：  r: Readable w: Writable x: eXcutable  查看权限1ls -al    第1位 2-4位 5-7位 8-10位 11位     - rwx r-x r-x .   文件类型 u所有者 g所属组 o其他人">
 
 
 
@@ -320,7 +320,19 @@
       
 
       
-        <h2 id="查看权限"><a href="#查看权限" class="headerlink" title="查看权限"></a>查看权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -al</div></pre></td></tr></table></figure>
+        <p>文件的权限主要针对三类对象进行定义：</p>
+<ul>
+<li>owner: 属主, u</li>
+<li>group: 属组, g</li>
+<li>other: 其他, o</li>
+</ul>
+<p>每个文件针对每类访问者都定义了三种权限：</p>
+<ul>
+<li>r: Readable</li>
+<li>w: Writable</li>
+<li>x: eXcutable</li>
+</ul>
+<h2 id="查看权限"><a href="#查看权限" class="headerlink" title="查看权限"></a>查看权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -al</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -348,9 +360,8 @@
 </tr>
 </tbody>
 </table>
-<p>r：读<br>w：写<br>x：执行</p>
 <p><br></p>
-<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">chmod [选项] 模式 文件名</div><div class="line"></div><div class="line">选项：-R 递归（用于目录）</div><div class="line">模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]</div><div class="line"></div><div class="line">chmod a=rwx filename</div><div class="line">chmod u+w filename</div></pre></td></tr></table></figure>
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">chmod [OPTION]... OCTAL-MODE FILE...</div><div class="line">chmod [选项] 模式 文件名</div><div class="line"></div><div class="line">选项：-R 递归（用于目录）</div><div class="line">模式：[u/g/o/a] [+ - =] [rwx] 或 [mode=421]</div><div class="line"></div><div class="line">chmod a=rwx filename</div><div class="line">chmod u+w filename</div><div class="line"></div><div class="line">chmod [OPTION]... --reference=RFILE FILE...</div><div class="line"># 参考RFILE文件的权限，将FILE修改为同RFILE一样的权限</div></pre></td></tr></table></figure>
 <p><br></p>
 <h2 id="权限的作用"><a href="#权限的作用" class="headerlink" title="权限的作用"></a>权限的作用</h2><h3 id="权限对文件的作用"><a href="#权限对文件的作用" class="headerlink" title="权限对文件的作用"></a>权限对文件的作用</h3><ul>
 <li>r：读取文件内容（cat/more/head/tail）</li>
@@ -364,7 +375,7 @@
 <li>x：进入目录（cd）</li>
 </ul>
 <p>对文件来说，最高权限是x<br>对目录来说，最高权限是w<br>目录只有0，5 ，7权限有意义。4、1、6权限没有意义<br>文件的常用权限是644<br>目录的常用权限是755</p>
-<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#修改文件所有者</div><div class="line">chown 用户名 文件各</div><div class="line"></div><div class="line">#修改文件的所属组</div><div class="line">chgrp 所属组 文件名</div><div class="line"></div><div class="line">#同时修改文件的所有者和所属组</div><div class="line">chown 用户名:所属组 文件名</div></pre></td></tr></table></figure>
+<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#修改文件所有者</div><div class="line">chown 用户名 文件各</div><div class="line">-R: 递归</div><div class="line"></div><div class="line">#同时修改文件的所有者和所属组</div><div class="line">chown 用户名:所属组 文件名</div><div class="line"></div><div class="line">chown [OPTION]... --reference=RFILE FILE...</div><div class="line"></div><div class="line">#修改文件的所属组</div><div class="line">chgrp 所属组 文件名</div><div class="line">chgrp [OPTION]... GROUP FILE...</div><div class="line">chgrp [OPTION]... --reference=RFILE FILE...</div></pre></td></tr></table></figure>
 <p>分配文件基本权限时，核心原则：<strong>在最小权限情况下能够实现要求即可</strong></p>
 
       
@@ -406,8 +417,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/post/815d598f.html" rel="prev" title="【Linux】Linux权限管理02 默认权限">
-                【Linux】Linux权限管理02 默认权限 <i class="fa fa-chevron-right"></i>
+              <a href="/post/815d598f.html" rel="prev" title="【Linux】Linux权限管理02 默认权限umask">
+                【Linux】Linux权限管理02 默认权限umask <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -485,7 +496,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">168</span>
+                  <span class="site-state-item-count">181</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -498,7 +509,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

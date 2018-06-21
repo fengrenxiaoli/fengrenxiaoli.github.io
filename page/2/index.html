@@ -249,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/89c53863.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/32cf0123.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -268,7 +268,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/89c53863.html" itemprop="url">GitLab+sphinx+Readthedocs</a></h1>
+                <a class="post-title-link" href="/post/32cf0123.html" itemprop="url">Python输入输出及基础</a></h1>
         
 
         <div class="post-meta">
@@ -280,785 +280,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T09:54:05+08:00">
-                2018-06-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>利用GitLab、sphinx、Readthedocs可以制作文档和博客，利用这种方式制作出来的博客更像一本书，能够结构化展示文章，比较适合笔记类<br>Gitlab用来存储代码<br>sphinx用来写博客<br>Readthedocs用来展示</p>
-<h2 id="安装-Sphinx"><a href="#安装-Sphinx" class="headerlink" title="安装 Sphinx"></a>安装 Sphinx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install sphinx</div></pre></td></tr></table></figure>
-<h2 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir mybook</div><div class="line">cd mybook</div><div class="line">sphinx-quickstart</div></pre></td></tr></table></figure>
-<p>输入工程名、作者名、版本号，分离source和build目录<code>Separate source and build directories (y/N) [n]: y</code></p>
-<p>build目录 运行make命令后，生成的文件都在这个目录里面<br>source目录 放置文档的源文件</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/89c53863.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/4fa63392.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/4fa63392.html" itemprop="url">MySQL存储引擎</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T14:16:53+08:00">
-                2018-06-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>MySQL可以将数据以不同的技术存储在文件（内存）中，这种技术就称为存储引擎，每种存数引擎使用不同的存储机制、索引技巧、锁定水平，最终提供广泛且不同的功能。</p>
-<h2 id="并发处理"><a href="#并发处理" class="headerlink" title="并发处理"></a>并发处理</h2><h3 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h3><p>当多个连接对记录进行修改时保证数据的一致性和完整性。</p>
-<h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><ul>
-<li>共享锁(读锁)：在同一时间内，多个用户可读取同一个资源，读取过程中数据不会发生任何变化。</li>
-<li>排他锁(写锁)：在任何时候只能有一个用户写入资源，当进行写锁时会阻塞其他的读锁或者写锁操作。</li>
-</ul>
-<h3 id="锁的力度-锁颗粒–锁定时的单位"><a href="#锁的力度-锁颗粒–锁定时的单位" class="headerlink" title="锁的力度(锁颗粒–锁定时的单位)"></a>锁的力度(锁颗粒–锁定时的单位)</h3><ul>
-<li>表锁，是一种开销最小的锁策略。对表进行写锁，所有用户不能对该表的任何记录操作。</li>
-<li>行锁，是一种开销最大的锁策略。并行性最大，可能对表的所有记录写锁，开销大。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/4fa63392.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/ca4788ef.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/ca4788ef.html" itemprop="url">MySQL自定义函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T13:03:17+08:00">
-                2018-06-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h2><p>用户自定义函数(user-defined function, UDF)是一种对MySQL扩展的途径, 其用法与内置函数相同。 </p>
-<h3 id="自定义函数的两个必要条件"><a href="#自定义函数的两个必要条件" class="headerlink" title="自定义函数的两个必要条件"></a>自定义函数的两个必要条件</h3><ol>
-<li>参数：最多1024个任意类型的参数</li>
-<li>返回值：任意类型</li>
-</ol>
-<p>函数可以返回任意类型的值，同样可以接受这些类型的参数；<br>函数的参数与返回值之间，没有必然的联系。</p>
-<h3 id="创建自定义函数"><a href="#创建自定义函数" class="headerlink" title="创建自定义函数"></a>创建自定义函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CREATE FUNCTION function_name</div><div class="line">RETURNS</div><div class="line">&#123;STRING|INTEGER|REAL|DECIMAL&#125;</div><div class="line">routine_body</div></pre></td></tr></table></figure>
-<p><code>routine_body</code>是函数体<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/ca4788ef.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/e01ea1fb.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/e01ea1fb.html" itemprop="url">Hexo插入图片</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T09:49:54+08:00">
-                2018-06-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在写博客中添加图片是很正常的，这里列举了本人使用的两种方法</p>
-<h2 id="本地引用"><a href="#本地引用" class="headerlink" title="本地引用"></a>本地引用</h2><p>当Hexo项目中只用到少量图片时，可以将图片统一放在source/images文件夹中，通过markdown语法访问它们。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](/img/image.jpg)</div></pre></td></tr></table></figure>
-<p>要注意这是绝对路径</p>
-<h2 id="CDN引用"><a href="#CDN引用" class="headerlink" title="CDN引用"></a>CDN引用</h2><p>将图片上传到一些免费的CDN服务中。上传图片后，会生成对应的url地址，将地址直接拿来引用即可<br>参考<a href="https://www.qiniu.com/" target="_blank" rel="external">七牛</a>、<a href="https://cloudinary.com/" target="_blank" rel="external">cloudinary</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/e01ea1fb.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/9da3e761.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/9da3e761.html" itemprop="url">MySQL子查询</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T22:14:15+08:00">
-                2018-06-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><p>子查询是指出现在其他SQL语句内的SELECT子句</p>
-<ul>
-<li>子查询嵌套在查询内部，且必须始终出现在<strong>圆括号内</strong>。</li>
-<li>可以包含多个关键字或者条件，如<code>DISTINCT</code>、<code>GROUP BY</code>、<code>ORDER BY</code>、<code>LIMIT</code>、函数等</li>
-<li>外层查询可以是：<code>SELECT</code>、<code>INSERT</code>、<code>UPDATE</code>、<code>SET</code>或<code>DO</code></li>
-<li>返回值：标量、一行、一列或者子查询</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM t1 WHERE column1 = (SELECT column1 FROM t2);</div></pre></td></tr></table></figure>
-<p><code>SELECT * FROM t1;</code>称为Outer Query/外查询/Outer Statement<br><code>SELECT column1 FROM t2;</code> 称为Sub Query/子查询</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/9da3e761.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/b63304bd.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/b63304bd.html" itemprop="url">MySQL连接</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T22:14:10+08:00">
-                2018-06-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>联合查询的效率比较高</p>
-<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>MySQL在SELECT语句、多表更新、多表删除语句中支持JOIN操作<br>语法结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">table_reference A</div><div class="line">&#123;[INNER|CROSS] JOIN | &#123;LEFT|RIGHT&#125; [OUTER] JOIN&#125;</div><div class="line">table_reference B</div><div class="line">ON condition_expr</div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/b63304bd.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/ed90cb85.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/ed90cb85.html" itemprop="url">MySQL函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T22:14:04+08:00">
-                2018-06-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-15T20:12:09+08:00">
+                2018-06-15
               </time>
             
 
@@ -1097,37 +320,12 @@
       
         
           
-          字符函数
-
-
-函数名称
-描述
-举例
-结果
-
-
-
-
-CONCAT()
-字符连接
-SELECT CONCAT(‘a’,’-‘,’b’);
-a-b
-
-
-CONCAT_WS()
-使用指定的分隔符进行字符连接
-SELECT CONCAT_WS(‘
-‘,’A’,’B’,’C’);
-A
-B
-C
-
-
-FORMAT(
+          输出自动添加空格
+123456&gt;&gt;&gt;print(&apos;hello world&apos;)hello world&gt;&gt;&gt;print(&apos;The quick brown fox&apos;, &apos;jumps over&apos;, &apos;t
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/ed90cb85.html#more" rel="contents">
+            <a class="btn" href="/post/32cf0123.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1178,7 +376,7 @@ FORMAT(
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/392b408.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/d6d2cac9.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -1197,7 +395,7 @@ FORMAT(
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/392b408.html" itemprop="url">MySQL存储过程</a></h1>
+                <a class="post-title-link" href="/post/d6d2cac9.html" itemprop="url">Python编码</a></h1>
         
 
         <div class="post-meta">
@@ -1209,8 +407,8 @@ FORMAT(
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T22:13:52+08:00">
-                2018-06-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-15T08:44:39+08:00">
+                2018-06-15
               </time>
             
 
@@ -1248,14 +446,15 @@ FORMAT(
 
       
         
-          <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>存储过程是SQL语句与控制语句的预编译集合，以一个名称存储作为一个单元处理</p>
-<p><img src="/img/IMG55.png" alt=""></p>
-<p>输入SQL命令，MySQL引擎对命令进行分析，查看输入的语法是否正确，如果正确，再进行编译，编译成MySQL引擎可识别的命令，最后再进行执行，并将执行结果返回给客户端。</p>
-<p>如果省略了语法分析和编译的阶段，则效率可提高。</p>
-<p>存储过程：是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理（类似函数）。存储过程存储在数据库内，可以由应用程序调用执行，而且允许用户申明变量以及进行流程控制。存储过程可以接受输入类型的参数和输出类型的参数，并且可以存在多个返回值。只在第一次调用时进行语法分析和编译，以后的调用直接调用编译的结果，效率大大提高。<br>
+          
+          编码
+在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。
+用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件
+浏览网页的时候，服务器会把动态生成的U
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/392b408.html#more" rel="contents">
+            <a class="btn" href="/post/d6d2cac9.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1306,7 +505,7 @@ FORMAT(
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/2aaa8b1b.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/634c672f.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -1325,7 +524,7 @@ FORMAT(
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/2aaa8b1b.html" itemprop="url">MySQL记录操作</a></h1>
+                <a class="post-title-link" href="/post/634c672f.html" itemprop="url">Linux安装Anaconda</a></h1>
         
 
         <div class="post-meta">
@@ -1337,8 +536,8 @@ FORMAT(
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T10:13:18+08:00">
-                2018-06-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-14T09:38:50+08:00">
+                2018-06-14
               </time>
             
 
@@ -1376,12 +575,14 @@ FORMAT(
 
       
         
-          <h2 id="insert-插入记录"><a href="#insert-插入记录" class="headerlink" title="insert 插入记录"></a>insert 插入记录</h2><h3 id="INSERT…VALUES"><a href="#INSERT…VALUES" class="headerlink" title="INSERT…VALUES"></a>INSERT…VALUES</h3><p>比较常用，一次性插入多条记录，可输入表达式甚至是函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">INSERT [INTO] table_name [(column_name,...)] </div><div class="line">&#123;VALUES|VALUE&#125; (&#123;expr|DEFAULT&#125;,...),(...),...;</div></pre></td></tr></table></figure></p>
-<p>expr 表示表达式<br>对于自动编号的字段，插入<code>NULL</code>或<code>DEFAULT</code>系统将自动依次递增编号；<br>对于有默认约束的字段，可以插入<code>DEFAULT</code>表示使用默认值；<br>列值可传入数值、表达式或函数，如密码可以用md5()函数进行加密（如md5(‘123’)）；<br>可同时插入多条记录，多条记录括号间用逗号<code>,</code>隔开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">INSERT test VALUES(NULL,&apos;Tom&apos;);</div><div class="line">//插入单条记录</div><div class="line"></div><div class="line">INSERT users </div><div class="line">VALUES(DEFAULT,&apos;Tom&apos;,&apos;123&apos;,1+9*2,1),</div><div class="line">(NULL,&apos;John&apos;,md5(&apos;123&apos;),DEFAULT,0); </div><div class="line">//插入两条记录</div></pre></td></tr></table></figure>
+          <p>Anaconda 是一种Python语言的包管理工具，用于进行大规模数据处理, 预测分析, 和科学计算, 致力于简化包的管理和部署。 Anaconda使用软件包管理系统Conda进行包管理。</p>
+<p>实际上我使用Anaconda是为了避免Python2和Python3的冲突，我既想使用Python3又不想改变Python2原来的东西</p>
+<p>官网：<a href="https://anaconda.org/" target="_blank" rel="external">https://anaconda.org/</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载：<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a><br>选择对应的Python版本和系统进行下载安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bash Anaconda3-5.2.0-Linux-x86_64.sh</div><div class="line">conda upgrade --all</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/2aaa8b1b.html#more" rel="contents">
+            <a class="btn" href="/post/634c672f.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1432,7 +633,7 @@ FORMAT(
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/5f31036f.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/d52f3c59.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -1451,7 +652,7 @@ FORMAT(
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/5f31036f.html" itemprop="url">MySQL修改数据表</a></h1>
+                <a class="post-title-link" href="/post/d52f3c59.html" itemprop="url">Vim中Python相关插件</a></h1>
         
 
         <div class="post-meta">
@@ -1463,8 +664,8 @@ FORMAT(
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-02T22:49:01+08:00">
-                2018-06-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-14T08:09:01+08:00">
+                2018-06-14
               </time>
             
 
@@ -1502,13 +703,793 @@ FORMAT(
 
       
         
-          <p>总结：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD/DROP ...;</div></pre></td></tr></table></figure>
-<h1 id="添加-删除列"><a href="#添加-删除列" class="headerlink" title="添加/删除列"></a>添加/删除列</h1><h2 id="添加单列"><a href="#添加单列" class="headerlink" title="添加单列"></a>添加单列</h2><p>如果指定FIRST，则在整个表的最前方，默认不写为整个表的最后方；如果指定AFTER col_name，则在col_name的后面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD [COLUMN] col_name column_definition [FIRST | AFTER col_name];</div><div class="line"></div><div class="line">ALTER TABLE user1 ADD password varchar(32) not NULL AFTER name;</div></pre></td></tr></table></figure></p>
-<h2 id="添加多列"><a href="#添加多列" class="headerlink" title="添加多列"></a>添加多列</h2><p>无法指定FIRST/AFTER、只能默认为最后方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE table_name ADD [COLUMN] (col_name column_definition,...);</div><div class="line"></div><div class="line">ALTER TABLE user1 ADD password varchar(32) not NULL,pid smallint unsigned;</div></pre></td></tr></table></figure></p>
+          
+          tell-k/vim-autopep8依照pep8的标准自动格式化代码插件依赖autopep81pip install --upgrade autopep8
+安装插件1Plug &apos;tell-k/vim-autopep8&apos;
+使用1234:Autopep8:Autopep8 --ra
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/5f31036f.html#more" rel="contents">
+            <a class="btn" href="/post/d52f3c59.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/22b97e54.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/22b97e54.html" itemprop="url">VIM模版</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T17:27:23+08:00">
+                2018-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>用Vim写Python的时候，每次都要在开头写路径和编码，索性直接用模版<br>直接使用插件方式配置模版</p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>使用vim-plug配置，<code>vim .vimrc</code>添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Plug &apos;aperezdc/vim-template&apos;</div></pre></td></tr></table></figure></p>
+<p>保存，重新打开<code>.vimrc</code>，进行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:PlugInstall</div></pre></td></tr></table></figure></p>
+<h2 id="配置模版"><a href="#配置模版" class="headerlink" title="配置模版"></a>配置模版</h2><p>模版文件在<code>.vim/plugged/vim-template/templates</code>下</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/22b97e54.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/7e3c85d2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/7e3c85d2.html" itemprop="url">Pygame相关</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T16:09:50+08:00">
+                2018-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>pygame是主要构筑在SDL库基础上的一组Python模块的集合，它使我们能够用Python语言来创建功能完整的游戏和多媒体程序。pygame是高度括平台可移植的，在任何SDL支持的平台上都可以运行（几乎可以在任何平台和操作系统上运行）。</p>
+<p>注：SDL(Simple DirectMedia Layer)是一个跨平台的多媒体库，可以用来访问底层的音频、键盘、鼠标、摇杆、3D硬件（通过OpenGL）以及2D视频缓冲。它被用在MPEG播放软件、模拟器和很多流行的游戏中，包括获得大奖的Linux版的”Civilization: Call To Power”。</p>
+<h2 id="安装Pygame"><a href="#安装Pygame" class="headerlink" title="安装Pygame"></a>安装Pygame</h2><p><a href="https://www.pygame.org/wiki/GettingStarted" target="_blank" rel="external">https://www.pygame.org/wiki/GettingStarted</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">pip install pygame</div><div class="line"></div><div class="line">#检验是否安装成功</div><div class="line">python3 -m pygame.examples.aliens</div></pre></td></tr></table></figure></p>
+<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import pygame</div><div class="line"># 引入 pygame 中的所有常量</div><div class="line">from pygame.locals import *</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/7e3c85d2.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/d1f541ed.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/d1f541ed.html" itemprop="url">简明Python教程-读书笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T13:09:45+08:00">
+                2018-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="《简明Python教程》读书笔记"><a href="#《简明Python教程》读书笔记" class="headerlink" title="《简明Python教程》读书笔记"></a>《简明Python教程》读书笔记</h1><blockquote>
+<p>使用《简明Python教程》漠伦翻译版<br><a href="https://bop.mol.uno/" target="_blank" rel="external">https://bop.mol.uno/</a><br>使用Python3.5.1</p>
+</blockquote>
+<h2 id="关于Python"><a href="#关于Python" class="headerlink" title="关于Python"></a>关于Python</h2><p>简单、易于学习、自由且开放（FLOSS）、高级语言、跨平台性、解释性、面向对象、可扩展性、可嵌入性、丰富的库</p>
+<p>在程序内部，Python会将源代码转换为称为字节码的中间形式，尔后再转换成你的电脑所使用的语，并运行它</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Linux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install python3</div><div class="line">python3 -V</div></pre></td></tr></table></figure></p>
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>通过Python<strong>运行程序有两种方法</strong></p>
+<ol>
+<li>使用交互式解释器提示符<code>&gt;&gt;&gt;</code></li>
+<li>直接运行一个源代码<code>python test.py</code></li>
+</ol>
+<p>Python区分大小写</p>
+<p><strong>获取帮助</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">help(&apos;input&apos;)</div></pre></td></tr></table></figure></p>
+<p>最好使用引号，不使用引号有时会出错，比如<code>help(return)</code><br>按<code>q</code>退出</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/d1f541ed.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/90c43b0e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/90c43b0e.html" itemprop="url">利用Python备份文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-10T08:41:24+08:00">
+                2018-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>来自《简明Python教程》中解决问题一章，单独拿出来进行说明</p>
+<p>需要解决的问题是</p>
+<blockquote>
+<p>我想要一款程序来备份我所有的重要文件。</p>
+</blockquote>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>5W1H<br>What？Where？When？Why？Who？How？<br>备份什么？备份到哪里？– ？–？–？ 怎么备份？<br>我们应该如何指定哪些文件是我们需要备份的？<br>它们应该如何进行备份？以什么方式存储？<br>储存到哪里?</p>
+<h2 id="设计："><a href="#设计：" class="headerlink" title="设计："></a>设计：</h2><ol>
+<li>需要备份的文件与目录应在一份列表中予以指定</li>
+<li>备份必须存储在一个主备份目录中</li>
+<li>备份文件将打包压缩成 zip 文件</li>
+<li>zip 压缩文件的文件名由当前日期与时间构成</li>
+<li>使用在任何 GNU/Linux 或 Unix 发行版中都会默认提供的标准 zip 命令进行打包</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/90c43b0e.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/6be2dbca.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/6be2dbca.html" itemprop="url">Python之禅</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-09T18:04:45+08:00">
+                2018-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>import this<br>The Zen of Python, by Tim Peters</p>
+</blockquote>
+<p>Beautiful is better than ugly.<br>Explicit is better than implicit.<br>Simple is better than complex.<br>Complex is better than complicated.<br>Flat is better than nested.<br>Sparse is better than dense.<br>Readability counts.<br>Special cases aren’t special enough to break the rules.<br>Although practicality beats purity.<br>Errors should never pass silently.<br>Unless explicitly silenced.<br>In the face of ambiguity, refuse the temptation to guess.<br>There should be one– and preferably only one –obvious way to do it.<br>Although that way may not be obvious at first unless you’re Dutch.<br>Now is better than never.<br>Although never is often better than <em>right</em> now.<br>If the implementation is hard to explain, it’s a bad idea.<br>If the implementation is easy to explain, it may be a good idea.<br>Namespaces are one honking great idea – let’s do more of those!</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/6be2dbca.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/d528f132.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/d528f132.html" itemprop="url">使用virtualenv</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-08T22:53:56+08:00">
+                2018-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>virtualenv用来为一个应用创建一套“隔离”的Python运行环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">pip3 install virtualenv</div><div class="line"># 安装virtualenv</div><div class="line"></div><div class="line">mkdir myproject</div><div class="line">cd myproject/</div><div class="line"></div><div class="line">virtualenv venv</div><div class="line">source venv/bin/activate     </div><div class="line"># 激活virtualenv</div><div class="line"></div><div class="line">pip install flexx</div><div class="line"></div><div class="line">deactivate          </div><div class="line"># 退出当前的venv环境</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/d528f132.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1550,7 +1531,7 @@ FORMAT(
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1596,7 +1577,7 @@ FORMAT(
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">168</span>
+                  <span class="site-state-item-count">181</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1609,7 +1590,7 @@ FORMAT(
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

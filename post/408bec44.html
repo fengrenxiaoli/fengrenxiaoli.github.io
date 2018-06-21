@@ -87,7 +87,10 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的 该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的 上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务  table th:nth-of-type(1){ width: 10%; } table th:nth-of-type(2){ width: 7">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/img/IMG9.jpg">
+<meta property="og:image" content="http://yoursite.com/img/IMG67.png">
+<meta property="og:image" content="http://yoursite.com/img/IMG68.png">
+<meta property="og:image" content="http://yoursite.com/img/IMG69.png">
+<meta property="og:image" content="http://yoursite.com/img/IMG70.png">
 <meta property="og:image" content="http://yoursite.com/img/IMG10.jpg">
 <meta property="og:image" content="http://yoursite.com/img/IMG11.jpg">
 <meta property="og:image" content="http://yoursite.com/img/IMG12.png">
@@ -95,11 +98,11 @@
 <meta property="og:image" content="http://yoursite.com/img/IMG14.png">
 <meta property="og:image" content="http://yoursite.com/img/IMG15.png">
 <meta property="og:image" content="http://yoursite.com/img/IMG16.jpg">
-<meta property="og:updated_time" content="2018-06-04T02:33:57.379Z">
+<meta property="og:updated_time" content="2018-06-19T08:35:45.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux网络管理01 网络基础">
 <meta name="twitter:description" content="OSI模型开放系统互联模型，由ISO(国际标准化组织) 组织开发的 该模型为基础模型, 而实际中常用的TCP/IP模型是由七层模型演变的 上三层(应用层、表示层、会话层)是对用户提供服务, 下四层(传输层、网络层、数据链路层、物理层)对数据传输提供服务  table th:nth-of-type(1){ width: 10%; } table th:nth-of-type(2){ width: 7">
-<meta name="twitter:image" content="http://yoursite.com/img/IMG9.jpg">
+<meta name="twitter:image" content="http://yoursite.com/img/IMG67.png">
 
 
 
@@ -347,6 +350,7 @@ width: 20%;
 </style>
 
 
+<p>每一层的变化不影响其他层</p>
 <table>
 <thead>
 <tr>
@@ -358,37 +362,37 @@ width: 20%;
 <tbody>
 <tr>
 <td>应用层</td>
-<td>用户接口</td>
+<td>用户接口，所有能产生网络流量的程序</td>
 <td>APDU，应用协议数据单元</td>
 </tr>
 <tr>
 <td>表示层</td>
-<td>数据的表现形式（ASCII、GB2312、jpg）、 特定功能的实现如加密、压缩</td>
+<td>数据的表现形式/编码方式（ASCII、GB2312、jpg），在传输之前是否进行 <strong>加密</strong>、<strong>压缩</strong>      乱码</td>
 <td>PPDU，表示协议数据单元</td>
 </tr>
 <tr>
 <td>会话层</td>
-<td>对应用会话的管理、同步。 确定网络数据是否要经过远程会话</td>
+<td>对应用会话的管理、同步。 确定网络数据是否要经过远程会话                                                                        <code>netstat</code>命令 可以查看木马</td>
 <td>SPDU，会话协议数据单元</td>
 </tr>
 <tr>
 <td>传输层</td>
-<td>确定可靠与不可靠的传输（ TCP传输控制协议可靠不会丢、UDP用户数据报协议更快但可能会丢）、传输前的错误检测、 流量控制、 确立端口号, 便于通过IP确定主机后, 通过端口确定交互的服务</td>
+<td>确定可靠与不可靠的传输（ TCP传输控制协议可靠不会丢、UDP用户数据报协议更快但可能会丢(一个包可以解决的问题，比如查询DNS，QQ聊天)）、传输前的错误检测、 流量控制（你发太快啦，慢点）、 确立端口号, 便于通过IP确定主机后, 通过端口确定交互的服务</td>
 <td>TPDU，传输协议数据单元</td>
 </tr>
 <tr>
 <td>网络层</td>
-<td>负责提供逻辑地址(IP地址, 需要写入发件人IP与收件人IP）、 选择通路。 （确定IP地址，原IP、目地IP）</td>
+<td>负责提供逻辑地址(IP地址, 需要写入发件人IP与收件人IP）、 负责选择最佳路径，规划IP地址。 （确定IP地址，原IP、目地IP）       ，IP4，IP6</td>
 <td>报文</td>
 </tr>
 <tr>
 <td>数据链路层</td>
-<td>负责组成帧(组入MAC信息)，用MAC地址访问媒介（源地址&amp;目的地址）、错误的检测与修正。物理地址，就是计算机MAC地址，也就是计算机网卡地址。每一台电脑都有一个网卡地址，MAC地址负责局域网通信，IP地址负责外网通信。</td>
+<td>负责组成帧(组入MAC信息)，用MAC地址访问媒介（源地址&amp;目的地址）、错误的检测与修正。物理地址，就是计算机MAC地址，也就是计算机网卡地址。每一台电脑都有一个网卡地址，MAC地址负责局域网通信，IP地址负责外网通信。帧的开始和结束，透明传输（帧的转义字符的增加删除），差错校验（只检验，不纠正，纠正由传输层完成，或丢掉或重新传输）</td>
 <td>帧</td>
 </tr>
 <tr>
 <td>物理层</td>
-<td>设备之间比特流的传输（ 最基本的数据传递）、物理接口（ 网线口、视频口、音频口）、电气特性（ 网线8根线中的1、3、2、6四根线传输数据）</td>
+<td>设备之间比特流的传输（ 最基本的数据传递）、物理接口标准（ 网线口、视频口、音频口）、电气特性               ，物理介质，如何在物理层上传输更快的速度</td>
 <td>比特流</td>
 </tr>
 </tbody>
@@ -403,8 +407,22 @@ width: 20%;
 <li>数据链路层 : 写入源MAC地址与目标MAC地址, 由于IP地址找到局域网, 再通过MAC地址在局域网中找到目标, 传递至物理层</li>
 <li>物理层 : 数据传输</li>
 </ol>
+<h3 id="OSI参考模型和故障排除"><a href="#OSI参考模型和故障排除" class="headerlink" title="OSI参考模型和故障排除"></a>OSI参考模型和故障排除</h3><p>故障从下到上进行排除，因为越上层越复杂</p>
+<ol>
+<li>物理层故障：查看发送和接收的数据包大小是否一致</li>
+<li>数据链路层故障：mac冲突、ADSL过期、网速没办法协商一致（100M和1G）、计算机连接到错误的WLAN</li>
+<li>网络层故障：配置错误的IP地址、子网掩码、网关，路由器没有配置到达的目标网络的路由</li>
+<li>应用层故障（应用层、表现层、会话层、传输层）：应用程序配置错误</li>
+</ol>
+<h3 id="OSI参考模型和网络安全"><a href="#OSI参考模型和网络安全" class="headerlink" title="OSI参考模型和网络安全"></a>OSI参考模型和网络安全</h3><ol>
+<li>物理层安全：别人可以接入你的网络</li>
+<li>数据链路层安全：ASDL账号密码、无线AP、VLAN、交换机商品绑定mac地址</li>
+<li>网络层安全：路由器上使用ACL控制数据包流量</li>
+<li>应用层安全（应用层、表现层、会话层、传输层）：开发的应用程序漏洞</li>
+</ol>
 <p><br></p>
-<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><h3 id="TCP-IP-四层模型与-OSI-七层模型对应关系"><a href="#TCP-IP-四层模型与-OSI-七层模型对应关系" class="headerlink" title="TCP/IP 四层模型与 OSI 七层模型对应关系"></a>TCP/IP 四层模型与 OSI 七层模型对应关系</h3><ul>
+<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><h3 id="TCP-IP-四层模型与-OSI-七层模型对应关系"><a href="#TCP-IP-四层模型与-OSI-七层模型对应关系" class="headerlink" title="TCP/IP 四层模型与 OSI 七层模型对应关系"></a>TCP/IP 四层模型与 OSI 七层模型对应关系</h3><p><img src="/img/IMG67.png" alt=""></p>
+<ul>
 <li>应用层 : 应用层、表示层、会话层<br>为用户提供所需的各种服务, 例如 <strong>FTP</strong>、<strong>Telnet</strong>、<strong>DNS</strong>、<strong>SMTP</strong>等</li>
 </ul>
 <ul>
@@ -416,7 +434,9 @@ width: 20%;
 <ul>
 <li>网络接口层 : 数据链路层、物理层<br>负责监视数据在主机和网络之间的交换, 事实上, TCP/IP本身并未定义该层的协议, 而由参与互连的各网络使用自己的物理层和数据链路层协议, 然后与TCP/IP的网络接入层进行连接. 地址解析协议(<strong>ARP</strong>) 工作在此层, 即OSI参考模型的数据链路层.<br>地址解析协议(ARP) : 将IP地址 翻译成物理地址</li>
 </ul>
-<h3 id="数据封装过程"><a href="#数据封装过程" class="headerlink" title="数据封装过程"></a>数据封装过程</h3><p>发送是由上至下进行打包, 接收是由下至上进行拆包<br><img src="/img/IMG9.jpg" alt=""></p>
+<h3 id="数据封装过程"><a href="#数据封装过程" class="headerlink" title="数据封装过程"></a>数据封装过程</h3><p>发送是由上至下进行打包, 接收是由下至上进行拆包<br><!--![](/img/IMG9.jpg)--><br><img src="/img/IMG68.png" alt=""><br><img src="/img/IMG69.png" alt=""><br>FCS：校验</p>
+<h3 id="数据解封装过程"><a href="#数据解封装过程" class="headerlink" title="数据解封装过程"></a>数据解封装过程</h3><p>计算机在接收到数据帧后，需要去掉为了传输而添加的附加信息，这称为解封装</p>
+<p><img src="/img/IMG70.png" alt=""></p>
 <h3 id="TCP-IP-模型与OSI-模型的比较"><a href="#TCP-IP-模型与OSI-模型的比较" class="headerlink" title="TCP/IP  模型与OSI 模型的比较"></a>TCP/IP  模型与OSI 模型的比较</h3><p>共同点</p>
 <ol>
 <li>OSI 参考模型和 TCP/IP参考模型都采用了层次结构的概念</li>
@@ -623,7 +643,7 @@ width: 20%;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">168</span>
+                  <span class="site-state-item-count">181</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -636,7 +656,7 @@ width: 20%;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -676,7 +696,7 @@ width: 20%;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI模型"><span class="nav-number">1.</span> <span class="nav-text">OSI模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP"><span class="nav-number">2.</span> <span class="nav-text">TCP/IP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP-四层模型与-OSI-七层模型对应关系"><span class="nav-number">2.1.</span> <span class="nav-text">TCP/IP 四层模型与 OSI 七层模型对应关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据封装过程"><span class="nav-number">2.2.</span> <span class="nav-text">数据封装过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP-模型与OSI-模型的比较"><span class="nav-number">2.3.</span> <span class="nav-text">TCP/IP  模型与OSI 模型的比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP地址"><span class="nav-number">3.</span> <span class="nav-text">IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP包头-如图"><span class="nav-number">3.1.</span> <span class="nav-text">IP包头(如图)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址分类"><span class="nav-number">3.2.</span> <span class="nav-text">IP地址分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子网掩码"><span class="nav-number">4.</span> <span class="nav-text">子网掩码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口"><span class="nav-number">5.</span> <span class="nav-text">端口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见端口号"><span class="nav-number">5.1.</span> <span class="nav-text">常见端口号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS"><span class="nav-number">6.</span> <span class="nav-text">DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hosts和DNS"><span class="nav-number">6.1.</span> <span class="nav-text">hosts和DNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名空间结构"><span class="nav-number">6.2.</span> <span class="nav-text">域名空间结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS查询过程"><span class="nav-number">6.3.</span> <span class="nav-text">DNS查询过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS查询类型"><span class="nav-number">6.4.</span> <span class="nav-text">DNS查询类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网关"><span class="nav-number">7.</span> <span class="nav-text">网关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网关作用"><span class="nav-number">7.1.</span> <span class="nav-text">网关作用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI模型"><span class="nav-number">1.</span> <span class="nav-text">OSI模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI参考模型和故障排除"><span class="nav-number">1.1.</span> <span class="nav-text">OSI参考模型和故障排除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI参考模型和网络安全"><span class="nav-number">1.2.</span> <span class="nav-text">OSI参考模型和网络安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP"><span class="nav-number">2.</span> <span class="nav-text">TCP/IP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP-四层模型与-OSI-七层模型对应关系"><span class="nav-number">2.1.</span> <span class="nav-text">TCP/IP 四层模型与 OSI 七层模型对应关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据封装过程"><span class="nav-number">2.2.</span> <span class="nav-text">数据封装过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据解封装过程"><span class="nav-number">2.3.</span> <span class="nav-text">数据解封装过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP-模型与OSI-模型的比较"><span class="nav-number">2.4.</span> <span class="nav-text">TCP/IP  模型与OSI 模型的比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP地址"><span class="nav-number">3.</span> <span class="nav-text">IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP包头-如图"><span class="nav-number">3.1.</span> <span class="nav-text">IP包头(如图)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址分类"><span class="nav-number">3.2.</span> <span class="nav-text">IP地址分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子网掩码"><span class="nav-number">4.</span> <span class="nav-text">子网掩码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口"><span class="nav-number">5.</span> <span class="nav-text">端口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见端口号"><span class="nav-number">5.1.</span> <span class="nav-text">常见端口号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS"><span class="nav-number">6.</span> <span class="nav-text">DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hosts和DNS"><span class="nav-number">6.1.</span> <span class="nav-text">hosts和DNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名空间结构"><span class="nav-number">6.2.</span> <span class="nav-text">域名空间结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS查询过程"><span class="nav-number">6.3.</span> <span class="nav-text">DNS查询过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS查询类型"><span class="nav-number">6.4.</span> <span class="nav-text">DNS查询类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网关"><span class="nav-number">7.</span> <span class="nav-text">网关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网关作用"><span class="nav-number">7.1.</span> <span class="nav-text">网关作用</span></a></li></ol></li></ol></div>
             
 
           </div>

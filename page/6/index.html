@@ -249,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/e15257f3.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/29c3cf93.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -268,7 +268,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/e15257f3.html" itemprop="url">VIM常用按键</a></h1>
+                <a class="post-title-link" href="/post/29c3cf93.html" itemprop="url">Linux 时间戳管理</a></h1>
         
 
         <div class="post-meta">
@@ -280,8 +280,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-26T04:57:06+08:00">
-                2018-05-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T21:06:20+08:00">
+                2018-05-31
               </time>
             
 
@@ -319,21 +319,13 @@
 
       
         
-          
-          最近看了黑马的Python基础教程，里面有讲vim，讲得很仔细，索性再按照讲的笔记再整理一下之前写的
-在终端输入vimtutor命令可以打开vim的教程
-
-thead{
-background-color:#3d3d3d;
-color:white
-}
-
-
-vi和ivm在很多Linux发行版中，直接把v
-          ...
+          <h2 id="stat-查看时间戳"><a href="#stat-查看时间戳" class="headerlink" title="stat 查看时间戳"></a>stat 查看时间戳</h2><p>文件：metadata, data<br>查看文件状态：<code>stat</code></p>
+<p>三个时间戳：<br>access time：（文档最后一次）访问时间，简写为atime，读取文件内容<br>modify time: 修改时间, mtime，改变文件内容（数据）<br>change time: 改变时间, ctime，元数据发生改变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Access - the last time the file was read</div><div class="line">Modify - the last time the file was modified (content has been modified)</div><div class="line">Change - the last time meta data of the file was changed (e.g. permissions)</div></pre></td></tr></table></figure>
+<h2 id="touch-修改时间戳"><a href="#touch-修改时间戳" class="headerlink" title="touch 修改时间戳"></a>touch 修改时间戳</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">touch [OPTION]... FILE...</div><div class="line">选项：</div><div class="line">-a      only atime</div><div class="line">-m      only mtime</div><div class="line">-t STAMP    [[CC]YY]MMDDhhmm[.ss]</div><div class="line">-c      如果文件不存，则不予创建</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/e15257f3.html#more" rel="contents">
+            <a class="btn" href="/post/29c3cf93.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -384,7 +376,7 @@ vi和ivm在很多Linux发行版中，直接把v
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/2d466a59.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/3781ba59.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -403,7 +395,7 @@ vi和ivm在很多Linux发行版中，直接把v
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/2d466a59.html" itemprop="url">Shell条件判断 case、for、while、until</a></h1>
+                <a class="post-title-link" href="/post/3781ba59.html" itemprop="url">Linux 命令补全和路径补全</a></h1>
         
 
         <div class="post-meta">
@@ -415,8 +407,8 @@ vi和ivm在很多Linux发行版中，直接把v
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T22:48:25+08:00">
-                2018-05-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T20:57:02+08:00">
+                2018-05-31
               </time>
             
 
@@ -454,12 +446,12 @@ vi和ivm在很多Linux发行版中，直接把v
 
       
         
-          
-          多分支语句case1234567891011case $变量名 in    &quot;值1&quot;)        如果变量值等于值1，执行程序1        ;;    &quot;值2&quot;)        如果变量值等于值2，执行程序2        ;;    *）      
-          ...
+          <h2 id="命令补全"><a href="#命令补全" class="headerlink" title="命令补全"></a>命令补全</h2><p>bash执行命令<br>内部命令<br>外部命令：bash根据PATH环境变量定义的路径，自左而右在每个路径搜寻以给定命令名命名的文件，第一次找到即为要执行的命令</p>
+<p>直接补全：Tab，用户给定的字符串只有一条惟一对应的命令<br>以用户给定的字符串为开头对应的命令不惟一，则再次Tab会给出列表</p>
+<h2 id="路径补全"><a href="#路径补全" class="headerlink" title="路径补全"></a>路径补全</h2><p>把用户给出的字符串当做路径开头，并在其指定上级目录下搜索以指定的字符串开头的文件名<br>如果惟一，则直接补全<br>否则，再次Tab，给出列表</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/2d466a59.html#more" rel="contents">
+            <a class="btn" href="/post/3781ba59.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -510,7 +502,7 @@ vi和ivm在很多Linux发行版中，直接把v
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/14e12b20.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/43bb04d6.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -529,7 +521,7 @@ vi和ivm在很多Linux发行版中，直接把v
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/14e12b20.html" itemprop="url">Shell条件判断 双分支if语句</a></h1>
+                <a class="post-title-link" href="/post/43bb04d6.html" itemprop="url">Linux 终端</a></h1>
         
 
         <div class="post-meta">
@@ -541,8 +533,8 @@ vi和ivm在很多Linux发行版中，直接把v
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T22:17:33+08:00">
-                2018-05-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T20:33:43+08:00">
+                2018-05-31
               </time>
             
 
@@ -580,13 +572,14 @@ vi和ivm在很多Linux发行版中，直接把v
 
       
         
-          
-          123456if [ 条件判断式 ]    then        条件成立时执行的程序    else        条件不成立时，执行的另一个程序fi
-实例：判断输入的路径是不是一个目录123456789#!/bin/bashread -t 30 -p &quot;Input a dir:&qu
-          ...
+          <p>用户与主机交互，必然用到的设备；</p>
+<h2 id="物理终端"><a href="#物理终端" class="headerlink" title="物理终端"></a>物理终端</h2><p>直接连接在主机上的显示器、键盘鼠标统称。<br>在实际机架式服务器部署中，一般是多台服务器共享一套终端，简称KVM（Keyboard键盘，video显示器，mouse鼠标）<br>/dev/console</p>
+<h2 id="虚拟终端tty"><a href="#虚拟终端tty" class="headerlink" title="虚拟终端tty"></a>虚拟终端tty</h2><p>附加在物理终端之上的以软件方式虚拟实现的终端，CentOS 6默认启动6个虚拟终端<br>Ctrl+Alt+F#: [1,6]<br>图形终端：附加在物理终端之上的以软件方式虚拟实现的终端，但额外会提供桌面环境；<br>tty是teletypewriter的简称<br>设备文件路径：/dev/tty#</p>
+<h2 id="模拟终端pty"><a href="#模拟终端pty" class="headerlink" title="模拟终端pty"></a>模拟终端pty</h2><p>sh协议或telnet协议等远程打开的命令行界面，是运维工程师用的最多的一种连接服务器的方式。pts(pseudo-terminal slave)是pty的实现方法。<br>设备文件：/dev/pts/#    [0,oo)</p>
+<p>查看当前的终端设备：tty</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/14e12b20.html#more" rel="contents">
+            <a class="btn" href="/post/43bb04d6.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -637,7 +630,7 @@ vi和ivm在很多Linux发行版中，直接把v
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/3f9d305d.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/4aed7274.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -656,7 +649,7 @@ vi和ivm在很多Linux发行版中，直接把v
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/3f9d305d.html" itemprop="url">Shell条件判断 多分支if语句</a></h1>
+                <a class="post-title-link" href="/post/4aed7274.html" itemprop="url">Linux时间命令</a></h1>
         
 
         <div class="post-meta">
@@ -668,8 +661,8 @@ vi和ivm在很多Linux发行版中，直接把v
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T22:07:06+08:00">
-                2018-05-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T23:50:40+08:00">
+                2018-05-30
               </time>
             
 
@@ -707,12 +700,13 @@ vi和ivm在很多Linux发行版中，直接把v
 
       
         
-          
-          123456789if [ 条件判断式1 ]then    当条件判断式1成立时，执行程序1elif [ 条件判断式2 ]then    当条件判断式2成立时，执行程序2else    当所有条件都不成立时，最后执行此程序fi
-          
+          <h2 id="date-显示或设置日期"><a href="#date-显示或设置日期" class="headerlink" title="date 显示或设置日期"></a>date 显示或设置日期</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">date [OPTION]... [+FORMAT]</div><div class="line"># 显示日期</div><div class="line">FORMAT: 格式符号，类似%D、%F、%T，参考man</div><div class="line"></div><div class="line">date [MMDDhhmm[[CC]YY][.ss]]</div><div class="line"># 设置日期</div><div class="line">MM           月份</div><div class="line">DD           几号</div><div class="line">hh           小时</div><div class="line">mm           分钟</div><div class="line">YY           两位年份</div><div class="line">CCYY         四位年份</div><div class="line">.ss          秒钟</div></pre></td></tr></table></figure>
+<h2 id="Linux的两种时钟"><a href="#Linux的两种时钟" class="headerlink" title="Linux的两种时钟"></a>Linux的两种时钟</h2><p>系统时钟(system time)：由Linux内核通过CPU的工作频率进行的计时，date命令<br>硬件时钟(hardware clock)：<code>clock</code>命令</p>
+<p>hwclock: 显示硬件时钟<br>    -s, –hctosys   Set the System Time from Hardware Clock 读取硬件时间到系统时间<br>    -w, –systohc   Set Hardware Clock to the current System Time 系统时间写入硬件时间</p>
+<h2 id="cal-日历"><a href="#cal-日历" class="headerlink" title="cal 日历"></a>cal 日历</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cal</div><div class="line"># 显示当前月份</div><div class="line"></div><div class="line">cal [options] [[[day] month] year] </div><div class="line"># 显示指定时间的日历</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/3f9d305d.html#more" rel="contents">
+            <a class="btn" href="/post/4aed7274.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -763,7 +757,7 @@ vi和ivm在很多Linux发行版中，直接把v
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/a1518663.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/a6281d67.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -782,7 +776,7 @@ vi和ivm在很多Linux发行版中，直接把v
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/a1518663.html" itemprop="url">Shell条件判断 单分支if语句</a></h1>
+                <a class="post-title-link" href="/post/a6281d67.html" itemprop="url">Shell echo命令</a></h1>
         
 
         <div class="post-meta">
@@ -794,8 +788,8 @@ vi和ivm在很多Linux发行版中，直接把v
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T22:06:50+08:00">
-                2018-05-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T14:26:25+08:00">
+                2018-05-28
               </time>
             
 
@@ -833,17 +827,12 @@ vi和ivm在很多Linux发行版中，直接把v
 
       
         
-          
-          12345678if [ 条件判断式 ];then    程序fiif [ 条件判断式 ]     then        程序fi
-注：
-
-if语句使用fi结尾，和一般语言使用大括号结尾不同
-[ 条件判断式 ]就是使用test命令判断，所以中括号和条件判断式之间必须有空格
-then后面跟符合条件之
-          ...
+          <h2 id="echo-回显命令"><a href="#echo-回显命令" class="headerlink" title="echo 回显命令"></a>echo 回显命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">echo [选项] [输出内容]</div><div class="line"></div><div class="line">选项： </div><div class="line">-e：允许使用转义符</div><div class="line">-n: 禁止自动添加换行符号</div><div class="line"></div><div class="line">内容转义</div><div class="line">\a - 输出警告音</div><div class="line">\b - 退格符</div><div class="line">\n - 换行符</div><div class="line">\r - 回车键</div><div class="line">\t - 制表符，也就是tab键</div><div class="line">\v - 垂直制表符</div><div class="line">\0nnn - 按照八进制ASCII码输出字符</div><div class="line">\xhh - 按照十六进制ASCII表输出字符</div><div class="line"></div><div class="line">输出带颜色的内容 </div><div class="line">echo -e &quot;\e[1;31m文字\e[0m&quot;</div><div class="line">#输出颜色 \e[1;##m - 开启颜色显示； \e[0m - 关闭颜色显示</div><div class="line">#30m=黑色，31m=红色，32m=绿色，33m=黄色</div><div class="line">#34m=蓝色，35m=洋红，36m=青色，37m=白色</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo &quot;$VAR_NAME&quot;: 变量会替换，双引号表弱引用</div><div class="line">echo &apos;$VAR_NAME&apos;: 变量不会替换，强引用</div></pre></td></tr></table></figure>
+<p>参考：Shell引号</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/a1518663.html#more" rel="contents">
+            <a class="btn" href="/post/a6281d67.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -894,7 +883,7 @@ then后面跟符合条件之
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/7f7d2ed7.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/ca5ad791.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -913,7 +902,7 @@ then后面跟符合条件之
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/7f7d2ed7.html" itemprop="url">Shell条件判断 条件判断式</a></h1>
+                <a class="post-title-link" href="/post/ca5ad791.html" itemprop="url">Shell引号</a></h1>
         
 
         <div class="post-meta">
@@ -925,8 +914,8 @@ then后面跟符合条件之
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T21:42:14+08:00">
-                2018-05-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T14:14:51+08:00">
+                2018-05-28
               </time>
             
 
@@ -965,36 +954,14 @@ then后面跟符合条件之
       
         
           
-          
-table th:nth-of-type(1){
-width: 20%;
-}
-table th:nth-of-type(2){
-width: 80%;
-}
-
-
-
-引用变量要加””
-按文件类型判断
-
-
-测试选项
-作用
-
-
-
-
--b
-判断该文件是否存在，并且是否为块设备文件（是为真）
-
-
--c
-判断该
+          双引号””单词分割、路径名展开、波浪线展开和花括号展开都被禁止，参数展开、算术展开、命令替换仍然执行
+在双引号中左右的特殊符号都没有特殊含义，但是“$”,”`”,”\”是例外。拥有“调用变量的值”，“引用命令”和“转义符”的特殊含义
+使用双引号可以处理包含空格的文件名
+12echo $(cal)  
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/7f7d2ed7.html#more" rel="contents">
+            <a class="btn" href="/post/ca5ad791.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1045,7 +1012,7 @@ width: 80%;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/41272a58.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/7e1cd31f.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -1064,7 +1031,7 @@ width: 80%;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/41272a58.html" itemprop="url">Linux DNS搭建 Bind服务</a></h1>
+                <a class="post-title-link" href="/post/7e1cd31f.html" itemprop="url">Shell展开</a></h1>
         
 
         <div class="post-meta">
@@ -1076,8 +1043,8 @@ width: 80%;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T21:37:47+08:00">
-                2018-05-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T13:38:30+08:00">
+                2018-05-28
               </time>
             
 
@@ -1115,14 +1082,19 @@ width: 80%;
 
       
         
-          
-          Centos123yum install bind  bind-utils#centos默认的安装是没有host，dig，nsloopup等命令的，需要安装bind-utils
-Ubuntu1sudo apt-get install bind9
-https://www.phpini.com/linu
-          ...
+          <p>输入的字符在shell起作用前会展开成为别的字符</p>
+<ul>
+<li>路径展开</li>
+<li>波浪号展开</li>
+<li>算术表达式展开</li>
+<li>花括号展开</li>
+<li>参数展开</li>
+<li>命令替换</li>
+<li>单词分割</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/41272a58.html#more" rel="contents">
+            <a class="btn" href="/post/7e1cd31f.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1173,7 +1145,7 @@ https://www.phpini.com/linu
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/218fd1f1.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/2101d586.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -1192,7 +1164,7 @@ https://www.phpini.com/linu
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/218fd1f1.html" itemprop="url">PowerPoint 2016拆分汉字、制作笔画</a></h1>
+                <a class="post-title-link" href="/post/2101d586.html" itemprop="url">VIM插件NerdTree快捷键</a></h1>
         
 
         <div class="post-meta">
@@ -1204,8 +1176,8 @@ https://www.phpini.com/linu
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T09:53:30+08:00">
-                2018-05-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T12:45:11+08:00">
+                2018-05-28
               </time>
             
 
@@ -1244,15 +1216,12 @@ https://www.phpini.com/linu
       
         
           
-          需要工具word、powerpoint
-
-打开word，输入汉字，设置字体为楷体GB2312/仿宋（这两种字体的笔画是分离的，WindowsXP中默认有这两种字体，但Windows 7开始系统默认没有这两种字体）
-保存为doc格式
-选中文字，【右击】，在快捷菜单中打开【字体】对话框，选择【空心】格式
+          打开当前目录1:NERDTreeFind
+切换工作台和目录1234ctrl + w + h    光标 focus 左侧树形目录ctrl + w + l    光标 focus 右侧文件显示窗口ctrl + w + w    光标自动在左右侧窗口切换ctrl + w + r    移动当前窗口的布局
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/218fd1f1.html#more" rel="contents">
+            <a class="btn" href="/post/2101d586.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1303,7 +1272,7 @@ https://www.phpini.com/linu
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/82347a2b.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/6f99625c.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -1322,7 +1291,7 @@ https://www.phpini.com/linu
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/82347a2b.html" itemprop="url">Linux 工具</a></h1>
+                <a class="post-title-link" href="/post/6f99625c.html" itemprop="url">VIM配置及插件</a></h1>
         
 
         <div class="post-meta">
@@ -1334,8 +1303,8 @@ https://www.phpini.com/linu
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T10:27:29+08:00">
-                2018-05-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T11:16:30+08:00">
+                2018-05-28
               </time>
             
 
@@ -1374,12 +1343,11 @@ https://www.phpini.com/linu
       
         
           
-          VifmVifm 是一个 Linux 控制台下的文件管理器，基于 ncurse 的两列面板界面1234#安装sudo apt install vifm#运行vifm
-使用空格键从一个窗格移动到另一个窗格。要打开目录或文件，只需按Enter按钮。水平分割窗口按Ctrl-W然后s垂直分割窗口按Ctrl-
+          配置文件的位置打开VIM，输入:version123456789系统 vimrc 文件: &quot;$VIM/vimrc&quot;用户 vimrc 文件: &quot;$HOME/.vimrc&quot;第二用户 vimrc 文件: &quot;~/.vim/vimrc&quot;用户 exrc
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/82347a2b.html#more" rel="contents">
+            <a class="btn" href="/post/6f99625c.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1430,7 +1398,7 @@ https://www.phpini.com/linu
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/6c3d6e2f.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/8ec9a3b8.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木鱼">
@@ -1449,7 +1417,7 @@ https://www.phpini.com/linu
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/6c3d6e2f.html" itemprop="url">MyLinux.sh</a></h1>
+                <a class="post-title-link" href="/post/8ec9a3b8.html" itemprop="url">zsh安装、主题、插件</a></h1>
         
 
         <div class="post-meta">
@@ -1461,8 +1429,8 @@ https://www.phpini.com/linu
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T09:57:06+08:00">
-                2018-05-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-27T13:54:10+08:00">
+                2018-05-27
               </time>
             
 
@@ -1501,11 +1469,12 @@ https://www.phpini.com/linu
       
         
           
-          12345678910111213141516171819202122232425262728293031323334353637383940#/bin/bash# 使用Elementary OS 0.4#个别系统不能增加ppasudo apt install software-properties
+          zsh和bash兼容，fish和bash不兼容
+安装12345678910111213#安装zshyum -y install zsh#切换默认shell为zshchsh -s /bin/zsh#切换回去bashchsh -s /bin/bash#确认zsh是否是默认SHELLecho $SHELL
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/6c3d6e2f.html#more" rel="contents">
+            <a class="btn" href="/post/8ec9a3b8.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1547,7 +1516,7 @@ https://www.phpini.com/linu
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1593,7 +1562,7 @@ https://www.phpini.com/linu
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">168</span>
+                  <span class="site-state-item-count">181</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1606,7 +1575,7 @@ https://www.phpini.com/linu
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
