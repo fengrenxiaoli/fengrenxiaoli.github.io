@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-21T14:51:09.006Z</updated>
+  <updated>2018-06-23T08:49:12.501Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,301 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>软件测试</title>
+    <link href="http://yoursite.com/post/7a8ab919.html"/>
+    <id>http://yoursite.com/post/7a8ab919.html</id>
+    <published>2018-06-23T08:23:53.000Z</published>
+    <updated>2018-06-23T08:49:12.501Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="软件测试概要"><a href="#软件测试概要" class="headerlink" title="软件测试概要"></a>软件测试概要</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>软件测试是对程序能够按预期运行建立起一种信心  ——Bill Hetzel,1973</li>
+<li>测试是为发现错误而执行程序的过程            ——Myers,1979</li>
+<li>使用人工或自动的<strong>手段</strong>来运行或测量软件系统的过程，以检测软件系统是否满足<strong>规定的要求</strong>，并找出与<strong>预期定义</strong>之间的差异。        ——IOS/IEC/IEEE 29119</li>
+</ul>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>软件测试覆盖整个软件研发过程</p>
+<ul>
+<li>软件需求</li>
+<li>概要设计</li>
+<li>详细设计</li>
+<li>源代码</li>
+<li>可运行程序</li>
+<li>可运行环境</li>
+</ul>
+<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p><img src="/img/IMG142.png" alt=""></p>
+<h3 id="五大要素及两大目标"><a href="#五大要素及两大目标" class="headerlink" title="五大要素及两大目标"></a>五大要素及两大目标</h3><p>要素：</p>
+<ul>
+<li>质量(最为核心)</li>
+<li>人员(决定因素)</li>
+<li>技术(实现手段)【测试技术，方法，测试工具】</li>
+<li>资源【测试所需的硬件，网络环境，测试生命周期，测试时间】</li>
+<li>流程(测试标准)【测试计划，测试执行，报告】</li>
+</ul>
+<p>目标</p>
+<ul>
+<li>提升测试覆盖率</li>
+<li>测试效率</li>
+</ul>
+<h3 id="遵循原则"><a href="#遵循原则" class="headerlink" title="遵循原则"></a>遵循原则</h3><ol>
+<li>测试显示软件的存在，但不能证明系统不存在缺陷</li>
+<li>穷极测试是不可能的，应设定及时终止的条件（无穷无尽的测试是不可能的，需很大代价；无论怎样测试，我们不可能发现软件的所有缺陷）</li>
+<li>测试应该尽早进行</li>
+<li>缺陷具备群集特性（发现越多错误的模块，越应该集中关注，可能该模块的编程人员的水平较低）</li>
+<li>测试的杀虫剂悖论（用相同的用例多次测试时发现不了bug的，应该更新测试方法和用例）</li>
+<li>测试的二八原则（80%的时间测试20%的重要模块）</li>
+<li>测试活动依赖于测试背景（针对不同的软件的测试方法是不同的，比如电信软件看中性能、大批量；银行看中安全性）</li>
+</ol>
+<p>术语<strong>杀虫剂悖论</strong>（The Pesticide Paradox）用来描述这样一种现象，即你对软件进行越多的测试，那么该软件对你的测试就越具有免疫力。同样的事情发生在对昆虫使用杀虫剂上。如果你持续使用同样的杀虫剂，这些昆虫最终将建立起抵抗力，杀虫剂将不再发挥作用。<br>为了克服“杀虫剂悖论”，软件测试人员必须不断地编写新的不同的测试来检验程序的不同部分从而找出更多的bug。<br>让其他的人来测试你的程序将有助于打破“杀虫剂悖论”。</p>
+<p><img src="/img/IMG143.png" alt=""></p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;软件测试概要&quot;&gt;&lt;a href=&quot;#软件测试概要&quot; class=&quot;headerlink&quot; title=&quot;软件测试概要&quot;&gt;&lt;/a&gt;软件测试概要&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nmap使用</title>
+    <link href="http://yoursite.com/post/30bf2354.html"/>
+    <id>http://yoursite.com/post/30bf2354.html</id>
+    <published>2018-06-22T14:00:49.000Z</published>
+    <updated>2018-06-22T15:57:04.297Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://nmap.org/" target="_blank" rel="external">Nmap</a>(Network Mapper)是一款用于网络发现（Network Discovery）和安全审计（Security Audting）的安全工具，采用C++语言编写，常用于<strong>端口扫描</strong>。<br>Nmap软件包带有一个名为GUI的包zenmap，使用Python编写。</p>
+<h2 id="安装nmap"><a href="#安装nmap" class="headerlink" title="安装nmap"></a>安装nmap</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install nmap</div></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>最简单的形式是只传递地址或域名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">nmap scanme.nmap.org</div><div class="line">nmap 74.207.244.221</div><div class="line">nmap 192.168.1.200</div></pre></td></tr></table></figure></p>
+<h3 id="端口状态"><a href="#端口状态" class="headerlink" title="端口状态"></a>端口状态</h3><p>扫描结果中显示的商品状态</p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open</td>
+<td>开放，探测报文到达了端口，端口有响应：我有应用程序监听 - SYN/ACK</td>
+</tr>
+<tr>
+<td>closed</td>
+<td>关闭，探测报文到达了端口，端口有响应：我没应用程序监听 - RST (复位)</td>
+</tr>
+<tr>
+<td>filtered</td>
+<td>被屏蔽，探测报文到不了端口，石沉大海</td>
+</tr>
+<tr>
+<td>unfiltered</td>
+<td>没有被屏蔽，还需要确认，探测报文到达了端口，没响应了</td>
+</tr>
+<tr>
+<td>open &#124; filtered</td>
+<td>开放或屏蔽，有可能报文过滤器丢弃了探测报文（filtered），或丢弃了端口的响应报文 (open)(原理请往下看 -sN，-sF，-sX)UDP，IP 协议， FIN，Null，和 Xmas 扫描可能把端口归入此类</td>
+</tr>
+<tr>
+<td>closed &#124; unfiltered</td>
+<td>关闭或屏蔽，IPID+1，但是 closed 和 unfiltered 都可能导致只 + 1，所以就不确定了。只可能出现在 IP ID Idle 扫描中（看下端口 TCP 空闲扫描的原理就知道为什么了）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="扫描类型"><a href="#扫描类型" class="headerlink" title="扫描类型"></a>扫描类型</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-sT　　</td>
+<td>TCP 连接扫描，会在目标主机中记录大量的链接请求和错误信息</td>
+</tr>
+<tr>
+<td>-sS　　</td>
+<td>SYN 扫描，隐蔽扫描，不创建完整连接，只完成三次握手前两次，很少有系统记入日志，默认使用，需要 root(admin) 权限</td>
+</tr>
+<tr>
+<td>-sP　　</td>
+<td>Ping 扫描，默认使用，只有能 Ping 得通才会继续扫描</td>
+</tr>
+<tr>
+<td>-P0　　</td>
+<td>扫描之前不需要 Ping，用于绕过防火墙禁 Ping 功能</td>
+</tr>
+<tr>
+<td>-sA　　</td>
+<td>高级的扫描方式，用来穿过防火墙的规则集</td>
+</tr>
+<tr>
+<td>-sV　　</td>
+<td>服务的详细信息　</td>
+</tr>
+<tr>
+<td>-sU　　</td>
+<td>UDP 扫描，扫描主机开启的 UDP 的服务，速度慢，结果不可靠　</td>
+</tr>
+<tr>
+<td>-sX -sN 　　</td>
+<td>秘密的 FIN 数据包扫描，圣诞树 (Xmas Tree) 和空模式，针对 Unix 和 Linux 主机，系统要求遵循 TCP RFC 文档</td>
+</tr>
+</tbody>
+</table>
+<h3 id="扫描参数"><a href="#扫描参数" class="headerlink" title="扫描参数"></a>扫描参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-v　　</td>
+<td>显示扫描过程，推荐使用</td>
+</tr>
+<tr>
+<td>-h　　</td>
+<td>帮助文档</td>
+</tr>
+<tr>
+<td>-p　　</td>
+<td>指定端口号，如 [1-65535],[22,135,1433,3306,] 等格式</td>
+</tr>
+<tr>
+<td>-O　　</td>
+<td>探测操作系统，存在误报</td>
+</tr>
+<tr>
+<td>-A　　</td>
+<td>全面系统监测，使用脚本检测，扫描等</td>
+</tr>
+<tr>
+<td>-T4　</td>
+<td>针对 TCP 端口禁止动态扫描延迟超过 10ms</td>
+</tr>
+<tr>
+<td>-iL　</td>
+<td>　批量扫描，读取主机列表，如 [-iL C:\ip.txt]</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>快速扫描</td>
+</tr>
+<tr>
+<td>-V</td>
+<td>确定指定端口对应的服务信息</td>
+</tr>
+<tr>
+<td>-eclude</td>
+<td>排除IP，多个IP用逗号分隔</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>指定端口，多个端口用逗号分隔</td>
+</tr>
+</tbody>
+</table>
+<h3 id="扫描案例"><a href="#扫描案例" class="headerlink" title="扫描案例"></a>扫描案例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"># 扫描 C 段（局域网）存活主机</div><div class="line">nmap -sP www.XXX.com/24</div><div class="line">nmap -sP 192.168.1.*</div><div class="line"></div><div class="line"># 主机发现，通过ICMP ECHO扫描子网中的在线主机</div><div class="line">nmap -v -sn -PE 192.168.1.1/24</div><div class="line">nmap -v -sn -PE 192.168.1.1-5</div><div class="line"></div><div class="line"># 指定商品扫描</div><div class="line">nmap -v -p 135 192.168.1.1-5</div><div class="line"></div><div class="line"># 扫描指定 IP 开放端口号</div><div class="line"># -p-为全端口扫描，和[1-65535]一样，建议使用，不使用默认Nmap认为危险的100个端口号</div><div class="line">nmap -sS -p- -v 192.168.1.100</div><div class="line"></div><div class="line"># 扫描指定 IP 所开端口及对应的服务</div><div class="line">nmap -sV -v 192.168.1.100</div><div class="line"></div><div class="line"># 探测主机操作系统以及硬件信息，扫描准确度以百分比显示，未必准确</div><div class="line">nmap -O www.XXX.com</div><div class="line"></div><div class="line"># 穿透防火墙扫描</div><div class="line">nmap -P0  www.XXX.com</div><div class="line"></div><div class="line"># 全面探测，-A 包含 OS 探测，版本探测，脚本扫描，traceroute</div><div class="line">nmap -A www.XXX.com</div><div class="line"></div><div class="line"># 使用脚本扫描，脚本放在Nmap安装目录script下，官网可查各个脚本功能</div><div class="line">nmap --script=&quot;脚本名称&quot; www.XXX.com</div><div class="line"></div><div class="line"># 如在局域网上扫找 Conficker 蠕虫病毒</div><div class="line">nmap -PN -T4 -p139,445 -n -v --script=smb-check-vulns --script-args safe=1 192.168.0.1-254</div></pre></td></tr></table></figure>
+<p>补充：</p>
+<ul>
+<li><a href="https://github.com/erasin/notes/blob/master/linux/safe/nmap.md" target="_blank" rel="external">https://github.com/erasin/notes/blob/master/linux/safe/nmap.md</a></li>
+<li><a href="https://nmap.org/book/history-future.html" target="_blank" rel="external">https://nmap.org/book/history-future.html</a></li>
+<li><a href="https://blog.csdn.net/emaste_r/article/details/17840465" target="_blank" rel="external">https://blog.csdn.net/emaste_r/article/details/17840465</a></li>
+<li><a href="http://os.chinaunix.net/a2006/0619/956/000000956765.shtml" target="_blank" rel="external">http://os.chinaunix.net/a2006/0619/956/000000956765.shtml</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/26676508" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/26676508</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Nmap" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Nmap</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://nmap.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Nmap&lt;/a&gt;(Network Mapper)是一款用于网络发现（Network Discovery）和安全审计（Security Audting）的安全
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux查看IP使用情况</title>
+    <link href="http://yoursite.com/post/62edaad4.html"/>
+    <id>http://yoursite.com/post/62edaad4.html</id>
+    <published>2018-06-22T13:59:14.000Z</published>
+    <updated>2018-06-22T14:00:17.792Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install fping</div><div class="line">fping -g -c 1 192.168.1.0/24</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nmap -nsP 192.168.1.1-254</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;c
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux安装Cisco Packet Tracer</title>
+    <link href="http://yoursite.com/post/5aea5c58.html"/>
+    <id>http://yoursite.com/post/5aea5c58.html</id>
+    <published>2018-06-22T02:16:28.000Z</published>
+    <updated>2018-06-22T02:28:51.212Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="https://www.netacad.com/courses/packet-tracer" target="_blank" rel="external">https://www.netacad.com/courses/packet-tracer</a></p>
+<p>注册下载</p>
+<!-- ## 环境
+需要java和32位包
+
+```
+sudo dpkg --add-architecture i386
+sudo apt-get install libc6:i386
+sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0
+sudo apt-get install libnss3-1d:i386 libqt4-qt3support:i386 libssl1.0.0:i386 libqtwebkit4:i386 libqt4-scripttools:i386
+``` -->
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>将压缩文件解压缩到一个文件夹并打开一个终端。<br>使用sudo权限运行install.sh并按照说明进行安装<br>安装的默认路径是<code>/opt/pt</code></p>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>在终端中键入<code>packettracer</code>来运行<br>如果没有反应，运行<code>/opt/pt/bin/PacketTracer7</code><br>会提示缺少库文件，安装相应库文件后再次运行</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><strong>调整终端字体</strong><br>点击选项（options），点击首选项（Preferences），然后点击字体（Font），选CLI右侧就有大小的选择了。</p>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.christospanoudis.com/how-to-install-packet-tracer-7-1-in-linux-and-resolve-any-dependency-issues/" target="_blank" rel="external">http://www.christospanoudis.com/how-to-install-packet-tracer-7-1-in-linux-and-resolve-any-dependency-issues/</a></li>
+<li><a href="https://linux.cn/article-5576-1.html" target="_blank" rel="external">https://linux.cn/article-5576-1.html</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.netacad.com/courses/packet-tracer&quot; target=&quot;_blank
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算机网络 网络层</title>
     <link href="http://yoursite.com/post/5149561d.html"/>
     <id>http://yoursite.com/post/5149561d.html</id>
     <published>2018-06-21T14:50:39.000Z</published>
-    <updated>2018-06-21T14:51:09.006Z</updated>
+    <updated>2018-06-23T09:55:00.580Z</updated>
+    
+    <content type="html"><![CDATA[<p>TTL是指生存时间，简单来说，它表示了数据包在网络中的时间，经过一个路由器后TTL就减一，这样TTL最终会减为0，当TTL为0时，则将数据包丢弃，这样也就是因为两个路由器之间可能形成环，如果没有TTL的限制，则数据包将会在这个环上一直死转，由于有了TTL，最终TTL为0后，则将数据包丢弃。ping发送数据包里面有TTL，但是并非是必须的，即是没有TTL也是能正常工作的，traceroute正是因为有了TTL才能正常工作</p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;p&gt;TTL是指生存时间，简单来说，它表示了数据包在网络中的时间，经过一个路由器后TTL就减一，这样TTL最终会减为0，当TTL为0时，则将数据包丢弃，这样也就是因为两个路由器之间可能形成环，如果没有TTL的限制，则数据包将会在这个环上一直死转，由于有了TTL，最终TTL为0后，
     
     </summary>
     
@@ -36,7 +324,7 @@
     <link href="http://yoursite.com/post/8a478097.html"/>
     <id>http://yoursite.com/post/8a478097.html</id>
     <published>2018-06-21T06:44:38.000Z</published>
-    <updated>2018-06-21T14:47:36.248Z</updated>
+    <updated>2018-06-21T15:34:33.638Z</updated>
     
     <content type="html"><![CDATA[<p>在Linux下，当我们需要<strong>抓取网络数据包分析</strong>时，通常是使用工具<strong>tcpdump</strong>。但是，有时我们需要将抓取的数据包保存在一个文件中，已备以后分析。而tcpdump保存的文件是<strong>二进制文件</strong>，使用cat 和vim 都无法打开查看。此时我们采取的措施是，下载到本地使用<strong>wireshark</strong>界面网络分析工具进行网络包分析。</p>
 <h2 id="tcpdump"><a href="#tcpdump" class="headerlink" title="tcpdump"></a>tcpdump</h2><p>需要管理员权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">tcpdump host www.baidu.com</div><div class="line">tcpdump host www.baidu.com and port 80</div><div class="line">tcpdump host www.baidu.com -w out.cap</div><div class="line"></div><div class="line"># 经过eth1</div><div class="line">tcpdump -i eth1 host 192.168.1.1</div><div class="line"># 指定源地址，抓取主机发送的所有数据</div><div class="line">tcpdump -i eth1 src host 192.168.1.1</div><div class="line"># 指定目的地址，抓取主机接收的所有数据</div><div class="line">tcpdump -i eth1 dst host 192.168.1.1</div><div class="line"></div><div class="line"># 经过eth1</div><div class="line">tcpdump -i eth1 port 25</div><div class="line"># 指定源端口</div><div class="line">tcpdump -i eth1 src port 25</div><div class="line"># 指定目的端口</div><div class="line">tcpdump -i eth1 dst port 25</div><div class="line"></div><div class="line">tcpdump -c100</div><div class="line"></div><div class="line">tcpdump host 10.37.63.255 and (10.37.63.61 or 10.37.63.95)</div><div class="line">tcpdump host 10.37.63.255 and !10.37.63.61</div><div class="line"></div><div class="line"></div><div class="line"># host 主机地址，后面可以带具体的IP或者地址</div><div class="line"># port 端口号</div><div class="line"># -w 保存到文件</div><div class="line"># -r 读取保存的文件</div><div class="line"># src源地址</div><div class="line"># dst目标地址</div><div class="line"># -c 指定捕获的报文数量</div><div class="line"># -i 指定接口 ifconfig -a查看有哪些接口</div></pre></td></tr></table></figure></p>
@@ -93,9 +381,12 @@
     <link href="http://yoursite.com/post/2f41be1.html"/>
     <id>http://yoursite.com/post/2f41be1.html</id>
     <published>2018-06-20T12:52:11.000Z</published>
-    <updated>2018-06-21T14:47:57.756Z</updated>
+    <updated>2018-06-22T12:10:03.904Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="信道类型"><a href="#信道类型" class="headerlink" title="信道类型"></a>信道类型</h3><p>数据链路层使用的信道主要有以下两种类型<br><strong>点对点信道</strong>。这种信道使用 <strong>一对一</strong> 的点对点通信方式。用于<strong>广域网</strong>，使用<strong>PPP协议</strong><br><strong>广播信道</strong>。这种信道使用 <strong>一对多</strong> 的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的<strong>共享信道协议</strong>来协调这些主机的数据发送。用于<strong>局域网</strong>，使用<strong>CSMA/CD协议</strong></p>
+    <content type="html"><![CDATA[<blockquote>
+<p>其实本文中数据链路层讲了两部分，一部分是针对广域网的PPP，另一部分是针对局域网（以太网）的CSMA/CD</p>
+</blockquote>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="信道类型"><a href="#信道类型" class="headerlink" title="信道类型"></a>信道类型</h3><p>数据链路层使用的信道主要有以下两种类型<br><strong>点对点信道</strong>。这种信道使用 <strong>一对一</strong> 的点对点通信方式。用于<strong>广域网</strong>，使用<strong>PPP协议</strong><br><strong>广播信道</strong>。这种信道使用 <strong>一对多</strong> 的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的<strong>共享信道协议</strong>来协调这些主机的数据发送。用于<strong>局域网</strong>，使用<strong>CSMA/CD协议</strong></p>
 <a id="more"></a>
 <h3 id="链路和数据链路"><a href="#链路和数据链路" class="headerlink" title="链路和数据链路"></a>链路和数据链路</h3><p><strong>链路</strong> (link) 是一条无源的点到点的物理线路段，中间没有任何其他的交换结点。一条链路只是一条通路的一个组成部分。（物理层）</p>
 <p><strong>数据链路</strong> (data link) 除了物理线路外，还必须有 <strong>通信协议</strong> 来控制这些数据的传输。若把实现这些协议的硬件和软件加到链路上，就构成了数据链路。（链路+协议）</p>
@@ -366,7 +657,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h2&gt;&lt;h3 id=&quot;信道类型&quot;&gt;&lt;a href=&quot;#信道类型&quot; class=&quot;headerlink&quot; title=&quot;信道类型&quot;&gt;&lt;/a&gt;信道类型&lt;/h3&gt;&lt;p&gt;数据链路层使用的信道主要有以下两种类型&lt;br&gt;&lt;strong&gt;点对点信道&lt;/strong&gt;。这种信道使用 &lt;strong&gt;一对一&lt;/strong&gt; 的点对点通信方式。用于&lt;strong&gt;广域网&lt;/strong&gt;，使用&lt;strong&gt;PPP协议&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;广播信道&lt;/strong&gt;。这种信道使用 &lt;strong&gt;一对多&lt;/strong&gt; 的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的&lt;strong&gt;共享信道协议&lt;/strong&gt;来协调这些主机的数据发送。用于&lt;strong&gt;局域网&lt;/strong&gt;，使用&lt;strong&gt;CSMA/CD协议&lt;/strong&gt;&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;其实本文中数据链路层讲了两部分，一部分是针对广域网的PPP，另一部分是针对局域网（以太网）的CSMA/CD&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h2&gt;&lt;h3 id=&quot;信道类型&quot;&gt;&lt;a href=&quot;#信道类型&quot; class=&quot;headerlink&quot; title=&quot;信道类型&quot;&gt;&lt;/a&gt;信道类型&lt;/h3&gt;&lt;p&gt;数据链路层使用的信道主要有以下两种类型&lt;br&gt;&lt;strong&gt;点对点信道&lt;/strong&gt;。这种信道使用 &lt;strong&gt;一对一&lt;/strong&gt; 的点对点通信方式。用于&lt;strong&gt;广域网&lt;/strong&gt;，使用&lt;strong&gt;PPP协议&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;广播信道&lt;/strong&gt;。这种信道使用 &lt;strong&gt;一对多&lt;/strong&gt; 的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的&lt;strong&gt;共享信道协议&lt;/strong&gt;来协调这些主机的数据发送。用于&lt;strong&gt;局域网&lt;/strong&gt;，使用&lt;strong&gt;CSMA/CD协议&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -1120,325 +1414,6 @@
 &lt;p&gt;注：SDL(Simple DirectMedia Layer)是一个跨平台的多媒体库，可以用来访问底层的音频、键盘、鼠标、摇杆、3D硬件（通过OpenGL）以及2D视频缓冲。它被用在MPEG播放软件、模拟器和很多流行的游戏中，包括获得大奖的Linux版的”Civilization: Call To Power”。&lt;/p&gt;
 &lt;h2 id=&quot;安装Pygame&quot;&gt;&lt;a href=&quot;#安装Pygame&quot; class=&quot;headerlink&quot; title=&quot;安装Pygame&quot;&gt;&lt;/a&gt;安装Pygame&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.pygame.org/wiki/GettingStarted&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.pygame.org/wiki/GettingStarted&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;pip install pygame&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;#检验是否安装成功&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;python3 -m pygame.examples.aliens&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h2 id=&quot;导入&quot;&gt;&lt;a href=&quot;#导入&quot; class=&quot;headerlink&quot; title=&quot;导入&quot;&gt;&lt;/a&gt;导入&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;import pygame&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 引入 pygame 中的所有常量&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;from pygame.locals import *&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>简明Python教程-读书笔记</title>
-    <link href="http://yoursite.com/post/d1f541ed.html"/>
-    <id>http://yoursite.com/post/d1f541ed.html</id>
-    <published>2018-06-11T05:09:45.000Z</published>
-    <updated>2018-06-18T07:24:47.778Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="《简明Python教程》读书笔记"><a href="#《简明Python教程》读书笔记" class="headerlink" title="《简明Python教程》读书笔记"></a>《简明Python教程》读书笔记</h1><blockquote>
-<p>使用《简明Python教程》漠伦翻译版<br><a href="https://bop.mol.uno/" target="_blank" rel="external">https://bop.mol.uno/</a><br>使用Python3.5.1</p>
-</blockquote>
-<h2 id="关于Python"><a href="#关于Python" class="headerlink" title="关于Python"></a>关于Python</h2><p>简单、易于学习、自由且开放（FLOSS）、高级语言、跨平台性、解释性、面向对象、可扩展性、可嵌入性、丰富的库</p>
-<p>在程序内部，Python会将源代码转换为称为字节码的中间形式，尔后再转换成你的电脑所使用的语，并运行它</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Linux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install python3</div><div class="line">python3 -V</div></pre></td></tr></table></figure></p>
-<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>通过Python<strong>运行程序有两种方法</strong></p>
-<ol>
-<li>使用交互式解释器提示符<code>&gt;&gt;&gt;</code></li>
-<li>直接运行一个源代码<code>python test.py</code></li>
-</ol>
-<p>Python区分大小写</p>
-<p><strong>获取帮助</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">help(&apos;input&apos;)</div></pre></td></tr></table></figure></p>
-<p>最好使用引号，不使用引号有时会出错，比如<code>help(return)</code><br>按<code>q</code>退出</p>
-<a id="more"></a>
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ol>
-<li>注释：使用<code>#</code></li>
-<li>字面常量    </li>
-<li>数字：整数<code>1</code>、浮点数<code>3.23``52.3E-4</code></li>
-<li>字符串：字符串是不可变的<ul>
-<li>单引号：所有引号中的空格、制表符保留原样（不是转义<code>\t</code>）</li>
-<li>双引号：和单引号括起的字符串一样</li>
-<li>三引号：”””或’’’，多行字符串</li>
-</ul>
-</li>
-<li>Python从0开始计数</li>
-</ol>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p><strong>字符串格式化</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">age = 20</div><div class="line">name = &apos;Swaroop&apos;</div><div class="line">print(&apos;&#123;0&#125; was &#123;1&#125; years old when he wrote this book&apos;.format(name,age))</div></pre></td></tr></table></figure></p>
-<p>不需要转换格式，数字可以不写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#对于浮点数&apos;0.333&apos;保留小数点(.)后三位</div><div class="line">print(&apos;&#123;0:.3f&#125;&apos;.format(1.0/3))</div><div class="line">#使用下划线填充文本,并保持文字处于中间位置</div><div class="line">#使用(^)定义&apos;___hello___&apos;字符串长度为11</div><div class="line">print(&apos;&#123;0:_^11&#125;&apos;.format(&apos;hello&apos;))</div><div class="line">#基于关键词输出&apos;Swaroop wrote A Byte of Python&apos;，不能用&#123;0&#125;</div><div class="line">print(&apos;&#123;name&#125; wrote &#123;book&#125;&apos;.format(name=&apos;Swaroop&apos;,book=&apos;A Byte of Python&apos;))</div></pre></td></tr></table></figure>
-<p><code>print</code>会以<code>\n</code>结尾，通过<code>end</code>可以指定结尾方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">print(&apos;a&apos;,end=&apos;&apos;)</div><div class="line">print(&apos;b&apos;,end=&apos; &apos;)</div></pre></td></tr></table></figure></p>
-<p><code>print()</code>用<code>,</code>连接字符串，且会自动加上空格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(&apos;a&apos;,&apos;b&apos;)</div></pre></td></tr></table></figure></p>
-<p><strong>字符串连接</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">name + &apos;is&apos; + str(age) + &apos;years old&apos;</div></pre></td></tr></table></figure></p>
-<p>不如格式化美观，容易出错，而且需要转换类型</p>
-<p><strong>转义字符</strong></p>
-<ol>
-<li><code>\&#39;</code>：单引号</li>
-<li><code>\n</code>：换行</li>
-<li><code>\t</code>：制表符</li>
-<li>在一个字符串中，一个放置在末尾的反斜杠表示字符串将在下一行继续，但不会换行</li>
-</ol>
-<p><strong>原始字符串</strong><br><code>r</code>或<code>R</code>，在处理正则表达式时应全程使用原始字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">r&apos;Newlines are indicated by \n&apos;</div></pre></td></tr></table></figure></p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>命名</strong></p>
-<ol>
-<li>第一个字符必须是字母表中的字母(大写ASCII字符或小写ASCII字符或Unicode字符)或下划线(<code>_</code>)。</li>
-<li>标识符的其它部分可以由字符(大写 ASCII 字符或小写 ASCII 字符或 Unicode字符)、下划线(<code>_</code>)、数字(0~9)组成。</li>
-<li>标识符名称区分大小写</li>
-</ol>
-<p>Python将程序中的任何内容统称为对象，包括数字、字符串与函数</p>
-<h3 id="逻辑行与物理行"><a href="#逻辑行与物理行" class="headerlink" title="逻辑行与物理行"></a>逻辑行与物理行</h3><p>物理行(Physical    Line)是你在编写程序时你所看到的内容<br>逻辑行(Logical Line)是Python所看到的单个语句</p>
-<p><strong>显式行连接</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">s=&apos;This is a string \</div><div class="line">This continues the string.&apos;</div><div class="line">print(s)</div><div class="line"></div><div class="line">This is a string This continues the string.</div></pre></td></tr></table></figure></p>
-<p><strong>隐式行连接</strong><br>逻辑行以括号开始，它可以是方括号或花括号，但不能是右括号<br>可以不使用<code>\</code></p>
-<h3 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h3><p>在逻辑行的开头留下空白区(使用空格或制表符)用以确定各逻辑行的缩进级别<br>放置在一起的语句必须拥有相同的缩进，每一组这样的语句被称为块(block)</p>
-<h2 id="运算符与表达式"><a href="#运算符与表达式" class="headerlink" title="运算符与表达式"></a>运算符与表达式</h2><h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul>
-<li><code>+</code> 、<code>-</code> 、<code>*</code> 、<code>/</code> 、<code>**</code>(乘方)、<code>//</code>(整除)、<code>%</code> (取余)</li>
-<li><code>&lt;&lt;</code>(二进制左移) 、<code>&gt;&gt;</code> (二进制右移)</li>
-<li><code>&amp;</code>(按位与) 、<code>|</code>(按位或) 、<code>^</code> (按位异或)、<code>~</code>(按位取反，x的按位取反结果为-(x+1))<ul>
-<li>转换为二进制</li>
-</ul>
-</li>
-<li><code>&lt;</code> 、<code>&gt;</code> 、<code>&lt;=</code> 、<code>&gt;=</code> 、<code>==</code> 、<code>!=</code><ul>
-<li>所有的比较运算符返回的结果均为<code>True</code>或<code>False</code>。请注意这些名称之中的大写字母</li>
-</ul>
-</li>
-<li><code>not</code> 、<code>and</code> 、<code>or</code><ul>
-<li>短路计算</li>
-</ul>
-</li>
-</ul>
-<p><code>/</code>除法计算结果是浮点数，即使是两个整数恰好整除，结果也是浮点数<br><code>//</code>永远是整数，即使除不尽<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">9 / 3           输出3.0</div><div class="line">-13 // 3	 	输出-5</div></pre></td></tr></table></figure></p>
-<h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><p>从最低优先级到最高优先级，同一行的运算符具有相同优先级<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">lambda	    Lambda表达式</div><div class="line">if-else	    条件表达式</div><div class="line">or	        布尔“或”</div><div class="line">and	        布尔“与”</div><div class="line">not x	    布尔“非”</div><div class="line">in,	not in, is,	is not, &lt;, &lt;=, &gt;, &gt;=, !=, ==	        </div><div class="line">            比较，包括成员资格测试和身份测试</div><div class="line">|	        按位或</div><div class="line">^	        按位异或</div><div class="line">&amp;	        按位与</div><div class="line">&lt;&lt;, &gt;&gt;	    移动</div><div class="line">+, -	    加与减</div><div class="line">*, /, //, %	        乘、除、整除、取余</div><div class="line">+x, -x, ~x	        正、负、按位取反</div><div class="line">**	        求幂</div><div class="line">x[index], x[index:index], x(arguments...), x.attribute  </div><div class="line">            下标、切片、调用、属性引用</div><div class="line">(expressions...), [expressions...], &#123;key:value...&#125;, &#123;expressions...&#125;    </div><div class="line">            元组、列表、字典、集合</div></pre></td></tr></table></figure></p>
-<h2 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h2><p><strong>if语句</strong><br>条件判断从上向下匹配，当满足条件时执行对应的块内语句，后续的elif和else都不再执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"></div><div class="line">number=23</div><div class="line">guess=int(input(&apos;Enter an interger:&apos;))</div><div class="line"></div><div class="line">if guess==number:</div><div class="line">    print(&apos;Congratulations,you guessed it&apos;)</div><div class="line">    print(&apos;(but you do not win any prizes!)&apos;)</div><div class="line">elif guess&lt;number:</div><div class="line">    print(&apos;No,it is a little higher than that&apos;)</div><div class="line">else:</div><div class="line">    print(&apos;No,it is a little lower than that&apos;)</div><div class="line"></div><div class="line">print(&apos;Done&apos;)</div></pre></td></tr></table></figure></p>
-<p><strong>while语句</strong><br>else语句在循环结束后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"></div><div class="line">number=23</div><div class="line">running=True</div><div class="line"></div><div class="line">while running:</div><div class="line">    guess=int(input(&apos;Enter an integer:&apos;))</div><div class="line"></div><div class="line">    if guess==number:</div><div class="line">        print(&apos;Congratulations,you guessed it&apos;)</div><div class="line">        running=False</div><div class="line">    elif guess&lt;number:</div><div class="line">        print(&apos;No,it is a little higher than that.&apos;)</div><div class="line">    else:</div><div class="line">        print(&apos;No,it is a little lower than that.&apos;)</div><div class="line">else:</div><div class="line">    print(&apos;The while loop is over.&apos;)</div><div class="line"></div><div class="line">print(&apos;Done&apos;)</div></pre></td></tr></table></figure></p>
-<p><strong>for语句</strong><br><code>rang()</code>将会返回一个数字序列,从第一个数字开始,至第二个数字结束。<br><code>range(1,5)</code>将输出序列<code>[1,2,3,4]</code><br><code>range(1,5,2)</code>将会输出<code>[1,3]</code><br>不会包括第二个数字在内<br><code>range()</code>每次只会生成一个数字，<code>list(range(5))</code>返回完整的数字列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">for i in range(1,5):</div><div class="line">    print(i)</div><div class="line">else:</div><div class="line">    print(&apos;The loop is over&apos;)</div><div class="line"></div><div class="line">names=[&apos;Michael&apos;,&apos;Bob&apos;,&apos;Tracy&apos;]</div><div class="line">for name in names:</div><div class="line">    print(name)</div></pre></td></tr></table></figure>
-<p>else语句在循环结束后执行</p>
-<p><strong>break语句</strong><br>如果中断了一个for或while循环，任何相应循环中的else块都将不会被执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">while True:</div><div class="line">    s=input(&apos;Enter something:&apos;)</div><div class="line">    if s==&apos;quit&apos;:</div><div class="line">        break</div><div class="line">    print(&apos;Length of the string is&apos;,len(s))</div><div class="line">print(&apos;Done&apos;)</div></pre></td></tr></table></figure>
-<p><strong>continue语句</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">while True:</div><div class="line">    s=input(&apos;Enter something&apos;)</div><div class="line">    if s==&apos;quit&apos;:</div><div class="line">        break</div><div class="line">    if len(s)&lt;3:</div><div class="line">        print(&apos;Too small&apos;)</div><div class="line">        continue</div><div class="line">    print(&apos;Length of the string is&apos;,len(s))</div><div class="line"></div><div class="line">print(&apos;Done&apos;)</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">n=0</div><div class="line">while n&lt;10:</div><div class="line">    n=n+1</div><div class="line">    if n%2 ==0:</div><div class="line">        continue</div><div class="line">    print(n)</div></pre></td></tr></table></figure>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def say_hello():</div><div class="line">    print(&apos;hello wolrd&apos;)</div><div class="line"></div><div class="line">say_hello()</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">def print_max(a,b):</div><div class="line">    if a&gt;=b:</div><div class="line">        print(a)</div><div class="line">    else:</div><div class="line">        print(b)</div><div class="line"></div><div class="line">print_max(3,4)</div><div class="line"></div><div class="line">x=8</div><div class="line">y=10</div><div class="line">print_max(x,y)</div></pre></td></tr></table></figure>
-<p>在定义函数时给定的名称称作“形参”(Parameters)<br>在调用函数时你所提供给函数的值称作“实参”(Arguments)<br>函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a=abs</div><div class="line">&gt;&gt;&gt; a(-1)</div><div class="line">1</div></pre></td></tr></table></figure></p>
-<p><code>hex()</code>把一个整数转换成十六进制表示的字符串</p>
-<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><p>所有变量的作用域是它们被定义的块，从定义它们的名字的定义点开始<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">x=50</div><div class="line">def func(x):</div><div class="line">    print(&apos;x is&apos;,x)</div><div class="line">    x=2</div><div class="line">    print(&apos;x is&apos;,x)</div><div class="line"></div><div class="line">func(x)</div><div class="line">print(&apos;x is still&apos;,x)</div></pre></td></tr></table></figure></p>
-<p>结果是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x is 50</div><div class="line">x is 2</div><div class="line">x is still 50</div></pre></td></tr></table></figure></p>
-<p>当你在一个函数的定义中声明变量时，它们不会以任何方式与身处函数之外但具有相同名称的变量产生关系</p>
-<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">x=50</div><div class="line">def func():</div><div class="line">    global x</div><div class="line">    print(&apos;x is&apos;,x)</div><div class="line">    x=2</div><div class="line">    print(&apos;x is&apos;,x)</div><div class="line"></div><div class="line">func()</div><div class="line">print(&apos;x is&apos;,x)</div></pre></td></tr></table></figure>
-<p>结果为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x is 50</div><div class="line">x is 2</div><div class="line">x is 2</div></pre></td></tr></table></figure></p>
-<h3 id="默认参数值"><a href="#默认参数值" class="headerlink" title="默认参数值"></a>默认参数值</h3><p>默认参数值应该是常数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">def say(message,times=1):</div><div class="line">    print(message*times)</div><div class="line"></div><div class="line">say(&apos;Hello&apos;)</div><div class="line">say(&apos;Hello&apos;,2)</div></pre></td></tr></table></figure></p>
-<h3 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">def func(a,b=5,c=10):</div><div class="line">    print(&apos;a is &#123;&#125;,and b is &#123;&#125; and c is &#123;&#125;&apos;.format(a,b,c))</div><div class="line"></div><div class="line">func(3,7)</div><div class="line">func(25,c=24)</div><div class="line">func(c=50,a=100)</div></pre></td></tr></table></figure>
-<p>结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a is 3,and b is 7 and c is 10</div><div class="line">a is 25,and b is 5 and c is 24</div><div class="line">a is 100,and b is 5 and c is 50</div></pre></td></tr></table></figure></p>
-<h3 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h3><p>当我们声明一个诸如<code>*param</code>的星号参数时，从此处开始直到结束的所有位置参数都将被收集并汇集成一个称为“param”的元组(Tuple)<br>类似地，当我们声明一个诸如<code>**param</code>的双星号参数时，从此处开始直至结束的所有关键字参数都将被收集并汇集成一个名为<code>param</code>的字典(Dictionary)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">def total(a=5,*numbers,**phonebook):</div><div class="line">    print(&apos;a&apos;,a)</div><div class="line"></div><div class="line">    #遍历元组中的所有项目</div><div class="line">    for single_item in numbers:</div><div class="line">        print(&apos;single_item&apos;,single_item)</div><div class="line"></div><div class="line">    #遍历字典中的所有项目</div><div class="line">    for first_part,second_part in phonebook.items():</div><div class="line">        print(first_part,second_part)</div><div class="line"></div><div class="line">print(total(10,1,2,3,jack=1123,John=2231,Inge=1560))</div></pre></td></tr></table></figure></p>
-<p>结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">a 10</div><div class="line">single_item 1</div><div class="line">single_item 2</div><div class="line">single_item 3</div><div class="line">jack 1123</div><div class="line">John 2231</div><div class="line">Inge 1560</div><div class="line">None</div></pre></td></tr></table></figure></p>
-<h3 id="return语句"><a href="#return语句" class="headerlink" title="return语句"></a>return语句</h3><p>从函数中返回，中断函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">def maximum(x,y):</div><div class="line">    if x&gt;y:</div><div class="line">        return x</div><div class="line">    elif x&lt;y:</div><div class="line">        return y</div><div class="line">    else:</div><div class="line">        return &apos;The numbers are equal&apos;</div></pre></td></tr></table></figure></p>
-<h3 id="DocStrings-文档字符串"><a href="#DocStrings-文档字符串" class="headerlink" title="DocStrings 文档字符串"></a>DocStrings 文档字符串</h3><p><strong>文档字符串约定的格式</strong>：<br>一串多行字符串，其中第一行以某一大写字母开始，以句号结束。第二行为空行，后跟的第三行开始是任何详细的解释说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">def print_max(x,y):</div><div class="line">    &apos;&apos;&apos;打印两个数值中的最大数。</div><div class="line"></div><div class="line">    这两个数都应该是整数</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    x=int(x)</div><div class="line">    y=int(y)</div><div class="line"></div><div class="line">    if x&gt;y:</div><div class="line">        print(x,&apos;is maximum&apos;)</div><div class="line">    else:</div><div class="line">        print(y,&apos;is maximum&apos;)</div><div class="line"></div><div class="line">print_max(3,5)</div><div class="line">print(print_max.__doc__)</div></pre></td></tr></table></figure></p>
-<p>结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">5 is maximum</div><div class="line">打印两个数值中的最大数。</div><div class="line"></div><div class="line">    这两个数都应该是整数</div></pre></td></tr></table></figure></p>
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>模块用于在别的程序中重用函数</p>
-<p>编写模块的方法</p>
-<ol>
-<li>创建一个包含函数与变量，以.py为后缀的文件</li>
-<li>使用撰写Python解释器本身的语言来编写模块（C、Java）</li>
-</ol>
-<p>模块分为内置模块（如sys）和自行编写的模块，Python解释器从<code>sys.path</code>所提供的路径中搜索自行编写的模块，所以必须将模块在<code>sys.path</code>内所列出的目录中，比如当前目录</p>
-<p>标准库模块，sys模块包含了与Python解释器及其环境相关的功能，也就是所谓的系统功能<br>运行的脚本名称在<code>sys.argv</code>的列表中是第一个，即<code>sys.argv[0]</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import sys</div><div class="line"></div><div class="line">print(&apos;The command line arguments are:&apos;)</div><div class="line">for i in sys.argv:</div><div class="line">    print(i)</div><div class="line"></div><div class="line">print(&apos;\n\nThe PYTHONPATH is&apos;,sys.path,&apos;\n&apos;)</div></pre></td></tr></table></figure></p>
-<p>运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python module_using_sys.py we are arguments</div></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">The command line arguments are:</div><div class="line">module_using_sys.py</div><div class="line">we</div><div class="line">are</div><div class="line">arguments</div><div class="line"></div><div class="line"></div><div class="line">The PYTHONPATH is [&apos;/home/lee/Documents/pyte&apos;, &apos;/home/lee/Documents/pyte/pyte/lib/python36.zip&apos;, &apos;/home/lee/Documents/pyte/pyte/lib/python3.6&apos;, &apos;/home/lee/Documents/pyte/pyte/lib/python3.6/lib-dynload&apos;, &apos;/home/lee/anaconda3/lib/python3.6&apos;, &apos;/home/lee/Documents/pyte/pyte/lib/python3.6/site-packages&apos;]</div></pre></td></tr></table></figure></p>
-<h3 id="pyc文件"><a href="#pyc文件" class="headerlink" title=".pyc文件"></a>.pyc文件</h3><p>将Python模块转换成中间形式的文件，以提高效率<br>按字节码编译的(Byte-Compiled)文件，这一文件以.pyc为其扩展名<br>通常会创建在与对应的<code>.py</code>文件所处的目录中</p>
-<h3 id="from…import语句"><a href="#from…import语句" class="headerlink" title="from…import语句"></a>from…import语句</h3><p>直接将需要的变量导入程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">from sys import argv</div></pre></td></tr></table></figure></p>
-<p>尽量避免使用from…import语句，而去使用import语句<br>避免在你的程序中出现名称冲突</p>
-<h3 id="模块的name"><a href="#模块的name" class="headerlink" title="模块的name"></a>模块的<strong>name</strong></h3><p>每个模块都有一个名称,而模块中的语句可以找到它们所处的模块的名称。<br>可以用于确定模块是独立运行的还是被导入进来运行<br>每一个Python模块都定义了它的<code>__name__</code>属性。如果它与<code>__main__</code>属性相同则代表这一模块是由用户独立运行的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    print(&apos;This program is being run by itself&apos;)</div><div class="line">else:</div><div class="line">    print(&apos;I am being imported from another module&apos;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">python module_using_name.py</div><div class="line">This program is being run by itself</div><div class="line"></div><div class="line">python</div><div class="line">&gt;&gt;&gt; import module_using_name</div><div class="line">I am being imported from another module</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
-<h3 id="编写自己的模块"><a href="#编写自己的模块" class="headerlink" title="编写自己的模块"></a>编写自己的模块</h3><p>要将模块放在<code>sys.path</code>列出的目录下，或者与其它我们即将导入这一模块的程序相同的目录下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&apos;&apos;&apos;mymodule.py&apos;&apos;&apos;</div><div class="line">def say_hi():</div><div class="line">    print(&apos;Hi,this is mymodule speaking.&apos;)</div><div class="line"></div><div class="line">__version__=&apos;0.1&apos;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&apos;&apos;&apos;mymodule_demo.py&apos;&apos;&apos;</div><div class="line">import mymodule</div><div class="line"></div><div class="line">mymodule.say_hi()</div><div class="line">print(&apos;Version&apos;,mymodule.__version__)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&apos;&apos;&apos;mymodule_demo2.py&apos;&apos;&apos;</div><div class="line">from mymodule import say_hi,__version__</div><div class="line"></div><div class="line">say_hi()</div><div class="line">print(&apos;Version&apos;,__version__)</div></pre></td></tr></table></figure>
-<p>mymodule_demo2.py所输出的内容与mymodule_demo.py所输出的内容是一样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Hi,this is mymodule speaking.</div><div class="line">Version 0.1</div></pre></td></tr></table></figure></p>
-<h3 id="dir函数"><a href="#dir函数" class="headerlink" title="dir函数"></a>dir函数</h3><p>返回由对象所定义的名称列表<br>该函数接受参数。如果参数是模块名称，函数将返回这一指定模块的名称列表。如果没有提供参数,函数将返回当前模块的名称列表。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#给出sys模块中的属性名称</div><div class="line">&gt;&gt;&gt;dir(sys)</div><div class="line">[&apos;__displayhook__&apos;, &apos;__doc__&apos;, &apos;__excepthook__&apos;, &apos;__loader__&apos;, &apos;__name__&apos;,...</div><div class="line"></div><div class="line">#给出当前模块的属性名称</div><div class="line">&gt;&gt;&gt;dir()</div><div class="line">[&apos;__annotations__&apos;, &apos;__builtins__&apos;, &apos;__doc__&apos;, &apos;__loader__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;__spec__&apos;, &apos;module_using_name&apos;, &apos;sys&apos;]</div><div class="line"></div><div class="line"></div><div class="line">&gt;&gt;&gt;a=5</div><div class="line">[&apos;__annotations__&apos;, &apos;__builtins__&apos;, &apos;__doc__&apos;, &apos;__loader__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;__spec__&apos;, &apos;a&apos;, ...</div></pre></td></tr></table></figure>
-<h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p>包是指一个包含模块与一个特殊的<code>__init__.py</code>文件的文件夹，后者向Python表明这一文件夹是特别的,因为其包含了Python模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;some folder present in the sys.path&gt;/</div><div class="line">    -world/</div><div class="line">        -__init__.py</div><div class="line">        -asia/</div><div class="line">            -__init__.py</div><div class="line">            -india/</div><div class="line">                -__init__.py</div><div class="line">                -foo.py</div><div class="line">        -africa/</div><div class="line">            -__init__.py</div><div class="line">            -madagascar/</div><div class="line">                -__init__.py</div><div class="line">                -bar.py</div></pre></td></tr></table></figure></p>
-<p>模块是一种可重用的程序。包是用以组织模块的一种层次结构</p>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="列表List"><a href="#列表List" class="headerlink" title="列表List"></a>列表List</h3><p>列表是可变的，有序的<br>元素的数据类型可以不同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">shoplist=[&apos;apple&apos;,&apos;mango&apos;,&apos;carrot&apos;,&apos;banana&apos;]</div><div class="line">len(shoplist)</div><div class="line"></div><div class="line">#最后一个</div><div class="line">shoplist[len(shoplist)-1]</div><div class="line">shoplist[-1]</div><div class="line"></div><div class="line"># 遍历</div><div class="line">for item in shoplist:</div><div class="line">    print(item,end=&apos; &apos;)</div><div class="line"></div><div class="line"># 增加</div><div class="line">shoplist.append(&apos;rice&apos;)</div><div class="line">shoplist.insert(1,&apos;water&apos;)</div><div class="line"># [&apos;apple&apos;, &apos;water&apos;, &apos;mango&apos;, &apos;carrot&apos;, &apos;banana&apos;]</div><div class="line"></div><div class="line"># 更新</div><div class="line">&gt;&gt;&gt; shoplist[1]=&apos;water&apos;</div><div class="line">&gt;&gt;&gt; shoplist</div><div class="line">[&apos;apple&apos;, &apos;water&apos;, &apos;carrot&apos;]</div><div class="line"></div><div class="line"></div><div class="line"># 删除最后一个</div><div class="line">&gt;&gt;&gt; shoplist.pop()</div><div class="line">&apos;banana&apos;</div><div class="line">&gt;&gt;&gt; shoplist</div><div class="line">[&apos;apple&apos;, &apos;water&apos;, &apos;mango&apos;, &apos;carrot&apos;]</div><div class="line"># 删除指定</div><div class="line">&gt;&gt;&gt; shoplist.pop(1)</div><div class="line">&apos;water&apos;</div><div class="line">&gt;&gt;&gt; shoplist</div><div class="line">[&apos;apple&apos;, &apos;mango&apos;, &apos;carrot&apos;]</div><div class="line"></div><div class="line"></div><div class="line">#排序改变本身</div><div class="line">shoplist.sort()</div><div class="line">print(&apos;Sorted shopping list is&apos;,shoplist)</div><div class="line"></div><div class="line">olditem=shoplist[0]</div><div class="line">del shoplist[0]</div><div class="line"></div><div class="line">L=[&apos;Apple&apos;,123,True]</div><div class="line">s=[&apos;python&apos;,&apos;java&apos;,[&apos;asp&apos;,&apos;php&apos;],&apos;scheme&apos;]</div><div class="line"></div><div class="line">&gt;&gt;&gt; L=[]</div><div class="line">&gt;&gt;&gt; L</div><div class="line">[]</div><div class="line">&gt;&gt;&gt; len(L)</div><div class="line">0</div></pre></td></tr></table></figure></p>
-<h3 id="元组Tuple"><a href="#元组Tuple" class="headerlink" title="元组Tuple"></a>元组Tuple</h3><p>有序，不可变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"># 空元组</div><div class="line">()</div><div class="line"></div><div class="line"># 只有一个元素的元组</div><div class="line">(1,)</div><div class="line"></div><div class="line">zoo=(&apos;python&apos;,&apos;elephent&apos;,&apos;penguin&apos;)</div><div class="line">len(zoo)</div><div class="line"></div><div class="line">new_zoo=&apos;monkey&apos;,&apos;camel&apos;,zoo   </div><div class="line"># (&apos;monkey&apos;, &apos;camel&apos;, (&apos;python&apos;, &apos;elephent&apos;, &apos;penguin&apos;))</div><div class="line"></div><div class="line">new_zoo[2]</div><div class="line">new_zoo[2][2]</div><div class="line"></div><div class="line"># 元组中的可变元素</div><div class="line">&gt;&gt;&gt; t=(&apos;a&apos;,&apos;b&apos;,[&apos;A&apos;,&apos;B&apos;])</div><div class="line">&gt;&gt;&gt; t</div><div class="line">(&apos;a&apos;, &apos;b&apos;, [&apos;A&apos;, &apos;B&apos;])</div><div class="line">&gt;&gt;&gt; t[2][0]</div><div class="line">&apos;A&apos;</div><div class="line">&gt;&gt;&gt; t[2][0]=&apos;Y&apos;</div><div class="line">&gt;&gt;&gt; t</div><div class="line">(&apos;a&apos;, &apos;b&apos;, [&apos;Y&apos;, &apos;B&apos;])</div></pre></td></tr></table></figure></p>
-<h3 id="字典Dict"><a href="#字典Dict" class="headerlink" title="字典Dict"></a>字典Dict</h3><p>无序<br>使用键-值（key-value）存储，具有极快的查找速度<br>在其他语言中称为<code>map</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">ab=&#123;</div><div class="line">    &apos;Swaroop&apos;:&apos;swaroop@swaroopch.com&apos;,</div><div class="line">    &apos;Larry&apos;:&apos;larry@wall.org&apos;,</div><div class="line">    &apos;Matsumoto&apos;:&apos;matz@ruby-lang.org&apos;,</div><div class="line">    &apos;Spammer&apos;:&apos;spammer@hotmail.com&apos;</div><div class="line">&#125;</div><div class="line"></div><div class="line"># 取值</div><div class="line">ab[&apos;Swaroop&apos;]</div><div class="line"></div><div class="line"># 删除</div><div class="line">del ab[&apos;Spammer&apos;]</div><div class="line">ab.pop(&apos;Spammer&apos;)</div><div class="line"></div><div class="line">len(ab)</div><div class="line"></div><div class="line">for name,address in ab.items():</div><div class="line">    print(&apos;Contact &#123;&#125; at &#123;&#125;&apos;.format(name,address))</div><div class="line"></div><div class="line"># 赋值</div><div class="line">ab[&apos;Guido&apos;]=&apos;guido@python.org&apos;</div><div class="line"></div><div class="line"># in判断是否存在</div><div class="line">if &apos;Guido&apos; in ab:</div><div class="line">    print(&quot;\nGuido&apos;s address is&quot;,ab[&apos;Guido&apos;])</div><div class="line"># get()判断是否存在，不存在返回None，或指定的value</div><div class="line">ab.get(&apos;Thomas&apos;)</div><div class="line">ab.get(&apos;Thomas&apos;,-1)</div><div class="line"></div><div class="line"># 按key排序</div><div class="line">&gt;&gt;&gt; sorted(d.keys())</div><div class="line">[&apos;Adam&apos;, &apos;Jack&apos;, &apos;Michael&apos;, &apos;Tracy&apos;]</div><div class="line">&gt;&gt;&gt; sorted(d.keys(),reverse=True)</div><div class="line">[&apos;Tracy&apos;, &apos;Michael&apos;, &apos;Jack&apos;, &apos;Adam&apos;]</div><div class="line"></div><div class="line"># 按value 排序</div><div class="line">&gt;&gt;&gt; sorted(d.items(),key=lambda item:item[1])</div><div class="line">[(&apos;Adam&apos;, 67), (&apos;Tracy&apos;, 85), (&apos;Jack&apos;, 88), (&apos;Michael&apos;, 95)]</div></pre></td></tr></table></figure>
-<p>返回<code>None</code>的时候Python的交互环境不显示结果</p>
-<p>和list比较，dict有以下几个特点：</p>
-<ul>
-<li>查找和插入的速度极快，不会随着key的增加而变慢；</li>
-<li>需要占用大量的内存，内存浪费多。</li>
-</ul>
-<p>而list相反：</p>
-<ul>
-<li>查找和插入的时间随着元素的增加而增加；</li>
-<li>占用空间小，浪费内存很少。</li>
-</ul>
-<p>dict的key必须是不可变对象，使用key的Hash值计算value的存储位置</p>
-<p><code>items()</code> 方法将字典的元素转化为了元组，而<code>key</code>参数对应的 <code>lambda</code> 表达式的意思则是选取元组中的第二个元素作为比较参数（如果写作 <code>key=lambda item:item[0]</code> 的话则是选取第一个元素作为比较对象，也就是 <code>key</code> 值作为比较对象。<code>lambda x:y</code>中 <code>x</code> 表示输出参数，<code>y</code> 表示 <code>lambda</code> 函数的返回值），所以采用这种方法可以对字典的 <code>value</code> 进行排序。注意排序后的返回值是一个 <code>list</code>，而原字典中的名值对被转换为了 <code>list</code> 中的元组。</p>
-<h3 id="序列Sequence"><a href="#序列Sequence" class="headerlink" title="序列Sequence"></a>序列Sequence</h3><p>序列的三种形态——列表、元组与字符串<br>资格测试（in、not in）、索引操作、切片<br>切片操作不包含结束位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">shoplist=[&apos;apple&apos;,&apos;mango&apos;,&apos;caroot&apos;,&apos;banana&apos;]</div><div class="line">name=&apos;swaroop&apos;</div><div class="line"></div><div class="line">shoplist[0]         #apple</div><div class="line">shoplist[1]         #mango</div><div class="line">shoplist[2]         #caroot</div><div class="line">shoplist[3]         #banana</div><div class="line">shoplist[-1]        #banana</div><div class="line">shoplist[-2]        #caroot</div><div class="line">shoplist[1:3]       #[&apos;mango&apos;, &apos;caroot&apos;]</div><div class="line">shoplist[2:]        #[&apos;caroot&apos;, &apos;banana&apos;]</div><div class="line">shoplist[1:-1]      #[&apos;mango&apos;, &apos;caroot&apos;]</div><div class="line">shoplist[:]         #[&apos;apple&apos;, &apos;mango&apos;, &apos;caroot&apos;, &apos;banana&apos;]</div><div class="line"></div><div class="line">shoplist[::1]</div><div class="line"># [&apos;apple&apos;, &apos;mango&apos;, &apos;carrot&apos;, &apos;banana&apos;]</div><div class="line">shoplist[::2]</div><div class="line"># [&apos;apple&apos;, &apos;carrot&apos;]</div><div class="line">shoplist[::3]</div><div class="line"># [&apos;apple&apos;, &apos;banana&apos;]</div><div class="line">shoplist[::-1]</div><div class="line"># [&apos;banana&apos;, &apos;carrot&apos;, &apos;mango&apos;, &apos;apple&apos;]</div><div class="line"></div><div class="line"></div><div class="line">name[0]             #s</div><div class="line">name[1:3]           #wa</div><div class="line">name[2:]            #aroop</div><div class="line">name[1:-1]          #waroo</div><div class="line">name[:]             #swaroop</div></pre></td></tr></table></figure></p>
-<h3 id="集合Set"><a href="#集合Set" class="headerlink" title="集合Set"></a>集合Set</h3><p>无序，不重复<br>不可以放入可变对象，因为无法保证不重复<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 创建一个set，需要提供一个list作为输入集合</div><div class="line">&gt;&gt;&gt; bri=set([&apos;brazil&apos;,&apos;russia&apos;,&apos;india&apos;])</div><div class="line">&gt;&gt;&gt; &apos;india&apos; in bri</div><div class="line">True</div><div class="line">&gt;&gt;&gt; &apos;usa&apos; in bri</div><div class="line">False</div><div class="line">&gt;&gt;&gt; bric=bri.copy()         #不是同一个</div><div class="line">&gt;&gt;&gt; bric.add(&apos;china&apos;)</div><div class="line">&gt;&gt;&gt; bric.issuperset(bri)</div><div class="line">True</div><div class="line">&gt;&gt;&gt; bric</div><div class="line">&#123;&apos;india&apos;, &apos;china&apos;, &apos;russia&apos;, &apos;brazil&apos;&#125;</div><div class="line">&gt;&gt;&gt; bri</div><div class="line">&#123;&apos;india&apos;, &apos;russia&apos;, &apos;brazil&apos;&#125;</div><div class="line">&gt;&gt;&gt; bri.remove(&apos;russia&apos;)</div><div class="line">&gt;&gt;&gt; bri &amp; bric</div><div class="line">&#123;&apos;india&apos;, &apos;brazil&apos;&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="不可变对象"><a href="#不可变对象" class="headerlink" title="不可变对象"></a>不可变对象</h3><p><code>str</code>是不变对象，而<code>list</code>是可变对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a=[&apos;c&apos;,&apos;b&apos;,&apos;a&apos;]</div><div class="line">&gt;&gt;&gt; a</div><div class="line">[&apos;c&apos;, &apos;b&apos;, &apos;a&apos;]</div><div class="line">&gt;&gt;&gt; a.sort()</div><div class="line">&gt;&gt;&gt; a</div><div class="line">[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]</div><div class="line"></div><div class="line">&gt;&gt;&gt; a=&apos;abc&apos;</div><div class="line">&gt;&gt;&gt; b=a.replace(&apos;a&apos;,&apos;A&apos;)</div><div class="line">&gt;&gt;&gt; b</div><div class="line">&apos;Abc&apos;</div><div class="line">&gt;&gt;&gt; a</div><div class="line">&apos;abc&apos;</div></pre></td></tr></table></figure>
-<p><code>replace</code>方法创建了一个新字符串’Abc’并返回<br>对于不变对象来说，调用对象自身的任意方法，也不会改变该对象自身的内容。相反，这些方法会创建新的对象并返回，这样，就保证了不可变对象本身永远是不可变的</p>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">shoplist=[&apos;apple&apos;,&apos;mango&apos;,&apos;carrot&apos;,&apos;banana&apos;]</div><div class="line">#两个变量指向同一个列表</div><div class="line">mylist=shoplist</div><div class="line">del shoplist[0]</div><div class="line">print(&apos;shoplist is&apos;,shoplist)</div><div class="line">print(&apos;mylist is&apos;,mylist)</div><div class="line"></div><div class="line">#两个变量指向不同的列表</div><div class="line">mylist=shoplist[:]</div><div class="line">del mylist[0]</div><div class="line">print(&apos;shoplist is&apos;,shoplist)</div><div class="line">print(&apos;mylist is&apos;,mylist)</div></pre></td></tr></table></figure>
-<h3 id="字符串-1"><a href="#字符串-1" class="headerlink" title="字符串"></a>字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">name = &apos;Swaroop&apos;</div><div class="line">name.startswith(&apos;Swa&apos;)</div><div class="line">&apos;a&apos; in name</div><div class="line">name.find(&apos;war&apos;) != -1</div><div class="line"></div><div class="line">delimiter = &apos;_*_&apos;</div><div class="line">mylist = [&apos;Brazil&apos;, &apos;Russia&apos;, &apos;India&apos;, &apos;China&apos;]</div><div class="line">print(delimiter.join(mylist))</div><div class="line"># Brazil_*_Russia_*_India_*_China</div></pre></td></tr></table></figure>
-<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>单独开一章</p>
-<h2 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h2><p>类与对象是面向对象编程的两个主要方面。一个类（Class）能够创建一种新的类型（Type），其中对象（Object）就是类的实例（Instance）</p>
-<p>字段（Field）<br>方法（Method）<br>字段与方法通称类的属性（Attribute）<br>实例变量（Instance Variables）<br>类变量（Class Variables）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class Person:</div><div class="line">    def say_hi(self):</div><div class="line">        print(&apos;Hello, how are you?&apos;)</div><div class="line"></div><div class="line">p = Person()</div><div class="line">p.say_hi()</div></pre></td></tr></table></figure>
-<h3 id="init方法"><a href="#init方法" class="headerlink" title="init方法"></a><strong>init</strong>方法</h3><p><code>__init__</code>方法会在类的对象被实例化（Instantiated）时立即运行，用于初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Person:</div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line"></div><div class="line">    def say_hi(self):</div><div class="line">        print(&apos;Hello, my name is&apos;, self.name)</div><div class="line"></div><div class="line">p = Person(&apos;Swaroop&apos;)</div><div class="line">p.say_hi()</div></pre></td></tr></table></figure></p>
-<h3 id="类变量和对象变量"><a href="#类变量和对象变量" class="headerlink" title="类变量和对象变量"></a>类变量和对象变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">class Robot:</div><div class="line">    &quot;&quot;&quot;表示有一个带有名字的机器人。&quot;&quot;&quot;</div><div class="line"></div><div class="line">    # 一个类变量，用来计数机器人的数量</div><div class="line">    population = 0</div><div class="line"></div><div class="line">    def __init__(self, name):</div><div class="line">        &quot;&quot;&quot;初始化数据&quot;&quot;&quot;</div><div class="line">        self.name = name</div><div class="line">        print(&quot;(Initializing &#123;&#125;)&quot;.format(self.name))</div><div class="line"></div><div class="line">        # 当有人被创建时，机器人</div><div class="line">        # 将会增加人口数量</div><div class="line">        Robot.population += 1</div><div class="line"></div><div class="line">    def die(self):</div><div class="line">        &quot;&quot;&quot;我挂了。&quot;&quot;&quot;</div><div class="line">        print(&quot;&#123;&#125; is being destroyed!&quot;.format(self.name))</div><div class="line"></div><div class="line">        Robot.population -= 1</div><div class="line"></div><div class="line">        if Robot.population == 0:</div><div class="line">            print(&quot;&#123;&#125; was the last one.&quot;.format(self.name))</div><div class="line">        else:</div><div class="line">            print(&quot;There are still &#123;:d&#125; robots working.&quot;.format(</div><div class="line">                Robot.population))</div><div class="line"></div><div class="line">    def say_hi(self):</div><div class="line">        &quot;&quot;&quot;来自机器人的诚挚问候</div><div class="line"></div><div class="line">        没问题，你做得到。&quot;&quot;&quot;</div><div class="line">        print(&quot;Greetings, my masters call me &#123;&#125;.&quot;.format(self.name))</div><div class="line"></div><div class="line">    @classmethod</div><div class="line">    def how_many(cls):</div><div class="line">        &quot;&quot;&quot;打印出当前的人口数量&quot;&quot;&quot;</div><div class="line">        print(&quot;We have &#123;:d&#125; robots.&quot;.format(cls.population))</div><div class="line"></div><div class="line">droid1 = Robot(&quot;R2-D2&quot;)</div><div class="line">droid1.say_hi()</div><div class="line">Robot.how_many()</div><div class="line"></div><div class="line">droid2 = Robot(&quot;C-3PO&quot;)</div><div class="line">droid2.say_hi()</div><div class="line">Robot.how_many()</div></pre></td></tr></table></figure>
-<p><code>population</code>是类变量，<code>Robot.population</code>或<code>self.__class__.population</code>，共享数据<br><code>name</code>是对象变量，<code>self.name</code></p>
-<p><code>how_many</code>是类方法</p>
-<p><code>Robot.__doc__</code> 访问类的文档字符串<br><code>Robot.say_hi.__doc__</code>访问方法的文档字符串</p>
-<p><code>__privatevar</code>私有变量</p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">class SchoolMember:</div><div class="line">    def __init__(self,name,age):</div><div class="line">        self.name=name</div><div class="line">        self.age=age</div><div class="line">        print(&apos;Initialized SchoolMember:&#123;&#125;&apos;.format(self.name))</div><div class="line"></div><div class="line">    def tell(self):</div><div class="line">        print(&apos;Name:&quot;&#123;&#125;&quot; Age:&quot;&#123;&#125;&quot;&apos;.format(self.name,self.age),end=&quot; &quot;)</div><div class="line"></div><div class="line">class Teacher(SchoolMember):</div><div class="line">    def __init__(self,name,age,salary):</div><div class="line">        SchoolMember.__init__(self,name,age)</div><div class="line">        self.salary=salary</div><div class="line">        print(&apos;Initialized Teacher:&#123;&#125;&apos;.format(self.name))</div><div class="line"></div><div class="line">    def tell(self):</div><div class="line">        SchoolMember.tell(self)</div><div class="line">        print(&apos;Salary: &quot;&#123;:d&#125;&quot;&apos;.format(self.salary))</div><div class="line"></div><div class="line">class Student(SchoolMember):</div><div class="line">    def __init__(self,name,age,marks):</div><div class="line">        SchoolMember.__init__(self,name,age)</div><div class="line">        self.marks=marks</div><div class="line">        print(&apos;Initialized Student:&#123;&#125;&apos;.format(self.name))</div><div class="line"></div><div class="line">    def tell(self):</div><div class="line">        SchoolMember.tell(self)</div><div class="line">        print(&apos;Marks:&quot;&#123;:d&#125;&quot;&apos;.format(self.marks))</div><div class="line"></div><div class="line">t=Teacher(&apos;Mrs. Shrividya&apos;,40,30000)</div><div class="line">s=Student(&apos;Swaroop&apos;,25,75)</div><div class="line"></div><div class="line">print()</div><div class="line"></div><div class="line">members=[t,s]</div><div class="line">for member in members:</div><div class="line">    member.tell()</div></pre></td></tr></table></figure>
-<p><code>SchoolMember.__init__(self,name,age)</code>调用父类的构造方法<br><code>SchoolMember.tell(self)</code>调用父类的方法<br>多重继承</p>
-<h2 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">def reverse(text):</div><div class="line">    return text[::-1]</div><div class="line"></div><div class="line">def is_palindrome(text):</div><div class="line">    return text==reverse(text)</div><div class="line"></div><div class="line">something=input(&apos;Enter text:&apos;)</div><div class="line">if is_palindrome(something):</div><div class="line">    print(&apos;Yes,it is a palindrome&apos;)</div><div class="line">else:</div><div class="line">    print(&apos;No,it is not a palindrome&apos;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">poem=&apos;&apos;&apos;\</div><div class="line">Programming is fun</div><div class="line">When the work is done</div><div class="line">if you wanna make your work also fun:</div><div class="line">    use Python!</div><div class="line">&apos;&apos;&apos;</div><div class="line"></div><div class="line">f=open(&apos;poem.txt&apos;,&apos;w&apos;)</div><div class="line">f.write(poem)</div><div class="line">f.close()</div><div class="line"></div><div class="line">f=open(&apos;poem.txt&apos;)</div><div class="line">while True:</div><div class="line">    line=f.readline()</div><div class="line">    if len(line)==0:</div><div class="line">        break</div><div class="line">    print(line,end=&apos;&apos;)</div><div class="line"></div><div class="line">f.close()</div></pre></td></tr></table></figure>
-<p>阅读模式（’r’）<br>写入模式（’w’）<br>追加模式（’a’）<br>文本模式（’t’）<br>二进制模式（’b’）<br>在默认情况下，open() 会将文件视作文本（text）文件，并以阅读（read）模式打开它。</p>
-<p>readline会读取换行符</p>
-<h3 id="Pickle"><a href="#Pickle" class="headerlink" title="Pickle"></a>Pickle</h3><p>将任何纯 Python 对象存储到一个文件中，并在稍后将其取回。这叫作持久化（Persistently）存储对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">import pickle</div><div class="line"></div><div class="line">shoplistfile=&apos;shoplist.data&apos;</div><div class="line">shoplist=[&apos;apple&apos;,&apos;mango&apos;,&apos;carrot&apos;]</div><div class="line"></div><div class="line">f=open(shoplistfile,&apos;wb&apos;)</div><div class="line">pickle.dump(shoplist,f)</div><div class="line">f.close()</div><div class="line"></div><div class="line">del shoplist</div><div class="line"></div><div class="line">f=open(shoplistfile,&apos;rb&apos;)</div><div class="line">storedlist=pickle.load(f)</div><div class="line">print(storedlist)</div></pre></td></tr></table></figure>
-<h3 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># encoding=utf-8</div></pre></td></tr></table></figure>
-<p>使用 io.open 并提供了“编码（Encoding）”与“解码（Decoding）”参数来告诉 Python 我们正在使用 Unicode。</p>
-<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>错误处理器：抛出错误，打印出检测到的错误发生的位置</p>
-<p>EOFError，文件结尾错误（End of File）</p>
-<h3 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">try:</div><div class="line">    text=input(&apos;Enter something--&gt;&apos;)</div><div class="line">except EOFError:</div><div class="line">    print(&apos;Why not you do an EOF on me?&apos;)</div><div class="line">except KeyboardInterrupt:</div><div class="line">    print(&apos;You cancelled the operation.&apos;)</div><div class="line">else:</div><div class="line">    print(&apos;You entered &#123;&#125;&apos;.format(text))</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Press ctrl + d</div><div class="line">$ python exceptions_handle.py</div><div class="line">Enter something --&gt; Why did you do an EOF on me?</div><div class="line"></div><div class="line"># Press ctrl + c</div><div class="line">$ python exceptions_handle.py</div><div class="line">Enter something --&gt; ^CYou cancelled the operation.</div><div class="line"></div><div class="line">$ python exceptions_handle.py</div><div class="line">Enter something --&gt; No exceptions</div><div class="line">You entered No exceptions</div></pre></td></tr></table></figure>
-<p>else 子句将在没有发生异常的时候执行</p>
-<h3 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h3><p>raise 语句可以引发一次异常，具体方法是提供错误名或异常名以及要抛出（Thrown）异常的对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class ShortInputException(Exception):</div><div class="line">    def __init__(self,length,atleast):</div><div class="line">        Exception.__init__(self)</div><div class="line">        self.length=length</div><div class="line">        self.atleast=atleast</div><div class="line"></div><div class="line">try:</div><div class="line">    text=input(&apos;Enter somethin---&gt;&apos;)</div><div class="line">    if len(text)&lt;3:</div><div class="line">        raise ShortInputException(len(text),3)</div><div class="line">except EOFError:</div><div class="line">    print(&apos;Why did you do an EOF on me?&apos;)</div><div class="line">except ShortInputException as ex:</div><div class="line">    print((&apos;ShortInputException:The input was &apos;+&apos;&#123;0&#125; long,expected at least &#123;1&#125;&apos;).format(ex.length,ex.atleast))</div><div class="line">else:</div><div class="line">    print(&apos;No exception was raised.&apos;)</div></pre></td></tr></table></figure></p>
-<h3 id="Try…Finally"><a href="#Try…Finally" class="headerlink" title="Try…Finally"></a>Try…Finally</h3><p>无论是否会发生异常必然执行，finally<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">import sys</div><div class="line">import time</div><div class="line"></div><div class="line">f=None</div><div class="line">try:</div><div class="line">    f=open(&quot;poem.txt&quot;)</div><div class="line">    while True:</div><div class="line">        line=f.readline()</div><div class="line">        if len(line)==0:</div><div class="line">            break</div><div class="line">        print(line,end=&apos;&apos;)</div><div class="line">        sys.stdout.flush()</div><div class="line">        print(&apos;Print ctrl-c now&apos;)</div><div class="line">        time.sleep(2)</div><div class="line">except IOError:</div><div class="line">    print(&apos;Could not find file poem.txt&apos;)</div><div class="line">except KeyboardInterrupt:</div><div class="line">    print(&apos;!! You cancelled the reading from the file.&apos;)</div><div class="line">finally:</div><div class="line">    if f:</div><div class="line">        f.close()</div><div class="line">    print(&apos;(Cleaning up:Closed the file)&apos;)</div></pre></td></tr></table></figure></p>
-<h3 id="with语句"><a href="#with语句" class="headerlink" title="with语句"></a>with语句</h3><p>使用with open语句会自动关闭文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">with open(&apos;poem.txt&apos;) as f:</div><div class="line">    for line in f:</div><div class="line">        print(line,end=&apos;&apos;)</div></pre></td></tr></table></figure></p>
-<h2 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h2><p>sys模块<br>日志模块logging</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">import os</div><div class="line">import platform</div><div class="line">import logging</div><div class="line"></div><div class="line">if platform.platform().startswith(&apos;Windows&apos;):</div><div class="line">    logging_file=os.path.join(os.getenv(&apos;HOMEDRIVE&apos;),os.getenv(&apos;HOMEPATH&apos;),&apos;test.log&apos;)</div><div class="line">else:</div><div class="line">    logging_file=os.path.join(os.getenv(&apos;HOME&apos;),&apos;test.log&apos;)</div><div class="line"></div><div class="line">print(&apos;Logging to&apos;,logging_file)</div><div class="line">logging.basicConfig(</div><div class="line">        level=logging.DEBUG,</div><div class="line">        format=&apos;%(asctime)s:%(levelname)s:%(message)s&apos;,</div><div class="line">        filename=logging_file,</div><div class="line">        filemode=&apos;w&apos;,</div><div class="line">)</div><div class="line">logging.debug(&apos;Start of the program&apos;)</div><div class="line">logging.info(&apos;Doing something&apos;)</div><div class="line">logging.warning(&apos;Dying now&apos;)</div></pre></td></tr></table></figure>
-<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><h3 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">points=[&#123;&apos;x&apos;:2,&apos;y&apos;:3&#125;,&#123;&apos;x&apos;:4,&apos;y&apos;:1&#125;]</div><div class="line"></div><div class="line">points.sort(key=lambda i:i[&apos;y&apos;])</div><div class="line">print(points)</div></pre></td></tr></table></figure>
-<h3 id="列表推导"><a href="#列表推导" class="headerlink" title="列表推导"></a>列表推导</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">listone=[2,3,4]</div><div class="line">listtwo=[2*i for i in listone if i&gt;2]</div><div class="line">print(listtwo)</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;《简明Python教程》读书笔记&quot;&gt;&lt;a href=&quot;#《简明Python教程》读书笔记&quot; class=&quot;headerlink&quot; title=&quot;《简明Python教程》读书笔记&quot;&gt;&lt;/a&gt;《简明Python教程》读书笔记&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;使用《简明Python教程》漠伦翻译版&lt;br&gt;&lt;a href=&quot;https://bop.mol.uno/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://bop.mol.uno/&lt;/a&gt;&lt;br&gt;使用Python3.5.1&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;关于Python&quot;&gt;&lt;a href=&quot;#关于Python&quot; class=&quot;headerlink&quot; title=&quot;关于Python&quot;&gt;&lt;/a&gt;关于Python&lt;/h2&gt;&lt;p&gt;简单、易于学习、自由且开放（FLOSS）、高级语言、跨平台性、解释性、面向对象、可扩展性、可嵌入性、丰富的库&lt;/p&gt;
-&lt;p&gt;在程序内部，Python会将源代码转换为称为字节码的中间形式，尔后再转换成你的电脑所使用的语，并运行它&lt;/p&gt;
-&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;Linux&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;sudo apt install python3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;python3 -V&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;第一步&quot;&gt;&lt;a href=&quot;#第一步&quot; class=&quot;headerlink&quot; title=&quot;第一步&quot;&gt;&lt;/a&gt;第一步&lt;/h2&gt;&lt;p&gt;通过Python&lt;strong&gt;运行程序有两种方法&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;使用交互式解释器提示符&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;直接运行一个源代码&lt;code&gt;python test.py&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Python区分大小写&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;获取帮助&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;help(&amp;apos;input&amp;apos;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;最好使用引号，不使用引号有时会出错，比如&lt;code&gt;help(return)&lt;/code&gt;&lt;br&gt;按&lt;code&gt;q&lt;/code&gt;退出&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用Python备份文件</title>
-    <link href="http://yoursite.com/post/90c43b0e.html"/>
-    <id>http://yoursite.com/post/90c43b0e.html</id>
-    <published>2018-06-10T00:41:24.000Z</published>
-    <updated>2018-06-11T05:10:31.767Z</updated>
-    
-    <content type="html"><![CDATA[<p>来自《简明Python教程》中解决问题一章，单独拿出来进行说明</p>
-<p>需要解决的问题是</p>
-<blockquote>
-<p>我想要一款程序来备份我所有的重要文件。</p>
-</blockquote>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>5W1H<br>What？Where？When？Why？Who？How？<br>备份什么？备份到哪里？– ？–？–？ 怎么备份？<br>我们应该如何指定哪些文件是我们需要备份的？<br>它们应该如何进行备份？以什么方式存储？<br>储存到哪里?</p>
-<h2 id="设计："><a href="#设计：" class="headerlink" title="设计："></a>设计：</h2><ol>
-<li>需要备份的文件与目录应在一份列表中予以指定</li>
-<li>备份必须存储在一个主备份目录中</li>
-<li>备份文件将打包压缩成 zip 文件</li>
-<li>zip 压缩文件的文件名由当前日期与时间构成</li>
-<li>使用在任何 GNU/Linux 或 Unix 发行版中都会默认提供的标准 zip 命令进行打包</li>
-</ol>
-<a id="more"></a>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">import os</div><div class="line">import time</div><div class="line"></div><div class="line">#1.指定源目录列表</div><div class="line">source=[&apos;/home/lee/Documents/pyte&apos;]</div><div class="line"></div><div class="line">#2.指定目标目录</div><div class="line">target_dir=&apos;/home/lee/Templates&apos;</div><div class="line"></div><div class="line">#3.指定目标文件名</div><div class="line">target=target_dir+os.sep+time.strftime(&apos;%Y%m%d%H%M%S&apos;)+&apos;.zip&apos;</div><div class="line"></div><div class="line">if not os.path.exists(target_dir):</div><div class="line">    os.mkdir(target_dir)</div><div class="line"></div><div class="line">#4.组装zip命令</div><div class="line">zip_command=&apos;zip -r &#123;0&#125; &#123;1&#125;&apos;.format(target,&apos; &apos;.join(source))</div><div class="line"></div><div class="line">print(&apos;Zip command is:&apos;)</div><div class="line">print(zip_command)</div><div class="line">print(&apos;Running:&apos;)</div><div class="line">#5. 执行压缩命令os.system(zip_command)</div><div class="line">if os.system(zip_command)==0:</div><div class="line">    print(&apos;Successful backup to&apos;,target)</div><div class="line">else:</div><div class="line">    print(&apos;Backup Failed&apos;)</div></pre></td></tr></table></figure>
-<h2 id="测试-调试"><a href="#测试-调试" class="headerlink" title="测试/调试"></a>测试/调试</h2><h2 id="部署-使用"><a href="#部署-使用" class="headerlink" title="部署/使用"></a>部署/使用</h2><h2 id="维护-改进"><a href="#维护-改进" class="headerlink" title="维护/改进"></a>维护/改进</h2><p>第二版，创建日期目录，将压缩文件放在对应的目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">import os</div><div class="line">import time</div><div class="line"></div><div class="line">source=[&apos;/home/lee/Documents/pyte&apos;]</div><div class="line"></div><div class="line">target_dir=&apos;/home/lee/Templates&apos;</div><div class="line"></div><div class="line">today=target_dir+os.sep+time.strftime(&apos;%Y%m%d&apos;)</div><div class="line">now=time.strftime(&apos;%H%M%S&apos;)</div><div class="line">#target=target_dir+os.sep+time.strftime(&apos;%Y%m%d%H%M%S&apos;)+&apos;.zip&apos;</div><div class="line">target=today+os.sep+now+&apos;.zip&apos;</div><div class="line"></div><div class="line">if not os.path.exists(today):</div><div class="line">    os.mkdir(today)</div><div class="line"></div><div class="line">zip_command=&apos;zip -r &#123;0&#125; &#123;1&#125;&apos;.format(target,&apos; &apos;.join(source))</div><div class="line"></div><div class="line">print(&apos;Zip command is:&apos;)</div><div class="line">print(zip_command)</div><div class="line">print(&apos;Running:&apos;)</div><div class="line">if os.system(zip_command)==0:</div><div class="line">    print(&apos;Successful backup to&apos;,target)</div><div class="line">else:</div><div class="line">    print(&apos;Backup Failed&apos;)</div></pre></td></tr></table></figure></p>
-<p>第三版，压缩文件名添加注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">import os</div><div class="line">import time</div><div class="line"></div><div class="line">source=[&apos;/home/lee/Documents/pyte&apos;]</div><div class="line"></div><div class="line">target_dir=&apos;/home/lee/Templates&apos;</div><div class="line"></div><div class="line">today=target_dir+os.sep+time.strftime(&apos;%Y%m%d&apos;)</div><div class="line">now=time.strftime(&apos;%H%M%S&apos;)</div><div class="line">#target=target_dir+os.sep+time.strftime(&apos;%Y%m%d%H%M%S&apos;)+&apos;.zip&apos;</div><div class="line">comment=input(&apos;Enter some comment:&apos;)</div><div class="line">if len(comment)==0:</div><div class="line">    target=today+os.sep+now+&apos;.zip&apos;</div><div class="line">else:</div><div class="line">    target=today+os.sep+now+&apos;_&apos;+comment.replace(&apos; &apos;,&apos;_&apos;)+&apos;.zip&apos;</div><div class="line"></div><div class="line">if not os.path.exists(today):</div><div class="line">    os.mkdir(today)</div><div class="line"></div><div class="line">zip_command=&apos;zip -r &#123;0&#125; &#123;1&#125;&apos;.format(target,&apos; &apos;.join(source))</div><div class="line"></div><div class="line">print(&apos;Zip command is:&apos;)</div><div class="line">print(zip_command)</div><div class="line">print(&apos;Running:&apos;)</div><div class="line">if os.system(zip_command)==0:</div><div class="line">    print(&apos;Successful backup to&apos;,target)</div><div class="line">else:</div><div class="line">    print(&apos;Backup Failed&apos;)</div></pre></td></tr></table></figure></p>
-<p>zip命令可以使用<code>-p</code>静默执行</p>
-<p>第四版，使用zipfile而不是os压缩<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class zipfile.ZipFile(file[, mode[, compression[, allowZip64]]])</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">import os</div><div class="line">import time</div><div class="line">import zipfile</div><div class="line"></div><div class="line">sources=[&apos;/home/lee/Documents/pyte&apos;]</div><div class="line"></div><div class="line">target_dir=&apos;/home/lee/Templates&apos;</div><div class="line"></div><div class="line">today=target_dir+os.sep+time.strftime(&apos;%Y%m%d&apos;)</div><div class="line">now=time.strftime(&apos;%H%M%S&apos;)</div><div class="line">#target=target_dir+os.sep+time.strftime(&apos;%Y%m%d%H%M%S&apos;)+&apos;.zip&apos;</div><div class="line">comment=input(&apos;Enter some comment:&apos;)</div><div class="line">if len(comment)==0:</div><div class="line">    target=today+os.sep+now+&apos;.zip&apos;</div><div class="line">else:</div><div class="line">    target=today+os.sep+now+&apos;_&apos;+comment.replace(&apos; &apos;,&apos;_&apos;)+&apos;.zip&apos;</div><div class="line"></div><div class="line">if not os.path.exists(today):</div><div class="line">    os.mkdir(today)</div><div class="line"></div><div class="line">f=zipfile.ZipFile(target,&apos;a&apos;,zipfile.ZIP_DEFLATED)</div><div class="line">for source in sources:</div><div class="line">    for dirpath,dirnames,filenames in os.walk(source):</div><div class="line">        for dirname in dirnames:</div><div class="line">            #这个循环是为了保证空目录也可以被压缩</div><div class="line">            f.write(os.path.join(dirpath,dirname))</div><div class="line">        for filename in filenames:</div><div class="line">            f.write(os.path.join(dirpath,filename))</div><div class="line"></div><div class="line">print(f.namelist())</div><div class="line">f.close()</div></pre></td></tr></table></figure>
-<p>也可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import shutil</div><div class="line">shutil.make_archive(output_filename, &apos;zip&apos;, dir_name)</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;来自《简明Python教程》中解决问题一章，单独拿出来进行说明&lt;/p&gt;
-&lt;p&gt;需要解决的问题是&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我想要一款程序来备份我所有的重要文件。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;分析&quot;&gt;&lt;a href=&quot;#分析&quot; class=&quot;headerlink&quot; title=&quot;分析&quot;&gt;&lt;/a&gt;分析&lt;/h2&gt;&lt;p&gt;5W1H&lt;br&gt;What？Where？When？Why？Who？How？&lt;br&gt;备份什么？备份到哪里？– ？–？–？ 怎么备份？&lt;br&gt;我们应该如何指定哪些文件是我们需要备份的？&lt;br&gt;它们应该如何进行备份？以什么方式存储？&lt;br&gt;储存到哪里?&lt;/p&gt;
-&lt;h2 id=&quot;设计：&quot;&gt;&lt;a href=&quot;#设计：&quot; class=&quot;headerlink&quot; title=&quot;设计：&quot;&gt;&lt;/a&gt;设计：&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;需要备份的文件与目录应在一份列表中予以指定&lt;/li&gt;
-&lt;li&gt;备份必须存储在一个主备份目录中&lt;/li&gt;
-&lt;li&gt;备份文件将打包压缩成 zip 文件&lt;/li&gt;
-&lt;li&gt;zip 压缩文件的文件名由当前日期与时间构成&lt;/li&gt;
-&lt;li&gt;使用在任何 GNU/Linux 或 Unix 发行版中都会默认提供的标准 zip 命令进行打包&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python之禅</title>
-    <link href="http://yoursite.com/post/6be2dbca.html"/>
-    <id>http://yoursite.com/post/6be2dbca.html</id>
-    <published>2018-06-09T10:04:45.000Z</published>
-    <updated>2018-06-12T23:36:40.735Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>import this<br>The Zen of Python, by Tim Peters</p>
-</blockquote>
-<p>Beautiful is better than ugly.<br>Explicit is better than implicit.<br>Simple is better than complex.<br>Complex is better than complicated.<br>Flat is better than nested.<br>Sparse is better than dense.<br>Readability counts.<br>Special cases aren’t special enough to break the rules.<br>Although practicality beats purity.<br>Errors should never pass silently.<br>Unless explicitly silenced.<br>In the face of ambiguity, refuse the temptation to guess.<br>There should be one– and preferably only one –obvious way to do it.<br>Although that way may not be obvious at first unless you’re Dutch.<br>Now is better than never.<br>Although never is often better than <em>right</em> now.<br>If the implementation is hard to explain, it’s a bad idea.<br>If the implementation is easy to explain, it may be a good idea.<br>Namespaces are one honking great idea – let’s do more of those!</p>
-<a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;import this&lt;br&gt;The Zen of Python, by Tim Peters&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Beautiful is better than ugly.&lt;br&gt;Explicit is better than implicit.&lt;br&gt;Simple is better than complex.&lt;br&gt;Complex is better than complicated.&lt;br&gt;Flat is better than nested.&lt;br&gt;Sparse is better than dense.&lt;br&gt;Readability counts.&lt;br&gt;Special cases aren’t special enough to break the rules.&lt;br&gt;Although practicality beats purity.&lt;br&gt;Errors should never pass silently.&lt;br&gt;Unless explicitly silenced.&lt;br&gt;In the face of ambiguity, refuse the temptation to guess.&lt;br&gt;There should be one– and preferably only one –obvious way to do it.&lt;br&gt;Although that way may not be obvious at first unless you’re Dutch.&lt;br&gt;Now is better than never.&lt;br&gt;Although never is often better than &lt;em&gt;right&lt;/em&gt; now.&lt;br&gt;If the implementation is hard to explain, it’s a bad idea.&lt;br&gt;If the implementation is easy to explain, it may be a good idea.&lt;br&gt;Namespaces are one honking great idea – let’s do more of those!&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用virtualenv</title>
-    <link href="http://yoursite.com/post/d528f132.html"/>
-    <id>http://yoursite.com/post/d528f132.html</id>
-    <published>2018-06-08T14:53:56.000Z</published>
-    <updated>2018-06-12T23:37:00.031Z</updated>
-    
-    <content type="html"><![CDATA[<p>virtualenv用来为一个应用创建一套“隔离”的Python运行环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">pip3 install virtualenv</div><div class="line"># 安装virtualenv</div><div class="line"></div><div class="line">mkdir myproject</div><div class="line">cd myproject/</div><div class="line"></div><div class="line">virtualenv venv</div><div class="line">source venv/bin/activate     </div><div class="line"># 激活virtualenv</div><div class="line"></div><div class="line">pip install flexx</div><div class="line"></div><div class="line">deactivate          </div><div class="line"># 退出当前的venv环境</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>参考：</p>
-<ul>
-<li><a href="https://www.kancloud.cn/thinkphp/python-guide/39429" target="_blank" rel="external">https://www.kancloud.cn/thinkphp/python-guide/39429</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;virtualenv用来为一个应用创建一套“隔离”的Python运行环境&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;pip3 install virtualenv&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 安装virtualenv&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;mkdir myproject&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cd myproject/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;virtualenv venv&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;source venv/bin/activate     &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 激活virtualenv&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;pip install flexx&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;deactivate          &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 退出当前的venv环境&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     

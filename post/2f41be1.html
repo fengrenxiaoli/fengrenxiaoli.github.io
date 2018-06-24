@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="基本概念信道类型数据链路层使用的信道主要有以下两种类型点对点信道。这种信道使用 一对一 的点对点通信方式。用于广域网，使用PPP协议广播信道。这种信道使用 一对多 的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的共享信道协议来协调这些主机的数据发送。用于局域网，使用CSMA/CD协议">
+<meta name="description" content="其实本文中数据链路层讲了两部分，一部分是针对广域网的PPP，另一部分是针对局域网（以太网）的CSMA/CD  基本概念信道类型数据链路层使用的信道主要有以下两种类型点对点信道。这种信道使用 一对一 的点对点通信方式。用于广域网，使用PPP协议广播信道。这种信道使用 一对多 的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的共享信道协议来协调这些主机的数据发送。用于局域">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络 数据链路层">
 <meta property="og:url" content="http://yoursite.com/post/2f41be1.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="基本概念信道类型数据链路层使用的信道主要有以下两种类型点对点信道。这种信道使用 一对一 的点对点通信方式。用于广域网，使用PPP协议广播信道。这种信道使用 一对多 的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的共享信道协议来协调这些主机的数据发送。用于局域网，使用CSMA/CD协议">
+<meta property="og:description" content="其实本文中数据链路层讲了两部分，一部分是针对广域网的PPP，另一部分是针对局域网（以太网）的CSMA/CD  基本概念信道类型数据链路层使用的信道主要有以下两种类型点对点信道。这种信道使用 一对一 的点对点通信方式。用于广域网，使用PPP协议广播信道。这种信道使用 一对多 的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的共享信道协议来协调这些主机的数据发送。用于局域">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/img/IMG110.png">
 <meta property="og:image" content="http://yoursite.com/img/IMG111.png">
@@ -116,10 +116,10 @@
 <meta property="og:image" content="http://yoursite.com/img/IMG136.png">
 <meta property="og:image" content="http://yoursite.com/img/IMG137.png">
 <meta property="og:image" content="http://yoursite.com/img/IMG138.png">
-<meta property="og:updated_time" content="2018-06-21T14:47:57.756Z">
+<meta property="og:updated_time" content="2018-06-22T12:10:03.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络 数据链路层">
-<meta name="twitter:description" content="基本概念信道类型数据链路层使用的信道主要有以下两种类型点对点信道。这种信道使用 一对一 的点对点通信方式。用于广域网，使用PPP协议广播信道。这种信道使用 一对多 的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的共享信道协议来协调这些主机的数据发送。用于局域网，使用CSMA/CD协议">
+<meta name="twitter:description" content="其实本文中数据链路层讲了两部分，一部分是针对广域网的PPP，另一部分是针对局域网（以太网）的CSMA/CD  基本概念信道类型数据链路层使用的信道主要有以下两种类型点对点信道。这种信道使用 一对一 的点对点通信方式。用于广域网，使用PPP协议广播信道。这种信道使用 一对多 的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的共享信道协议来协调这些主机的数据发送。用于局域">
 <meta name="twitter:image" content="http://yoursite.com/img/IMG110.png">
 
 
@@ -350,7 +350,10 @@
       
 
       
-        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="信道类型"><a href="#信道类型" class="headerlink" title="信道类型"></a>信道类型</h3><p>数据链路层使用的信道主要有以下两种类型<br><strong>点对点信道</strong>。这种信道使用 <strong>一对一</strong> 的点对点通信方式。用于<strong>广域网</strong>，使用<strong>PPP协议</strong><br><strong>广播信道</strong>。这种信道使用 <strong>一对多</strong> 的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的<strong>共享信道协议</strong>来协调这些主机的数据发送。用于<strong>局域网</strong>，使用<strong>CSMA/CD协议</strong></p>
+        <blockquote>
+<p>其实本文中数据链路层讲了两部分，一部分是针对广域网的PPP，另一部分是针对局域网（以太网）的CSMA/CD</p>
+</blockquote>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="信道类型"><a href="#信道类型" class="headerlink" title="信道类型"></a>信道类型</h3><p>数据链路层使用的信道主要有以下两种类型<br><strong>点对点信道</strong>。这种信道使用 <strong>一对一</strong> 的点对点通信方式。用于<strong>广域网</strong>，使用<strong>PPP协议</strong><br><strong>广播信道</strong>。这种信道使用 <strong>一对多</strong> 的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的<strong>共享信道协议</strong>来协调这些主机的数据发送。用于<strong>局域网</strong>，使用<strong>CSMA/CD协议</strong></p>
 <a id="more"></a>
 <h3 id="链路和数据链路"><a href="#链路和数据链路" class="headerlink" title="链路和数据链路"></a>链路和数据链路</h3><p><strong>链路</strong> (link) 是一条无源的点到点的物理线路段，中间没有任何其他的交换结点。一条链路只是一条通路的一个组成部分。（物理层）</p>
 <p><strong>数据链路</strong> (data link) 除了物理线路外，还必须有 <strong>通信协议</strong> 来控制这些数据的传输。若把实现这些协议的硬件和软件加到链路上，就构成了数据链路。（链路+协议）</p>
@@ -736,7 +739,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">181</span>
+                  <span class="site-state-item-count">185</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -749,7 +752,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
