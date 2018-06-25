@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux 文件系统]]></title>
+    <url>%2Fpost%2Ff525ac74.html</url>
+    <content type="text"><![CDATA[linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件文件系统：Windows里面是这样的：C:\Program files\office11\word\word.exeLinux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0 文件有两类数据：元数据：metadata 元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。数据：data 数据是指普通文件中的实际数据。 1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；2、文件名可使用除/以外的任意字符，不建议使用特殊字符； /: 表示根目录，也用做路径分隔符；3、文件名长度最长不能超过255个字符；4、所以.开头的文件，均为隐藏文件； LSB: Linux Standard Base Linux标准库]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[How to use Github]]></title>
+    <url>%2Fpost%2F68d6df4b.html</url>
+    <content type="text"><![CDATA[在写这篇文章的时候，Github已经被Microsoft收购，不过依然会使用Github，因为觉得对自己的影响不大。 最近重新学习Git发觉自己其实对Github了解甚少，star了不少，但是从来没有好好看过，我觉得学习一定要发挥自己的主动性，不能光收藏，还要尽可能提出issues、甚至代码，当前我最应该克服的是懒，破除嫌麻烦的这种思想，如果自己都懒，都嫌麻烦，如何去解决麻烦。 回到正题，Github是一个git版本库托管商，里面有各种开源项目。本篇文章尝试写清楚从Github的入门使用到参与开源项目的一般方法。 账户的配置如何注册账户就不介绍了 SSH访问配置SSH是为了能够在本地电脑上访问Github 具体如何做，其实在【Hexo】使用Hexo搭建github博客 Github 创建SSH Key 123cd ssh-keygen -t rsa -C &quot;youremail@example.com&quot;cd .ssh 登陆GitHub，打开“Account settings”，“SSH Keys”页面，在Key文本框里粘贴id_rsa.pub文件的内容 GitHub需要识别出你推送的提交确实是你推送的，而不是别人冒充的 不要把敏感信息放进去 Github客户端团队协作流程wikiissuesGithub Pages 搭建网站README.md]]></content>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git使用方法]]></title>
+    <url>%2Fpost%2Fab888b92.html</url>
+    <content type="text"><![CDATA[集中式版本控制系统：版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器 集中式版本控制系统最大的毛病就是必须联网才能工作，在局域网内还好 分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。 分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已。 集中式版本控制：CVS、SVN、ClearCase、VSS分布式版本控制：Git、BitKeeper、Mercurial、Bazaar 安装Git1sudo apt install git 配置12git config --global user.name &quot;Your Name&quot;git config --global user.email &quot;email@example.com&quot; 添加和提交1234567891011mkdir learngitcd learngitgit init# 创建一个新的git存储库git add .git add readme.txt# 实际上是把文件修改添加到暂存区git commit -m &quot;增加文件&quot;# 提交更改，实际上是把暂存区的所有内容提交到当前分支 12git status# 仓库当前的状态 1234git diff readme.txt# 查看修改内容git diff HEAD --readme.txt 1234git log# 查看提交历史，以便确定要回退到哪个版本，时间从最近到最远git log --pretty=oneline# 简要格式，commit id 在Git中，用HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^，往上100个版本写成HEAD~100。 1234567891011git reset --hard HEAD^# 回退到上个版本git reset --hard 1094adb# 回退到指定的commit id，commit id可以只写前几位git log# 这里无法查看指定的commit id之后的版本，可以使用git reloggit relog# 查看命令历史，以便确定要回到未来的哪个版本commit id 1234git diff# 工作区(work dict)和暂存区(stage)的比较git diff --cached# 暂存区(stage)和分支(master)的比较 撤销修改场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。 场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD &lt;file&gt;，就回到了场景1，第二步按场景1操作。 场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。 12345git checkout -- readme.txt# 未git add，回退到文件修改之前（丢弃工作区的修改），不需要直接修改文件 git reset HEAD readme.txt# 已经git add（添加到了暂存区），需要回退未git add 之前 删除文件当你要删除文件的时候，可以采用命令：rm test.txt 这个时候（也就是说这个时候只执行了rm test.txt）有两种情况 第一种情况:的确要把test.txt删掉，那么可以执行12git rm test.txtgit commit -m &quot;remove test.txt&quot; 然后文件就被删掉了第二种情况:删错文件了，不应该删test.txt，注意这时只执行了rm test.txt，还没有提交，所以可以执行git checkout test.txt将文件恢复。 并不是说执行完git commit -m “remove test.txt”后还能用checkout恢复，commit之后版本库里的文件也没了，自然没办法用checkout恢复，而是要用其他的办法 添加远程库先有本地库，后有远程库的时候，如何关联远程库1.在github上创建仓库2.在本地的learngit仓库下运行命令：1git remote add origin git@github.com:michaelliao/learngit.git 添加后，远程库的名字就是origin，这是Git默认的叫法 3.把本地库的内容推送到远程，用git push`命令，实际上是把当前分支master推送到远程123git push -u origin master# 可以把 master 换成你想要推送的任何分支# origin可以换成你想用的名字，但是一般用origin 由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令，以后只要执行以下命令即可1$ git push origin master 从远程库克隆先创建远程库，然后，从远程库克隆 1$ git clone git@github.com:michaelliao/gitskills.git Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。 分支管理创建与合并分支master主分支HEAD指向的就是当前分支一开始的时候，master分支是一条线，Git用master指向最新的提交，再用HEAD指向master，就能确定当前分支，以及当前分支的提交点每次提交，master分支都会向前移动一步，这样，随着你不断提交，master分支的线也越来越长 当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上123456789101112131415161718192021222324git pull# 更新本地仓库至最新改动git checkout -b dev# 创建并切换分支git branch# 列出所有分支，当前分支前面会标一个*号git branch dev# 查看当前分支git checkout dev# 切换分支git add readme.txtgit commit -m &quot;branch test&quot;git checkout mastergit merge dev# 把dev分支的工作成果合并到master分支上git branch -d dev# 删除分支 直接把master指向dev的当前提交，就完成了合并删除dev分支就是把dev指针给删掉 git merge命令用于合并指定分支到当前分支 解决冲突不同的分支各自都分别有新的提交，当进行合并时就会发生冲突，必须手动解决冲突后再提交。git status也可以告诉我们冲突的文件 修改文件中的冲突后可以再次提交 用git log --graph命令可以看到分支合并图产品 git有个最佳实践，master是主分支，用来做正式发布版之后的保留历史，其他分支包括dev用来做正常开发，多个feature用来做某些特性功能，release用来做发布版历史，每次发布都是用release打包，hotfix用来做发布版之后的一些及时迭代修复bug的工作。 合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并1git merge --no-ff -m &quot;merge with no-ff&quot; dev Bug分支每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。 假定需要在master分支上修复，就从master创建临时分支12345678910111213141516git stash# 保存现场工作git checkout mastergit checkout -b issue-101git add readme.txt git commit -m &quot;fix bug 101&quot;git checkout mastergit merge --no-ff -m &quot;merged bug fix 101&quot; issue-101git checkout dev# 切换到之前的工作分支git stash list# 列出保存的工作现场git stash pop# 恢复的同时把stash内容也删了 Feature分支添加一个新功能123456git checkout -b feature-vulcan# 原来在dev分支git add vulcan.pygit commit -m &quot;add feature vulcan&quot;git checkout dev 12git branch -D feature-vulcan# 强行删除分支，未合并之前删除使用 多人协作12345678910111213git push origin mastergit push origin dev# 推送分支git clone git@github.com:michaelliao/learngit.gitgit branch# 默认是master分支git checkout -b dev origin/dev# 创建dev分支git pullgit branch --set-upstream-to=origin/dev dev# 解决冲突 标签管理发布一个版本时，我们通常先在版本库中打一个标签（tag），这样，就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。 12345678910111213141516171819git branchgit checkout master# 切换到需要打标签的分支上git tag v1.0# 打一个新标签git tag# 查看所有标签git log --pretty=oneline --abbrev-commitgit tag v0.9 f52c633# 针对某一commit id打标签git show v0.9# 查看标签信息git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb# -a指定标签名，-m指定说明文字 1234567891011git tag -d v0.1# 删除一个本地标签git push origin v1.0# 推送某个标签到远程git push origin --tags# 一次性推送全部尚未推送到远程的本地标签git tag -d v0.9git push origin :refs/tags/v0.9# 删除推送到远程的标签 一个本地库关联多个远程库12git remote -v# 查看远程库信息 1234567git remote rm origin# 先删除已关联的名为origin的远程库git remote add github git@github.com:michaelliao/learngit.gitgit remote add gitee git@gitee.com:liaoxuefeng/learngit.git# 关联远程库，远程库的名称叫github、gitee 忽略特殊文件忽略某些文件时，需要编写.gitignore.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理参考模版：https://github.com/github/gitignore 配置别名加上--global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用1234git config --global alias.st statusgit config --global alias.co checkoutgit config --global alias.ci commitgit config --global alias.br branch 使用配置文件每个仓库的Git配置文件.git/config当前用户的配置文件~/.gitconfig 搭建Git服务器1.安装git1sudo apt install git 2.创建用户1sudo adduser git -s /usr/sbin/nologin 3.管理公钥收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个人多可以用Gitosis来管理公钥 4.初始化Git仓库选定一个目录作为Git仓库123456cd mkdir gitrecd gitregit init --bare sample.gitchown -R git:git sample.git 5.禁用shell登录创建用户时指定 6.克隆远程仓库在各自的电脑上克隆远程仓库1git clone git@server:/srv/sample.git Git不支持权限控制。不过，因为Git支持钩子（hook），所以，可以在服务器端编写一系列脚本来控制提交等操作，达到权限控制的目的。Gitolite就是这个工具。 参考： 比较全面的 Git 学习资料整理 http://www.cylong.com/blog/2016/09/26/git-svn/ http://rogerdudler.github.io/git-guide/ https://guides.github.com/activities/hello-world/ 分布式和集中式版本控制工具-svn,git,mercurial]]></content>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[软件测试]]></title>
     <url>%2Fpost%2F7a8ab919.html</url>
     <content type="text"><![CDATA[软件测试概要定义 软件测试是对程序能够按预期运行建立起一种信心 ——Bill Hetzel,1973 测试是为发现错误而执行程序的过程 ——Myers,1979 使用人工或自动的手段来运行或测量软件系统的过程，以检测软件系统是否满足规定的要求，并找出与预期定义之间的差异。 ——IOS/IEC/IEEE 29119 对象软件测试覆盖整个软件研发过程 软件需求 概要设计 详细设计 源代码 可运行程序 可运行环境 历史 五大要素及两大目标要素： 质量(最为核心) 人员(决定因素) 技术(实现手段)【测试技术，方法，测试工具】 资源【测试所需的硬件，网络环境，测试生命周期，测试时间】 流程(测试标准)【测试计划，测试执行，报告】 目标 提升测试覆盖率 测试效率 遵循原则 测试显示软件的存在，但不能证明系统不存在缺陷 穷极测试是不可能的，应设定及时终止的条件（无穷无尽的测试是不可能的，需很大代价；无论怎样测试，我们不可能发现软件的所有缺陷） 测试应该尽早进行 缺陷具备群集特性（发现越多错误的模块，越应该集中关注，可能该模块的编程人员的水平较低） 测试的杀虫剂悖论（用相同的用例多次测试时发现不了bug的，应该更新测试方法和用例） 测试的二八原则（80%的时间测试20%的重要模块） 测试活动依赖于测试背景（针对不同的软件的测试方法是不同的，比如电信软件看中性能、大批量；银行看中安全性） 术语杀虫剂悖论（The Pesticide Paradox）用来描述这样一种现象，即你对软件进行越多的测试，那么该软件对你的测试就越具有免疫力。同样的事情发生在对昆虫使用杀虫剂上。如果你持续使用同样的杀虫剂，这些昆虫最终将建立起抵抗力，杀虫剂将不再发挥作用。为了克服“杀虫剂悖论”，软件测试人员必须不断地编写新的不同的测试来检验程序的不同部分从而找出更多的bug。让其他的人来测试你的程序将有助于打破“杀虫剂悖论”。 分类]]></content>
@@ -232,7 +256,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo插入图片]]></title>
+    <title><![CDATA[【Hexo】Hexo插入图片]]></title>
     <url>%2Fpost%2Fe01ea1fb.html</url>
     <content type="text"><![CDATA[在写博客中添加图片是很正常的，这里列举了本人使用的两种方法 本地引用当Hexo项目中只用到少量图片时，可以将图片统一放在source/images文件夹中，通过markdown语法访问它们。 1![](/img/image.jpg) 要注意这是绝对路径 CDN引用将图片上传到一些免费的CDN服务中。上传图片后，会生成对应的url地址，将地址直接拿来引用即可参考七牛、cloudinary]]></content>
       <tags>
@@ -315,6 +339,14 @@
     <title><![CDATA[MySQL数据库操作]]></title>
     <url>%2Fpost%2Ff2cccc89.html</url>
     <content type="text"><![CDATA[创建数据库12CREATE &#123;DATABASE | SCHEMA&#125; [IF NOT EXISTS] db_name [DEFAULT] CHARACTER SET [=] charset_name; DATABASE和SCHEMA是相同的，任选其一IF NOT EXISTS:如果创建的数据库存在，则不只报出warning，不写会报错CHRARCTER SET gbk:为表设置编码方式，如果不设置则用mysql默认的编码方式 查看数据库列表1SHOW &#123; DATABASES | SCHEMAS &#125; [LIKE &apos;pattern&apos; | WHERE expr]; 查看数据库详情1SHOW CREATE DATABASE xx; 展示数据库t1的创建命令和编码形式 数据库的修改：ALTER修改数据库编码方式12ALTER &#123; DATABASE | SCHEMAS &#125; [db_name][DEFAULT] CHARACTER SET [=] charset_name 删除数据库：DROP1DROP &#123; DATABASE | SCHEMAS &#125; [IF EXISTS] db_name;]]></content>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL常用命令及语句规范]]></title>
+    <url>%2Fpost%2Fed36abd2.html</url>
+    <content type="text"><![CDATA[MySql语句规范 关键字和函数名称全部大写 数据库名称、表名称、字段名称全部小写 SQL语句必须以分号结尾 常用语句SELECT VERSION(); 查询当前服务器版本SELECT NOW(); 查询当前日期时间SELECT USER(); 查询当前用户]]></content>
       <tags>
         <tag>MySQL</tag>
       </tags>
@@ -488,6 +520,14 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[VIM配置]]></title>
+    <url>%2Fpost%2F6f99625c.html</url>
+    <content type="text"><![CDATA[位置打开VIM，输入:version123456789系统 vimrc 文件: &quot;$VIM/vimrc&quot;用户 vimrc 文件: &quot;$HOME/.vimrc&quot;第二用户 vimrc 文件: &quot;~/.vim/vimrc&quot;用户 exrc 文件: &quot;$HOME/.exrc&quot;系统 gvimrc 文件: &quot;$VIM/gvimrc&quot;用户 gvimrc 文件: &quot;$HOME/.gvimrc&quot; 第二用户 gvimrc 文件: &quot;~/.vim/gvimrc&quot;系统菜单文件: &quot;$VIMRUNTIME/menu.vim&quot;$VIM 预设值: &quot;/usr/share/vim&quot; 列出了几个 vimrc 文件，有一个系统的 vimrc 文件，还有用户的 vimrc 文件，以及系统和用户 gvimrc 文件。出于和vi兼容的目的，vim也支持vi的exrc配置文件。 一般来说，我们都使用用户目录下的$HOME/.vimrc文件即可123set numberset ruler&quot;这是注释 https://blog.easwy.com/archives/advanced-vim-skills-catalog/]]></content>
+      <tags>
+        <tag>VIM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[VIM配置及插件]]></title>
     <url>%2Fpost%2F6f99625c.html</url>
     <content type="text"><![CDATA[配置文件的位置打开VIM，输入:version123456789系统 vimrc 文件: &quot;$VIM/vimrc&quot;用户 vimrc 文件: &quot;$HOME/.vimrc&quot;第二用户 vimrc 文件: &quot;~/.vim/vimrc&quot;用户 exrc 文件: &quot;$HOME/.exrc&quot;系统 gvimrc 文件: &quot;$VIM/gvimrc&quot;用户 gvimrc 文件: &quot;$HOME/.gvimrc&quot; 第二用户 gvimrc 文件: &quot;~/.vim/gvimrc&quot;系统菜单文件: &quot;$VIMRUNTIME/menu.vim&quot;$VIM 预设值: &quot;/usr/share/vim&quot; 列出了几个 vimrc 文件，系统的 vimrc 文件(/etc/vim/vimrc)，还有用户的 vimrc 文件，以及系统和用户 gvimrc 文件。出于和vi兼容的目的，vim也支持vi的exrc配置文件。 一般来说，我们使用用户目录下的$HOME/.vimrc文件即可，家目录下的配置文件优先级更高 插件的安装因为自己使用的是ElementaryOS，需要使用tweaks关闭使用Ctrl-v作为复制的快捷键 使用插件管理 vim-plug 安装vim-plug12curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 其他插件的安装需要先在配置文件中配置好，然后重新用vim打开.vimrc，输入:PlugInstall安装插件 vim-plug的一些命令123456:PlugInstall #安装插件:PlugUpdate #升级插件:PlugClean #删除未被使用的插件目录:PlugUpgrade #升级Vim-plug自身:PlugStatus #查看插件状态:q 退出 配置文件主要是使用插件管理安装插件，需要放在call plug#begin(&#39;~/.vim/plugged&#39;)和call plug#end()之间 1234567891011121314151617181920212223242526272829303132333435363738394041&quot;这是注释&quot;插件&quot;vim-plugcall plug#begin(&apos;~/.vim/plugged&apos;) let mapleader=&quot;,&quot;&quot;目录树&quot;F3打开目录Plug &apos;scrooloose/nerdtree&apos;Plug &apos;junegunn/fzf&apos;, &#123; &apos;dir&apos;: &apos;~/.fzf&apos;, &apos;do&apos;: &apos;./install --all&apos; &#125;Plug &apos;junegunn/fzf.vim&apos;nnoremap &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif&quot;markdown 语法高亮、预览&quot;:PrevimOpen在浏览器预览&quot;关闭折叠let g:vim_markdown_folding_disabled = 1Plug &apos;godlygeek/tabular&apos;Plug &apos;plasticboy/vim-markdown&apos;Plug &apos;kannokanno/previm&apos;Plug &apos;tyru/open-browser.vim&apos;&quot;模版Plug &apos;aperezdc/vim-template&apos;&quot;Plug &apos;ctrlpvim/ctrlp.vim&apos;&quot;文件搜索，f2搜索nnoremap &lt;F2&gt; :Files&lt;CR&gt;Plug &apos;Yggdroot/LeaderF&apos;, &#123; &apos;do&apos;: &apos;./install.sh&apos; &#125;call plug#end() &quot;插件结束&quot;添加vim-plug配置，以call plug#begin()开头，call plug#end()结尾，中间是插件列表，begin可以接受参数指定存放插件的位置set numberset ruler&quot;文件自动检测外部更改set autoread 补充：http://www.vimer.cn/archives/1372.html 参考： https://blog.csdn.net/rankun1/article/details/78775404 https://www.jianshu.com/p/f4fb7877829f http://www.zhaiqianfeng.com/2017/02/install-vim-plugins.html https://github.com/gabrielelana/vim-markdown https://bovink.com/2016/07/01/use-vim-to-write-markdown/ https://github.com/Yggdroot/LeaderF https://blog.easwy.com/archives/advanced-vim-skills-catalog/]]></content>
@@ -507,6 +547,14 @@
     <title><![CDATA[Vim使用系统剪贴板]]></title>
     <url>%2Fpost%2F333f9b1a.html</url>
     <content type="text"><![CDATA[查看vim版本是否支持clipboard123vim --version | grep &quot;clipboard&quot;-clipboard +insert_expand +path_extra +user_commands -clipboard 显示 - 号，说明不支持，需要安装vim-gnome123sudo apt install vim-gnome#再次查看，可以看到clipboard前面是+号vim --version | grep &quot;clipboard&quot; 复制、粘贴Vim 中的复制、删除的内容都会被存放到默认（未命名）寄存器中，之后可以通过粘贴操作读取默认寄存器中的内容。寄存器是完成这一过程的中转站，Vim 支持的寄存器非常多，其中常用的有 a-zA-Z0-9+“。其中： 0-9：表示数字寄存器，是 Vim 用来保存最近复制、删除等操作的内容，其中 0 号寄存器保存的是最近一次的操作内容。 a-zA-Z：表示用户寄存器，Vim 不会读写这部分寄存器 &quot;（单个双引号）：未命名的寄存器，是 Vim 的默认寄存器，例如删除、复制等操作的内容都会被保存到这里。 +：剪切板寄存器，关联系统剪切板，保存在这个寄存器中的内容可以被系统其他程序访问，也可以通过这个寄存器访问其他程序保存到剪切板中的内容。 12#查看所有寄存器中的内容，也可以只查看指定寄存器的内容（将寄存器名称作为参数）:reg [register_name] 1234&quot;+yy #复制当前行到剪切板&quot;+p #将剪切板内容粘贴到光标后面&quot;ayy #复制当前行到寄存器 a&quot;ap #将寄存器 a 中的内容粘贴到光标后面 参考： https://blog.csdn.net/zhangxiao93/article/details/53677764 https://www.zhihu.com/question/19863631/answer/89354508]]></content>
+      <tags>
+        <tag>VIM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[VIM插件]]></title>
+    <url>%2Fpost%2F9b750e68.html</url>
+    <content type="text"><![CDATA[Elementary os的终端好像不能用vim的块操作同时插件NerdTree也有问题，所以改用hyperhttps://hyper.is/https://github.com/zeit/hyper 插件管理 vim-plughttps://github.com/junegunn/vim-plug 安装12curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 插件管理1vim ~/.vimrc 123456789101112131415161718192021222324252627set numbercall plug#begin(&apos;~/.vim/plugged&apos;)let mapleader=&quot;,&quot;&quot;目录树&quot;F3打开目录&quot;o打开文件Plug &apos;godlygeek/tabular&apos;nnoremap &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif&quot;markdown 语法高亮、预览&quot;:PrevimOpen在浏览器预览&quot;关闭折叠let g:vim_markdown_folding_disabled = 1Plug &apos;godlygeek/tabular&apos;Plug &apos;plasticboy/vim-markdown&apos;Plug &apos;kannokanno/previm&apos;Plug &apos;tyru/open-browser.vim&apos;&quot;文件搜索&quot;&lt;leader&gt;f搜索,因为这里设置leader为,号，所以是,+fPlug &apos;Yggdroot/LeaderF&apos;, &#123; &apos;do&apos;: &apos;./install.sh&apos; &#125;call plug#end()&quot;添加vim-plug配置，以call plug#begin()开头，call plug#end()结尾，中间是插件列表，begin可以接受参数指定存放插件的位置 12345678910#重新打开.vimrcvim ~/.vimrc:PlugInstall #安装插件:PlugUpdate #升级插件:PlugClean #删除未被使用的插件目录:PlugUpgrade #升级Vim-plug自身:PlugStatus #查看插件状态:q 退出 补充：http://www.vimer.cn/archives/1372.html 参考： https://blog.csdn.net/rankun1/article/details/78775404 https://www.jianshu.com/p/f4fb7877829f http://www.zhaiqianfeng.com/2017/02/install-vim-plugins.html https://github.com/gabrielelana/vim-markdown https://bovink.com/2016/07/01/use-vim-to-write-markdown/ https://github.com/Yggdroot/LeaderF]]></content>
       <tags>
         <tag>VIM</tag>
       </tags>
@@ -1002,6 +1050,14 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[【Linux】Linux用户管理03 配置文件]]></title>
+    <url>%2Fpost%2F4ac3f250.html</url>
+    <content type="text"><![CDATA[用户：使用操作系统的人用户组：具有相同系统权限的一组用户 用户和用户组配置文件12345678910111213141516171819202122232425/etc/group 存储当前系统中所有用户组的信息-Group： x ： 501 ：abc,def,xyz-组名称：组密码占位符 ： 组编号：组中用户名列表组编号1-499是系统预留给软件的手动创建的用户从500开始/etc/gshadow 存储当前系统中用户组的密码信息-Group： * ： ：abc,def,xyz-组名称： 组密码 ：组管理者：组中用户名列表/etc/passwd 存储当前系统中所有用户的信息-user： x ： 123 ： 456 ： xxxxxxxx ：/home/user ： /bin/bash-用户名：密码占位符：用户编号： 用户组编号： 用户注释信息：用户主目录 ：shell类型/etc/shadow 存储当前系统中所有用户的密码信息-user ： vf;/Zu8sdf... ：：：：：-用户名 ： 密码 ：：：：：]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【Linux】Linux用户管理 查看用户命令]]></title>
     <url>%2Fpost%2Fd4f799aa.html</url>
     <content type="text"><![CDATA[查看用户whoami 显示当前登录用户名1whoami who 查看系统当前所有的登录会话1234who 用户名登录名登陆终端登录时间（登陆来源IP地址） w 查看系统当前所有的登录会话及所做的操作12345678910w 用户名user 登陆的用户名tty 登陆终端from 从哪个IP地址登陆login@ 登陆时间idle 用户闲置时间jcpu 和终端连接所有进程占用的时间pcpu 当前进程所占用的时间what 正在运行的命令 id 查看用户相关的ID信息12345id [OPTION]... [USER]-u UID-g GID-G Groups-n Name 显示指定用户信息，包括用户编号、用户编号、主要组编号及名称、附属组列表 su 切换用户或以其他用户身份执行命令123456789101112131415su [options...] [-] [user [args...]]切换用户的方式：su UserName：非登录式切换，即不会读取目标用户的配置文件 echo $PATH显示自身的环境变量su - UserName：登录式切换，会读取目标用户的配置文件；完全切换 echo $PATH显示目标用户的环境变量Note：root su至其他用户无须密码；非root用户切换时需要密码；# 换个身份执行命令：su [-] UserName -c &apos;COMMAND&apos;选项：-l “su -l UserName”相当于“su - UserName” last 查询当前和过去登录的用户信息123456last 默认读取var/log/wtmp用户名登录终端登陆IP登录时间退出时间（在线时间） lastlog 查看所有用户最后一次登录信息123456lastlog lastlog命令默认是读取/var/log/lastlog文件内容用户名登录终端登陆ip最后一次登陆时间 其他命令12345678touch /etc/nologin #在etc目录下创建一个nologin文件(文件内容无关紧要)，暂时禁止除管理员外的用户登录wall [想说的话] 相当于喇叭广播的功能talk [用户名] 聊天框里聊天write [用户名] 相当于密聊who am i #显示登录用户groups 用户名 #显示用户所在的所有组，包括主要组和附属组]]></content>
@@ -1082,6 +1138,14 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Linux文件管理05 文件系统]]></title>
+    <url>%2Fpost%2F9ffd3055.html</url>
+    <content type="text"><![CDATA[文件系统层次结构标准（英语：Filesystem Hierarchy Standard，FHS）定义了Linux操作系统中的主要目录及目录内容。在大多数情况下，它是一个传统BSD文件系统层次结构的形式化与扩充。 设计FHS的目的是为了给Unix-like系统的管理员提供一个管理系统以及目录结构的参考。 由于利用Linux源码开发产品和发行版的企业或组织众多，如果每个组织都按照自己的喜好来组织系统中的文件结构，网络上必然出现各种各样的文件结构。这些产品的用户就不得不为每种不同的文件系统结构花费时间来学习。有了FHS之后，几乎所有的Unix-like系统的发行商或软件开发者都遵从该建议规范每个特定目录下分别只放哪些文件，方便了文件的组织和查找。 详细内容参考：https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354根文件系统(rootfs)： root filesystem / 根目录是整个系统最重要的一个目录，因为在Linux系统中所有的目录都必须挂载在根目录下，也即所有的目录都是由根目录衍生出来。系统开机是所需要的开机软件、内核文件、函数库等都必须在根目录下。因此FHS也建议根目录不要安装在非常大、数据存取非常活跃的分区上，如此一来就能尽可能地降低系统不必要的错误。建议：根目录越小越好，且应用程序安装目录不要和根目录放置于同一分区。LSB, FHS: (Filesystem Hierarchy Standard) /boot：引导文件存放目录，内核文件(vmlinuz)、引导加载器(bootloader：grub)都存放于此目录； /bin：供所有用户使用的基本命令；不能关联至独立分区，OS启动即会用到的程序； /sbin：管理类的基本命令；不能关联至独立分区，OS启动即会用到的程序； /lib：基本共享库文件，以及内核模块文件(/lib/modules)； /lib64：专用于x86_64系统上的辅助共享库文件存放位置； /etc：配置文件目录(纯文本文件，不能是二进制)； /home/USERNAME：普通用户家目录； /root：管理员的家目录； /media：便携式移动设备挂载点； cdrom usb /mnt：临时文件系统挂载点； /dev：设备文件及特殊文件存储位置； b: block device，随机访问 c: character device，线性访问 /opt：第三方应用程序的安装位置； /srv：系统上运行的服务用到的数据； /tmp：临时文件存储位置； /usr: universal shared, read-only data； bin: 保证系统拥有完整功能而提供的应用程序；供用户使用 sbin:供管理员使用 lib： lib64： include: C程序的头文件(header files)； share：结构化独立的数据，例如命令手册页man和自带文档doc等； src：程序的源码 local：第三方应用程序的安装位置； bin, sbin, lib, lib64, etc, share /var: variable data files，可变数据文件，主要存储常变化的文件，包括缓存(cache)、登录文件(logfile)以及某些软件运行所产生的文件，包括程序文件(lock file, run file)，或者例如MySQL数据库的文件等 cache: 应用程序产生的缓存文件； lib: 程序执行过程中，需要用到的数据文件放置的目录。此目录下各自的软件应该要有各自的目录； local：专用于为/usr/local下的应用程序存储可变数据； lock: 锁文件，某些设备或者文件资源一次只能被一个应用程序所使用，如果同时有两个程序使用该设备时，就可能产生一些错误，因此就得要将该设备或文件上锁(lock)，以确保该文件或设备只给一个程序使用 log: 日志目录及文件，/var/log/messages, /var/log/wtmp； mail 个人电子邮箱目录，通常与/var/spool/mail/目录互为链接 opt: 专用于为/opt下的应用程序存储可变数据； run: 运行中的进程相关的数据；通常用于存储进程的pid文件； spool: 应用程序数据池，存放等待其他程序使用的数据； tmp: 下次启动前会被删除的临时数据； /proc: 用于输出内核与进程信息相关的虚拟文件系统； /sys：用于输出当前系统上硬件设备相关信息的虚拟文件系统； 这两个目录保存的是内存的挂载点，不能直接操作。其中的数据直接写在内存中。避免数据丢失或由于内存溢出导致系统崩溃。 /selinux: security enhanced Linux，selinux相关的安全策略等信息的存储位置； Linux上的应用程序的组成部分1234二进制程序：/bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin库文件：/lib, /lib64, /usr/lib, /usr/lib64, /usr/local/lib, /usr/local/lib64配置文件：/etc, /etc/DIRECTORY, /usr/local/etc帮助文件：/usr/share/man, /usr/share/doc, /usr/local/share/man, /usr/local/share/doc Linux下的文件类型1234567- (f)：普通文件；d: 目录文件；b: 块设备；c: 字符设备；l: 符号链接文件；p: 管道文件；s: 套接字文件；socket; 参考：http://www.178linux.com/62805https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86http://wiki.jikexueyuan.com/project/learn-linux-step-by-step/directory-configuration-fhs.html]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【Linux】Linux文件管理01 文件和文件系统]]></title>
     <url>%2Fpost%2F9ffd3055.html</url>
     <content type="text"><![CDATA[文件linux中一切皆文件，目录为目录文件。普通文件用来保存数据，目录文件用来保存文件 文件有两类数据 元数据、metadata 元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。 数据、data 数据是指普通文件中的实际数据。 文件名 文件名严格区分字符大小写；file1, File1, FILE1是不同的文件 文件名可使用除/以外的任意字符，不建议使用特殊字符 - /: 表示根目录，也用做路径分隔符 文件名长度最长不能超过255个字符 所以.开头的文件，均为隐藏文件 Linux下的文件类型 f 普通文件 d 目录文件 b 块设备 c 字符设备 l 符号链接文件 p 管道文件 s 套接字文件，socket 文件系统文件系统层次结构标准（Filesystem Hierarchy Standard，FHS）定义了Linux操作系统中的主要目录及目录内容。在大多数情况下，它是一个传统BSD文件系统层次结构的形式化与扩充。 设计FHS的目的是为了给Unix-like系统的管理员提供一个管理系统以及目录结构的参考。 由于利用Linux源码开发产品和发行版的企业或组织众多，如果每个组织都按照自己的喜好来组织系统中的文件结构，网络上必然出现各种各样的文件结构。这些产品的用户就不得不为每种不同的文件系统结构花费时间来学习。有了FHS之后，几乎所有的Unix-like系统的发行商或软件开发者都遵从该建议规范每个特定目录下分别只放哪些文件，方便了文件的组织和查找。 详细内容参考：https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf 根文件系统(rootfs)root filesystem /根目录是整个系统最重要的一个目录，因为在Linux系统中所有的目录都必须挂载在根目录下，也即所有的目录都是由根目录衍生出来。系统开机时所需要的开机软件、内核文件、函数库等都必须在根目录下。因此FHS也建议根目录不要安装在非常大、数据存取非常活跃的分区上，如此一来就能尽可能地降低系统不必要的错误。 FHS(Filesystem Hierarchy Standard) 目录 说明 /boot 引导文件存放目录，内核文件(vmlinuz)、引导加载器(bootloader：grub)都存放于此目录 /bin 命令保存目录（普通用户就可以读取的命令）；不能关联至独立分区，OS启动即会用到的程序 /sbin 命令保存目录（超级用户才能使用的目录）；不能关联至独立分区，OS启动即会用到的程序 /lib 基本共享库文件，以及内核模块文件(/lib/modules)，为系统启动或根文件系统上的应用程序（/bin, /sbin）提供共享库（libc.so. ld），以及为内核提供内核模块（modules） /lib64 专用于x86_64系统上的辅助共享库文件存放位置 /etc 配置文件目录(纯文本文件，不能是二进制) /home/USERNAME 普通用户家目录 /root 管理员的家目录 /media 便携式移动设备挂载点(cdrom、usb) /mnt 临时文件系统挂载点 /dev 设备文件及特殊文件存储位置b: block device，随机访问 c: character device，线性访问 /opt 第三方应用程序的安装位置 /srv 系统上运行的服务用到的数据 /tmp 临时文件存储位置 /usr unix software resource，根据FHS建议软件安装后将他们的数据合理地分别放置到这个目 录下，而不要自行新建该软件自己的独立目录。 /usr/bin 保证系统拥有完整功能而提供的应用程序；供普通用户使用的系统命令 /usr/sbin 供超级用户使用的系统命令 /usr/lib /usr/lib64 /usr/include C程序的头文件(header files) /usr/share 结构化独立的数据，例如命令手册页man和自带文档doc等 /usr/src 程序的源码 /usr/local 第三方应用程序的安装位置/var/(bin, sbin, lib, lib64, etc, share) /var variable data files，可变数据文件，主要存储常变化的文件，包括缓存(cache)、登录 文件(logfile)以及某些软件运行所产生的文件，包括程序文件(lock file, run file)，或者例如MySQL数据库的文件等 /var/cache 应用程序产生的缓存文件 /var/lib 程序执行过程中，需要用到的数据文件放置的目录。此目录下各自的软件应该要有各自的目录 /var/local 专用于为/usr/local下的应用程序存储可变数据 /var/lock 锁文件，某些设备或者文件资源一次只能被一个应用程序所使用，如果同时有两个程序使用该 设备时，就可能产生一些错误，因此就得要将该设备或文件上锁(lock)，以确保该文件或设备只给一个程序使用 /var/log 日志目录及文件，/var/log/messages, /var/log/wtmp /var/mail 个人电子邮箱目录，通常与/var/spool/mail/目录互为链接 /var/opt 专用于为/opt下的应用程序存储可变数据 /var/run 运行中的进程相关的数据；通常用于存储进程的pid文件 /var/spool 应用程序数据池，存放等待其他程序使用的数据 /var/tmp 下次启动前会被删除的临时数据 /proc 用于输出内核与进程信息相关的虚拟文件系统，内核级进程存储其相关信息，多为内核参数，例 如net.ipv4.ipforward虚拟为net/ipv4/ipforward，存储于/proc/sys /sys 用于输出当前系统上硬件设备相关信息的虚拟文件系统，sysfs虚拟文件系统提供了一种比proc更为理想的访问内核数据的途径；为管理内核提供了一种统一模型的接口 /selinux security enhanced Linux，selinux相关的安全策略等信息的存储位置 Linux上的应用程序的组成部分1234二进制程序：/bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin库文件：/lib, /lib64, /usr/lib, /usr/lib64, /usr/local/lib, /usr/local/lib64配置文件：/etc, /etc/DIRECTORY, /usr/local/etc帮助文件：/usr/share/man, /usr/share/doc, /usr/local/share/man, /usr/local/share/doc 说明1234/usr/bin/ /usr/sbin/ /bin /sbin 这四个目录都是用来保存系统命令。其中，bin目录下的命令任何用户都可以执行，sbin目录下只有root才可以执行。linux使用此方式来区分用户权限。 FHS根据文件的可共享、不可共享、静态和动态等特点，将目录树架构分为/、/usr、/var三部分。参考这里 / (root, 根目录)：与开机系统有关 /usr (unix software resource)：与软件安装/执行有关 /var (variable)：与系统运作过程有关/usr放置的数据属于可分享的且不可变动的，/usr可分享给局域网内的其他主机来使用。 /proc、/sys，这两个目录保存的是内存的挂载点，不能直接操作。其中的数据直接写在内存中。避免数据丢失或由于内存溢出导致系统崩溃 参考： http://www.178linux.com/62805 https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86 http://wiki.jikexueyuan.com/project/learn-linux-step-by-step/directory-configuration-fhs.html]]></content>
@@ -1101,6 +1165,14 @@
     <title><![CDATA[Linux文件管理06 查看文本文件内容]]></title>
     <url>%2Fpost%2F30ec04f2.html</url>
     <content type="text"><![CDATA[相关命令：cat, tac, head, tail, more, less cat12345678cat [OPTION]... [FILE]...选项：-E: 显示行结束符$-n: 对显示出的每一行进行编号# 读取一个或多个文件，然后复制它们到标准输出cat movie.mpeg.0* &gt; movie.mpeg# cat可以用来连接文件，通配符是有序的 如果没有给cat任何参数，它会从标准输入读入数据，因为标准输入在默认情况下连接到键盘，它正在等待我们输入数据当我们通过键盘输入数据并按Ctrl-d（表示EOF，作用相当于在终端中输入exit后回车）后，它会复制标准输入到标准输出 tac和cat类似，逆序查看 head 从文件头部开始读1234head [OPTION]... [FILE]...-c number 指定获取前number字节-n number-number 指定获取前number行 tail 从文件尾部开始读12345tail [OPTION]... [FILE]...-c number 从尾指定显示number个字符-n number -number 从尾指定显示number行，默认是10行-f 实时显示文件新追加的内容，Ctrl-c退出 more 分页12more [OPTIONS...] FILE...-d 显示翻页及退出提示 less 分页1less [OPTIONS...] FILE... man命令即是以less进行分页的 操作方法123456789101112131415161718192021Space 向文件尾翻屏b 向文件首部翻屏d 向文件尾部翻半屏u 向文件首部翻半屏e 向文件尾部翻一行y 向文件首部翻一行q 退出number 跳转至第number行1G 回到文件首部G 翻至文件尾部文本搜索：/KEYWORD: 以KEYWORD指定的字符串为关键字，从当前位置向文件尾部搜索；不区分字符大小写 n: 下一个 N：上一个?KEYWORD:以KEYWORD指定的字符串为关键字，从当前位置向文件首部搜索；不区分字符大小写 n: 跟搜索命令同方向，下一个 N：跟搜索命令反方向，上一个]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux文件管理05 查看目录]]></title>
+    <url>%2Fpost%2F8fef17bb.html</url>
+    <content type="text"><![CDATA[ls 显示指定路径下的文件列表12345678910ls [选项] [文件或目录]选项-a 显示所有文件,包括隐藏文件-l 显示详细信息-d 查看目录自身的相关属性，通常要与-l一起使用-h 人性化显示文件大小-i 显示inode-r 逆序显示-R 递归ll命令表示ls -l Linux下的文件类型： (f)：普通文件；d: 目录文件；b: 块设备；c: 字符设备；l: 符号链接文件；p: 管道文件；s: 套接字文件；socket; file 查看文件类型查看文件是文本还是二进制等12file rfc959.txtrfc959.txt: ASCII text tree 显示目录树1234tree -d: 只显示目录-L level：指定显示的层级数目-P pattern: 只显示由指定pattern匹配到的路径 pwd 显示当前目录（print working directory）]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -1317,6 +1389,14 @@
     <title><![CDATA[【Linux】Linux 命令的分类]]></title>
     <url>%2Fpost%2Fbc48c0fa.html</url>
     <content type="text"><![CDATA[命令的分类 shell内部命令，由shell自带的，而且通过某命令形式提供 外部命令，在当前系统的某文件系统路径下有对应的可执行程序文件，C、C++、shell、perl、python、ruby等，二进制文件、脚本文件，shell程序搜寻可执行程序文件的路径定义在$PATH环境变量中，自左至右搜寻 shell函数，环境变量中 命令别名 外部命令外部命令都有一个可执行程序，位于文件系统某目录下，通过 which, whereis可以查看shell程序搜寻可执行程序文件的路径定义在PATH环境变量中12echo $PATH/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/xxl/.local/bin:/home/xxl/bin 以:分隔，自左至右搜寻 type 查看命令类型可以用来区别内部或外部命令1234type 命令名type pwd # pwd 是 shell 内嵌type mkdir # mkdir 是 /usr/bin/mkdir which 显示一个外部命令对应的程序文件路径123which [OPTION] COMMAND# 不能看到命令的别名# 不能看到shell内部命令 whereis 显示外部命令所在路径及帮助文档所在位置1234567whereis 命令名选项：-b:只查找可执行文件-m:只查找帮助文件# 只能搜索系统命令，不能搜索自己凭空创建的普通文件# whereis不能看到shell内部命令（如：cd），只能看到外部安装的命令 whatis 查询一个命令执行什么功能123whatis 命令名whatis ls # 显示ls的作用 apropos 通过关键字搜索命令123apropos 关键字# 和man -k一样]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 命令]]></title>
+    <url>%2Fpost%2F9da1ef6b.html</url>
+    <content type="text"><![CDATA[命令提示符123456789[root@localhost ~]#root 当前登录用户localhost 主机名~ 当前所在目录（家目录）# 超级用户的提示符$ 普通用户的提示符环境变量 $PS1 命令的格式12345678910111213COMMAND [OPTIONS...] [ARGUMENTS...]选项：用于启用或关闭命令的某个或某些功能； 短选项：-c, 例如：-l, -h 多个短选项可以写在一起，例如-l -h, 可写作-lh； 长选项：--word，例如：--long, --human-readable参数：命令的作用对象 向命令提供数据；注意：1、多选项，以及多参数和命令之间都应该使用空白字符分隔2、取消命令执行：Ctrl+c个别命令使用不遵循此格式 输入命令，回车：提请shell程序找到键入命令所对应的可执行程序或代码，并由其分析后提交给内核分配资源将其运行起来；表现为一个或多个进程； 在shell中可执行的命令有两类：内建命令：由shell自带的，而且通过某命令形式提供；外部命令：在当前系统的某文件系统路径下有对应的可执行程序文件；which，whereis 用于查找并显示给定命令的绝对路径123456type COMMAND#区别内部或外部命令例子：[xxl@localhost ~]$ type pwdpwd 是 shell 内嵌[xxl@localhost ~]$ type mkdirmkdir 是 /usr/bin/mkdir 路径 相对路径：从当前位置起始的路径 绝对路径：从根目录起始的路径 当前位置的表示方式：(1) ./： ./sysconfig/network-scripts(2) 省略上述符号: sysconfig/network-scripts ..：表示当前目录的上一级目录 当前目录：current directory, 也称作working directory；用.表示pwd: printing working directory 打印当前目录]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>

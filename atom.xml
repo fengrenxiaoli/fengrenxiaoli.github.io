@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-23T08:49:12.501Z</updated>
+  <updated>2018-06-02T08:46:30.603Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,168 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux 文件系统</title>
+    <link href="http://yoursite.com/post/f525ac74.html"/>
+    <id>http://yoursite.com/post/f525ac74.html</id>
+    <published>2018-06-25T03:27:42.304Z</published>
+    <updated>2018-06-02T08:46:30.603Z</updated>
+    
+    <content type="html"><![CDATA[<p>linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件<br>文件系统：<br>Windows里面是这样的：C:\Program files\office11\word\word.exe<br>Linux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0</p>
+<p>文件有两类数据：<br>元数据：metadata  元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。<br>数据：data  数据是指普通文件中的实际数据。</p>
+<p>1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；<br>2、文件名可使用除/以外的任意字符，不建议使用特殊字符；  /: 表示根目录，也用做路径分隔符；<br>3、文件名长度最长不能超过255个字符；<br>4、所以.开头的文件，均为隐藏文件；</p>
+<p>LSB: Linux Standard Base Linux标准库</p>
+<a id="more"></a>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件&lt;br&gt;文件系统：&lt;br&gt;Windows里面是这样的：C:\Program files\office11\word\word.exe&lt;br&gt;Linux里面是这样的：/etc/sysconfig/network-scripts/ifcfg-eth0&lt;/p&gt;
+&lt;p&gt;文件有两类数据：&lt;br&gt;元数据：metadata  元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。&lt;br&gt;数据：data  数据是指普通文件中的实际数据。&lt;/p&gt;
+&lt;p&gt;1、文件名严格区分字符大小写；file1, File1, FILE1是不同的文件；&lt;br&gt;2、文件名可使用除/以外的任意字符，不建议使用特殊字符；  /: 表示根目录，也用做路径分隔符；&lt;br&gt;3、文件名长度最长不能超过255个字符；&lt;br&gt;4、所以.开头的文件，均为隐藏文件；&lt;/p&gt;
+&lt;p&gt;LSB: Linux Standard Base Linux标准库&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How to use Github</title>
+    <link href="http://yoursite.com/post/68d6df4b.html"/>
+    <id>http://yoursite.com/post/68d6df4b.html</id>
+    <published>2018-06-25T02:31:27.000Z</published>
+    <updated>2018-06-25T03:20:58.404Z</updated>
+    
+    <content type="html"><![CDATA[<p>在写这篇文章的时候，Github已经被Microsoft收购，不过依然会使用Github，因为觉得对自己的影响不大。</p>
+<p>最近重新学习Git发觉自己其实对Github了解甚少，star了不少，但是从来没有好好看过，我觉得<strong>学习一定要发挥自己的主动性</strong>，不能光收藏，还要尽可能提出issues、甚至代码，当前我最应该克服的是懒，破除嫌麻烦的这种思想，如果自己都懒，都嫌麻烦，如何去解决麻烦。</p>
+<p>回到正题，Github是一个git版本库托管商，里面有各种开源项目。本篇文章尝试写清楚从Github的入门使用到参与开源项目的一般方法。</p>
+<h2 id="账户的配置"><a href="#账户的配置" class="headerlink" title="账户的配置"></a>账户的配置</h2><p>如何注册账户就不介绍了</p>
+<h3 id="SSH访问"><a href="#SSH访问" class="headerlink" title="SSH访问"></a>SSH访问</h3><p>配置SSH是为了能够在本地电脑上访问Github</p>
+<p>具体如何做，其实在<a href="">【Hexo】使用Hexo搭建github博客</a></p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><ol>
+<li><p>创建SSH Key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd </div><div class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</div><div class="line">cd .ssh</div></pre></td></tr></table></figure>
+</li>
+<li><p>登陆GitHub，打开“Account settings”，“SSH Keys”页面，在Key文本框里粘贴<code>id_rsa.pub</code>文件的内容</p>
+</li>
+</ol>
+<p>GitHub需要识别出你推送的提交确实是你推送的，而不是别人冒充的</p>
+<p>不要把敏感信息放进去</p>
+<h2 id="Github客户端"><a href="#Github客户端" class="headerlink" title="Github客户端"></a>Github客户端</h2><h2 id="团队协作流程"><a href="#团队协作流程" class="headerlink" title="团队协作流程"></a>团队协作流程</h2><h2 id="wiki"><a href="#wiki" class="headerlink" title="wiki"></a>wiki</h2><h2 id="issues"><a href="#issues" class="headerlink" title="issues"></a>issues</h2><h2 id="Github-Pages-搭建网站"><a href="#Github-Pages-搭建网站" class="headerlink" title="Github Pages 搭建网站"></a>Github Pages 搭建网站</h2><h2 id="README-md"><a href="#README-md" class="headerlink" title="README.md"></a>README.md</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在写这篇文章的时候，Github已经被Microsoft收购，不过依然会使用Github，因为觉得对自己的影响不大。&lt;/p&gt;
+&lt;p&gt;最近重新学习Git发觉自己其实对Github了解甚少，star了不少，但是从来没有好好看过，我觉得&lt;strong&gt;学习一定要发挥自己的主动性&lt;
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git使用方法</title>
+    <link href="http://yoursite.com/post/ab888b92.html"/>
+    <id>http://yoursite.com/post/ab888b92.html</id>
+    <published>2018-06-24T01:29:39.000Z</published>
+    <updated>2018-06-25T03:31:16.026Z</updated>
+    
+    <content type="html"><![CDATA[<p>集中式版本控制系统：版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器</p>
+<p>集中式版本控制系统最大的毛病就是必须联网才能工作，在局域网内还好</p>
+<p>分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。</p>
+<p>分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已。</p>
+<p>集中式版本控制：CVS、SVN、ClearCase、VSS<br>分布式版本控制：Git、BitKeeper、Mercurial、Bazaar</p>
+<a id="more"></a>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install git</div></pre></td></tr></table></figure>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;Your Name&quot;</div><div class="line">git config --global user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure>
+<h2 id="添加和提交"><a href="#添加和提交" class="headerlink" title="添加和提交"></a>添加和提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mkdir learngit</div><div class="line">cd learngit</div><div class="line">git init</div><div class="line"># 创建一个新的git存储库</div><div class="line"></div><div class="line">git add .</div><div class="line">git add readme.txt</div><div class="line"># 实际上是把文件修改添加到暂存区</div><div class="line"></div><div class="line">git commit -m &quot;增加文件&quot;</div><div class="line"># 提交更改，实际上是把暂存区的所有内容提交到当前分支</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git status</div><div class="line"># 仓库当前的状态</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git diff readme.txt</div><div class="line"># 查看修改内容</div><div class="line"></div><div class="line">git diff HEAD --readme.txt</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git log</div><div class="line"># 查看提交历史，以便确定要回退到哪个版本，时间从最近到最远</div><div class="line">git log --pretty=oneline</div><div class="line"># 简要格式，commit id</div></pre></td></tr></table></figure>
+<p>在Git中，用<code>HEAD</code>表示当前版本，上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，往上100个版本写成<code>HEAD~100</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD^</div><div class="line"># 回退到上个版本</div><div class="line"></div><div class="line">git reset --hard 1094adb</div><div class="line"># 回退到指定的commit id，commit id可以只写前几位</div><div class="line"></div><div class="line">git log</div><div class="line"># 这里无法查看指定的commit id之后的版本，可以使用git relog</div><div class="line"></div><div class="line">git relog</div><div class="line"># 查看命令历史，以便确定要回到未来的哪个版本commit id</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git diff</div><div class="line"># 工作区(work dict)和暂存区(stage)的比较</div><div class="line">git diff --cached</div><div class="line"># 暂存区(stage)和分支(master)的比较</div></pre></td></tr></table></figure>
+<h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2><p>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。</p>
+<p>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD &lt;file&gt;</code>，就回到了场景1，第二步按场景1操作。</p>
+<p>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git checkout -- readme.txt</div><div class="line"># 未git add，回退到文件修改之前（丢弃工作区的修改），不需要直接修改文件</div><div class="line"></div><div class="line"> git reset HEAD readme.txt</div><div class="line"># 已经git add（添加到了暂存区），需要回退未git add 之前</div></pre></td></tr></table></figure>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p>当你要删除文件的时候，可以采用命令：<code>rm test.txt</code></p>
+<p>这个时候（也就是说这个时候只执行了rm test.txt）有两种情况</p>
+<p>第一种情况:的确要把test.txt删掉，那么可以执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git rm test.txt</div><div class="line">git commit -m &quot;remove test.txt&quot;</div></pre></td></tr></table></figure></p>
+<p>然后文件就被删掉了<br>第二种情况:删错文件了，不应该删test.txt，注意这时只执行了rm test.txt，还没有提交，所以可以执行<code>git checkout test.txt</code>将文件恢复。</p>
+<p>并不是说执行完git commit -m “remove test.txt”后还能用checkout恢复，commit之后版本库里的文件也没了，自然没办法用checkout恢复，而是要用其他的办法</p>
+<h2 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h2><p>先有本地库，后有远程库的时候，如何关联远程库<br>1.在github上创建仓库<br>2.在本地的learngit仓库下运行命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@github.com:michaelliao/learngit.git</div></pre></td></tr></table></figure></p>
+<p>添加后，远程库的名字就是<code>origin，这是Git默认的叫法
+3.把本地库的内容推送到远程，用</code>git push`命令，实际上是把当前分支master推送到远程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git push -u origin master</div><div class="line"># 可以把 master 换成你想要推送的任何分支</div><div class="line"># origin可以换成你想用的名字，但是一般用origin</div></pre></td></tr></table></figure></p>
+<p>由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令，以后只要执行以下命令即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin master</div></pre></td></tr></table></figure></p>
+<h3 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h3><p>先创建远程库，然后，从远程库克隆</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone git@github.com:michaelliao/gitskills.git</div></pre></td></tr></table></figure>
+<p>Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。</p>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h3><p><code>master</code>主分支<br><code>HEAD</code>指向的就是当前分支<br>一开始的时候，<code>master</code>分支是一条线，Git用<code>master</code>指向最新的提交，再用<code>HEAD</code>指向<code>master</code>，就能确定当前分支，以及当前分支的提交点<br>每次提交，<code>master</code>分支都会向前移动一步，这样，随着你不断提交，<code>master</code>分支的线也越来越长</p>
+<p>当我们创建新的分支，例如<code>dev</code>时，Git新建了一个指针叫<code>dev</code>，指向<code>master</code>相同的提交，再把<code>HEAD</code>指向<code>dev</code>，就表示当前分支在<code>dev</code>上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">git pull</div><div class="line"># 更新本地仓库至最新改动</div><div class="line"></div><div class="line">git checkout -b dev</div><div class="line"># 创建并切换分支</div><div class="line"></div><div class="line">git branch</div><div class="line"># 列出所有分支，当前分支前面会标一个*号</div><div class="line"></div><div class="line">git branch dev</div><div class="line"># 查看当前分支</div><div class="line"></div><div class="line">git checkout dev</div><div class="line"># 切换分支</div><div class="line"></div><div class="line">git add readme.txt</div><div class="line">git commit -m &quot;branch test&quot;</div><div class="line"></div><div class="line">git checkout master</div><div class="line">git merge dev</div><div class="line"># 把dev分支的工作成果合并到master分支上</div><div class="line"></div><div class="line">git branch -d dev</div><div class="line"># 删除分支</div></pre></td></tr></table></figure></p>
+<p>直接把<code>master</code>指向<code>dev</code>的当前提交，就完成了合并<br>删除<code>dev</code>分支就是把<code>dev</code>指针给删掉</p>
+<p><code>git merge</code>命令用于合并指定分支到当前分支</p>
+<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><p>不同的分支各自都分别有新的提交，当进行合并时就会发生冲突，必须手动解决冲突后再提交。<code>git status</code>也可以告诉我们冲突的文件</p>
+<p>修改文件中的冲突后可以再次提交</p>
+<p>用<code>git log --graph</code>命令可以看到分支合并图产品</p>
+<p>git有个最佳实践，master是主分支，用来做正式发布版之后的保留历史，其他分支包括dev用来做正常开发，多个feature用来做某些特性功能，release用来做发布版历史，每次发布都是用release打包，hotfix用来做发布版之后的一些及时迭代修复bug的工作。</p>
+<p>合并分支时，加上<code>--no-ff</code>参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而<code>fast forward</code>合并就看不出来曾经做过合并<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge --no-ff -m &quot;merge with no-ff&quot; dev</div></pre></td></tr></table></figure></p>
+<h3 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h3><p>每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。</p>
+<p>假定需要在master分支上修复，就从master创建临时分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">git stash</div><div class="line"># 保存现场工作</div><div class="line"></div><div class="line">git checkout master</div><div class="line">git checkout -b issue-101</div><div class="line">git add readme.txt </div><div class="line">git commit -m &quot;fix bug 101&quot;</div><div class="line">git checkout master</div><div class="line">git merge --no-ff -m &quot;merged bug fix 101&quot; issue-101</div><div class="line"></div><div class="line">git checkout dev</div><div class="line"># 切换到之前的工作分支</div><div class="line">git stash list</div><div class="line"># 列出保存的工作现场</div><div class="line">git stash pop</div><div class="line"># 恢复的同时把stash内容也删了</div></pre></td></tr></table></figure></p>
+<h3 id="Feature分支"><a href="#Feature分支" class="headerlink" title="Feature分支"></a>Feature分支</h3><p>添加一个新功能<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git checkout -b feature-vulcan</div><div class="line"># 原来在dev分支</div><div class="line"></div><div class="line">git add vulcan.py</div><div class="line">git commit -m &quot;add feature vulcan&quot;</div><div class="line">git checkout dev</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git branch -D feature-vulcan</div><div class="line"># 强行删除分支，未合并之前删除使用</div></pre></td></tr></table></figure>
+<h3 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">git push origin master</div><div class="line">git push origin dev</div><div class="line"># 推送分支</div><div class="line"></div><div class="line">git clone git@github.com:michaelliao/learngit.git</div><div class="line">git branch</div><div class="line"># 默认是master分支</div><div class="line">git checkout -b dev origin/dev</div><div class="line"># 创建dev分支</div><div class="line"></div><div class="line">git pull</div><div class="line">git branch --set-upstream-to=origin/dev dev</div><div class="line"># 解决冲突</div></pre></td></tr></table></figure>
+<p><img src="/img/IMG144.jpg" alt=""></p>
+<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><p>发布一个版本时，我们通常先在版本库中打一个标签（tag），这样，就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">git branch</div><div class="line">git checkout master</div><div class="line"># 切换到需要打标签的分支上</div><div class="line"></div><div class="line">git tag v1.0</div><div class="line"># 打一个新标签</div><div class="line"></div><div class="line">git tag</div><div class="line"># 查看所有标签</div><div class="line"></div><div class="line">git log --pretty=oneline --abbrev-commit</div><div class="line">git tag v0.9 f52c633</div><div class="line"># 针对某一commit id打标签</div><div class="line"></div><div class="line">git show v0.9</div><div class="line"># 查看标签信息</div><div class="line"></div><div class="line">git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb</div><div class="line"># -a指定标签名，-m指定说明文字</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">git tag -d v0.1</div><div class="line"># 删除一个本地标签</div><div class="line"></div><div class="line">git push origin v1.0</div><div class="line"># 推送某个标签到远程</div><div class="line">git push origin --tags</div><div class="line"># 一次性推送全部尚未推送到远程的本地标签</div><div class="line"></div><div class="line">git tag -d v0.9</div><div class="line">git push origin :refs/tags/v0.9</div><div class="line"># 删除推送到远程的标签</div></pre></td></tr></table></figure>
+<h2 id="一个本地库关联多个远程库"><a href="#一个本地库关联多个远程库" class="headerlink" title="一个本地库关联多个远程库"></a>一个本地库关联多个远程库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote -v</div><div class="line"># 查看远程库信息</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git remote rm origin</div><div class="line"># 先删除已关联的名为origin的远程库</div><div class="line"></div><div class="line"></div><div class="line">git remote add github git@github.com:michaelliao/learngit.git</div><div class="line">git remote add gitee git@gitee.com:liaoxuefeng/learngit.git</div><div class="line"># 关联远程库，远程库的名称叫github、gitee</div></pre></td></tr></table></figure>
+<h2 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h2><p>忽略某些文件时，需要编写<code>.gitignore</code><br><code>.gitignore</code>文件本身要放到版本库里，并且可以对<code>.gitignore</code>做版本管理<br>参考模版：<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a></p>
+<h2 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h2><p>加上<code>--global</code>是针对<strong>当前用户</strong>起作用的，如果不加，那只针对<strong>当前的仓库</strong>起作用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git config --global alias.st status</div><div class="line">git config --global alias.co checkout</div><div class="line">git config --global alias.ci commit</div><div class="line">git config --global alias.br branch</div></pre></td></tr></table></figure></p>
+<p>使用配置文件<br>每个仓库的Git配置文件<code>.git/config</code><br>当前用户的配置文件<code>~/.gitconfig</code></p>
+<h2 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h2><p>1.安装git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install git</div></pre></td></tr></table></figure></p>
+<p>2.创建用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo adduser git -s /usr/sbin/nologin</div></pre></td></tr></table></figure></p>
+<p>3.管理公钥<br>收集所有需要登录的用户的公钥，就是他们自己的<code>id_rsa.pub</code>文件，把所有公钥导入到<code>/home/git/.ssh/authorized_keys</code>文件里，一行一个<br>人多可以用<code>Gitosis</code>来管理公钥</p>
+<p>4.初始化Git仓库<br>选定一个目录作为Git仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd </div><div class="line">mkdir gitre</div><div class="line">cd gitre</div><div class="line">git init --bare sample.git</div><div class="line"></div><div class="line">chown -R git:git sample.git</div></pre></td></tr></table></figure></p>
+<p>5.禁用shell登录<br>创建用户时指定</p>
+<p>6.克隆远程仓库<br>在各自的电脑上克隆远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@server:/srv/sample.git</div></pre></td></tr></table></figure></p>
+<p>Git不支持权限控制。不过，因为Git支持钩子（hook），所以，可以在服务器端编写一系列脚本来控制提交等操作，达到权限控制的目的。<code>Gitolite</code>就是这个工具。</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://juejin.im/entry/586eddf6a22b9d00587829ce" target="_blank" rel="external">比较全面的 Git 学习资料整理</a></li>
+<li><a href="http://www.cylong.com/blog/2016/09/26/git-svn/" target="_blank" rel="external">http://www.cylong.com/blog/2016/09/26/git-svn/</a></li>
+<li><a href="http://rogerdudler.github.io/git-guide/" target="_blank" rel="external">http://rogerdudler.github.io/git-guide/</a></li>
+<li><a href="https://guides.github.com/activities/hello-world/" target="_blank" rel="external">https://guides.github.com/activities/hello-world/</a></li>
+<li><a href="http://www.uml.org.cn/pzgl/201207264.asp" target="_blank" rel="external">分布式和集中式版本控制工具-svn,git,mercurial</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;集中式版本控制系统：版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器&lt;/p&gt;
+&lt;p&gt;集中式版本控制系统最大的毛病就是必须联网才能工作，在局域网内还好&lt;/p&gt;
+&lt;p&gt;分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。&lt;/p&gt;
+&lt;p&gt;分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已。&lt;/p&gt;
+&lt;p&gt;集中式版本控制：CVS、SVN、ClearCase、VSS&lt;br&gt;分布式版本控制：Git、BitKeeper、Mercurial、Bazaar&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>软件测试</title>
     <link href="http://yoursite.com/post/7a8ab919.html"/>
     <id>http://yoursite.com/post/7a8ab919.html</id>
     <published>2018-06-23T08:23:53.000Z</published>
-    <updated>2018-06-23T08:49:12.501Z</updated>
+    <updated>2018-06-24T00:54:03.894Z</updated>
     
     <content type="html"><![CDATA[<h2 id="软件测试概要"><a href="#软件测试概要" class="headerlink" title="软件测试概要"></a>软件测试概要</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
 <li>软件测试是对程序能够按预期运行建立起一种信心  ——Bill Hetzel,1973</li>
@@ -79,7 +236,7 @@
     <link href="http://yoursite.com/post/30bf2354.html"/>
     <id>http://yoursite.com/post/30bf2354.html</id>
     <published>2018-06-22T14:00:49.000Z</published>
-    <updated>2018-06-22T15:57:04.297Z</updated>
+    <updated>2018-06-24T00:54:03.894Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://nmap.org/" target="_blank" rel="external">Nmap</a>(Network Mapper)是一款用于网络发现（Network Discovery）和安全审计（Security Audting）的安全工具，采用C++语言编写，常用于<strong>端口扫描</strong>。<br>Nmap软件包带有一个名为GUI的包zenmap，使用Python编写。</p>
 <h2 id="安装nmap"><a href="#安装nmap" class="headerlink" title="安装nmap"></a>安装nmap</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install nmap</div></pre></td></tr></table></figure>
@@ -243,7 +400,7 @@
     <link href="http://yoursite.com/post/62edaad4.html"/>
     <id>http://yoursite.com/post/62edaad4.html</id>
     <published>2018-06-22T13:59:14.000Z</published>
-    <updated>2018-06-22T14:00:17.792Z</updated>
+    <updated>2018-06-24T00:54:03.894Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install fping</div><div class="line">fping -g -c 1 192.168.1.0/24</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nmap -nsP 192.168.1.1-254</div></pre></td></tr></table></figure>]]></content>
@@ -264,7 +421,7 @@
     <link href="http://yoursite.com/post/5aea5c58.html"/>
     <id>http://yoursite.com/post/5aea5c58.html</id>
     <published>2018-06-22T02:16:28.000Z</published>
-    <updated>2018-06-22T02:28:51.212Z</updated>
+    <updated>2018-06-24T00:54:03.894Z</updated>
     
     <content type="html"><![CDATA[<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="https://www.netacad.com/courses/packet-tracer" target="_blank" rel="external">https://www.netacad.com/courses/packet-tracer</a></p>
 <p>注册下载</p>
@@ -1165,255 +1322,6 @@ sudo apt-get install libnss3-1d:i386 libqt4-qt3support:i386 libssl1.0.0:i386 lib
 &lt;p&gt;官网：&lt;a href=&quot;https://anaconda.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://anaconda.org/&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;下载：&lt;a href=&quot;https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/&lt;/a&gt;&lt;br&gt;选择对应的Python版本和系统进行下载安装&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;bash Anaconda3-5.2.0-Linux-x86_64.sh&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;conda upgrade --all&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vim中Python相关插件</title>
-    <link href="http://yoursite.com/post/d52f3c59.html"/>
-    <id>http://yoursite.com/post/d52f3c59.html</id>
-    <published>2018-06-14T00:09:01.000Z</published>
-    <updated>2018-06-19T08:32:40.784Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="tell-k-vim-autopep8"><a href="#tell-k-vim-autopep8" class="headerlink" title="tell-k/vim-autopep8"></a><a href="https://github.com/tell-k/vim-autopep8" target="_blank" rel="external">tell-k/vim-autopep8</a></h2><p>依照pep8的标准自动格式化代码<br>插件依赖autopep8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install --upgrade autopep8</div></pre></td></tr></table></figure></p>
-<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Plug &apos;tell-k/vim-autopep8&apos;</div></pre></td></tr></table></figure>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">:Autopep8</div><div class="line">:Autopep8 --range 1 5               # with arguments</div><div class="line">:call Autopep8(&quot; --range 1 5&quot;)      # with arguments</div><div class="line">:&apos;&lt;,&apos;&gt;Autopep8              # range selection</div></pre></td></tr></table></figure>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">autocmd FileType python noremap &lt;buffer&gt; &lt;F8&gt; :call Autopep8()&lt;CR&gt;</div><div class="line">let g:autopep8_max_line_length=119</div></pre></td></tr></table></figure>
-<h2 id="Yggdroot-indentLine"><a href="#Yggdroot-indentLine" class="headerlink" title="Yggdroot/indentLine"></a><a href="https://github.com/Yggdroot/indentLine" target="_blank" rel="external">Yggdroot/indentLine</a></h2><p>显示缩进指示线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Plug &apos;Yggdroot/indentLine&apos;</div></pre></td></tr></table></figure></p>
-<h2 id="Valloric-YouCompleteMe"><a href="#Valloric-YouCompleteMe" class="headerlink" title="Valloric/YouCompleteMe"></a><a href="https://github.com/Valloric/YouCompleteMe" target="_blank" rel="external">Valloric/YouCompleteMe</a></h2><p>YouCompleteMe不支持Anaconda，所以要指定原生Python路径</p>
-<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install build-essential cmake</div><div class="line">sudo apt-get install python-dev python3-dev</div></pre></td></tr></table></figure>
-<h3 id="配置-安装"><a href="#配置-安装" class="headerlink" title="配置/安装"></a>配置/安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Plug &apos;Valloric/YouCompleteMe&apos;</div><div class="line">let g:ycm_server_python_interpreter=&apos;/usr/bin/python3.5&apos;</div></pre></td></tr></table></figure>
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/.vim/bundle/YouCompleteMe</div><div class="line">/usr/bin/python3.5 ./install.py</div></pre></td></tr></table></figure>
-<p>参考：</p>
-<ul>
-<li><a href="https://www.jianshu.com/p/f0513d18742a" target="_blank" rel="external">https://www.jianshu.com/p/f0513d18742a</a></li>
-<li><a href="https://github.com/Valloric/YouCompleteMe/issues/2876" target="_blank" rel="external">https://github.com/Valloric/YouCompleteMe/issues/2876</a></li>
-<li><a href="https://github.com/JeffyLu/JeffyLu.github.io/issues/15" target="_blank" rel="external">https://github.com/JeffyLu/JeffyLu.github.io/issues/15</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;tell-k-vim-autopep8&quot;&gt;&lt;a href=&quot;#tell-k-vim-autopep8&quot; class=&quot;headerlink&quot; title=&quot;tell-k/vim-autopep8&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/t
-    
-    </summary>
-    
-    
-      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VIM模版</title>
-    <link href="http://yoursite.com/post/22b97e54.html"/>
-    <id>http://yoursite.com/post/22b97e54.html</id>
-    <published>2018-06-11T09:27:23.000Z</published>
-    <updated>2018-06-12T23:35:43.110Z</updated>
-    
-    <content type="html"><![CDATA[<p>用Vim写Python的时候，每次都要在开头写路径和编码，索性直接用模版<br>直接使用插件方式配置模版</p>
-<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>使用vim-plug配置，<code>vim .vimrc</code>添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Plug &apos;aperezdc/vim-template&apos;</div></pre></td></tr></table></figure></p>
-<p>保存，重新打开<code>.vimrc</code>，进行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:PlugInstall</div></pre></td></tr></table></figure></p>
-<h2 id="配置模版"><a href="#配置模版" class="headerlink" title="配置模版"></a>配置模版</h2><p>模版文件在<code>.vim/plugged/vim-template/templates</code>下</p>
-<a id="more"></a>
-<p>参考：</p>
-<ul>
-<li><a href="https://www.jianshu.com/p/996afb9e4086" target="_blank" rel="external">https://www.jianshu.com/p/996afb9e4086</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;用Vim写Python的时候，每次都要在开头写路径和编码，索性直接用模版&lt;br&gt;直接使用插件方式配置模版&lt;/p&gt;
-&lt;h2 id=&quot;安装插件&quot;&gt;&lt;a href=&quot;#安装插件&quot; class=&quot;headerlink&quot; title=&quot;安装插件&quot;&gt;&lt;/a&gt;安装插件&lt;/h2&gt;&lt;p&gt;使用vim-plug配置，&lt;code&gt;vim .vimrc&lt;/code&gt;添加&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Plug &amp;apos;aperezdc/vim-template&amp;apos;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;保存，重新打开&lt;code&gt;.vimrc&lt;/code&gt;，进行安装&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;:PlugInstall&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;配置模版&quot;&gt;&lt;a href=&quot;#配置模版&quot; class=&quot;headerlink&quot; title=&quot;配置模版&quot;&gt;&lt;/a&gt;配置模版&lt;/h2&gt;&lt;p&gt;模版文件在&lt;code&gt;.vim/plugged/vim-template/templates&lt;/code&gt;下&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Pygame相关</title>
-    <link href="http://yoursite.com/post/7e3c85d2.html"/>
-    <id>http://yoursite.com/post/7e3c85d2.html</id>
-    <published>2018-06-11T08:09:50.000Z</published>
-    <updated>2018-06-19T07:38:50.397Z</updated>
-    
-    <content type="html"><![CDATA[<p>pygame是主要构筑在SDL库基础上的一组Python模块的集合，它使我们能够用Python语言来创建功能完整的游戏和多媒体程序。pygame是高度括平台可移植的，在任何SDL支持的平台上都可以运行（几乎可以在任何平台和操作系统上运行）。</p>
-<p>注：SDL(Simple DirectMedia Layer)是一个跨平台的多媒体库，可以用来访问底层的音频、键盘、鼠标、摇杆、3D硬件（通过OpenGL）以及2D视频缓冲。它被用在MPEG播放软件、模拟器和很多流行的游戏中，包括获得大奖的Linux版的”Civilization: Call To Power”。</p>
-<h2 id="安装Pygame"><a href="#安装Pygame" class="headerlink" title="安装Pygame"></a>安装Pygame</h2><p><a href="https://www.pygame.org/wiki/GettingStarted" target="_blank" rel="external">https://www.pygame.org/wiki/GettingStarted</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">pip install pygame</div><div class="line"></div><div class="line">#检验是否安装成功</div><div class="line">python3 -m pygame.examples.aliens</div></pre></td></tr></table></figure></p>
-<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import pygame</div><div class="line"># 引入 pygame 中的所有常量</div><div class="line">from pygame.locals import *</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><table>
-<thead>
-<tr>
-<th>模块</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cdrom</td>
-<td>访问光驱</td>
-</tr>
-<tr>
-<td>cursors</td>
-<td>加载光标图像，包含标准光标</td>
-</tr>
-<tr>
-<td>display</td>
-<td>控制显示窗口或屏幕</td>
-</tr>
-<tr>
-<td>draw</td>
-<td>在Surface上绘制简单的图形</td>
-</tr>
-<tr>
-<td>event</td>
-<td>管理事件和事件队列</td>
-</tr>
-<tr>
-<td>font</td>
-<td>创建并呈现TrueType字体</td>
-</tr>
-<tr>
-<td>image</td>
-<td>保存并加载图像</td>
-</tr>
-<tr>
-<td>joystick</td>
-<td>管理游戏手柄设备</td>
-</tr>
-<tr>
-<td>key</td>
-<td>管理键盘</td>
-</tr>
-<tr>
-<td>pygame.mixer</td>
-<td>音效</td>
-</tr>
-<tr>
-<td>mouse</td>
-<td>管理鼠标</td>
-</tr>
-<tr>
-<td>pygame.movie</td>
-<td>播放视频</td>
-</tr>
-<tr>
-<td>pygame.music</td>
-<td>播放音频</td>
-</tr>
-<tr>
-<td>pygame.rect</td>
-<td>管理矩形区域</td>
-</tr>
-<tr>
-<td>pygame.sprite</td>
-<td>操作移动图像</td>
-</tr>
-<tr>
-<td>sndarray</td>
-<td>用numpy操纵声音</td>
-</tr>
-<tr>
-<td>surfarray</td>
-<td>用numpy处理图像</td>
-</tr>
-<tr>
-<td>time</td>
-<td>控制时间</td>
-</tr>
-<tr>
-<td>transform</td>
-<td>缩放，旋转和翻转图像</td>
-</tr>
-</tbody>
-</table>
-<h2 id="初始化和退出"><a href="#初始化和退出" class="headerlink" title="初始化和退出"></a>初始化和退出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 导入并初始化所有 pygame 模块，使用其他模块之前，必须先调用 init 方法</div><div class="line">pygame.init()</div><div class="line"></div><div class="line"># 卸载所有 pygame 模块，在游戏结束之前调用，没有必要显式的调用这个函数，因为pygame会在python退出的时候自动清理所有已经初始化的模块</div><div class="line">pygame.quit()</div></pre></td></tr></table></figure>
-<h2 id="窗口-suiface-pygame-display"><a href="#窗口-suiface-pygame-display" class="headerlink" title="窗口/suiface pygame.display"></a><a href="https://www.pygame.org/docs/ref/display.html" target="_blank" rel="external">窗口/suiface pygame.display</a></h2><p><code>pygame.display</code>模块用于创建、管理游戏窗口<br>需要先创建一个窗口。其他的活动都是基于窗口的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pygame.display.set_mode(resolution=(0,0),flags=0,depth=0)</div></pre></td></tr></table></figure>
-<ul>
-<li>resolution：指定屏幕的宽和高，默认创建的窗口大小和屏幕大小一致</li>
-<li>flags：标志位<ul>
-<li>FULLSCREEN 创建一个全屏窗口</li>
-<li>DOUBLEBUF 创建一个“双缓冲”窗口，建议在HWSURFACE或者OPENGL时使用</li>
-<li>HWSURFACE 创建一个硬件加速的窗口，必须和FULLSCREEN同时使用</li>
-<li>OPENGL 创建一个OPENGL渲染的窗口</li>
-<li>RESIZABLE 创建一个可以改变大小的窗口</li>
-<li>NOFRAME 创建一个没有边框的窗口</li>
-</ul>
-</li>
-<li>depth：颜色的位深，默认自动匹配</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"># 指定窗口的宽和高</div><div class="line"># 只能有一个</div><div class="line">screen = pygame.display.set_mode((600,500))</div><div class="line">screen = pygame.display.set_mode((1024, 768), pygame.FULLSCREEN)</div><div class="line"></div><div class="line"># 设置窗口的标题</div><div class="line">pygame.display.set_caption(&apos;Hello World!&apos;)</div><div class="line"></div><div class="line"># 填充背景颜色</div><div class="line">screen.fill((255,255,255))</div><div class="line"></div><div class="line"># 刷新屏幕内容显示，把内容显示到屏幕上</div><div class="line">pygame.display.update()</div><div class="line"></div><div class="line"># 如果使用DOUBLEBUF，需要用flip函数把内容显示到屏幕上</div><div class="line">pygame.display.flip()</div><div class="line"></div><div class="line"># 可以查看当前设备支持的分辨率</div><div class="line">pygame.display.list_modes()</div></pre></td></tr></table></figure>
-<h2 id="游戏循环"><a href="#游戏循环" class="headerlink" title="游戏循环"></a>游戏循环</h2><p>如果没有循环，窗口无法保持，只能看到一闪而过</p>
-<p>一个游戏循环（也可以称为主循环）就做下面这三件事：</p>
-<ol>
-<li>处理事件</li>
-<li>更新游戏状态</li>
-<li>绘制游戏状态到屏幕上</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">while True:</div><div class="line">    pass</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import pygame</div><div class="line">from pygame.locals import *</div><div class="line"></div><div class="line">pygame.init()</div><div class="line"></div><div class="line">screen = pygame.display.set_mode((600,500))</div><div class="line"></div><div class="line">pygame.display.set_caption(&apos;Hello World&apos;)</div><div class="line"></div><div class="line">while True:</div><div class="line">    pass</div><div class="line"></div><div class="line">pygame.quit()</div></pre></td></tr></table></figure>
-<h2 id="坐标系"><a href="#坐标系" class="headerlink" title="坐标系"></a>坐标系</h2><p>以左上角为（0，0）点，往右方向为X轴，往下方向为Y轴，单位为像素</p>
-<h2 id="矩形区域-pygame-Rect"><a href="#矩形区域-pygame-Rect" class="headerlink" title="矩形区域 pygame.Rect"></a><a href="https://www.pygame.org/docs/ref/rect.html" target="_blank" rel="external">矩形区域 pygame.Rect</a></h2><p><code>pygame.Rect</code>是用于存储直角坐标的pygame对象，在游戏中所有可见的元素都是以矩形区域来描述位置的（区别于绘制图形中的矩形）</p>
-<p><strong>对象</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Rect(left, top, width, height)</div><div class="line">Rect((left, top), (width, height))</div></pre></td></tr></table></figure></p>
-<p>前两项描述位置，后两项描述大小</p>
-<p><strong>属性</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x,y</div><div class="line">top, left, bottom, right</div><div class="line">topleft, bottomleft, topright, bottomright</div><div class="line">midtop, midleft, midbottom, midright</div><div class="line">center, centerx, centery</div><div class="line">size, width, height</div></pre></td></tr></table></figure></p>
-<h2 id="绘制图形-pygame-draw"><a href="#绘制图形-pygame-draw" class="headerlink" title="绘制图形 pygame.draw"></a><a href="https://www.pygame.org/docs/ref/draw.html#pygame.draw.rect" target="_blank" rel="external">绘制图形 pygame.draw</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">pygame.draw.rect(Surface, color, Rect, width=0)</div><div class="line"># 绘制一个矩形形状</div><div class="line"></div><div class="line">pygame.draw.polygon(Surface, color, pointlist, width=0) 	    </div><div class="line"># 绘制多边形</div><div class="line"></div><div class="line">pygame.draw.circle(Surface, color, pos, radius, width=0) 	    </div><div class="line"># 围绕一个点画一个圆</div><div class="line"></div><div class="line">pygame.draw.ellipse(Surface, color, Rect, width=0)</div><div class="line"># 在矩形内绘制圆形</div><div class="line"></div><div class="line">pygame.draw.arc(Surface, color, Rect, start_angle, stop_angle, width=1) 	        </div><div class="line"># 绘制一个椭圆的局部部分</div><div class="line"></div><div class="line">pygame.draw.line(Surface, color, start_pos, end_pos, width=1)	    </div><div class="line"># 画出一条直线段</div><div class="line"></div><div class="line">pygame.draw.lines(Surface, color, closed, pointlist, width=1)</div><div class="line"># 绘制多个连续的线段</div><div class="line"></div><div class="line">pygame.draw.aaline(Surface, color, startpos, endpos, blend=1)	    </div><div class="line"># 画精美的抗锯齿线</div><div class="line"></div><div class="line">pygame.draw.aalines(Surface, color, closed, pointlist, blend=1)	    </div><div class="line"># 绘制抗锯齿线的连接序列</div></pre></td></tr></table></figure>
-<p>实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">import pygame</div><div class="line">from pygame.locals import *</div><div class="line">from math import pi </div><div class="line"></div><div class="line"># 定义颜色</div><div class="line">RED = (255,0,0)</div><div class="line">GREEN = (0,255,0)</div><div class="line">BLUE = (0,0,255)</div><div class="line"></div><div class="line">pygame.init()</div><div class="line"></div><div class="line">screen = pygame.display.set_mode((600,600))</div><div class="line">pygame.display.set_caption(&apos;绘制图形&apos;)</div><div class="line"># screen.fill((255,255,255))</div><div class="line"></div><div class="line">pygame.draw.rect(screen,BLUE,(400,400,100,100))</div><div class="line">pygame.draw.polygon(screen,GREEN,[[400,0],[500,70],[450,100]],5)</div><div class="line">pygame.draw.circle(screen,BLUE,[10,500],40)</div><div class="line">pygame.draw.ellipse(screen,BLUE,(300,200,50,40))</div><div class="line">pygame.draw.ellipse(screen,RED,(200,200,50,40),5)</div><div class="line"></div><div class="line">pygame.draw.arc(screen,GREEN,(300,500,40,40),0,pi/2,2)</div><div class="line">pygame.draw.arc(screen,RED,(300,500,40,40),pi/2,pi,2)</div><div class="line">pygame.draw.arc(screen,BLUE,(300,500,40,40),pi,3*pi/2,2)</div><div class="line">pygame.draw.arc(screen,(255,255,255),(300,500,40,40),3*pi/2,2*pi,2)</div><div class="line"></div><div class="line">pygame.draw.line(screen,RED,[1,1],[50,50],5)</div><div class="line">pygame.draw.lines(screen,RED,True,</div><div class="line">        [[0,80],[50,90],[200,80],[220,30]],5)</div><div class="line">pygame.draw.aaline(screen,RED,[80,80],[40,90],True)</div><div class="line"></div><div class="line">while 1:</div><div class="line">    pass</div><div class="line">    pygame.display.update()</div></pre></td></tr></table></figure></p>
-<p><img src="/img/IMG65.png" alt=""></p>
-<h2 id="字体-文本-pygame-font"><a href="#字体-文本-pygame-font" class="headerlink" title="字体/文本 pygame.font"></a><a href="https://www.pygame.org/docs/ref/font.html" target="_blank" rel="external">字体/文本 pygame.font</a></h2><p><code>pygame.font</code>模块将文本打印到窗口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">pygame.font.Font(filename, size)</div><div class="line"># filename：字体文件的文件名</div><div class="line"># size：字体的高 height，单位为像素</div><div class="line"></div><div class="line">pygame.font.Font.render(text, antialias, color, background=None)</div><div class="line"># text：要显示的文字，文字只能包含一行，换行符不会被画出来</div><div class="line"># antialias： 是否抗锯齿</div><div class="line"># color：字体颜色</div><div class="line"># background：背景颜色（可选参数），如果没有指定background，背景是透明的</div><div class="line"># 返回一个surgace</div><div class="line"></div><div class="line">pygame.font.get_fonts()</div><div class="line"># 获取可用的字体的列表</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import pygame</div><div class="line"></div><div class="line">pygame.init()</div><div class="line"></div><div class="line">screen = pygame.display.set_mode((300,300))</div><div class="line">pygame.display.set_caption(&apos;Font&apos;)</div><div class="line"></div><div class="line"># 1.字体对象，指定字体和大小</div><div class="line">myfont = pygame.font.Font(None,60)</div><div class="line"># myfont = pygame.font.Font(&apos;./font/楷体_GB2312.ttf&apos;,60)</div><div class="line"># 2.指定文本内容，文本颜色，文本背景色</div><div class="line">textSufaceObj = myfont.render(&apos;Hello world&apos;,True,(255,255,255),(0,255,0))</div><div class="line"># 3.指定文本位置</div><div class="line">screen.blit(textSufaceObj,(50,100))</div><div class="line"></div><div class="line">while 1:</div><div class="line">    # 4.显示文本</div><div class="line">    pygame.display.update()</div><div class="line"></div><div class="line">pygame.quit()</div></pre></td></tr></table></figure>
-<p><img src="/img/IMG66.png" alt=""></p>
-<h2 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">img = pygame.image.load(filename)</div><div class="line"># 加载一张图片</div><div class="line"># 返回一个包含图像的Surface，Surface的格式和原来的文件相同（包括颜色格式、透明色和alpha透明）</div><div class="line"></div><div class="line">pygame.Surface.blit(img, dest, area=None, special_flags = 0)</div><div class="line"># 将图片绘制到屏幕相应坐标上（后面两个参数默认，可以不传）</div><div class="line"></div><div class="line">pygame.image.save(img, filename)</div><div class="line"># 把img这个Surface的内容保存为filename指定的图像文件</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">import pygame</div><div class="line">from pygame.locals import *</div><div class="line"></div><div class="line">pygame.init()</div><div class="line"></div><div class="line">screen = pygame.display.set_mode((100,100))</div><div class="line">pygame.display.set_caption(&apos;Image&apos;)</div><div class="line"></div><div class="line">image = pygame.image.load(&apos;./Ball.png&apos;)</div><div class="line"># 获得图像位置</div><div class="line">imageRect = image.get_rect()</div><div class="line"># 指定图片居中</div><div class="line">imageRect.center = (50,50)</div><div class="line">screen.fill((156,178,166))</div><div class="line"># screen.blit(image,(50,50))</div><div class="line">screen.blit(image,imageRect)</div><div class="line"></div><div class="line">while 1:</div><div class="line">    pygame.display.update()</div><div class="line"></div><div class="line">pygame.quit()</div></pre></td></tr></table></figure>
-<h2 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h2><h3 id="背景音乐"><a href="#背景音乐" class="headerlink" title="背景音乐"></a>背景音乐</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pygame.mixer.music.load(filename)</div></pre></td></tr></table></figure>
-<p>filename：音频文件的文件名<br>该方法用来加载背景音乐，之后调用 pygame.mixer.music.play( ) 方法就可以播放背景音乐（Pygame 只允许加载一个背景音乐在同一个时刻）<br>音乐文件可以很大，系统以流的形式播放</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">pygame.init() #进行全部模块的初始化， </div><div class="line">pygame.mixer.init() #或者只初始化音频部分 </div><div class="line">pygame.mixer.music.load(&apos;xx.mp3&apos;) #使用文件名作为参数载入音乐 ,音乐可以是ogg、mp3等格式。载入的音乐不会全部放到内容中，而是以流的形式播放的，即在播放的时候才会一点点从文件中读取。 </div><div class="line">pygame.mixer.music.play() #播放载入的音乐。该函数立即返回，音乐播放在后台进行。</div><div class="line"></div><div class="line">#play方法还可以使用两个参数 </div><div class="line">pygame.mixer.music.play(loops=0, start=0.0) #loops和start分别代表重复的次数和开始播放的位置 </div><div class="line">pygame.mixer.music.stop() #停止播放 </div><div class="line">pygame.mixer.music.pause() #暂停播放</div><div class="line">pygame.mixer.music.unpause() #取消暂停</div><div class="line">pygame.mixer.music.fadeout(time) #用来进行淡出，在time毫秒的时间内音量由初始值渐变为0，最后停止播放</div><div class="line">pygame.mixer.music.set_volume(value) #来设置播放的音量，音量value的范围为0.0到1.0</div><div class="line">pygame.mixer.music.get_busy() #判断是否在播放音乐,返回1为正在播放</div><div class="line">pygame.mixer.music.set_endevent(pygame.USEREVENT + 1) #在音乐播放完成时，用事件的方式通知用户程序，设置当音乐播放完成时发送</div><div class="line">pygame.USEREVENT+1 #事件给用户程序</div><div class="line">pygame.mixer.music.queue(filename) #使用指定下一个要播放的音乐文件，当前的音乐播放完成后自动开始播放指定的下一个。一次只能指定一个等待播放的音乐文件</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">import pygame</div><div class="line"></div><div class="line">pygame.init()</div><div class="line"></div><div class="line">pygame.mixer.music.load(&apos;./sound/background.mp3&apos;)</div><div class="line">pygame.mixer.music.play()</div><div class="line"></div><div class="line">while 1:</div><div class="line">    pass</div></pre></td></tr></table></figure>
-<p>循环播放<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">import pygame</div><div class="line"></div><div class="line">pygame.init()</div><div class="line"></div><div class="line">pygame.mixer.music.load(&apos;./sound/曲锦楠 - 霞光.mp3&apos;)</div><div class="line">pygame.mixer.music.play()</div><div class="line"></div><div class="line">clock = pygame.time.Clock()</div><div class="line"></div><div class="line">while 1:</div><div class="line">    clock.tick(1)</div><div class="line">    isbusy = pygame.mixer.music.get_busy()</div><div class="line">    print(isbusy)</div><div class="line">    if isbusy == 0:</div><div class="line">        pygame.mixer.music.play()</div></pre></td></tr></table></figure></p>
-<h3 id="特效声音"><a href="#特效声音" class="headerlink" title="特效声音"></a>特效声音</h3><p>要在游戏中播放碰撞、爆炸、语音等音效，需要使用pygame.mixer模块。这个模块支持同时播放多个音效文件，多个文件在多个不同的通道Channel中播放，一个通道一次只能播放一个音效文件。</p>
-<p>音效和音乐的区别是：音效要整个文件载入到Sound对象中才能播放，而音乐不用完全载入，而以流的方式播放。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">pygame.mixer.get_num_channels()</div><div class="line"># 查看总共有多少个通道</div><div class="line"></div><div class="line">channel = pygame.mixer.Channel(i)</div><div class="line"># 取得第i个通道</div><div class="line"></div><div class="line">channel = pygame.mixer.find_channel()</div><div class="line"># 自动取得一个空闲的通道（没有音效正在播放的通道）</div><div class="line"></div><div class="line">sound = pygame.mixer.Sound(&apos;./sound/enemy1_down.wav&apos;)</div><div class="line"></div><div class="line">channel.play(sound)</div><div class="line"># 在一个通道中播放一个音效</div><div class="line">sound.play()</div><div class="line"># 自动找一个空闲的通道播放音效</div><div class="line"></div><div class="line">sound.stop()</div><div class="line"># 停止音效sound的播放</div><div class="line">channel.stop()</div><div class="line"># 停止在通道channel中播放的音效</div><div class="line"></div><div class="line">channel.pause()</div><div class="line"># 暂停通道中的音效</div><div class="line">channel.unpause()</div><div class="line"># 暂停的音效继续播放</div><div class="line"></div><div class="line">channel.get_busy()</div><div class="line"># 检查通道是否正在播放音效</div><div class="line"></div><div class="line">channel.fadeout(time)</div><div class="line"># 淡出，在time毫秒的时间内音量由初始值渐变为0，最后停止播放</div><div class="line"></div><div class="line">channel.queue(soundfile)</div><div class="line"># 为正在播放音效的通道指定下一个要播放的音效。当前的音效播放完成后，下一个音效会自动播放。一个通道只能有一个等待播放的音效。</div><div class="line"></div><div class="line">channel.set_volume(value)</div><div class="line"># 设置通道中播放的音效的音量</div><div class="line">sound.set_volume(value)</div><div class="line"># 设置单个音效的音量</div><div class="line"># 两者的取值范围都是0.0到1.0。音效播放的实际音量是通道音量和音效音量的乘积，比如通道音量0.5，音效音量0.6，则实际播放的音量为0.3</div></pre></td></tr></table></figure></p>
-<p>说了这么多，实际上只需要两句就足够了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sound = pygame.mixer.Sound(&apos;./sound/enemy1_down.wav&apos;)</div><div class="line">sound.play()</div></pre></td></tr></table></figure></p>
-<h2 id="视频-pygame-movie"><a href="#视频-pygame-movie" class="headerlink" title="视频 pygame.movie"></a><a href="https://pygame.bitbucket.io/docs/pygame/ref/movie.html" target="_blank" rel="external">视频 pygame.movie</a></h2><p><a href="https://stackoverflow.com/questions/37775635/pygame-movie-missing" target="_blank" rel="external">https://stackoverflow.com/questions/37775635/pygame-movie-missing</a></p>
-<p>该模块已经过时</p>
-<p><del>要在游戏中播放片头动画、过场动画等视频画面，可以使用<code>pygame.movie</code>模块</del></p>
-<p>要播放视频中的音乐，<code>pygame.movie</code>模块需要对音频接口的完全控制，不能初始化mixer模块。因此要这样完成初始化~~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pygame.init()</div><div class="line">pygame.mixer.quit()</div></pre></td></tr></table></figure></p>
-<p>或者只初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pygame.display.init()</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">movie = pygame.movie.Movie(’filename’)</div><div class="line"># 指定文件名载入视频。视频的格式可以为mpeg1。视频文件不会马上全部载入内存，而是在播放的时候一点一点的载入内存。</div><div class="line"></div><div class="line">movie.set_display(pygame.display.set_mode((640,480)))</div><div class="line"># 指定播放的surface。</div><div class="line"></div><div class="line">movie.set_volume(value)</div><div class="line"># 指定播放的音量。音量的值value的取值范围为0.0到1.0。</div><div class="line"></div><div class="line">movie.play() </div><div class="line"># 播放视频。这个函数会立即返回，视频在后台播放。这个函数可以带一个参数loops，指定重复次数。</div><div class="line"></div><div class="line">movie.stop()</div><div class="line"># 停止播放</div><div class="line"></div><div class="line">movie.pause()</div><div class="line"># 暂停播放</div><div class="line"></div><div class="line">movie.skip(seconds)</div><div class="line"># 使视频前进seconds秒钟。</div><div class="line"></div><div class="line">如有不懂的可以参考Pygame的官方例子，在Python安装目录下的\lib\site-packages\pygame\examples\movieplayer.py文件。</div></pre></td></tr></table></figure>
-<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><p><strong>帧率（Frame rate）</strong>：每秒钟能够刷新的次数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">pygame.time.Clock()</div><div class="line"># 获得 pygame 的时钟对象</div><div class="line"></div><div class="line">pygame.time.Clock.tick(FPS)</div><div class="line"># 设置 pygame 时钟的间隔时间</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">import pygame</div><div class="line">from pygame.locals import *</div><div class="line"></div><div class="line">pygame.init()</div><div class="line"></div><div class="line">screen = pygame.display.set_mode((100,100))</div><div class="line">pygame.display.set_caption(&apos;Image&apos;)</div><div class="line"></div><div class="line">image = pygame.image.load(&apos;./Ball.png&apos;)</div><div class="line">imageRect = image.get_rect()</div><div class="line">imageRect.center = (50,50)</div><div class="line"># screen.blit(image,(50,50))</div><div class="line"></div><div class="line">fps = pygame.time.Clock()</div><div class="line"></div><div class="line">while 1:</div><div class="line">    fps.tick(10)</div><div class="line">    </div><div class="line">    imageRect.x += 1</div><div class="line">    # 需要重新绘制背景</div><div class="line">    screen.fill((156,178,166))</div><div class="line">    screen.blit(image,imageRect)</div><div class="line"></div><div class="line">    # pygame.display.flip()</div><div class="line">    pygame.display.update()</div><div class="line"></div><div class="line">pygame.quit()</div></pre></td></tr></table></figure>
-<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a><a href="https://www.pygame.org/docs/ref/event.html" target="_blank" rel="external">事件</a></h2><p>Pygame通过一个事件系统与用户进行交互，以及处理一些系统发生的事件。事件系统包括一个事件队列，其中每一项都是一个Event对象。所有的用户输入和一些系统事件，都会形成一个Event对象被添加到事件队列中。<br>Event对象有各种不同的类型，通过<code>Event.type</code>属性来区分。不同的类型的Event对象还有不同的其它属性。通过<code>Event.dict</code>属性来查看。</p>
-<p>详细：<a href="http://www.xefan.com/archives/83586.html" target="_blank" rel="external">http://www.xefan.com/archives/83586.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">import pygame</div><div class="line">from pygame.locals import *</div><div class="line"></div><div class="line">pygame.init()</div><div class="line"></div><div class="line">screen = pygame.display.set_mode((600,600))</div><div class="line">pygame.display.set_caption(&apos;Event&apos;)</div><div class="line"></div><div class="line">while 1:</div><div class="line">    # 获取事件列表</div><div class="line">    for event in pygame.event.get():</div><div class="line">        # 点击关闭</div><div class="line">        if event.type == QUIT:</div><div class="line">            pygame.quit()</div><div class="line">            exit()</div><div class="line">        </div><div class="line">        # 鼠标移动</div><div class="line">        if event.type == MOUSEMOTION:</div><div class="line">            print(event.pos)</div><div class="line"></div><div class="line">        if event.type == MOUSEBUTTONDOWN:</div><div class="line">            print(&apos;鼠标按下&apos;,event.pos)</div><div class="line">        if event.type == MOUSEBUTTONUP:</div><div class="line">            print(&apos;鼠标抬起&apos;,event.pos)</div><div class="line"></div><div class="line">        # 方向键</div><div class="line">        if event.type == KEYDOWN:</div><div class="line">            if (event.key == K_UP or event.key == K_w):</div><div class="line">                print(&apos;上&apos;)</div><div class="line">            if (event.key == K_DOWN or event.key == K_s):</div><div class="line">                print(&apos;下&apos;)</div><div class="line">            if (event.key == K_LEFT or event.key == K_a):</div><div class="line">                print(&apos;左&apos;)</div><div class="line">            if (event.key == K_RIGHT or event.key == K_d):</div><div class="line">                print(&apos;右&apos;)</div><div class="line">            if event.key == K_ESCAPE:</div><div class="line">                pygame.quit()</div><div class="line">                exit()</div></pre></td></tr></table></figure>
-<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><p>每隔多少时间触发一次事件<br>pygame中的时间是以毫秒（千分之一秒）表示的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># 自定义计时事件</div><div class="line">COUNT = pygame.USEREVENT +1</div><div class="line"></div><div class="line"># 每隔1秒发送一次自定义事件</div><div class="line">pygame.time.set_timer(COUNT,1000)</div><div class="line"></div><div class="line"># 获取事件</div><div class="line">for event in pygame.event.get():</div><div class="line">    # 判断事件是否为计时事件</div><div class="line">    if event.type == COUNT: </div><div class="line">        pass</div></pre></td></tr></table></figure></p>
-<p>计时器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">import pygame,time</div><div class="line">from pygame.locals import *</div><div class="line"></div><div class="line">SCREEN_RECT = pygame.Rect(0,0,700,200)</div><div class="line">COUNT = pygame.USEREVENT+1</div><div class="line"></div><div class="line">pygame.init()</div><div class="line"></div><div class="line">screen = pygame.display.set_mode(SCREEN_RECT.size)</div><div class="line">pygame.display.set_caption(&apos;time&apos;)</div><div class="line"></div><div class="line">font = pygame.font.Font(None,60)</div><div class="line">pygame.time.set_timer(COUNT,1000)</div><div class="line">while 1:</div><div class="line">    for event in pygame.event.get():</div><div class="line">        if event.type == QUIT:</div><div class="line">            pygame.quit()</div><div class="line">            exit()</div><div class="line">        if event.type == COUNT:</div><div class="line">            now = time.ctime()</div><div class="line">            clock = now[11:19]</div><div class="line">            timeObj = font.render(clock,True,(255,255,255))</div><div class="line">            # timeObj = font.render(now,True,(255,255,255))</div><div class="line">            timeRect = timeObj.get_rect()</div><div class="line">            timeRect.center = SCREEN_RECT.center</div><div class="line">            screen.fill((0,0,0))</div><div class="line">            screen.blit(timeObj,timeRect)</div><div class="line"></div><div class="line">    pygame.display.update()</div></pre></td></tr></table></figure></p>
-<h2 id="冲突"><a href="#冲突" class="headerlink" title="冲突"></a>冲突</h2><p>while True: # 程序主循环<br>    for event in pygame.event.get():# 获取事件<br>        if event.type == QUIT:# 判断事件是否为退出事件<br>            pygame.quit()# 退出pygame<br>            sys.exit()# 退出系统<br>    pygame.display.update()# 绘制屏幕内容</p>
-<p>参考：</p>
-<ul>
-<li><a href="http://www.xefan.com/archives/83574.html" target="_blank" rel="external">http://www.xefan.com/archives/83574.html</a></li>
-<li><a href="https://www.jianshu.com/u/e46ded17a290" target="_blank" rel="external">https://www.jianshu.com/u/e46ded17a290</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;pygame是主要构筑在SDL库基础上的一组Python模块的集合，它使我们能够用Python语言来创建功能完整的游戏和多媒体程序。pygame是高度括平台可移植的，在任何SDL支持的平台上都可以运行（几乎可以在任何平台和操作系统上运行）。&lt;/p&gt;
-&lt;p&gt;注：SDL(Simple DirectMedia Layer)是一个跨平台的多媒体库，可以用来访问底层的音频、键盘、鼠标、摇杆、3D硬件（通过OpenGL）以及2D视频缓冲。它被用在MPEG播放软件、模拟器和很多流行的游戏中，包括获得大奖的Linux版的”Civilization: Call To Power”。&lt;/p&gt;
-&lt;h2 id=&quot;安装Pygame&quot;&gt;&lt;a href=&quot;#安装Pygame&quot; class=&quot;headerlink&quot; title=&quot;安装Pygame&quot;&gt;&lt;/a&gt;安装Pygame&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.pygame.org/wiki/GettingStarted&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.pygame.org/wiki/GettingStarted&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;pip install pygame&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;#检验是否安装成功&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;python3 -m pygame.examples.aliens&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;导入&quot;&gt;&lt;a href=&quot;#导入&quot; class=&quot;headerlink&quot; title=&quot;导入&quot;&gt;&lt;/a&gt;导入&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;import pygame&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 引入 pygame 中的所有常量&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;from pygame.locals import *&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
