@@ -88,7 +88,8 @@
 <meta property="og:description" content="集中式版本控制系统：版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器 集中式版本控制系统最大的毛病就是必须联网才能工作，在局域网内还好 分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。 分布式版本控">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/img/IMG144.jpg">
-<meta property="og:updated_time" content="2018-06-25T03:31:16.026Z">
+<meta property="og:image" content="http://yoursite.com/img/IMG148.png">
+<meta property="og:updated_time" content="2018-06-25T11:53:47.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用方法">
 <meta name="twitter:description" content="集中式版本控制系统：版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器 集中式版本控制系统最大的毛病就是必须联网才能工作，在局域网内还好 分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。 分布式版本控">
@@ -376,6 +377,16 @@
 <h2 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h2><p>忽略某些文件时，需要编写<code>.gitignore</code><br><code>.gitignore</code>文件本身要放到版本库里，并且可以对<code>.gitignore</code>做版本管理<br>参考模版：<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a></p>
 <h2 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h2><p>加上<code>--global</code>是针对<strong>当前用户</strong>起作用的，如果不加，那只针对<strong>当前的仓库</strong>起作用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git config --global alias.st status</div><div class="line">git config --global alias.co checkout</div><div class="line">git config --global alias.ci commit</div><div class="line">git config --global alias.br branch</div></pre></td></tr></table></figure></p>
 <p>使用配置文件<br>每个仓库的Git配置文件<code>.git/config</code><br>当前用户的配置文件<code>~/.gitconfig</code></p>
+<h2 id="分支开发"><a href="#分支开发" class="headerlink" title="分支开发"></a>分支开发</h2><ol>
+<li>基于主分支创建个开发分支   <code>git checkout -b dev1</code></li>
+<li>在开发分支中拉取下主分支   <code>git pull origin master</code></li>
+<li>开发完成后,提交到git服务器     <code>git add</code> . / <code>git commit -m &#39;1&#39;</code>/ <code>git push origin dev1</code></li>
+<li>拉取下主分支，提前解决冲突 <code>git pull origin master</code></li>
+<li>切回主分支(切记要提交后切回)     <code>git checkout master</code></li>
+<li>拉取下最新代码  <code>git pull origin master</code></li>
+<li>合并开发分支   <code>git merge dev1</code>(如果失败会提示失败文件,解决掉冲突)</li>
+<li>提交到git服务器</li>
+</ol>
 <h2 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h2><p>1.安装git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install git</div></pre></td></tr></table></figure></p>
 <p>2.创建用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo adduser git -s /usr/sbin/nologin</div></pre></td></tr></table></figure></p>
 <p>3.管理公钥<br>收集所有需要登录的用户的公钥，就是他们自己的<code>id_rsa.pub</code>文件，把所有公钥导入到<code>/home/git/.ssh/authorized_keys</code>文件里，一行一个<br>人多可以用<code>Gitosis</code>来管理公钥</p>
@@ -383,6 +394,15 @@
 <p>5.禁用shell登录<br>创建用户时指定</p>
 <p>6.克隆远程仓库<br>在各自的电脑上克隆远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@server:/srv/sample.git</div></pre></td></tr></table></figure></p>
 <p>Git不支持权限控制。不过，因为Git支持钩子（hook），所以，可以在服务器端编写一系列脚本来控制提交等操作，达到权限控制的目的。<code>Gitolite</code>就是这个工具。</p>
+<p><img src="/img/IMG148.png" alt=""></p>
+<p>利用工具提升工作效率，而不是去学习工具本身</p>
+<ol>
+<li>多用客户端和工具，少用命令行，除非在linux服务器上直接开发</li>
+<li>每次提交前，diff自己的代码，以免提交错误的代码</li>
+<li>下班回家前，整理好自己的工作区</li>
+<li>并行的项目，使用分支开发</li>
+<li>遇到冲突时，搞明白冲突的原因，千万不要随意丢弃别人的代码</li>
+</ol>
 <p>参考：</p>
 <ul>
 <li><a href="https://juejin.im/entry/586eddf6a22b9d00587829ce" target="_blank" rel="external">比较全面的 Git 学习资料整理</a></li>
@@ -390,6 +410,7 @@
 <li><a href="http://rogerdudler.github.io/git-guide/" target="_blank" rel="external">http://rogerdudler.github.io/git-guide/</a></li>
 <li><a href="https://guides.github.com/activities/hello-world/" target="_blank" rel="external">https://guides.github.com/activities/hello-world/</a></li>
 <li><a href="http://www.uml.org.cn/pzgl/201207264.asp" target="_blank" rel="external">分布式和集中式版本控制工具-svn,git,mercurial</a></li>
+<li><a href="https://www.jianshu.com/p/86ef009e5c86" target="_blank" rel="external">Git在工作中的小总结</a></li>
 </ul>
 
       
@@ -563,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Git"><span class="nav-number">1.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加和提交"><span class="nav-number">3.</span> <span class="nav-text">添加和提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销修改"><span class="nav-number">4.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-number">5.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加远程库"><span class="nav-number">6.</span> <span class="nav-text">添加远程库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">6.1.</span> <span class="nav-text">从远程库克隆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支管理"><span class="nav-number">7.</span> <span class="nav-text">分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建与合并分支"><span class="nav-number">7.1.</span> <span class="nav-text">创建与合并分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决冲突"><span class="nav-number">7.2.</span> <span class="nav-text">解决冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bug分支"><span class="nav-number">7.3.</span> <span class="nav-text">Bug分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature分支"><span class="nav-number">7.4.</span> <span class="nav-text">Feature分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多人协作"><span class="nav-number">7.5.</span> <span class="nav-text">多人协作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签管理"><span class="nav-number">8.</span> <span class="nav-text">标签管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个本地库关联多个远程库"><span class="nav-number">9.</span> <span class="nav-text">一个本地库关联多个远程库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略特殊文件"><span class="nav-number">10.</span> <span class="nav-text">忽略特殊文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置别名"><span class="nav-number">11.</span> <span class="nav-text">配置别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建Git服务器"><span class="nav-number">12.</span> <span class="nav-text">搭建Git服务器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Git"><span class="nav-number">1.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加和提交"><span class="nav-number">3.</span> <span class="nav-text">添加和提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销修改"><span class="nav-number">4.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-number">5.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加远程库"><span class="nav-number">6.</span> <span class="nav-text">添加远程库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">6.1.</span> <span class="nav-text">从远程库克隆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支管理"><span class="nav-number">7.</span> <span class="nav-text">分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建与合并分支"><span class="nav-number">7.1.</span> <span class="nav-text">创建与合并分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决冲突"><span class="nav-number">7.2.</span> <span class="nav-text">解决冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bug分支"><span class="nav-number">7.3.</span> <span class="nav-text">Bug分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature分支"><span class="nav-number">7.4.</span> <span class="nav-text">Feature分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多人协作"><span class="nav-number">7.5.</span> <span class="nav-text">多人协作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签管理"><span class="nav-number">8.</span> <span class="nav-text">标签管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个本地库关联多个远程库"><span class="nav-number">9.</span> <span class="nav-text">一个本地库关联多个远程库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略特殊文件"><span class="nav-number">10.</span> <span class="nav-text">忽略特殊文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置别名"><span class="nav-number">11.</span> <span class="nav-text">配置别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支开发"><span class="nav-number">12.</span> <span class="nav-text">分支开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建Git服务器"><span class="nav-number">13.</span> <span class="nav-text">搭建Git服务器</span></a></li></ol></div>
             
 
           </div>
