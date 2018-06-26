@@ -776,7 +776,7 @@ Linu
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/9ffd3055.html" itemprop="url">Linux文件管理05 文件系统</a></h1>
+                <a class="post-title-link" href="/post/9ffd3055.html" itemprop="url">【Linux】Linux文件管理01 文件和文件系统</a></h1>
         
 
         <div class="post-meta">
@@ -827,10 +827,17 @@ Linu
 
       
         
-          <p>文件系统层次结构标准（英语：Filesystem Hierarchy Standard，FHS）定义了Linux操作系统中的主要目录及目录内容。在大多数情况下，它是一个传统BSD文件系统层次结构的形式化与扩充。</p>
-<p>设计FHS的目的是为了给Unix-like系统的管理员提供一个管理系统以及目录结构的参考。</p>
-<p>由于利用Linux源码开发产品和发行版的企业或组织众多，如果每个组织都按照自己的喜好来组织系统中的文件结构，网络上必然出现各种各样的文件结构。这些产品的用户就不得不为每种不同的文件系统结构花费时间来学习。有了FHS之后，几乎所有的Unix-like系统的发行商或软件开发者都遵从该建议规范每个特定目录下分别只放哪些文件，方便了文件的组织和查找。</p>
-<p>详细内容参考：<a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf" target="_blank" rel="external">https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf</a><br>
+          <h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><p>linux中一切皆文件，目录为目录文件。普通文件用来保存数据，目录文件用来保存文件</p>
+<h3 id="文件有两类数据"><a href="#文件有两类数据" class="headerlink" title="文件有两类数据"></a>文件有两类数据</h3><ul>
+<li>元数据、metadata  <ul>
+<li>元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。</li>
+</ul>
+</li>
+<li>数据、data  <ul>
+<li>数据是指普通文件中的实际数据。</li>
+</ul>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/9ffd3055.html#more" rel="contents">
@@ -903,7 +910,7 @@ Linu
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/9ffd3055.html" itemprop="url">【Linux】Linux文件管理01 文件和文件系统</a></h1>
+                <a class="post-title-link" href="/post/9ffd3055.html" itemprop="url">Linux文件管理05 文件系统</a></h1>
         
 
         <div class="post-meta">
@@ -954,17 +961,10 @@ Linu
 
       
         
-          <h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><p>linux中一切皆文件，目录为目录文件。普通文件用来保存数据，目录文件用来保存文件</p>
-<h3 id="文件有两类数据"><a href="#文件有两类数据" class="headerlink" title="文件有两类数据"></a>文件有两类数据</h3><ul>
-<li>元数据、metadata  <ul>
-<li>元数据指用来描述一个文件的特征的系统数据，诸如访问权限、文件拥有者以及文件数据块的分布信息(inode…)等等。</li>
-</ul>
-</li>
-<li>数据、data  <ul>
-<li>数据是指普通文件中的实际数据。</li>
-</ul>
-</li>
-</ul>
+          <p>文件系统层次结构标准（英语：Filesystem Hierarchy Standard，FHS）定义了Linux操作系统中的主要目录及目录内容。在大多数情况下，它是一个传统BSD文件系统层次结构的形式化与扩充。</p>
+<p>设计FHS的目的是为了给Unix-like系统的管理员提供一个管理系统以及目录结构的参考。</p>
+<p>由于利用Linux源码开发产品和发行版的企业或组织众多，如果每个组织都按照自己的喜好来组织系统中的文件结构，网络上必然出现各种各样的文件结构。这些产品的用户就不得不为每种不同的文件系统结构花费时间来学习。有了FHS之后，几乎所有的Unix-like系统的发行商或软件开发者都遵从该建议规范每个特定目录下分别只放哪些文件，方便了文件的组织和查找。</p>
+<p>详细内容参考：<a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf" target="_blank" rel="external">https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf</a><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/9ffd3055.html#more" rel="contents">

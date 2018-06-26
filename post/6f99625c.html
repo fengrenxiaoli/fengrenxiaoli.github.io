@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="位置打开VIM，输入:version123456789系统 vimrc 文件: &amp;quot;$VIM/vimrc&amp;quot;用户 vimrc 文件: &amp;quot;$HOME/.vimrc&amp;quot;第二用户 vimrc 文件: &amp;quot;~/.vim/vimrc&amp;quot;用户 exrc 文件: &amp;quot;$HOME/.exrc&amp;quot;系统 gvimrc 文件: &amp;quot;$VIM/gv">
+<meta name="description" content="配置文件的位置打开VIM，输入:version123456789系统 vimrc 文件: &amp;quot;$VIM/vimrc&amp;quot;用户 vimrc 文件: &amp;quot;$HOME/.vimrc&amp;quot;第二用户 vimrc 文件: &amp;quot;~/.vim/vimrc&amp;quot;用户 exrc 文件: &amp;quot;$HOME/.exrc&amp;quot;系统 gvimrc 文件: &amp;quot;$V">
 <meta name="keywords" content="VIM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VIM配置">
+<meta property="og:title" content="VIM配置及插件">
 <meta property="og:url" content="http://yoursite.com/post/6f99625c.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="位置打开VIM，输入:version123456789系统 vimrc 文件: &amp;quot;$VIM/vimrc&amp;quot;用户 vimrc 文件: &amp;quot;$HOME/.vimrc&amp;quot;第二用户 vimrc 文件: &amp;quot;~/.vim/vimrc&amp;quot;用户 exrc 文件: &amp;quot;$HOME/.exrc&amp;quot;系统 gvimrc 文件: &amp;quot;$VIM/gv">
+<meta property="og:description" content="配置文件的位置打开VIM，输入:version123456789系统 vimrc 文件: &amp;quot;$VIM/vimrc&amp;quot;用户 vimrc 文件: &amp;quot;$HOME/.vimrc&amp;quot;第二用户 vimrc 文件: &amp;quot;~/.vim/vimrc&amp;quot;用户 exrc 文件: &amp;quot;$HOME/.exrc&amp;quot;系统 gvimrc 文件: &amp;quot;$V">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.872Z">
+<meta property="og:updated_time" content="2018-06-12T15:25:20.132Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VIM配置">
-<meta name="twitter:description" content="位置打开VIM，输入:version123456789系统 vimrc 文件: &amp;quot;$VIM/vimrc&amp;quot;用户 vimrc 文件: &amp;quot;$HOME/.vimrc&amp;quot;第二用户 vimrc 文件: &amp;quot;~/.vim/vimrc&amp;quot;用户 exrc 文件: &amp;quot;$HOME/.exrc&amp;quot;系统 gvimrc 文件: &amp;quot;$VIM/gv">
+<meta name="twitter:title" content="VIM配置及插件">
+<meta name="twitter:description" content="配置文件的位置打开VIM，输入:version123456789系统 vimrc 文件: &amp;quot;$VIM/vimrc&amp;quot;用户 vimrc 文件: &amp;quot;$HOME/.vimrc&amp;quot;第二用户 vimrc 文件: &amp;quot;~/.vim/vimrc&amp;quot;用户 exrc 文件: &amp;quot;$HOME/.exrc&amp;quot;系统 gvimrc 文件: &amp;quot;$V">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>VIM配置 | 太阳落下</title>
+  <title>VIM配置及插件 | 太阳落下</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">VIM配置</h1>
+          <h1 class="post-title" itemprop="name headline">VIM配置及插件</h1>
         
 
         <div class="post-meta">
@@ -320,10 +320,27 @@
       
 
       
-        <h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>打开VIM，输入<code>:version</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">系统 vimrc 文件: &quot;$VIM/vimrc&quot;</div><div class="line">用户 vimrc 文件: &quot;$HOME/.vimrc&quot;</div><div class="line">第二用户 vimrc 文件: &quot;~/.vim/vimrc&quot;</div><div class="line">用户 exrc 文件: &quot;$HOME/.exrc&quot;</div><div class="line">系统 gvimrc 文件: &quot;$VIM/gvimrc&quot;</div><div class="line">用户 gvimrc 文件: &quot;$HOME/.gvimrc&quot; </div><div class="line">第二用户 gvimrc 文件: &quot;~/.vim/gvimrc&quot;</div><div class="line">系统菜单文件: &quot;$VIMRUNTIME/menu.vim&quot;</div><div class="line">$VIM 预设值: &quot;/usr/share/vim&quot;</div></pre></td></tr></table></figure></p>
-<p>列出了几个 vimrc 文件，有一个系统的 vimrc 文件，还有用户的 vimrc 文件，以及系统和用户 gvimrc 文件。出于和vi兼容的目的，vim也支持vi的exrc配置文件。</p>
-<p>一般来说，我们都使用用户目录下的<code>$HOME/.vimrc</code>文件即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">set number</div><div class="line">set ruler</div><div class="line">&quot;这是注释</div></pre></td></tr></table></figure></p>
-<p><a href="https://blog.easwy.com/archives/advanced-vim-skills-catalog/" target="_blank" rel="external">https://blog.easwy.com/archives/advanced-vim-skills-catalog/</a></p>
+        <h2 id="配置文件的位置"><a href="#配置文件的位置" class="headerlink" title="配置文件的位置"></a>配置文件的位置</h2><p>打开VIM，输入<code>:version</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">系统 vimrc 文件: &quot;$VIM/vimrc&quot;</div><div class="line">用户 vimrc 文件: &quot;$HOME/.vimrc&quot;</div><div class="line">第二用户 vimrc 文件: &quot;~/.vim/vimrc&quot;</div><div class="line">用户 exrc 文件: &quot;$HOME/.exrc&quot;</div><div class="line">系统 gvimrc 文件: &quot;$VIM/gvimrc&quot;</div><div class="line">用户 gvimrc 文件: &quot;$HOME/.gvimrc&quot; </div><div class="line">第二用户 gvimrc 文件: &quot;~/.vim/gvimrc&quot;</div><div class="line">系统菜单文件: &quot;$VIMRUNTIME/menu.vim&quot;</div><div class="line">$VIM 预设值: &quot;/usr/share/vim&quot;</div></pre></td></tr></table></figure></p>
+<p>列出了几个 vimrc 文件，系统的 vimrc 文件(<code>/etc/vim/vimrc</code>)，还有用户的 vimrc 文件，以及系统和用户 gvimrc 文件。出于和vi兼容的目的，vim也支持vi的exrc配置文件。</p>
+<p>一般来说，我们使用用户目录下的<code>$HOME/.vimrc</code>文件即可，家目录下的配置文件优先级更高</p>
+<h2 id="插件的安装"><a href="#插件的安装" class="headerlink" title="插件的安装"></a>插件的安装</h2><p>因为自己使用的是ElementaryOS，需要使用tweaks关闭使用<code>Ctrl-v</code>作为复制的快捷键</p>
+<p>使用插件管理 <a href="https://github.com/junegunn/vim-plug" target="_blank" rel="external">vim-plug</a></p>
+<p>安装vim-plug<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</div><div class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</div></pre></td></tr></table></figure></p>
+<p>其他插件的安装需要先在配置文件中配置好，然后重新用vim打开<code>.vimrc</code>，输入<code>:PlugInstall</code>安装插件</p>
+<p>vim-plug的一些命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">:PlugInstall         #安装插件</div><div class="line">:PlugUpdate          #升级插件</div><div class="line">:PlugClean           #删除未被使用的插件目录</div><div class="line">:PlugUpgrade         #升级Vim-plug自身</div><div class="line">:PlugStatus          #查看插件状态</div><div class="line">:q                    退出</div></pre></td></tr></table></figure></p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>主要是使用插件管理安装插件，需要放在<code>call plug#begin(&#39;~/.vim/plugged&#39;)</code>和<code>call plug#end()</code>之间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">&quot;这是注释</div><div class="line"></div><div class="line">&quot;插件</div><div class="line">&quot;vim-plug</div><div class="line">call plug#begin(&apos;~/.vim/plugged&apos;)  </div><div class="line">let mapleader=&quot;,&quot;</div><div class="line"></div><div class="line">&quot;目录树</div><div class="line">&quot;F3打开目录</div><div class="line">Plug &apos;scrooloose/nerdtree&apos;</div><div class="line">Plug &apos;junegunn/fzf&apos;, &#123; &apos;dir&apos;: &apos;~/.fzf&apos;, &apos;do&apos;: &apos;./install --all&apos; &#125;</div><div class="line">Plug &apos;junegunn/fzf.vim&apos;</div><div class="line">nnoremap &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</div><div class="line">autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif</div><div class="line"></div><div class="line">&quot;markdown 语法高亮、预览</div><div class="line">&quot;:PrevimOpen在浏览器预览</div><div class="line">&quot;关闭折叠</div><div class="line">let g:vim_markdown_folding_disabled = 1</div><div class="line">Plug &apos;godlygeek/tabular&apos;</div><div class="line">Plug &apos;plasticboy/vim-markdown&apos;</div><div class="line">Plug &apos;kannokanno/previm&apos;</div><div class="line">Plug &apos;tyru/open-browser.vim&apos;</div><div class="line"></div><div class="line">&quot;模版</div><div class="line">Plug &apos;aperezdc/vim-template&apos;</div><div class="line"></div><div class="line">&quot;Plug &apos;ctrlpvim/ctrlp.vim&apos;</div><div class="line">&quot;文件搜索，f2搜索</div><div class="line">nnoremap &lt;F2&gt; :Files&lt;CR&gt;</div><div class="line">Plug &apos;Yggdroot/LeaderF&apos;, &#123; &apos;do&apos;: &apos;./install.sh&apos; &#125;</div><div class="line">call plug#end()  </div><div class="line">&quot;插件结束</div><div class="line">&quot;添加vim-plug配置，以call plug#begin()开头，call plug#end()结尾，中间是插件列表，begin可以接受参数指定存放插件的位置</div><div class="line"></div><div class="line"></div><div class="line">set number</div><div class="line">set ruler</div><div class="line"></div><div class="line">&quot;文件自动检测外部更改</div><div class="line">set autoread</div></pre></td></tr></table></figure>
+<p>补充：<br><a href="http://www.vimer.cn/archives/1372.html" target="_blank" rel="external">http://www.vimer.cn/archives/1372.html</a></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/rankun1/article/details/78775404" target="_blank" rel="external">https://blog.csdn.net/rankun1/article/details/78775404</a></li>
+<li><a href="https://www.jianshu.com/p/f4fb7877829f" target="_blank" rel="external">https://www.jianshu.com/p/f4fb7877829f</a></li>
+<li><a href="http://www.zhaiqianfeng.com/2017/02/install-vim-plugins.html" target="_blank" rel="external">http://www.zhaiqianfeng.com/2017/02/install-vim-plugins.html</a></li>
+<li><a href="https://github.com/gabrielelana/vim-markdown" target="_blank" rel="external">https://github.com/gabrielelana/vim-markdown</a></li>
+<li><a href="https://bovink.com/2016/07/01/use-vim-to-write-markdown/" target="_blank" rel="external">https://bovink.com/2016/07/01/use-vim-to-write-markdown/</a></li>
+<li><a href="https://github.com/Yggdroot/LeaderF" target="_blank" rel="external">https://github.com/Yggdroot/LeaderF</a></li>
+<li><a href="https://blog.easwy.com/archives/advanced-vim-skills-catalog/" target="_blank" rel="external">https://blog.easwy.com/archives/advanced-vim-skills-catalog/</a></li>
+</ul>
 
       
     </div>
@@ -364,8 +381,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/post/6f99625c.html" rel="prev" title="VIM配置及插件">
-                VIM配置及插件 <i class="fa fa-chevron-right"></i>
+              <a href="/post/6f99625c.html" rel="prev" title="VIM配置">
+                VIM配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -496,7 +513,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#位置"><span class="nav-number">1.</span> <span class="nav-text">位置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件的位置"><span class="nav-number">1.</span> <span class="nav-text">配置文件的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件的安装"><span class="nav-number">2.</span> <span class="nav-text">插件的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件"><span class="nav-number">3.</span> <span class="nav-text">配置文件</span></a></li></ol></div>
             
 
           </div>
