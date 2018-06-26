@@ -122,7 +122,7 @@
     <link href="http://yoursite.com/post/ab888b92.html"/>
     <id>http://yoursite.com/post/ab888b92.html</id>
     <published>2018-06-24T01:29:39.000Z</published>
-    <updated>2018-06-26T02:46:32.189Z</updated>
+    <updated>2018-06-26T04:36:17.275Z</updated>
     
     <content type="html"><![CDATA[<h2 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h2><p><strong>集中式版本控制系统</strong>（Centralized Version Control Systems,简称 CVCS）：have a single server that contains all the versioned files, and a number of clients that check out files from that central place.</p>
 <p>集中式版本控制系统的缺点是中央服务器的单点故障。</p>
@@ -135,24 +135,28 @@
 <li>git存储更像快照，对当时的全部文件制作一个快照并保存这个快照的索引，如果没有修改则只保留一个指向之前存储文件的链接</li>
 </ul>
 <p>在 Git 中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其它计算机的信息<br>SVN 中可以修改文件，但是无法向数据库提交修改</p>
-<p>Git 中所有数据在存储前都计算校验和,然后以校验和来引用，<br>校验和由 40 个十六进制字符组成，通过SHA1计算得出。Git 数据库中保存的信息都是以文件内容的哈希值来索引,而不是文件名。</p>
+<p>Git 中所有数据在存储前都计算<strong>校验和</strong>，然后以校验和来引用，<br>校验和由 40 个十六进制字符组成，通过SHA1计算得出。Git 数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。</p>
 <a id="more"></a>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ol>
+<h2 id="Git的作用"><a href="#Git的作用" class="headerlink" title="Git的作用"></a>Git的作用</h2><ol>
 <li>备份文件</li>
 <li>记录历史</li>
 <li>回到过去</li>
 <li>多端共享</li>
-<li>独当一面</li>
 <li>团队协作</li>
 </ol>
 <h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install git</div><div class="line">sudo yum install git</div></pre></td></tr></table></figure>
+<h2 id="帮助信息"><a href="#帮助信息" class="headerlink" title="帮助信息"></a>帮助信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git help &lt;verb&gt;</div><div class="line">git &lt;verb&gt; --help</div><div class="line">man git &lt;verb&gt;</div></pre></td></tr></table></figure>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config</div></pre></td></tr></table></figure>
-<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>1.<code>/etc/gitconfig</code>，系统配置，<code>git config --system</code><br>2.<code>~/.gitconfig</code> 或 <code>~/.config/git/config</code>，当前用户，<code>git config --global</code><br>3.项目目录下的<code>.git/config</code>，当前仓库</p>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><ol>
+<li><code>/etc/gitconfig</code>，系统配置，<code>git config --system</code></li>
+<li><code>~/.gitconfig</code> 或 <code>~/.config/git/config</code>，当前用户，<code>git config --global</code></li>
+<li>项目目录下的<code>.git/config</code>，当前仓库</li>
+</ol>
 <p>当前仓库会覆盖当前用户配置，当前用户配置会覆盖系统配置</p>
 <h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;Your Name&quot;</div><div class="line">git config --global user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure>
-<p>全局配置只需设置一次<br>当你想针对特定项目使用不同的用户名称与邮件地址时,可以在那个项目目录下运行没有 <code>--global</code> 选项的命令来配置</p>
+<p>全局配置只需设置一次<br>当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 <code>--global</code> 选项的命令来配置</p>
 <h3 id="列出所有配置"><a href="#列出所有配置" class="headerlink" title="列出所有配置"></a>列出所有配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --list</div></pre></td></tr></table></figure>
-<h3 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git config --global alias.st status</div><div class="line">git config --global alias.co checkout</div><div class="line">git config --global alias.ci commit</div><div class="line">git config --global alias.br branch</div></pre></td></tr></table></figure>
+<h3 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">git config --global alias.st status</div><div class="line"># git st</div><div class="line">git config --global alias.co checkout</div><div class="line"># git co</div><div class="line">git config --global alias.ci commit</div><div class="line"># git ci</div><div class="line">git config --global alias.br branch</div><div class="line"># git br</div></pre></td></tr></table></figure>
 <h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h3 id="在现有目录中初始化仓库"><a href="#在现有目录中初始化仓库" class="headerlink" title="在现有目录中初始化仓库"></a>在现有目录中初始化仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd &lt;dir-name&gt;</div><div class="line">git init</div></pre></td></tr></table></figure>
 <h3 id="克隆现有的仓库"><a href="#克隆现有的仓库" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:fengrenxiaoli/GitTest.git</div><div class="line"># 在当前目录下创建一个 GitTest 目录，并在 GitTest 目录下创建 .git 文件夹</div><div class="line"></div><div class="line">git clone git@github.com:fengrenxiaoli/GitTest.git mylibgit</div><div class="line"># 在当前目录下创建一个 mylibgit 目录，并在 mylibgit 目录下创建 .git 文件夹</div></pre></td></tr></table></figure>
 <h2 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git status</div></pre></td></tr></table></figure>
@@ -179,17 +183,17 @@
 </tr>
 <tr>
 <td>已提交commited</td>
-<td>Repository</td>
+<td>Local Repository/.git目录</td>
 <td><code>git commit</code></td>
 </tr>
 </tbody>
 </table>
-<p><code>git add</code>可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区</p>
-<h2 id="添加和提交"><a href="#添加和提交" class="headerlink" title="添加和提交"></a>添加和提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mkdir learngit</div><div class="line">cd learngit</div><div class="line">git init</div><div class="line"># 创建一个新的git存储库</div><div class="line"></div><div class="line">git add .</div><div class="line">git add readme.txt</div><div class="line"># 实际上是把文件修改添加到暂存区</div><div class="line"></div><div class="line">git commit -m &quot;增加文件&quot;</div><div class="line"># 提交更改，实际上是把暂存区的所有内容提交到当前分支</div></pre></td></tr></table></figure>
+<p><code>git add</code>既可以用该命令开始跟踪新文件，也可以把已跟踪的文件放到暂存区</p>
+<h2 id="查看修改"><a href="#查看修改" class="headerlink" title="查看修改"></a>查看修改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">git diff</div><div class="line">git diff readme.txt</div><div class="line"># 查看修改之后还没有暂存起来的修改内容(git add前)</div><div class="line"># 比较的是工作目录中当前文件和暂存区域快照之间的差异</div><div class="line"></div><div class="line">git diff HEAD --readme.txt</div><div class="line"></div><div class="line">git diff --cached</div><div class="line"># 查看已暂存的将要添加到下次提交里的内容(git add后)</div></pre></td></tr></table></figure>
+<h2 id="添加和提交"><a href="#添加和提交" class="headerlink" title="添加和提交"></a>添加和提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git add readme.txt</div><div class="line"># 实际上是把文件修改添加到暂存区</div><div class="line"></div><div class="line">git commit</div><div class="line"># 提交更改，实际上是把暂存区的所有内容提交到当前分支</div><div class="line"># 会启动默认的编辑器输入注释信息</div><div class="line"># 没有git add但是已经修改的内容不会提交</div><div class="line">git commit -m &quot;增加文件&quot;</div><div class="line"># 直接声明注释信息</div><div class="line"></div><div class="line">git commit -m -a &apos;增加文件&apos;</div><div class="line"># git add + git commit</div></pre></td></tr></table></figure>
 <h2 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h2><p>忽略某些文件时，需要编写<code>.gitignore</code><br><code>.gitignore</code>文件本身要放到版本库里，并且可以对<code>.gitignore</code>做版本管理<br>参考模版：<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a></p>
-<p>文件 <code>.gitignore</code> 的格式规范如下:<br>• 所有空行或者以 <code>#</code> 开头的行都会被 Git 忽略。<br>• 可以使用标准的 <code>glob</code> 模式（通配符模式）匹配。<br>• 以 <code>/</code> 开头防止递归。<br>• 以 <code>/</code> 结尾表示目录。<br>• 要忽略指定模式以外的文件或目录,可以在模式前加上惊叹号(!)取反。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git diff readme.txt</div><div class="line"># 查看修改内容</div><div class="line"></div><div class="line">git diff HEAD --readme.txt</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git log</div><div class="line"># 查看提交历史，以便确定要回退到哪个版本，时间从最近到最远</div><div class="line">git log --pretty=oneline</div><div class="line"># 简要格式，commit id</div></pre></td></tr></table></figure>
+<p>文件 <code>.gitignore</code> 的格式规范如下：<br>• 所有空行或者以 <code>#</code> 开头的行都会被 Git 忽略。<br>• 可以使用标准的 <code>glob</code> 模式（通配符模式）匹配。<br>• 以 <code>/</code> 开头防止递归。<br>• 以 <code>/</code> 结尾表示目录。<br>• 要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号(!)取反。</p>
+<h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">git log</div><div class="line"># 查看提交历史，以便确定要回退到哪个版本，时间从最近到最远</div><div class="line"># 列出每个提交的 SHA-1 校验和、作者的名字和电子邮件地址、提交时间以及提交说明</div><div class="line">git log --pretty=oneline</div><div class="line"># 简要格式，commit id</div><div class="line"></div><div class="line">git log -p</div><div class="line"># 显示每次提交的内容差异，可以用于代码审查</div><div class="line">git log -2</div><div class="line"># 最近再次提交</div><div class="line">git log --stat</div><div class="line"># 包含简略的统计信息</div><div class="line">git log --pretty=oneline</div><div class="line"># 指定显示格式，oneline表示单选显示，其他包括short\full\fuller</div><div class="line">git log --format=&quot;%h - %an - %ar - %s&quot;</div><div class="line"># 指定显示格式，具体选项，参考git log --help，或参考Pro-git</div><div class="line">git log --format=&apos;%h %s&apos; --graph</div><div class="line"># 图形化显示分支、合并历史</div></pre></td></tr></table></figure>
 <p>在Git中，用<code>HEAD</code>表示当前版本，上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，往上100个版本写成<code>HEAD~100</code>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD^</div><div class="line"># 回退到上个版本</div><div class="line"></div><div class="line">git reset --hard 1094adb</div><div class="line"># 回退到指定的commit id，commit id可以只写前几位</div><div class="line"></div><div class="line">git log</div><div class="line"># 这里无法查看指定的commit id之后的版本，可以使用git relog</div><div class="line"></div><div class="line">git relog</div><div class="line"># 查看命令历史，以便确定要回到未来的哪个版本commit id</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git diff</div><div class="line"># 工作区(work dict)和暂存区(stage)的比较</div><div class="line">git diff --cached</div><div class="line"># 暂存区(stage)和分支(master)的比较</div></pre></td></tr></table></figure>
@@ -197,7 +201,8 @@
 <p>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD &lt;file&gt;</code>，就回到了场景1，第二步按场景1操作。</p>
 <p>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git checkout -- readme.txt</div><div class="line"># 未git add，回退到文件修改之前（丢弃工作区的修改），不需要直接修改文件</div><div class="line"></div><div class="line"> git reset HEAD readme.txt</div><div class="line"># 已经git add（添加到了暂存区），需要回退未git add 之前</div></pre></td></tr></table></figure>
-<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p>当你要删除文件的时候，可以采用命令：<code>rm test.txt</code></p>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">rm readem.txt</div><div class="line">git rm readme.txt</div><div class="line"># 未提交到暂存区域</div><div class="line"># 可以用git add代替</div><div class="line"></div><div class="line">git rm -f readme.txt</div><div class="line"># 删除已经添加到暂存区域的文件 </div><div class="line"></div><div class="line"></div><div class="line">git rm --cached readme.txt</div><div class="line"># 让文件保存在磁盘，但是禁止git继续跟踪</div><div class="line"># 适用于忘记添加 .gitignore 文件时</div></pre></td></tr></table></figure>
+<h2 id="删除文件-1"><a href="#删除文件-1" class="headerlink" title="删除文件"></a>删除文件</h2><p>当你要删除文件的时候，可以采用命令：<code>rm test.txt</code></p>
 <p>这个时候（也就是说这个时候只执行了rm test.txt）有两种情况</p>
 <p>第一种情况:的确要把test.txt删掉，那么可以执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git rm test.txt</div><div class="line">git commit -m &quot;remove test.txt&quot;</div></pre></td></tr></table></figure></p>
 <p>然后文件就被删掉了<br>第二种情况:删错文件了，不应该删test.txt，注意这时只执行了rm test.txt，还没有提交，所以可以执行<code>git checkout test.txt</code>将文件恢复。</p>
@@ -232,11 +237,11 @@
 <h2 id="分支开发"><a href="#分支开发" class="headerlink" title="分支开发"></a>分支开发</h2><ol>
 <li>基于主分支创建个开发分支   <code>git checkout -b dev1</code></li>
 <li>在开发分支中拉取下主分支   <code>git pull origin master</code></li>
-<li>开发完成后,提交到git服务器     <code>git add</code> . / <code>git commit -m &#39;1&#39;</code>/ <code>git push origin dev1</code></li>
+<li>开发完成后，提交到git服务器     <code>git add</code> . / <code>git commit -m &#39;1&#39;</code>/ <code>git push origin dev1</code></li>
 <li>拉取下主分支，提前解决冲突 <code>git pull origin master</code></li>
 <li>切回主分支(切记要提交后切回)     <code>git checkout master</code></li>
 <li>拉取下最新代码  <code>git pull origin master</code></li>
-<li>合并开发分支   <code>git merge dev1</code>(如果失败会提示失败文件,解决掉冲突)</li>
+<li>合并开发分支   <code>git merge dev1</code>(如果失败会提示失败文件，解决掉冲突)</li>
 <li>提交到git服务器</li>
 </ol>
 <h2 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h2><p>以下方式为通过ssh协议搭建的Git服务器，添加了公钥的用户可以进行读写操作</p>
@@ -282,7 +287,7 @@
 &lt;li&gt;git存储更像快照，对当时的全部文件制作一个快照并保存这个快照的索引，如果没有修改则只保留一个指向之前存储文件的链接&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;在 Git 中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其它计算机的信息&lt;br&gt;SVN 中可以修改文件，但是无法向数据库提交修改&lt;/p&gt;
-&lt;p&gt;Git 中所有数据在存储前都计算校验和,然后以校验和来引用，&lt;br&gt;校验和由 40 个十六进制字符组成，通过SHA1计算得出。Git 数据库中保存的信息都是以文件内容的哈希值来索引,而不是文件名。&lt;/p&gt;
+&lt;p&gt;Git 中所有数据在存储前都计算&lt;strong&gt;校验和&lt;/strong&gt;，然后以校验和来引用，&lt;br&gt;校验和由 40 个十六进制字符组成，通过SHA1计算得出。Git 数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。&lt;/p&gt;
     
     </summary>
     
