@@ -48,20 +48,20 @@
     <link href="http://yoursite.com/post/68d6df4b.html"/>
     <id>http://yoursite.com/post/68d6df4b.html</id>
     <published>2018-06-25T02:31:27.000Z</published>
-    <updated>2018-06-25T11:57:18.876Z</updated>
+    <updated>2018-06-25T12:22:33.754Z</updated>
     
     <content type="html"><![CDATA[<p>在写这篇文章的时候，Github已经被Microsoft收购，不过依然会使用Github，因为觉得对自己的影响不大。</p>
 <p>最近重新学习Git发觉自己其实对Github了解甚少，star了不少，但是从来没有好好看过，我觉得<strong>学习一定要发挥自己的主动性</strong>，不能光收藏，还要尽可能提出issues、甚至代码，当前我最应该克服的是懒，破除嫌麻烦的这种思想，如果自己都懒，都嫌麻烦，如何去解决麻烦。</p>
 <p>回到正题，Github是一个git版本库托管商，里面有各种开源项目。本篇文章尝试写清楚从Github的入门使用到参与开源项目的一般方法。</p>
-<p>官网：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></p>
+<p>官网：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a><br><a id="more"></a></p>
 <h2 id="账户的配置"><a href="#账户的配置" class="headerlink" title="账户的配置"></a>账户的配置</h2><p>如何注册账户就不介绍了</p>
 <h3 id="SSH访问"><a href="#SSH访问" class="headerlink" title="SSH访问"></a>SSH访问</h3><p>配置SSH是为了能够在本地电脑上访问Github，识别出你推送的提交确实是你推送的，而不是别人冒充的</p>
 <p>具体如何做，其实在<a href="https://fengrenxiaoli.github.io/post/a20da6f3.html" target="_blank" rel="external">【Hexo】使用Hexo搭建github博客</a>里面有过介绍，那篇文章是为了制作Github Pages，这里不再说明git的安装和配置，那么只有一行命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa_github</div></pre></td></tr></table></figure>
-<p>该命令会在本地电脑（Linux）的<code>/home/.ssh</code>下创建公钥和私钥，将公钥(<code>id_rsa_github.pub</code>)中的内容拷贝到github帐号<code>Settings</code>&gt;<code>SSH and GPG keys</code>中</p>
+<p>该命令会在本地电脑（Linux）的<code>~/.ssh</code>下创建公钥和私钥，将公钥(<code>id_rsa_github.pub</code>)中的内容拷贝到github帐号<code>Settings</code>&gt;<code>SSH and GPG keys</code>中</p>
 <p>此外还有头像的配置（Profile）、邮箱的配置（Emails）、两步验证（Security）等全部都在<code>Settings</code>里。</p>
 <h2 id="创建项目仓库"><a href="#创建项目仓库" class="headerlink" title="创建项目仓库"></a>创建项目仓库</h2><p>创建项目仓库 首页 &gt; <code>New repository</code><br>如果勾选 <code>Initialize this repository with a README</code>，会创建一个<code>README.md</code>文件，</p>
-<p>可以将本地已存在的项目上传到仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git remote remote add origin git@github.com:fengrenxiaoli/GitTest.git</div><div class="line">git add .</div><div class="line">git commit -m &quot;upload&quot;</div><div class="line">git push -u origin master</div><div class="line"># 第一次push需要-u参数，关联本地master和远程master，以后不用加-u</div></pre></td></tr></table></figure></p>
+<p>可以将本地已存在的项目上传到仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git remote add origin git@github.com:fengrenxiaoli/GitTest.git</div><div class="line">git add .</div><div class="line">git commit -m &quot;upload&quot;</div><div class="line">git push -u origin master</div><div class="line"># 第一次push需要-u参数，关联本地master和远程master，以后不用加-u</div></pre></td></tr></table></figure></p>
 <p>也可以将Github上的项目复制到本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:fengrenxiaoli/GitTest.git</div></pre></td></tr></table></figure></p>
 <h2 id="Github协作流程"><a href="#Github协作流程" class="headerlink" title="Github协作流程"></a>Github协作流程</h2><ol>
 <li>从 <code>master</code> 分支中创建一个新分支</li>
@@ -73,18 +73,18 @@
 </ol>
 <h3 id="给队友添加写权限"><a href="#给队友添加写权限" class="headerlink" title="给队友添加写权限"></a>给队友添加写权限</h3><p>到项目的 <code>Settings</code> 页面，点击 <code>collaborator</code> 选项，输入框中输入相应的用户名使用户具有写权限。</p>
 <h3 id="Fork项目副本"><a href="#Fork项目副本" class="headerlink" title="Fork项目副本"></a>Fork项目副本</h3><p>对于大多数情况，参于开发者并不会被直接赋予写权限，开发者需要先Fork一份项目到自己的用户名下。</p>
-<h3 id="创建一个新分支"><a href="#创建一个新分支" class="headerlink" title="创建一个新分支"></a>创建一个新分支</h3><p>开新分支一定要在刚刚更新过的 master 的基础上开。<br>分支的名字应该是描述性的（如<code>refactor-authentication</code>，<code>user-content-cache-key</code>，<code>make-retina-avatars</code>），越清楚越好</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git checkout -b &lt;branch-name&gt;</div><div class="line">vim &lt;file-name&gt;</div><div class="line">git add &lt;file-name&gt;</div><div class="line">git commit -m &quot;some commit&quot;</div><div class="line">git push origin &lt;branch-name&gt;</div></pre></td></tr></table></figure>
-<h3 id="发起Pull-Request"><a href="#发起Pull-Request" class="headerlink" title="发起Pull Request"></a>发起Pull Request</h3><p>修改项目后，在Github上点击 <code>Compare &amp; pull request</code>，选择需要进行对比的分支，填写描述信息，需要图片可以直接拖进去，也可以点击<code>selectin them</code></p>
+<h3 id="创建一个新分支"><a href="#创建一个新分支" class="headerlink" title="创建一个新分支"></a>创建一个新分支</h3><p>开新分支一定要在刚刚更新过的 <code>master</code> 的基础上开。<br>分支的名字应该是描述性的（如<code>refactor-authentication</code>，<code>user-content-cache-key</code>，<code>make-retina-avatars</code>），越清楚越好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git pull</div><div class="line">git checkout -b &lt;branch-name&gt;</div><div class="line">vim &lt;file-name&gt;</div><div class="line">git add &lt;file-name&gt;</div><div class="line">git commit -m &quot;some commit&quot;</div><div class="line">git push origin &lt;branch-name&gt;</div></pre></td></tr></table></figure>
+<h3 id="发起Pull-Request"><a href="#发起Pull-Request" class="headerlink" title="发起Pull Request"></a>发起Pull Request</h3><p>修改项目后，在Github上点击 <code>Compare &amp; pull request</code>，选择需要进行对比的分支，填写描述信息，需要图片可以直接拖进去，也可以点击<code>selecting them</code></p>
 <p><code>Pull Request</code>会启动关于提交的讨论</p>
 <p>如果需要新的改动，直接在分支上修改，然后同步即可在pull request页面看到</p>
 <p><img src="/img/IMG145.png" alt=""><br><img src="/img/IMG146.png" alt=""></p>
 <h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p>拥有写权限的人可以点击 <code>Merge Pull Request</code><br>合并之后可以删除分支</p>
 <h3 id="快速-Pull-Request"><a href="#快速-Pull-Request" class="headerlink" title="快速 Pull Request"></a>快速 Pull Request</h3><p>如果只是修改很小的一点，没有必要使用上述流程，直接在Github网页上点击编辑，然后选择<code>Create a new branch for this commit and start a pull request...</code></p>
 <h2 id="issues"><a href="#issues" class="headerlink" title="issues"></a>issues</h2><p><a href="https://guides.github.com/features/issues/" target="_blank" rel="external">https://guides.github.com/features/issues/</a><br>Issue 中一般是放一些临时性的讨论(报Bug、提新需求等)，最终是要被关掉的。如果 Issue 里面有一些精华的内容，可以拷贝出来贴到 wiki 中，方便大家查阅。</p>
-<p>打开项目方面，点击<code>issues</code>，点击<code>New issue</code><br>新建的issue会有一个编号，类似于<code># 1</code><br>issue支持MarkDown语法</p>
+<p>打开项目页面，点击<code>issues</code>，点击<code>New issue</code><br>新建的issue会有一个编号，类似于<code># 1</code><br>issue支持MarkDown语法</p>
 <h3 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h3><p>使用三个反引号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">\`\`\`js</div><div class="line">alert(&quot;hello worold&quot;)</div><div class="line"></div><div class="line">\`\`\`</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">\`\`\`js</div><div class="line">alert(&quot;hello worold&quot;)</div><div class="line">\`\`\`</div></pre></td></tr></table></figure>
 <h3 id="快速引用"><a href="#快速引用" class="headerlink" title="快速引用"></a>快速引用</h3><p>MarkDown中使用<code>&gt;</code>作为引用<br>如果你想回答具体某个问题，可以用鼠标选中那段话，然后，敲 r 。这样这段话就自动出现在你的评论框中了。</p>
 <h3 id="拉别人进来讨论"><a href="#拉别人进来讨论" class="headerlink" title="拉别人进来讨论"></a>拉别人进来讨论</h3><p>如果你在评论框中输入<code>@happypeter</code>那么不管我是不是你当然项目的参与者，我都会收到通知来进来参加讨论</p>
 <h3 id="引用issue"><a href="#引用issue" class="headerlink" title="引用issue"></a>引用issue</h3><p>在评论框中输入<code>#</code>会提示相应的issue。<br>如果我在当前 Issue#10 的评论框中写 <code>#20</code> 就可以自动链接到 Issue#20 了。同时 Issue#20 那边也会显示出 Issue#10 。这种指向和关联的功能在实用中是非常重要的</p>
@@ -93,7 +93,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:dancer:</div></pre></td></tr></table></figure>
 <h2 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h2><p><a href="https://pages.github.com/" target="_blank" rel="external">https://pages.github.com/</a></p>
 <p>Github Pages可以用于写博客，也可以用于制作项目网站，对应的网址是<code>http://username.github.io/repository</code></p>
-<h2 id="里程碑"><a href="#里程碑" class="headerlink" title="里程碑"></a>里程碑</h2><p>Github项目页，点击<code>release</code>&gt;<code>Draft a new release</code>，创建标签，填入字段</p>
+<h2 id="里程碑"><a href="#里程碑" class="headerlink" title="里程碑"></a>里程碑</h2><p>用于发布版本<br>Github项目页，点击<code>release</code>&gt;<code>Draft a new release</code>，创建标签，填入字段</p>
 <p>参考：</p>
 <ul>
 <li><a href="https://guides.github.com/introduction/flow/index.html" target="_blank" rel="external">Understanding the GitHub Flow</a></li>
@@ -106,7 +106,9 @@
     <summary type="html">
     
       &lt;p&gt;在写这篇文章的时候，Github已经被Microsoft收购，不过依然会使用Github，因为觉得对自己的影响不大。&lt;/p&gt;
-&lt;p&gt;最近重新学习Git发觉自己其实对Github了解甚少，star了不少，但是从来没有好好看过，我觉得&lt;strong&gt;学习一定要发挥自己的主动性&lt;
+&lt;p&gt;最近重新学习Git发觉自己其实对Github了解甚少，star了不少，但是从来没有好好看过，我觉得&lt;strong&gt;学习一定要发挥自己的主动性&lt;/strong&gt;，不能光收藏，还要尽可能提出issues、甚至代码，当前我最应该克服的是懒，破除嫌麻烦的这种思想，如果自己都懒，都嫌麻烦，如何去解决麻烦。&lt;/p&gt;
+&lt;p&gt;回到正题，Github是一个git版本库托管商，里面有各种开源项目。本篇文章尝试写清楚从Github的入门使用到参与开源项目的一般方法。&lt;/p&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/&lt;/a&gt;&lt;br&gt;
     
     </summary>
     
@@ -120,18 +122,72 @@
     <link href="http://yoursite.com/post/ab888b92.html"/>
     <id>http://yoursite.com/post/ab888b92.html</id>
     <published>2018-06-24T01:29:39.000Z</published>
-    <updated>2018-06-25T11:53:47.922Z</updated>
+    <updated>2018-06-26T02:46:32.189Z</updated>
     
-    <content type="html"><![CDATA[<p>集中式版本控制系统：版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器</p>
-<p>集中式版本控制系统最大的毛病就是必须联网才能工作，在局域网内还好</p>
-<p>分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。</p>
+    <content type="html"><![CDATA[<h2 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h2><p><strong>集中式版本控制系统</strong>（Centralized Version Control Systems,简称 CVCS）：have a single server that contains all the versioned files, and a number of clients that check out files from that central place.</p>
+<p>集中式版本控制系统的缺点是中央服务器的单点故障。</p>
+<p><strong>分布式版本控制系统</strong>（Distributed Version Control System,简称 DVCS）：clients don’t just check out the latest snapshot of the files; rather, they fully mirror the repository, including its full history.</p>
 <p>分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已。</p>
 <p>集中式版本控制：CVS、SVN、ClearCase、VSS<br>分布式版本控制：Git、BitKeeper、Mercurial、Bazaar</p>
+<p>git和其他版本控制工具存储数据的方式不同：</p>
+<ul>
+<li>其他版本控制工具存储一组文件以及基于这些文件随时间推移产生的差异</li>
+<li>git存储更像快照，对当时的全部文件制作一个快照并保存这个快照的索引，如果没有修改则只保留一个指向之前存储文件的链接</li>
+</ul>
+<p>在 Git 中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其它计算机的信息<br>SVN 中可以修改文件，但是无法向数据库提交修改</p>
+<p>Git 中所有数据在存储前都计算校验和,然后以校验和来引用，<br>校验和由 40 个十六进制字符组成，通过SHA1计算得出。Git 数据库中保存的信息都是以文件内容的哈希值来索引,而不是文件名。</p>
 <a id="more"></a>
-<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install git</div></pre></td></tr></table></figure>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;Your Name&quot;</div><div class="line">git config --global user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ol>
+<li>备份文件</li>
+<li>记录历史</li>
+<li>回到过去</li>
+<li>多端共享</li>
+<li>独当一面</li>
+<li>团队协作</li>
+</ol>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt install git</div><div class="line">sudo yum install git</div></pre></td></tr></table></figure>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config</div></pre></td></tr></table></figure>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>1.<code>/etc/gitconfig</code>，系统配置，<code>git config --system</code><br>2.<code>~/.gitconfig</code> 或 <code>~/.config/git/config</code>，当前用户，<code>git config --global</code><br>3.项目目录下的<code>.git/config</code>，当前仓库</p>
+<p>当前仓库会覆盖当前用户配置，当前用户配置会覆盖系统配置</p>
+<h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;Your Name&quot;</div><div class="line">git config --global user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure>
+<p>全局配置只需设置一次<br>当你想针对特定项目使用不同的用户名称与邮件地址时,可以在那个项目目录下运行没有 <code>--global</code> 选项的命令来配置</p>
+<h3 id="列出所有配置"><a href="#列出所有配置" class="headerlink" title="列出所有配置"></a>列出所有配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --list</div></pre></td></tr></table></figure>
+<h3 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git config --global alias.st status</div><div class="line">git config --global alias.co checkout</div><div class="line">git config --global alias.ci commit</div><div class="line">git config --global alias.br branch</div></pre></td></tr></table></figure>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h3 id="在现有目录中初始化仓库"><a href="#在现有目录中初始化仓库" class="headerlink" title="在现有目录中初始化仓库"></a>在现有目录中初始化仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd &lt;dir-name&gt;</div><div class="line">git init</div></pre></td></tr></table></figure>
+<h3 id="克隆现有的仓库"><a href="#克隆现有的仓库" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:fengrenxiaoli/GitTest.git</div><div class="line"># 在当前目录下创建一个 GitTest 目录，并在 GitTest 目录下创建 .git 文件夹</div><div class="line"></div><div class="line">git clone git@github.com:fengrenxiaoli/GitTest.git mylibgit</div><div class="line"># 在当前目录下创建一个 mylibgit 目录，并在 mylibgit 目录下创建 .git 文件夹</div></pre></td></tr></table></figure>
+<h2 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git status</div></pre></td></tr></table></figure>
+<p><img src="/img/IMG149.png" alt=""></p>
+<p>tracked：已跟踪，那些被纳入了版本控制的文件，在上一次快照中有它们的记录，在工作一段时间后，它们的状态可能处于未修改，已修改或已放入暂存区<br>untracked：未跟踪，其他文件，使用<code>git add &lt;file-name&gt;</code>变为跟踪状态</p>
+<h3 id="三种状态和三个工作区域"><a href="#三种状态和三个工作区域" class="headerlink" title="三种状态和三个工作区域"></a>三种状态和三个工作区域</h3><table>
+<thead>
+<tr>
+<th>状态</th>
+<th>工作区域</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>已修改modifed</td>
+<td>Working Direcroty</td>
+<td></td>
+</tr>
+<tr>
+<td>已暂存staged</td>
+<td>Stage/Index</td>
+<td><code>git add &lt;file-name&gt;</code></td>
+</tr>
+<tr>
+<td>已提交commited</td>
+<td>Repository</td>
+<td><code>git commit</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>git add</code>可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区</p>
 <h2 id="添加和提交"><a href="#添加和提交" class="headerlink" title="添加和提交"></a>添加和提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mkdir learngit</div><div class="line">cd learngit</div><div class="line">git init</div><div class="line"># 创建一个新的git存储库</div><div class="line"></div><div class="line">git add .</div><div class="line">git add readme.txt</div><div class="line"># 实际上是把文件修改添加到暂存区</div><div class="line"></div><div class="line">git commit -m &quot;增加文件&quot;</div><div class="line"># 提交更改，实际上是把暂存区的所有内容提交到当前分支</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git status</div><div class="line"># 仓库当前的状态</div></pre></td></tr></table></figure>
+<h2 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h2><p>忽略某些文件时，需要编写<code>.gitignore</code><br><code>.gitignore</code>文件本身要放到版本库里，并且可以对<code>.gitignore</code>做版本管理<br>参考模版：<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a></p>
+<p>文件 <code>.gitignore</code> 的格式规范如下:<br>• 所有空行或者以 <code>#</code> 开头的行都会被 Git 忽略。<br>• 可以使用标准的 <code>glob</code> 模式（通配符模式）匹配。<br>• 以 <code>/</code> 开头防止递归。<br>• 以 <code>/</code> 结尾表示目录。<br>• 要忽略指定模式以外的文件或目录,可以在模式前加上惊叹号(!)取反。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git diff readme.txt</div><div class="line"># 查看修改内容</div><div class="line"></div><div class="line">git diff HEAD --readme.txt</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git log</div><div class="line"># 查看提交历史，以便确定要回退到哪个版本，时间从最近到最远</div><div class="line">git log --pretty=oneline</div><div class="line"># 简要格式，commit id</div></pre></td></tr></table></figure>
 <p>在Git中，用<code>HEAD</code>表示当前版本，上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，往上100个版本写成<code>HEAD~100</code>。</p>
@@ -173,9 +229,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">git tag -d v0.1</div><div class="line"># 删除一个本地标签</div><div class="line"></div><div class="line">git push origin v1.0</div><div class="line"># 推送某个标签到远程</div><div class="line">git push origin --tags</div><div class="line"># 一次性推送全部尚未推送到远程的本地标签</div><div class="line"></div><div class="line">git tag -d v0.9</div><div class="line">git push origin :refs/tags/v0.9</div><div class="line"># 删除推送到远程的标签</div></pre></td></tr></table></figure>
 <h2 id="一个本地库关联多个远程库"><a href="#一个本地库关联多个远程库" class="headerlink" title="一个本地库关联多个远程库"></a>一个本地库关联多个远程库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote -v</div><div class="line"># 查看远程库信息</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git remote rm origin</div><div class="line"># 先删除已关联的名为origin的远程库</div><div class="line"></div><div class="line"></div><div class="line">git remote add github git@github.com:michaelliao/learngit.git</div><div class="line">git remote add gitee git@gitee.com:liaoxuefeng/learngit.git</div><div class="line"># 关联远程库，远程库的名称叫github、gitee</div></pre></td></tr></table></figure>
-<h2 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h2><p>忽略某些文件时，需要编写<code>.gitignore</code><br><code>.gitignore</code>文件本身要放到版本库里，并且可以对<code>.gitignore</code>做版本管理<br>参考模版：<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a></p>
-<h2 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h2><p>加上<code>--global</code>是针对<strong>当前用户</strong>起作用的，如果不加，那只针对<strong>当前的仓库</strong>起作用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git config --global alias.st status</div><div class="line">git config --global alias.co checkout</div><div class="line">git config --global alias.ci commit</div><div class="line">git config --global alias.br branch</div></pre></td></tr></table></figure></p>
-<p>使用配置文件<br>每个仓库的Git配置文件<code>.git/config</code><br>当前用户的配置文件<code>~/.gitconfig</code></p>
 <h2 id="分支开发"><a href="#分支开发" class="headerlink" title="分支开发"></a>分支开发</h2><ol>
 <li>基于主分支创建个开发分支   <code>git checkout -b dev1</code></li>
 <li>在开发分支中拉取下主分支   <code>git pull origin master</code></li>
@@ -186,13 +239,16 @@
 <li>合并开发分支   <code>git merge dev1</code>(如果失败会提示失败文件,解决掉冲突)</li>
 <li>提交到git服务器</li>
 </ol>
-<h2 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h2><p>1.安装git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install git</div></pre></td></tr></table></figure></p>
-<p>2.创建用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo adduser git -s /usr/sbin/nologin</div></pre></td></tr></table></figure></p>
+<h2 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h2><p>以下方式为通过ssh协议搭建的Git服务器，添加了公钥的用户可以进行读写操作</p>
+<p>1.安装git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install git</div></pre></td></tr></table></figure></p>
+<p>2.创建用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cat /etc/shells</div><div class="line">which git-shell</div><div class="line">sudo vim /etc/shells</div><div class="line"># 添加git-shell的位置，git-shell可以禁止使用ssh登录shell</div><div class="line"></div><div class="line">sudo adduser git -s /usr/bin/git-shell</div></pre></td></tr></table></figure></p>
 <p>3.管理公钥<br>收集所有需要登录的用户的公钥，就是他们自己的<code>id_rsa.pub</code>文件，把所有公钥导入到<code>/home/git/.ssh/authorized_keys</code>文件里，一行一个<br>人多可以用<code>Gitosis</code>来管理公钥</p>
-<p>4.初始化Git仓库<br>选定一个目录作为Git仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd </div><div class="line">mkdir gitre</div><div class="line">cd gitre</div><div class="line">git init --bare sample.git</div><div class="line"></div><div class="line">chown -R git:git sample.git</div></pre></td></tr></table></figure></p>
-<p>5.禁用shell登录<br>创建用户时指定</p>
-<p>6.克隆远程仓库<br>在各自的电脑上克隆远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@server:/srv/sample.git</div></pre></td></tr></table></figure></p>
+<p>注意权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">su git</div><div class="line">cd</div><div class="line">mkdir .ssh</div><div class="line">chmod 700 .ssh</div><div class="line">touch .ssh/authorized_keys</div><div class="line">chmod 600 .ssh/authorized_keys</div><div class="line"></div><div class="line">cat /tmp/id_rsa.john.pub &gt;&gt; ~/.ssh/authorized_keys</div><div class="line">cat /tmp/id_rsa.josie.pub &gt;&gt; ~/.ssh/authorized_keys</div></pre></td></tr></table></figure></p>
+<p>4.初始化Git仓库<br>选定一个目录作为Git仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd /opt/git</div><div class="line">mkdir project.git</div><div class="line">cd project.git</div><div class="line">git init --bare</div><div class="line"></div><div class="line">chown -R git:git project.git</div></pre></td></tr></table></figure></p>
+<p>需要有一个人推送第一个版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd myproject</div><div class="line">git init</div><div class="line">git add .</div><div class="line">git commit -m &apos;initial commit&apos;</div><div class="line">git remote add origin git@gitserver:/opt/git/project.git</div><div class="line">git push origin master</div></pre></td></tr></table></figure></p>
+<p>5.克隆远程仓库<br>在各自的电脑上克隆远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@server:/srv/sample.git</div></pre></td></tr></table></figure></p>
 <p>Git不支持权限控制。不过，因为Git支持钩子（hook），所以，可以在服务器端编写一系列脚本来控制提交等操作，达到权限控制的目的。<code>Gitolite</code>就是这个工具。</p>
+<p>还有其他方式，比如适合快速只读访问的Git守护进程，既可以进行授权访问又可以进行无授权访问的Smart HTTP，使用GitWeb搭建网页展示，参考Pro-git</p>
 <p><img src="/img/IMG148.png" alt=""></p>
 <p>利用工具提升工作效率，而不是去学习工具本身</p>
 <ol>
@@ -215,11 +271,18 @@
     
     <summary type="html">
     
-      &lt;p&gt;集中式版本控制系统：版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器&lt;/p&gt;
-&lt;p&gt;集中式版本控制系统最大的毛病就是必须联网才能工作，在局域网内还好&lt;/p&gt;
-&lt;p&gt;分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。&lt;/p&gt;
+      &lt;h2 id=&quot;版本控制系统&quot;&gt;&lt;a href=&quot;#版本控制系统&quot; class=&quot;headerlink&quot; title=&quot;版本控制系统&quot;&gt;&lt;/a&gt;版本控制系统&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;集中式版本控制系统&lt;/strong&gt;（Centralized Version Control Systems,简称 CVCS）：have a single server that contains all the versioned files, and a number of clients that check out files from that central place.&lt;/p&gt;
+&lt;p&gt;集中式版本控制系统的缺点是中央服务器的单点故障。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;分布式版本控制系统&lt;/strong&gt;（Distributed Version Control System,简称 DVCS）：clients don’t just check out the latest snapshot of the files; rather, they fully mirror the repository, including its full history.&lt;/p&gt;
 &lt;p&gt;分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已。&lt;/p&gt;
 &lt;p&gt;集中式版本控制：CVS、SVN、ClearCase、VSS&lt;br&gt;分布式版本控制：Git、BitKeeper、Mercurial、Bazaar&lt;/p&gt;
+&lt;p&gt;git和其他版本控制工具存储数据的方式不同：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其他版本控制工具存储一组文件以及基于这些文件随时间推移产生的差异&lt;/li&gt;
+&lt;li&gt;git存储更像快照，对当时的全部文件制作一个快照并保存这个快照的索引，如果没有修改则只保留一个指向之前存储文件的链接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在 Git 中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其它计算机的信息&lt;br&gt;SVN 中可以修改文件，但是无法向数据库提交修改&lt;/p&gt;
+&lt;p&gt;Git 中所有数据在存储前都计算校验和,然后以校验和来引用，&lt;br&gt;校验和由 40 个十六进制字符组成，通过SHA1计算得出。Git 数据库中保存的信息都是以文件内容的哈希值来索引,而不是文件名。&lt;/p&gt;
     
     </summary>
     

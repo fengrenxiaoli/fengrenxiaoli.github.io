@@ -446,10 +446,10 @@
 
       
         
-          
-          在写这篇文章的时候，Github已经被Microsoft收购，不过依然会使用Github，因为觉得对自己的影响不大。
-最近重新学习Git发觉自己其实对Github了解甚少，star了不少，但是从来没有好好看过，我觉得学习一定要发挥自己的主动性，不能光收藏，还要尽可能提出issues、甚至代码，当前我
-          ...
+          <p>在写这篇文章的时候，Github已经被Microsoft收购，不过依然会使用Github，因为觉得对自己的影响不大。</p>
+<p>最近重新学习Git发觉自己其实对Github了解甚少，star了不少，但是从来没有好好看过，我觉得<strong>学习一定要发挥自己的主动性</strong>，不能光收藏，还要尽可能提出issues、甚至代码，当前我最应该克服的是懒，破除嫌麻烦的这种思想，如果自己都懒，都嫌麻烦，如何去解决麻烦。</p>
+<p>回到正题，Github是一个git版本库托管商，里面有各种开源项目。本篇文章尝试写清楚从Github的入门使用到参与开源项目的一般方法。</p>
+<p>官网：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/68d6df4b.html#more" rel="contents">
@@ -573,11 +573,18 @@
 
       
         
-          <p>集中式版本控制系统：版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器</p>
-<p>集中式版本控制系统最大的毛病就是必须联网才能工作，在局域网内还好</p>
-<p>分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。</p>
+          <h2 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h2><p><strong>集中式版本控制系统</strong>（Centralized Version Control Systems,简称 CVCS）：have a single server that contains all the versioned files, and a number of clients that check out files from that central place.</p>
+<p>集中式版本控制系统的缺点是中央服务器的单点故障。</p>
+<p><strong>分布式版本控制系统</strong>（Distributed Version Control System,简称 DVCS）：clients don’t just check out the latest snapshot of the files; rather, they fully mirror the repository, including its full history.</p>
 <p>分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已。</p>
 <p>集中式版本控制：CVS、SVN、ClearCase、VSS<br>分布式版本控制：Git、BitKeeper、Mercurial、Bazaar</p>
+<p>git和其他版本控制工具存储数据的方式不同：</p>
+<ul>
+<li>其他版本控制工具存储一组文件以及基于这些文件随时间推移产生的差异</li>
+<li>git存储更像快照，对当时的全部文件制作一个快照并保存这个快照的索引，如果没有修改则只保留一个指向之前存储文件的链接</li>
+</ul>
+<p>在 Git 中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其它计算机的信息<br>SVN 中可以修改文件，但是无法向数据库提交修改</p>
+<p>Git 中所有数据在存储前都计算校验和,然后以校验和来引用，<br>校验和由 40 个十六进制字符组成，通过SHA1计算得出。Git 数据库中保存的信息都是以文件内容的哈希值来索引,而不是文件名。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/ab888b92.html#more" rel="contents">
