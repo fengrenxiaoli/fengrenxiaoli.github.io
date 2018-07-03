@@ -523,7 +523,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/4ac3f250.html" itemprop="url">【Linux】Linux用户管理03 配置文件</a></h1>
+                <a class="post-title-link" href="/post/4ac3f250.html" itemprop="url">【Linux】Linux用户管理 用户和用户组及配置文件</a></h1>
         
 
         <div class="post-meta">
@@ -574,10 +574,17 @@
 
       
         
-          
-          用户：使用操作系统的人用户组：具有相同系统权限的一组用户
-用户和用户组配置文件12345678910111213141516171819202122232425/etc/group	存储当前系统中所有用户组的信息-Group：		x		：  501   ：abc,def,xyz-组名称：组密码占位符
-          ...
+          <p>Linux是一个多用户的系统，那么如何保证不同用户之间不冲突，也能保证各个用户的隐私呢，这涉及到了用户管理和权限管理，先讲用户管理</p>
+<h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><p>用户就是使用操作系统的人，用户分为两类，超级用户和普通用户，而每一个用户都会有一个id，叫<code>UID</code>，系统中实际使用的是<code>UID</code>。</p>
+<ul>
+<li>超级用户：root，UID为0</li>
+<li>普通用户：UID可以为1-65535（实际没到这么多）<ul>
+<li>系统用户：对守护进程获取资源进行权限分配，UID在1-499之间（实际是设置的，不一定是500，CentOS 6: ID&lt;500，CentOS 7: ID&lt;1000）</li>
+<li>登录用户：能够交互式登录的用户，UID在500+</li>
+<li>虚拟用户：不能登录的用户，比如vsftp</li>
+</ul>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/4ac3f250.html#more" rel="contents">
@@ -650,7 +657,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/4ac3f250.html" itemprop="url">【Linux】Linux用户管理 用户和用户组及配置文件</a></h1>
+                <a class="post-title-link" href="/post/4ac3f250.html" itemprop="url">【Linux】Linux用户管理03 配置文件</a></h1>
         
 
         <div class="post-meta">
@@ -701,17 +708,10 @@
 
       
         
-          <p>Linux是一个多用户的系统，那么如何保证不同用户之间不冲突，也能保证各个用户的隐私呢，这涉及到了用户管理和权限管理，先讲用户管理</p>
-<h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><p>用户就是使用操作系统的人，用户分为两类，超级用户和普通用户，而每一个用户都会有一个id，叫<code>UID</code>，系统中实际使用的是<code>UID</code>。</p>
-<ul>
-<li>超级用户：root，UID为0</li>
-<li>普通用户：UID可以为1-65535（实际没到这么多）<ul>
-<li>系统用户：对守护进程获取资源进行权限分配，UID在1-499之间（实际是设置的，不一定是500，CentOS 6: ID&lt;500，CentOS 7: ID&lt;1000）</li>
-<li>登录用户：能够交互式登录的用户，UID在500+</li>
-<li>虚拟用户：不能登录的用户，比如vsftp</li>
-</ul>
-</li>
-</ul>
+          
+          用户：使用操作系统的人用户组：具有相同系统权限的一组用户
+用户和用户组配置文件12345678910111213141516171819202122232425/etc/group	存储当前系统中所有用户组的信息-Group：		x		：  501   ：abc,def,xyz-组名称：组密码占位符
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/4ac3f250.html#more" rel="contents">
