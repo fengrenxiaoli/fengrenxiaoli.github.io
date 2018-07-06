@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-02T08:46:30.603Z</updated>
+  <updated>2018-06-16T05:14:56.340Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,241 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/post/0.html"/>
+    <id>http://yoursite.com/post/0.html</id>
+    <published>2018-07-06T14:54:03.997Z</published>
+    <updated>2018-06-16T05:14:56.340Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1><p>内容：</p>
+<ul>
+<li>基本部件的结构和组织方式</li>
+<li>基本运算的操作原理</li>
+<li>基本部件和单元的设计思想</li>
+</ul>
+<p>教材：</p>
+<ul>
+<li>唐朔飞. <strong>计算机组成原理</strong>（第2版）.高等教育出版社</li>
+<li>David A.Patterson. John L.Hennessy. <strong>Computer Organization &amp; Design: A Hardware/Software Interface</strong>(计算机组成与设计：硬件/软件接口)</li>
+<li>David Harris, Sarah Harris. <strong>Digital Design and Computer Architecture</strong>. Morgan Kaufmann, 2007(数字设计和计算机系结构)</li>
+</ul>
+<p><img src="../img/CO001.png" alt=""></p>
+<p>结构：</p>
+<p><img src="../img/CO002.png" alt=""></p>
+<ul>
+<li>计算机组成原理之机器<ul>
+<li>计算机系统的基本概念</li>
+<li>总线</li>
+<li>存储器</li>
+<li>输入输出系统</li>
+</ul>
+</li>
+<li>计算机组成原理之数字<ul>
+<li>计算机中数的表示</li>
+<li>计算机的运算方法和运算器</li>
+</ul>
+</li>
+<li>计算机组成原理之CPU<ul>
+<li>指令系统</li>
+<li>CPU的结构和功能</li>
+<li>控制单元</li>
+<li>控制单元的设计</li>
+</ul>
+</li>
+</ul>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>现代计算机系统由硬件 （计算机的实体 ）、软件（由具有各类特殊功能 的信息（程序）组成 ）两部分构成 </p>
+<p>软件</p>
+<ul>
+<li><p>系统软件：用来管理整个计算机系统 </p>
+<p>语言处理程序、操作系统、服务性程序、数据库管理系统、网络软件 </p>
+</li>
+<li><p>应用软件：按任务需要编制成的各种程序 </p>
+</li>
+</ul>
+<p>计算机系统的层次结构 </p>
+<p>系统复杂性管理的方法 </p>
+<ul>
+<li>抽象 </li>
+<li>层次化（Hierachy）：将被设计的系统划分为多个模块或子模块</li>
+<li>模块化（Modularity）：有明确定义 （well-defined）的功能和接口</li>
+<li>规则性（regularity）：模块更容易被重用 </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application Software</td>
+<td>应用软件</td>
+<td>programs</td>
+</tr>
+<tr>
+<td>Operating Systems</td>
+<td>操作系统</td>
+<td>device drivers</td>
+</tr>
+<tr>
+<td>Architecture</td>
+<td></td>
+<td>instructions registers</td>
+</tr>
+<tr>
+<td>Micro-architecture</td>
+<td>微体系</td>
+<td>datapaths controllers</td>
+</tr>
+<tr>
+<td>Logic</td>
+<td>逻辑层</td>
+<td>adders memories</td>
+</tr>
+<tr>
+<td>Digital Circuits</td>
+<td>数字电路层</td>
+<td>and gate not gate</td>
+</tr>
+<tr>
+<td>Analog Circuits</td>
+<td>模拟电路层</td>
+<td>amplifiers filters</td>
+</tr>
+<tr>
+<td>Devices</td>
+<td>电子元件层</td>
+<td>transistors diodes</td>
+</tr>
+<tr>
+<td>Physics</td>
+<td>物理层</td>
+<td>electros</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>计算机体系结构 ：程序员所见到的计算机系统的属性概念性的结构与功能特性 （指令系统、数据类型、寻址技术、I/O机理） </li>
+<li>计算机组成：实现计算机体系结构所体现的属性 （具体指令的实现） </li>
+</ul>
+<h3 id="计算机的基本组成"><a href="#计算机的基本组成" class="headerlink" title="计算机的基本组成"></a>计算机的基本组成</h3><p>冯·诺依曼计算机的特点 </p>
+<ol>
+<li>计算机由五大部件组成 </li>
+<li>指令和数据以同等地位存于存储器， 可按地址寻访 </li>
+<li>指令和数据用二进制表示 </li>
+<li>指令由操作码和地址码组成</li>
+<li>存储程序 </li>
+<li>以运算器为中心 </li>
+</ol>
+<p><img src="../img/Co003.png" alt=""></p>
+<p>运算器：算术运算、逻辑运算 </p>
+<p>控制器：指挥程序运行 </p>
+<p>存储器：存放数据和程序</p>
+<p>运算器是瓶颈</p>
+<p>改进：以存储器为中心的结构</p>
+<p><img src="../img/Co004.png" alt=""></p>
+<p>现代计算机结构</p>
+<p><img src="../img/Co005.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;计算机组成原理&quot;&gt;&lt;a href=&quot;#计算机组成原理&quot; class=&quot;headerlink&quot; title=&quot;计算机组成原理&quot;&gt;&lt;/a&gt;计算机组成原理&lt;/h1&gt;&lt;p&gt;内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本部件的结构和组织方式&lt;/li&gt;
+&lt;li&gt;基本运算的操作原理&lt;/
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java集合</title>
+    <link href="http://yoursite.com/post/4509351.html"/>
+    <id>http://yoursite.com/post/4509351.html</id>
+    <published>2018-07-06T08:23:53.000Z</published>
+    <updated>2018-07-06T14:59:52.138Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>Java中的集合类是一种工具类，用于存储任意数量的具有共同属性的对象</p>
+<p>集合的作用：</p>
+<ol>
+<li>在类的内部，对数据进行组织</li>
+<li>简单而快速的搜索大数量的条目</li>
+<li>有的集合接口，提供了一系列排列有序的元素，并且可以在序列中间快速的插入或者删除有关元素</li>
+<li>有的集合接口，提供了映射关系，可以通过关键字（key）去快速查找到对应的唯一对象，而这个关键字可以是任意类型</li>
+</ol>
+<p>集合和数组的区别：</p>
+<ol>
+<li>数组的长度固定，集合长度可变</li>
+<li>数组只能通过下标访问元素，类型固定，而有的集合可以通过任意类型查找所映射的具体对象</li>
+</ol>
+<p><img src="/img/Java019.java" alt=""><br>Collection(接口)</p>
+<ul>
+<li>List(接口)（特点：有序，可重复）<ul>
+<li>ArrayList（实现类）</li>
+<li>LinkedList（实现类）</li>
+</ul>
+</li>
+<li>Query(接口)（特点：有序，可重复）<ul>
+<li>LinkedList（实现类）</li>
+</ul>
+</li>
+<li>Set(接口)（特点：无序，不可重复）<ul>
+<li>HashSet（实现类）<br>Map(接口)（特点：Entry(Key,Value) – 键值对：)注：Entry是Map的内部类</li>
+</ul>
+</li>
+<li>HashMap（实现类）</li>
+</ul>
+<p>Collection接口是List、Set和Queue接口的父接口，定义了可用于操作List、Set和Queue的方法————增删改查</p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>List是元素有序并且可以重复的集合，被称为序列<br>List可以精确的控制每个元素的插入位置，或删除某个位置元素</p>
+<p>ArrayList(数组列表)是List的一个重要实现类，底层是由数组实现的</p>
+<p>list.add(对象)把一个对象添加到另一个集合的队尾位置<br>list.add(index, 对象) 把一个集合添加到另一个集合的指定位置<br>list.addAll(集合对象) 把一个集合添加到另一个集合的队尾位置<br>list.addAll(index, 集合对象) 把一个集合添加到另一个集合的指定位置<br>Arrays.asList(数组) 把一个数组转换成List集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line">public class Course &#123;</div><div class="line">    public String id;</div><div class="line">    public String name;</div><div class="line"></div><div class="line">    public Course()&#123;&#125;</div><div class="line"></div><div class="line">    public Course(String id, String name) &#123;</div><div class="line">        this.id = id;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String toString() &#123;</div><div class="line">        return &quot;Course&#123;&quot; +</div><div class="line">                &quot;id=&apos;&quot; + id + &apos;\&apos;&apos; +</div><div class="line">                &quot;, name=&apos;&quot; + name + &apos;\&apos;&apos; +</div><div class="line">                &apos;&#125;&apos;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 模拟学生选课功能</div><div class="line"> * 1. 添加课程</div><div class="line"> * 2. 删除课程</div><div class="line"> * 3. 查看所选课程</div><div class="line"> * 4. 修改所选选课程</div><div class="line"> */</div><div class="line"></div><div class="line">public class ListTest &#123;</div><div class="line">    public List coursesList;</div><div class="line"></div><div class="line">    public ListTest()&#123;</div><div class="line">        this.coursesList = new ArrayList();</div><div class="line">        //List是接口，所以在构造方法中不能直接实例化，而通过ArrayList()实例化</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 添加课程</div><div class="line">     */</div><div class="line">    public void courseAdd()&#123;</div><div class="line">        Course course1 = new Course(&quot;1&quot;,&quot;数据结构&quot;);</div><div class="line">        Course course2 = new Course(&quot;2&quot;,&quot;离散数学&quot;);</div><div class="line">        Course course3 = new Course(&quot;3&quot;,&quot;高等数学&quot;);</div><div class="line">        Course course4 = new Course(&quot;4&quot;,&quot;计算机组成原理&quot;);</div><div class="line">        Course course5 = new Course(&quot;5&quot;,&quot;计算机网络&quot;);</div><div class="line">        Course course6 = new Course(&quot;6&quot;,&quot;大学英语&quot;);</div><div class="line"></div><div class="line">        coursesList.add(course1);</div><div class="line">        coursesList.add(course1);</div><div class="line">        //支持重复数据</div><div class="line">        //coursesList.add(2,course2);</div><div class="line">        //会报异常IndexOutOfBoundsException: Index: 2, Size: 1</div><div class="line">        coursesList.add(1,course2);</div><div class="line">        Course[] courses1 = &#123;course3,course4&#125;;</div><div class="line">        coursesList.addAll(Arrays.asList(courses1));</div><div class="line">        Course[] courses2 = &#123;course5,course6&#125;;</div><div class="line">        coursesList.addAll(2,Arrays.asList(courses2));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 遍历课程</div><div class="line">     */</div><div class="line">    public void coursesGetAll()&#123;</div><div class="line">        for(int i = 0;i&lt;coursesList.size();i++)&#123;</div><div class="line">            Course course = (Course) coursesList.get(i);</div><div class="line">            //get()方法获得的对象是Object类型，需要转换</div><div class="line">            System.out.println(course);</div><div class="line">        &#125;</div><div class="line">        System.out.println(&quot;-----------------&quot;);</div><div class="line"></div><div class="line">        //foreach遍历方法</div><div class="line">        for(Object object : coursesList)&#123;</div><div class="line">            System.out.println((Course)object);</div><div class="line">        &#125;</div><div class="line">        System.out.println(&quot;-----------------&quot;);</div><div class="line"></div><div class="line">        //迭代器遍历</div><div class="line">        Iterator iterator = coursesList.iterator();</div><div class="line">        while(iterator.hasNext())&#123;</div><div class="line">            System.out.println((Course)iterator.next());</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        System.out.println(&quot;-----------------&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 修改课程</div><div class="line">     */</div><div class="line">    public void courseSet()&#123;</div><div class="line">        Course course = new Course(&quot;7&quot;,&quot;Java web&quot;);</div><div class="line">        coursesList.set(0,course);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 删除课程</div><div class="line">     */</div><div class="line">    public void courseRemove()&#123;</div><div class="line">        coursesList.remove(coursesList.get(1));</div><div class="line">        coursesList.remove(2);</div><div class="line">        Course[] courses = &#123;(Course) coursesList.get(3),(Course) coursesList.get(4)&#125;;</div><div class="line">        coursesList.removeAll(Arrays.asList(courses));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        ListTest listTest = new ListTest();</div><div class="line">        listTest.courseAdd();</div><div class="line">        listTest.coursesGetAll();</div><div class="line">//        listTest.courseRemove();</div><div class="line">//        listTest.coursesGetAll();</div><div class="line">        listTest.courseSet();</div><div class="line">        listTest.coursesGetAll();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>集合中的元素可以是任意类型的对象，如果把某个对象放入集合，则会忽略它的类型，而把它当做Object对象处理。泛型则规定了某个集合只可以存放特定类型的对象，会在编译期间进行类型检查<br>比如上例中的List未规定泛型，则coursesList除了可以添加Course对象外，还可以添加String类型等其他类型，而且在取出其中的元素时，需要进行类型转换</p>
+<p>用泛型改进上例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">public class ListGenericTest &#123;</div><div class="line">    public List&lt;Course&gt; courseList;</div><div class="line">    public ListGenericTest()&#123;</div><div class="line">        this.courseList = new ArrayList&lt;Course&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void courseAdd()&#123;</div><div class="line">        Course course1 = new Course(&quot;1&quot;,&quot;数据结构&quot;);</div><div class="line">        Course course2 = new Course(&quot;2&quot;,&quot;离散数学&quot;);</div><div class="line">        Course course3 = new Course(&quot;3&quot;,&quot;高等数学&quot;);</div><div class="line">        Course course4 = new Course(&quot;4&quot;,&quot;计算机组成原理&quot;);</div><div class="line">        Course course5 = new Course(&quot;5&quot;,&quot;计算机网络&quot;);</div><div class="line">        Course course6 = new Course(&quot;6&quot;,&quot;大学英语&quot;);</div><div class="line"></div><div class="line">        courseList.add(course1);</div><div class="line">        courseList.add(course1);</div><div class="line">        courseList.add(1,course2);</div><div class="line">        Course[] courses1 = &#123;course3,course4&#125;;</div><div class="line">        courseList.addAll(Arrays.asList(courses1));</div><div class="line">        Course[] courses2 = &#123;course5,course6&#125;;</div><div class="line">        courseList.addAll(2,Arrays.asList(courses2));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void coursesGetAll()&#123;</div><div class="line">        for(Course course:courseList)&#123;</div><div class="line">            System.out.println(course);</div><div class="line">        &#125;</div><div class="line">        System.out.println(&quot;-----------------------&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 修改课程</div><div class="line">     */</div><div class="line">    public void courseSet()&#123;</div><div class="line">        Course course = new Course(&quot;7&quot;,&quot;Java web&quot;);</div><div class="line">        courseList.set(0,course);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void courseRemove()&#123;</div><div class="line">        courseList.remove(courseList.get(1));</div><div class="line">        courseList.remove(2);</div><div class="line">        Course[] courses = &#123;courseList.get(3),courseList.get(4)&#125;;</div><div class="line">        courseList.removeAll(Arrays.asList(courses));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        ListGenericTest listTest = new ListGenericTest();</div><div class="line">        listTest.courseAdd();</div><div class="line">        listTest.coursesGetAll();</div><div class="line">        listTest.courseRemove();</div><div class="line">        listTest.coursesGetAll();</div><div class="line">        listTest.courseSet();</div><div class="line">        listTest.coursesGetAll();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>泛型不还可以接受泛型类的子类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public class ChildCourse extends Course &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public void childCourseAdd()&#123;</div><div class="line">	ChildCourse childCourse = new ChildCourse();</div><div class="line">	courseList.add(childCourse);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>泛型集合中的限定类型不能使用基本数据类型，可以通过包装类使用基本数据类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; lists = new ArrayList&lt;&gt;();</div></pre></td></tr></table></figure></p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set是元素无序并且不可以重复的集合，被称为集</p>
+<p>HashSet(哈希集)是Set的一个重要实现类。</p>
+<ol>
+<li>Set没有像List中set()方法一样就修改，因为List是有序的，可以指定位置，而Set是无序的。</li>
+<li>查询遍历时，Set不能用get()方法去获取，因为无序没有指定索引ID，但可以使用foreach和iterator来遍历，但是每次遍历出来可能顺序都不一样，还是因为无序造成的。</li>
+<li>Set中的size(),add(),addAll(),remove(),removeAll()与List类似。</li>
+<li>Set还可以添加null，<code>new HashSet&lt;&gt;().add(null);</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">public class Student &#123;</div><div class="line">    public String id;</div><div class="line">    public String name;</div><div class="line">    public Set&lt;Course&gt; courses;</div><div class="line"></div><div class="line">    public Student(String id, String name) &#123;</div><div class="line">        this.id = id;</div><div class="line">        this.name = name;</div><div class="line">        this.courses = new HashSet&lt;&gt;();//初始化集合</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class SetTest &#123;</div><div class="line">    public List&lt;Course&gt; courseList;</div><div class="line"></div><div class="line">    public SetTest()&#123;</div><div class="line">        this.courseList = new ArrayList&lt;&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void courseAdd()&#123;</div><div class="line">        Course course1 = new Course(&quot;1&quot;,&quot;数据结构&quot;);</div><div class="line">        Course course2 = new Course(&quot;2&quot;,&quot;离散数学&quot;);</div><div class="line">        Course course3 = new Course(&quot;3&quot;,&quot;高等数学&quot;);</div><div class="line">        Course course4 = new Course(&quot;4&quot;,&quot;计算机组成原理&quot;);</div><div class="line">        Course course5 = new Course(&quot;5&quot;,&quot;计算机网络&quot;);</div><div class="line">        Course course6 = new Course(&quot;6&quot;,&quot;大学英语&quot;);</div><div class="line"></div><div class="line">        courseList.add(course1);</div><div class="line">        courseList.add(course1);</div><div class="line">        courseList.add(1,course2);</div><div class="line">        Course[] courses1 = &#123;course3,course4&#125;;</div><div class="line">        courseList.addAll(Arrays.asList(courses1));</div><div class="line">        Course[] courses2 = &#123;course5,course6&#125;;</div><div class="line">        courseList.addAll(2,Arrays.asList(courses2));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public Course courseGet(int index)&#123;</div><div class="line">        Course course = courseList.get(index);</div><div class="line">        return course;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        SetTest setTest = new SetTest();</div><div class="line">        setTest.courseAdd();</div><div class="line">        Student student = new Student(&quot;1&quot;,&quot;小明&quot;);</div><div class="line">        student.courses.add(setTest.courseGet(1));</div><div class="line"></div><div class="line">        for(Course course:student.courses)&#123;</div><div class="line">            System.out.println(course);</div><div class="line">        &#125;</div><div class="line">		//不能使用get方法遍历，因为Set是无序的</div><div class="line"></div><div class="line">        new HashSet&lt;&gt;().add(null);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><ol>
+<li>Map接口提供了一种映射关系，其中的元素是键值对（key-value）的形式存储的，能够实现根据Key快速查找value。Key-value可以是任何对象，是以Entry类型的对象实例存在的。<br>2.Key是不可以重复的，Value是可以重复的。Key-value都可以为null，不过只能有一个key是null。<br>3.map支持泛型，Map<k,v><br>4.每个键最多只能映射到一个值<br>5.Map接口提供了分别返回key值集合（keySet()）、value值集合（values()）以及Entry（键值对）集合（entrySet() ）的方法</k,v></li>
+</ol>
+<p>HashMap是Map的一个实现类，基于哈希表实现，它根据键的hashCode值存储数据，根据键可以直接获取它的值，具有很快的访问速度。  </p>
+<ul>
+<li>Key值和value值都可以为null，但是一个HashMap只能有一个key值为null的映射（key值不可重复）</li>
+<li>HashMap不支持线程的同步，即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致。  </li>
+<li>如果需要同步，可以用Collections.synchronizedMap(HashMap map)方法使HashMap具有同步的能力。  </li>
+<li>Hashtable与HashMap类似，不同的是：它不允许记录的键或者值为空；</li>
+<li>HashMap中的Entry对象是无序排列的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 通过Map&lt;String,Student&gt;进行学生信息管理，其中key为学生ID，value为学生对象</div><div class="line"> * 对集合中的学生信息进行增、删、改、查操作</div><div class="line"> */</div><div class="line"></div><div class="line">public class MapTest &#123;</div><div class="line">    public Map&lt;String,Student&gt; studentMap;</div><div class="line">    public MapTest()&#123;</div><div class="line">        this.studentMap = new HashMap&lt;&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 增加学生信息</div><div class="line">     * @param student</div><div class="line">     */</div><div class="line">    public void studentAdd(Student student)&#123;</div><div class="line">        Student student1 = studentMap.get(student.id);</div><div class="line">        if(student1 != null)&#123;</div><div class="line">            System.out.println(&quot;学生id已存在&quot;);</div><div class="line">            return ;</div><div class="line">        &#125;</div><div class="line">        studentMap.put(student.id,student);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 查找学生信息</div><div class="line">     * @param id</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public Student studentGet(String id)&#123;</div><div class="line">        Student student = studentMap.get(id);</div><div class="line">        if(student != null)&#123;</div><div class="line">            return student;</div><div class="line">        &#125;else &#123;</div><div class="line">            return null;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 遍历学生信息</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">//    public Map&lt;String,Student&gt; studentGetAll()&#123;</div><div class="line">//        return this.studentMap;</div><div class="line">//    &#125;</div><div class="line">    public void studentGetAll()&#123;</div><div class="line">        Set&lt;Map.Entry&lt;String,Student&gt;&gt; entrySet = studentMap.entrySet();</div><div class="line">        for(Map.Entry&lt;String,Student&gt; entry:entrySet)&#123;</div><div class="line">            System.out.println(entry.getKey()+&quot;:&quot;+entry.getValue());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 修改学生信息</div><div class="line">     * @param student</div><div class="line">     */</div><div class="line">    public void studentModify(Student student)&#123;</div><div class="line">        Student student1 = this.studentGet(student.id);</div><div class="line">        if(student1 == null)&#123;</div><div class="line">            System.out.println(&quot;学生id不存在&quot;);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        studentMap.put(student.id,student);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void studentDelete(String id)&#123;</div><div class="line">        Student student1 = this.studentGet(id);</div><div class="line">        if(student1 == null)&#123;</div><div class="line">            System.out.println(&quot;学生id不存在&quot;);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        studentMap.remove(id);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        MapTest mapTest = new MapTest();</div><div class="line">        mapTest.studentAdd(new Student(&quot;1&quot;,&quot;John&quot;));</div><div class="line">        mapTest.studentAdd(new Student(&quot;2&quot;,&quot;John&quot;));</div><div class="line">        mapTest.studentAdd(new Student(&quot;3&quot;,&quot;Mei&quot;));</div><div class="line">        mapTest.studentGetAll();</div><div class="line"></div><div class="line">        System.out.println(mapTest.studentGet(&quot;3&quot;));</div><div class="line">        System.out.println(mapTest.studentGet(&quot;5&quot;));</div><div class="line"></div><div class="line">        Student student = new Student(&quot;2&quot;,&quot;Halen&quot;);</div><div class="line">        mapTest.studentModify(student);</div><div class="line">        Student student1 = new Student(&quot;5&quot;,&quot;Halen&quot;);</div><div class="line">        mapTest.studentModify(student1);</div><div class="line">        mapTest.studentGetAll();</div><div class="line"></div><div class="line">        mapTest.studentDelete(&quot;1&quot;);</div><div class="line">        mapTest.studentGetAll();</div><div class="line">        mapTest.studentDelete(&quot;4&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;集合&quot;&gt;&lt;a href=&quot;#集合&quot; class=&quot;headerlink&quot; title=&quot;集合&quot;&gt;&lt;/a&gt;集合&lt;/h2&gt;&lt;p&gt;Java中的集合类是一种工具类，用于存储任意数量的具有共同属性的对象&lt;/p&gt;
+&lt;p&gt;集合的作用：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在类的内部，对数
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 文件系统</title>
@@ -347,6 +582,504 @@
     
     
       <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java基础</title>
+    <link href="http://yoursite.com/post/f7ede91d.html"/>
+    <id>http://yoursite.com/post/f7ede91d.html</id>
+    <published>2018-06-23T09:23:53.000Z</published>
+    <updated>2018-07-06T14:59:26.662Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="JVM-JRE-JDK"><a href="#JVM-JRE-JDK" class="headerlink" title="JVM JRE JDK"></a>JVM JRE JDK</h3><p>JVM：Java Virtual Machine<br>JDK：Java Development Kit（Java开发工具包）<br>JRE：Java Runtime Environment（Java运行环境）</p>
+<p>java文件执行过程<br>源代码文件 .java<br>编译器编译<br>字节码文件 .class<br>解释器解释<br>执行</p>
+<p>跨平台通过JVM实现</p>
+<p>JRE包含JVM，JDK包含JRE</p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>JAVA_HOME    配置JDK安装路径，通常Eclipse/NetBeans/Tomcat等软件就是通过搜索JAVA_HOME变量来找到并使用安装好的jdk。<br>PATH        配置JDK命令文件的位置<br>CLASSPATH    配置类库文件的位置</p>
+<p>Java 关键字区分大小写</p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>标识符就是用于给 Java 程序中变量、类、方法等命名的符号。类名、变量名、方法名等都是标识符<br>使用标识符时，需要遵守几条规则：</p>
+<ol>
+<li>标识符可以由字母、数字、下划线（_）、美元符（$）组成，但不能包含 @、%、空格等其它特殊字符，不能以数字开头。</li>
+<li>标识符不能是 Java 关键字和保留字（ Java 预留的关键字，以后的升级版本中有可能作为关键字），但可以包含关键字和保留字。如：不可以使用 void 作为标识符，但是 Myvoid 可以</li>
+<li>标识符是严格区分大小写的。 所以涅，一定要分清楚 imooc 和 IMooc 是两个不同的标识符哦！</li>
+<li>标识符的命名最好能反映出其作用，做到见名知意。</li>
+</ol>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>在 Java 中，我们通过三个元素描述变量：变量类型、变量名以及变量值。</p>
+<ol>
+<li>变量名由多单词组成时，第一个单词的首字母小写，其后单词的首字母大写，俗称骆驼式命名法（也称驼峰命名法），如 myAge<br>2.变量命名时，尽量简短且能清楚的表达变量的作用，做到见名知意。如：定义变量名 stuName 保存“学生姓名”信息</li>
+</ol>
+<p><img src="/img/Java001.jpg" alt=""><br>基本数据类型变量存的是数据本身，而引用类型变量存的是保存数据的空间地址<br>String 是一种常见的引用数据类型，用来表示字符串。<br>char使用两个字节，使用单引号括起来</p>
+<ol>
+<li>Java 中的变量需要先声明后使用</li>
+<li>变量使用时，可以声明变量的同时进行初始化，也可以先声明后赋值</li>
+<li>变量中每次只能赋一个值，但可以修改多次</li>
+<li>main 方法中定义的变量必须先赋值，然后才能输出</li>
+<li>虽然语法中没有提示错误，但在实际开发中，变量名不建议使用中文，容易产生安全隐患，譬如后期跨平台操作时出现乱码等等</li>
+</ol>
+<h3 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h3><ol>
+<li>目标类型能与源类型兼容，如 double 型兼容 int 型，但是 char 型不能兼容 int 型</li>
+<li>目标类型大于源类型，如 double 类型长度为 8 字节， int 类型为 4 字节，因此 double 类型的变量里直接可以存放 int 类型的数据，但反过来就不可以了</li>
+</ol>
+<h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(数据类型)数值</div></pre></td></tr></table></figure>
+<p>数值上并未进行四舍五入，而是直接将小数位截断。<br>强制类型转换可能会造成数据的丢失</p>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>它的值被设定后，在程序运行过程中不允许改变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">final 常量名 = 值;</div></pre></td></tr></table></figure></p>
+<p>常量名一般使用大写字符</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>一般来说，对于一份规范的程序源代码而言，注释应该占到源代码的 1/3 以上。</p>
+<p>Java 中注释有三种类型：单行注释、多行注释、文档注释<br>文档注释以<code>/**</code>开头,以<code>*/</code>结尾<br>多行注释以<code>/*</code>开头,以<code>/</code>结尾<br>单行注释以<code>/</code>开头,行未结尾</p>
+<p>通过 javadoc 命令从文档注释中提取内容，生成程序的 API 帮助文档。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">javadoc -d doc Demo03.java</div></pre></td></tr></table></figure></p>
+<p>使用文档注释时还可以使用 javadoc 标记，生成更详细的文档信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@author 	标明开发该类模块的作者</div><div class="line">@version 	标明该类模块的版本</div><div class="line">@see 		参考转向，也就是相关主题</div><div class="line">@param 		对方法中某参数的说明</div><div class="line">@return 	对方法返回值的说明</div><div class="line">@exception 	对方法可能抛出的异常进行说明</div></pre></td></tr></table></figure></p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>Java 语言中常用的运算符可分为如下几种：</p>
+<ul>
+<li>算术运算符</li>
+<li>赋值运算符</li>
+<li>比较运算符</li>
+<li>逻辑运算符</li>
+<li>条件运算符</li>
+</ul>
+<p><img src="/img/Java003.jpg" alt=""></p>
+<p>++出现在左边,先执行自增,然后赋值<br>++出现在右边,先赋值,后执行自增</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">double ave = 24/4;</div><div class="line">System.out.println(ave);</div></pre></td></tr></table></figure>
+<p>结果是<code>6.0</code></p>
+<p><img src="/img/Java004.jpg" alt=""></p>
+<p><img src="/img/Java005.jpg" alt=""><br>比较的结果是一个布尔值（ true 或 false ）</p>
+<p><code>&gt;</code>、<code>&lt;</code> 、 <code>&gt;=</code> 、 <code>&lt;=</code>只支持左右两边操作数是数值类型</p>
+<p><code>==</code> 、 <code>!=</code> 两边的操作数既可以是数值类型，也可以是引用类型</p>
+<p><code>equals()</code>用于判断字符串的内容是否相同,相同返回true,反之false</p>
+<p><img src="/img/Java006.jpg" alt=""><br>“短路”现象<br>譬如：( one &gt; two ) &amp;&amp; ( one &lt; three ) 中，如果能确定左边 one &gt; two 运行结果为 false , 则系统就认为已经没有必要执行右侧的 one &lt; three 啦。</p>
+<p>同理，在( one &gt; two ) || ( one &lt; three ) 中，如果能确定左边表达式的运行结果为 true , 则系统也同样会认为已经没有必要再进行右侧的 one &lt; three 的执行啦！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">布尔表达式 ？ 表达式1 ：表达式2</div></pre></td></tr></table></figure>
+<p>如果布尔表达式的值为 true ，则返回 表达式1 的值，否则返回 表达式2 的值</p>
+<p><img src="/img/Java007.jpg" alt=""></p>
+<h2 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句</h2><h3 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if (score&gt;90)&#123;</div><div class="line">	System.out.println(&quot;哟&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if (score&gt;90)&#123;</div><div class="line">	System.out.println(&quot;哟&quot;);</div><div class="line">&#125;else&#123;</div><div class="line">	System.out.println(&quot;噢&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if (score&gt;90)&#123;</div><div class="line">	System.out.println(&quot;哟&quot;);</div><div class="line">&#125;else if (score &gt;70)&#123;</div><div class="line">	System.out.println(&quot;噢&quot;);</div><div class="line">&#125;else&#123;</div><div class="line">	System.out.println(&quot;喵&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">if (score&gt;90)&#123;</div><div class="line">	if (sex.equals(&quot;&quot;))&#123;</div><div class="line">		System.out.println(&quot;哟&quot;);</div><div class="line">	&#125;else &#123;</div><div class="line">		System.out.println(&quot;噢&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;else&#123;</div><div class="line">	System.out.println(&quot;喵&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">int num =1;</div><div class="line">switch(num)&#123;</div><div class="line">	case 1:</div><div class="line">		System.out.println(&quot;1&quot;);</div><div class="line">		break;</div><div class="line">	case 2:</div><div class="line">		System.out.println(&quot;2&quot;);</div><div class="line">		break;</div><div class="line">	case 3:</div><div class="line">		System.out.println(&quot;3&quot;);</div><div class="line">		break;</div><div class="line">	default:</div><div class="line">		System.out.println(&quot;default&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>执行过程：当 switch 后表达式的值和 case 语句后的值相同时，从该位置开始向下执行，直到遇到 break 语句或者 switch 语句块结束；如果没有匹配的 case 语句则执行 default 块的代码。</p>
+<ul>
+<li>switch 后面小括号中表达式的值必须是整型或字符型</li>
+<li>case 后面的值可以是常量数值，如 1、2；也可以是一个常量表达式，如 2+2 ；但不能是变量或带有变量的表达式，如 a * 2</li>
+<li>case 匹配后，执行匹配块里的程序代码，如果没有遇见 break 会继续执行下一个的 case 块的内容，直到遇到 break 语句或者 switch 语句块结束</li>
+<li>default 块可以出现在任意位置，也可以省略</li>
+<li>可以把功能相同的 case 语句合并起来</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">case 1:</div><div class="line">case 2:</div><div class="line">	System.out.println(&quot;&quot;);</div></pre></td></tr></table></figure>
+<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><p>先判断，后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int i=1;</div><div class="line">while(i &lt;=1000)&#123;</div><div class="line">	System.out.println(&quot;嗯&quot;);</div><div class="line">	i++;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="do…while"><a href="#do…while" class="headerlink" title="do…while"></a>do…while</h3><p>先执行，后判断<br>保证循环至少被执行一次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int i=1;</div><div class="line">do&#123;</div><div class="line">	System.out.println(&quot;哦&quot;);</div><div class="line">	i++</div><div class="line">&#125;while (i&lt;=1000);</div></pre></td></tr></table></figure>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for(int i=0;i&lt;=1000;i++)&#123;</div><div class="line">	System.out.println(&quot;咦&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>for 关键字后面括号中的三个表达式必须用 “;” 隔开，三个表达式都可以省略，但 “;” 不能省略。</p>
+<ul>
+<li>省略“循环变量初始化”，可以在 for 语句之前由赋值语句进行变量初始化操作</li>
+<li>省略“循环条件”，可能会造成循环将一直执行下去，也就是我们常说的“死循环”现象</li>
+<li>省略“循环变量变化”，可以在循环体中进行循环变量的变化</li>
+</ul>
+<p>for 循环变量初始化和循环变量变化部分，可以是使用 “,” 同时初始化或改变多个循环变量的值</p>
+<p>循环条件部分可以使用<strong>逻辑运算符</strong>组合的表达式，表示复杂判断条件，但一定注意运算的优先级</p>
+<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p> break 语句退出指定的循环，直接执行循环后面的代码。</p>
+<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>跳过循环体中剩余的语句执行下一次循环</p>
+<h3 id="多重循环"><a href="#多重循环" class="headerlink" title="多重循环"></a>多重循环</h3><p><img src="/img/Java008.jpg" alt=""></p>
+<p>java.util.Scanner类 ，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;</div><div class="line">Scanner scanner = new Scanner(System.in);</div><div class="line">System.out.println(&quot;Please input score:&quot;);</div><div class="line">int score = scanner.nextInt();</div></pre></td></tr></table></figure></p>
+<p>System.out.println 换行输出<br>System.out.print   不换行输出</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"># 声明</div><div class="line">int[] scores;</div><div class="line">double height[];</div><div class="line"></div><div class="line"># 分配空间</div><div class="line">scores = new int[5];</div><div class="line">height = new double[5];</div><div class="line"></div><div class="line">int[] scores = new int[5];</div><div class="line"></div><div class="line"># 赋值</div><div class="line">scores[0] = 89;</div><div class="line">scores[1] = 79;</div><div class="line">int[] scores = &#123;87,89&#125;;</div><div class="line"># 造价于 int[] scores = new int[]&#123;87,89&#125;;</div><div class="line"></div><div class="line"># 取值</div><div class="line">scores[1]</div><div class="line"></div><div class="line"># 长度</div><div class="line">scores.lenght;</div><div class="line"></div><div class="line"># 遍历</div><div class="line">for(int i =0;i&lt;scores.length;i++)&#123;</div><div class="line">	System.out.println(scores[i]);</div><div class="line">&#125;</div><div class="line">for(int score:scores)&#123;</div><div class="line">	System.out.println(score);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>数组中的元素都可以通过下标来访问，下标从 0 开始。<br>数组下标的范围是 0 至 数组长度-1，如果越界访问，就会报错。</p>
+<h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><p>Arrays 类是 Java 中提供的一个工具类，在 java.util 包中。该类中包含了一些方法用来直接操作数组，比如可直接实现数组的排序、搜索等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import java.util.Arrays;</div><div class="line"></div><div class="line">Arrays.sort(scores);</div><div class="line"># 正序排列</div><div class="line"># 改变原数组</div><div class="line"></div><div class="line">Arrays.toString(scores);</div><div class="line"># 将数组转换为字符串，多个元素之间使用逗号和空格隔开</div></pre></td></tr></table></figure>
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"># 声明</div><div class="line">int[][] nums = new int[2][3];</div><div class="line"></div><div class="line"># 赋值</div><div class="line">nums[0][0] = 12;</div><div class="line"></div><div class="line"># 取值</div><div class="line">nums[1][1];</div><div class="line"></div><div class="line"># 遍历</div><div class="line">for(int i = 0; i&lt; nums.length; i++)&#123;</div><div class="line">	for(int j =0; j&lt;nums[i].length; j++)&#123;</div><div class="line">		System.out.println(nums[i][j]);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a>定义方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">访问修饰符 返回值类型 方法名(参数列表)&#123;</div><div class="line">	方法体</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>访问修饰符：方法允许被访问的权限范围， 可以是 public、protected、private 甚至可以省略</li>
+<li>返回值类型：方法返回值的类型，如果方法不返回任何值，则返回值类型指定为 void；如果方法具有返回值，则需要指定返回值的类型，并且在方法体中使用 return 语句返回值。方法的返回值最多只能有一个，不能返回多个值</li>
+<li>方法名：定义的方法的名字，必须使用合法的标识符</li>
+<li>参数列表：传递给方法的参数列表，参数可以有多个，多个参数间以逗号隔开，每个参数由参数类型和参数名组成，以空格隔开。定义方法时的参数称为形参，目的是用来定义方法需要传入的参数的个数和类型；把调用方法时的参数称为实参，是传递给方法真正被处理的值。调用带参方法时，必须保证实参的数量、类型、顺序与形参一一对应。多个参数间以逗号分隔</li>
+</ol>
+<ul>
+<li>方法体放在一对大括号中，实现特定的操作</li>
+<li>方法名主要在调用这个方法时使用，需要注意命名的规范，一般采用第一个单词首字母小写，其它单词首字母大写的形式</li>
+</ul>
+<h3 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">对象名.方法名();</div></pre></td></tr></table></figure>
+<h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h3><p>如果同一个类中包含了两个或两个以上方法名相同、方法参数的个数、顺序或类型不同的方法，则称为方法的<strong>重载</strong></p>
+<p>当调用被重载的方法时， Java 会根据参数的个数和类型来判断应该调用哪个重载方法，参数完全匹配的方法将被执行。</p>
+<p>判断方法重载的依据：</p>
+<ol>
+<li>必须是在同一个类中</li>
+<li>方法名相同</li>
+<li>方法参数的个数、顺序或类型. </li>
+<li>与方法的修饰符或返回值没有关系</li>
+</ol>
+<h2 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h2><h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>类是对象的类型<br>具有相同属性和方法的一组对象的集合</p>
+<p>属性：对象具有的各种特征<br>方法：对象执行的操作</p>
+<p>所有Java程序都以类class为组织单元</p>
+<p>定义类的方法：</p>
+<ol>
+<li>定义类名</li>
+<li>编写类的属性</li>
+<li>编写类的方法</li>
+</ol>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>使用对象的步骤</p>
+<ol>
+<li>创建对象<code>类名 对象名 = new 构造方法();</code></li>
+<li>使用对象<code>对象名.属性;对象名.方法();</code></li>
+</ol>
+<h3 id="成员变量和局部变量"><a href="#成员变量和局部变量" class="headerlink" title="成员变量和局部变量"></a>成员变量和局部变量</h3><p>成员变量：即类的属性<br>局部变量：类的方法中定义的变量</p>
+<p>成员变量和局部变量的区别</p>
+<ol>
+<li>作用域不同：局部变量的作用域仅限于定义它的方法，成员变量的作用域在整个类内部都是可见的。</li>
+<li>初始值不同：java会给成员变量一个初始值，java不会给局部变脸赋予初始值。</li>
+<li>在同一个方法中，不允许有同名局部变量；在不同的方法中，可以有同名局部变量。</li>
+<li>两类变量同名时，局部变量具有更高的优先级（就近原则）。</li>
+</ol>
+<h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><p>构造方法是定义在Java类中的一个用来初始化对象的方法，构造方法与类同名且没有返回值</p>
+<p>构造方法的语法格式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public 类名(参数)&#123;</div><div class="line">//初始化代码</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>public后面没有返回值类型，构造方法名与类名相同，括号内可以指定参数</p>
+<p>构造方法分为无参构造方法和有参构造方法。有参构造方法的目的就是初始化对象中成员变量的值。通过无参或者有参的构造方法都可以创建对象，但是后者不但可以创建对象而且可以给对象中的实例变量赋初值</p>
+<ol>
+<li>使用<code>new+构造方法</code>创建一个新的对象，当我们创建对象的时候,其实我们执行的是构造方法</li>
+<li>当没有指定构造方法时，系统会自动添加无参的构造方法，可以自定义无参的构造方法</li>
+<li>当有指定构造方法时，无论是有参无参的构造方法，都不会自动添加无参的构造方法</li>
+<li>构造方法的重载：方法名相同，但参数不同的多个方法，调用时会自动根据不同的参数选择相应的方法</li>
+<li>构造方法不但可以给对象的属性赋值，还可以通过条件判断保证给对象的属性赋一个合理的值</li>
+</ol>
+<h3 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h3><h4 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h4><p>Java 中被 static 修饰的变量称为静态变量或类变量。它属于整个类所有，而不是某个对象所有，即被类的所有对象所共享。静态成员可以使用类名直接访问，也可以使用对象名进行访问。</p>
+<p>使用 static 可以修饰变量、方法和代码块。</p>
+<p>静态成员属于整个类，当系统第一次使用该类时，就会为其分配内存空间直到该类被卸载才会进行资源回收</p>
+<h4 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h4><p>使用 static 修饰方法，称为静态方法或类方法。 main 方法就是静态方法。</p>
+<p>静态方法中可以直接调用同类中的静态成员，但不能直接调用非静态成员。<br>在普通成员方法中，则可以直接访问同类的非静态变量和静态变量。<br>静态方法中不能直接调用非静态方法，需要通过对象来访问非静态方法。</p>
+<h4 id="静态数据块"><a href="#静态数据块" class="headerlink" title="静态数据块"></a>静态数据块</h4><p>Java 中可以通过初始化块进行数据赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class HelloWorld&#123;</div><div class="line">	String name;</div><div class="line">	&#123;</div><div class="line">		name = &quot;John&quot;;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在类的声明中，可以包含多个初始化块，当<strong>创建类的实例时</strong>，就会依次执行这些代码块。如果使用 static 修饰初始化块，就称为静态初始化块。<br>静态初始化块只在类加载时执行，且只会执行一次，同时静态初始化块只能给静态变量赋值，不能初始化普通的成员变量。</p>
+<p><img src="/img/Java009.jpg" alt=""><br><img src="/img/Java010.jpg" alt=""></p>
+<p><strong>程序运行时静态初始化块最先被执行，然后执行普通初始化块，最后才执行构造方法。</strong></p>
+<p>面向对象的三大特性：封装、继承、多态</p>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>将类的某些信息隐藏在类内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问。</p>
+<p>好处：只能通过规定的方法访问数据；隐藏类的实例细节，方便修改和实现。</p>
+<p>封装实现方法：</p>
+<ol>
+<li>修改属性可见性，设为<code>private</code>。</li>
+<li>创建<code>getter\setter</code>方法，用于属性的读写。</li>
+<li>在<code>getter\setter</code>中加入属性控制语句(对属性值的合法性进行判断)。</li>
+</ol>
+<h4 id="包"><a href="#包" class="headerlink" title="包"></a>包</h4><p>packege，包名间可以用点来区别文件夹<br>且要放在java程序的第一行<br>包名间用<code>.</code>隔开</p>
+<p>包的作用：<br>1.管理java文件<br>2.<strong>管理同名文件冲突</strong><br>加上不同的包来区分相同文件名的类<br>例如：音乐类——MyClassMusic<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">com.imooc.music.MyClassMusic</div><div class="line">com.imooc.movie.MyClassMusic</div></pre></td></tr></table></figure></p>
+<p>系统中的包<br>java.lang.(类) 放置java语言基础类<br>java.util.(类)放置java语言工具类<br>java.io.(类)包含输入输出相关功能的类</p>
+<p>包的使用</p>
+<ol>
+<li>可以使用import关键字，在某个文件使用其他文件中的类。<code>import com.imooc.music.MyClass</code></li>
+<li>java中，包的命名规范是全小写字母拼写</li>
+<li>使用的时候不但可以加载某个包下的所有文件<code>com.imooc.*</code>。也可以加载某个具体子包下的所有文件<code>com.imooc.music.*</code></li>
+</ol>
+<h4 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h4><p>修饰属性和方法的访问范围<br><img src="/img/Java011.jpg" alt=""></p>
+<h4 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h4><p>this关键字代表当前对象<br><code>this.属性</code> 操作当前对象的属性<br><code>this.方法</code> 调用当前对象的方法</p>
+<p>封装对象的属性的时候，经常会使用this关键字</p>
+<h3 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h3><p>内部类（ Inner Class ）就是定义在另外一个类里面的类。与之对应，包含内部类的类被称为外部类。</p>
+<p>内部类作用：</p>
+<ol>
+<li>内部类提供了更好的<strong>封装</strong>，可以把内部类隐藏在外部类之内，不允许同一个包中的其他类访问该类</li>
+<li>内部类的方法可以直接访问外部类的所有数据，包括私有的数据</li>
+<li>内部类所实现的功能使用外部类同样可以实现，只是有时使用内部类更方便</li>
+</ol>
+<p>内部类分类</p>
+<ul>
+<li>成员内部类</li>
+<li>静态内部类</li>
+<li>方法内部类</li>
+<li>匿名内部类</li>
+</ul>
+<h4 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h4><p>内部类中最常见的就是成员内部类，也称为普通内部类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class Outer&#123;</div><div class="line">	private int a = 99;</div><div class="line">	public class Inner&#123;</div><div class="line">		int b = 2;</div><div class="line">		public void test()&#123;</div><div class="line">			System.out.println(&quot;外部类中的变量a：&quot;+a);</div><div class="line">			System.out.println(&quot;内部类中的变量b：&quot;+b);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public static void main(String[] args)&#123;</div><div class="line">		Outer outer = new Outer();</div><div class="line">		Inner i = outer.new Inner();</div><div class="line">		i.test();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>Inner 类定义在 Outer 类的内部，相当于 Outer 类的一个成员变量的位置，Inner 类可以使用任意访问控制符，如 <code>public</code> 、 <code>protected</code> 、 <code>private</code> 等。</li>
+<li>Inner 类中定义的 test() 方法可以直接访问 Outer 类中的数据，而不受访问控制符的影响，如直接访问 Outer 类中的私有属性a。</li>
+<li>定义了成员内部类后，必须使用外部类对象来创建内部类对象，而不能直接去 new 一个内部类对象，即：<code>内部类 对象名 = 外部类对象.new 内部类( );</code></li>
+<li>编译上面的程序后，会发现产生了两个 .class 文件，成员内部类的 .class 文件总是这样命名：<code>外部类名$内部类名.class</code></li>
+</ol>
+<p>外部类是不能直接使用内部类的成员和方法<br><img src="/img/Java012.jpg" alt=""></p>
+<p>如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用 this 关键字（名字不相同的变量或方法可以直接访问）。<br><img src="/img/Java013.jpg" alt=""></p>
+<h4 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h4><p>静态内部类是 static 修饰的内部类，这种内部类的特点是：</p>
+<ol>
+<li>静态内部类不能直接访问外部类的非静态成员，但可以通过 <code>new 外部类().成员</code> 的方式访问 </li>
+<li>如果外部类的静态成员与内部类的成员名称相同，可通过<code>类名.静态成员</code>访问外部类的静态成员；如果外部类的静态成员与内部类的成员名称不相同，则可通过<code>成员名</code>直接调用外部类的静态成员</li>
+<li>创建静态内部类的对象时，不需要外部类的对象，可以直接创建 <code>内部类 对象名= new 内部类();</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class SOuter&#123;</div><div class="line">    private int a = 99;</div><div class="line">    static int b = 1;</div><div class="line">    int c = 3;</div><div class="line">    public static class SInner&#123;</div><div class="line">        int b = 2;</div><div class="line">        public void test()&#123;</div><div class="line">            System.out.println(&quot;访问外部类的私有成员a：&quot;+new SOuter().a);</div><div class="line">            System.out.println(&quot;访问外部类的静态成员b：&quot;+SOuter.b);</div><div class="line">            System.out.println(&quot;访问外部类的非静态成员c：&quot;+ new SOuter().c);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        SInner  si = new SInner();</div><div class="line">        si.test();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="方法内部类"><a href="#方法内部类" class="headerlink" title="方法内部类"></a>方法内部类</h4><p>方法内部类就是内部类定义在外部类的方法中，方法内部类只在该方法的内部可见，即只在该方法内可以使用。<br>由于方法内部类不能在外部类的方法以外的地方使用，因此方法内部类<strong>不能使用访问控制符和 static 修饰符</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class MOuter&#123;</div><div class="line">    public void show()&#123;</div><div class="line">        final int a = 25;</div><div class="line">        int b = 13;</div><div class="line">        class MInner&#123;</div><div class="line">            int c = 2;</div><div class="line">            public void print()&#123;</div><div class="line">                System.out.println(&quot;访问外部类的方法中的常量a：&quot;+a);</div><div class="line">                System.out.println(&quot;访问外部类中的变量b：&quot;+b);</div><div class="line">                System.out.println(&quot;访问内部类中的变量c：&quot;+c);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        MInner mi = new MInner();</div><div class="line">        mi.print();</div><div class="line">    &#125;</div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        MOuter mo = new MOuter();</div><div class="line">        mo.show();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承是类与类的一种关系；Java中的继承是单继承，只有一个父类。</p>
+<p>继承的好处：</p>
+<ol>
+<li>子类拥有父类的所有属性和方法。(private修饰的属性和方法无法继承)</li>
+<li>代码可复用</li>
+</ol>
+<p>语法规则<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">class 子类 extends 父类&#123;</div><div class="line">	……</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="方法的重写"><a href="#方法的重写" class="headerlink" title="方法的重写"></a>方法的重写</h4><p>如果子类对继承父类的方法不满意，是可以重写父类继承的方法的，当调用方法时会优先调用子类的方法。</p>
+<p>语法规则</p>
+<ol>
+<li>返回值类型 </li>
+<li>方法名 </li>
+<li>参数类型及个数<br>都要与父类继承的方法相同，才叫方法的重写。</li>
+</ol>
+<p>重写方法的规则：</p>
+<ol>
+<li>参数列表必须完全与被重写的方法相同，否则不能称其为重写而是重载。</li>
+<li>返回的类型必须一直与被重写的方法的返回类型相同，否则不能称其为重写而是重载。如果在子类中写了一个只有返回类型不同的函数，将不是重写，且会报错</li>
+<li>访问修饰符的限制一定要大于被重写方法的访问修饰符（public&gt;protected&gt;default&gt;private）</li>
+<li>重写方法一定不能抛出新的检查异常或者比被重写方法申明更加宽泛的检查型异常。例如：父类的一个方法申明了一个检查异常IOException，在重写这个方法是就不能抛出Exception,只能抛出IOException的子类异常，可以抛出非检查异常。</li>
+</ol>
+<p>重载的规则：</p>
+<ol>
+<li>必须具有不同的参数列表。</li>
+<li>可以有不责骂的返回类型，只要参数列表不同就可以了。</li>
+<li>可以有不同的访问修饰符。</li>
+<li>可以抛出不同的异常。</li>
+</ol>
+<p>重写与重载的区别在于：</p>
+<ol>
+<li>重写多态性起作用，对调用被重载过的方法可以大大减少代码的输入量，同一个方法名只要往里面传递不同的参数就可以拥有不同的功能或返回值。</li>
+<li>用好重写和重载可以设计一个结构清晰而简洁的类，可以说重写和重载在编写代码过程中的作用非同一般.</li>
+<li>重写是除了函数体其他必须完全相同，如果参数不同则是重载，如果参数相同而返回类型不同则会报错</li>
+</ol>
+<h4 id="继承的初始化顺序"><a href="#继承的初始化顺序" class="headerlink" title="继承的初始化顺序"></a>继承的初始化顺序</h4><ol>
+<li>初始化父类再初始化子类。<br>2.先执行初始化对象中属性，再执行构造方法中的初始化。</li>
+</ol>
+<p>综合以上两点，顺序为：<br>父类属性初始化—》父类构造方法—》子类属性初始化—》子类构造方法。</p>
+<p>在一个不存在继承的类中：初始化static变量—》执行static初始化快—》初始化普通成员变量(如果有赋值语句)—》执行普通初始化块—》构造方法</p>
+<p>在一个存在继承的类中：初始化父类static成员变量—》运行父类static初始化块—》初始化子类static成员变量—》运行子类static初始化块—》初始化父类实例成员变量(如果有赋值语句)—》执行父类普通初始化块—》父类构造方法—》初始化子类实例成员变量(如果有赋值语句)及普通初始化块—》子类构造方法。</p>
+<p>注意：其中变量初始化(赋值)和初始化块的执行与相关语句在源码中的放置顺序一致，不过变量声明会最先执行</p>
+<h4 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h4><p>final关键字表示“最终的”，即不可修改。</p>
+<p>final可以修饰类、方法、属性和变量</p>
+<ol>
+<li>修饰类：不允许被继承</li>
+<li>修饰方法：不允许被重写</li>
+<li>修饰属性：则该属性不会进行隐式初始化（不会自动初始化），需要手动初始化或者在构造方法中初始化 （但二者只能选一，即只能初始化一次后便不能更改）</li>
+<li>修饰变量，只能在声明的时候赋一次值，成为常量。 （static final 会使其成为全局常量）</li>
+</ol>
+<h4 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h4><p>super关键字在对象内部使用，代表父类对象</p>
+<ol>
+<li>访问父类的属性<code>super.age</code></li>
+<li>访问父类方法<code>super.eat();</code></li>
+<li>调用父类的构造方法<code>super([参数]);</code></li>
+</ol>
+<p>调用父类的构造方法需要注意：<br>1.子类的构造过程中必须调用其父类的构造方法<br>2.如果子类的构造方法没有显式调用父类的构造方法，则系统会默认调用父类的无参构造方法。<br>3.如果显示的调用构造方法，必须在子类的构造方法的第一行，super()。<br>4.如果子类的构造方法中既没有显示调用父类的构造方法，父类又没有无参的构造方法，则编译就会报错</p>
+<h4 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h4><p>Object类是所有类的父类，如果一个类没有使用<code>extends</code>关键字明确标识继承另外一个类，那么这个类默认继承Object类，且Object类中的方法适用于所有子类</p>
+<h5 id="toString-方法"><a href="#toString-方法" class="headerlink" title="toString()方法"></a>toString()方法</h5><p>在Object类中的toString()方法返回对象的哈希code码(对象地址字符串)</p>
+<p>如果我们在代码里面直接输出一个对象<code>System.out.println(new TelePhone);</code>，会输出这个对象在内存中的地址，我们把它称为哈希码，哈希码是通过哈希算法生成的一个字符串用来唯一区分对象的</p>
+<p>可以通过重写<code>toString()</code>方法表示出对象的属性</p>
+<h5 id="getClass-方法"><a href="#getClass-方法" class="headerlink" title="getClass()方法"></a>getClass()方法</h5><p>getClass()可以得到一个类对象，当我们new的时候得到的是一个类的对象，如果对象调用getClass()方法我们得到的是类对象，类对象描述的是类的代码信息(类的代码信息:这个类有哪些属性\它是什么类型\变量名是什么\它有哪些方法\方法名是什么\方法里面的代码是什么；而类的对象关注的是对象的属性值的信息或者说这个对象的数据信息)</p>
+<h5 id="equals方法"><a href="#equals方法" class="headerlink" title="equals方法"></a>equals方法</h5><p>Object类中的<code>equals()</code>用于比较对象的引用是否指向同一块内存地址（对象实例化时，即给对象分配内存空间）</p>
+<p>在比较引用对象是否相同时，==比较对象是否相等和equals一样</p>
+<p>使用方法如：<code>dog.equals(dog2);</code></p>
+<p>如果是两个对象，但想判断两个对象的属性是否相同，则重写<code>equals()</code>方法（ecplise和Intellij都提供了自动生成重写equals方法的功能，<code>equals() and hascode()</code>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public boolean equals(Object o) &#123;</div><div class="line">	//地址是否相同，即是否为同一对象</div><div class="line">	if (this == o) return true;</div><div class="line">	//对象是否为空，getClass()可以得到类对象，判断类的属性是否一样</div><div class="line">	if (o == null || getClass() != o.getClass()) return false;</div><div class="line">	Telephone telephone = (Telephone) o;</div><div class="line">	return Float.compare(telephone.cpu, cpu) == 0 &amp;&amp;</div><div class="line">			Float.compare(telephone.screen, screen) == 0 &amp;&amp;</div><div class="line">			Float.compare(telephone.mem, mem) == 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>多态指的是对象的多种形态<br>主要分为引用多态、方法多态<br>继承是多态的实现基础</p>
+<h4 id="引用多态"><a href="#引用多态" class="headerlink" title="引用多态"></a>引用多态</h4><ol>
+<li>父类引用可以指向本类对象 <code>Animal obj1 = new Animal();</code></li>
+<li>父类引用可以指向子类对象 <code>Animal obj2 = new Dog();</code><br>但是我们不能用子类的引用指向父类对象 <code>Dog obj3 = new Animal();//错</code></li>
+</ol>
+<h4 id="方法多态"><a href="#方法多态" class="headerlink" title="方法多态"></a>方法多态</h4><ol>
+<li>父类创建本类对象时，调用的方法为本类方法</li>
+<li>父类创建子类对象时候，调用的方法为子类重写的方法或者父类的方法</li>
+</ol>
+<p>不能父类引用调用子类自己的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Animal obj1 = new Animal();</div><div class="line">Animal obj2 = new Dog();</div><div class="line">Animal obj3 = new Cat();</div><div class="line"></div><div class="line">obj1.eat();//Animal的方法</div><div class="line">obj2.eat();//Dog重写的方法</div><div class="line">obj3.eat();//Cat没有重写，使用继承自Animal中的方法</div><div class="line"></div><div class="line">obj2.watchDoor();//不能父类引用调用子类自己的方法</div></pre></td></tr></table></figure>
+<h4 id="引用类型转换"><a href="#引用类型转换" class="headerlink" title="引用类型转换"></a>引用类型转换</h4><ol>
+<li>向上类型转换（隐式/自动类型转换），小类型到大类型的转换</li>
+<li>向下类型转换（强制类型转换），大类型到小类型的转换（存在风险，溢出）</li>
+<li>instanceof运算符，用来解决引用对象的类型，避免类型转换的安全性问题</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Dog dog=new Dog();</div><div class="line">Animal animal=dog;//正确，自动类型提升，向上类型转换</div><div class="line">Dog dog1=(Dog)animal;//向下类型转换</div><div class="line">Cat cat=(Cat)animal;</div><div class="line">/*编译时不会出错（按Cat类型进行编译），但运行时会报错，</div><div class="line">因为它开辟的是Dog类型的空间，而（无法将引用类型进行转换）</div><div class="line">无法将dog对象转换成Cat类型，并且此方法对程序的安全性有影响。</div><div class="line">此时应该利用instanceof和if语句结合使用，进行验证，</div><div class="line">以保证程序的安全性</div><div class="line">*/</div><div class="line">if(animal instanceof Cat)&#123;</div><div class="line">	//判断animal类中是否包含Cat类型的元素，若包含则进行转换，instanceof返回值为布尔类型</div><div class="line">	Cat cat=(Cat)animal;</div><div class="line">&#125;else&#123;</div><div class="line">System.out.println(&quot;无法进行类型转换&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h4><p>抽象类钱使用<code>abstract</code>关键字修饰，则该类为抽象类。</p>
+<h5 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h5><ol>
+<li>在某些情况下，某个父类只是知道其子类应该包含怎样的方法，但无法准确知道这些子类如何实现这些方法</li>
+<li>从多个具有相同特征的类中抽象出一个抽象类，以这个抽象类作为子类的模板，从而避免了子类设计的随意性</li>
+</ol>
+<h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><p>限制规定子类必须实现某些方法，但不关注实现细节</p>
+<h5 id="使用规则"><a href="#使用规则" class="headerlink" title="使用规则"></a>使用规则</h5><ol>
+<li>abstract定义抽象类</li>
+<li>abstract定义抽象方法，只有声明，不需要实现，没有方法体</li>
+<li>包含抽象方法的类是抽象类</li>
+<li>抽象类中可以包含普通的方法，也可以没有抽象方法</li>
+<li>抽象类不能直接创建，可以使用引用变量</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public abstract class Shape &#123;</div><div class="line">    public abstract float circuit();//周长</div><div class="line">    public abstract float area();//面积</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>接口可以理解为一种特殊的类，由<strong>全局常量</strong>和<strong>公共的抽象方法</strong>所组成。</p>
+<p>类是一种具体实现体，而接口定义了某一批类所需要遵守的规范，接口不关心这些类的内部数据，也不关心这些类里方法的实现细节，它只规定这些类里必须提供某些方法。</p>
+<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><p>和类定义不同，定义接口不再使用<code>class</code>关键字，而是使用<code>interface</code>关键字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[修饰符] [abstract] interface 接口名 [extends 父接口1，父接口2...]</div><div class="line">&#123;</div><div class="line">    零个到多个常量定义...</div><div class="line">    零个到多个抽象方法的定义...(抽象方法的abstract会自动加)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接口就是用来被继承、被实现的，修饰符一般建议用public，注意:不能使用private和protected修饰接口<br>接口中的属性是常量，即使定义时不添加<code>public static final</code>修饰符，系统也会自动加上<br>接口中的方法只能是抽象方法，即使定义时不添加<code>public abstract</code>修饰符，系统也会自动加上</p>
+<p>一个类可以实现一个或多和接口，实现接口使用implements关键字。java中一个类只能继承一个父类，可以通过实现多个接口作补充</p>
+<p>继承父类实现接口的语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[修饰符] class 类名 extends 父类 implements 接口1，接口2……&#123;</div><div class="line">类体部分//如果继承的是抽象类，需要实现继承的抽象方法；要实现接口中的抽象方法</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果要继承父类，继承父类必须在实现接口之前<br>接口命名时通常首字母为I，以区分类名</p>
+<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><p>实现时可以利用接口的引用指向实现了接口的对象，调用其方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">IPlayGame ip1 = new Psp();</div><div class="line">IPlayGame ip2 = new SmartPhone();</div><div class="line">ip1.playGame();</div><div class="line">//Psp和SmartPhone都是实现了IPlayGame接口的playGame方法</div></pre></td></tr></table></figure></p>
+<h5 id="配合匿名内部类使用"><a href="#配合匿名内部类使用" class="headerlink" title="配合匿名内部类使用"></a>配合匿名内部类使用</h5><p>接口的使用还经常与匿名内部类配合<br>匿名内部类就是没有名字的内部类，多用于关注实现而不关注实现类的名称</p>
+<p>语法格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">IPlayGame ip=new IPlayGame()&#123;</div><div class="line">	public void playGame()&#123;</div><div class="line">		System.out.print(&quot;匿名内部类实现接口的方式……&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">ip.playGame();</div></pre></td></tr></table></figure></p>
+<p>即通过创建接口的对象，直接写出实现的方法，再调用此方法<br>注意结尾的逗号</p>
+<p>还可以直接创建并调用方法，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">new IPlayGame()&#123;</div><div class="line">	public void playGame()&#123;</div><div class="line">		System.out.println(&quot;……&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;.playGame();</div></pre></td></tr></table></figure></p>
+<h2 id="项目分析："><a href="#项目分析：" class="headerlink" title="项目分析："></a>项目分析：</h2><ol>
+<li>数据模型分析</li>
+<li>业务模型分析</li>
+<li>显示和流程分析</li>
+</ol>
+<h3 id="数据模型分析"><a href="#数据模型分析" class="headerlink" title="数据模型分析"></a>数据模型分析</h3><p>将现实世界的事与物的主要特征 –分析–抽象–&gt; 信息系统数据存取的数据结构以及约束信息，数据结构的组成：操作（方法）、属性</p>
+<h3 id="业务模型分析"><a href="#业务模型分析" class="headerlink" title="业务模型分析"></a>业务模型分析</h3><p>在设计应用程序前，应该明确该应用必须执行哪些任务。</p>
+<ul>
+<li>分析业务需求量是应用程序开发中最重要的步骤之一。</li>
+<li>确认业务需求的目的在于创建一个能同时满足零售商和消费者需要的解决方案。</li>
+</ul>
+<h3 id="显示和流程分析"><a href="#显示和流程分析" class="headerlink" title="显示和流程分析"></a>显示和流程分析</h3><ol>
+<li>显示：用户可以看到的信息提示界面</li>
+<li>流程：显示信息的执行过程和步骤</li>
+</ol>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>阻止当前方法或作用域正常运行</p>
+<h3 id="异常处理的作用"><a href="#异常处理的作用" class="headerlink" title="异常处理的作用"></a>异常处理的作用</h3><h3 id="Java异常体系结构"><a href="#Java异常体系结构" class="headerlink" title="Java异常体系结构"></a>Java异常体系结构</h3><p>所有异常都继承于<code>Throwable</code>类，其下有两大子类：</p>
+<ol>
+<li><code>Error</code>类：错误，如虚拟机错误(VirtualMachineError)、线程死锁(ThreadDeath)。会使程序崩溃</li>
+<li><code>Exception</code>类：异常，编码、环境、用户输入等问题</li>
+</ol>
+<p><code>Exception</code>类其子类主要有：</p>
+<ul>
+<li>非检查异常(运行时异常RuntimeException)，由java虚拟机自动捕获</li>
+<li>检查异常CheckException，需要手动添加捕获和处理语句，包括文件异常IOException、SQL异常SQLException等</li>
+</ul>
+<p><img src="/img/Java014.jpg" alt=""></p>
+<h3 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h3><p>try-catch（多catch块）-finally</p>
+<ol>
+<li>try块：负责捕获异常，一旦try中发现异常，程序的控制权将被移交给catch块中的异常处理程序。【try语句块不可以独立存在，必须与 catch 或者 finally 块同存】</li>
+<li>catch块：如何处理？比如发出警告：提示、检查配置、网络连接，记录错误等。执行完catch块之后程序跳出catch块，继续执行后面的代码。<br>·编写catch块的注意事项：多个catch块处理的异常类，要按照先catch子类后catch父类的处理方式，因为会【就近处理】异常（由上自下）。</li>
+<li>finally：最终执行的代码，用于关闭和释放资源等，无论是否出现异常，finally块中代码都会执行</li>
+</ol>
+<p><img src="/img/Java015.jpg" alt=""><br>多重异常处理代码块顺序问题：先子类再父类（顺序不对也会提醒错误），finally语句块处理最终将要执行的代码</p>
+<p>当try和catch中有return时，finally仍然会执行，顺序如下<br>1）有错误情况下<br>如果finally块中有return语句，try语句 -&gt; catch -&gt; finally -&gt; finally.return<br>如果finally块中没有return语句，try语句 -&gt; catch -&gt; finally -&gt; catch.return<br>2）无错误情况下<br>如果finally{}块中有return语句，try语句 -&gt; finally -&gt; finally.return<br>如果finally{}块中没有return语句，try语句 -&gt; finally -&gt; try.return</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class TryCatchTest &#123;</div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        TryCatchTest tct = new TryCatchTest();</div><div class="line">        int x = tct.test();</div><div class="line">        System.out.println(x);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public int test()&#123;</div><div class="line">        try&#123;</div><div class="line">            System.out.println(&quot;try&quot;);</div><div class="line">            throw  new Exception(&quot;xxx&quot;);</div><div class="line">            //return 999;</div><div class="line">        &#125;catch (Exception e)&#123;</div><div class="line">            System.out.println(&quot;catch&quot;);</div><div class="line">            return -1;</div><div class="line">			//-1为抛出异常的习惯写法</div><div class="line">        &#125;</div><div class="line">        finally &#123;</div><div class="line">            System.out.println(&quot;finally&quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果方法中try,catch,finally中没有return语句，则会调用这三个语句块之外的return结果<br>e.printStackTrace()可以输出异常信息</p>
+<h3 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h3><p>1.throws的异常列表可以是抛出一条异常，也可以是抛出多条异常，每个类型的异常中间用逗号隔开<br>2.方法体中调用会抛出异常的方法或者是先抛出一个异常：用<code>throw new Exception()</code>，<code>throw</code>写在方法体里，表示“抛出异常”这个动作<br>3.如果某个方法调用了抛出异常的方法，那么必须添加<code>try... catch</code>语句去尝试捕获这种异常，或者添加声明，将异常抛出给更上一层的调用者进行处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public void 方法名（参数列表）throws 异常列表&#123;</div><div class="line">	//调用会抛出异常的方法或者：</div><div class="line">	throw new Exception();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h3><p>当实际应用中需要用到Java中没有的异常，就需要自定义异常<br>自定义异常需要继承于Java类库中意思相近的异常，或者直接继承Exception<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class 自定义异常类 extends 异常类型｛｝</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public class DrunkException  extends Exception &#123;</div><div class="line">	public DrunkException()&#123;&#125;</div><div class="line">	public DrunkException(String message)&#123;super(message);&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="异常链"><a href="#异常链" class="headerlink" title="异常链"></a>异常链</h3><p>异常链指将捕获的异常包装进一个新的异常中，在新异常里添加原始的异常，并重新抛出的异常处理方式。原异常被保存为新异常的一个属性（比如cause）。这个想法是指一个方法应该抛出定义在相同的抽象层次上的异常，但不会丢弃更低层次的信息。</p>
+<p>一个方法应该抛出定义在相同的抽象层次上的异常，（将所有捕获到的异常包装为新的异常类，即定义在相同的抽象层次上抛出）但不会丢弃更低层次的信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">public class chainTest &#123;</div><div class="line"></div><div class="line">	/**</div><div class="line">	* @param args</div><div class="line">	* Test1抛出喝大了异常</div><div class="line">	* Test2调用test1捕获了喝大了异常，并且包装成运行时异常，继续抛出</div><div class="line">	* main方法中调用test2尝试捕获test2方法抛出的异常</div><div class="line">	*/</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		try&#123;	</div><div class="line">			chainTest ct=new chainTest();</div><div class="line">			ct.Test2();&#125;</div><div class="line">		catch(Exception e)&#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	public void Test1()throws DrunkException&#123;</div><div class="line">		throw new DrunkException(&quot;喝车别开酒&quot;);</div><div class="line">	&#125;</div><div class="line">	public void Test2()&#123;</div><div class="line">		try&#123;</div><div class="line">			Test1();</div><div class="line">		&#125;catch( DrunkException e)&#123;</div><div class="line">			RuntimeException rte=new RuntimeException(e);</div><div class="line">			//运行时异常，是所有java虚拟机正常操作期间可以被抛出异常的父类</div><div class="line">			//rte.initCause(e);</div><div class="line">			//一种对异常的一种包装技巧。initCause()的作用是保存原始的异常，当想要知道底层发生了什么异常的时候调用getCause()就能获得原始异常。</div><div class="line">			e.printStackTrace();</div><div class="line">			throw rte;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/img/Java016.jpg" alt=""></p>
+<ol>
+<li>处理运行时异常时，采用逻辑去合理规避同时辅助try-catch处理</li>
+<li>在多重catch块后面，可以加一个catch（Exception）来处理可能会被遗漏的异常</li>
+<li>对于不确定的代码，也可以加上try-catch，处理潜在的异常</li>
+<li>尽量去处理异常，切记只是简单的调用printStackTrace（）去打印</li>
+<li>具体如何处理异常，要根据不同的业务需求和异常类型去决定</li>
+<li>尽量添加finally语句块去释放占用的资源</li>
+</ol>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>字符串被作为 String 类型的对象处理。 String 类位于 java.lang 包中。默认情况下，该包被自动导入所有的程序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">String s1 = &quot;jj&quot;;</div><div class="line">//s1存放了到字符串对象的引用</div><div class="line">String s2 = new String();</div><div class="line">String s3 = new String(&quot;jj&quot;);</div></pre></td></tr></table></figure></p>
+<p>String 对象创建后则不能被修改，是不可变的，所谓的修改其实是创建了新的对象，所指向的内存空间不同。</p>
+<p> 一旦一个字符串在内存中创建，则这个字符串将不可改变。如果需要一个可以改变的字符串，我们可以使用StringBuffer或者StringBuilder</p>
+<p>每次 new 一个字符串就是产生一个新的对象，即便两个字符串的内容相同，使用 <code>==</code>比较时也为 ”false” ,如果只需比较内容是否相同，应使用 <code>equals()</code>方法（前面条件运算符章节讲过哦~~）</p>
+<p><img src="/img/Java017.jpg" alt=""></p>
+<ul>
+<li>字符串中字符的索引从0开始，范围为 0 到 str.length()-1</li>
+<li>使用 indexOf 进行字符或字符串查找时，如果匹配返回位置索引；如果没有匹配结果，返回 -1</li>
+<li>使用 substring(beginIndex , endIndex) 进行字符串截取时，包括 beginIndex 位置的字符，不包括 endIndex 位置的字符</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">String str = &quot;学习 JAVA 编程&quot;;</div><div class="line">System.out.println(&quot;字符串长度：&quot;+str.length());</div><div class="line">char c = &apos;编&apos;;</div><div class="line">System.out.println(&quot;字符串‘编’的位置：&quot;+str.indexOf(c));</div><div class="line">System.out.println(&quot;子字符串Java的位置：&quot;+str.indexOf(&quot;JAVA&quot;));</div><div class="line">System.out.println(&quot;子字符串imooc的位置：&quot;+str.indexOf(&quot;java&quot;));</div><div class="line">String[] arr = str.split(&quot; &quot;);</div><div class="line">System.out.println(&quot;按空格拆分成数组：&quot;+Arrays.toString(arr));</div><div class="line">System.out.println(&quot;获取位置[3，7)之间的子字符串：&quot;+str.substring(3,7));</div><div class="line">System.out.println(&quot;转换为小写：&quot;+str.toLowerCase());</div><div class="line">System.out.println(&quot;获取索引位置为3的字符：&quot;+str.charAt(3));</div><div class="line"></div><div class="line">System.out.print(&quot;将字符串转换为byte数组：&quot;);</div><div class="line">byte[] bytes = str.getBytes();</div><div class="line">for(int i=0;i&lt;bytes.length;i++)&#123;</div><div class="line">	System.out.print(&quot;bytes&quot;+i+&quot;:&quot;+bytes[i] + &quot; &quot;);	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">字符串长度：10</div><div class="line">字符串‘编’的位置：8</div><div class="line">子字符串Java的位置：3</div><div class="line">子字符串imooc的位置：-1</div><div class="line">按空格拆分成数组：[学习, JAVA, 编程]</div><div class="line">获取位置[3，7)之间的子字符串：JAVA</div><div class="line">转换为小写：学习 java 编程</div><div class="line">获取索引位置为3的字符：J</div><div class="line">将字符串转换为byte数组：bytes0:-27 bytes1:-83 bytes2:-90 bytes3:-28 bytes4:-71 bytes5:-96 bytes6:32 bytes7:74 bytes8:65 bytes9:86 bytes10:65 bytes11:32 bytes12:-25 bytes13:-68 bytes14:-106 bytes15:-25 bytes16:-88 bytes17:-117</div></pre></td></tr></table></figure>
+<p>1 个字节等于 8 位， gbk 编码中 1 个汉字字符存储需要 2 个字节，1 个英文字符存储需要 1 个字节。字对应的字节值为负数，原因在于每个字节是 8 位，最大值不能超过 127，而汉字转换为字节后超过 127，如果超过就会溢出，以负数的形式显示。</p>
+<p>==” 和 equals() 有什么区别: </p>
+<ul>
+<li>==: 判断两个字符串在内存中首地址是否相同，即判断是否是同一个字符串对象</li>
+<li>equals(): 比较存储在两个字符串对象中的内容是否一致</li>
+</ul>
+<p>比较字符用<code>==</code></p>
+<h3 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a>StringBuilder类</h3><p>String 类具有是不可变性，多个字符串进行拼接了以后产生一个新的临时变量并指向一个新的对象或新的地址。使用 StringBuilder 或 StringBuffer 就可以避免这个问题。</p>
+<p>StringBuilder 和StringBuffer ，它们基本相似，不同之处，StringBuffer 是线程安全的，而 StringBuilder 则没有实现线程安全功能，所以性能略高。因此一般情况下，如果需要创建一个内容可变的字符串对象，应优先考虑使用 StringBuilder 类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">StringBuilder str1 = new StringBuilder();</div><div class="line">StringBuilder str2 = new StringBuilder(&quot;imooc&quot;);</div></pre></td></tr></table></figure>
+<p><img src="/img/Java018.jpg" alt=""></p>
+<p>在需要频繁对字符串进行修改操作时使用 StringBuilder 的效率比 String 要高</p>
+<h2 id="常用类"><a href="#常用类" class="headerlink" title="常用类"></a>常用类</h2><h3 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h3><p>为了让基本数据类型也具备对象的特性， Java 为每个基本数据类型都提供了一个包装类，这样我们就可以像操作对象那样来操作基本数据类型。</p>
+<table>
+<thead>
+<tr>
+<th>基本类型</th>
+<th>对应的包装类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Character</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+</tbody>
+</table>
+<p>包装类主要提供了两大类方法：</p>
+<ol>
+<li>将本类型和其他基本类型进行转换的方法</li>
+<li>将字符串和本类型及包装类互相转换的方法</li>
+</ol>
+<h4 id="Integer类"><a href="#Integer类" class="headerlink" title="Integer类"></a>Integer类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int i = 2;</div><div class="line">Integer m = new Integer(8);</div><div class="line">Integer n = new Integer(&quot;8&quot;);</div></pre></td></tr></table></figure>
+<p>常用方法</p>
+<p>|   返回值   |   方法名     |   解释    |<br>|   byte   |    byteValue()    |   将该Integer转为byte类型    |<br>|   double   |     doubleValue()   |    转为double类型   |<br>|   float   |   floatValue     |   转为float类型    |<br>|   int   |    intValue()    |   转为int类型    |<br>|   long   |    longValue()    |   转为long类型    |<br>| static  int   |   parseInt(String s)     |   将字符串转换为int类型    |<br>|   String   |   toString     |   转为字符串类型    |<br>|  static  Integer  |    valueOf(String s)    |   将字符串转换为Integer类型    |</p>
+<h4 id="基本类型和包装类之间的转换"><a href="#基本类型和包装类之间的转换" class="headerlink" title="基本类型和包装类之间的转换"></a>基本类型和包装类之间的转换</h4><p>装箱：把基本类型转换成包装类，使其具有对象的性质，又可分为手动装箱和自动装箱<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int i = 10</div><div class="line">Integer x = new Integer(i);//手动装箱</div><div class="line">Integer y = i;//自动装箱</div></pre></td></tr></table></figure></p>
+<p>拆箱：和装箱相反，把包装类对象转换成基本类型的值，又可分为手动拆箱和自动拆箱</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Integer j = new Integer(8);</div><div class="line">int m = j.intValue(); //手动拆箱</div><div class="line">int n = j; //自动拆箱</div></pre></td></tr></table></figure>
+<h4 id="基本类型和字符串之间的转换"><a href="#基本类型和字符串之间的转换" class="headerlink" title="基本类型和字符串之间的转换"></a>基本类型和字符串之间的转换</h4><p>基本类型转换为字符串有三种方法：</p>
+<ol>
+<li>使用包装类的 toString() 方法</li>
+<li>使用String类的 valueOf() 方法</li>
+<li>用一个空字符串加上基本类型，得到的就是基本类型数据对应的字符串<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int c = 10;</div><div class="line">String str1 = Integer.toString(c);</div><div class="line">String str2 = String.valueOf(c);</div><div class="line">String str3 = c + &quot;&quot;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>将字符串转换成基本类型有两种方法:</p>
+<ol>
+<li>调用包装类的 parseXxx 静态方法</li>
+<li>调用包装类的 valueOf() 方法转换为基本类型的包装类，会自动拆箱</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String str = &quot;8&quot;;</div><div class="line">int a = Integer.parseInt(str);</div><div class="line">int b = Integer.valueOf(str);</div></pre></td></tr></table></figure>
+<h3 id="Date-类"><a href="#Date-类" class="headerlink" title="Date 类"></a>Date 类</h3><p>java.util 包中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Date d = new Date();</div><div class="line">System.out.println(d);</div><div class="line">// 默认输出当前时间</div><div class="line">// Thu Jul 05 11:39:09 CST 2018</div></pre></td></tr></table></figure>
+<p>java.text 包中的 SimpleDateFormat 类可以对日期时间进行格式化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//使用 format() 方法将日期转换为指定格式的文本</div><div class="line">Date d1 = new Date();</div><div class="line">SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</div><div class="line">String today = sdf.format(d1);</div><div class="line">System.out.println(today);</div><div class="line"></div><div class="line">//使用 parse() 方法将文本转换为日期</div><div class="line">String day = &quot;2014年02月14日 10:30:25&quot;;</div><div class="line">SimpleDateFormat sdf1 = new SimpleDateFormat(&quot;yyyy年MM月dd日 HH:mm:ss&quot;);</div><div class="line">Date date = sdf1.parse(day);</div><div class="line">System.out.println(&quot;当前时间&quot;+date);</div></pre></td></tr></table></figure>
+<p>调用 SimpleDateFormat 对象的 parse() 方法时可能会出现转换异常，即 ParseException ，因此需要进行异常处理    </p>
+<p>使用 Date 类时需要导入 java.util 包，使用 SimpleDateFormat 时需要导入 java.text 包</p>
+<h3 id="Calendar-类"><a href="#Calendar-类" class="headerlink" title="Calendar 类"></a>Calendar 类</h3><p>Date 类最主要的作用就是获得当前时间，同时这个类里面也具有设置时间以及一些其他的功能，但是由于本身设计的问题，这些方法却遭到众多批评，不建议使用，更推荐使用 Calendar 类进行时间和日期的处理。</p>
+<p><code>java.util.Calendar</code>类是一个抽象类，可以通过调用 getInstance() 静态方法获取一个 Calendar 对象，此对象已由当前日期时间初始化，即默认代表当前时间，如 <code>Calendar c = Calendar.getInstance();</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Calendar c = Calendar.getInstance();</div><div class="line">int year = c.get(Calendar.YEAR);</div><div class="line">int month = c.get(Calendar.MONTH) + 1; //0表示1月份</div><div class="line">int day = c.get(Calendar.DAY_OF_MONTH);</div><div class="line">int hour = c.get(Calendar.HOUR);</div><div class="line">int minute = c.get(Calendar.MINUTE);</div><div class="line">int second = c.get(Calendar.SECOND);</div><div class="line">System.out.println(year+&quot;年&quot;+month+&quot;月&quot;+day+&quot;日 &quot;+hour+&quot;:&quot;+minute+&quot;:&quot;+second);</div><div class="line"></div><div class="line">Date d = c.getTime(); //Calendar 和 Date 的转换</div><div class="line">Long time = c.getTimeInMillis(); //获取此 Calendar 的时间值，以毫秒为单位</div></pre></td></tr></table></figure>
+<h3 id="Math-类"><a href="#Math-类" class="headerlink" title="Math 类"></a>Math 类</h3><p>Math 类位于 java.lang 包中，包含用于执行基本数学运算的方法， Math 类的所有方法都是静态方法，所以使用该类中的方法时，可以直接使用<code>类名.方法名</code>，</p>
+<p>不需要导入包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int y = (int)(Math.random()*99);</div><div class="line"># 产生[0,99)之间的随机整数</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;基础&quot;&gt;&lt;a href=&quot;#基础&quot; class=&quot;headerlink&quot; title=&quot;基础&quot;&gt;&lt;/a&gt;基础&lt;/h2&gt;&lt;h3 id=&quot;JVM-JRE-JDK&quot;&gt;&lt;a href=&quot;#JVM-JRE-JDK&quot; class=&quot;headerlink&quot; title=&quot;JVM
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
   </entry>
   
@@ -1384,122 +2117,6 @@ sudo apt-get install libnss3-1d:i386 libqt4-qt3support:i386 libssl1.0.0:i386 lib
 &lt;ul&gt;
 &lt;li&gt;整数：&lt;code&gt;-1&lt;/code&gt;，&lt;code&gt;100&lt;/code&gt;，&lt;code&gt;0&lt;/code&gt;，&lt;code&gt;0xff00&lt;/code&gt;（十六进制整数）&lt;/li&gt;
 &lt;li&gt;浮点数：&lt;code&gt;1.23
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python输入输出及基础</title>
-    <link href="http://yoursite.com/post/32cf0123.html"/>
-    <id>http://yoursite.com/post/32cf0123.html</id>
-    <published>2018-06-15T12:12:09.000Z</published>
-    <updated>2018-06-19T08:32:40.788Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>输出</strong><br>自动添加空格</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;print(&apos;hello world&apos;)</div><div class="line">hello world</div><div class="line">&gt;&gt;&gt;print(&apos;The quick brown fox&apos;, &apos;jumps over&apos;, &apos;the lazy dog&apos;)</div><div class="line">The quick brown fox jumps over the lazy dog</div><div class="line">&gt;&gt;&gt;print(&apos;1024 * 768 =&apos;,1024*768)</div><div class="line">1024 * 768 = 786432</div></pre></td></tr></table></figure>
-<p><strong>输入</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name=input(&apos;please input your name:&apos;)</div><div class="line">&gt;&gt;&gt;print(&apos;name:&apos;,name)</div></pre></td></tr></table></figure></p>
-<p>采用缩进方式<br>当语句以冒号<code>:</code>结尾时，缩进的语句视为代码块<br>Python程序是大小写敏感的<br>使用4个空格的缩进<br>以<code>#</code>开头的语句是注释</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;输出&lt;/strong&gt;&lt;br&gt;自动添加空格&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python编码</title>
-    <link href="http://yoursite.com/post/d6d2cac9.html"/>
-    <id>http://yoursite.com/post/d6d2cac9.html</id>
-    <published>2018-06-15T00:44:39.000Z</published>
-    <updated>2018-06-19T08:32:40.784Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><ul>
-<li>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。</li>
-<li>用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件</li>
-<li>浏览网页的时候，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器</li>
-<li>1个中文字符经过UTF-8编码后通常会占用3个字节，而1个英文字符只占用1个字节<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; ord(&apos;A&apos;)</div><div class="line">65</div><div class="line">&gt;&gt;&gt; ord(&apos;中&apos;)</div><div class="line">20013</div><div class="line">&gt;&gt;&gt; chr(66)</div><div class="line">&apos;B&apos;</div><div class="line">&gt;&gt;&gt; chr(25991)</div><div class="line">&apos;文&apos;</div><div class="line">&gt;&gt;&gt; &apos;\u4e2d\u6587&apos;</div><div class="line">&apos;中文&apos;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="str和bytes"><a href="#str和bytes" class="headerlink" title="str和bytes"></a>str和bytes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">x=b&apos;ABC&apos;</div><div class="line">y=&apos;ABC&apos;</div></pre></td></tr></table></figure>
-<p>y是<code>str</code>，x是<code>bytes</code>，内容显示一样，但<code>bytes</code>每个字符都只占用一个字节</p>
-<ul>
-<li>Python的字符串类型是<code>str</code>，在内存中以Unicode表示，一个字符对应若干个字节。如果要在网络上传输，或者保存到磁盘上，就需要把<code>str</code>变为以字节为单位的<code>bytes</code>(各个平台的编码不一定都相同，socket 传递的数据都是<code>bytes</code>类型的，避免乱码)</li>
-<li>Python 3 不会以任意隐式的方式混用<code>str</code>和<code>bytes</code></li>
-<li>Bytes 对象是由单个字节作为基本元素（8 位，取值范围 0-255）组成的序列，为不可变对象。</li>
-<li><code>Bytes</code>对象只负责以二进制字节序列的形式记录所需记录的对象，至于该对象到底表示什么（比如到底是什么字符）则由相应的编码格式解码所决定。我们可以通过调用<code>bytes()</code> 类（没错，它是类，不是函数）生成<code>bytes</code>实例，其值形式为<code>b&#39;xxxxx&#39;</code>，其中<code>&#39;xxxxx&#39;</code>为一至多个转义的十六进制字符串（单个 x 的形式为：<code>\xHH</code>，其中 <code>\x</code> 为小写的十六进制转义字符，HH 为二位十六进制数）组成的序列，每个十六进制数代表一个字节（八位二进制数，取值范围 0-255），对于同一个字符串如果采用不同的编码方式生成 <code>bytes</code> 对象，就会形成不同的值</li>
-</ul>
-<p><code>str</code>编码为指定的<code>bytes</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; &apos;ABC&apos;.encode(&apos;ascii&apos;)</div><div class="line">b&apos;ABC&apos;</div><div class="line">&gt;&gt;&gt; &apos;中文&apos;.encode(&apos;utf8&apos;)</div><div class="line">b&apos;\xe4\xb8\xad\xe6\x96\x87&apos;</div><div class="line">&gt;&gt;&gt; &apos;中文&apos;.encode(&apos;ascii&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">UnicodeEncodeError: &apos;ascii&apos; codec can&apos;t encode characters in position 0-1: ordinal not in range(128)</div></pre></td></tr></table></figure></p>
-<p>纯英文的<code>str</code>可以用ASCII编码为<code>bytes</code>，内容是一样的，含有中文的<code>str</code>可以用<code>UTF-8</code>编码为<code>bytes</code>。含有中文的<code>str</code>无法用ASCII编码，因为中文编码的范围超过了ASCII编码的范围，Python会报错。</p>
-<p>在<code>bytes</code>中，无法显示为ASCII字符的字节，用<code>\x##</code>显示。</p>
-<p><code>bytes</code>编码为<code>str</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; b&apos;ABC&apos;.decode(&apos;ascii&apos;)</div><div class="line">&apos;ABC&apos;</div><div class="line">&gt;&gt;&gt; b&apos;\xe4\xb8\xad\xe6\x96\x87&apos;.decode(&apos;utf8&apos;)</div><div class="line">&apos;中文&apos;</div><div class="line">&gt;&gt;&gt; b&apos;\xe4\xb8\xad\xe6\x96\x87&apos;.decode(&apos;ascii&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">  UnicodeDecodeError: &apos;ascii&apos; codec can&apos;t decode byte 0xe4 in position 0: ordinal not in range(128)</div></pre></td></tr></table></figure></p>
-<h3 id="len函数"><a href="#len函数" class="headerlink" title="len函数"></a>len函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; len(&apos;ABC&apos;)</div><div class="line">3</div><div class="line">&gt;&gt;&gt; len(&apos;中文&apos;)</div><div class="line">2</div><div class="line">&gt;&gt;&gt; len(b&apos;abc&apos;)</div><div class="line">3</div><div class="line">&gt;&gt;&gt; len(&apos;中文&apos;.encode(&apos;utf8&apos;))                          </div><div class="line">6</div></pre></td></tr></table></figure>
-<h3 id="文件编码"><a href="#文件编码" class="headerlink" title="文件编码"></a>文件编码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># encoding=utf-8</div></pre></td></tr></table></figure>
-<p>第一行会告诉系统使用的python路径，不建议使用<code>#!/usr/bin/python</code>，灵活性降低</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import sys</div><div class="line">sys.getdefaultencoding()</div><div class="line"></div><div class="line">&apos;utf-8&apos;</div></pre></td></tr></table></figure>
-<h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; &apos;Hello,%s&apos;%&apos;world&apos;</div><div class="line">&apos;Hello,world&apos;</div><div class="line">&gt;&gt;&gt; &apos;Hi,%s,you have $%d.&apos;%(&apos;Michael&apos;,10000)</div><div class="line">&apos;Hi,Michael,you have $10000.&apos;</div><div class="line">&gt;&gt;&gt; print(&apos;$%2d-$%02d&apos; % (3,1))</div><div class="line">$ 3-$01</div><div class="line">&gt;&gt;&gt; print(&apos;%.2f&apos; % 3.1415926)</div><div class="line">3.14</div><div class="line"></div><div class="line">&gt;&gt;&gt; &apos;growth rate:%d %%&apos; % 7</div><div class="line">&apos;growth rate:7 %&apos;</div></pre></td></tr></table></figure>
-<p>%d 整数<br>%f 浮点数<br>%s 字符串<br>%x 十六进制整数</p>
-<p>如果不太确定应该用什么，%s永远起作用</p>
-<h3 id="format"><a href="#format" class="headerlink" title="format()"></a>format()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; &apos;Hello,&#123;0&#125;,成绩提升了&#123;1:.1f&#125;&apos;.format(&apos;小明&apos;,17.125)</div><div class="line">&apos;Hello,小明,成绩提升了17.1&apos;</div></pre></td></tr></table></figure>
-<p>参考：</p>
-<ul>
-<li><a href="http://www.ituring.com.cn/article/1116" target="_blank" rel="external">http://www.ituring.com.cn/article/1116</a></li>
-<li><a href="https://www.kancloud.cn/lanyulei/python/357700" target="_blank" rel="external">https://www.kancloud.cn/lanyulei/python/357700</a></li>
-<li><a href="https://segmentfault.com/a/1190000004450876" target="_blank" rel="external">https://segmentfault.com/a/1190000004450876</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;编码&quot;&gt;&lt;a href=&quot;#编码&quot; class=&quot;headerlink&quot; title=&quot;编码&quot;&gt;&lt;/a&gt;编码&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。&lt;/li&gt;
-&lt;li&gt;用记
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux安装Anaconda</title>
-    <link href="http://yoursite.com/post/634c672f.html"/>
-    <id>http://yoursite.com/post/634c672f.html</id>
-    <published>2018-06-14T01:38:50.000Z</published>
-    <updated>2018-06-19T08:32:40.784Z</updated>
-    
-    <content type="html"><![CDATA[<p>Anaconda 是一种Python语言的包管理工具，用于进行大规模数据处理, 预测分析, 和科学计算, 致力于简化包的管理和部署。 Anaconda使用软件包管理系统Conda进行包管理。</p>
-<p>实际上我使用Anaconda是为了避免Python2和Python3的冲突，我既想使用Python3又不想改变Python2原来的东西</p>
-<p>官网：<a href="https://anaconda.org/" target="_blank" rel="external">https://anaconda.org/</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载：<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a><br>选择对应的Python版本和系统进行下载安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bash Anaconda3-5.2.0-Linux-x86_64.sh</div><div class="line">conda upgrade --all</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="安装包管理"><a href="#安装包管理" class="headerlink" title="安装包管理"></a>安装包管理</h2><p>列出已经安装的包：<code>pip list</code>或<code>conda list</code><br>安装新包：<code>pip install 包名</code>或<code>conda install 包名</code><br>更新包： <code>conda update package_name</code><br>升级所有包：<code>conda upgrade --all</code><br>卸载包：<code>conda remove package_names</code><br>搜索包：<code>conda search search_term</code></p>
-<h2 id="管理环境"><a href="#管理环境" class="headerlink" title="管理环境"></a>管理环境</h2><p>安装nb_conda，用于notebook自动关联nb_conda的环境<code>conda install cb_conda</code><br>创建环境：<code>conda create -n env_name package_names[=ver]</code><br>指定Python版本：<code>conda create -n py3 python=3.6</code><br>可以切换不同的Python版本<br>使用环境：<code>activate env_name</code><br>离开环境：<code>deactivate</code><br>导出环境设置：<code>conda env export &gt; environmentName.yaml</code> 或 <code>pip freeze &gt; environmentName.txt</code><br>导入环境设置：<code>conda env update -f=/path/environmentName.yaml</code> 或 <code>pip install -r /path/environmentName.txt</code><br>导出和导入可以用于共享环境，在 GitHub 上共享代码时，最好同样创建环境文件并将其包括在代码库中。这能让其他人更轻松地安装你的代码的所有依赖项。<br>列出环境清单：<code>conda env list</code><br>删除环境： <code>conda env remove -n env_name</code></p>
-<p>参考：</p>
-<ul>
-<li><a href="https://zh.wikipedia.org/wiki/Anaconda_(Python%E5%8F%91%E8%A1%8C%E7%89%88" target="_blank" rel="external">https://zh.wikipedia.org/wiki/Anaconda_(Python%E5%8F%91%E8%A1%8C%E7%89%88</a>)</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Anaconda 是一种Python语言的包管理工具，用于进行大规模数据处理, 预测分析, 和科学计算, 致力于简化包的管理和部署。 Anaconda使用软件包管理系统Conda进行包管理。&lt;/p&gt;
-&lt;p&gt;实际上我使用Anaconda是为了避免Python2和Python3的冲突，我既想使用Python3又不想改变Python2原来的东西&lt;/p&gt;
-&lt;p&gt;官网：&lt;a href=&quot;https://anaconda.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://anaconda.org/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;下载：&lt;a href=&quot;https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/&lt;/a&gt;&lt;br&gt;选择对应的Python版本和系统进行下载安装&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;bash Anaconda3-5.2.0-Linux-x86_64.sh&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;conda upgrade --all&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     

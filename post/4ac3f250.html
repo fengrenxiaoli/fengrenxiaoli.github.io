@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="用户：使用操作系统的人用户组：具有相同系统权限的一组用户 用户和用户组配置文件12345678910111213141516171819202122232425/etc/group	存储当前系统中所有用户组的信息-Group：		x		：  501   ：abc,def,xyz-组名称：组密码占位符	： 组编号：组中用户名列表组编号1-499是系统预留给软件的手动创建的用户从500开始/etc/g">
+<meta name="description" content="Linux是一个多用户的系统，那么如何保证不同用户之间不冲突，也能保证各个用户的隐私呢，这涉及到了用户管理和权限管理，先讲用户管理 用户用户就是使用操作系统的人，用户分为两类，超级用户和普通用户，而每一个用户都会有一个id，叫UID，系统中实际使用的是UID。  超级用户：root，UID为0 普通用户：UID可以为1-65535（实际没到这么多） 系统用户：对守护进程获取资源进行权限分配，UID">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Linux】Linux用户管理03 配置文件">
+<meta property="og:title" content="【Linux】Linux用户管理 用户和用户组及配置文件">
 <meta property="og:url" content="http://yoursite.com/post/4ac3f250.html">
 <meta property="og:site_name" content="太阳落下">
-<meta property="og:description" content="用户：使用操作系统的人用户组：具有相同系统权限的一组用户 用户和用户组配置文件12345678910111213141516171819202122232425/etc/group	存储当前系统中所有用户组的信息-Group：		x		：  501   ：abc,def,xyz-组名称：组密码占位符	： 组编号：组中用户名列表组编号1-499是系统预留给软件的手动创建的用户从500开始/etc/g">
+<meta property="og:description" content="Linux是一个多用户的系统，那么如何保证不同用户之间不冲突，也能保证各个用户的隐私呢，这涉及到了用户管理和权限管理，先讲用户管理 用户用户就是使用操作系统的人，用户分为两类，超级用户和普通用户，而每一个用户都会有一个id，叫UID，系统中实际使用的是UID。  超级用户：root，UID为0 普通用户：UID可以为1-65535（实际没到这么多） 系统用户：对守护进程获取资源进行权限分配，UID">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T04:56:22.800Z">
+<meta property="og:updated_time" content="2018-06-06T15:47:07.888Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【Linux】Linux用户管理03 配置文件">
-<meta name="twitter:description" content="用户：使用操作系统的人用户组：具有相同系统权限的一组用户 用户和用户组配置文件12345678910111213141516171819202122232425/etc/group	存储当前系统中所有用户组的信息-Group：		x		：  501   ：abc,def,xyz-组名称：组密码占位符	： 组编号：组中用户名列表组编号1-499是系统预留给软件的手动创建的用户从500开始/etc/g">
+<meta name="twitter:title" content="【Linux】Linux用户管理 用户和用户组及配置文件">
+<meta name="twitter:description" content="Linux是一个多用户的系统，那么如何保证不同用户之间不冲突，也能保证各个用户的隐私呢，这涉及到了用户管理和权限管理，先讲用户管理 用户用户就是使用操作系统的人，用户分为两类，超级用户和普通用户，而每一个用户都会有一个id，叫UID，系统中实际使用的是UID。  超级用户：root，UID为0 普通用户：UID可以为1-65535（实际没到这么多） 系统用户：对守护进程获取资源进行权限分配，UID">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>【Linux】Linux用户管理03 配置文件 | 太阳落下</title>
+  <title>【Linux】Linux用户管理 用户和用户组及配置文件 | 太阳落下</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">【Linux】Linux用户管理03 配置文件</h1>
+          <h1 class="post-title" itemprop="name headline">【Linux】Linux用户管理 用户和用户组及配置文件</h1>
         
 
         <div class="post-meta">
@@ -320,8 +320,72 @@
       
 
       
-        <p>用户：使用操作系统的人<br>用户组：具有相同系统权限的一组用户</p>
-<p>用户和用户组配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">/etc/group	存储当前系统中所有用户组的信息</div><div class="line">-Group：		x		：  501   ：abc,def,xyz</div><div class="line">-组名称：组密码占位符	： 组编号：组中用户名列表</div><div class="line"></div><div class="line">组编号1-499是系统预留给软件的</div><div class="line">手动创建的用户从500开始</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">/etc/gshadow	存储当前系统中用户组的密码信息</div><div class="line">-Group：		*		：      ：abc,def,xyz</div><div class="line">-组名称：  组密码	：组管理者：组中用户名列表</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">/etc/passwd	存储当前系统中所有用户的信息</div><div class="line">-user：    x    ：   123   ：   456    ：   xxxxxxxx  ：/home/user  ： /bin/bash</div><div class="line">-用户名：密码占位符：用户编号： 用户组编号：  用户注释信息：用户主目录 ：shell类型</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">/etc/shadow    存储当前系统中所有用户的密码信息</div><div class="line">-user    ：   vf;/Zu8sdf... ：：：：：</div><div class="line">-用户名 ：	密码    	 ：：：：：</div></pre></td></tr></table></figure></p>
+        <p>Linux是一个多用户的系统，那么如何保证不同用户之间不冲突，也能保证各个用户的隐私呢，这涉及到了用户管理和权限管理，先讲用户管理</p>
+<h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><p>用户就是使用操作系统的人，用户分为两类，超级用户和普通用户，而每一个用户都会有一个id，叫<code>UID</code>，系统中实际使用的是<code>UID</code>。</p>
+<ul>
+<li>超级用户：root，UID为0</li>
+<li>普通用户：UID可以为1-65535（实际没到这么多）<ul>
+<li>系统用户：对守护进程获取资源进行权限分配，UID在1-499之间（实际是设置的，不一定是500，CentOS 6: ID&lt;500，CentOS 7: ID&lt;1000）</li>
+<li>登录用户：能够交互式登录的用户，UID在500+</li>
+<li>虚拟用户：不能登录的用户，比如vsftp</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h2><p>用户组就是具有相同系统权限的一组用户，用户组分为基本组（主组）和附加组（额外组），其中基本组的组名和用户名是一样的，是在创建用户的同时创建的，该组只包含该用户，为用户的私有组</p>
+<p>用户可以同时属于多个组，一个是主要组，其他的为附属组</p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>配置文件有这么四个，用户和组，用户密码和用户组密码</p>
+<ul>
+<li><code>/etc/passwd</code>：用户及其属性信息</li>
+<li><code>/etc/group</code>：组及其属性信息</li>
+<li><code>/etc/shadow</code>：用户密码及相关属性</li>
+<li><code>/etc/gshadow</code>：组密码及其相关属性</li>
+</ul>
+<h3 id="etc-passwd"><a href="#etc-passwd" class="headerlink" title="/etc/passwd"></a>/etc/passwd</h3><p>这个文件存储当前系统中所有用户的信息，<code>passwd</code>命令可以修改用户密码，<code>man 5 passwd</code>可以查看对应的<code>/etc/passwd</code>格式</p>
+<p>user  :     x     :   123     ：   456       ： xxxx   ：/home/user ： /bin/bash<br>用户名 : 密码占位符 : 用户编号UID : 用户组编号GID : 注释信息 ：用户主目录 ：   shell类型</p>
+<h3 id="etc-group"><a href="#etc-group" class="headerlink" title="/etc/group"></a>/etc/group</h3><p>这个文件存储当前系统中所有用户组的信息，<code>man 5 group</code>可以查看该文件的说明</p>
+<p>Group ：   x       ：   501   ：  abc,def,xyz<br>组名称 ：组密码占位符 : 组编号GID ：以当前组为<strong>附加组</strong>的用户列表(分隔符为逗号)</p>
+<h3 id="etc-shadow"><a href="#etc-shadow" class="headerlink" title="/etc/shadow"></a>/etc/shadow</h3><p>存储当前系统中所有用户的密码信息，使用命令<code>man 5 shadow</code>查看该文件的说明</p>
+<p>用户名:加密了的密码:最近一次更改密码的日期:密码的最小使用期限:最大密码使用期限:密码警告时间段:密码禁用期:账户过期日期:保留字段</p>
+<p><strong>最后一次更改密码的日期</strong><br>    最近一次更改密码的时间，表示从1970年1月1日开始的天数。<br>    0 有特殊意思，表示用户应该在下次登录系统时更改密码。<br>    空字段表示密码年龄功能被禁用。</p>
+<p><strong>密码的最小年龄</strong><br>    最小密码年龄是指，用户一次更改密码之后，要等多长时间才再次被允许更改密码。<br>    空字段或 0 表示没有最小密码年龄。</p>
+<p><strong>最大密码年龄</strong><br>    最大密码年龄是指，这写天之后，用户必须更改密码。<br>    这写天之后，密码仍然可用。用户将会在下次登录的时候被要求更改密码。<br>    空字段表示没有最大密码年龄，没有密码警告时间段，没有密码禁用时间段。<br>    如果最大密码年龄小于最小密码年龄，用户将会不能更改密码。</p>
+<p><strong>密码警告时间段</strong><br>    密码过期之前，提前警告用户的的天数(请参考上边的密码的最大年龄)。<br>    空字段或者 0 表示没有密码警告期。</p>
+<p><strong>密码禁用期</strong><br>    密码过期(查看上边的密码最大年龄)后，仍然接受此密码的天数(在此期间，用户应该在下次登录时修改密码)。<br>    密码到期并且过了这个宽限期之后，使用用户的当前的密码将会不能登录。用户需要联系系统管理员。空字段表示没有强制密码过期。</p>
+<p><strong>账户过期日期</strong><br>    账户过期的日期，表示从1970年1月1日开始的天数。<br>    注意，账户过期不同于密码过期。账户过期时，用户将不被允许登录；密码过期时，用户将不被允许使用其密码登录。<br>    空字段表示账户永不过期。<br>    应该避免使用 0，因为它既能理解成永不过期也能理解成在1970年1月1日过期。</p>
+<p>!!表示禁止登录</p>
+<p>加密机制<br>加密：明文–&gt; 密文<br>解密：密文–&gt; 明文</p>
+<p>单向加密：提取数据指纹<br>    md5: message digest, 128bits<br>    sha1: secure hash algorithm, 160bits<br>    sha224: 224bits<br>    sha256: 256bits<br>    sha384: 384bits<br>    sha512: 512bits</p>
+<p>雪崩效应：初始的条件的微小改变，将会引起结果的巨大改变；<br>定长输出：不同长度的密码会输出相同长度的密文<br>如果密码相同也是不一样的，因为会在密码中添加一个随机的字符串</p>
+<p>密码的复杂性策略：</p>
+<ol>
+<li>使用数字、大写字母、小写字母及特殊字符中至少3种；</li>
+<li>足够长；</li>
+<li>使用随机密码；</li>
+<li>定期更换；不要使用最近曾经使用过的密码；</li>
+</ol>
+<h3 id="etc-gshadow"><a href="#etc-gshadow" class="headerlink" title="/etc/gshadow"></a>/etc/gshadow</h3><p>存储当前系统中用户组的密码信息<br>Group：    *      ：      ：abc,def,xyz<br>组名称：  组密码    ：组管理者：组中用户名列表</p>
+<!-- 资源分派：
+    Authentication：认证
+    Authorization：授权
+    Accouting：审计
+        Audition
+
+    token, identity(username/password)  
+
+
+Linux安全上下文：
+    运行中的程序：进程 (process)
+
+        以进程发起者的身份运行：
+            root: cat
+            tom: cat
+
+        进程所能够访问的所有资源的权限取决于进程的发起者的身份； -->
+<p>参考：</p>
+<ul>
+<li><a href="https://www.thegeekdiary.com/understanding-etclogin-defs-file/" target="_blank" rel="external">https://www.thegeekdiary.com/understanding-etclogin-defs-file/</a></li>
+</ul>
 
       
     </div>
@@ -362,8 +426,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/post/4ac3f250.html" rel="prev" title="【Linux】Linux用户管理 用户和用户组及配置文件">
-                【Linux】Linux用户管理 用户和用户组及配置文件 <i class="fa fa-chevron-right"></i>
+              <a href="/post/4ac3f250.html" rel="prev" title="【Linux】Linux用户管理03 配置文件">
+                【Linux】Linux用户管理03 配置文件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -416,8 +480,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -432,7 +505,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">195</span>
+                  <span class="site-state-item-count">198</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -445,7 +518,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -475,6 +548,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#用户"><span class="nav-number">1.</span> <span class="nav-text">用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户组"><span class="nav-number">2.</span> <span class="nav-text">用户组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件"><span class="nav-number">3.</span> <span class="nav-text">配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-passwd"><span class="nav-number">3.1.</span> <span class="nav-text">/etc/passwd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-group"><span class="nav-number">3.2.</span> <span class="nav-text">/etc/group</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-shadow"><span class="nav-number">3.3.</span> <span class="nav-text">/etc/shadow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-gshadow"><span class="nav-number">3.4.</span> <span class="nav-text">/etc/gshadow</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
