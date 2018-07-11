@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="太阳落下">
 <meta property="og:description" content="现代计算机设备的组成部分：    运算器、控制器、存储器、输入设备、输出设备        CPU        bus：总线        memory: 编址存储设备        read ahead 高速缓存 IO: 与外部部件交互     磁盘 网卡 虚拟机：虚拟计算机 CPU：运算器、控制器    CPU指令，指令集；        特权指令：OS运行特权指令；        普通指令">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-10T02:17:53.299Z">
+<meta property="og:image" content="http://yoursite.com/img/IMG167.jpg">
+<meta property="og:updated_time" content="2018-07-07T01:18:50.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Linux】Linux 计算机基础">
 <meta name="twitter:description" content="现代计算机设备的组成部分：    运算器、控制器、存储器、输入设备、输出设备        CPU        bus：总线        memory: 编址存储设备        read ahead 高速缓存 IO: 与外部部件交互     磁盘 网卡 虚拟机：虚拟计算机 CPU：运算器、控制器    CPU指令，指令集；        特权指令：OS运行特权指令；        普通指令">
+<meta name="twitter:image" content="http://yoursite.com/img/IMG167.jpg">
 
 
 
@@ -429,8 +431,102 @@ CLI：
 <p>但是机器不是这么区分一个数的正负的，人可以直接看到第一位是1还是0来区分，机器如果直接判断会增加电路的复杂程度，所以人们就将符号位也参与运算，这样根据<code>1-1=1+(-1)</code>，只保留加法，于是有了原码、反码和补码</p>
 <p>原码：符号位加上真值的绝对值，即用第一位表示符号，其余位表示值<br>-1 &gt;&gt; 1000 0001<br>1  &gt;&gt; 0000 0001<br>[-127,127]</p>
 <p>反码：<br>正数的补码是基本身<br>负数和补码是在其原码的基础上，符号位不变，其余各个位数取反<br>1  &gt;&gt; 0000 0001<br>-1 &gt;&gt; 1111 1110</p>
-<p>补码：<br>正数的补码是基本身<br>负数和补码是在其原码的基础上，符号位不变，其余各个位数取反,最后加1(即反码+1)<br>1  &gt;&gt; 0000 0001<br>-1 &gt;&gt; 1111 1111</p>
+<p>补码：<br>正数的补码是基本身<br>负数的补码是在其原码的基础上，符号位不变，其余各个位数取反，最后加1(即反码+1)<br>1  &gt;&gt; 0000 0001<br>-1 &gt;&gt; 1111 1111</p>
 <p>在计算机系统中，数值一律使用补码来表示、存储<br>因为这样减法可按加法来处理，0000 0001 + 1111 1111 = 0000 0000 ，进位舍去<br>其实可以这样推导：<br>为了实现一个正数i加上一个数等于0 ，所以用0-i，比如i等于0000 0001,那么0-i就是1111 1111, 我们知道0-1=-1, 所以 -1的补码就是1111 1111 ，以此类推，一个负数的补码就是0-对应正数的补码。</p>
+<h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>十进制</th>
+<th>二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基本数字</td>
+<td>10个，0-9</td>
+<td>2个，0、1</td>
+</tr>
+<tr>
+<td>进位规则</td>
+<td>十进一</td>
+<td>二进一</td>
+</tr>
+</tbody>
+</table>
+<p>111001：2^5+2^4+2^3+2^0=57</p>
+<p>二进制：计算机内部用二进制，运算简单，简化了计算机结构<br>八进制：标志的开头用0表示，用0-7的数字表示<br>十六进制：标志的开头用0x表示，用0-9、A、B、C、D、E、F表示</p>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>运算</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;</code></td>
+<td>与运算</td>
+<td><code>6 &amp; 3 = 2</code></td>
+</tr>
+<tr>
+<td>`</td>
+<td>`</td>
+<td>或运算</td>
+<td>`6</td>
+<td>3 =7`</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>异或运算</td>
+<td><code>6 ^ 3 = 5</code></td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>反码</td>
+<td><code>~6 = -7</code></td>
+</tr>
+<tr>
+<td><code>&lt;&lt;</code></td>
+<td>左移</td>
+<td><code>3&lt;&lt;2 = 12</code></td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code></td>
+<td>右移</td>
+<td><code>3&gt;&gt;1 = 1</code></td>
+</tr>
+<tr>
+<td><code>&gt;&gt;&gt;</code></td>
+<td>无符号右移</td>
+<td><code>3&gt;&gt;&gt;1 = 1</code></td>
+</tr>
+</tbody>
+</table>
+<p>按位与<code>&amp;</code><br>两位全为1，结果才为1<br>按位与<code>&amp;</code>的特殊用法：</p>
+<ol>
+<li>清零，如果想将一个单元清零，即使其全部二进制位为0，只要与一个各位都是零的数值相与，结果为零。<code>10101110 &amp; 00000000 = 00000000</code></li>
+<li>取一个数中指定位：找一个数，对应x要取的位，该数的对应位为1，其余位为零，此数与x进行“与运算”可以得到x中的指定位。<code>10101110 &amp; 00001111 = 00001110</code> 取后四位</li>
+</ol>
+<p>按位或<code>|</code><br>只要有一个为1,结果就为1<br>按位或<code>|</code>特殊用法：<br>常用来对一个数据的某些位设置为1：找到一个数，对应x要设置1的位，该数的对应位为1，其余位为零。此数与x相或可使x中的某些位置1。<code>10100000 | 00001111 = 10101111</code> 后四位置一</p>
+<p>异或<code>^</code>特殊用法：<br>两位值不同则该位结果为1，否则为0</p>
+<ol>
+<li>使特定位翻转：特定位异或1。<code>10101110 ^ 00001111 = 10100001</code> 后四位翻转</li>
+<li>与0相异或，保留原值。<code>10101110 ^ 00000000 = 10101110</code></li>
+<li>两个变量交换值<ol>
+<li>借助第三个变量来实现 C=A;A=B;B=C;</li>
+<li>利用加减法实现两个变量的交换 A=A+B;B=A-B;A=A-B</li>
+<li>异或运算，一个数异或本身等于0和异或运算符合交换律 A=A^B;B=A^B;A=A^B</li>
+</ol>
+</li>
+</ol>
+<p>取反与运算<code>~</code><br>对一个二进制数按位取反，即将0变为1，1变0</p>
+<p>左移<code>&lt;&lt;</code><br>将一个运算对象的各二进制位全部左移若干位，左边的二进制位丢弃，右边补0</p>
+<p>右移<code>&gt;&gt;</code><br>将一个数的各二进制位全部右移若干位，正数左补0，负数左补1，右边丢弃。操作数每右移一位，相当于该数除以2</p>
+<p>无符号右移运算<code>&gt;&gt;&gt;</code><br>各个位向右移指定的位数。右移后左边空出的位用零来填充。移除右边的位被丢弃。</p>
+<p>负数以其正数的补码形式表示<br>反码加1称为补码<br>32位整数，最高位为1，就是负数<br>负数 左移或者右移</p>
+<p><img src="/img/IMG167.jpg" alt=""></p>
 
       
     </div>
@@ -550,7 +646,7 @@ CLI：
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">198</span>
+                  <span class="site-state-item-count">203</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -603,7 +699,7 @@ CLI：
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器数和真值"><span class="nav-number">1.</span> <span class="nav-text">机器数和真值</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器数和真值"><span class="nav-number">1.</span> <span class="nav-text">机器数和真值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制"><span class="nav-number">2.</span> <span class="nav-text">二进制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符"><span class="nav-number">2.1.</span> <span class="nav-text">运算符</span></a></li></ol></li></ol></div>
             
 
           </div>
