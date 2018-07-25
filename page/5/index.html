@@ -249,6 +249,139 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/4fa63392.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/4fa63392.html" itemprop="url">MySQL存储引擎</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T14:16:53+08:00">
+                2018-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>MySQL可以将数据以不同的技术存储在文件（内存）中，这种技术就称为存储引擎，每种存数引擎使用不同的存储机制、索引技巧、锁定水平，最终提供广泛且不同的功能。</p>
+<h2 id="并发处理"><a href="#并发处理" class="headerlink" title="并发处理"></a>并发处理</h2><h3 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h3><p>当多个连接对记录进行修改时保证数据的一致性和完整性。</p>
+<h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><ul>
+<li>共享锁(读锁)：在同一时间内，多个用户可读取同一个资源，读取过程中数据不会发生任何变化。</li>
+<li>排他锁(写锁)：在任何时候只能有一个用户写入资源，当进行写锁时会阻塞其他的读锁或者写锁操作。</li>
+</ul>
+<h3 id="锁的力度-锁颗粒–锁定时的单位"><a href="#锁的力度-锁颗粒–锁定时的单位" class="headerlink" title="锁的力度(锁颗粒–锁定时的单位)"></a>锁的力度(锁颗粒–锁定时的单位)</h3><ul>
+<li>表锁，是一种开销最小的锁策略。对表进行写锁，所有用户不能对该表的任何记录操作。</li>
+<li>行锁，是一种开销最大的锁策略。并行性最大，可能对表的所有记录写锁，开销大。</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/4fa63392.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/ca4788ef.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1409,132 +1542,6 @@ FORMAT(
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/8ecc2d83.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/8ecc2d83.html" itemprop="url">MySQL数据表</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-02T21:24:46+08:00">
-                2018-06-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>数据表（或表）是数据库最重要的组成部分之一，是其他对象的基础，表是一个二维表，行称为【记录】，列称为【字段】</p>
-<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><p>首先打开数据库（数据库要存在）: <code>USE 数据库名称</code></p>
-<p>创建数据表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE [IF NOT EXISTS] table_name(</div><div class="line">column_name(列名称) data_type（列类型）,</div><div class="line">.... );</div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/8ecc2d83.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1585,7 +1592,7 @@ FORMAT(
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">203</span>
+                  <span class="site-state-item-count">204</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -117,7 +117,31 @@
 <meta property="og:image" content="http://yoursite.com/img/CO030.png">
 <meta property="og:image" content="http://yoursite.com/img/CO031.png">
 <meta property="og:image" content="http://yoursite.com/img/CO032.png">
-<meta property="og:updated_time" content="2018-07-13T10:10:20.751Z">
+<meta property="og:image" content="http://yoursite.com/img/CO033.png">
+<meta property="og:image" content="http://yoursite.com/img/CO034.png">
+<meta property="og:image" content="http://yoursite.com/img/CO035.png">
+<meta property="og:image" content="http://yoursite.com/img/CO036.png">
+<meta property="og:image" content="http://yoursite.com/img/CO037.png">
+<meta property="og:image" content="http://yoursite.com/img/CO038.png">
+<meta property="og:image" content="http://yoursite.com/img/CO039.png">
+<meta property="og:image" content="http://yoursite.com/img/CO040.png">
+<meta property="og:image" content="http://yoursite.com/img/CO041.png">
+<meta property="og:image" content="http://yoursite.com/img/CO042.png">
+<meta property="og:image" content="http://yoursite.com/img/CO043.png">
+<meta property="og:image" content="http://yoursite.com/img/CO044.png">
+<meta property="og:image" content="http://yoursite.com/img/CO045.png">
+<meta property="og:image" content="http://yoursite.com/img/CO046.png">
+<meta property="og:image" content="http://yoursite.com/img/CO047.png">
+<meta property="og:image" content="http://yoursite.com/img/CO048.png">
+<meta property="og:image" content="http://yoursite.com/img/CO049.png">
+<meta property="og:image" content="http://yoursite.com/img/CO054.png">
+<meta property="og:image" content="http://yoursite.com/img/CO050.png">
+<meta property="og:image" content="http://yoursite.com/img/CO051.png">
+<meta property="og:image" content="http://yoursite.com/img/CO052.png">
+<meta property="og:image" content="http://yoursite.com/img/CO054.png">
+<meta property="og:image" content="http://yoursite.com/img/CO055.png">
+<meta property="og:image" content="http://yoursite.com/img/CO056.png">
+<meta property="og:updated_time" content="2018-07-25T09:17:05.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机组成原理">
 <meta name="twitter:description" content="以下为哈尔滨理工大学的计算机组成原理笔记使用的教材是唐朔飞的《计算机组成原理》 总述内容 基本部件的结构和组织方式 基本运算的操作原理 基本部件和单元的设计思想  教材 唐朔飞. 计算机组成原理（第2版）.高等教育出版社 David A.Patterson. John L.Hennessy. Computer Organization &amp;amp; Design: A Hardware/Softwa">
@@ -405,6 +429,7 @@
 <p>哈佛结构是将数据和指令分开存储的结构</p>
 <p><img src="/img/CO003.png" alt=""></p>
 <p>运算器：算术运算、逻辑运算<br>控制器：指挥程序运行<br>存储器：存放数据和程序<br>输入设备：将信息转换成机器能识别的形式<br>输出设备：将结果转换成人们熟悉的形式</p>
+<p>寄存器是有限存贮容量的高速存贮部件，它们可用来暂存指令、数据和地址。</p>
 <p>运算器是瓶颈，改进：以存储器为中心的结构<br><img src="/img/CO004.png" alt=""></p>
 <p>现代计算机结构</p>
 <p><img src="/img/CO005.png" alt=""></p>
@@ -594,9 +619,117 @@
 <li>各模块准备数据时，不占用总线</li>
 <li>总线被占用时，无空闲<br>充分提高了总线的有效占用</li>
 </ol>
-<h3 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h3><p>存储器的分类</p>
-<p>存储器的层次结构</p>
-<h4 id="主存储器"><a href="#主存储器" class="headerlink" title="主存储器"></a>主存储器</h4><h4 id="调整缓冲存储器"><a href="#调整缓冲存储器" class="headerlink" title="调整缓冲存储器"></a>调整缓冲存储器</h4><h4 id="辅助存储器"><a href="#辅助存储器" class="headerlink" title="辅助存储器"></a>辅助存储器</h4><h3 id="输入输出系统"><a href="#输入输出系统" class="headerlink" title="输入输出系统"></a>输入输出系统</h3><h2 id="中央处理器CPU"><a href="#中央处理器CPU" class="headerlink" title="中央处理器CPU"></a>中央处理器CPU</h2><h2 id="控制单元CU"><a href="#控制单元CU" class="headerlink" title="控制单元CU"></a>控制单元CU</h2>
+<h3 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h3><h4 id="存储器的分类"><a href="#存储器的分类" class="headerlink" title="存储器的分类"></a>存储器的分类</h4><p>按存储介质分类</p>
+<ol>
+<li>半导体存储器   双极性（TTL）半导体存储器、MOS半导体存储器      易失</li>
+<li>磁表面存储器   磁盘、磁带、磁鼓        非易失</li>
+<li>磁芯存储器     硬磁材料、环状元件   非易失</li>
+<li>光盘存储器     激光、磁光材料      非易失</li>
+</ol>
+<p>按存取方式分类</p>
+<ol>
+<li>存取时间与物理地址无关(随机访问)<ul>
+<li>随机存储器RAM 在程序的执行过程中可读、可写，分为静态RAM和动态RAM</li>
+<li>只读存储器ROM 在程序的执行过程中 只 读</li>
+</ul>
+</li>
+<li>存取时间与物理地址有关(串行访问)<ul>
+<li>顺序存取存储器 磁带</li>
+<li>直接存取存储器 磁盘</li>
+</ul>
+</li>
+</ol>
+<p>按在计算机中的作用分类</p>
+<ol>
+<li>主存储器：可以直接和CPU交换信息</li>
+<li>辅助存储器：存放当前暂时不用的程序和数据</li>
+<li>缓冲存储器：用在两个速度不同的部件之中</li>
+</ol>
+<p><img src="/img/CO033.png" alt=""></p>
+<h4 id="存储器的层次结构"><a href="#存储器的层次结构" class="headerlink" title="存储器的层次结构"></a>存储器的层次结构</h4><p>存储器有3个主要性能指标：速度、容量和每位价格<br><img src="/img/CO034.png" alt=""><br>不只CPU中有寄存器，IO设备也会有</p>
+<p>为了实现高速度、大容量和低价格，所以需要存储器的层次结构<br>存储系统层次结构主要体现在缓存-主存和主存-辅存这两个存储层次</p>
+<ol>
+<li>缓存-主存解决CPU和主存速度不匹配的问题，由硬件自动完成（只使用硬件是为了提高速度），使用实地址/物理地址（主存的实际地址）</li>
+<li>主存-辅存解决存储系统的容量问题，由硬件和操作系统共同完成，使用虚地址/逻辑地址（虚拟存储器，主存+辅存），逻辑地址转物理地址由硬件和操作系统完成</li>
+</ol>
+<p><img src="/img/CO035.png" alt=""></p>
+<p>局部性原理: CPU访问存储器时，无论是存取指令还是存取数据，所访问的存储单元都趋于聚集在一个较小的连续区域中。<br>时间局部性：如果一个信息项正在被访问，那么在近期它很可能还会被再次访问。<br>空间局部性：在最近的将来将用到的信息很可能与现在正在使用的信息在空间地址上是临近的。<br>顺序局部性：在典型程序中，除小部分转移类指令外，大部分指令是顺序进行的。<br>即程序的地址访问流有很强的时序相关性，根据这一原理，多级存储器体系把主存储器中访问概率最高的内容存放在Cache中，当CPU需要读取数据时就首先在Cache中查找是否有所需内容，如果有则直接从Cache中读取；若没有再从主存中读取，然后同时送往Cache和CPU，主辅亦是。故可以按对所使用的指令和数据的急迫和频繁程度，将其存入容量、速度、价格不同的存储器中，增加了时间优化的命中率，取得更高的性能价格比访问模式与最近已发生的访问模式相似。</p>
+<h4 id="主存储器"><a href="#主存储器" class="headerlink" title="主存储器"></a>主存储器</h4><h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><p>主存的基本组成<br>存储体、MAR、MDR<br><img src="/img/CO036.png" alt=""><br>驱动器、译码器和读写电路都在存储芯片上，MAR和MDR在CPU芯片上</p>
+<p>主存与CPU之间的联系<br><img src="/img/CO037.png" alt=""></p>
+<p>主存中存储单元地址的分配<br><img src="/img/CO038.png" alt=""><br>参考<a href="https://blog.csdn.net/lishuhuakai/article/details/8934540" target="_blank" rel="external">https://blog.csdn.net/lishuhuakai/article/details/8934540</a></p>
+<p>主存的技术指标</p>
+<ol>
+<li>存储容量：主存存放二进制代码的总位/字节数</li>
+<li>存储速度<ul>
+<li>存取时间：存储器的访问时间，启动一次存储器操作到完成该操作所需的全部时间<ul>
+<li>读出时间：</li>
+<li>写入时间</li>
+</ul>
+</li>
+<li>存取周期 连续两次独立的存储器操作(读或写)所需的最小间隔时间，通常存取时间要比存取周期要短<ul>
+<li>读周期</li>
+<li>写周期</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存储器的带宽：单位时间内存储器存取的信息量，位/秒、字节/秒</li>
+</ol>
+<h5 id="半导体存储芯片"><a href="#半导体存储芯片" class="headerlink" title="半导体存储芯片"></a>半导体存储芯片</h5><p>半导体存储芯片的基本结构<br>半导体存储芯片包括存储矩阵、译码驱动电路和读/写电路<br>译码驱动电路用于将地址转换为选择信号<br>存储芯片通过地址总线、数据总线和控制总线与外部连接<br>地址线和数据线的位数共同反映存储芯片的容量<br>控制线包括读写控制线和片选线（芯片选择线）<br>半导体存储器由许多芯片组成，片选线用来选择芯片<br><img src="/img/CO039.png" alt=""><br><img src="/img/CO040.png" alt=""></p>
+<p>半导体存储芯片的译码驱动方式</p>
+<ul>
+<li>线选法：只能用于小容量，需要 2^地址线 个存储单元，如果地址线为20则需要1M个选择线</li>
+<li>重合法：如果地址线为20则需要64根选择线</li>
+</ul>
+<p><img src="/img/CO041.png" alt=""></p>
+<p>为什么在内存中数据需要对齐存储</p>
+<ol>
+<li>平台原因(移植原因)  <ul>
+<li>不是所有的硬件平台都能访问任意地址上的任意数据的；                </li>
+<li>某些硬件平台只能在某些地址处取某些特定类型的数据，否则抛出硬件异常。        </li>
+</ul>
+</li>
+<li>性能原因              <ul>
+<li>数据结构(尤其是栈)应该尽可能地在自然边界上对齐。               </li>
+<li>为了访问未对齐的内存，处理器需要作两次内存访问；而对齐的内存访问仅需要一次访问。</li>
+</ul>
+</li>
+</ol>
+<h5 id="随机存取存储器-RAM"><a href="#随机存取存储器-RAM" class="headerlink" title="随机存取存储器(RAM)"></a>随机存取存储器(RAM)</h5><h6 id="静态RAM，SRAM"><a href="#静态RAM，SRAM" class="headerlink" title="静态RAM，SRAM"></a>静态RAM，SRAM</h6><p>使用触发器工作原理存储信息<br><img src="/img/CO042.png" alt=""><br><img src="/img/CO043.png" alt=""><br><img src="/img/CO044.png" alt=""><br><img src="/img/CO045.png" alt=""></p>
+<h6 id="动态RAM，DRAM"><a href="#动态RAM，DRAM" class="headerlink" title="动态RAM，DRAM"></a>动态RAM，DRAM</h6><p>使用电容存储电荷存储信息<br><img src="/img/CO046.png" alt=""><br><img src="/img/CO047.png" alt=""><br><img src="/img/CO048.png" alt=""><br><img src="/img/CO049.png" alt=""></p>
+<p><img src="/img/CO054.png" alt=""></p>
+<h6 id="刷新"><a href="#刷新" class="headerlink" title="刷新"></a>刷新</h6><p>因为动态RAM使用电容存储电荷方式存储信息，电荷会消失，需要刷新，每次刷新都是刷新一行，每2ms都必须对所有行进行一次刷新<br>刷新的过程实际上是先将原存信息读出，再由刷新放大器形成原信息并重新写入的再生过程</p>
+<ul>
+<li>集中刷新：集中一段时间，死区</li>
+<li>分散刷新：分散到每个存取周期</li>
+<li>异步刷新：结合集中刷新和分散刷新</li>
+</ul>
+<p><img src="/img/CO050.png" alt=""><br><img src="/img/CO051.png" alt=""><br><img src="/img/CO052.png" alt=""></p>
+<h5 id="只读存储器-ROM"><a href="#只读存储器-ROM" class="headerlink" title="只读存储器(ROM)"></a>只读存储器(ROM)</h5><ol>
+<li>掩模ROM/MROM：在厂家就写好了内容，行列选择线交叉处有MOS管为1，行列选择线交叉处无MOS管为0</li>
+<li>PROM：一次性编程，熔丝断为0，熔丝未断为1</li>
+<li>EPROM：多次性编程，使用紫外线全部擦洗</li>
+<li>EEPROM：多次性编程，电可擦写、局部擦写、全部擦写</li>
+<li>Flash Memory (闪速型存储器)</li>
+</ol>
+<h5 id="存储器与-CPU-的连接"><a href="#存储器与-CPU-的连接" class="headerlink" title="存储器与 CPU 的连接"></a>存储器与 CPU 的连接</h5><h6 id="存储容量的扩展"><a href="#存储容量的扩展" class="headerlink" title="存储容量的扩展"></a>存储容量的扩展</h6><ol>
+<li>位扩展：增加存储字长，需要片选信号一致</li>
+<li>字扩展：增加存储字的数量，将新增的地址线作为片选信号</li>
+<li>同时扩展</li>
+</ol>
+<p><img src="/img/CO054.png" alt=""><br><img src="/img/CO055.png" alt=""><br><img src="/img/CO056.png" alt=""></p>
+<h6 id="存储器与CPU的连接"><a href="#存储器与CPU的连接" class="headerlink" title="存储器与CPU的连接"></a>存储器与CPU的连接</h6><ol>
+<li>地址线的连接：CPU地址线的低位与存储芯片的地址线相连，高位用于扩展</li>
+<li>数据线的连接</li>
+<li>读/写命令线的连接：一般可直接相连，高电平为读，低电平为写</li>
+<li>片选线的连接：片选有效信号与CPU的MREQ（访存控制信号，低电平有效，高电平表示CPU访问IO）有关，</li>
+<li>合理选择存储芯片：存储芯片类型（ROM用于存放系统程序、标准子程序和各类常数，RAM用于存放用户数据）和数量（连线方便）</li>
+</ol>
+<h5 id="存储器的校验"><a href="#存储器的校验" class="headerlink" title="存储器的校验"></a>存储器的校验</h5><p>存储器的校验是为了能及时发现错误并及时纠正错误。</p>
+<p>编码的检测能力和纠错能力与任意两组合法代码之间二进制位的最少差异数有关。</p>
+<p>编码的最小码距d与纠错能力的关系：<br>码距 1  检错位数 0  纠错位数 0<br>码距 2  检错位数 1  纠错位数 0<br>码距 3  检错位数 1  纠错位数 1<br>码距 4  检错位数 2  纠错位数 1<br>码距 5  检错位数 2  纠错位数 2<br>检错位数=码距/2，取整数<br>纠错位数=检错位数(-1)，如果码距/2余数为0，则减1，否则不减</p>
+<p>存储器的校验使用汉明码校验，请参考<a href="">数据校验码</a></p>
+<h5 id="提高访存速度的措施"><a href="#提高访存速度的措施" class="headerlink" title="提高访存速度的措施"></a>提高访存速度的措施</h5><h4 id="调整缓冲存储器"><a href="#调整缓冲存储器" class="headerlink" title="调整缓冲存储器"></a>调整缓冲存储器</h4><h4 id="辅助存储器"><a href="#辅助存储器" class="headerlink" title="辅助存储器"></a>辅助存储器</h4><h3 id="输入输出系统"><a href="#输入输出系统" class="headerlink" title="输入输出系统"></a>输入输出系统</h3><h2 id="中央处理器CPU"><a href="#中央处理器CPU" class="headerlink" title="中央处理器CPU"></a>中央处理器CPU</h2><h2 id="控制单元CU"><a href="#控制单元CU" class="headerlink" title="控制单元CU"></a>控制单元CU</h2>
       
     </div>
     
@@ -709,7 +842,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">203</span>
+                  <span class="site-state-item-count">204</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -762,7 +895,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总述"><span class="nav-number">1.</span> <span class="nav-text">总述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内容"><span class="nav-number">1.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#教材"><span class="nav-number">1.2.</span> <span class="nav-text">教材</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构"><span class="nav-number">1.3.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概论"><span class="nav-number">2.</span> <span class="nav-text">概论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机系统简介"><span class="nav-number">2.1.</span> <span class="nav-text">计算机系统简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机的软硬件"><span class="nav-number">2.1.1.</span> <span class="nav-text">计算机的软硬件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机系统的层次结构"><span class="nav-number">2.1.2.</span> <span class="nav-text">计算机系统的层次结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机组成和计算机体系结构"><span class="nav-number">2.1.3.</span> <span class="nav-text">计算机组成和计算机体系结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机的基本组成"><span class="nav-number">2.2.</span> <span class="nav-text">计算机的基本组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机的工作过程"><span class="nav-number">2.2.1.</span> <span class="nav-text">计算机的工作过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机硬件的主要技术指标"><span class="nav-number">2.3.</span> <span class="nav-text">计算机硬件的主要技术指标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#机器字长"><span class="nav-number">2.3.1.</span> <span class="nav-text">机器字长</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算速度"><span class="nav-number">2.3.2.</span> <span class="nav-text">运算速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储容量"><span class="nav-number">2.3.3.</span> <span class="nav-text">存储容量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件结构"><span class="nav-number">3.</span> <span class="nav-text">硬件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总线"><span class="nav-number">3.1.</span> <span class="nav-text">总线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总线的基本概念"><span class="nav-number">3.1.1.</span> <span class="nav-text">总线的基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线的分类"><span class="nav-number">3.1.2.</span> <span class="nav-text">总线的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线特性"><span class="nav-number">3.1.3.</span> <span class="nav-text">总线特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能指标"><span class="nav-number">3.1.4.</span> <span class="nav-text">性能指标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线标准"><span class="nav-number">3.1.5.</span> <span class="nav-text">总线标准</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线结构"><span class="nav-number">3.1.6.</span> <span class="nav-text">总线结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单总线结构"><span class="nav-number">3.1.6.1.</span> <span class="nav-text">单总线结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#双总线结构"><span class="nav-number">3.1.6.2.</span> <span class="nav-text">双总线结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三总线结构"><span class="nav-number">3.1.6.3.</span> <span class="nav-text">三总线结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四总线结构"><span class="nav-number">3.1.6.4.</span> <span class="nav-text">四总线结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线控制"><span class="nav-number">3.1.7.</span> <span class="nav-text">总线控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#总线判优控制"><span class="nav-number">3.1.7.1.</span> <span class="nav-text">总线判优控制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总线通信控制"><span class="nav-number">3.1.7.2.</span> <span class="nav-text">总线通信控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储器"><span class="nav-number">3.2.</span> <span class="nav-text">存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主存储器"><span class="nav-number">3.2.1.</span> <span class="nav-text">主存储器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调整缓冲存储器"><span class="nav-number">3.2.2.</span> <span class="nav-text">调整缓冲存储器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#辅助存储器"><span class="nav-number">3.2.3.</span> <span class="nav-text">辅助存储器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出系统"><span class="nav-number">3.3.</span> <span class="nav-text">输入输出系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中央处理器CPU"><span class="nav-number">4.</span> <span class="nav-text">中央处理器CPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制单元CU"><span class="nav-number">5.</span> <span class="nav-text">控制单元CU</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总述"><span class="nav-number">1.</span> <span class="nav-text">总述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内容"><span class="nav-number">1.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#教材"><span class="nav-number">1.2.</span> <span class="nav-text">教材</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构"><span class="nav-number">1.3.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概论"><span class="nav-number">2.</span> <span class="nav-text">概论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机系统简介"><span class="nav-number">2.1.</span> <span class="nav-text">计算机系统简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机的软硬件"><span class="nav-number">2.1.1.</span> <span class="nav-text">计算机的软硬件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机系统的层次结构"><span class="nav-number">2.1.2.</span> <span class="nav-text">计算机系统的层次结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机组成和计算机体系结构"><span class="nav-number">2.1.3.</span> <span class="nav-text">计算机组成和计算机体系结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机的基本组成"><span class="nav-number">2.2.</span> <span class="nav-text">计算机的基本组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机的工作过程"><span class="nav-number">2.2.1.</span> <span class="nav-text">计算机的工作过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机硬件的主要技术指标"><span class="nav-number">2.3.</span> <span class="nav-text">计算机硬件的主要技术指标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#机器字长"><span class="nav-number">2.3.1.</span> <span class="nav-text">机器字长</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算速度"><span class="nav-number">2.3.2.</span> <span class="nav-text">运算速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储容量"><span class="nav-number">2.3.3.</span> <span class="nav-text">存储容量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件结构"><span class="nav-number">3.</span> <span class="nav-text">硬件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总线"><span class="nav-number">3.1.</span> <span class="nav-text">总线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总线的基本概念"><span class="nav-number">3.1.1.</span> <span class="nav-text">总线的基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线的分类"><span class="nav-number">3.1.2.</span> <span class="nav-text">总线的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线特性"><span class="nav-number">3.1.3.</span> <span class="nav-text">总线特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能指标"><span class="nav-number">3.1.4.</span> <span class="nav-text">性能指标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线标准"><span class="nav-number">3.1.5.</span> <span class="nav-text">总线标准</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线结构"><span class="nav-number">3.1.6.</span> <span class="nav-text">总线结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单总线结构"><span class="nav-number">3.1.6.1.</span> <span class="nav-text">单总线结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#双总线结构"><span class="nav-number">3.1.6.2.</span> <span class="nav-text">双总线结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三总线结构"><span class="nav-number">3.1.6.3.</span> <span class="nav-text">三总线结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四总线结构"><span class="nav-number">3.1.6.4.</span> <span class="nav-text">四总线结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线控制"><span class="nav-number">3.1.7.</span> <span class="nav-text">总线控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#总线判优控制"><span class="nav-number">3.1.7.1.</span> <span class="nav-text">总线判优控制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总线通信控制"><span class="nav-number">3.1.7.2.</span> <span class="nav-text">总线通信控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储器"><span class="nav-number">3.2.</span> <span class="nav-text">存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存储器的分类"><span class="nav-number">3.2.1.</span> <span class="nav-text">存储器的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储器的层次结构"><span class="nav-number">3.2.2.</span> <span class="nav-text">存储器的层次结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主存储器"><span class="nav-number">3.2.3.</span> <span class="nav-text">主存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#概述"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#半导体存储芯片"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">半导体存储芯片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#随机存取存储器-RAM"><span class="nav-number">3.2.3.3.</span> <span class="nav-text">随机存取存储器(RAM)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#静态RAM，SRAM"><span class="nav-number">3.2.3.3.1.</span> <span class="nav-text">静态RAM，SRAM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#动态RAM，DRAM"><span class="nav-number">3.2.3.3.2.</span> <span class="nav-text">动态RAM，DRAM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#刷新"><span class="nav-number">3.2.3.3.3.</span> <span class="nav-text">刷新</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#只读存储器-ROM"><span class="nav-number">3.2.3.4.</span> <span class="nav-text">只读存储器(ROM)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储器与-CPU-的连接"><span class="nav-number">3.2.3.5.</span> <span class="nav-text">存储器与 CPU 的连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#存储容量的扩展"><span class="nav-number">3.2.3.5.1.</span> <span class="nav-text">存储容量的扩展</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#存储器与CPU的连接"><span class="nav-number">3.2.3.5.2.</span> <span class="nav-text">存储器与CPU的连接</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储器的校验"><span class="nav-number">3.2.3.6.</span> <span class="nav-text">存储器的校验</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#提高访存速度的措施"><span class="nav-number">3.2.3.7.</span> <span class="nav-text">提高访存速度的措施</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调整缓冲存储器"><span class="nav-number">3.2.4.</span> <span class="nav-text">调整缓冲存储器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#辅助存储器"><span class="nav-number">3.2.5.</span> <span class="nav-text">辅助存储器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出系统"><span class="nav-number">3.3.</span> <span class="nav-text">输入输出系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中央处理器CPU"><span class="nav-number">4.</span> <span class="nav-text">中央处理器CPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制单元CU"><span class="nav-number">5.</span> <span class="nav-text">控制单元CU</span></a></li></ol></div>
             
 
           </div>
