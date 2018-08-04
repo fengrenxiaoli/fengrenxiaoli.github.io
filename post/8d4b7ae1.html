@@ -141,7 +141,18 @@
 <meta property="og:image" content="http://yoursite.com/img/CO054.png">
 <meta property="og:image" content="http://yoursite.com/img/CO055.png">
 <meta property="og:image" content="http://yoursite.com/img/CO056.png">
-<meta property="og:updated_time" content="2018-07-25T09:17:05.665Z">
+<meta property="og:image" content="http://yoursite.com/img/CO057.png">
+<meta property="og:image" content="http://yoursite.com/img/CO058.png">
+<meta property="og:image" content="http://yoursite.com/img/CO059.png">
+<meta property="og:image" content="http://yoursite.com/img/CO060.png">
+<meta property="og:image" content="http://yoursite.com/img/CO061.png">
+<meta property="og:image" content="http://yoursite.com/img/CO062.png">
+<meta property="og:image" content="http://yoursite.com/img/CO063.png">
+<meta property="og:image" content="http://yoursite.com/img/CO064.png">
+<meta property="og:image" content="http://yoursite.com/img/CO065.png">
+<meta property="og:image" content="http://yoursite.com/img/CO066.png">
+<meta property="og:image" content="http://yoursite.com/img/CO067.png">
+<meta property="og:updated_time" content="2018-07-27T09:02:58.887Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机组成原理">
 <meta name="twitter:description" content="以下为哈尔滨理工大学的计算机组成原理笔记使用的教材是唐朔飞的《计算机组成原理》 总述内容 基本部件的结构和组织方式 基本运算的操作原理 基本部件和单元的设计思想  教材 唐朔飞. 计算机组成原理（第2版）.高等教育出版社 David A.Patterson. John L.Hennessy. Computer Organization &amp;amp; Design: A Hardware/Softwa">
@@ -653,7 +664,7 @@
 <li>主存-辅存解决存储系统的容量问题，由硬件和操作系统共同完成，使用虚地址/逻辑地址（虚拟存储器，主存+辅存），逻辑地址转物理地址由硬件和操作系统完成</li>
 </ol>
 <p><img src="/img/CO035.png" alt=""></p>
-<p>局部性原理: CPU访问存储器时，无论是存取指令还是存取数据，所访问的存储单元都趋于聚集在一个较小的连续区域中。<br>时间局部性：如果一个信息项正在被访问，那么在近期它很可能还会被再次访问。<br>空间局部性：在最近的将来将用到的信息很可能与现在正在使用的信息在空间地址上是临近的。<br>顺序局部性：在典型程序中，除小部分转移类指令外，大部分指令是顺序进行的。<br>即程序的地址访问流有很强的时序相关性，根据这一原理，多级存储器体系把主存储器中访问概率最高的内容存放在Cache中，当CPU需要读取数据时就首先在Cache中查找是否有所需内容，如果有则直接从Cache中读取；若没有再从主存中读取，然后同时送往Cache和CPU，主辅亦是。故可以按对所使用的指令和数据的急迫和频繁程度，将其存入容量、速度、价格不同的存储器中，增加了时间优化的命中率，取得更高的性能价格比访问模式与最近已发生的访问模式相似。</p>
+<p>局部性原理: CPU访问存储器时，无论是存取指令还是存取数据，所访问的存储单元都趋于聚集在一个较小的连续区域中。<br>时间局部性：如果一个信息项正在被访问，那么在近期它很可能还会被再次访问。近期它很可能还会被再次访问。<br>空间局部性：在最近的将来将用到的信息很可能与现在正在使用的信息在空间地址上是临近的。<br>顺序局部性：在典型程序中，除小部分转移类指令外，大部分指令是顺序进行的。<br>即程序的地址访问流有很强的时序相关性，根据这一原理，多级存储器体系把主存储器中访问概率最高的内容存放在Cache中，当CPU需要读取数据时就首先在Cache中查找是否有所需内容，如果有则直接从Cache中读取；若没有再从主存中读取，然后同时送往Cache和CPU，主辅亦是。故可以按对所使用的指令和数据的急迫和频繁程度，将其存入容量、速度、价格不同的存储器中，增加了时间优化的命中率，取得更高的性能价格比访问模式与最近已发生的访问模式相似。</p>
 <h4 id="主存储器"><a href="#主存储器" class="headerlink" title="主存储器"></a>主存储器</h4><h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><p>主存的基本组成<br>存储体、MAR、MDR<br><img src="/img/CO036.png" alt=""><br>驱动器、译码器和读写电路都在存储芯片上，MAR和MDR在CPU芯片上</p>
 <p>主存与CPU之间的联系<br><img src="/img/CO037.png" alt=""></p>
 <p>主存中存储单元地址的分配<br><img src="/img/CO038.png" alt=""><br>参考<a href="https://blog.csdn.net/lishuhuakai/article/details/8934540" target="_blank" rel="external">https://blog.csdn.net/lishuhuakai/article/details/8934540</a></p>
@@ -728,8 +739,125 @@
 <h5 id="存储器的校验"><a href="#存储器的校验" class="headerlink" title="存储器的校验"></a>存储器的校验</h5><p>存储器的校验是为了能及时发现错误并及时纠正错误。</p>
 <p>编码的检测能力和纠错能力与任意两组合法代码之间二进制位的最少差异数有关。</p>
 <p>编码的最小码距d与纠错能力的关系：<br>码距 1  检错位数 0  纠错位数 0<br>码距 2  检错位数 1  纠错位数 0<br>码距 3  检错位数 1  纠错位数 1<br>码距 4  检错位数 2  纠错位数 1<br>码距 5  检错位数 2  纠错位数 2<br>检错位数=码距/2，取整数<br>纠错位数=检错位数(-1)，如果码距/2余数为0，则减1，否则不减</p>
-<p>存储器的校验使用汉明码校验，请参考<a href="">数据校验码</a></p>
-<h5 id="提高访存速度的措施"><a href="#提高访存速度的措施" class="headerlink" title="提高访存速度的措施"></a>提高访存速度的措施</h5><h4 id="调整缓冲存储器"><a href="#调整缓冲存储器" class="headerlink" title="调整缓冲存储器"></a>调整缓冲存储器</h4><h4 id="辅助存储器"><a href="#辅助存储器" class="headerlink" title="辅助存储器"></a>辅助存储器</h4><h3 id="输入输出系统"><a href="#输入输出系统" class="headerlink" title="输入输出系统"></a>输入输出系统</h3><h2 id="中央处理器CPU"><a href="#中央处理器CPU" class="headerlink" title="中央处理器CPU"></a>中央处理器CPU</h2><h2 id="控制单元CU"><a href="#控制单元CU" class="headerlink" title="控制单元CU"></a>控制单元CU</h2>
+<p>存储器的校验使用汉明码校验，请参考<a href="https://fengrenxiaoli.github.io/post/a55639d7.html#more" target="_blank" rel="external">数据校验码</a></p>
+<h5 id="提高访存速度的措施"><a href="#提高访存速度的措施" class="headerlink" title="提高访存速度的措施"></a>提高访存速度的措施</h5><ol>
+<li>采用高速器件 高性能存储芯片<ul>
+<li>SDRAM，同步DRAM：在系统时钟的控制下进行读出和写入，CPU 无须等待</li>
+<li>RDRAM：由 Rambus 开发,主要解决 存储器带宽 问题</li>
+<li>CDRAM：带 Cache 的 DRAM，在 DRAM 的芯片内 集成 了一个由 SRAM 组成的Cache ,有利于猝发式读取</li>
+</ul>
+</li>
+<li>采用层次结构 Cache –主存</li>
+<li>调整主存结构<ul>
+<li>单体多字系统：在一个存取周期内，从同一地址取出4条指令逐条送到CPU执行，需要注意两个问题：1.存储数据同时存储4个字的数据，如果只需要存储1个字需要硬件配置，2.数据需要连续，如果是跳转指令，则后面的指令无效</li>
+<li>多体并行系统：高位交叉（存储器的扩充）、低位交叉（增加存储器的带宽）</li>
+</ul>
+</li>
+</ol>
+<p><img src="/img/CO057.png" alt=""><br><img src="/img/CO058.png" alt=""><br><img src="/img/CO059.png" alt=""><br><img src="/img/CO060.png" alt=""></p>
+<p><a href="https://tw.transcend-info.com/Support/FAQ-296" target="_blank" rel="external">DDR4, DDR3, DDR2, DDR1 及SDRAM各有何不同?</a></p>
+<h4 id="高速缓冲存储器Cache"><a href="#高速缓冲存储器Cache" class="headerlink" title="高速缓冲存储器Cache"></a>高速缓冲存储器Cache</h4><p>避免 CPU “空等“现象，CPU 和主存(DRAM)的速度差异</p>
+<p>程序访问的局部性原理</p>
+<p>一般Cache采用高速的SRAM制作</p>
+<h5 id="主存和缓存的编址"><a href="#主存和缓存的编址" class="headerlink" title="主存和缓存的编址"></a>主存和缓存的编址</h5><p><img src="/img/CO061.png" alt=""><br>C远小于M，主存和缓存中的块大小相同，块内地址相同，主存和缓存之间按块存储、传送，B 为块长<br>缓存中的标志用于记录已经放在缓存中的主存块号</p>
+<h5 id="Cache-的命中率"><a href="#Cache-的命中率" class="headerlink" title="Cache 的命中率"></a>Cache 的命中率</h5><p>命中：主存块调入缓存，主存块与缓存块建立了对应关系，用标记记录与某缓存块建立了对应关系的主存块号<br>未命中：主存块未调入缓存，主存块与缓存块未建立对应关系</p>
+<p>命中率：CPU 欲访问的信息已在 Cache 中的比率，命中率越接近1越好<br>命中率与 Cache 的容量（缓存越大，命中率越高，但太大成本太高，而且增长变慢）与块长（越小越可能需要访问主存）有关<br>块长一般每块可取 4 ~ 8 个字，或取一个存取周期内从主存调出的信息长度</p>
+<h5 id="主存系统的效率"><a href="#主存系统的效率" class="headerlink" title="主存系统的效率"></a>主存系统的效率</h5><p><img src="/img/CO062.png" alt=""></p>
+<p>如果按照先访问缓存，缓存没有再访问主存，则平均访问时间发生变化，需要未命中部分要加上访问缓存的时间</p>
+<h5 id="Cache-的基本结构"><a href="#Cache-的基本结构" class="headerlink" title="Cache 的基本结构"></a>Cache 的基本结构</h5><p>Cache主要由Cache存储体、地址映射变换机构、Cache替换机构几大模块组成<br><img src="/img/CO063.png" alt=""></p>
+<p>将主存地址映射到缓存中定位称为地址映射，将主存地址变换成缓存地址称为地址变换，当新的主存块需要调入缓存中，而它的可用位置又被占用时，需替换机构根据替换算法解决调入问题。</p>
+<p>Cache对用户是透明的，用户编程时所用到的地址是主存地址，用户根本不知道这些主存块是否已调入Cache内</p>
+<p>Cache的读操作<br><img src="/img/CO064.png" alt=""></p>
+<p>Cache的写操作<br>Cache和主存的一致性</p>
+<ul>
+<li>写直达法(Write – through)：写操作时数据既写入Cache又写入主存，写操作时间就是访问主存的时间,Cache块退出时，不需要对主存执行写操作，更新策略比较容易实现，能随时保证主存和cache的数据始终一致，但增加了访存次数</li>
+<li>写回法(Write – back)：写操作时只把数据写入 Cache 而不写入主存，当 Cache 数据被替换出去时才写回主存<br>写操作时间就是访问 Cache 的时间，Cache块退出时，被替换的块需写回主存，增加了 Cache 的复杂性</li>
+</ul>
+<p>Cache的改进</p>
+<ol>
+<li>增加 Cache 的级数：片载(片内)Cache（不使用系统总线）、片外Cache（也不使用系统总线 ，独立的数据路径）</li>
+<li>统一缓存和分立缓存：与指令执行的控制方式（超前控制、流水控制）有关，分立缓存包括指令 Cache、数据 Cache</li>
+</ol>
+<p>超前控制：在当前指令执行过程尚未结束时就提前将下一条准备执行的指令取出<br>流水控制：多条指令同时执行</p>
+<ul>
+<li>L1  Cache(一级缓存)是CPU第一层高速缓存，分为数据缓存和指令缓存。内置的L1高速缓存的容量和结构对CPU的性能影响较大，不过高速缓冲存储器均由静态RAM组成，结构较复杂，在CPU管芯面积不能太大的情况下，L1级高速缓存的容量不可能做得太大。一般服务器CPU的L1缓存的容量通常在32—256KB。 　　</li>
+<li>L2  Cache(二级缓存)是CPU的第二层高速缓存，分内部和外部两种芯片。内部的芯片二级缓存运行速度与主频相同，而外部的二级缓存则只有主频的一半。L2高速缓存容量也会影响CPU的性能，原则是越大越好，现在家庭用CPU容量最大的是512KB，而服务器和工作站上用CPU的L2高速缓存更高达256-1MB，有的高达2MB或者3MB。 　 　　</li>
+<li>L3  Cache(三级缓存)，分为两种，早期的是外置，现在的都是内置的。而它的实际作用即是，L3缓存的应用可以进一步降低内存延迟，同时提升大数据量计算时处理器的性能。降低内存延迟和提升大数据量计算能力对游戏都很有帮助。而在服务器领域增加L3缓存在性能方面仍然有显著的提升。比方具有较大L3缓存的配置利用物理内存会更有效</li>
+</ul>
+<h5 id="Cache-主存的地址映射"><a href="#Cache-主存的地址映射" class="headerlink" title="Cache-主存的地址映射"></a>Cache-主存的地址映射</h5><p>由主存地址映射到Cache地址称为地址映射</p>
+<ol>
+<li>直接映射：每个主存块只与一个缓存块相对应，实现简单，速度快，但不够灵活，Cache空间利用率太低，即使缓存内还有空余也不能占用。主要用于靠近CPU的位置存储时使用</li>
+<li>全相联映射：主存中的任一块可以映射到缓存中的任一块，灵活，命中率高，电路实现复杂，成本高，速度慢，但需要比较所有标记才能找出对应的内容。主要用于离CPU最远的存储区域使用。 </li>
+<li>组相联映射：直接映射和全相联映射的结合，主要用于中间区域。</li>
+</ol>
+<p><img src="/img/CO065.png" alt=""><br><img src="/img/CO066.png" alt=""><br><img src="/img/CO067.png" alt=""></p>
+<h5 id="替换算法"><a href="#替换算法" class="headerlink" title="替换算法"></a>替换算法</h5><ol>
+<li>先进先出(FIFO)算法：不能提高Cache的命中率</li>
+<li>近期最少使用(LRU)算法：利用时间局部性，将近期很少使用的块调出</li>
+</ol>
+<h4 id="辅助存储器-外存"><a href="#辅助存储器-外存" class="headerlink" title="辅助存储器/外存"></a>辅助存储器/外存</h4><p>容量大、速度慢、价格低，非易失性，不直接与 CPU 交换信息</p>
+<h5 id="磁表面存储器的技术指标"><a href="#磁表面存储器的技术指标" class="headerlink" title="磁表面存储器的技术指标"></a>磁表面存储器的技术指标</h5><ol>
+<li>记录密度：单位长度内所存储的二进制信息量，磁盘各磁道上所记录的信息量是相同的，道密度Dt、位密度Db</li>
+<li>存储容量 C = n × k × s，n为存放信息的盘面数，k为每个盘面的磁道数，s为每条磁道上记录的二进制代码数</li>
+<li>平均寻址时间 寻道时间+等待时间</li>
+<li>数据传输率：位密度×速度</li>
+<li>误码率：出错信息位数与读出信息的总位数之比</li>
+</ol>
+<h5 id="硬磁盘存储器"><a href="#硬磁盘存储器" class="headerlink" title="硬磁盘存储器"></a>硬磁盘存储器</h5><p>硬磁盘存储器的类型</p>
+<ol>
+<li>固定磁头和移动磁头</li>
+<li>可换盘和固定盘</li>
+</ol>
+<p>硬磁盘存储器结构</p>
+<ol>
+<li>磁盘驱动器</li>
+<li>磁盘控制器：接收主机发来的命令,转换成磁盘驱动器的控制命令，实现主机和驱动器之间的数据格式转换，控制磁盘驱动器读写，磁盘控制器是主机与磁盘驱动器之间的接口</li>
+<li>盘片</li>
+</ol>
+<h5 id="光盘存储器"><a href="#光盘存储器" class="headerlink" title="光盘存储器"></a>光盘存储器</h5><p>采用光存储技术，利用激光写入和读出</p>
+<p>第一代光存储技术 采用非磁性介质 不可擦写<br>第二代光存储技术 采用磁性介质 可擦写</p>
+<p>光盘的存储原理</p>
+<ol>
+<li>只读型</li>
+<li>只写一次型 热作用(物理或化学变化)</li>
+<li>可擦写光盘：热磁效应</li>
+</ol>
+<h5 id="软磁盘存储器"><a href="#软磁盘存储器" class="headerlink" title="软磁盘存储器"></a>软磁盘存储器</h5><table>
+<thead>
+<tr>
+<th></th>
+<th>硬盘</th>
+<th>软盘</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>速度</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>磁头</td>
+<td>固定、活动,浮动</td>
+<td>活动,接触盘片</td>
+</tr>
+<tr>
+<td>盘片</td>
+<td>固定盘、盘组,大部分不可换</td>
+<td>可换盘片</td>
+</tr>
+<tr>
+<td>价格</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>环境</td>
+<td>苛刻</td>
+</tr>
+</tbody>
+</table>
+<h3 id="输入输出系统"><a href="#输入输出系统" class="headerlink" title="输入输出系统"></a>输入输出系统</h3><h2 id="中央处理器CPU"><a href="#中央处理器CPU" class="headerlink" title="中央处理器CPU"></a>中央处理器CPU</h2><h2 id="控制单元CU"><a href="#控制单元CU" class="headerlink" title="控制单元CU"></a>控制单元CU</h2>
       
     </div>
     
@@ -842,7 +970,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">204</span>
+                  <span class="site-state-item-count">205</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -895,7 +1023,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总述"><span class="nav-number">1.</span> <span class="nav-text">总述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内容"><span class="nav-number">1.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#教材"><span class="nav-number">1.2.</span> <span class="nav-text">教材</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构"><span class="nav-number">1.3.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概论"><span class="nav-number">2.</span> <span class="nav-text">概论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机系统简介"><span class="nav-number">2.1.</span> <span class="nav-text">计算机系统简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机的软硬件"><span class="nav-number">2.1.1.</span> <span class="nav-text">计算机的软硬件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机系统的层次结构"><span class="nav-number">2.1.2.</span> <span class="nav-text">计算机系统的层次结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机组成和计算机体系结构"><span class="nav-number">2.1.3.</span> <span class="nav-text">计算机组成和计算机体系结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机的基本组成"><span class="nav-number">2.2.</span> <span class="nav-text">计算机的基本组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机的工作过程"><span class="nav-number">2.2.1.</span> <span class="nav-text">计算机的工作过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机硬件的主要技术指标"><span class="nav-number">2.3.</span> <span class="nav-text">计算机硬件的主要技术指标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#机器字长"><span class="nav-number">2.3.1.</span> <span class="nav-text">机器字长</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算速度"><span class="nav-number">2.3.2.</span> <span class="nav-text">运算速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储容量"><span class="nav-number">2.3.3.</span> <span class="nav-text">存储容量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件结构"><span class="nav-number">3.</span> <span class="nav-text">硬件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总线"><span class="nav-number">3.1.</span> <span class="nav-text">总线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总线的基本概念"><span class="nav-number">3.1.1.</span> <span class="nav-text">总线的基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线的分类"><span class="nav-number">3.1.2.</span> <span class="nav-text">总线的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线特性"><span class="nav-number">3.1.3.</span> <span class="nav-text">总线特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能指标"><span class="nav-number">3.1.4.</span> <span class="nav-text">性能指标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线标准"><span class="nav-number">3.1.5.</span> <span class="nav-text">总线标准</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线结构"><span class="nav-number">3.1.6.</span> <span class="nav-text">总线结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单总线结构"><span class="nav-number">3.1.6.1.</span> <span class="nav-text">单总线结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#双总线结构"><span class="nav-number">3.1.6.2.</span> <span class="nav-text">双总线结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三总线结构"><span class="nav-number">3.1.6.3.</span> <span class="nav-text">三总线结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四总线结构"><span class="nav-number">3.1.6.4.</span> <span class="nav-text">四总线结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线控制"><span class="nav-number">3.1.7.</span> <span class="nav-text">总线控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#总线判优控制"><span class="nav-number">3.1.7.1.</span> <span class="nav-text">总线判优控制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总线通信控制"><span class="nav-number">3.1.7.2.</span> <span class="nav-text">总线通信控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储器"><span class="nav-number">3.2.</span> <span class="nav-text">存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存储器的分类"><span class="nav-number">3.2.1.</span> <span class="nav-text">存储器的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储器的层次结构"><span class="nav-number">3.2.2.</span> <span class="nav-text">存储器的层次结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主存储器"><span class="nav-number">3.2.3.</span> <span class="nav-text">主存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#概述"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#半导体存储芯片"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">半导体存储芯片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#随机存取存储器-RAM"><span class="nav-number">3.2.3.3.</span> <span class="nav-text">随机存取存储器(RAM)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#静态RAM，SRAM"><span class="nav-number">3.2.3.3.1.</span> <span class="nav-text">静态RAM，SRAM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#动态RAM，DRAM"><span class="nav-number">3.2.3.3.2.</span> <span class="nav-text">动态RAM，DRAM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#刷新"><span class="nav-number">3.2.3.3.3.</span> <span class="nav-text">刷新</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#只读存储器-ROM"><span class="nav-number">3.2.3.4.</span> <span class="nav-text">只读存储器(ROM)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储器与-CPU-的连接"><span class="nav-number">3.2.3.5.</span> <span class="nav-text">存储器与 CPU 的连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#存储容量的扩展"><span class="nav-number">3.2.3.5.1.</span> <span class="nav-text">存储容量的扩展</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#存储器与CPU的连接"><span class="nav-number">3.2.3.5.2.</span> <span class="nav-text">存储器与CPU的连接</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储器的校验"><span class="nav-number">3.2.3.6.</span> <span class="nav-text">存储器的校验</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#提高访存速度的措施"><span class="nav-number">3.2.3.7.</span> <span class="nav-text">提高访存速度的措施</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调整缓冲存储器"><span class="nav-number">3.2.4.</span> <span class="nav-text">调整缓冲存储器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#辅助存储器"><span class="nav-number">3.2.5.</span> <span class="nav-text">辅助存储器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出系统"><span class="nav-number">3.3.</span> <span class="nav-text">输入输出系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中央处理器CPU"><span class="nav-number">4.</span> <span class="nav-text">中央处理器CPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制单元CU"><span class="nav-number">5.</span> <span class="nav-text">控制单元CU</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总述"><span class="nav-number">1.</span> <span class="nav-text">总述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内容"><span class="nav-number">1.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#教材"><span class="nav-number">1.2.</span> <span class="nav-text">教材</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构"><span class="nav-number">1.3.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概论"><span class="nav-number">2.</span> <span class="nav-text">概论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机系统简介"><span class="nav-number">2.1.</span> <span class="nav-text">计算机系统简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机的软硬件"><span class="nav-number">2.1.1.</span> <span class="nav-text">计算机的软硬件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机系统的层次结构"><span class="nav-number">2.1.2.</span> <span class="nav-text">计算机系统的层次结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机组成和计算机体系结构"><span class="nav-number">2.1.3.</span> <span class="nav-text">计算机组成和计算机体系结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机的基本组成"><span class="nav-number">2.2.</span> <span class="nav-text">计算机的基本组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机的工作过程"><span class="nav-number">2.2.1.</span> <span class="nav-text">计算机的工作过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机硬件的主要技术指标"><span class="nav-number">2.3.</span> <span class="nav-text">计算机硬件的主要技术指标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#机器字长"><span class="nav-number">2.3.1.</span> <span class="nav-text">机器字长</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算速度"><span class="nav-number">2.3.2.</span> <span class="nav-text">运算速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储容量"><span class="nav-number">2.3.3.</span> <span class="nav-text">存储容量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件结构"><span class="nav-number">3.</span> <span class="nav-text">硬件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总线"><span class="nav-number">3.1.</span> <span class="nav-text">总线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总线的基本概念"><span class="nav-number">3.1.1.</span> <span class="nav-text">总线的基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线的分类"><span class="nav-number">3.1.2.</span> <span class="nav-text">总线的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线特性"><span class="nav-number">3.1.3.</span> <span class="nav-text">总线特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能指标"><span class="nav-number">3.1.4.</span> <span class="nav-text">性能指标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线标准"><span class="nav-number">3.1.5.</span> <span class="nav-text">总线标准</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线结构"><span class="nav-number">3.1.6.</span> <span class="nav-text">总线结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单总线结构"><span class="nav-number">3.1.6.1.</span> <span class="nav-text">单总线结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#双总线结构"><span class="nav-number">3.1.6.2.</span> <span class="nav-text">双总线结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三总线结构"><span class="nav-number">3.1.6.3.</span> <span class="nav-text">三总线结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四总线结构"><span class="nav-number">3.1.6.4.</span> <span class="nav-text">四总线结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线控制"><span class="nav-number">3.1.7.</span> <span class="nav-text">总线控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#总线判优控制"><span class="nav-number">3.1.7.1.</span> <span class="nav-text">总线判优控制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总线通信控制"><span class="nav-number">3.1.7.2.</span> <span class="nav-text">总线通信控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储器"><span class="nav-number">3.2.</span> <span class="nav-text">存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存储器的分类"><span class="nav-number">3.2.1.</span> <span class="nav-text">存储器的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储器的层次结构"><span class="nav-number">3.2.2.</span> <span class="nav-text">存储器的层次结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主存储器"><span class="nav-number">3.2.3.</span> <span class="nav-text">主存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#概述"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#半导体存储芯片"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">半导体存储芯片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#随机存取存储器-RAM"><span class="nav-number">3.2.3.3.</span> <span class="nav-text">随机存取存储器(RAM)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#静态RAM，SRAM"><span class="nav-number">3.2.3.3.1.</span> <span class="nav-text">静态RAM，SRAM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#动态RAM，DRAM"><span class="nav-number">3.2.3.3.2.</span> <span class="nav-text">动态RAM，DRAM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#刷新"><span class="nav-number">3.2.3.3.3.</span> <span class="nav-text">刷新</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#只读存储器-ROM"><span class="nav-number">3.2.3.4.</span> <span class="nav-text">只读存储器(ROM)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储器与-CPU-的连接"><span class="nav-number">3.2.3.5.</span> <span class="nav-text">存储器与 CPU 的连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#存储容量的扩展"><span class="nav-number">3.2.3.5.1.</span> <span class="nav-text">存储容量的扩展</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#存储器与CPU的连接"><span class="nav-number">3.2.3.5.2.</span> <span class="nav-text">存储器与CPU的连接</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储器的校验"><span class="nav-number">3.2.3.6.</span> <span class="nav-text">存储器的校验</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#提高访存速度的措施"><span class="nav-number">3.2.3.7.</span> <span class="nav-text">提高访存速度的措施</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高速缓冲存储器Cache"><span class="nav-number">3.2.4.</span> <span class="nav-text">高速缓冲存储器Cache</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#主存和缓存的编址"><span class="nav-number">3.2.4.1.</span> <span class="nav-text">主存和缓存的编址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cache-的命中率"><span class="nav-number">3.2.4.2.</span> <span class="nav-text">Cache 的命中率</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#主存系统的效率"><span class="nav-number">3.2.4.3.</span> <span class="nav-text">主存系统的效率</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cache-的基本结构"><span class="nav-number">3.2.4.4.</span> <span class="nav-text">Cache 的基本结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cache-主存的地址映射"><span class="nav-number">3.2.4.5.</span> <span class="nav-text">Cache-主存的地址映射</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#替换算法"><span class="nav-number">3.2.4.6.</span> <span class="nav-text">替换算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#辅助存储器-外存"><span class="nav-number">3.2.5.</span> <span class="nav-text">辅助存储器/外存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#磁表面存储器的技术指标"><span class="nav-number">3.2.5.1.</span> <span class="nav-text">磁表面存储器的技术指标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#硬磁盘存储器"><span class="nav-number">3.2.5.2.</span> <span class="nav-text">硬磁盘存储器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#光盘存储器"><span class="nav-number">3.2.5.3.</span> <span class="nav-text">光盘存储器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#软磁盘存储器"><span class="nav-number">3.2.5.4.</span> <span class="nav-text">软磁盘存储器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出系统"><span class="nav-number">3.3.</span> <span class="nav-text">输入输出系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中央处理器CPU"><span class="nav-number">4.</span> <span class="nav-text">中央处理器CPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制单元CU"><span class="nav-number">5.</span> <span class="nav-text">控制单元CU</span></a></li></ol></div>
             
 
           </div>

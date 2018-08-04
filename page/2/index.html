@@ -249,6 +249,141 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/ab888b92.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/ab888b92.html" itemprop="url">Git使用方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T09:29:39+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h2><p><strong>集中式版本控制系统</strong>（Centralized Version Control Systems,简称 CVCS）：have a single server that contains all the versioned files, and a number of clients that check out files from that central place.</p>
+<p>集中式版本控制系统的缺点是中央服务器的单点故障。</p>
+<p><strong>分布式版本控制系统</strong>（Distributed Version Control System,简称 DVCS）：clients don’t just check out the latest snapshot of the files; rather, they fully mirror the repository, including its full history.</p>
+<p>分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已。</p>
+<p>集中式版本控制：CVS、SVN、ClearCase、VSS<br>分布式版本控制：Git、BitKeeper、Mercurial、Bazaar</p>
+<p>git和其他版本控制工具存储数据的方式不同：</p>
+<ul>
+<li>其他版本控制工具存储一组文件以及基于这些文件随时间推移产生的差异</li>
+<li>git存储更像快照，对当时的全部文件制作一个快照并保存这个快照的索引，如果没有修改则只保留一个指向之前存储文件的链接</li>
+</ul>
+<p>在 Git 中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其它计算机的信息<br>SVN 中可以修改文件，但是无法向数据库提交修改</p>
+<p>Git 中所有数据在存储前都计算<strong>校验和</strong>，然后以校验和来引用，<br>校验和由 40 个十六进制字符组成，通过SHA1计算得出。Git 数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/ab888b92.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/f7ede91d.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1386,136 +1521,6 @@ java文件执行过程
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/b709c2f1.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="木鱼">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="太阳落下">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/b709c2f1.html" itemprop="url">计算机网络-物理层</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-19T21:09:35+08:00">
-                2018-06-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="物理层的基本概念"><a href="#物理层的基本概念" class="headerlink" title="物理层的基本概念"></a>物理层的基本概念</h2><p>物理层解决如何在连接各种计算机的 <strong>传输媒体</strong>（光纤、无线等）上传输 <strong>数据比特流</strong>，而不是指具体的传输媒体<br>物理层的主要任务描述为：确定传输媒体的接口的一些特性，即：</p>
-<ol>
-<li><strong>机械特性</strong>：例如接口形状，大小，引线数目</li>
-<li><strong>电气特性</strong>：例如规定电压范围（-5V到+5V）</li>
-<li><strong>功能特性</strong>：例如规定-5V表示0，+5V表示1</li>
-<li><strong>过程特性</strong>：也称为规程特性，规定建立连接时各个相关部件的工作步骤</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/b709c2f1.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1566,7 +1571,7 @@ java文件执行过程
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">204</span>
+                  <span class="site-state-item-count">205</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
