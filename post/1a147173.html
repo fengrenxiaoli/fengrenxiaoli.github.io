@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="html," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="太阳落下" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="超文本标记语言(英语：Hypertext Markup Language，简称：HTML) ，用于定义一个网页的结构，由一系列的 元素组成，元素标签是不区分大小写。 用HTML标记内容的目的是为了赋予网页含义（semantic），换句话说，就是要给你的网页内容赋予某些用户代理（user agent）能够理解的含义。比如人，程序，设备，便于将元素调整为你所需的样式。 HTML规定了一组标签，用来给内">
+<meta name="keywords" content="html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html基础">
+<meta property="og:url" content="http://yoursite.com/post/1a147173.html">
+<meta property="og:site_name" content="太阳落下">
+<meta property="og:description" content="超文本标记语言(英语：Hypertext Markup Language，简称：HTML) ，用于定义一个网页的结构，由一系列的 元素组成，元素标签是不区分大小写。 用HTML标记内容的目的是为了赋予网页含义（semantic），换句话说，就是要给你的网页内容赋予某些用户代理（user agent）能够理解的含义。比如人，程序，设备，便于将元素调整为你所需的样式。 HTML规定了一组标签，用来给内">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-18T18:16:55.768Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html基础">
+<meta name="twitter:description" content="超文本标记语言(英语：Hypertext Markup Language，简称：HTML) ，用于定义一个网页的结构，由一系列的 元素组成，元素标签是不区分大小写。 用HTML标记内容的目的是为了赋予网页含义（semantic），换句话说，就是要给你的网页内容赋予某些用户代理（user agent）能够理解的含义。比如人，程序，设备，便于将元素调整为你所需的样式。 HTML规定了一组标签，用来给内">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/post/1a147173.html"/>
+
+
+
+
+
+  <title>html基础 | 太阳落下</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">太阳落下</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/1a147173.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="太阳落下">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">html基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-18T14:02:01+08:00">
+                2018-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>超文本标记语言(英语：Hypertext Markup Language，简称：HTML) ，用于定义一个网页的结构，由一系列的 元素组成，元素标签是不区分大小写。</p>
+<p>用HTML标记内容的目的是为了赋予网页含义（semantic），换句话说，就是要给你的网页内容赋予某些用户代理（user agent）能够理解的含义。比如人，程序，设备，便于将元素调整为你所需的样式。</p>
+<p>HTML规定了一组标签，用来给内容打上不同的标记。每个标签都是对它所包含内容的一种描述。</p>
+<p>在给内容打上不同的标记后，就可以使用CSS来给标签添加样式。</p>
+<h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p class=&quot;editor-note&quot;&gt;My cat is &lt;strong&gt;very&lt;/strong&gt; grumpy&lt;/p&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>开始标签（The opening tag）：这里包含了元素的名称（本例为 p），被开、闭尖括号所包围。这表示元素从此开始或者开始起作用——在本例中即段落由此开始。</li>
+<li>闭合标签（The closing tag）：与开始标签相似，只是其在元素名之前包含了一个斜杠。这表示着元素的结尾——这表示元素在此结束——在本例中即段落在此结束。初学者常常会犯忘记包含闭合标签的错误，这可能会产生一些奇怪的结果。</li>
+<li>内容（The content）：这是一个元素的内容，这个例子中就是所输入的文本本身。</li>
+<li>元素（The element）：开标签、闭标签与内容相结合，便是一个完整的元素。</li>
+</ol>
+<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><p>将一个元素置于其他元素之中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;My cat is &lt;strong&gt;very&lt;/strong&gt; grumpy&lt;/p&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="块级元素和内联元素"><a href="#块级元素和内联元素" class="headerlink" title="块级元素和内联元素"></a>块级元素和内联元素</h4><p>块级元素在页面中以块的形式展现，相对与其前面的内容它会出现在<strong>新的一行</strong>，其后的内容也会被挤到下一行展现。块级元素通常用于展示页面上结构化的内容，例如段落、列表、导航菜单、页脚等等。一个以block形式展现的块级元素不会被嵌套进内联元素中，但可以嵌套在其它块级元素中。</p>
+<p>内联元素通常出现在块级元素中并包裹文档内容的一小部分，而不是一整个段落或者一组内容。内联元素 <strong>不会导致文本换行</strong>，它通常出现在一堆文字之间例如超链接元素<code>&lt;a&gt;</code>或者强调元素<code>&lt;em&gt;</code>和 <code>&lt;strong&gt;</code>。</p>
+<h4 id="空元素"><a href="#空元素" class="headerlink" title="空元素"></a>空元素</h4><p>有一些元素并不包含内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=&quot;images/firefox-icon.png&quot; alt=&quot;My test image&quot;&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="属性（Attribute）"><a href="#属性（Attribute）" class="headerlink" title="属性（Attribute）"></a>属性（Attribute）</h4><p>包含了关于元素的一些额外的信息，这些信息本身并不需要被显现在内容中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p class=&quot;editor-note&quot;&gt;My cat is very grumpy&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>一个属性必须包含如下内容：</p>
+<ul>
+<li>在元素和属性之间有个空格space (如果有一个或多个已存在的属性，就与前一个属性之间有一个空格.)</li>
+<li>属性后面紧跟着一个“=”符号</li>
+<li>有一个属性值,由一对引号“ ”引起来，省略包围属性值的引号可能出错，也可以使用单引号，单引号和双引号不能再一个属性值里面混用，可以嵌套</li>
+</ul>
+<p>布尔属性</p>
+<p>没有值的属性，称为布尔属性，只能有跟它的属性名一样的属性值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; disabled=&quot;disabled&quot;&gt;</div><div class="line">标记表单输入使之变为不可用，此时用户不能向他们输入任何数据</div><div class="line">&lt;input type=&quot;text&quot; disabled&gt;    简写</div><div class="line"></div><div class="line">&lt;input type=&quot;text&quot;&gt;</div></pre></td></tr></table></figure>
+<h4 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;title&gt;My test page&lt;/title&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;img src=&quot;images/firefox-icon.png&quot; alt=&quot;My test image&quot;&gt;</div><div class="line">    &lt;!-- 这是评论文本 --&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li><code>&lt;!DOCTYPE html&gt;</code> — 文档类型。在 HTML 刚刚出现的时期里（大约是1991/2年），文档类型是用来链接一些好的 HTML 应该遵守的规则，有点像自动校正等。然而现在已经没有人关心这些，只是因为历史原因必须它必须包含在代码中。现在你只需要知道这些就可以。不区分大小写</li>
+<li><code>&lt;html&gt;&lt;/html&gt;</code> — <code>&lt;html&gt;</code> 元素。这个元素包含了整个页面的内容，有时也被称作根元素。</li>
+<li><code>&lt;head&gt;&lt;/head&gt;</code> — <code>&lt;head&gt;</code> 元素。这个元素放置的内容不是展现给用户的，而是包含例如面向搜索引擎的搜索关键字（keywords）、页面描述、CSS样式表和字符编码声明等元数据。</li>
+<li><code>&lt;body&gt;&lt;/body&gt;</code> — <code>&lt;body&gt;</code> 元素。这个元素包含了你想让用户在访问你的页面时看到的内容，不管是文本，图像，视频，游戏，可播放的音轨或其他内容。</li>
+<li><code>&lt;meta charset=&quot;utf-8&quot;&gt;</code> — 这个元素指定了你的文档需要使用的字符编码是 UTF-8 ，它包括了非常多人类已知语言的字符。基本上 UTF-8 可以处理任何文本内容。我们没有任何理由不去设定字符编码，而且也可以避免以后可能出现的问题。</li>
+<li><code>&lt;title&gt;&lt;/title&gt;</code> — <code>&lt;title&gt;</code> 元素。这个元素设置了页面的标题，标题显示在浏览器标签页上，而且在你将网页添加到收藏夹或喜爱中时将作为默认名称。</li>
+<li><code>&lt;!--  --&gt;</code> 注释。注释是被浏览器忽略的，而且是对用户不可见的，它们的目的是允许你描述你的代码是如何工作的和不同部分的代码做了什么等等</li>
+</ol>
+<h3 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=&quot;images/firefox-icon.png&quot; alt=&quot;My test image&quot;&gt;</div></pre></td></tr></table></figure>
+<p>src：图像文件路径<br>alt：图像的描述内容</p>
+<h3 id="标记文本"><a href="#标记文本" class="headerlink" title="标记文本"></a>标记文本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">标题</div><div class="line">&lt;h1&gt;My main title&lt;/h1&gt;</div><div class="line">&lt;h2&gt;My top level heading&lt;/h2&gt;</div><div class="line">&lt;h3&gt;My subheading&lt;/h3&gt;</div><div class="line">&lt;h4&gt;My sub-subheading&lt;/h4&gt;</div><div class="line"></div><div class="line"></div><div class="line">段落</div><div class="line">&lt;p&gt;This is a single paragraph&lt;/p&gt;</div><div class="line"></div><div class="line"></div><div class="line">无序列表</div><div class="line">&lt;ul&gt; </div><div class="line">  &lt;li&gt;technologists&lt;/li&gt;</div><div class="line">  &lt;li&gt;thinkers&lt;/li&gt;</div><div class="line">  &lt;li&gt;builders&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line"></div><div class="line">有序列表</div><div class="line">&lt;ol&gt; </div><div class="line">  &lt;li&gt;technologists&lt;/li&gt;</div><div class="line">  &lt;li&gt;thinkers&lt;/li&gt;</div><div class="line">  &lt;li&gt;builders&lt;/li&gt;</div><div class="line">&lt;/ol&gt;</div></pre></td></tr></table></figure>
+<h3 id="字符引用"><a href="#字符引用" class="headerlink" title="字符引用"></a>字符引用</h3><p>在 HTML 中，某些字符是预留的。<br>为了正确地显示预留字符，我们必须在 HTML 源代码中使用字符实体（character entities）。<br>一些在键盘上找不到的字符也可以使用字符实体。</p>
+<p>HTML 字符实体以一个和号<code>&amp;</code>开头，一个分号<code>;</code>结尾，二者之间是表示实体的字符串或者数字。</p>
+<p>实体名称对大小写敏感。</p>
+<table>
+<thead>
+<tr>
+<th>实体编号</th>
+<th>字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;ldquo;</code></td>
+<td>左双引号</td>
+</tr>
+<tr>
+<td><code>&amp;rdquo;</code></td>
+<td>右双引号</td>
+</tr>
+<tr>
+<td><code>&amp;amp;</code></td>
+<td>&amp;</td>
+</tr>
+<tr>
+<td><code>&amp;lt;</code></td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td><code>&amp;gt;</code></td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td><code>&amp;nbsp;</code></td>
+<td>空格</td>
+</tr>
+<tr>
+<td><code>&amp;copy;</code></td>
+<td>©</td>
+</tr>
+<tr>
+<td><code>&amp;ldque;</code></td>
+<td>左双引号</td>
+</tr>
+<tr>
+<td><code>&amp;rdque;</code></td>
+<td>右双引号</td>
+</tr>
+<tr>
+<td><code>&amp;hellip;</code></td>
+<td>省略号</td>
+</tr>
+<tr>
+<td><code>&amp;mdash;</code></td>
+<td>破折号</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;In HTML, you define a paragraph using the &amp;lt;p&amp;gt; element.&lt;/p&gt;</div></pre></td></tr></table></figure>
+<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;https://www.mozilla.org/en-US/about/manifesto/&quot;&gt;Mozilla Manifesto&lt;/a&gt;</div><div class="line"></div><div class="line">&lt;a href=&quot;http://www.baidu.com&quot;&gt;Moving Pictures&lt;/a&gt;&lt;img src=&quot;http://www.cygnus-x1.net/links/rush/images/albums/sectors/sector2-movingpictures-cover-s.jpg&quot;&gt;&lt;/a&gt;</div><div class="line">点击图片超链接</div></pre></td></tr></table></figure>
+<ul>
+<li>href: 这个属性声明超链接的web地址，当这个链接被点击浏览器会跳转至href声明的web地址。不能没有http，例如： href=”<a href="https://www.mozilla.org/&quot;。" target="_blank" rel="external">https://www.mozilla.org/&quot;。</a></li>
+<li>title: 标题title 属性为超链接声明额外的信息，比如你将链接至那个页面。例如： title=”The Mozilla homepage”。当鼠标悬浮时，将出现一个工具提示。</li>
+<li>target: 目标target 属性指定将用于显示链接的浏览上下文。 例如， target=”_blank” 将在新标签页中显示链接。如果你希望在目前标签页显示链接，只需忽略这个属性。 </li>
+</ul>
+<h3 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a>多媒体</h3><h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><p>参考：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/HTML_basics" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/HTML_basics</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Learn/HTML</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html/" rel="tag"># html</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/fd83331e.html" rel="next" title="前端基础知识">
+                <i class="fa fa-chevron-left"></i> 前端基础知识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">木鱼</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">207</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#元素"><span class="nav-number">1.</span> <span class="nav-text">元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌套"><span class="nav-number">1.1.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#块级元素和内联元素"><span class="nav-number">1.2.</span> <span class="nav-text">块级元素和内联元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#空元素"><span class="nav-number">1.3.</span> <span class="nav-text">空元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性（Attribute）"><span class="nav-number">1.4.</span> <span class="nav-text">属性（Attribute）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本结构"><span class="nav-number">1.5.</span> <span class="nav-text">基本结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像"><span class="nav-number">2.</span> <span class="nav-text">图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标记文本"><span class="nav-number">3.</span> <span class="nav-text">标记文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符引用"><span class="nav-number">4.</span> <span class="nav-text">字符引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超链接"><span class="nav-number">5.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多媒体"><span class="nav-number">6.</span> <span class="nav-text">多媒体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格"><span class="nav-number">7.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单"><span class="nav-number">8.</span> <span class="nav-text">表单</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">木鱼</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
